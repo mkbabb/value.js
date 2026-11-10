@@ -52,9 +52,9 @@ const BEAD_RATIO = 0.52;
  *       HOVER-MOOD FLOOR "the PARKED bead answers a hover ≥ 6/255 within
  *       400 ms"). Both halves of that premise are gone at HEAD: the hero no
  *       longer parks (the owner's live blob; the loop rides the producer's
- *       `settled` gate), and the hero is an inert ornament with no pointer
- *       host (`HeroBlob.vue:2-10`: `pointer-events-none`, no pressLabel), so
- *       the wake+curious beat has no trigger (baseline read 1.21/255). The
+ *       `settled` gate), and the idle window holds no pointer over the
+ *       bead's press surface (its one pointer host, o1105), so the
+ *       wake+curious beat has no trigger (baseline read 1.21/255). The
  *       leg now bounds what the live bead COSTS at the seat: over an idle
  *       window it draws (> 0), at most one draw per displayed frame (+1 edge
  *       race; measured at 1440: draws 28/20/23 = frames 28/20/23), and idle

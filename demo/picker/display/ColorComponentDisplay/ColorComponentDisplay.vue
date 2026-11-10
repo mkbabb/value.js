@@ -10,12 +10,16 @@
          format (readoutDecimals) ⇒ widths move only at digit-count
          boundaries; the block locks the SPACE'S own worst-case line count
          (never a blanket 2). -->
+    <!-- V-D1.r4: the line holds the heading and the host's trailing mark
+         side by side on one baseline, so the mark (the picker's colour badge)
+         is never a word of the heading's name. -->
+    <div
+        class="readout-line flex max-w-full min-w-0 items-baseline font-display"
+        :style="{ '--readout-measure': READOUT_MEASURE_EM }"
+    >
     <CardTitle
-        class="readout flex h-fit w-fit max-w-full m-0 p-0 flex-wrap items-baseline font-display focus-visible:outline-none"
-        :style="{
-            '--readout-lines': lineCount,
-            '--readout-measure': READOUT_MEASURE_EM,
-        }"
+        class="readout flex h-fit w-fit max-w-full min-w-0 m-0 p-0 flex-wrap items-baseline font-display focus-visible:outline-none"
+        :style="{ '--readout-lines': lineCount }"
     >
         <template
             v-for="([component], ix) in colorComponents"
@@ -50,6 +54,10 @@
             </span>
         </template>
     </CardTitle>
+    <!-- The tuple's trailing mark (the host's): the picker seats the colour
+         badge here, on the readout's own baseline. -->
+    <slot />
+    </div>
 </template>
 
 <script setup lang="ts">
@@ -136,11 +144,15 @@ function figParts(component: string): { int: string; frac: string } {
  * Law P-1 (vertical rhythm, OM-3) — a min-height remainder is flex slack and a
  * defect whatever it measures — applied under §6.2's card-lock law: the lock
  * is the painted line, so the reservation and the rhythm never disagree. */
-.readout {
+.readout-line {
     font-size: min(
         var(--type-display-1),
         calc(100cqi / var(--readout-measure))
     );
+    column-gap: 0.75ch;
+}
+.readout {
+    font-size: inherit;
     line-height: 1.12;
     /* THE CONTIGUOUS GAP (T.W4-2): 0.75ch — the SAME quantity the packing
      * arithmetic reserves (READOUT_GAP_CH), so paint and derivation can

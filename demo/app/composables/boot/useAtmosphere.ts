@@ -19,7 +19,7 @@
  */
 
 import { computed, reactive, ref, watch, provide } from "vue";
-import type { ComputedRef, ShallowRef } from "vue";
+import type { ComputedRef, Ref, ShallowRef } from "vue";
 import { useEventListener } from "@vueuse/core";
 import {
     useAurora,
@@ -39,8 +39,7 @@ import {
     DEFAULT_AURORA_ATOMS,
     SOFTWARE_RASTER_KEY,
 } from "../../../scenes/atmosphere/aurora-atoms";
-import { BLOB_CONFIG_KEY, BLOB_CONFIG_DEFAULTS } from "@mkbabb/glass-ui/blob-config";
-import { deriveBlobPalette, oklchStopToHex } from "@mkbabb/glass-ui/color";
+import { provideHeroBlobConfig } from "../../../picker/visual/heroBlobConfig";
 import { GROUND_STORE_KEY, buildGroundRecord, type GroundRecord } from "./ground";
 import { fieldAtomsFor, groundStopsFor } from "./seeded-ground";
 
@@ -60,6 +59,8 @@ export function useAtmosphere(
     // to one derive/frame (the tranche's #1 perf fix, perf-transitions P0-1).
     // The seed still tracks (S-18): the last colour of every frame wins.
     atmosphereColor: ComputedRef<string>,
+    // o1105-r2 perf: true while a drag drives the colour (`pipeline.colourLive`).
+    colourLive: Readonly<Ref<boolean>> = ref(false),
 ) {
     // The config source MUST NOT throw inside useAurora's deep-watch: a thrown
     // getter dead-faults the reactive effect (the white-screen class inv-N-1
@@ -196,15 +197,30 @@ export function useAtmosphere(
             safeSetItem("local", GROUND_STORE_KEY, JSON.stringify(record)),
         200,
     );
+    //
+    // o1105-r2 perf: under a drag the stops are written on `.ground-breath`
+    // alone, the plate that paints the ramp over the body. A root write
+    // restyled the whole document on every colour frame. The root (and the
+    // body under the plate, the meta, the record) take the settled stops once
+    // the drag ends, and the plate's own copy is dropped in the same task, so
+    // its inherited value is unchanged and nothing transitions.
+    const GROUND_TOKENS = ["--saved-bg-0", "--saved-bg-1", "--saved-bg-2", "--saved-bg-3", "--saved-bg"];
     watch(
-        [resolvedPalette, isDark],
-        ([palette, dark]) => {
+        [resolvedPalette, isDark, colourLive],
+        ([palette, dark, live]) => {
             if (!palette?.length) return;
             const stops = groundStopsFor(palette);
-            const root = document.documentElement.style;
-            stops.forEach((stop, i) => root.setProperty(`--saved-bg-${i}`, stop));
             const base = stops[0];
             if (!base) return; // unreachable (normalized to 4) — type honesty
+            const plate = document.querySelector<HTMLElement>(".ground-breath")?.style;
+            if (live && plate) {
+                stops.forEach((stop, i) => plate.setProperty(`--saved-bg-${i}`, stop));
+                plate.setProperty("--saved-bg", base);
+                return;
+            }
+            const root = document.documentElement.style;
+            stops.forEach((stop, i) => root.setProperty(`--saved-bg-${i}`, stop));
+            GROUND_TOKENS.forEach((token) => plate?.removeProperty(token));
             // The solid base-stop fallback var (unregistered consumers +
             // the no-gradient degradation path).
             root.setProperty("--saved-bg", base);
@@ -325,32 +341,9 @@ export function useAtmosphere(
         { immediate: true },
     );
 
-    // --- Blob config ---
-    // The 8-atom nested config — structuredClone so the reactive copy owns
-    // deep atoms (the aurora precedent above does the same).
-    const blobConfig = reactive(structuredClone(BLOB_CONFIG_DEFAULTS));
-    provide(BLOB_CONFIG_KEY, blobConfig);
-
-    // --- Live-palette coupling — the hero blob IS the palette made flesh ---
-    // The active picker color seeds a harmonious OKLCh ramp (≤4 stops) that
-    // flows straight into the blob's spatial multi-stop color field. glass-ui's
-    // Blob deep-watches `config.color.paletteStops`, so a colour change
-    // repaints free.
-    watch(
-        atmosphereColor,
-        (css) => {
-            try {
-                blobConfig.color.paletteStops = deriveBlobPalette(css, {
-                    stopCount: 4,
-                    harmony: "analogous",
-                    chromaCeiling: 0.16,
-                }).map(oklchStopToHex);
-            } catch {
-                // A transient un-parseable colour string leaves the last good ramp.
-            }
-        },
-        { immediate: true },
-    );
+    // --- Blob config --- the hero blob IS the palette made flesh (one source,
+    // shared with the embed's picker slice).
+    provideHeroBlobConfig(atmosphereColor);
 
     return { auroraCssGradient, auroraArrived, derivedLightness, plateReferent };
 }

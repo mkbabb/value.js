@@ -90,6 +90,7 @@ const viewRing = computed(() => {
             for="select"
             aria-label="Select view"
             class="view-select-trigger text-small font-display font-normal"
+            data-accent-reader
             :style="{ '--dock-ring': viewRing }"
         >
             <!-- The view-select moment (R.W4 Lane B / B3): the trigger icon
@@ -192,5 +193,10 @@ const viewRing = computed(() => {
  * tax is dead). PRM: neutralised by the global guard like any transition. */
 .view-select-trigger {
     transition: --accent-view var(--duration-panel) var(--ease-standard);
+}
+/* o1105-r2 perf: the sweep is for a view change; under a drag the accent
+   tracks the colour, so the trigger snaps instead of re-sweeping per frame. */
+:root[data-colour-live] .view-select-trigger {
+    transition: none;
 }
 </style>

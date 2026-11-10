@@ -62,7 +62,7 @@ export const GROUND_STORE_KEY = "color-picker-ground";
  *  the first-visit constants — never a wrong-material paint). A bump propagates
  *  into the pre-module boot guard automatically via `injectGroundTokens`
  *  (U-F23): the boot read no longer carries a hand-typed twin to strand. */
-export const GROUND_RECORD_VERSION = 4; // dark ground = the seed-anchored field under DARK_FIELD_CEILING (v3 = the held dark-band field; v2 = the seed-faithful dark ground; v1 = the raw dark derive)
+export const GROUND_RECORD_VERSION = 5; // dark ground = the seed-anchored field between DARK_FIELD_FLOOR and DARK_FIELD_CEILING (v4 = no floor: a near-black seed painted a black ground; v3 = the held dark-band field; v2 = the seed-faithful dark ground; v1 = the raw dark derive)
 
 /** The fixed template's stop count — the template never changes shape. */
 export const GROUND_STOP_COUNT = 4;

@@ -24,12 +24,20 @@
  * viewport, replacing the fixed `gap-y-1` (4px) that — over the fp-derived
  * blob-reservation band — read as a 6× divergent gap (4.0px@1440 vs
  * 24.6px@390). The token is `cqi`-scaled (the pane-slot container), so 1440
- * and 390 share ONE rhythm SOURCE (the `<lg` band switch is dead). The header
- * is the sticky strip of the glass scroll host (glass's shrink header keeps
- * its flow box; the host is the viewport it sticks to). */
+ * and 390 share ONE rhythm SOURCE (the `<lg` band switch is dead). */
 .picker-header {
     --picker-header-rhythm: clamp(0.25rem, 1.4cqi, 0.55rem);
     row-gap: var(--picker-header-rhythm);
+}
+/* The header is the sticky strip of the glass scroll host (glass's shrink
+ * header keeps its flow box; the host is the viewport it sticks to) WHILE IT
+ * IS CONDENSED: it holds its seat because it condenses and veils what scrolls
+ * under it. V-D1.r4: glass condenses only when the overflow can afford it
+ * (more than half the header plus its 20 px trigger), so on a short overflow
+ * (a desktop window's real block: 84 px at 1366×657) an always-sticky header
+ * stood at rest, unveiled, and the readout painted over the spectrum. Short
+ * of a condense the header scrolls with the body. */
+.picker-header[data-condensed="true"] {
     position: sticky;
     top: 0;
 }
@@ -102,4 +110,51 @@
 }
 .picker-header[data-condensed="true"] .picker-color-name {
     display: none;
+}
+
+/* ── The colour's badge (V-D1.r3 · delegate ruling R-1) ────────────────────
+ * On a short desktop block the name line yields (ColorPicker.vue), and the
+ * name waits behind this badge: a disc of the colour itself, the readout's
+ * trailing mark. It sits ON the readout's baseline (an empty flex item's
+ * baseline is its bottom edge) and rises 1/φ of the readout's em, so it reads
+ * as the tuple's full stop at the hero's scale, never a control strip. The
+ * edge is the chip family's outset `--card-edge` hairline (color-chips), so
+ * the disc bounds itself against a plate tinted by the same colour.
+ *
+ * V-D1.r4: the focus ring is the house knob, `--focus-ring-color` (the live
+ * accent, certified against the plate), painted WHOLE and set off the disc
+ * by a gap. The house shadow mixes that ink to 30 % and lays it flush, which
+ * on a disc of the same hue over a plate of the same tint read under 3:1
+ * (prod ×2); the dock's ring takes the same whole ink (Dock.vue, SS-8 B05). */
+.picker-color-badge {
+    all: unset;
+    flex: none;
+    box-sizing: border-box;
+    inline-size: 0.618em;
+    block-size: 0.618em;
+    border-radius: 50%;
+    background-color: var(--picker-color-badge-fill);
+    box-shadow: 0 0 0 1px var(--card-edge);
+    cursor: help;
+    -webkit-tap-highlight-color: transparent;
+}
+.picker-color-badge:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-width);
+}
+
+/* The gloss: the name in its own voice (display italic) inside glass's
+ * popover, which is portalled out of the header (hence global classes). The
+ * panel role's 21rem measure is for prose; a name is one line, so the plate
+ * takes the name's own measure under the same cap. */
+.picker-color-gloss-panel {
+    inline-size: max-content;
+    max-inline-size: min(21rem, calc(100dvw - 2 * var(--overlay-pad)));
+}
+.picker-color-gloss {
+    margin: 0;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: var(--type-subheading);
+    line-height: var(--type-leading-heading);
 }

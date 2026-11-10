@@ -16,13 +16,21 @@ import { detectRenderer, isSoftwareGL } from "./perf/frame-budget";
  *     never steps by more than a quarter of its whole travel in one frame
  *     (before: one step of 100 %); a pane returned from the KeepAlive cache (A → B → A) rests at
  *     its region's origin with no transform.
+ *   · G9 (round 2) — a hop that moves the split or the scene's height
+ *     travels: `.pane-container` takes more than two heights when its height
+ *     changes by more than 48 px (before: exactly two, 716 → 572 and 1296 →
+ *     961), the stage region's width never covers more than 60 % of a >100 px
+ *     travel in one 60 Hz frame (before: 651 → 450 in one), unless the row's
+ *     own transition of that property started (a starved runner draws a
+ *     travel in two frames), and a leaver keeps
+ *     the block size it was drawn at (before: About unrolled to ~6.6k px).
  * The before arm (out-in, opacity-led) is RED on U1's opacity rows and on U2's
  * plate step (428 px in one frame at 1440); the record is the lane's `~/.dev-logs/o1105/transitions-value`.
  */
 
 type Kid = { id: number; op: number; pos: string; h: number; leave: boolean; edge: number | null };
 type Region = { role: string; oh: number; kids: Kid[] };
-type Sample = { t: number; sw: number; iw: number; w: Region[] };
+type Sample = { t: number; sw: number; iw: number; ph: number; w: Region[]; stw: number | null; tr: string[] };
 
 async function hop(page: Page, hash: string): Promise<Sample[]> {
     return page.evaluate(async (hash) => {
@@ -39,10 +47,22 @@ async function hop(page: Page, hash: string): Promise<Sample[]> {
             return card.getBoundingClientRect().right - Math.max(0, m ? Number(m[1]) : 0);
         };
         const frame = () => new Promise((r) => requestAnimationFrame(r));
+        // The row's own transitions, as they start: `transitionrun` fires when
+        // the style change creates one, however few frames a starved runner
+        // then draws of it.
+        const runs = new Set<string>();
+        const row = document.querySelector<HTMLElement>(".pane-container")!;
+        const onRun = (e: TransitionEvent) => {
+            if (e.target === row) runs.add(e.propertyName);
+        };
+        row.addEventListener("transitionrun", onRun);
         const read = () => ({
             t: performance.now(),
+            tr: [...runs],
             sw: document.documentElement.scrollWidth,
             iw: window.innerWidth,
+            ph: document.querySelector<HTMLElement>(".pane-container")!.getBoundingClientRect().height,
+            stw: document.querySelector<HTMLElement>(".pane-wrapper--stage")?.getBoundingClientRect().width ?? null,
             w: [...document.querySelectorAll<HTMLElement>(".pane-container > .pane-wrapper")].map((w) => ({
                 role: /pane-wrapper--(\w+)/.exec(w.className)?.[1] ?? "",
                 oh: w.offsetHeight,
@@ -68,6 +88,7 @@ async function hop(page: Page, hash: string): Promise<Sample[]> {
             prev = sig;
             out.push(s);
         }
+        row.removeEventListener("transitionrun", onRun);
         return out;
     }, hash);
 }
@@ -99,6 +120,44 @@ function deckFaults(samples: Sample[]) {
     return [...new Set(faults)];
 }
 
+/** G9: the scene's height and the row's split travel; a leaver keeps its drawn block size. */
+function sizeFaults(samples: Sample[]) {
+    const faults: string[] = [];
+    // A size row travels when the row's own transition carries it. Read per
+    // frame, a snap is a discontinuity at any frame rate (before G9: 716 →
+    // 572 in one 16 ms frame, two heights; 651 → 450 in one), but a starved
+    // runner's 300–900 ms frames draw a travel as two values too (CI e2e-smoke
+    // on the 2.6 h run: 716 → 572, 2 values, with the transition running). So
+    // the frame reading names a candidate, and the row faults only when no
+    // transition of that property started on the row during the hop.
+    const last = samples[samples.length - 1]!;
+    const hs = samples.map((s) => Math.round(s.ph));
+    if (Math.abs(hs[hs.length - 1]! - hs[0]!) > 48 && new Set(hs).size <= 2 && !last.tr.includes("height"))
+        faults.push(`pane-container height snapped ${hs[0]} → ${hs[hs.length - 1]} (${new Set(hs).size} values, no height transition)`);
+    // the width step is scaled to one 60 Hz frame of elapsed time, as
+    // `plateSteps` is
+    const ws = samples.filter((s) => s.stw != null).map((s) => [s.t, s.stw!] as const);
+    const xs = ws.map(([, x]) => x);
+    const travel = xs.length ? Math.max(...xs) - Math.min(...xs) : 0;
+    let step = 0;
+    for (let i = 1; i < ws.length; i++) {
+        const dt = Math.max(1000 / 60, ws[i]![0] - ws[i - 1]![0]);
+        step = Math.max(step, (Math.abs(ws[i]![1] - ws[i - 1]![1]) * (1000 / 60)) / dt);
+    }
+    if (travel > 100 && step > 0.6 * travel && !last.tr.includes("grid-template-columns"))
+        faults.push(`stage width stepped ${step.toFixed(0)} of ${travel.toFixed(0)} px in one frame (no split transition)`);
+    const drawn = new Map<number, number>();
+    for (const s of samples)
+        for (const w of s.w)
+            for (const k of w.kids) {
+                if (!k.leave) drawn.set(k.id, k.h);
+                // 48 px of slack: the row's split may still be travelling between
+                // the last in-flow frame and the leave (an unroll is thousands)
+                else if (drawn.has(k.id) && k.h > drawn.get(k.id)! + 48) faults.push(`${w.role}: leaver grew ${drawn.get(k.id)} → ${k.h}`);
+            }
+    return [...new Set(faults)];
+}
+
 /**
  * Per plate (by identity): its whole travel and its largest single-frame step,
  * the step scaled to one 60 Hz frame of elapsed time (a 50 ms frame on a
@@ -125,7 +184,7 @@ for (const [width, height] of [
     [1440, 900],
     [390, 844],
 ] as const) {
-    test(`O1105 deck · ${width}: stacked card swap — no empty or summed region, opacity held, no side scroll`, async ({ page }) => {
+    test(`O1105 deck · ${width}: stacked card swap — no empty or summed region, opacity held, no side scroll, sizes travel`, async ({ page }) => {
         test.setTimeout(180_000);
         await page.setViewportSize({ width, height });
         await page.goto("/#/");
@@ -134,8 +193,9 @@ for (const [width, height] of [
         await page.waitForTimeout(1500);
 
         for (const hash of ["#/palettes", "#/mix", "#/gradient"]) {
-            const faults = deckFaults(await hop(page, hash));
-            expect(faults, `${width} → ${hash}`).toEqual([]);
+            const samples = await hop(page, hash);
+            expect(deckFaults(samples), `${width} → ${hash}`).toEqual([]);
+            expect(sizeFaults(samples), `${width} → ${hash} (G9)`).toEqual([]);
         }
         // dual → single: the survivor's plate opens; it never jumps.
         const single = await hop(page, "#/atmosphere");

@@ -366,3 +366,29 @@
         );
     }
 }
+
+/* G9 — THE ROW'S TRACKS AND THE SCENE'S BLOCK SIZE TRAVEL (DESIGN.md §5.7;
+ * owner order 2026-11-05: "all height and width facilities fully animated").
+ * A view change that keeps two regions but moves the split (Home 61.8 % →
+ * Palettes 33.3 %: the picker 651 → 450 px at 1440) interpolates the track
+ * list on `--spring-panel`, so the survivor's edge and its neighbour's travel
+ * together with the riser instead of snapping at the input. A change of track
+ * COUNT (dual ↔ single) does not interpolate; `flipRegions` carries that hop.
+ * The container's height is held in px by `followHeight` and travels on the
+ * same clock. A held grid height would otherwise feed back into its rows:
+ * the regions are `min-h-0`, so an `auto` row grows only into the container's
+ * free space and the held px would cap the row it is measuring. The rows are
+ * therefore `max-content` (the size an `auto` row takes in an indefinite
+ * container, so the rest pose is unchanged), and `align-content: start` keeps
+ * them at their content while the box is taller than them. */
+.pane-container[data-follow-height] {
+    grid-auto-rows: max-content;
+    align-content: start;
+}
+@media (prefers-reduced-motion: no-preference) {
+    .pane-container {
+        transition:
+            grid-template-columns var(--spring-panel-duration) var(--spring-panel),
+            height var(--spring-panel-duration) var(--spring-panel);
+    }
+}

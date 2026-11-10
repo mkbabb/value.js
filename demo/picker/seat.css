@@ -120,7 +120,24 @@
  * the scene shows at rest (`--scene-band-block`, the app layout's own
  * subtraction), and the spectrum plane is the elastic member that yields the
  * difference (SpectrumCanvas.vue). Below lg the page scrolls by design. */
+/* V-D1.r4 — the body publishes the pane container's inline size, resolved
+ * here (a box's own `cqi` reads its ancestor container) and inherited as a
+ * length, so the channel rows keep the pane's rhythm (ComponentSliders.vue)
+ * while the body itself becomes the query container at lg. */
+@property --pane-inline {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 0px;
+}
+.picker-body {
+    --pane-inline: 100cqi;
+}
 @media (width >= 64rem) {
+    /* The body is the query container the spectrum figure's floor reads
+     * (SpectrumCanvas.vue), so the floor follows the figure's own measure. */
+    .picker-body {
+        container-type: inline-size;
+    }
     .picker-shell {
         /* A definite length, never `min(100%, …)`: the grid row sizes from
          * this item's contribution, where a percentage of the indefinite row
