@@ -43,20 +43,13 @@
         >
             <slot />
         </CardTitle>
-        <!-- AB-2 (T.W8 remediation_1 · D6): the caption speaks a CERTIFIED
-             plate rung — never raw `--muted-foreground`. X.W11.d3b (§0gl.3,
-             the referent law): certified against the darkest region under
-             it, the rung is `--ink-primary`. The color rides the scoped rule
-             below; glass hides the caption on the condensed strip. -->
-        <CardDescription v-if="description" class="pane-header-desc text-caption">{{ description }}</CardDescription>
     </CardHeader>
 </template>
 
 <script setup lang="ts">
-import { CardDescription, CardHeader, CardTitle } from "@mkbabb/glass-ui/card";
+import { CardHeader, CardTitle } from "@mkbabb/glass-ui/card";
 
 const { level = 2, titleId } = defineProps<{
-    description?: string;
     /** Heading level for the pane title — 2 by default: it sits one below the
      *  route `<h1>` inside `<main>`; 1 when this title IS that `<h1>`. */
     level?: 1 | 2 | 3 | 4;
@@ -130,18 +123,6 @@ const { level = 2, titleId } = defineProps<{
 }
 
 
-/* AB-2 (D6) — the caption ink, a boot-stamped certified plate rung.
- * X.W11.d3b (COHESION §0gl.3 · §0gk.2 referent law, B22 U-1 / B09 0259): a
- * caption is certified against the darkest backdrop region it actually sits
- * over, not the field mean. Against that region `--ink-muted` (certified on
- * the mean resting plate) fell under 4.5:1 across the panes, so the caption
- * takes ONE token step up the plate ladder to `--ink-primary`, the scheme
- * foreground useAtmosphereBoot certifies on the same plate (a token, never
- * opacity: B02 0039). Size and the caption rung carry the de-emphasis. */
-.pane-header-desc {
-    color: var(--ink-primary);
-}
-
 .pane-header {
     /* X-DS pass 4 (V4C-06): the header-to-body gap (`--pane-header-gap`) is
      * one token at the app's section rhythm; the bodies carry no top padding of
@@ -177,10 +158,6 @@ const { level = 2, titleId } = defineProps<{
  * Glass still owns the state machine and the threshold; these are the rungs. */
 .pane-header[data-condensed="true"] {
     padding-block-start: var(--pane-header-pad-condensed);
-}
-
-.pane-header[data-condensed="true"] > .pane-header-desc {
-    display: none;
 }
 
 /* ── THE CONDENSED TITLE (A2-VA-L1-2) ───────────────────────────────────

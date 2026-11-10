@@ -61,7 +61,7 @@ const emit = defineEmits<{
 
 const paletteName = ref("Generated palette");
 
-/** The bench-note seed — fixed-width hex, a specimen label's provenance. */
+/** The seed as fixed-width hex — Regenerate's hover gloss. */
 const seedHex = computed(() => seed.value.toString(16).padStart(8, "0"));
 
 function onPresetChange(value: AcceptableValue) {
@@ -190,20 +190,9 @@ defineExpose({ regenerate, save, copyColors });
                 />
             </div>
 
-            <!-- The bench note: seed as provenance, select-all kept. X-DS pass 8
-                 (V3C-03): the plate's verbs seat on this row, right of the seed
-                 that Regenerate re-rolls — the provenance and the verb that
-                 changes it share one line, and the title row stays whole. -->
+            <!-- The plate's verbs. The seed Regenerate re-rolls is its hover
+                 gloss, not a standing line (restraint 2026-11-09, C-100). -->
             <div class="px-3 pb-2.5 pt-1 flex items-center gap-2 min-w-0">
-                <!-- SS8-0741 (R-2): the bench note wears the plate's primary
-                     ink, as the Regenerate verb beside it does. The well washes
-                     the live ambient, and over the default pink the muted rung
-                     read 4.08:1 light (bare --ink-muted 3.71); only the primary
-                     pole clears 4.5 (4.62 light, 9.04 dark). The mono-small
-                     rung keeps it a caption. -->
-                <p class="min-w-0 truncate text-mono-small text-foreground tabular-nums select-all">
-                    seed: {{ seedHex }}
-                </p>
                 <div class="ml-auto flex items-center gap-2 shrink-0">
                     <!-- X-DS pass 1 (V1-09): seated commands wear the quiet and
                          text rungs — no floating capsule (and no halo) on a
@@ -211,6 +200,7 @@ defineExpose({ regenerate, save, copyColors });
                     <Button
                         emphasis="quiet"
                         class="h-9 gap-2 font-medium text-foreground shrink-0"
+                        :title="`Seed ${seedHex}`"
                         @click="regenerate()"
                     >
                         <RefreshCw class="w-4 h-4" aria-hidden="true" />

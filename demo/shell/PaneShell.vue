@@ -25,19 +25,15 @@
              The `follow` row contract (`pane-row-follow`, shell.css) seats on
              this wrapper, which the card fills; `bounded` (X-DS pass 19 ·
              V19C-01) takes the band as the pane's desktop ceiling.
-             The plate's grain is ARMED here (`paper-grain-overlay`, glass's
-             own utility): glass 8.0.0 struck Card's `grain` prop and the
-             `data-grain` stamp ("a card that wants it arms it on the
-             element"), so every rung-1 plate lost its grain at the 10.1.0
-             repin (X-W7L RES-m-2 / C-CARD-STAMP; X-W12U .q2). The same class
-             rides the picker card and the loading / error plates.
+             No paper grain (owner, restraint 2026-11-09: "do not re-add
+             paper grain").
              This comment sits INSIDE the root: a comment beside the root makes
              a dev-mode root fragment, which loses the pane swap's out-in
              continuation (§0ay ESC-W5t-2). -->
         <Card
             tier="resting"
             :class="[
-                'pane-shell__card paper-grain-overlay relative flex flex-col w-full min-w-0 h-full overflow-hidden',
+                'pane-shell__card relative flex flex-col w-full min-w-0 h-full overflow-hidden',
                 cardClass,
             ]"
         >
@@ -69,7 +65,6 @@ import { ROUTE_TITLE_ID, VIEW_MANAGER_KEY } from "./useViewManager";
 
 const {
     title,
-    description,
     level,
     bounded = false,
     follow = false,
@@ -79,8 +74,6 @@ const {
 } = defineProps<{
     /** The pane title (or the `#title` slot, for a title with members). */
     title?: string;
-    /** The pane caption under the title. */
-    description?: string;
     /** The title's heading level (PaneHeader; 2 by default). */
     level?: 2 | 3 | 4;
     /** X-DS pass 19 (V19C-01): a one-region scene whose body can outgrow the
@@ -115,7 +108,6 @@ const isRouteTitle = computed(() => {
 });
 
 const headerProps = computed(() => ({
-    ...(description !== undefined ? { description } : {}),
     ...(isRouteTitle.value
         ? { level: 1 as const, titleId: ROUTE_TITLE_ID }
         : level !== undefined

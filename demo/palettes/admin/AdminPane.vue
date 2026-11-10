@@ -1,5 +1,5 @@
 <template>
-    <PaneShell bounded :title="headerTitle" :description="headerDescription" :gap="3">
+    <PaneShell bounded :title="headerTitle" :gap="3">
     <!-- A2-VA-L1-1: the one pane shell. X-DS pass 18 (V18C-03): the title
          rides the `title` prop (the #title slot existed for the count chip,
          which V15-02 deleted), so PaneShell seats it as the route's one <h1>
@@ -130,16 +130,6 @@ const headerTitle = computed(() => {
         case "admin-audit": return "Audit log";
         case "admin-flagged": return "Flagged";
         case "admin-tags": return "Tags";
-    }
-});
-
-const headerDescription = computed(() => {
-    switch (subView) {
-        case "admin-users": return "Manage accounts and permissions.";
-        case "admin-names": return "Review and approve color names.";
-        case "admin-audit": return "View admin action history.";
-        case "admin-flagged": return "Review reported palettes.";
-        case "admin-tags": return "Manage palette tag taxonomy.";
     }
 });
 

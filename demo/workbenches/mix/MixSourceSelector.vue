@@ -320,7 +320,6 @@ const swatchKeys = computed(() => {
                 v-if="savedPalettes.length === 0"
                 compact
                 message="No saved palettes yet."
-                hint="Save a palette, then pour it or its colors in here."
             />
             <ul v-else class="grid gap-2">
                 <li

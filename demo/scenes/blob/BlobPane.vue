@@ -125,6 +125,5 @@ const SECTIONS: SliderSection[] = [
         :sections="SECTIONS"
         :defaults="(BLOB_CONFIG_DEFAULTS as unknown) as Record<string, unknown>"
         title="Blob"
-        description="Tune metaball geometry, membrane, lit-glass surface, and satellite behavior."
     />
 </template>

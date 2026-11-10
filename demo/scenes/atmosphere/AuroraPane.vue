@@ -131,7 +131,6 @@ const SECTIONS: SliderSection[] = [
         :sections="SECTIONS"
         :defaults="(DEFAULT_AURORA_ATOMS as unknown) as Record<string, unknown>"
         title="Atmosphere"
-        description="Aurora palette follows the picked color."
     >
         <!-- X-DS pass 3 (V3C-09): the Atmosphere card is the route's SOLE stage, so
              the row handed it the full 1040px for four 20rem selects and three
