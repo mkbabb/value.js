@@ -273,12 +273,25 @@ async function seedName(page: Page) {
     );
 }
 
-/** The name's surface once the approved list landed: its line, or its badge. */
+/** The name's surface once the approved list landed: its line, or its badge.
+ *  o1109: the line is a reserved block that stands named or not (and is in
+ *  the DOM, out of the layout, where it yields), so the line counts only
+ *  once it is shown and inks a name. */
 async function nameSurface(page: Page): Promise<"line" | "badge"> {
     const line = page.getByTestId("picker-color-name");
     const badge = page.getByTestId("picker-color-badge");
-    await expect(line.or(badge)).toBeVisible({ timeout: 60_000 });
-    return (await badge.isVisible()) ? "badge" : "line";
+    let surface: "line" | "badge" | null = null;
+    await expect
+        .poll(
+            async () => {
+                if (await badge.isVisible()) surface = "badge";
+                else if ((await line.isVisible()) && (await line.innerText()).trim()) surface = "line";
+                return surface;
+            },
+            { timeout: 60_000 },
+        )
+        .not.toBeNull();
+    return surface!;
 }
 
 test.describe("V-D1.r3 · the name and the spectrum share a short block", () => {
