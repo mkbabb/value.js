@@ -98,6 +98,7 @@ import { PICKER_CHANNELS, channelNumber, normalizedChannel } from "../../../colo
 import { clamp } from "@mkbabb/value.js/math";
 import { spectrumFieldIsLight } from "../spectrumLuma";
 import { readoutDecimals } from "../../display/ColorComponentDisplay/readoutReservation";
+import { formatFixed } from "../../../color-session/channel-decimals";
 import { POINTER_DEBUG_KEY } from "../../debug/usePointerDebug";
 import { useSliderTouchGates } from "./composables/useSliderTouchGates";
 import { useSliderAnnouncements } from "./composables/useSliderAnnouncements";
@@ -206,10 +207,7 @@ function meterText(component: string): string {
             : undefined);
     if (!fmt) return "";
     if (typeof fmt.value === "string") return fmt.value;
-    const d = readoutDecimals(currentColorSpace.value, component);
-    let s = fmt.value.toFixed(d);
-    if (Number.parseFloat(s) === 0) s = s.replace(/^-/, "");
-    return `${s}${fmt.unit ?? ""}`;
+    return `${formatFixed(fmt.value, readoutDecimals(currentColorSpace.value, component))}${fmt.unit ?? ""}`;
 }
 
 // The needle's ink regime reads the SHARED hue-aware plate helper (B3 — one

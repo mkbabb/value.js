@@ -127,7 +127,7 @@
                             </Button>
                         </TooltipTrigger>
                         <TooltipContent class="text-mono-small">
-                            Add current color ({{ formatCssCaption(cssColorOpaque) }})
+                            Add current color
                         </TooltipContent>
                     </Tooltip>
                 </TooltipProvider>

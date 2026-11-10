@@ -16,10 +16,9 @@
  *                    per-channel least count of `CHANNEL_DECIMALS`.
  *  · `caption`     — every place a colour is READ as text or SPOKEN: specimen
  *                    rows, tooltips, titles, aria-labels. This register IS
- *                    X-W6's `formatSpecimen` digit policy (four significant
- *                    digits, bounded by `SPECIMEN_CHAR_BUDGET`) — re-exported,
- *                    never re-implemented, so the tree carries ONE caption
- *                    digit policy (CE-1: "this wave mints no second one").
+ *                    `formatSpecimen`, which rounds through the same
+ *                    `CHANNEL_DECIMALS` table, so the tree carries one digit
+ *                    policy.
  *  · `interchange` — clipboard / URL / "copy CSS": bounded but generous and
  *                    DECLARED — the W51 per-quantity counts, reused rather than
  *                    re-invented (OM-14 §4.6), spelled in OKLCh like W51.
@@ -46,6 +45,14 @@ import {
     type PickerSpace,
 } from "./picker-color";
 import { SPECIMEN_CHAR_BUDGET, formatSpecimen, type Specimen } from "./specimen-format";
+import {
+    ALPHA_COMPACT_DECIMALS,
+    INTERCHANGE_DECIMALS,
+    channelDecimals,
+    displayScale,
+    roundTo,
+    storageDecimals,
+} from "./channel-decimals";
 
 export type FormatRegister = "compact" | "caption" | "interchange" | "exact";
 
@@ -55,103 +62,21 @@ export { SPECIMEN_CHAR_BUDGET, formatSpecimen, type Specimen };
 /** The `exact` register — the W51 byte authority, re-exported untouched. */
 export { canonicalColor as formatExact };
 
-/**
- * An OWNER-RULING cell: the facility does not decide it. `shipped` is the value
- * the product ships TODAY (the ruled per-space rule it replaces) — carried so
- * the facility is total, never a new guess — and `ruling` names the open row.
- */
-export interface OwnerRuling {
-    readonly ruling: string;
-    readonly shipped: number;
-}
-export type DecimalCell = number | OwnerRuling;
-
-/** OM-14 §4.7 row 1 — the one cell of the table this wave may not decide. */
-export const LCH_C_COMPACT_RULING: OwnerRuling = Object.freeze({
-    ruling:
-        "OM-14 §4.7 row 1 (OWNER-RULING): lch C compact — 0 (today's per-space rule) vs 1, given oklch C carries 3",
-    shipped: 0,
-});
-
-/**
- * THE PER-CHANNEL DECIMAL TABLE — `compact` register, in DISPLAY units: a
- * percent channel counts decimals of the percent (`s = 0.5` shows as `50%`), a
- * hue counts decimals of the degree, alpha counts decimals of its percent.
- *
- * Per CHANNEL, not per space (OM-14 §4.2): the per-space rule cannot express
- * OKLCh, whose tuple mixes a 0–100 % lightness, a 0–0.5 chroma and a 0–360 hue.
- * Seeded from the ruled `INTEGER_LEAST_COUNT` (`readoutReservation.ts`) and
- * OM-14 §4.2's compact column; where that column is silent (lch L, the five
- * 0–1 RGB encodings) the cell carries the shipped per-space value.
- */
-export const CHANNEL_DECIMALS = Object.freeze({
-    rgb: { r: 0, g: 0, b: 0 },
-    hsl: { h: 0, s: 0, l: 0 },
-    hsv: { h: 0, s: 0, v: 0 },
-    hwb: { h: 0, w: 0, b: 0 },
-    lab: { l: 1, a: 1, b: 1 },
-    lch: { l: 0, c: LCH_C_COMPACT_RULING, h: 0 },
-    oklab: { l: 1, a: 3, b: 3 },
-    oklch: { l: 1, c: 3, h: 0 },
-    xyz: { x: 0, y: 0, z: 0 },
-    kelvin: { kelvin: 0 },
-    "srgb-linear": { r: 1, g: 1, b: 1 },
-    "display-p3": { r: 1, g: 1, b: 1 },
-    "a98-rgb": { r: 1, g: 1, b: 1 },
-    "prophoto-rgb": { r: 1, g: 1, b: 1 },
-    rec2020: { r: 1, g: 1, b: 1 },
-    ictcp: { i: 3, ct: 3, cp: 3 },
-    jzazbz: { jz: 3, az: 3, bz: 3 },
-    "xyz-d50": { x: 0, y: 0, z: 0 },
-    "display-p3-linear": { r: 1, g: 1, b: 1 },
-} satisfies Record<PickerSpace, Readonly<Record<string, DecimalCell>>>);
-
-/** Alpha's `compact` cell, in percent (the serializer spells alpha as `/ N%`). */
-export const ALPHA_COMPACT_DECIMALS = 0;
-
-/**
- * The `interchange` register — W51's per-quantity counts (`canonical.ts`:
- * L 3 dp %, C 6 dp, H 3 dp, A 6 dp as a number = 4 dp as a percent), in the
- * same OKLCh spelling. Declared, not accidental; ~40% of the 12-decimal bytes
- * and it still round-trips the parser (OM-14 §4.6).
- */
-export const INTERCHANGE_DECIMALS = Object.freeze({
-    oklch: { l: 3, c: 6, h: 3 },
-    alpha: 4,
-});
-
-function cellValue(cell: DecimalCell): number {
-    return typeof cell === "number" ? cell : cell.shipped;
-}
-
-/** ×100 for a percent channel stored as a 0–1 fraction; 1 otherwise. */
-function displayScale(meta: ChannelMeta): number {
-    return meta.unit === "%" && meta.max <= 1 ? 100 : 1;
-}
-
-/** Decimals in STORAGE units: the display decimals plus the display scale's digits. */
-function storageDecimals(meta: ChannelMeta, displayDecimals: number): number {
-    return displayDecimals + Math.round(Math.log10(displayScale(meta)));
-}
-
-/** Round to `decimals` places; negative zero never survives into a readout. */
-function roundTo(value: number, decimals: number): number {
-    const rounded = Number(value.toFixed(decimals));
-    return rounded === 0 ? 0 : rounded;
-}
-
-/** The `compact` register's decimals for one channel, in display units. */
-export function channelDecimals(space: PickerSpace, key: string): number {
-    const row: Readonly<Record<string, DecimalCell>> = CHANNEL_DECIMALS[space];
-    const cell = row[key];
-    if (cell === undefined) throw new RangeError(`No ${space}.${key} channel`);
-    return cellValue(cell);
-}
+export {
+    ALPHA_COMPACT_DECIMALS,
+    CHANNEL_DECIMALS,
+    INTERCHANGE_DECIMALS,
+    LCH_C_COMPACT_RULING,
+    channelDecimals,
+    formatFixed,
+    type DecimalCell,
+    type OwnerRuling,
+} from "./channel-decimals";
 
 const UNIT_SUFFIX: Readonly<Record<ChannelMeta["unit"], string>> = {
     "": "",
     "%": "%",
-    deg: "°",
+    deg: "deg",
     K: "K",
 };
 
