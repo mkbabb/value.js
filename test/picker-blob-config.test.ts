@@ -44,14 +44,27 @@ describe("V.W29 Picker Blob fixed-footprint paint mass", () => {
 });
 
 describe("V.W20 Picker Blob semantics", () => {
-    it("keeps the specimen hidden and free of activation or focus surfaces", () => {
+    // o1105 blob lane (O-172 ruling S): the producer's press button is the
+    // bead's ONE pointer host. The hero passes a label wherever the bead is
+    // live, so hover, press, mood and the click's satellite scatter reach it;
+    // the software tier stays an inert ornament off /blob (a hover would wake
+    // its parked loop). The root opens the accessibility tree exactly when a
+    // label is set, and the consumer adds no surface of its own. The rendered
+    // half is e2e/smoke/blob-press.spec.ts.
+    it("opens the producer's press surface on live tiers and adds none of its own", () => {
         const template = source.slice(0, source.indexOf("</template>"));
 
-        expect(template).toContain('aria-hidden="true"');
-        expect(template).not.toMatch(/press-label=|<Tooltip|tabindex=|<button\b/);
-        expect(template).not.toMatch(
-            /@(click|dblclick|pointer\w*|mouse\w*|key\w*|focus\w*|touch\w*)=/,
+        expect(template).toContain(`:aria-hidden="pressLabel ? undefined : 'true'"`);
+        expect(source).toMatch(
+            /softwareRaster && route\?\.name !== "blob" \? "" : "Pulse blob"/,
         );
+        // The route is optional: the embed's picker slice mounts no router.
+        expect(source).toContain("inject(routeLocationKey, null)");
+        expect(template).not.toMatch(/<Tooltip|tabindex=|<button\b/);
+        // The one handler is on the producer's click: the satellite scatter.
+        expect(template.match(/@(\w+)=/g)).toEqual(["@animationend=", "@click="]);
+        expect(template).toContain(`@click="scatter"`);
+        expect(source).toMatch(/function scatter\(\) \{\s+blobRef\.value\?\.nudge\(\);\s+\}/);
         expect(picker).not.toMatch(/<HeroBlob[^>]*@click=/);
     });
 

@@ -1,0 +1,246 @@
+{
+ "base": "http://127.0.0.1:8893/",
+ "engine": "chromium",
+ "input": "cdp",
+ "at": "2026-11-09T05:34:23.233Z",
+ "out": [
+  {
+   "cell": "assay-grab-1440",
+   "grabHit": 21,
+   "of": 81,
+   "touchEmu": false
+  },
+  {
+   "cell": "assay-grab-390",
+   "grabHit": 24,
+   "of": 81,
+   "touchEmu": true
+  },
+  {
+   "cell": "assay-seam-1440",
+   "R": 270,
+   "seamTangential": null,
+   "seamRadial": null,
+   "inT": 0,
+   "outT": 0,
+   "inR": 0,
+   "outR": 0
+  },
+  {
+   "cell": "assay-offdie-1440",
+   "centreDeg": 8.492109999999998,
+   "offDieDeg": 0,
+   "offDieGain": 0,
+   "offDieWheelDeg": 0
+  },
+  {
+   "cell": "assay-notch-1440",
+   "one": {
+    "framesSpanned": 1,
+    "maxStepDeg": 43.4558,
+    "maxDtMs": 10.300000000000182,
+    "worst": {
+     "ratio": 15.945848451508772,
+     "stepDeg": 43.4558,
+     "dtMs": 7.300000000000182,
+     "barDeg": 2.725210899385431
+    },
+    "totalDeg": 43.4558
+   },
+   "two": {
+    "framesSpanned": 2,
+    "maxStepDeg": 43.4558,
+    "maxDtMs": 10.300000000000182,
+    "worst": {
+     "ratio": 14.956913663561,
+     "stepDeg": 43.4558,
+     "dtMs": 7.799999999999272,
+     "barDeg": 2.90539886620258
+    },
+    "totalDeg": 86.91120000000001
+   },
+   "plantMs": 0
+  },
+  {
+   "cell": "assay-coalesce-1440",
+   "k1": 1.03045,
+   "k2": 1.01511,
+   "k4": 1.00753,
+   "coalesceSpread": 0.02274870227189263
+  },
+  {
+   "cell": "assay-pinch-1440",
+   "pinch2": 1.10957,
+   "pinchHalf": 0.9012500337968763,
+   "events": 30,
+   "sumDy": -69.314,
+   "lnScaleOfSum": 0.69314,
+   "maxAbsDy": 3.808,
+   "vv": 1
+  },
+  {
+   "cell": "assay-pan-1440",
+   "pans": [
+    {
+     "dieX": 1227.33740234375,
+     "Vr": 1396.796875,
+     "past": -169.45947265625
+    },
+    {
+     "dieX": 1543.6580200195312,
+     "Vr": 1396.796875,
+     "past": 146.86114501953125
+    },
+    {
+     "dieX": 1543.6580200195312,
+     "Vr": 1396.796875,
+     "past": 146.86114501953125
+    }
+   ],
+   "maxPast": 146.86114501953125,
+   "dragDeg": 0,
+   "rollDeg": 0
+  },
+  {
+   "cell": "assay-coast-1440",
+   "coast": [
+    {
+     "hz": 60,
+     "ms": 100,
+     "gestureDeg": 51.334199999999996,
+     "coastDeg": 28.179799999999997,
+     "ratio": 0.548947874906008
+    },
+    {
+     "hz": 60,
+     "ms": 120,
+     "gestureDeg": 51.34746924926634,
+     "coastDeg": 23.55983744889355,
+     "ratio": 0.45883152165732444
+    },
+    {
+     "hz": 60,
+     "ms": 160,
+     "gestureDeg": 51.334961212527126,
+     "coastDeg": 17.6564253220867,
+     "ratio": 0.3439454302690318
+    },
+    {
+     "hz": 120,
+     "ms": 100,
+     "gestureDeg": 51.33464737649267,
+     "coastDeg": 28.184897654523567,
+     "ratio": 0.5490423932945936
+    },
+    {
+     "hz": 120,
+     "ms": 120,
+     "gestureDeg": 51.415224886297004,
+     "coastDeg": 23.6539568125414,
+     "ratio": 0.4600574414456284
+    },
+    {
+     "hz": 120,
+     "ms": 160,
+     "gestureDeg": 51.339396390340546,
+     "coastDeg": 17.63385966141584,
+     "ratio": 0.34347617816429243
+    }
+   ]
+  },
+  {
+   "cell": "assay-dbltap-1440",
+   "offDieRolls": 0,
+   "onDieRolls": 1
+  },
+  {
+   "cell": "assay-touch-390",
+   "onH": {
+    "deg": 46.49909999999998,
+    "scrollDy": 0
+   },
+   "onV": {
+    "deg": 46.49912302891196,
+    "scrollDy": 0
+   },
+   "offH": {
+    "deg": 0,
+    "scrollDy": 0
+   },
+   "offV": {
+    "deg": 0,
+    "scrollDy": 0
+   }
+  },
+  {
+   "cell": "assay-dragframe-1440",
+   "dragP50": 8.300000000000182,
+   "dragP95": 10
+  },
+  {
+   "cell": "assay-scroll-1440-playing",
+   "ports": 0
+  },
+  {
+   "cell": "assay-scroll-1440-rest",
+   "ports": 0
+  },
+  {
+   "cell": "assay-scroll-390-playing",
+   "ports": 1,
+   "port": {
+    "x": 195,
+    "y": 537.265625,
+    "h": 218,
+    "sh": 702,
+    "cls": "fading-scroll fading-scroll--y controls-pane group/controls "
+   },
+   "scrolled": 122,
+   "scrollP50": 8.199999999999818,
+   "scrollP95": 9.899999999999636
+  },
+  {
+   "cell": "assay-scroll-390-rest",
+   "ports": 1,
+   "port": {
+    "x": 195,
+    "y": 537.265625,
+    "h": 218,
+    "sh": 702,
+    "cls": "fading-scroll fading-scroll--y controls-pane group/controls "
+   },
+   "scrolled": 166,
+   "scrollP50": 8.299999999999272,
+   "scrollP95": 10
+  },
+  {
+   "cell": "assay-embed-rest",
+   "numerals": 6,
+   "axisLines": 3
+  },
+  {
+   "cell": "assay-embedhost-390",
+   "vertical": {
+    "hostDy": 0,
+    "dieDeg": 107.28800000000001,
+    "expect": 111
+   },
+   "horizontal": {
+    "hostDy": 0,
+    "dieDeg": 107.28776115627322
+   }
+  },
+  {
+   "cell": "assay-embedhost-1440",
+   "wheel": {
+    "hostDy": 0,
+    "dieDeg": 42.647400000000005,
+    "expect": 200
+   },
+   "drag": {
+    "hostDy": 0,
+    "dieDeg": 16.72721295020543
+   }
+  }
+ ]
+}

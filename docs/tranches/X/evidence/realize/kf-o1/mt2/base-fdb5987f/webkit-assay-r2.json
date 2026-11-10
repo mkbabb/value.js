@@ -1,0 +1,115 @@
+{
+ "base": "http://127.0.0.1:8893/",
+ "engine": "webkit",
+ "input": "synthetic",
+ "at": "2026-11-06T14:40:21.822Z",
+ "out": [
+  {
+   "cell": "assay-grab-1440",
+   "grabHit": 18,
+   "of": 81,
+   "touchEmu": false
+  },
+  {
+   "cell": "assay-grab-390",
+   "grabHit": 25,
+   "of": 81,
+   "touchEmu": true
+  },
+  {
+   "cell": "assay-seam-1440",
+   "R": 270,
+   "seamTangential": null,
+   "seamRadial": null,
+   "inT": 0,
+   "outT": 0,
+   "inR": 0,
+   "outR": 0
+  },
+  {
+   "cell": "assay-offdie-1440",
+   "centreDeg": 8.491505,
+   "offDieDeg": 0,
+   "offDieGain": 0,
+   "offDieWheelDeg": 0
+  },
+  {
+   "cell": "assay-notch-1440",
+   "one": {
+    "framesSpanned": 1,
+    "maxStepDeg": 43.455791000000005,
+    "totalDeg": 43.455791000000005
+   },
+   "two": {
+    "framesSpanned": 2,
+    "maxStepDeg": 43.455791000000005,
+    "totalDeg": 86.91158199999997
+   }
+  },
+  {
+   "cell": "assay-coalesce-1440",
+   "k1": 1.030455,
+   "k2": 1.015113,
+   "k4": 1.007528,
+   "coalesceSpread": 0.02275569512708331
+  },
+  {
+   "cell": "assay-pan-1440",
+   "pans": [
+    {
+     "dieX": 1227.33740234375,
+     "Vr": 1396.796875,
+     "past": -169.45947265625
+    },
+    {
+     "dieX": 1543.657958984375,
+     "Vr": 1396.796875,
+     "past": 146.861083984375
+    },
+    {
+     "dieX": 1543.657958984375,
+     "Vr": 1396.796875,
+     "past": 146.861083984375
+    }
+   ],
+   "maxPast": 146.861083984375,
+   "dragDeg": 0,
+   "rollDeg": 0
+  },
+  {
+   "cell": "assay-dbltap-1440",
+   "offDieRolls": 0,
+   "onDieRolls": 1
+  },
+  {
+   "cell": "assay-dragframe-1440",
+   "dragP50": 10,
+   "dragP95": 11
+  },
+  {
+   "cell": "assay-scroll-1440-playing",
+   "ports": 0
+  },
+  {
+   "cell": "assay-scroll-1440-rest",
+   "ports": 0
+  },
+  {
+   "cell": "assay-embed-rest",
+   "numerals": 6,
+   "axisLines": 3
+  },
+  {
+   "cell": "assay-embedhost-1440",
+   "wheel": {
+    "hostDy": 0,
+    "dieDeg": 42.647373,
+    "expect": 200
+   },
+   "drag": {
+    "hostDy": 0,
+    "dieDeg": 16.727211727483382
+   }
+  }
+ ]
+}

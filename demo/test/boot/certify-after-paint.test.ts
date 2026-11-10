@@ -41,10 +41,9 @@ const TOKENS = [
     "--ink-gold-glyph",
     "--ink-ambient-l",
     "--accent-view",
-    "--seal-ink",
 ] as const;
 /** The per-view accent region's tokens (useViewAccents). */
-const VIEW_TOKENS: readonly string[] = ["--accent-view", "--seal-ink"];
+const VIEW_TOKENS: readonly string[] = ["--accent-view"];
 const root = () => document.documentElement.style;
 const stamped = () => TOKENS.filter((t) => root().getPropertyValue(t) !== "");
 

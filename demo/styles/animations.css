@@ -220,155 +220,175 @@
  * ----------------------------------------------------------------------- */
 
 /* -----------------------------------------------------------------------
- * Pane swap — the App-shell enter/exit family (R.W4 Lane B / B1; moved
- * here from App.vue's unscoped block at the T.W2-close PP-8 cap cure —
- * it overrides the vj-enter base family THIS file hosts, so this is its
- * cohesion home. Higher-specificity direct-child overrides: source order
- * vs the base family is immaterial.)
- * The former pane-slide/pane-left/pane-right trio collapsed onto
- * `vj-enter`; these DIRECT-CHILD geometry overrides carry only the pane
- * slots' role offset (OD19-V7: a subtle 1.5rem drift under an opacity-led
- * swap; the off-canvas slide + swagger rotate it replaced are recorded
- * below). Direct-child (`>`) on purpose: an
- * inherited `--vj-enter-*` var would leak the pane geometry into nested
- * in-pane transitions. The PaneSlot <Transition> runs `mode="out-in"`
- * (X.W5.d2 — the leave travels out, then the enter travels in; the former
- * simultaneous cross-slide co-mounted two in-flow panes, fold W5F-04; the
- * measured record is PaneSlot.vue's header).
+ * Pane swap — THE STACKED DECK (owner order 2026-11-05: "should not fade
+ * in and out unless necessary and stacked with a card swapping animation
+ * for the value views"; demo/DESIGN.md §5.7, the transition grammar).
+ *
+ * The PaneSlot <Transition> runs the DEFAULT mode: the leaving card and the
+ * rising card are co-mounted for one gesture. The leaver is taken OUT OF
+ * FLOW, so the region is sized by the riser alone from the commit frame
+ * (never 0, never the sum of two panes — fold W5F-04's co-mount geometry,
+ * cured in CSS rather than by serialising the swap). The wrapper already
+ * holds `contain: layout` (shell.css), so it is the leaver's containing
+ * block and the leaver's travel stays ink overflow.
+ *
+ *   forward — the leaver sits on top (z 2) and is discarded on its role's
+ *             side (the OD19-V7 1.5rem travel) on `--ease-in` at
+ *             `--spring-world-exit-duration`; the riser comes up from
+ *             underneath, `scale(0.97) translateY(0.5rem)` → rest, on
+ *             `--spring-panel`.
+ *   back    — the deck reverses: the riser comes back on top from the
+ *             mirrored side on `--spring-panel`, and the leaver sinks
+ *             underneath (z −1, the riser's pose) on `--spring-panel`.
+ *
+ * Depth is carried by scale and by being underneath: no rotation, no
+ * filter (a filter would make the card a backdrop root and break the glass
+ * plate). Opacity is held at 1 and cut only over the last 10 % of the leave
+ * (glass's `opacityCutAt` 0.9). Under reduced motion the swap is a 120 ms
+ * cut (`--duration-control`): glass's guard zeroes every duration, the
+ * delay survives it, so the leaver holds for 120 ms and is gone.
+ * Direct-child (`>`) on purpose: an in-pane `vj-enter` keeps the base
+ * family above. The retired opacity-led out-in rules are quoted in
+ * DESIGN.md §5.7.
  * ----------------------------------------------------------------------- */
-/* X.W5.d · gate D3 (fold W5F-45 / NEW-DU-5) — RE-KEYED onto the region ROLE.
- * The family was keyed off the physical `--left`/`--right` wrapper modifiers,
- * and on mobile every wrapper wore `--left`, so every swap entered from the
- * left and left to the left: forward and back were motion-identical and the
- * `--right` geometry was unreachable by construction. After X.W5.c a region's
- * side is not a fact the schema states — its ROLE is (`viewSchema.ts`
- * `RegionRole`) — so each role owns its travel, and EVERY role in the
- * vocabulary carries an enter + leave rule, including `action`, which no route
- * declares today (a role with no motion rule is the D3 arm-2 failure, so the
- * vocabulary is covered whole, not the roles a census happens to see).
- *   · stage     — the protagonist; travels on the inline-start side (the
- *                 former `--left` geometry, byte-kept).
- *   · inspector — the companion; travels on the inline-end side (the former
- *                 `--right` geometry, byte-kept — reachable at every width now).
- *   · action    — a command surface; rises from the block-end edge.
- * Each rule below is the FORWARD reading. The DIRECTION arm follows it. */
-/* OD19-V7 (owner docket 2026-10-19: "the card or pane transition animations
- * is very janky and slow") — the family is KEPT (roles, direction mirror,
- * springs), its TRAVEL is cut to a subtle offset. The off-canvas ±110% +
- * ±2deg swagger made every out-in swap a full-viewport exit and re-entry
- * (Home→Mix: the inspector left to x1548, moving window 305→1161 ms at
- * 1440). Now each role offsets 1.5rem on its own side with no rotate, and
- * the swap is OPACITY-LED: the leaving pane fades over `--duration-fast`
- * while it drifts, the entering pane fades in while it settles. */
-.pane-wrapper--stage > .vj-enter-enter-from,
-.pane-wrapper--stage > .vj-enter-leave-to {
+.pane-wrapper {
+    position: relative;
+}
+.pane-wrapper > .vj-enter-leave-active {
+    position: absolute;
+    inset: 0 0 auto 0;
+    pointer-events: none;
+    z-index: 2;
+}
+.pane-wrapper > [data-scene-direction="back"].vj-enter-leave-active {
+    z-index: -1;
+}
+.pane-wrapper > .vj-enter-enter-from {
+    opacity: 1;
+    transform: none;
+}
+.pane-wrapper > .vj-enter-leave-to {
     opacity: 0;
-    transform: translateX(-1.5rem);
+    transform: none;
 }
-.pane-wrapper--inspector > .vj-enter-enter-from,
-.pane-wrapper--inspector > .vj-enter-leave-to {
-    opacity: 0;
-    transform: translateX(1.5rem);
+.pane-wrapper > .vj-enter-enter-active {
+    transition: none;
 }
-.pane-wrapper--action > .vj-enter-enter-from,
-.pane-wrapper--action > .vj-enter-leave-to {
-    opacity: 0;
-    transform: translateY(1.5rem);
+.pane-wrapper > .vj-enter-leave-active {
+    transition: opacity 0s linear var(--duration-control);
 }
 
-/* X.W5.d · gate D3's direction arm — the scene-direction token.
- * `PaneSlot` stamps `data-scene-direction="forward" | "back"` on the entering
- * AND the leaving pane (its before-enter / before-leave hooks), read from the
- * route's position in the scene table's own order (`VIEW_MAP`, the dock's
- * order): a hop to a later scene is `forward`, to an earlier one `back`. A
- * `back` hop MIRRORS each role's travel, so the two directions are never
- * motion-identical — at any width, the 390 column included. The forward rules
- * above are not moved or re-valued (the preserve-animations edict: motion is
- * added, never deleted); this block only adds the mirrored reading. */
-.pane-wrapper--stage > [data-scene-direction="back"].vj-enter-enter-from,
-.pane-wrapper--stage > [data-scene-direction="back"].vj-enter-leave-to {
-    transform: translateX(1.5rem);
-}
-.pane-wrapper--inspector > [data-scene-direction="back"].vj-enter-enter-from,
-.pane-wrapper--inspector > [data-scene-direction="back"].vj-enter-leave-to {
-    transform: translateX(-1.5rem);
-}
-.pane-wrapper--action > [data-scene-direction="back"].vj-enter-enter-from,
-.pane-wrapper--action > [data-scene-direction="back"].vj-enter-leave-to {
-    transform: translateY(-1.5rem);
+@media (prefers-reduced-motion: no-preference) {
+    /* forward: the riser comes up from underneath */
+    .pane-wrapper > .vj-enter-enter-from {
+        transform: translateY(0.5rem) scale(0.97);
+    }
+    .pane-wrapper > .vj-enter-enter-active {
+        transition: transform var(--spring-panel-duration) var(--spring-panel);
+    }
+    /* forward: the leaver is discarded on its role's side */
+    .pane-wrapper > .vj-enter-leave-active {
+        transition:
+            transform var(--spring-world-exit-duration) var(--ease-in),
+            opacity calc(var(--spring-world-exit-duration) * 0.1) linear
+                calc(var(--spring-world-exit-duration) * 0.9);
+    }
+    .pane-wrapper--stage > .vj-enter-leave-to {
+        transform: translateX(-1.5rem);
+    }
+    .pane-wrapper--inspector > .vj-enter-leave-to {
+        transform: translateX(1.5rem);
+    }
+    .pane-wrapper--action > .vj-enter-leave-to {
+        transform: translateY(1.5rem);
+    }
+
+    /* back: the riser returns on top from the mirrored side… */
+    .pane-wrapper--stage > [data-scene-direction="back"].vj-enter-enter-from {
+        transform: translateX(1.5rem);
+    }
+    .pane-wrapper--inspector > [data-scene-direction="back"].vj-enter-enter-from {
+        transform: translateX(-1.5rem);
+    }
+    .pane-wrapper--action > [data-scene-direction="back"].vj-enter-enter-from {
+        transform: translateY(-1.5rem);
+    }
+    /* …and the leaver sinks underneath into the riser's pose */
+    .pane-wrapper > [data-scene-direction="back"].vj-enter-leave-to {
+        transform: translateY(0.5rem) scale(0.97);
+    }
+    .pane-wrapper > [data-scene-direction="back"].vj-enter-leave-active {
+        transition:
+            transform var(--spring-panel-duration) var(--spring-panel),
+            opacity calc(var(--spring-panel-duration) * 0.1) linear
+                calc(var(--spring-panel-duration) * 0.9);
+    }
+
+    /* The swap's own compositor layer and containment, for the `*-active`
+     * window only (W3-4 S.W3; X.W5.d2 §0ax ESC-W5d2-2): the moving card is
+     * one promoted, `contain: layout paint` box, so its travel invalidates
+     * one bounded layer. `overflow-clip-margin` keeps the plate's 8px
+     * cartoon cast unclipped (10px = the cast plus 2px). */
+    .pane-wrapper > .vj-enter-enter-active,
+    .pane-wrapper > .vj-enter-leave-active {
+        will-change: transform;
+        contain: layout paint;
+        overflow-clip-margin: 10px;
+    }
+
+    /* G3 — the survivor's width (DESIGN.md §5.7). When a region widens (a
+     * dual → single hop), `flipRegions` sets `--region-clip-end` on the
+     * wrapper to the width it gained and then releases it: the region's
+     * plate and its T-45 blur carrier (shell.css) open from the old edge to
+     * the new on `--spring-panel`. The content reflows once, at the commit;
+     * the plate edge travels. The released clip opens past the plate by the
+     * cast (12px) so the shadow is never cut at rest. */
+    .pane-wrapper[data-region-clip] > .glass-resting,
+    .pane-wrapper[data-region-clip] > div > .glass-resting,
+    .pane-wrapper[data-region-clip]:has(> .glass-resting)::before,
+    .pane-wrapper[data-region-clip]:not(:has(> .glass-resting)) > div:has(> .glass-resting)::before {
+        transition: clip-path var(--spring-panel-duration) var(--spring-panel);
+    }
+    .pane-wrapper[data-region-clip] > .glass-resting,
+    .pane-wrapper[data-region-clip] > div > .glass-resting {
+        clip-path: inset(
+            var(--region-clip-cast) var(--region-clip-end) var(--region-clip-cast)
+                var(--region-clip-cast) round var(--radius-card)
+        );
+    }
+    .pane-wrapper[data-region-clip]:has(> .glass-resting)::before,
+    .pane-wrapper[data-region-clip]:not(:has(> .glass-resting)) > div:has(> .glass-resting)::before {
+        clip-path: inset(
+            calc(2 * var(--glass-blur-resting-radius, 8px))
+                calc(2 * var(--glass-blur-resting-radius, 8px) + max(0px, var(--region-clip-end)))
+                calc(2 * var(--glass-blur-resting-radius, 8px))
+                calc(2 * var(--glass-blur-resting-radius, 8px)) round var(--radius-card)
+        );
+    }
 }
 
-/* W3-4 (S.W3): promote the pane to its own compositor layer for the
- * DURATION of the enter/leave transition ONLY (`*-active`) — never a
- * standing `will-change` layer. The browser drops the hint the moment the
- * transition class is removed. */
-.pane-wrapper--stage > .vj-enter-enter-active,
-.pane-wrapper--stage > .vj-enter-leave-active,
-.pane-wrapper--inspector > .vj-enter-enter-active,
-.pane-wrapper--inspector > .vj-enter-leave-active,
-.pane-wrapper--action > .vj-enter-enter-active,
-.pane-wrapper--action > .vj-enter-leave-active {
-    will-change: transform;
+/* G9 — THE ROW'S TRACKS AND THE SCENE'S BLOCK SIZE TRAVEL (DESIGN.md §5.7;
+ * owner order 2026-11-05: "all height and width facilities fully animated").
+ * A view change that keeps two regions but moves the split (Home 61.8 % →
+ * Palettes 33.3 %: the picker 651 → 450 px at 1440) interpolates the track
+ * list on `--spring-panel`, so the survivor's edge and its neighbour's travel
+ * together with the riser instead of snapping at the input. A change of track
+ * COUNT (dual ↔ single) does not interpolate; `flipRegions` carries that hop.
+ * The container's height is held in px by `followHeight` and travels on the
+ * same clock. A held grid height would otherwise feed back into its rows:
+ * the regions are `min-h-0`, so an `auto` row grows only into the container's
+ * free space and the held px would cap the row it is measuring. The rows are
+ * therefore `max-content` (the size an `auto` row takes in an indefinite
+ * container, so the rest pose is unchanged), and `align-content: start` keeps
+ * them at their content while the box is taller than them. */
+.pane-container[data-follow-height] {
+    grid-auto-rows: max-content;
+    align-content: start;
 }
-
-/* X.W5.d2 · §0ax ESC-W5d2-2 (DESIGN RULED) — CONTAINMENT, not amputation.
- * The →/gradient travel cost was the About pane's real content (7459 px at
- * 1440) travelling as one promoted layer: the swap re-laid-out and re-painted
- * the whole subtree across the travel. For the swap's duration ONLY (the same
- * `*-active` window as the layer hint above, dropped with it), the leaving
- * and the entering pane are `contain: layout paint`: nothing inside can move
- * layout outside it or paint outside its box, so the travel invalidates one
- * bounded box. The About pane's off-viewport sections keep their
- * `content-visibility: auto` (Markdown.vue) under this containment — it is
- * the reason they stay skipped while travelling, and nothing here overrides
- * it. The springs and the direction arm are kept; the distance and the
- * rotation were retuned by the owner's OD19-V7 word (2026-10-19), above.
- * `overflow-clip-margin` keeps the card's cartoon offset shadow unclipped by
- * the paint containment — the plate's widest cast is `--shadow-cartoon`'s
- * 8px reach (foundation.css; no hover stamp exists), and 10px keeps a 2px
- * margin over it. */
-.pane-wrapper--stage > .vj-enter-enter-active,
-.pane-wrapper--stage > .vj-enter-leave-active,
-.pane-wrapper--inspector > .vj-enter-enter-active,
-.pane-wrapper--inspector > .vj-enter-leave-active,
-.pane-wrapper--action > .vj-enter-enter-active,
-.pane-wrapper--action > .vj-enter-leave-active {
-    contain: layout paint;
-    overflow-clip-margin: 10px;
-}
-
-/* T.W5 · R2+R3 (T-14 / D7 — the two-channel law; one moment, one clock):
- * the pane swap is a SPATIAL travel, so the ENTER rides `--spring-panel`
- * at the spring's OWN clock. The superseded W3-5 retune kept the smooth
- * curve but squeezed it onto `--duration-normal` — the named
- * normalized-spring-on-generic-clock anti-pattern (a spring linear()
- * reaches ~0.5 by ~6% of ANY clock → all travel in the first ~60ms,
- * then dead air; t-transitions-liquid F2). PKT-2 (the ~0.3s preset) is
- * unanswered at this cut, so the swap lands on arm (i) —
- * `--spring-panel` @ `--spring-panel-duration` (0.45s settle at glass 10.1.0;
- * the panel role is glass's successor for the retired 0.44s `--spring-snappy`
- * pane clock — X-W7L, mapped by intent per glass MIGRATION §8.0.0);
- * decision recorded on the T.md §7.2 book row.
- * The LEAVE is the exit law: strictly SHORTER than the enter, bezier
- * `--ease-out`, never an overshoot — the outgoing plate is gone before
- * the incoming plate's overshoot lands (the prior full-0.3s ACCELERATE
- * leave held the outgoing pane at full presence exactly when the
- * incoming pane arrived — the F2 mid-flight collision). Both rules stay
- * SCOPED to the pane wrappers: the un-scoped vj-enter family above is
- * the F6 KEEP set, untouched. */
-.pane-wrapper--stage > .vj-enter-enter-active,
-.pane-wrapper--inspector > .vj-enter-enter-active,
-.pane-wrapper--action > .vj-enter-enter-active {
-    transition:
-        opacity var(--duration-fast) var(--ease-decelerate),
-        transform var(--spring-panel-duration) var(--spring-panel);
-}
-/* OD19-V7 — the leave is OPACITY-LED: the fade owns the exit at
- * `--duration-fast`; the 1.5rem drift rides the same clock. */
-.pane-wrapper--stage > .vj-enter-leave-active,
-.pane-wrapper--inspector > .vj-enter-leave-active,
-.pane-wrapper--action > .vj-enter-leave-active {
-    transition:
-        opacity var(--duration-fast) var(--ease-out),
-        transform var(--duration-fast) var(--ease-out);
+@media (prefers-reduced-motion: no-preference) {
+    .pane-container {
+        transition:
+            grid-template-columns var(--spring-panel-duration) var(--spring-panel),
+            height var(--spring-panel-duration) var(--spring-panel);
+    }
 }

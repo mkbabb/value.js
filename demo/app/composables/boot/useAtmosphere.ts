@@ -19,7 +19,7 @@
  */
 
 import { computed, reactive, ref, watch, provide } from "vue";
-import type { ComputedRef, ShallowRef } from "vue";
+import type { ComputedRef, Ref, ShallowRef } from "vue";
 import { useEventListener } from "@vueuse/core";
 import {
     useAurora,
@@ -59,6 +59,8 @@ export function useAtmosphere(
     // to one derive/frame (the tranche's #1 perf fix, perf-transitions P0-1).
     // The seed still tracks (S-18): the last colour of every frame wins.
     atmosphereColor: ComputedRef<string>,
+    // o1105-r2 perf: true while a drag drives the colour (`pipeline.colourLive`).
+    colourLive: Readonly<Ref<boolean>> = ref(false),
 ) {
     // The config source MUST NOT throw inside useAurora's deep-watch: a thrown
     // getter dead-faults the reactive effect (the white-screen class inv-N-1
@@ -111,16 +113,14 @@ export function useAtmosphere(
     // referent and the strip all agree on the offset field lightness.
     const { isDark } = useGlobalDark();
 
-    // --- §0hk OD-12: THE SEED-ANCHORED BAND (light; dark held, §0hn arm B) ---
+    // --- §0hk OD-12: THE SEED-ANCHORED BAND ---
     // The field takes `seedAnchoredLBand` through the shipped `lBand` atoms
     // door (`seeded-ground.ts`'s `fieldAtomsFor`, the one source the
     // pre-paint boot also runs): the dominant stop sits on the chosen colour.
     // That supersedes X.W6.i's dark band (`lightnessScheme: "dark"` →
-    // L 0.18–0.42) in LIGHT. In dark the band is HELD on glass O-130
-    // (`DARK_FIELD_SEED_FAITHFUL`): over the faithful dark field glass
-    // 10.1.3's dark resting rung leaves no light ink at 4.5:1 (ss8-b09) until
-    // the 10.2.0 plate L-floor law lands. An explicit `lightnessScheme` or
-    // `lBand` authored in AuroraPane still WINS.
+    // L 0.18–0.42). Dark sits under `DARK_FIELD_CEILING` until glass W-0.1's
+    // plate L-floor lets it take light's 0.98. An explicit `lightnessScheme`
+    // or `lBand` authored in AuroraPane still WINS.
     const fieldAtoms = (): AuroraAtoms => fieldAtomsFor(auroraAtoms, isDark.value);
 
     const aurora = useAurora(
@@ -184,7 +184,7 @@ export function useAtmosphere(
     // derived field. Scheme rides the record so the fouc-guard can refuse the
     // other band's material (F-6 dark honesty).
     // §0hk OD-12: the GROUND is the field's own resolved palette in both
-    // schemes — ONE derive (its scheme band is the field's, §0hn arm B). The former second derive (the producer's raw dark
+    // schemes — ONE derive (its scheme ceiling is the field's). The former second derive (the producer's raw dark
     // band, `deriveAurora(seed, { scheme: "dark" })`) grounded every dark
     // boot in the same flat crimson and is gone; FIRST_VISIT_GROUND is
     // regenerated from this sink's first write (GROUND_RECORD_VERSION 2
@@ -197,15 +197,30 @@ export function useAtmosphere(
             safeSetItem("local", GROUND_STORE_KEY, JSON.stringify(record)),
         200,
     );
+    //
+    // o1105-r2 perf: under a drag the stops are written on `.ground-breath`
+    // alone, the plate that paints the ramp over the body. A root write
+    // restyled the whole document on every colour frame. The root (and the
+    // body under the plate, the meta, the record) take the settled stops once
+    // the drag ends, and the plate's own copy is dropped in the same task, so
+    // its inherited value is unchanged and nothing transitions.
+    const GROUND_TOKENS = ["--saved-bg-0", "--saved-bg-1", "--saved-bg-2", "--saved-bg-3", "--saved-bg"];
     watch(
-        [resolvedPalette, isDark],
-        ([palette, dark]) => {
+        [resolvedPalette, isDark, colourLive],
+        ([palette, dark, live]) => {
             if (!palette?.length) return;
             const stops = groundStopsFor(palette);
-            const root = document.documentElement.style;
-            stops.forEach((stop, i) => root.setProperty(`--saved-bg-${i}`, stop));
             const base = stops[0];
             if (!base) return; // unreachable (normalized to 4) — type honesty
+            const plate = document.querySelector<HTMLElement>(".ground-breath")?.style;
+            if (live && plate) {
+                stops.forEach((stop, i) => plate.setProperty(`--saved-bg-${i}`, stop));
+                plate.setProperty("--saved-bg", base);
+                return;
+            }
+            const root = document.documentElement.style;
+            stops.forEach((stop, i) => root.setProperty(`--saved-bg-${i}`, stop));
+            GROUND_TOKENS.forEach((token) => plate?.removeProperty(token));
             // The solid base-stop fallback var (unregistered consumers +
             // the no-gradient degradation path).
             root.setProperty("--saved-bg", base);

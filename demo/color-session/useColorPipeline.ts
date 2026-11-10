@@ -23,7 +23,7 @@ import { useColorParsing } from "./useColorParsing";
 import { useSliderGradients } from "./useSliderGradients";
 import { useColorNameResolution } from "./useColorNameResolution";
 import { useColorPersistence } from "./useColorPersistence";
-import { useAtmosphereFrameCoalesce } from "./useAtmosphereFrameCoalesce";
+import { useAtmosphereFrameCoalesce, useColourLive } from "./useAtmosphereFrameCoalesce";
 
 /**
  * useColorPipeline — the ONE color-state spine (S.W2 · W2-1). Merges the former
@@ -283,6 +283,10 @@ export function useColorPipeline(model: ShallowRef<ColorModel>) {
     // the named composable; the picker's own instant surfaces keep synchronous
     // `cssColorOpaque`, only the atmosphere coalesces.
     const cssColorOpaqueFrame = useAtmosphereFrameCoalesce(cssColorOpaque);
+    // o1105-r2 perf: true while a drag (any continuous input) drives the
+    // colour. Its readers hold what only needs the settled colour and snap
+    // what tracks the live one, so a drag never runs a colour transition.
+    const colourLive = useColourLive(cssColorOpaqueFrame);
 
     return {
         // Model
@@ -295,6 +299,7 @@ export function useColorPipeline(model: ShallowRef<ColorModel>) {
         // W3-1: the rAF-coalesced opaque colour the atmosphere fan-out consumes
         // (aurora seed + blob palette + --accent-live) — one derive per frame.
         cssColorOpaqueFrame,
+        colourLive,
         HSVCurrentColor,
         stableHue,
         currentColorOpaque,

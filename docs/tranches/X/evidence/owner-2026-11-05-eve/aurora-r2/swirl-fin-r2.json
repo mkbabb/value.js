@@ -1,0 +1,320 @@
+{
+ "run": "r2",
+ "tag": "fin",
+ "base": "http://127.0.0.1:8794/",
+ "at": "2026-11-06T16:17:44.886Z",
+ "cells": {
+  "aurora": [
+   {
+    "name": "aurora-dark-default",
+    "ui": {
+     "L_p05": 0.324,
+     "L_p50": 0.516,
+     "L_p95": 0.695,
+     "L_sd": 0.104,
+     "C_p50": 0.186,
+     "C_p95": 0.207,
+     "hueMean": 5,
+     "chromaticFrac": 0.964
+    },
+    "field": {
+     "L_p05": 0.416,
+     "L_p50": 0.484,
+     "L_p95": 0.525,
+     "L_sd": 0.04,
+     "C_p50": 0.183,
+     "C_p95": 0.194,
+     "hueMean": 1,
+     "chromaticFrac": 1
+    },
+    "swirl1500": {
+     "meanAbs": 3.31,
+     "movedFrac": 0.026
+    },
+    "swirl5000": {
+     "meanAbs": 7.59,
+     "movedFrac": 0.204
+    }
+   },
+   {
+    "name": "aurora-dark-oklch_0.7_0.15_30_",
+    "ui": {
+     "L_p05": 0.325,
+     "L_p50": 0.5,
+     "L_p95": 0.696,
+     "L_sd": 0.105,
+     "C_p50": 0.156,
+     "C_p95": 0.18,
+     "hueMean": 30,
+     "chromaticFrac": 0.958
+    },
+    "field": {
+     "L_p05": 0.399,
+     "L_p50": 0.454,
+     "L_p95": 0.556,
+     "L_sd": 0.051,
+     "C_p50": 0.16,
+     "C_p95": 0.168,
+     "hueMean": 27,
+     "chromaticFrac": 1
+    },
+    "swirl1500": {
+     "meanAbs": 4.05,
+     "movedFrac": 0.049
+    },
+    "swirl5000": {
+     "meanAbs": 9.8,
+     "movedFrac": 0.297
+    }
+   },
+   {
+    "name": "aurora-dark-oklch_0.7_0.15_145_",
+    "ui": {
+     "L_p05": 0.367,
+     "L_p50": 0.492,
+     "L_p95": 0.753,
+     "L_sd": 0.114,
+     "C_p50": 0.144,
+     "C_p95": 0.17,
+     "hueMean": 143,
+     "chromaticFrac": 0.97
+    },
+    "field": {
+     "L_p05": 0.412,
+     "L_p50": 0.477,
+     "L_p95": 0.548,
+     "L_sd": 0.045,
+     "C_p50": 0.145,
+     "C_p95": 0.151,
+     "hueMean": 144,
+     "chromaticFrac": 1
+    },
+    "swirl1500": {
+     "meanAbs": 2.71,
+     "movedFrac": 0.011
+    },
+    "swirl5000": {
+     "meanAbs": 5.7,
+     "movedFrac": 0.083
+    }
+   },
+   {
+    "name": "aurora-dark-oklch_0.7_0.15_265_",
+    "ui": {
+     "L_p05": 0.306,
+     "L_p50": 0.461,
+     "L_p95": 0.688,
+     "L_sd": 0.103,
+     "C_p50": 0.156,
+     "C_p95": 0.18,
+     "hueMean": 266,
+     "chromaticFrac": 0.956
+    },
+    "field": {
+     "L_p05": 0.414,
+     "L_p50": 0.452,
+     "L_p95": 0.51,
+     "L_sd": 0.033,
+     "C_p50": 0.159,
+     "C_p95": 0.18,
+     "hueMean": 264,
+     "chromaticFrac": 1
+    },
+    "swirl1500": {
+     "meanAbs": 3.5,
+     "movedFrac": 0.042
+    },
+    "swirl5000": {
+     "meanAbs": 8.43,
+     "movedFrac": 0.227
+    }
+   },
+   {
+    "name": "aurora-dark-oklch_0.6_0.2_330_",
+    "ui": {
+     "L_p05": 0.33,
+     "L_p50": 0.509,
+     "L_p95": 0.685,
+     "L_sd": 0.103,
+     "C_p50": 0.206,
+     "C_p95": 0.22,
+     "hueMean": 332,
+     "chromaticFrac": 0.972
+    },
+    "field": {
+     "L_p05": 0.402,
+     "L_p50": 0.475,
+     "L_p95": 0.531,
+     "L_sd": 0.04,
+     "C_p50": 0.205,
+     "C_p95": 0.211,
+     "hueMean": 327,
+     "chromaticFrac": 1
+    },
+    "swirl1500": {
+     "meanAbs": 3.38,
+     "movedFrac": 0.024
+    },
+    "swirl5000": {
+     "meanAbs": 7.7,
+     "movedFrac": 0.188
+    }
+   },
+   {
+    "name": "aurora-light-default",
+    "ui": {
+     "L_p05": 0.348,
+     "L_p50": 0.676,
+     "L_p95": 0.785,
+     "L_sd": 0.128,
+     "C_p50": 0.12,
+     "C_p95": 0.185,
+     "hueMean": 4,
+     "chromaticFrac": 0.964
+    },
+    "field": {
+     "L_p05": 0.695,
+     "L_p50": 0.734,
+     "L_p95": 0.792,
+     "L_sd": 0.031,
+     "C_p50": 0.149,
+     "C_p95": 0.186,
+     "hueMean": 360,
+     "chromaticFrac": 1
+    },
+    "swirl1500": {
+     "meanAbs": 2.5,
+     "movedFrac": 0.023
+    },
+    "swirl5000": {
+     "meanAbs": 6.58,
+     "movedFrac": 0.162
+    }
+   },
+   {
+    "name": "aurora-light-oklch_0.7_0.15_30_",
+    "ui": {
+     "L_p05": 0.344,
+     "L_p50": 0.657,
+     "L_p95": 0.78,
+     "L_sd": 0.125,
+     "C_p50": 0.133,
+     "C_p95": 0.157,
+     "hueMean": 33,
+     "chromaticFrac": 0.958
+    },
+    "field": {
+     "L_p05": 0.663,
+     "L_p50": 0.71,
+     "L_p95": 0.789,
+     "L_sd": 0.036,
+     "C_p50": 0.15,
+     "C_p95": 0.161,
+     "hueMean": 28,
+     "chromaticFrac": 1
+    },
+    "swirl1500": {
+     "meanAbs": 2.38,
+     "movedFrac": 0.021
+    },
+    "swirl5000": {
+     "meanAbs": 6.03,
+     "movedFrac": 0.107
+    }
+   },
+   {
+    "name": "aurora-light-oklch_0.7_0.15_145_",
+    "ui": {
+     "L_p05": 0.394,
+     "L_p50": 0.682,
+     "L_p95": 0.823,
+     "L_sd": 0.125,
+     "C_p50": 0.169,
+     "C_p95": 0.185,
+     "hueMean": 143,
+     "chromaticFrac": 0.971
+    },
+    "field": {
+     "L_p05": 0.662,
+     "L_p50": 0.733,
+     "L_p95": 0.823,
+     "L_sd": 0.046,
+     "C_p50": 0.173,
+     "C_p95": 0.176,
+     "hueMean": 144,
+     "chromaticFrac": 1
+    },
+    "swirl1500": {
+     "meanAbs": 3.29,
+     "movedFrac": 0.045
+    },
+    "swirl5000": {
+     "meanAbs": 8.25,
+     "movedFrac": 0.235
+    }
+   },
+   {
+    "name": "aurora-light-oklch_0.7_0.15_265_",
+    "ui": {
+     "L_p05": 0.328,
+     "L_p50": 0.648,
+     "L_p95": 0.767,
+     "L_sd": 0.126,
+     "C_p50": 0.101,
+     "C_p95": 0.149,
+     "hueMean": 263,
+     "chromaticFrac": 0.955
+    },
+    "field": {
+     "L_p05": 0.66,
+     "L_p50": 0.701,
+     "L_p95": 0.772,
+     "L_sd": 0.035,
+     "C_p50": 0.135,
+     "C_p95": 0.15,
+     "hueMean": 263,
+     "chromaticFrac": 1
+    },
+    "swirl1500": {
+     "meanAbs": 3.42,
+     "movedFrac": 0.043
+    },
+    "swirl5000": {
+     "meanAbs": 8.93,
+     "movedFrac": 0.28
+    }
+   },
+   {
+    "name": "aurora-light-oklch_0.6_0.2_330_",
+    "ui": {
+     "L_p05": 0.343,
+     "L_p50": 0.622,
+     "L_p95": 0.698,
+     "L_sd": 0.111,
+     "C_p50": 0.213,
+     "C_p95": 0.239,
+     "hueMean": 331,
+     "chromaticFrac": 0.973
+    },
+    "field": {
+     "L_p05": 0.552,
+     "L_p50": 0.626,
+     "L_p95": 0.697,
+     "L_sd": 0.043,
+     "C_p50": 0.231,
+     "C_p95": 0.236,
+     "hueMean": 328,
+     "chromaticFrac": 1
+    },
+    "swirl1500": {
+     "meanAbs": 3.92,
+     "movedFrac": 0.058
+    },
+    "swirl5000": {
+     "meanAbs": 9.87,
+     "movedFrac": 0.307
+    }
+   }
+  ]
+ }
+}

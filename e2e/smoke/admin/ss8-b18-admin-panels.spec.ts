@@ -61,6 +61,19 @@ async function shadowsVsRows(page: Page) {
     await page.goto("/#/admin/audit");
     const status = page.locator(`${PANE("audit")} [role="status"][aria-label="Loading audit log"]`);
     await status.waitFor();
+    // X §0hr.5: the pane enters on its overture (`overture-plate-settle`, a tilt
+    // and a rise on `.pane-shell`), and a box's client rect under that rotation
+    // is its axis-aligned hull — taller than the row, with the gap eaten (CI
+    // 42231395487: 84.2 px shadows, gaps −0.2 px, at a 72 px layout). The rhythm
+    // is read once the ancestors' finite entrance animations have finished (the
+    // shadows' own infinite breathe is opacity and never ends, so it is excluded).
+    await status.evaluate((st) => {
+        const finite = document.getAnimations().filter((a) => {
+            const t = (a.effect as KeyframeEffect | null)?.target;
+            return t instanceof Element && t.contains(st) && Number.isFinite(a.effect?.getComputedTiming().endTime);
+        });
+        return Promise.all(finite.map((a) => a.finished.catch(() => undefined)));
+    });
     const skel = await status.evaluate((st) => {
         const k = [...st.children].map((e) => e.getBoundingClientRect());
         return { h: k.map((b) => b.height), gaps: k.slice(1).map((b, i) => b.top - k[i]!.bottom) };

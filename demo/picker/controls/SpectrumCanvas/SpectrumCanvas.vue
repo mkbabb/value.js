@@ -24,12 +24,14 @@
                  identity, §0dm) and is STILL at rest. The perpetual 2s rAF
                  wobble carried no state; the outline re-seeds with the colour,
                  so it changes only while the user moves it. -->
-            <WatercolorDot
-                :color="cssColorOpaque"
-                :range="[15, 85]"
-                class="spectrum-dot absolute -translate-x-1/2 -translate-y-1/2 pointer-events-none"
-                :style="spectrumDotStyle"
-            />
+            <div class="spectrum-travel absolute pointer-events-none" :style="spectrumTravelStyle">
+                <WatercolorDot
+                    :color="cssColorOpaque"
+                    :range="[15, 85]"
+                    class="spectrum-dot absolute -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+                    :style="spectrumDotStyle"
+                />
+            </div>
         </div>
     </figure>
 </template>
@@ -43,6 +45,7 @@ import { channelNumber, withChannel } from "../../../color-session/picker-color"
 import { POINTER_DEBUG_KEY } from "../../debug/usePointerDebug";
 import { useSpectrumPlateStyle } from "./composables/useSpectrumPlateStyle";
 import { COLOR_MODEL_KEY } from "../../../color-session/keys";
+import { useFrameCoalesce } from "../../../color-session/useAtmosphereFrameCoalesce";
 
 const {
     model,
@@ -92,22 +95,11 @@ function releaseCapture() {
     capturedElement = null;
 }
 
-// rAF-based throttled spectrum update — store only primitive coords
-let pendingCoords: { clientX: number; clientY: number } | null = null;
-let spectrumRafId: ReturnType<typeof requestAnimationFrame> | null = null;
-
-const scheduleSpectrumUpdate = (event: PointerEvent) => {
-    pendingCoords = { clientX: event.clientX, clientY: event.clientY };
-    if (spectrumRafId === null) {
-        spectrumRafId = requestAnimationFrame(() => {
-            spectrumRafId = null;
-            if (pendingCoords) {
-                updateSpectrumColor(pendingCoords);
-                pendingCoords = null;
-            }
-        });
-    }
-};
+// One spectrum write per animation frame, the latest coords win; release
+// lands the pending write (`stopDragging`). The scope's end cancels it.
+const spectrumWrite = useFrameCoalesce((coords: { clientX: number; clientY: number }) =>
+    updateSpectrumColor(coords),
+);
 
 // X.W12U.p — the surface's rect is read ONCE per drag (at pointerdown) and
 // held until the drag ends. Read inside the rAF update instead, it forced a
@@ -178,7 +170,7 @@ const handleSpectrumDown = (event: PointerEvent) => {
 
 const handleSpectrumMove = (event: PointerEvent) => {
     if (isDragging.value) {
-        scheduleSpectrumUpdate(event);
+        spectrumWrite.push({ clientX: event.clientX, clientY: event.clientY });
     }
     if (debug.state.enabled && Math.random() < 0.03) {
         debug.logEvent(event, "spec:move");
@@ -208,14 +200,7 @@ const stopDragging = () => {
     debug.setGauge("spec.isDragging", false);
     debug.setGauge("spec.capturedPid", "none");
     releaseCapture();
-    if (pendingCoords) {
-        updateSpectrumColor(pendingCoords);
-        pendingCoords = null;
-    }
-    if (spectrumRafId !== null) {
-        cancelAnimationFrame(spectrumRafId);
-        spectrumRafId = null;
-    }
+    spectrumWrite.flush();
     dragRect = null;
     dragInset = null;
     isDragging.value = false;
@@ -233,17 +218,10 @@ const dotPos = computed(() => {
 
 // Plate presentation (style + dot needle + aria) — colocated composable
 // (R.W3 Lane E cohesion lift; the B3 shared-luma regime lives there).
-const { spectrumAriaLabel, spectrumStyle, spectrumDotStyle } =
+const { spectrumAriaLabel, spectrumStyle, spectrumDotStyle, spectrumTravelStyle } =
     useSpectrumPlateStyle({ HSVCurrentColor, cssColorOpaque, dotPos });
 
-onUnmounted(() => {
-    releaseCapture();
-    if (spectrumRafId !== null) {
-        cancelAnimationFrame(spectrumRafId);
-        spectrumRafId = null;
-    }
-    pendingCoords = null;
-});
+onUnmounted(releaseCapture);
 </script>
 
 <style scoped>
@@ -363,8 +341,21 @@ onUnmounted(() => {
     }
 }
 
+/* o1105 U3: the thumb's travel box, moved by its transform (useSpectrumPlateStyle).
+   The plate is physical (saturation runs left to right in every direction, as the
+   pointer map reads it), so the thumb's origin is the physical top-left: a logical
+   start would sit it on the right edge under dir="rtl" and the transform would
+   carry it off the plate (R-21 physical-inset pin). */
+.spectrum-travel {
+    left: 0;
+    right: 0;
+    inset-block: calc(var(--spectrum-dot-size) / 2);
+    will-change: transform;
+}
 .spectrum-dot {
     position: absolute;
+    left: 0;
+    top: 0;
     width: var(--spectrum-dot-size);
     height: var(--spectrum-dot-size);
     border: 2px solid var(--dot-border, var(--background));

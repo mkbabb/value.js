@@ -259,6 +259,7 @@ const swatchKeys = computed(() => {
                             icon-only
                             size="lg"
                             class="add-slot-ghost shrink-0 cursor-pointer hover:scale-110 active:scale-95 transition-transform"
+                            data-accent-reader
                             aria-label="Add current color to the mix"
                             :disabled="!canAddColor"
                             @click="addCurrentColor"

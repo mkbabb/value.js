@@ -1,0 +1,66 @@
+{
+ "base": "https://keyframes.babb.dev/",
+ "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+ "at": "2026-11-06T08:10:39.724Z",
+ "fails": [
+  "cube@390x844: the drag rested on full, not open",
+  "cube@390x844: the subject did not glide (0 px)",
+  "cube@390x844: the return rested on open, not peek",
+  "spring@390x844: the drag rested on full, not open",
+  "spring@390x844: the subject did not glide (0 px)",
+  "cube@844x390: the drag rested on full, not open",
+  "cube@844x390: the subject did not glide (0 px)",
+  "spring@844x390: the drag rested on full, not open",
+  "spring@844x390: the subject did not glide (0 px)"
+ ],
+ "cells": [
+  {
+   "id": "cube@390x844",
+   "rungOpen": "full",
+   "rungBack": "open",
+   "glide": 0,
+   "frames": 381,
+   "p50": 8.3,
+   "p95": 9.5,
+   "max": 17,
+   "cls": 0,
+   "rectDelta": 0
+  },
+  {
+   "id": "spring@390x844",
+   "rungOpen": "full",
+   "rungBack": "peek",
+   "glide": 0,
+   "frames": 347,
+   "p50": 8.3,
+   "p95": 9.6,
+   "max": 10.3,
+   "cls": 0,
+   "rectDelta": 0
+  },
+  {
+   "id": "cube@844x390",
+   "rungOpen": "full",
+   "rungBack": "peek",
+   "glide": 0,
+   "frames": 379,
+   "p50": 8.3,
+   "p95": 9.9,
+   "max": 16.6,
+   "cls": 0,
+   "rectDelta": 0
+  },
+  {
+   "id": "spring@844x390",
+   "rungOpen": "full",
+   "rungBack": "peek",
+   "glide": 0,
+   "frames": 361,
+   "p50": 8.3,
+   "p95": 9.6,
+   "max": 10.4,
+   "cls": 0,
+   "rectDelta": 0
+  }
+ ]
+}

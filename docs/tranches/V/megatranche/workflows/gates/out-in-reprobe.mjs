@@ -61,7 +61,9 @@ import { fileURLToPath } from "node:url";
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const REPO = path.resolve(HERE, "../../../../../..");
 const PANESLOT = path.join(REPO, "demo/shell/PaneSlot.vue");
-const NEEDLE = '<Transition\n        :name="transitionName"';
+// Re-anchored at O1105 (the stacked deck dropped PaneSlot's `mode="out-in"`;
+// the default arm is now the shipped mode, the out-in arm the injected one).
+const NEEDLE = 'v-if="arrived"\n        :name="transitionName"';
 const HOPS = ["/gradient", "/mix", "/extract", "/generate", "/"];
 const SETTLE_MS = { built: 1800, dev: 4000 };
 const GRACE_MS = 3000;
@@ -93,7 +95,7 @@ const inject = {
         const code = readFileSync(id, "utf8");
         const n = code.split(NEEDLE).length - 1;
         if (n !== 1) throw new Error("PaneSlot.vue needle count " + n + " !== 1");
-        return { code: code.replace(NEEDLE, '<Transition\\n        mode="out-in"\\n        :name="transitionName"'), map: null };
+        return { code: code.replace(NEEDLE, 'v-if="arrived"\\n        mode="out-in"\\n        :name="transitionName"'), map: null };
     },
 };
 export default (env) => {

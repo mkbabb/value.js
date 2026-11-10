@@ -1,0 +1,74 @@
+(node:32231) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Running 4 tests using 1 worker
+
+(node:32889) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1/4] [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:80:5 › SS8-0514 · Audit shadows keep the row rhythm › shadow gap = row gap
+
+
+
+
+
+[smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:80:5 › SS8-0514 · Audit shadows keep the row rhythm › shadow gap = row gap
+SS8-0514 {"skel":{"h":[83.74931335449219,83.74929809570312,83.74929809570312],"gaps":[0.23077392578125,0.230804443359375]},"rows":{"h":[72.16073608398438,72.16073608398438,72.16073608398438],"gaps":[11.823638916015625,11.823638916015625]}}
+
+  1) [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:80:5 › SS8-0514 · Audit shadows keep the row rhythm › shadow gap = row gap 
+
+    Error: expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 0.5
+    Received:    11.592864990234375
+
+      83 |         test.slow();
+      84 |         const { skel, rows } = await shadowsVsRows(page);
+    > 85 |         for (const g of skel.gaps) expect(Math.abs(g - rows.gaps[0]!)).toBeLessThanOrEqual(0.5);
+         |                                                                        ^
+      86 |     });
+      87 |     // The height limb rides AdminListSkeleton's column: B17's SS8-0487 column
+      88 |     // landed at 4c4506b9a, so the SS-8 CLOSE seat re-armed it (was test.fixme).
+        at /Users/mkbabb/Programming/value.js/.worktrees/x0hr5/e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:85:72
+
+    Error Context: test-results/ss8-b18-admin-panels-SS8-0-32430-w-rhythm-shadow-gap-row-gap-smoke-admin/error-context.md
+
+
+(node:33338) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[2/4] [smoke-admin] › e2e/smoke/admin/zz-ss8-diag.spec.ts:20:29 › diag 0
+[smoke-admin] › e2e/smoke/admin/zz-ss8-diag.spec.ts:20:29 › diag 0
+SKEL0 {"h":[84.19053649902344,84.19052124023438,84.19052124023438],"gaps":[-0.21075439453125,-0.21075439453125],"anc":[{"tag":"DIV","cls":"fading-scroll fading-scroll--y pane-scroll-fade flex flex-col flex-1 min-h-0 min","t":"none","s":"none","z":"1","anims":["gl-fade-start-in@0","gl-fade-end-out@0"]},{"tag":"DIV","cls":"pane-shell relative w-full mx-auto h-full min-w-0 pane-shell--bounded overture-a","t":"matrix(0.999945, -0.0104718, 0.0104718, 0.999945, 0, -12)","s":"none","z":"1","anims":["overture-plate-settle@16"]}],"kids":[{"t":"none","s":"none","anims":["skeleton-breathe-5e54f919@16","skeleton-breathe-5e54f919@16","skeleton-breathe-5e54f919@16","skeleton-breathe-5e54f919@16"],"oh":72},{"t":"none","s":"none","anims":["skeleton-breathe-5e54f919@16","skeleton-breathe-5e54f919@16","skeleton-breathe-5e54f919@16","skeleton-breathe-5e54f919@16"],"oh":72},{"t":"none","s":"none","anims":["skeleton-breathe-5e54f919@16","skeleton-breathe-5e54f919@16","skeleton-breathe-5e54f919@16","skeleton-breathe-5e54f919@16"],"oh":72}]}
+
+SKEL1 {"h":[71.984375,71.984375,71.984375],"gaps":[12,12],"anc":[{"tag":"DIV","cls":"fading-scroll fading-scroll--y pane-scroll-fade flex flex-col flex-1 min-h-0 min","t":"none","s":"none","z":"1","anims":["gl-fade-start-in@0","gl-fade-end-out@0"]}],"kids":[{"t":"none","s":"none","anims":["skeleton-breathe-5e54f919@1516","skeleton-breathe-5e54f919@1516","skeleton-breathe-5e54f919@1516","skeleton-breathe-5e54f919@1516"],"oh":72},{"t":"none","s":"none","anims":["skeleton-breathe-5e54f919@1516","skeleton-breathe-5e54f919@1516","skeleton-breathe-5e54f919@1516","skeleton-breathe-5e54f919@1516"],"oh":72},{"t":"none","s":"none","anims":["skeleton-breathe-5e54f919@1516","skeleton-breathe-5e54f919@1516","skeleton-breathe-5e54f919@1516","skeleton-breathe-5e54f919@1516"],"oh":72}]}
+
+[3/4] [smoke-admin] › e2e/smoke/admin/zz-ss8-diag.spec.ts:20:29 › diag 1
+[smoke-admin] › e2e/smoke/admin/zz-ss8-diag.spec.ts:20:29 › diag 1
+SKEL0 {"h":[84.19053649902344,84.19052124023438,84.19052124023438],"gaps":[-0.21075439453125,-0.21075439453125],"anc":[{"tag":"DIV","cls":"fading-scroll fading-scroll--y pane-scroll-fade flex flex-col flex-1 min-h-0 min","t":"none","s":"none","z":"1","anims":["gl-fade-start-in@0","gl-fade-end-out@0"]},{"tag":"DIV","cls":"pane-shell relative w-full mx-auto h-full min-w-0 pane-shell--bounded overture-a","t":"matrix(0.999945, -0.0104718, 0.0104718, 0.999945, 0, -12)","s":"none","z":"1","anims":["overture-plate-settle@17"]}],"kids":[{"t":"none","s":"none","anims":["skeleton-breathe-5e54f919@17","skeleton-breathe-5e54f919@17","skeleton-breathe-5e54f919@17","skeleton-breathe-5e54f919@17"],"oh":72},{"t":"none","s":"none","anims":["skeleton-breathe-5e54f919@17","skeleton-breathe-5e54f919@17","skeleton-breathe-5e54f919@17","skeleton-breathe-5e54f919@17"],"oh":72},{"t":"none","s":"none","anims":["skeleton-breathe-5e54f919@17","skeleton-breathe-5e54f919@17","skeleton-breathe-5e54f919@17","skeleton-breathe-5e54f919@17"],"oh":72}]}
+
+SKEL1 {"h":[72.49253845214844,72.4925537109375,72.49252319335938],"gaps":[11.4918212890625,11.4918212890625],"anc":[{"tag":"DIV","cls":"fading-scroll fading-scroll--y pane-scroll-fade flex flex-col flex-1 min-h-0 min","t":"none","s":"none","z":"1","anims":["gl-fade-start-in@0","gl-fade-end-out@0"]},{"tag":"DIV","cls":"pane-shell relative w-full mx-auto h-full min-w-0 pane-shell--bounded overture-a","t":"matrix(1, 0.000435825, -0.000435825, 1, 0, 0.499419)","s":"none","z":"1","anims":["overture-plate-settle@315"]}],"kids":[{"t":"none","s":"none","anims":["skeleton-breathe-5e54f919@315","skeleton-breathe-5e54f919@315","skeleton-breathe-5e54f919@315","skeleton-breathe-5e54f919@315"],"oh":72},{"t":"none","s":"none","anims":["skeleton-breathe-5e54f919@315","skeleton-breathe-5e54f919@315","skeleton-breathe-5e54f919@315","skeleton-breathe-5e54f919@315"],"oh":72},{"t":"none","s":"none","anims":["skeleton-breathe-5e54f919@315","skeleton-breathe-5e54f919@315","skeleton-breathe-5e54f919@315","skeleton-breathe-5e54f919@315"],"oh":72}]}
+
+[4/4] [smoke-admin] › e2e/smoke/admin/zz-ss8-diag.spec.ts:20:29 › diag 2
+[smoke-admin] › e2e/smoke/admin/zz-ss8-diag.spec.ts:20:29 › diag 2
+SKEL0 {"h":[84.19053649902344,84.19052124023438,84.19052124023438],"gaps":[-0.21075439453125,-0.21075439453125],"anc":[{"tag":"DIV","cls":"fading-scroll fading-scroll--y pane-scroll-fade flex flex-col flex-1 min-h-0 min","t":"none","s":"none","z":"1","anims":["gl-fade-start-in@0","gl-fade-end-out@0"]},{"tag":"DIV","cls":"pane-shell relative w-full mx-auto h-full min-w-0 pane-shell--bounded overture-a","t":"matrix(0.999945, -0.0104718, 0.0104718, 0.999945, 0, -12)","s":"none","z":"1","anims":["overture-plate-settle@23"]}],"kids":[{"t":"none","s":"none","anims":["skeleton-breathe-5e54f919@23","skeleton-breathe-5e54f919@23","skeleton-breathe-5e54f919@23","skeleton-breathe-5e54f919@23"],"oh":72},{"t":"none","s":"none","anims":["skeleton-breathe-5e54f919@23","skeleton-breathe-5e54f919@23","skeleton-breathe-5e54f919@23","skeleton-breathe-5e54f919@23"],"oh":72},{"t":"none","s":"none","anims":["skeleton-breathe-5e54f919@23","skeleton-breathe-5e54f919@23","skeleton-breathe-5e54f919@23","skeleton-breathe-5e54f919@23"],"oh":72}]}
+
+SKEL1 {"h":[72.26148986816406,72.26144409179688,72.26144409179688],"gaps":[11.722900390625,11.722930908203125],"anc":[{"tag":"DIV","cls":"fading-scroll fading-scroll--y pane-scroll-fade flex flex-col flex-1 min-h-0 min","t":"none","s":"none","z":"1","anims":["gl-fade-start-in@0","gl-fade-end-out@0"]},{"tag":"DIV","cls":"pane-shell relative w-full mx-auto h-full min-w-0 pane-shell--bounded overture-a","t":"matrix(1, 0.000237641, -0.000237641, 1, 0, 0.272317)","s":"none","z":"1","anims":["overture-plate-settle@410"]}],"kids":[{"t":"none","s":"none","anims":["skeleton-breathe-5e54f919@410","skeleton-breathe-5e54f919@410","skeleton-breathe-5e54f919@410","skeleton-breathe-5e54f919@410"],"oh":72},{"t":"none","s":"none","anims":["skeleton-breathe-5e54f919@410","skeleton-breathe-5e54f919@410","skeleton-breathe-5e54f919@410","skeleton-breathe-5e54f919@410"],"oh":72},{"t":"none","s":"none","anims":["skeleton-breathe-5e54f919@410","skeleton-breathe-5e54f919@410","skeleton-breathe-5e54f919@410","skeleton-breathe-5e54f919@410"],"oh":72}]}
+
+  1 failed
+    [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:80:5 › SS8-0514 · Audit shadows keep the row rhythm › shadow gap = row gap 
+  3 passed (22.2s)

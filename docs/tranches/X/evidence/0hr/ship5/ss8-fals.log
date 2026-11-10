@@ -1,0 +1,49 @@
+=== OLD (HEAD spec) x2
+[1/4] [smoke-admin] › e2e/smoke/admin/zz-ss8-old.spec.ts:80:5 › SS8-0514 · Audit shadows keep the row rhythm › shadow gap = row gap
+[smoke-admin] › e2e/smoke/admin/zz-ss8-old.spec.ts:80:5 › SS8-0514 · Audit shadows keep the row rhythm › shadow gap = row gap
+SS8-0514 {"skel":{"h":[71.984375,71.984375,71.984375],"gaps":[12,12]},"rows":{"h":[71.984375,71.984375,71.984375],"gaps":[12,12]}}
+[2/4] [smoke-admin] › e2e/smoke/admin/zz-ss8-old.spec.ts:89:5 › SS8-0514 · Audit shadows keep the row rhythm › shadow height = row height
+[smoke-admin] › e2e/smoke/admin/zz-ss8-old.spec.ts:89:5 › SS8-0514 · Audit shadows keep the row rhythm › shadow height = row height
+SS8-0514 {"skel":{"h":[84.19053649902344,84.19052124023438,84.19052124023438],"gaps":[-0.21075439453125,-0.21075439453125]},"rows":{"h":[84.19053649902344,84.19052124023438,84.19052124023438],"gaps":[-0.21075439453125,-0.21075439453125]}}
+[3/4] [smoke-admin] › e2e/smoke/admin/zz-ss8-old.spec.ts:80:5 › SS8-0514 · Audit shadows keep the row rhythm › shadow gap = row gap
+[smoke-admin] › e2e/smoke/admin/zz-ss8-old.spec.ts:80:5 › SS8-0514 · Audit shadows keep the row rhythm › shadow gap = row gap
+SS8-0514 {"skel":{"h":[72.42668151855469,72.42669677734375,72.42666625976562],"gaps":[11.55767822265625,11.55767822265625]},"rows":{"h":[72.42668151855469,72.42669677734375,72.42666625976562],"gaps":[11.55767822265625,11.55767822265625]}}
+[4/4] [smoke-admin] › e2e/smoke/admin/zz-ss8-old.spec.ts:89:5 › SS8-0514 · Audit shadows keep the row rhythm › shadow height = row height
+[smoke-admin] › e2e/smoke/admin/zz-ss8-old.spec.ts:89:5 › SS8-0514 · Audit shadows keep the row rhythm › shadow height = row height
+SS8-0514 {"skel":{"h":[84.19053649902344,84.19052124023438,84.19052124023438],"gaps":[-0.21075439453125,-0.21075439453125]},"rows":{"h":[84.19053649902344,84.19052124023438,84.19052124023438],"gaps":[-0.21075439453125,-0.21075439453125]}}
+  4 passed (13.4s)
+=== CURED x2
+[1/20] [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:93:5 › SS8-0514 · Audit shadows keep the row rhythm › shadow gap = row gap
+[smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:93:5 › SS8-0514 · Audit shadows keep the row rhythm › shadow gap = row gap
+SS8-0514 {"skel":{"h":[71.984375,71.984375,71.984375],"gaps":[12,12]},"rows":{"h":[71.984375,71.984375,71.984375],"gaps":[12,12]}}
+[2/20] [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:102:5 › SS8-0514 · Audit shadows keep the row rhythm › shadow height = row height
+[smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:102:5 › SS8-0514 · Audit shadows keep the row rhythm › shadow height = row height
+SS8-0514 {"skel":{"h":[71.984375,71.984375,71.984375],"gaps":[12,12]},"rows":{"h":[71.984375,71.984375,71.984375],"gaps":[12,12]}}
+[3/20] [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:130:5 › coarse 390 › SS8-0529 · the Tags create placeholders fit their fields
+[smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:130:5 › coarse 390 › SS8-0529 · the Tags create placeholders fit their fields
+[4/20] [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:140:5 › coarse 390 › SS8-0513 · Audit Refresh is 44×44 coarse
+[5/20] [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:146:5 › coarse 390 › SS8-0524 · Flagged Dismiss and delete are ≥ 44 px (Chromium arm)
+[6/20] [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:158:5 › fine pointer pins › SS8-0509 · a ~6 KB target never widens its row past the track (320)
+[7/20] [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:177:5 › fine pointer pins › SS8-0510/0515 · no flex-1 spacer; the count + Refresh cluster ends the toolbar at 390
+[8/20] [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:194:5 › fine pointer pins › SS8-0513 · Audit Refresh is 28×28 fine
+[9/20] [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:200:5 › fine pointer pins › SS8-0523 · the flag badge renders at --type-small
+[10/20] [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:215:5 › fine pointer pins › SS8-0526 · no repeating admin poll; a query before the hash still routes
+  1) [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:215:5 › fine pointer pins › SS8-0526 · no repeating admin poll; a query before the hash still routes 
+[11/20] [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:93:5 › SS8-0514 · Audit shadows keep the row rhythm › shadow gap = row gap
+[smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:93:5 › SS8-0514 · Audit shadows keep the row rhythm › shadow gap = row gap
+SS8-0514 {"skel":{"h":[71.984375,71.984375,71.984375],"gaps":[12,12]},"rows":{"h":[71.984375,71.984375,71.984375],"gaps":[12,12]}}
+[12/20] [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:102:5 › SS8-0514 · Audit shadows keep the row rhythm › shadow height = row height
+[smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:102:5 › SS8-0514 · Audit shadows keep the row rhythm › shadow height = row height
+SS8-0514 {"skel":{"h":[71.984375,71.984375,71.984375],"gaps":[12,12]},"rows":{"h":[71.984375,71.984375,71.984375],"gaps":[12,12]}}
+[13/20] [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:130:5 › coarse 390 › SS8-0529 · the Tags create placeholders fit their fields
+[smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:130:5 › coarse 390 › SS8-0529 · the Tags create placeholders fit their fields
+[14/20] [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:140:5 › coarse 390 › SS8-0513 · Audit Refresh is 44×44 coarse
+[15/20] [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:146:5 › coarse 390 › SS8-0524 · Flagged Dismiss and delete are ≥ 44 px (Chromium arm)
+[16/20] [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:158:5 › fine pointer pins › SS8-0509 · a ~6 KB target never widens its row past the track (320)
+[17/20] [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:177:5 › fine pointer pins › SS8-0510/0515 · no flex-1 spacer; the count + Refresh cluster ends the toolbar at 390
+[18/20] [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:194:5 › fine pointer pins › SS8-0513 · Audit Refresh is 28×28 fine
+[19/20] [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:200:5 › fine pointer pins › SS8-0523 · the flag badge renders at --type-small
+[20/20] [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:215:5 › fine pointer pins › SS8-0526 · no repeating admin poll; a query before the hash still routes
+  1 failed
+    [smoke-admin] › e2e/smoke/admin/ss8-b18-admin-panels.spec.ts:215:5 › fine pointer pins › SS8-0526 · no repeating admin poll; a query before the hash still routes 
+  19 passed (39.0s)

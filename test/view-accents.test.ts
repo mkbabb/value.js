@@ -26,7 +26,7 @@
 
 import { describe, expect, it } from "vitest";
 
-import { convertColor, oklch, serializeCssColor, type AnyColor, type Color } from "@mkbabb/value.js/color";
+import { contrastRatio, convertColor, oklch, serializeCssColor, toRgba8, type AnyColor, type Color } from "@mkbabb/value.js/color";
 import { parseCssColor } from "@mkbabb/value.js/css";
 import {
     GRAPHICS_CONTRAST_FLOOR,
@@ -104,6 +104,29 @@ function ratioAgainst(css: string, bgL: number): number {
         (Math.max(foregroundLuminance, surfaceLuminance) + 0.05) /
         (Math.min(foregroundLuminance, surfaceLuminance) + 0.05)
     );
+}
+
+/**
+ * The ratio as painted: both colours read through `toRgba8`'s bytes (o1105
+ * U1). The certifying walk stops once its answer's bytes are fixed, so two
+ * certified inks are compared on the bytes they paint, never on a float
+ * refined inside one painted colour.
+ */
+function paintedRatioAgainst(css: string, bgL: number): number {
+    const surface = oklch(bgL, 0, 0, 1);
+    if (!surface.ok) throw new Error(`Invalid test surface: ${surface.error.code}`);
+    const painted = (color: AnyColor): Color<"rgb"> => {
+        const bytes = toRgba8(color, { gamut: "clip" });
+        if (!bytes.ok) throw new Error(`Unpaintable test color: ${bytes.error.code}`);
+        const rgb = parseCssColor(`rgb(${bytes.value[0]} ${bytes.value[1]} ${bytes.value[2]})`);
+        if (!rgb.ok) throw new Error("Unparseable painted color");
+        const converted = convertColor(rgb.value, "rgb");
+        if (!converted.ok) throw new Error("Unconvertible painted color");
+        return converted.value;
+    };
+    const ratio = contrastRatio(painted(requiredOklch(css)), painted(surface.value));
+    if (!ratio.ok) throw new Error(`Painted ratio failed: ${ratio.error.code}`);
+    return ratio.value;
 }
 
 /** The probe picks: the audit's default pick + the C≈0 achromatic family. */
@@ -264,10 +287,10 @@ describe("P5-B1 RULED Pole B (COHESION §0ge.7) — the light ramp re-centres co
                 expect(delta, `stop ${i} hue ${hues[i]}`).toBeLessThan(0.5);
             });
             const poleA = PALETTES_RAMP_SHIFTS.map((shift) => poleAStop(shift, LIGHT_PLATE_L, floor));
-            const poleARatios = poleA.map((stop) => ratioAgainst(stop, LIGHT_PLATE_L));
+            const poleARatios = poleA.map((stop) => paintedRatioAgainst(stop, LIGHT_PLATE_L));
             for (const stop of ramp) {
-                const ratio = ratioAgainst(stop, LIGHT_PLATE_L);
-                expect(ratio, `${stop}`).toBeGreaterThanOrEqual(floor);
+                expect(ratioAgainst(stop, LIGHT_PLATE_L), `${stop}`).toBeGreaterThanOrEqual(floor);
+                const ratio = paintedRatioAgainst(stop, LIGHT_PLATE_L);
                 expect(ratio, `${stop} vs Pole A ${poleARatios.join("/")}`).toBeGreaterThanOrEqual(Math.min(...poleARatios) - 0.02);
                 expect(ratio, `${stop} vs Pole A ${poleARatios.join("/")}`).toBeLessThanOrEqual(Math.max(...poleARatios) + 0.02);
             }
@@ -297,8 +320,8 @@ describe("VJ-U-F26 (BR-2) — the rendered-tier accent re-guard: one surface ref
     // per scheme; the page ambient is its mean OKLab L. Inlined + cited (the
     // test gates the MECHANISM, not the exact literal — regenerate with it).
     // FIRST_VISIT_GROUND (boot/ground.ts) for reference (§0hk OD-12: one
-    // derive; §0hn arm B: dark held on the dark band): light #df77c2→#ffc3bd
-    // (mean OKLab L ≈ 0.79), dark #25001d→#90131b.
+    // derive, the seed-anchored band per scheme): light #df77c2→#ffc3bd
+    // (mean OKLab L ≈ 0.79), dark #760f60→#bc423f.
 
     /**
      * Reproduce the boot cascade for the default seed, both schemes:

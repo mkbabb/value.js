@@ -1,0 +1,36 @@
+{
+ "base": "https://keyframes.babb.dev/",
+ "engine": "webkit",
+ "input": "synthetic",
+ "at": "2026-11-06T10:23:06.877Z",
+ "out": [
+  {
+   "cell": "orbit-390x844",
+   "closedSquareMaxDm": 0,
+   "faceTrack40": 30.12981574773662,
+   "faceTrackDir": 30.089569091796875,
+   "faceTrackRate": 1.0119056770719166,
+   "pinchRatio": 1.995388856931213,
+   "pinchCentreShift": 5.353921010012305,
+   "pan100": 99.64000015410551,
+   "panScreenZ": -40.67785978764591,
+   "twistTransforms": [
+    "translate3d(7.707181px, 107.347181px, 0px) rotate3d(-0.067993, 0.931408, 0.357569, 30.514706deg) scale3d(1, 1, 1)",
+    "translate3d(7.707181px, 107.347181px, 0px) rotate3d(-0.583941, -0.074809, 0.808342, 93.933322deg) scale3d(1, 1, 1)"
+   ],
+   "twistDeg": 89.82221919318766,
+   "twistScale": 0.9999999107414959,
+   "gestureWhileDownWrites": false,
+   "touchmoveAloneWrites": false,
+   "transform": "translate3d(7.707181px, 107.347181px, 0px) rotate3d(-0.583941, -0.074809, 0.808342, 93.933322deg) scale3d(1, 1, 1)"
+  },
+  {
+   "cell": "orbit-1440x900",
+   "closedSquareMaxDm": 0,
+   "faceTrack40": 29.691291790939243,
+   "faceTrackDir": 29.539642333984375,
+   "faceTrackRate": 1.0030649304530208,
+   "transform": "translate3d(0px, 0px, 0px) rotate3d(-0.06702, 0.932971, 0.353657, 17.028544deg) scale3d(1, 1, 1)"
+  }
+ ]
+}
