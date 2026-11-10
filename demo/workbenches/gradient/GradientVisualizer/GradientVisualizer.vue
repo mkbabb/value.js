@@ -17,7 +17,6 @@ import { useClipboard } from "@mkbabb/glass-ui/dom";
 // the duplicated literal `aria-label` retires.
 import { LabeledField } from "@mkbabb/glass-ui/labeled-field";
 import { Label } from "@mkbabb/glass-ui/label";
-import { Separator } from "@mkbabb/glass-ui/separator";
 import { DockControl } from "@mkbabb/glass-ui/dock";
 import GradientStopRail from "./GradientStopRail.vue";
 import GradientStopInspector from "./GradientStopInspector.vue";
@@ -157,7 +156,6 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
         </section>
 
         <!-- ── Interpolation ── -->
-        <Separator decorative />
         <h3 class="font-display text-subheading">
             Interpolation
         </h3>
@@ -276,7 +274,6 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
         <!-- ── Easing (R.W4 Lane D — the glass-ui <EasingPicker> consume;
              the accordion itself is GradientEasingEditor, W5-9) ── -->
         <template v-if="stops.length >= 2">
-            <Separator decorative />
             <h3 class="font-display text-subheading">Easing</h3>
             <GradientEasingEditor
                 :stops="stops"
@@ -286,7 +283,6 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
         </template>
 
         <!-- ── CSS ── -->
-        <Separator decorative />
         <div class="flex items-center justify-between">
             <h3 class="font-display text-subheading">CSS</h3>
             <DockControl
