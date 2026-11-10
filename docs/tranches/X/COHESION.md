@@ -6319,3 +6319,20 @@ Id note: the order asked for "§0hw"; §0hw is the value realization track's, so
   - **Not done, waiting on the reboot:** the budget cure, round 2 of the probes, motion and transitions, the e2e smoke, then CI GREEN, merge, deploy-pages, prod read ×2 with frames, and the 4413 refresh.
   - The owner's "the name animation has not changed at all" is still true on prod for this reason: L5's work is on this branch, not yet on master.
   - Scratch: `~/.dev-logs/owner-1109/integrate/` (wt/, probes/, runs/, static/vitest/build logs).
+- **§0hz.canon.daraksha (2026-11-09)** — the restraint canon's daraksha units are built and pass their own gates on `o1109-canon` (PR mkbabb/daraksha#4: `6a5691f`, `49a7160`). **Not shipped.** CI's only consistent failure is the motion smoke test, which owner-1109-daraksha-motion owns (L3). Prod, master and the 4413 audit server stay at `b4deefe`.
+  - **Built.**
+    - D2: the surah button loses `aria-label="Surah"`, so its name is what it shows (الضحى 93).
+    - D3: the surah number uses a new `--gilt-text` token. On ivory it is the body gold at the deep stop's lightness, with the same hue and chroma. Contrast goes from 3.27:1 to at least 4.5:1, measured in pixels on the dock's glass. At night it stays the body gold, which already passed.
+    - D4: Focus, Verses and Page are now icons with names and tooltips. The text menu is one icon named Text at every width; it used to say More at 390.
+    - D5: the phrase tray drops the Latin verse number and keeps the Arabic mark. The tray already left its verse's line clear; a guard checks that.
+    - D6: `public/_headers` puts `no-transform` on the pages only. `/assets`, `/quran`, `/fonts`, `/theme.js` and `/favicon.svg` drop it with `!`. Pages applies `!` in file order, and only to earlier rules (checked with `wrangler pages dev`). check-live now fails if a built asset comes back uncompressed. Prod still serves `/assets/app-C9fpPf13.js` with no content-encoding until this ships.
+  - **Held.**
+    - D1 waits on glass ask G8. glass Command highlights the selected row on open without scrolling to it, because reka scrolls only after the first highlight. Its test is `test.fixme` and was RED ×2.
+    - D7 comes with value V2.
+  - **Gates.**
+    - `e2e/canon.spec.ts` and `test/headers.test.ts`: RED ×2 on `b4deefe` and GREEN ×2 on the branch (1440 and 390).
+    - Locally: typecheck, lint and build pass. The 1440/390 smoke passes 35, with motion failing 2.
+    - PR CI runs `42746991630` and `42747007195`: every gate is green except the motion "square" smoke at all four sizes, plus one colour flake on the second run. The same motion failure shows on o1109-dock, o1109-reader and o1109-transitions. It comes from the live keyframes slice, and L3 is rewriting that test.
+  - **To ship.** Merge #4 once master's motion smoke is green, then deploy-pages, prod ×2 (`npm run check:live` now includes the compression check), and refresh 4413.
+  - **Merge note for L2 (o1109-dock).** Both branches edit the Text trigger in `src/scripture/ReaderDock.vue`, so the second to land resolves it. Keep the icon trigger, `aria-label="Text"`, and the icon views.
+  - Receipts are in `~/.dev-logs/feedback-canon/daraksha-canon-receipts/`: red-e2e-{1,2}, green-e2e-{1,2}, green-unit-{1,2}, smoke-local, build and frames/.
