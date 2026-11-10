@@ -97,8 +97,17 @@ onUpdated(() => {
  * they were private to this wrapper while AboutPane re-hardcoded the same
  * values as arbitrary literals; one ladder, both consumers now).
  * ───────────────────────────────────────────────────────────────────── */
+/* O1109 · about-pane (owner 2026-11-09: the explanation pane "is too
+ * large") — THE GUIDE READS ONE RUNG TIGHTER. The body keeps its 1rem face
+ * and closes its leading from `leading-7` (1.75) to `leading-relaxed`
+ * (1.625); the headings leave the stock 4xl-to-base steps (h2 at 30 px stood
+ * level with the pane's own "Detailed Guide" title) for glass's type ladder,
+ * one rung down: h1 title, h2 heading, h3 subheading, h4 and h5 body, h6
+ * small. The rungs are read as SIZES (`--type-*`), never as the `text-*`
+ * utilities, which also set the text family and would undo the headings'
+ * display voice (`font-display`, the three-voice law). */
 .markdown-body {
-    @apply text-base leading-7;
+    @apply text-base leading-relaxed;
     @apply p-0 m-0;
     @apply max-w-full;
 }
@@ -121,6 +130,7 @@ onUpdated(() => {
     > h5,
     > h6 {
         @apply font-display font-bold scroll-m-20;
+        line-height: var(--type-leading-heading);
         margin-top: var(--phi-4);
         margin-bottom: var(--phi-2);
         font-optical-sizing: auto;
@@ -157,30 +167,36 @@ onUpdated(() => {
     }
 
     > h1 {
-        @apply text-4xl font-extrabold;
+        @apply font-extrabold;
+        font-size: var(--type-title);
     }
 
     > h2 {
-        @apply text-3xl font-semibold;
+        @apply font-semibold;
+        font-size: var(--type-heading);
         color: var(--md-color-h2);
     }
 
     > h3 {
-        @apply text-2xl font-semibold;
+        @apply font-semibold;
+        font-size: var(--type-subheading);
         color: var(--md-color-h3);
     }
 
     > h4 {
-        @apply text-xl font-semibold;
+        @apply font-semibold;
+        font-size: var(--type-body);
         color: var(--md-color-h3);
     }
 
     > h5 {
-        @apply text-lg font-semibold;
+        @apply font-semibold;
+        font-size: var(--type-body);
     }
 
     > h6 {
-        @apply text-base font-semibold;
+        @apply font-semibold;
+        font-size: var(--type-small);
     }
 
     /* Color space name highlights */
@@ -192,7 +208,7 @@ onUpdated(() => {
 
     /* Direct child paragraphs */
     > p {
-        @apply leading-7;
+        @apply leading-relaxed;
         margin-bottom: var(--phi-2);
     }
 }
