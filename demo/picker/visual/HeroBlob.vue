@@ -41,7 +41,7 @@ import {
     useTemplateRef,
     watch,
 } from "vue";
-import { useRoute } from "vue-router";
+import { routeLocationKey } from "vue-router";
 import { Blob, BLOB_CONFIG_KEY } from "@mkbabb/glass-ui/blob";
 import type { BlobConfig } from "@mkbabb/glass-ui/blob";
 import { BLOB_CONFIG_DEFAULTS } from "@mkbabb/glass-ui/blob-config";
@@ -77,7 +77,10 @@ const blobRef = useTemplateRef<InstanceType<typeof Blob>>("blobRef");
 // tier stays an ornament off /blob, because a hover wakes the producer loop
 // and would undo the park that tier exists for (see SOFTWARE_RASTER_KEY
 // below). /blob, the stage that shows the blob, presses on every tier (V-2a).
-const route = useRoute();
+// The route is read where a router exists: the embed's picker slice seats
+// this hero with no router (EmbedPicker.vue), so `useRoute()` there is
+// undefined and its render threw; the slice is never /blob.
+const route = inject(routeLocationKey, null);
 
 // --- W6-4: the HERO config register (the consumer contract, genesis §3.0) ---
 // The app-wide 8-atom config (provided by useAtmosphere via BLOB_CONFIG_KEY)
@@ -365,7 +368,7 @@ function onEmergeEnd(e: AnimationEvent) {
 const softwareRaster = inject(SOFTWARE_RASTER_KEY)!;
 let softwareParked = false;
 const pressLabel = computed(() =>
-    softwareRaster && route.name !== "blob" ? "" : "Pulse blob",
+    softwareRaster && route?.name !== "blob" ? "" : "Pulse blob",
 );
 /** A press is the producer's pulse + excited beat; the consumer adds the scatter (the satellites' nudge). */
 function scatter() {
