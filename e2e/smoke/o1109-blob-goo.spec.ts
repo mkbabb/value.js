@@ -162,7 +162,9 @@ async function bootPlated(page: Page) {
     await page.goto("/");
     await expect(mainPane(page)).toBeVisible();
     const canvas = page.locator(CANVAS).last();
-    await expect(canvas).toBeAttached({ timeout: 15_000 });
+    // The hero mounts behind the first post-paint idle tick (useIdleReady); on
+    // a loaded host's software raster that tick can be late.
+    await expect(canvas).toBeAttached({ timeout: 45_000 });
     await expect
         .poll(async () => (await canvas.boundingBox())?.width ?? 0, { timeout: 8_000 })
         .toBeGreaterThan(80);
