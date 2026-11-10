@@ -6046,3 +6046,21 @@ Id note: the order asked for "§0hw"; §0hw is the value realization track's, so
   - V-G1, V-D10, V-G2 and V-G3 are BLOCKED until npm glass-ui moves past 10.1.x.
   - V-D4's library `contrastInk` reaches npm with X·P PW10z's 4.3.0 cut.
   - These are unchanged by this seat.
+- **§0hz.glass11.color.r** — 2026-11-10. The owner ruled: *"And further, ratify the above. The questions. Deploy all."* The color seat resumed `ci/x-glass11-value` (glass 11.0.0 and reka 2.10.1). **NOT SHIPPED: a user-visible glass 11.0.0 defect blocks the deploy.**
+  - **Ruling 2 (goldens), applied.** The seat reviewed each of the 23 changed goldens one by one, comparing expected and actual crops (`~/.dev-logs/ratified/color/review/`).
+    - **21 approved** (`77533fd43`). The CHANGELOG line *"`--radius-pill` is `1rem` … a taller one shows 16 px corners"* explains every one:
+      - forced-colors-desktop: 15 routes;
+      - keyboard-focus-desktop: generate, atmosphere and admin-names;
+      - at-rest gradient dark: 390, 1024 and 3440.
+    - They were regenerated with `regenerate-goldens.mjs --accept`. The new goldens are pixel-identical to the reviewed captures (0 px > 8).
+    - **2 held** (overlay dock view-select open, 1024, light and dark). After a pointer open the focus ring moves from the trigger onto the selected row: `:focus-visible` is true, with a 2 px outline. No CHANGELOG line explains it, and it was relayed to glass.
+  - **The red glass smoke, identified exactly.** The test is `ss8-b19-color-chips:174` D-11, red in light and in dark.
+    - The cause is not in the test: `SelectContent` clips its own rows.
+    - The plate takes `max-inline-size: min(22rem, 100vw - 2rem)` (`overlay-plate.css`, glass `16274926d`, U/B7 G1-6). The viewport keeps `min-w-(--reka-select-trigger-width)` (`SelectContent.vue:152`).
+    - Measured on Generate's Preset at 1440: the plate is 352 px and the viewport 386 px. Each row's right ~27 px is cut off, so the highlight pill loses its right corners and inset. The cut strip hits `<html>`, so a hover on a row's end never reaches it, and the highlight stays on Vibrant.
+    - The test was green on 10.1.3. No CHANGELOG line states the 22rem clamp, so this is not a contract change. It is a real product defect that users can see on any select whose trigger is wider than 22rem.
+    - The seat sent no shim and did not update the test. It asked glass (`glass-ui-2c`; `glass-ui-5c` is not live) whether 11.0.1 cures it.
+  - **origin/master merged ordinarily** into the branch (`d7fbb5177`, clean). CI, the §0ga merge, deploy-pages, prod ×2 and the 4410 audit refresh are **HELD** until glass names the curing release and the branch re-pins to it.
+  - **Ruling 3 (test palettes), half done.**
+    - **Backup written.** `~/.dev-logs/ratified/palettes-backup.json` (mode 600) holds the 5 documents with their ETags and list rows: `hey-7600d315`, `hey-v2-cd3e1e3b`, `hey-v2-cd3e1e3b-remix-fecce815`, `hey-v2-cd3e1e3b-remix-2a95820d` and `audit-test-palette-51f63f52`.
+    - **BLOCKED: delete.** The owner's keychain holds no color admin token; the only admin token there is `fourier-prod-admin-token`. Per §0hl, color's token lives only in the host secret store behind the VPN. The seat did not reuse fourier's token and did not use mongosh. Browse still lists the 5 palettes. The delete needs the owner to put color's admin token in the keychain, or to rule that the seat may read it from the host.
