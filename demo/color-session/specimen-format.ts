@@ -136,6 +136,21 @@ function clipToDomain(color: PickerColor): PickerColor {
     }, color);
 }
 
+/** The spaces that re-parameterise sRGB: their gamut is sRGB's, so they clip there. */
+const SRGB_CYLINDERS: ReadonlySet<PickerColor["space"]> = new Set(["hsl", "hsv", "hwb"]);
+
+/**
+ * The colour as `space` can hold it. An RGB encoding clips its own channels;
+ * hsl/hsv/hwb clip in sRGB and convert back, as the hex row does, so an
+ * out-of-range saturation never collapses the colour to white.
+ */
+function holdInGamut(color: PickerColor, space: PickerColor["space"]): PickerColor {
+    if (SRGB_CYLINDERS.has(space)) {
+        return convertPickerColor(clipToDomain(convertPickerColor(color, "rgb")), space);
+    }
+    return clipToDomain(convertPickerColor(color, space));
+}
+
 /** Round every channel and the alpha through the one digit policy. */
 function budgetDigits(color: PickerColor): PickerColor {
     const metas = PICKER_CHANNELS[color.space];
@@ -164,7 +179,7 @@ export function formatSpecimen(color: PickerColor, space: DisplayColorSpace): Sp
 
     const resolved = resolveColorSpace(space);
     const converted = convertPickerColor(color, resolved);
-    const budgeted = budgetDigits(outOfGamut ? clipToDomain(converted) : converted);
+    const budgeted = budgetDigits(outOfGamut ? holdInGamut(color, resolved) : converted);
     const alpha = budgeted.alpha === 1
         ? ""
         : ` / ${budgeted.alpha === "none" ? "none" : `${roundTo(budgeted.alpha * 100, ALPHA_COMPACT_DECIMALS)}%`}`;

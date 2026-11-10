@@ -10,7 +10,7 @@
  * digit policy, and carries the out-of-gamut mark.
  */
 import { describe, expect, it } from "vitest";
-import { lab } from "@mkbabb/value.js/color";
+import { convertColor, lab } from "@mkbabb/value.js/color";
 import { parseCssColor } from "@mkbabb/value.js/css";
 import {
     SPECIMEN_CHAR_BUDGET,
@@ -59,6 +59,22 @@ describe("the specimen line, every space, the out-of-gamut seed", () => {
             }
         });
     }
+
+    it("hsl and hwb hold the same colour the rgb row holds (clipped in sRGB, never per channel)", () => {
+        const rgbRow = parseCssColor(formatSpecimen(seed, "rgb").text);
+        if (!rgbRow.ok) throw new Error("rgb row unparseable");
+        for (const space of ["hsl", "hwb"] as const) {
+            const row = parseCssColor(formatSpecimen(seed, space).text);
+            if (!row.ok) throw new Error(`${space} row unparseable`);
+            const back = convertColor(row.value, "rgb");
+            if (!back.ok) throw new Error(`${space} row unconvertible`);
+            back.value.channels.forEach((channel, index) => {
+                const target = rgbRow.value.channels[index];
+                if (typeof channel !== "number" || typeof target !== "number") return;
+                expect(Math.abs(channel - target), `${space} channel ${index}`).toBeLessThanOrEqual(3);
+            });
+        }
+    });
 
     it("an in-range hsl row stays CSS, unmarked", () => {
         const inRange = lab(50, 10, 10, 1);
