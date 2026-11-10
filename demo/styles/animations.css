@@ -220,39 +220,63 @@
  * ----------------------------------------------------------------------- */
 
 /* -----------------------------------------------------------------------
- * Pane swap — THE STACKED DECK (owner order 2026-11-05: "should not fade
- * in and out unless necessary and stacked with a card swapping animation
- * for the value views"; demo/DESIGN.md §5.7, the transition grammar).
+ * Pane swap — THE SHUFFLED DECK (owner orders 2026-11-05: "stacked with a
+ * card swapping animation for the value views"; 2026-11-09: "not quite page
+ * like and card like (shuffling cards almost) like they were before";
+ * demo/DESIGN.md §5.7, the transition grammar).
  *
  * The PaneSlot <Transition> runs the DEFAULT mode: the leaving card and the
  * rising card are co-mounted for one gesture. The leaver is taken OUT OF
  * FLOW, so the region is sized by the riser alone from the commit frame
- * (never 0, never the sum of two panes — fold W5F-04's co-mount geometry,
- * cured in CSS rather than by serialising the swap). The wrapper already
- * holds `contain: layout` (shell.css), so it is the leaver's containing
- * block and the leaver's travel stays ink overflow.
+ * (never 0, never the sum of two panes — fold W5F-04's co-mount geometry).
+ * The wrapper holds `contain: layout` (shell.css), so it is the leaver's
+ * containing block and the whole travel stays ink overflow: the document
+ * never scrolls sideways while a card is off its region.
  *
- *   forward — the leaver sits on top (z 2) and is discarded on its role's
- *             side (the OD19-V7 1.5rem travel) on `--ease-in` at
- *             `--spring-world-exit-duration`; the riser comes up from
- *             underneath, `scale(0.97) translateY(0.5rem)` → rest, on
- *             `--spring-panel`.
- *   back    — the deck reverses: the riser comes back on top from the
- *             mirrored side on `--spring-panel`, and the leaver sinks
- *             underneath (z −1, the riser's pose) on `--spring-panel`.
+ * The character restored is the R.W3/R.W4 cross-slide the owner liked (an
+ * off-canvas ±110% travel with a ±2deg cartoon turn, simultaneous, opacity
+ * held — quoted in DESIGN.md §5.7), on today's deck: it was cut to a 1.5rem
+ * drift at OD19-V7 only because `out-in` serialised it into a full-viewport
+ * exit THEN a re-entry. Co-mounted, the fling and the rise are one gesture.
  *
- * Depth is carried by scale and by being underneath: no rotation, no
- * filter (a filter would make the card a backdrop root and break the glass
- * plate). Opacity is held at 1 and cut only over the last 10 % of the leave
- * (glass's `opacityCutAt` 0.9). Under reduced motion the swap is a 120 ms
- * cut (`--duration-control`): glass's guard zeroes every duration, the
- * delay survives it, so the leaver holds for 120 ms and is gone.
- * Direct-child (`>`) on purpose: an in-pane `vj-enter` keeps the base
- * family above. The retired opacity-led out-in rules are quoted in
- * DESIGN.md §5.7.
+ * Each role names its discard side once (`--deck-x/-y`, `--deck-turn`):
+ *   forward — the top card is flung off its role's side, 110 % of its own
+ *             size with a 3deg turn, on `--ease-in` at
+ *             `--spring-world-exit-duration`; the next card comes up from
+ *             under the deck, askew the other way (`translateY(0.75rem)
+ *             rotate(∓1deg) scale(0.95)`), and squares up on `--spring-panel`.
+ *   back    — the exact reverse: the card is dealt back on top FROM the side
+ *             it was discarded to, turning square on `--spring-panel`, and
+ *             the leaver sinks under the deck (z −1) into the askew pose.
+ *
+ * Opacity: the flung card is never faded — 110 % of its own size takes it
+ * off its region, and an opacity leg (even one held at 1 in its delay) makes
+ * the card a backdrop root, so its T-45 carrier would frost nothing and the
+ * riser would read through its plate. The sinking card keeps the cut over
+ * its last 10 %, under the riser. There is no filter, for the same reason
+ * (a filter makes the card a backdrop root and breaks the glass plate). Under
+ * reduced motion the swap is a 120 ms cut (`--duration-control`): glass's
+ * guard zeroes every duration, the delay survives it, so the leaver holds
+ * for 120 ms and is gone. Direct-child (`>`) on purpose: an in-pane
+ * `vj-enter` keeps the base family above.
  * ----------------------------------------------------------------------- */
 .pane-wrapper {
     position: relative;
+}
+.pane-wrapper--stage {
+    --deck-x: -1;
+    --deck-y: 0;
+    --deck-turn: -1;
+}
+.pane-wrapper--inspector {
+    --deck-x: 1;
+    --deck-y: 0;
+    --deck-turn: 1;
+}
+.pane-wrapper--action {
+    --deck-x: 0;
+    --deck-y: 1;
+    --deck-turn: 1;
 }
 .pane-wrapper > .vj-enter-leave-active {
     position: absolute;
@@ -279,43 +303,41 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-    /* forward: the riser comes up from underneath */
+    /* the two poses of the deck: off the role's side, and under the deck */
+    .pane-wrapper > * {
+        --deck-flung: translate(calc(var(--deck-x) * 110%), calc(var(--deck-y) * 110%))
+            rotate(calc(var(--deck-turn) * 3deg));
+        --deck-under: translateY(0.75rem) rotate(calc(var(--deck-turn) * -1deg)) scale(0.95);
+    }
+
+    /* forward: the next card comes up from under the deck… */
     .pane-wrapper > .vj-enter-enter-from {
-        transform: translateY(0.5rem) scale(0.97);
+        transform: var(--deck-under);
     }
     .pane-wrapper > .vj-enter-enter-active {
         transition: transform var(--spring-panel-duration) var(--spring-panel);
     }
-    /* forward: the leaver is discarded on its role's side */
+    /* …as the top card is flung off its role's side. Travel alone carries
+     * it out: no opacity leg, because a running opacity transition makes the
+     * card a backdrop root, and its carrier then frosts nothing — the riser
+     * read through the flung card's plate (measured, o1109 probe-material). */
+    .pane-wrapper > .vj-enter-leave-to {
+        opacity: 1;
+        transform: var(--deck-flung);
+    }
     .pane-wrapper > .vj-enter-leave-active {
-        transition:
-            transform var(--spring-world-exit-duration) var(--ease-in),
-            opacity calc(var(--spring-world-exit-duration) * 0.1) linear
-                calc(var(--spring-world-exit-duration) * 0.9);
-    }
-    .pane-wrapper--stage > .vj-enter-leave-to {
-        transform: translateX(-1.5rem);
-    }
-    .pane-wrapper--inspector > .vj-enter-leave-to {
-        transform: translateX(1.5rem);
-    }
-    .pane-wrapper--action > .vj-enter-leave-to {
-        transform: translateY(1.5rem);
+        transition: transform var(--spring-world-exit-duration) var(--ease-in);
     }
 
-    /* back: the riser returns on top from the mirrored side… */
-    .pane-wrapper--stage > [data-scene-direction="back"].vj-enter-enter-from {
-        transform: translateX(1.5rem);
+    /* back: the card is dealt back on top from where it was flung… */
+    .pane-wrapper > [data-scene-direction="back"].vj-enter-enter-from {
+        transform: var(--deck-flung);
     }
-    .pane-wrapper--inspector > [data-scene-direction="back"].vj-enter-enter-from {
-        transform: translateX(-1.5rem);
-    }
-    .pane-wrapper--action > [data-scene-direction="back"].vj-enter-enter-from {
-        transform: translateY(-1.5rem);
-    }
-    /* …and the leaver sinks underneath into the riser's pose */
+    /* …and the leaver sinks under the deck, its last 10 % cut beneath the
+     * riser (under the deck, its own material is not what is seen) */
     .pane-wrapper > [data-scene-direction="back"].vj-enter-leave-to {
-        transform: translateY(0.5rem) scale(0.97);
+        opacity: 0;
+        transform: var(--deck-under);
     }
     .pane-wrapper > [data-scene-direction="back"].vj-enter-leave-active {
         transition:
