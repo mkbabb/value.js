@@ -15,8 +15,8 @@
  *   those files).
  * - Both live signals are already ON THE ROUTE: `to.name` is the `ViewId` (→ the
  *   pane voice via `VIEW_MAP`), and `to.query.color` is the resolved colour
- *   voice (a named colour like `tomato`, or a hex / CSS string) — the exact
- *   string the app uses as the colour's shareable identity everywhere.
+ *   voice (a named colour like `tomato`, or a hex / CSS string), shown in the
+ *   caption register (`formatCssCaption`) like every colour read as text.
  *
  * WHY it does not thrash (the census "debounce if the colour changes per-frame"
  * clause): the colour reaches the title ONLY through the URL, and the model→URL
@@ -30,6 +30,7 @@
 
 import type { Router, RouteLocationNormalized } from "vue-router";
 import { VIEW_MAP, isViewId } from "../../shell/viewSchema";
+import { formatCssCaption } from "../../color-session/format-color";
 
 /** The app identity — kept in sync with the static `<title>` fallback. */
 const APP_TITLE = "Color Picker";
@@ -43,8 +44,12 @@ const APP_TITLE = "Color Picker";
 export function composeTitle(name: unknown, color: unknown): string {
     // UIA-V-659: the dead end carries no colour voice — whether the missed
     // address happened to hold a `color` query is not the page's subject.
+    // O-1109: the address spells the colour at round-trip precision (twelve
+    // decimals); the title is a caption, read through the caption register.
     const colorVoice =
-        name !== "not-found" && typeof color === "string" && color.trim() ? color.trim() : null;
+        name !== "not-found" && typeof color === "string" && color.trim()
+            ? formatCssCaption(color.trim())
+            : null;
 
     // The pane voice — omitted on the picker (home) view (redundant with the
     // app name below). Any unknown route name contributes no pane segment.

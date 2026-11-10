@@ -297,7 +297,8 @@ const onSubmitColor = () => {
 };
 
 const copyAndSetInputColor = () => {
-    const color = formattedCurrentColor.value;
+    // O-1109: the field and the clipboard take the caption the field shows.
+    const color = formatCssCaption(formattedCurrentColor.value);
     updateModel({ inputColor: color });
     void writeClipboard(color);
 };
