@@ -1,6 +1,7 @@
 // SERVED MODEL: claude-opus-5-5
 import { test, expect, type Page } from "@playwright/test";
 import { mkdirSync } from "node:fs";
+import { regionSettled } from "./fixtures/settle";
 
 /**
  * Owner order 2026-11-09 17:18 — "named colors should NOT modify the height
@@ -168,6 +169,11 @@ for (const scheme of ["light", "dark"] as const) {
                             }, css);
                         }
                         await waitForName(page, name);
+                        // Each pane at rest first (the boot's plate-land and
+                        // the region's own travel are arrivals, not the name).
+                        for (const pane of ["Picker", "About"]) {
+                            await regionSettled(page.getByRole("region", { name: pane, exact: true }));
+                        }
                         const r = await readSettled(page);
                         console.log(
                             `[o1109-name] ${scheme} ${cell.name} step${i} ${css} name=${name} doc=${r.doc} header=${r.header.toFixed(1)} ` +
