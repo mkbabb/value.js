@@ -213,12 +213,14 @@ export function formatColor(
  * `caption` register — what every title, tooltip and aria-label reads.
  *
  * A hex literal keeps its hex spelling (it carries no excess digit; the
- * specimen policy's `hex` row spells it). The parse is read as a Result, never
+ * specimen policy's `hex` row spells it), and a named colour keeps its name
+ * (`tomato` reads as itself, never as the channels it stands for). The parse is read as a Result, never
  * thrown: a string the parser rejects is not a colour this facility can
  * budget, so its caption is its own text — the facility is total by
  * declaration, and validation is the parser's (X-W9), not the caption's.
  */
 export function formatCssCaption(css: string): string {
+    if (/^[a-z]+$/i.test(css.trim())) return css.trim();
     const parsed = parseCssColor(css);
     if (!parsed.ok) return css;
     const space: DisplayColorSpace = css.trim().startsWith("#") ? "hex" : parsed.value.space;
