@@ -142,10 +142,13 @@
     max-width: none;
 }
 
-/* The producer's focus ring, restated unlayered (the unlayered `none` above
- * would otherwise silently beat the layered `.input-bar:focus-within` ring). */
-.search-seated:focus-within {
-    box-shadow: var(--focus-ring-shadow);
+/* Keyboard focus wears the house ring, glass's `.focus-ring` outline (the
+ * foreground at the perimeter ink): a 30%-alpha glow read under 3:1 on the
+ * well (restraint check C-39). Pointer focus shows nothing extra. */
+.search-seated:has(:focus-visible) {
+    outline: var(--focus-ring-width) solid
+        color-mix(in oklab, var(--foreground) calc(var(--ink-perimeter) * 100%), transparent);
+    outline-offset: 2px;
 }
 
 /* Voice = CONTENT-CLASS (T-12): a prose search field speaks its plate's text
