@@ -6319,6 +6319,18 @@ Id note: the order asked for "§0hw"; §0hw is the value realization track's, so
   - **Not done, waiting on the reboot:** the budget cure, round 2 of the probes, motion and transitions, the e2e smoke, then CI GREEN, merge, deploy-pages, prod read ×2 with frames, and the 4413 refresh.
   - The owner's "the name animation has not changed at all" is still true on prod for this reason: L5's work is on this branch, not yet on master.
   - Scratch: `~/.dev-logs/owner-1109/integrate/` (wt/, probes/, runs/, static/vitest/build logs).
+  - **Re-check, 2026-11-09 22:2x: still NOT shipped. Both holds stand.**
+    - **Guard:** heavy and browser runs are still REFUSED, with the kernel zone `data.kalloc.1024` at 8.10M and rising about 230 a second. Light runs are admitted. No build, falsifier, prod read or iOS Simulator witness was run. PR #5 stays open at `17d0104`, and master, prod and 4413 stay at `b4deefe`.
+    - **Budget cause, measured** (esbuild, minified, gzip -9, against glass 11.0.0 in the merged tree): the app chunk grew from 100.0 to 110.2 KB gz.
+      - glass `DockLayerGroup` +5.8 KB over `GlassDock`+`DockControl` (16.3 → 22.1). It always calls `useSelectionGroup` (2.1), `useDragMorph` (3.3), `useDockCtaReceive` (1.4) and `useIntersectionPause` (0.9), even with `:show-switcher="false"`.
+      - lucide `createLucideIcon` and the 5 page icons, now in the shell: about 2 KB.
+      - `routeTransition`: about 0.7.
+      - The 114-name surah index, which the shell holds only for the reader's tab title: 2.9.
+      - The cure is upstream: a switcher-less layer group should cost only its crossfade. Asked of glass-ui-5c on 11-09 (DockLayerGroup switcher split, version to be named; daraksha pins it exactly, with no local shim). With it, NamePage comes to about 119.7 and ScripturePage to about 117.2.
+      - Moving the surah title into the reader would take about 2.9 more off the Name, Colour and Motion routes. That margin is wanted.
+      - Raising `ROUTE_KB` is not done: that would be a workaround.
+    - **Held on glass:** the switcher split, O-193 ellipse (11.0.1), O-194 collapsed persistent seat (11.1.0), O-195 fuse/fission (spec pending), O-196 scrubber grab, the reduced-motion snap, and the trailing gap.
+    - **Next:** reboot; then glass's split, the budget re-read, lane round 2 with motion and transitions, the e2e smoke, PR #5 CI GREEN, merge, deploy-pages, prod ×2 with a real-touch iOS Simulator run, and the 4413/4411 refresh.
 - **§0hz.canon.daraksha (2026-11-09)** — the restraint canon's daraksha units are built and pass their own gates on `o1109-canon` (PR mkbabb/daraksha#4: `6a5691f`, `49a7160`). **Not shipped.** CI's only consistent failure is the motion smoke test, which owner-1109-daraksha-motion owns (L3). Prod, master and the 4413 audit server stay at `b4deefe`.
   - **Built.**
     - D2: the surah button loses `aria-label="Surah"`, so its name is what it shows (الضحى 93).
