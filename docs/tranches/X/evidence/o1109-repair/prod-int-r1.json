@@ -1,0 +1,242 @@
+[
+ {
+  "w": 360,
+  "scheme": "light",
+  "heights": [
+   [
+    1237,
+    128
+   ],
+   [
+    1237,
+    128
+   ],
+   [
+    1237,
+    128
+   ]
+  ],
+  "ink": "oklch(0% 0 56.035563601331deg)",
+  "swapCaught": true,
+  "bandHits": {
+   "hits": 0,
+   "at": null
+  }
+ },
+ {
+  "w": 360,
+  "scheme": "dark",
+  "heights": [
+   [
+    1237,
+    128
+   ],
+   [
+    1237,
+    128
+   ],
+   [
+    1237,
+    128
+   ]
+  ],
+  "ink": "oklch(100% 0 67.748284889725deg)",
+  "swapCaught": true,
+  "bandHits": {
+   "hits": 0,
+   "at": null
+  }
+ },
+ {
+  "w": 390,
+  "scheme": "light",
+  "heights": [
+   [
+    1281,
+    128
+   ],
+   [
+    1281,
+    128
+   ],
+   [
+    1281,
+    128
+   ]
+  ],
+  "ink": "oklch(0% 0 56.035563601331deg)",
+  "swapCaught": true,
+  "bandHits": {
+   "hits": 0,
+   "at": null
+  }
+ },
+ {
+  "w": 390,
+  "scheme": "dark",
+  "heights": [
+   [
+    1281,
+    128
+   ],
+   [
+    1281,
+    128
+   ],
+   [
+    1281,
+    128
+   ]
+  ],
+  "ink": "oklch(100% 0 67.748284889725deg)",
+  "swapCaught": true,
+  "bandHits": {
+   "hits": 0,
+   "at": null
+  }
+ },
+ {
+  "w": 430,
+  "scheme": "light",
+  "heights": [
+   [
+    1369,
+    112
+   ],
+   [
+    1369,
+    112
+   ],
+   [
+    1369,
+    112
+   ]
+  ],
+  "ink": "oklch(0% 0 56.035563601331deg)",
+  "swapCaught": true,
+  "bandHits": {
+   "hits": 0,
+   "at": null
+  }
+ },
+ {
+  "w": 430,
+  "scheme": "dark",
+  "heights": [
+   [
+    1369,
+    112
+   ],
+   [
+    1369,
+    112
+   ],
+   [
+    1369,
+    112
+   ]
+  ],
+  "ink": "oklch(100% 0 67.748284889725deg)",
+  "swapCaught": true,
+  "bandHits": {
+   "hits": 0,
+   "at": null
+  }
+ },
+ {
+  "w": 820,
+  "scheme": "light",
+  "heights": [
+   [
+    1755,
+    79
+   ],
+   [
+    1755,
+    79
+   ],
+   [
+    1755,
+    79
+   ]
+  ],
+  "ink": "oklch(0% 0 56.035563601331deg)",
+  "swapCaught": true,
+  "bandHits": {
+   "hits": 0,
+   "at": null
+  }
+ },
+ {
+  "w": 820,
+  "scheme": "dark",
+  "heights": [
+   [
+    1755,
+    79
+   ],
+   [
+    1755,
+    79
+   ],
+   [
+    1755,
+    79
+   ]
+  ],
+  "ink": "oklch(100% 0 67.748284889725deg)",
+  "swapCaught": true,
+  "bandHits": {
+   "hits": 0,
+   "at": null
+  }
+ },
+ {
+  "w": 1440,
+  "scheme": "light",
+  "heights": [
+   [
+    900,
+    91
+   ],
+   [
+    900,
+    91
+   ],
+   [
+    900,
+    91
+   ]
+  ],
+  "ink": "oklch(0% 0 56.035563601331deg)",
+  "swapCaught": true,
+  "bandHits": {
+   "hits": 0,
+   "at": null
+  }
+ },
+ {
+  "w": 1440,
+  "scheme": "dark",
+  "heights": [
+   [
+    900,
+    91
+   ],
+   [
+    900,
+    91
+   ],
+   [
+    900,
+    91
+   ]
+  ],
+  "ink": "oklch(100% 0 67.748284889725deg)",
+  "swapCaught": true,
+  "bandHits": {
+   "hits": 0,
+   "at": null
+  }
+ }
+]
