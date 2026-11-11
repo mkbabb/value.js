@@ -182,8 +182,24 @@ export function useViewAccents(options: UseViewAccentsOptions) {
         // per-frame mint), and at once on the first run, a view change or a
         // scheme flip, so a menu, title or dialog never opens stale.
         const settle = useSettle();
+        // o1111 dragperf: a settle that re-mints the same values writes
+        // nothing. The release can reach the mint twice (the release itself,
+        // then the trailing settle its own changes schedule); only a changed
+        // token restyles the document.
+        const written = new Map<string, string>();
+        const root = {
+            setProperty(token: string, value: string) {
+                if (written.get(token) === value) return;
+                written.set(token, value);
+                document.documentElement.style.setProperty(token, value);
+            },
+            removeProperty(token: string) {
+                if (!written.has(token)) return;
+                written.delete(token);
+                document.documentElement.style.removeProperty(token);
+            },
+        };
         const mintOffScreen = () => {
-            const root = document.documentElement.style;
             const css = safeAccentCss.value;
             const surfL = surfaceL.value;
             const menuRamp = resolvePalettesRamp(css, surfL, RAMP_TEXT_CONTRAST_FLOOR);
