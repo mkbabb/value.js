@@ -3,10 +3,13 @@
 // stage height, a reorder) translates from where it was drawn to where it now
 // lies; a region that WIDENS (a dual → single hop) opens its plate from the old
 // edge to the new. Both run on the riser's own clock (`--spring-panel-duration`),
-// so the boxes and the card land together. The move lands on `--ease-out`, never
-// the panel spring: the spring overshoots by a share of the travel, and a
+// so the boxes and the card land together. The move rides `--ease-standard`,
+// never the panel spring: the spring overshoots by a share of the travel, and a
 // stacked reorder travels ~600 px, so its overshoot carried the region ~24 px
-// past its rest and into the dock band above (o1109c). The card's own rise
+// past its rest and into the dock band above (o1109c). Nor `--ease-out`: it
+// leaves rest at full speed, five times the mean, so a stacked reorder's
+// first frame moved the picker 45-100 px at once, the 390 "picker jump"
+// (o1110 D3). The standard curve starts from rest and lands without overshoot. The card's own rise
 // keeps the spring; its travel is 0.75rem, so its overshoot stays sub-pixel. First is read as DRAWN (a FLIP still in
 // flight is the start of the next), so A → B → C retargets from the live pose.
 // Only the wrapper is written, and every write is cleared when its transition
@@ -76,7 +79,7 @@ export async function flipRegions(container: HTMLElement | null, mutate: () => u
         if (Math.abs(dx) >= 1 || Math.abs(dy) >= 1) {
             w.style.translate = `${dx}px ${dy}px`;
             void w.offsetWidth;
-            w.style.transition = "translate var(--spring-panel-duration) var(--ease-out)";
+            w.style.transition = "translate var(--spring-panel-duration) var(--ease-standard)";
             w.style.translate = "";
             release(w, "translate", () => (w.style.transition = ""));
         } else w.style.transition = "";

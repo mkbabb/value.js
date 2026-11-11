@@ -372,16 +372,18 @@
                 calc(var(--spring-panel-duration) * 0.9);
     }
 
-    /* The swap's own compositor layer and containment, for the `*-active`
-     * window only (W3-4 S.W3; X.W5.d2 §0ax ESC-W5d2-2): the moving card is
-     * one promoted, `contain: layout paint` box, so its travel invalidates
-     * one bounded layer. `overflow-clip-margin` keeps the plate's 8px
-     * cartoon cast unclipped (10px = the cast plus 2px). */
+    /* The swap's own compositor layer, for the `*-active` window only (W3-4
+     * S.W3; X.W5.d2 §0ax ESC-W5d2-2): the moving card is one promoted
+     * `contain: layout` box, so its travel invalidates one layer.
+     * No PAINT containment (o1110 D3): a paint-contained card's T-45 carrier
+     * (its own `::before`, shell.css) frosts nothing, so the card under it in
+     * the deck read through its plate — both panes' text legible at once, on
+     * every co-mounted frame (leak.mjs: 12-30 against 0.6-1.4 for the
+     * uncontained picker over the same cards). */
     .pane-wrapper > .vj-enter-enter-active,
     .pane-wrapper > .vj-enter-leave-active {
         will-change: transform;
-        contain: layout paint;
-        overflow-clip-margin: 10px;
+        contain: layout;
     }
 
     /* G3 — the survivor's width (DESIGN.md §5.7). When a region widens (a

@@ -253,6 +253,7 @@ export function useAtmosphereBoot(
         atmosphereColor,
         derivedLightness,
         plateReferent,
+        colourLive,
     );
     const { isDark } = useGlobalDark();
     provide(SAFE_ACCENT_KEY, safeAccentCss);
