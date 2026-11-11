@@ -29,6 +29,7 @@
  */
 
 import type { Router, RouteLocationNormalized } from "vue-router";
+import { parseCssColor } from "@mkbabb/value.js/color";
 import { VIEW_MAP, isViewId } from "../../shell/viewSchema";
 import { formatCssCaption } from "../../color-session/format-color";
 
@@ -44,12 +45,12 @@ const APP_TITLE = "Color Picker";
 export function composeTitle(name: unknown, color: unknown): string {
     // UIA-V-659: the dead end carries no colour voice — whether the missed
     // address happened to hold a `color` query is not the page's subject.
-    // O-1109: the address spells the colour at round-trip precision (twelve
-    // decimals); the title is a caption, read through the caption register.
+    // O-1109: the title names the colour the page shows, at the one digit
+    // policy (formatCssCaption). An address the parser rejects (`banana`)
+    // names no colour, so the title is the app's alone.
+    const raw = typeof color === "string" ? color.trim() : "";
     const colorVoice =
-        name !== "not-found" && typeof color === "string" && color.trim()
-            ? formatCssCaption(color.trim())
-            : null;
+        name !== "not-found" && raw && parseCssColor(raw).ok ? formatCssCaption(raw) : null;
 
     // The pane voice — omitted on the picker (home) view (redundant with the
     // app name below). Any unknown route name contributes no pane segment.

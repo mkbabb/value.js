@@ -25,9 +25,8 @@ import { openView, mainPane } from "../fixtures/dock";
  * encoded, never silent). A `data-surface="veil"` card is a NESTED IN-PLATE
  * FIXTURE, not a pane plate: the rung-1 sweep exempts it and the veil row
  * asserts its OWN identity POSITIVELY instead (quiet tier · rim/border
- * STRIPPED · the quiet backdrop-blur that IS the veil's definition — the
- * producer recipe, so the RC-3 no-blur clause is the WELL's rung law, not
- * this fixture's · seated INSIDE a resting plate, never a pane root · off
+ * STRIPPED · no backdrop-blur since o1109 canon V12, never a blur inside the
+ * plate's blur · seated INSIDE a resting plate, never a pane root · off
  * the well token). The gate is re-aimed, never weakened.
  *
  * Membership is asserted by IDENTITY, never by a fixed alpha: Cards via the
@@ -123,8 +122,8 @@ async function censusView(page: import("@playwright/test").Page) {
         // Re-baselined X-W12U .q2 to glass 10.1.0 (X.W7L.m `c8a4959dd`;
         // X-W7L C-CARD-STAMP): glass 8.0.0 retired the `data-tier` stamp — the
         // rung is the `glass-<tier>` class — and struck the `grain` prop with
-        // its `data-grain` stamp; a card arms grain with glass's
-        // `paper-grain-overlay`, whose `::after` paints the paper relief.
+        // its `data-grain` stamp; glass's `paper-grain-overlay` would paint the
+        // paper relief on `::after`, and no card wears it now.
         const tierOf = (el: Element) =>
             /\bglass-(resting|quiet|floating|overlay)\b/.exec(el.className.toString())?.[1] ??
             "(none)";
@@ -257,7 +256,9 @@ for (const scheme of ["light", "dark"] as const) {
             const census = await censusView(page);
 
             // RUNG-1 MEMBERSHIP: every mounted pane/picker Card resolves to
-            // the picker's register — tier=resting, grain on, stamp present.
+            // the picker's register — tier=resting, stamp present, and NO
+            // paper grain (owner restraint 2026-11-09: "do not re-add paper
+            // grain").
             expect(
                 census.cards.length,
                 `${view}: census walked zero cards`,
@@ -267,8 +268,8 @@ for (const scheme of ["light", "dark"] as const) {
                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
                     .toBe("resting");
                 expect
-                    .soft(card.grain, `${view} (${scheme}): grain not on`)
-                    .toBe("true");
+                    .soft(card.grain, `${view} (${scheme}): paper grain painted`)
+                    .toBe("false");
                 expect
                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
                     .toBe(true);
@@ -279,8 +280,8 @@ for (const scheme of ["light", "dark"] as const) {
             // console is the ONE veil seat; the picker pane mounts on Home
             // by construction (presence asserted there), and WHEREVER a veil
             // card mounts it must wear the producer veil identity (quiet
-            // tier · rim/border stripped · the quiet blur that IS the veil's
-            // definition), sit INSIDE a rung-1 plate (an in-plate fixture,
+            // tier · rim/border stripped · no blur of its own since o1109
+            // canon V12), sit INSIDE a rung-1 plate (an in-plate fixture,
             // never a pane root), and be OFF the well token (the re-seat is
             // real, not a re-paint).
             if (view === "Home") {
@@ -293,12 +294,14 @@ for (const scheme of ["light", "dark"] as const) {
                 expect
                     .soft(veil.tier, `${view} (${scheme}): veil off the quiet rung`)
                     .toBe("quiet");
+                // o1109 canon V12 (restraint: never a blur inside a blur): the
+                // veil is its tint alone, so it carries no backdrop blur.
                 expect
                     .soft(
                         veil.backdrop,
-                        `${view} (${scheme}): the veil's quiet blur is dead (its own definition)`,
+                        `${view} (${scheme}): the veil blurs inside its plate`,
                     )
-                    .not.toBe("none");
+                    .toBe("none");
                 expect
                     .soft(
                         veil.shadow,

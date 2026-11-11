@@ -38,21 +38,17 @@ import "../../../styles/foundation.css";
 import "../../../styles/utils.css";
 // X.W11.p2 — the code-plate ink rides its consumer (foundation.css no longer imports it).
 import "../../../styles/hljs.css";
-import { computed, onMounted, onUpdated, ref, useTemplateRef } from "vue";
+import { computed, onMounted, ref } from "vue";
 import type { DocModule } from "./types";
 import { useMarkdownColors } from "./composables/useMarkdownColors";
-import { useMarkdownHighlighting } from "./composables/useMarkdownHighlighting";
 
-const { module, cssColor, colorSpaceName } = defineProps<{
+const { module, cssColor } = defineProps<{
     module: DocModule;
     cssColor?: string;
-    colorSpaceName?: string;
 }>();
 
-const markdownDiv = useTemplateRef<HTMLElement>("markdownDiv");
 
 const { mdColorVars } = useMarkdownColors(() => cssColor);
-const { applyHighlighting } = useMarkdownHighlighting(markdownDiv, () => colorSpaceName);
 
 const currentDoc = ref<Awaited<ReturnType<DocModule>> | null>(null);
 const isLoading = ref(true);
@@ -70,10 +66,6 @@ const markdownContent = computed(() => {
 
 onMounted(async () => {
     await loadDocs();
-});
-
-onUpdated(() => {
-    applyHighlighting();
 });
 </script>
 
@@ -129,8 +121,10 @@ onUpdated(() => {
     > h4,
     > h5,
     > h6 {
-        @apply font-display font-bold scroll-m-20;
+        @apply font-display scroll-m-20;
         line-height: var(--type-leading-heading);
+        /* Size carries the hierarchy; no heading is bold (restraint). */
+        font-weight: var(--type-weight-display);
         margin-top: var(--phi-4);
         margin-bottom: var(--phi-2);
         font-optical-sizing: auto;
@@ -167,43 +161,30 @@ onUpdated(() => {
     }
 
     > h1 {
-        @apply font-extrabold;
         font-size: var(--type-title);
     }
 
     > h2 {
-        @apply font-semibold;
         font-size: var(--type-heading);
         color: var(--md-color-h2);
     }
 
     > h3 {
-        @apply font-semibold;
         font-size: var(--type-subheading);
         color: var(--md-color-h3);
     }
 
     > h4 {
-        @apply font-semibold;
         font-size: var(--type-body);
         color: var(--md-color-h3);
     }
 
     > h5 {
-        @apply font-semibold;
         font-size: var(--type-body);
     }
 
     > h6 {
-        @apply font-semibold;
         font-size: var(--type-small);
-    }
-
-    /* Color space name highlights */
-    mark.cs-name {
-        background: transparent;
-        color: var(--md-color-accent);
-        font-weight: 600;
     }
 
     /* Direct child paragraphs */
@@ -297,7 +278,7 @@ onUpdated(() => {
     }
 
     th {
-        @apply bg-well font-bold text-left;
+        @apply bg-well text-left;
     }
 
     /* Images */
@@ -341,7 +322,6 @@ onUpdated(() => {
     }
 
     dt {
-        @apply font-bold;
         margin-bottom: var(--phi-0);
     }
 
@@ -407,7 +387,7 @@ onUpdated(() => {
     .toc {
         @apply bg-well rounded-2xl;
         @apply p-4 mb-4;
-        @apply font-bold text-foreground;
+        @apply text-foreground;
         @apply first:mt-0 scroll-m-20;
     }
 

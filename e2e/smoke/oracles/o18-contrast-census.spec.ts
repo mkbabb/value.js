@@ -70,6 +70,7 @@ import { mapColorToGamut, oklch } from "../../../dist/subpaths/color.js";
 // meta-audit. (U.W-ORACLE / U-F6-oracle-half.)
 const OWNER_COLOR = "lab(38% 32 24)";
 const OWNER_URL = "/#/?space=lab&color=" + encodeURIComponent(OWNER_COLOR);
+const FRACTIONAL_OWNER_URL = "/#/?space=lab&color=" + encodeURIComponent("lab(38.4% 32.6 24.2)");
 
 /** WCAG 2.x small-text floor (1.4.3) and graphics floor (1.4.11). */
 const TEXT_FLOOR = 4.5;
@@ -563,8 +564,8 @@ function walkedTargetOnGrid(
 }
 
 /** Boot to the owner color and wait for the ink writers (boot contract). */
-async function bootAtOwnerColor(page: Page) {
-    await page.goto(OWNER_URL);
+async function bootAtOwnerColor(page: Page, url: string = OWNER_URL) {
+    await page.goto(url);
     await expect(mainPane(page)).toBeVisible();
     for (const token of ["--accent-live", "--ink-muted", "--ink-ambient-l"]) {
         await expect
@@ -1045,7 +1046,10 @@ for (const scheme of ["light", "dark"] as const) {
         test("readout fracs/units/commas wear the certified de-emphasis rung ≥4.5:1", async ({
             page,
         }) => {
-            await bootAtOwnerColor(page);
+            // o1109 canon V2: the readout drops trailing zeros, so the owner's
+            // whole-number lab colour shows no fraction. Read the fracs at the
+            // same colour carrying one decimal per channel.
+            await bootAtOwnerColor(page, FRACTIONAL_OWNER_URL);
             for (const [sel, name] of [
                 [".fig-frac", "readout-frac"],
                 [".fig-unit", "readout-unit"],

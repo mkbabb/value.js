@@ -148,7 +148,6 @@ async function copyLiteral(index: number, css: string) {
                  attribute lands on the trigger's root <h3>, so a scoped
                  `.interval-head` rule never reached the button. -->
             <AccordionTrigger class="interval-head w-full flex items-center gap-2.5 py-2 px-(--easing-inset) text-left">
-                <span class="font-mono text-mono-small text-muted-foreground shrink-0">{{ row.label }}</span>
                 <!-- The specimen label (t-easing-pane §7): endpoint dots +
                      the interval-true micro glyph + the curve's name. -->
                 <span class="specimen-dots shrink-0" aria-hidden="true">
@@ -164,8 +163,8 @@ async function copyLiteral(index: number, css: string) {
                 </svg>
                 <!-- text-mono-SMALL: curve identifiers are case-sensitive;
                      text-mono-caption would uppercase them (P1-7). -->
-                <!-- X-DS pass 2 (V2C-07): the curve name is the live value, so it
-                     reads at foreground; only the "1 → 2" index stays muted. -->
+                <!-- The row is its two stop colours, its curve and its name; the
+                     "1 → 2" index said nothing the dots do not (restraint). -->
                 <span class="font-mono text-mono-small text-foreground truncate flex-1 min-w-0">{{ row.name }}</span>
             </AccordionTrigger>
             <AccordionContent class="easing-row-body flex flex-col gap-2.5">

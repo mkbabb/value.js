@@ -10,9 +10,9 @@ RGB emerged alongside color television in the mid-20th century, grounded in tric
 
 ## Key Characteristics
 
-1. **Additive model**: colors are produced by combining light at different intensities. R + G + B at full intensity yields white.
-2. **Device-dependent**: the same RGB triplet can look different on different displays without a shared profile (hence sRGB standardization).
-3. **Hardware-native**: values map directly to display hardware, making RGB the *lingua franca* of digital color.
+1. Additive model: colors are produced by combining light at different intensities. R + G + B at full intensity yields white.
+2. Device-dependent: the same RGB triplet can look different on different displays without a shared profile (hence sRGB standardization).
+3. Hardware-native: values map directly to display hardware, making RGB the *lingua franca* of digital color.
 
 ### Advantages
 
@@ -36,21 +36,21 @@ The sRGB gamut forms a cube from (0,0,0) black to (1,1,1) white. It covers a mod
 
 ### Components
 
-1. **`R` (Red)**:
+1. `R` (Red):
    0 (no red) to 1 (full red intensity)
 
-2. **`G` (Green)**:
+2. `G` (Green):
    0 (no green) to 1 (full green intensity)
 
-3. **`B` (Blue)**:
+3. `B` (Blue):
    0 (no blue) to 1 (full blue intensity)
 
 ### sRGB and Linear RGB
 
 Two variants matter in practice:
 
--   **sRGB**: the standard for consumer displays and web content, with a piecewise gamma curve (~2.2 effective gamma). All CSS `rgb()` values are sRGB.
--   **Linear RGB**: the same primaries without gamma correction. Used as an intermediate step in color math—blending, matrix transforms, and conversions to XYZ all operate in linear light.
+-   sRGB: the standard for consumer displays and web content, with a piecewise gamma curve (~2.2 effective gamma). All CSS `rgb()` values are sRGB.
+-   Linear RGB: the same primaries without gamma correction. Used as an intermediate step in color math—blending, matrix transforms, and conversions to XYZ all operate in linear light.
 
 The transfer function between them is a piecewise curve: linear below a threshold (~0.04045), power-law above.
 
@@ -78,8 +78,8 @@ Multiply by the inverse matrix, then apply gamma encoding:
 
 ## Applications
 
-1. **Display rendering**: the final output space for all screen-based content.
-2. **Web design**: CSS `rgb()`, hex codes, and named colors all resolve to sRGB.
-3. **Image formats**: JPEG, PNG, and WebP store pixel data in sRGB.
-4. **Compositing and blending**: typically done in linear RGB to avoid gamma-induced artifacts.
-5. **Color conversion hub**: sRGB ↔ XYZ is the foundational bridge to every other color space in value.js.
+1. Display rendering: the final output space for all screen-based content.
+2. Web design: CSS `rgb()`, hex codes, and named colors all resolve to sRGB.
+3. Image formats: JPEG, PNG, and WebP store pixel data in sRGB.
+4. Compositing and blending: typically done in linear RGB to avoid gamma-induced artifacts.
+5. Color conversion hub: sRGB ↔ XYZ is the foundational bridge to every other color space in value.js.

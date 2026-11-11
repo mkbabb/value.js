@@ -1,11 +1,13 @@
 /**
- * X-DS pass 8 · V8C-01 — the digit policy holds in the serialized domain.
+ * The specimen line (the space menu's per-row caption) — owner order
+ * 2026-11-09 ("too many digits of signif"; restraint: no number a reader
+ * cannot use).
  *
- * An sRGB colour outside rgb()'s 0..255 range serializes as `color(srgb …)` on
- * the 0..1 scale. The policy used to run on the 0..255 scale before that
- * division, so the picker's default Lab printed
- * `color(srgb 1.510980392157 0.562352941176 0.782745098039 / 82.7%)` — 66
- * characters into a 52-character box, cut before its alpha.
+ * The seed is the adjudicated out-of-gamut colour `lab(92% 88.8 20 / 82.7%)`:
+ * it leaves sRGB, so the rgb, hsl and hwb rows used to print `color(srgb …)`,
+ * `hsl · 340 · 103.2 · 71.88` and a negative blackness. Each now prints the
+ * colour as its space can hold it, in that space's own CSS, through the one
+ * digit policy, and carries the out-of-gamut mark.
  */
 import { describe, expect, it } from "vitest";
 import { convertColor, lab } from "@mkbabb/value.js/color";
@@ -14,71 +16,67 @@ import {
     SPECIMEN_CHAR_BUDGET,
     formatSpecimen,
 } from "../../color-session/specimen-format";
+import { PICKER_CHANNELS } from "../../color-session/picker-color";
+import type { DisplayColorSpace } from "../../color-session/color-model";
 
-describe("V8C-01 — an out-of-sRGB rgb specimen keeps the digit policy", () => {
-    const made = lab(92, 88.8, 20, 0.827);
-    if (!made.ok) throw new Error("fixture colour failed to construct");
-    const specimen = formatSpecimen(made.value, "rgb");
+const made = lab(92, 88.8, 20, 0.827);
+if (!made.ok) throw new Error("fixture colour failed to construct");
+const seed = made.value;
 
-    it("fits the caption budget and keeps its alpha", () => {
-        expect(specimen.text.length).toBeLessThanOrEqual(SPECIMEN_CHAR_BUDGET);
-        expect(specimen.text.startsWith("color(srgb ")).toBe(true);
-        expect(specimen.text.endsWith("/ 82.7%)")).toBe(true);
-        expect(specimen.outOfGamut).toBe(true);
-    });
+const SPACES = [...Object.keys(PICKER_CHANNELS), "hex"] as DisplayColorSpace[];
 
-    it("prints four significant digits per channel and round-trips the parser", () => {
-        const numerals = specimen.text.slice("color(srgb ".length).split(" / ")[0]!.split(" ");
-        for (const numeral of numerals) {
-            expect(numeral.replace(/^-?0?\.?0*/, "").replace(".", "").length).toBeLessThanOrEqual(4);
-        }
-        expect(parseCssColor(specimen.text).ok).toBe(true);
-    });
-});
+describe("the specimen line, every space, the out-of-gamut seed", () => {
+    for (const space of SPACES) {
+        const specimen = formatSpecimen(seed, space);
+        const numerals = specimen.text.match(/-?\d+(?:\.\d+)?/g) ?? [];
 
-/**
- * X.W11.h9 · O23-225 (DISPOSITION §8 E9) — an hsl/hwb row whose channels its CSS
- * function cannot carry is spelled in the `channels` form, with the mark kept.
- *
- * css-color-4 §7/§8 clamp hsl's s l and hwb's w b to [0, 1] at parsed-value time,
- * so `hsl(346deg -1295% 103.7%)` reads back as `hsl(346deg 0% 100%)`: printed
- * honestly, recovered falsely. The same move V8C-01 made for rgb → color(srgb …).
- */
-describe("O23-225 — hsl/hwb beyond the §7 parse clamp print as channels", () => {
-    const made = lab(92, 88.8, 20, 0.827);
-    if (!made.ok) throw new Error("fixture colour failed to construct");
-
-    for (const space of ["hsl", "hwb"] as const) {
-        const specimen = formatSpecimen(made.value, space);
-
-        it(`${space}: channels form, marked, alpha kept, within budget`, () => {
-            expect(specimen.form).toBe("channels");
-            expect(specimen.outOfGamut).toBe(true);
-            expect(specimen.text.startsWith(`${space} · `)).toBe(true);
-            expect(specimen.text.endsWith(" / 82.7%")).toBe(true);
+        it(`${space}: within the caption budget, no numeral at four or more decimals`, () => {
             expect(specimen.text.length).toBeLessThanOrEqual(SPECIMEN_CHAR_BUDGET);
+            for (const numeral of numerals) {
+                expect(numeral.split(".")[1]?.length ?? 0, specimen.text).toBeLessThan(4);
+            }
+            expect(specimen.text).not.toMatch(/outside/i);
         });
 
-        it(`${space}: the printed numbers are the unclamped truth, on the % scale`, () => {
-            const truth = convertColor(made.value, space);
-            if (!truth.ok) throw new Error(`fixture unconvertible to ${space}`);
-            const printed = specimen.text
-                .slice(`${space} · `.length)
-                .split(" / ")[0]!
-                .split(" · ")
-                .map(Number);
-            truth.value.channels.forEach((channel, index) => {
-                if (typeof channel !== "number") return;
-                const scaled = index === 0 ? channel : channel * 100;
-                const tolerance = Math.max(5e-5, 5e-4 * Math.abs(scaled)) * 1.001;
-                expect(Math.abs(printed[index]! - scaled)).toBeLessThanOrEqual(tolerance);
+        if (specimen.form === "css") {
+            it(`${space}: the CSS row round-trips the parser`, () => {
+                expect(parseCssColor(specimen.text).ok, specimen.text).toBe(true);
             });
-            // …and at least one of them is one the CSS function would have clamped.
-            expect(printed.slice(1).some((value) => value < 0 || value > 100)).toBe(true);
+        }
+    }
+
+    for (const space of ["rgb", "hsl", "hwb"] as const) {
+        it(`${space}: marked, spelled in its own CSS, clipped into its domain`, () => {
+            const specimen = formatSpecimen(seed, space);
+            expect(specimen.outOfGamut).toBe(true);
+            expect(specimen.form).toBe("css");
+            expect(specimen.text.startsWith(`${space}(`), specimen.text).toBe(true);
+            expect(specimen.text.endsWith("/ 83%)"), specimen.text).toBe(true);
+            // no negative channel, no percent past 100
+            expect(specimen.text).not.toMatch(/(?:^|\s)-\d/);
+            for (const pct of specimen.text.match(/[\d.]+(?=%)/g) ?? []) {
+                expect(Number(pct)).toBeLessThanOrEqual(100);
+            }
         });
     }
 
-    it("an in-range hsl row stays CSS and round-trips the parser", () => {
+    it("hsl and hwb hold the same colour the rgb row holds (clipped in sRGB, never per channel)", () => {
+        const rgbRow = parseCssColor(formatSpecimen(seed, "rgb").text);
+        if (!rgbRow.ok) throw new Error("rgb row unparseable");
+        for (const space of ["hsl", "hwb"] as const) {
+            const row = parseCssColor(formatSpecimen(seed, space).text);
+            if (!row.ok) throw new Error(`${space} row unparseable`);
+            const back = convertColor(row.value, "rgb");
+            if (!back.ok) throw new Error(`${space} row unconvertible`);
+            back.value.channels.forEach((channel, index) => {
+                const target = rgbRow.value.channels[index];
+                if (typeof channel !== "number" || typeof target !== "number") return;
+                expect(Math.abs(channel - target), `${space} channel ${index}`).toBeLessThanOrEqual(3);
+            });
+        }
+    });
+
+    it("an in-range hsl row stays CSS, unmarked", () => {
         const inRange = lab(50, 10, 10, 1);
         if (!inRange.ok) throw new Error("fixture colour failed to construct");
         const specimen = formatSpecimen(inRange.value, "hsl");

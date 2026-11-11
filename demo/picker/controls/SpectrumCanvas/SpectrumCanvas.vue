@@ -231,18 +231,8 @@ onUnmounted(releaseCapture);
     /* The thumb's size, read by the thumb and by its inset travel (V3C-07). */
     --spectrum-dot-size: 1.75rem;
     border-radius: var(--radius-xl);
-    /* X-DS pass 1 (V1-27): the original's signature (684c818f) — the hard
-     * offset tinted by the live colour — stands AT REST again; it was hover-only
-     * since the 03b9daed decomposition. One layer, zero blur, same direction as
-     * the card's own stamp.
-     * X-DS VC4-01: the stamp's ink is ONE token per scheme. Light: the live
-     * colour half-way to black (darker than its light ground). Dark: the live
-     * HUE and chroma at the stone caster's lightness band, so the "shadow"
-     * stays darker than the dark card it falls on — a light live colour
-     * (L 92%) mixed with black painted a lit pink rim brighter than the
-     * ground, the class T-53 cured for the cards (foundation.css `.dark`). */
-    --spectrum-stamp-ink: color-mix(in srgb, var(--spectrum-shadow, transparent) 50%, black);
-    box-shadow: var(--spectrum-stamp, 8px) var(--spectrum-stamp, 8px) 0px 0px var(--spectrum-stamp-ink);
+    /* No stamp of its own: the picker card carries the one cartoon slab
+     * (restraint 2026-11-09, C-3 "Less and more subtle shadowing"). */
     overflow: visible;
     /* X.W11.p3b (COHESION §0gl.12): the plate owns every gesture on a fine
      * pointer; on a coarse one it lets the page pan until the touch gate
@@ -290,7 +280,7 @@ onUnmounted(releaseCapture);
     @variant lg {
         min-block-size: round(
             up,
-            calc((100cqi - var(--spectrum-stamp)) / var(--spectrum-aspect-bar)),
+            calc(100cqi / var(--spectrum-aspect-bar)),
             1px
         );
     }
@@ -310,15 +300,6 @@ onUnmounted(releaseCapture);
         touch-action: pan-y;
     }
 }
-.dark .spectrum-picker {
-    /* The live hue at the stone caster's band (--shadow-color, L ~0.2, near
-     * neutral): lightness scaled under the dark card ground, chroma capped so
-     * the out-of-gamut clip cannot swing the hue to red or lift the ink. A
-     * plain mix of the live colour into the stone stays above the ground for
-     * a light live colour (L 0.92 at 30% gives L ~0.42 over a ~0.32 ground). */
-    --spectrum-stamp-ink: oklch(from var(--spectrum-shadow, transparent) calc(l * 0.22) min(c, 0.07) h);
-}
-
 /* R.W3 Lane E / E1 — beat two: the field paints in ~180ms after the plate
  * lands (opacity + a background 120%→100% settle — the gradients breathe
  * into register). One-shot on mount; PRM-gated whole. */

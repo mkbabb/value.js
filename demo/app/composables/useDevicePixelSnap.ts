@@ -28,6 +28,18 @@ import type { Ref } from "vue";
 
 const EPSILON = 0.01; // px — below this the correction is churn, not cure
 
+/**
+ * Chromium's layout unit (1/64 px). A `top` that is not a whole number of them
+ * is honoured truncated: asked for 0.499756px, the card moved 0.484375px. The
+ * next sync then subtracted the offset it asked for, not the one it got, read
+ * the tie a hair under the half pixel, and rounded the other way: on a card
+ * ending on a half pixel (the Extract card at 390, 513.5px) the card below
+ * jumped a pixel on every re-sync, and never landed on the grid at all.
+ * A correction in whole layout units is honoured exactly, so the next sync
+ * reads the card's true raw top and the tie resolves the same way every time.
+ */
+const LAYOUT_UNIT = 1 / 64;
+
 export function useDevicePixelSnap(container: Ref<HTMLElement | null>) {
     const applied = new WeakMap<HTMLElement, number>();
     let rafId: number | null = null;
@@ -46,7 +58,8 @@ export function useDevicePixelSnap(container: Ref<HTMLElement | null>) {
 
             const prev = applied.get(wrapper) ?? 0;
             const rawTop = child.getBoundingClientRect().top - prev;
-            const corr = Math.round(rawTop * dpr) / dpr - rawTop;
+            const corr =
+                Math.round((Math.round(rawTop * dpr) / dpr - rawTop) / LAYOUT_UNIT) * LAYOUT_UNIT;
 
             if (Math.abs(corr - prev) < EPSILON) continue;
             if (wrapper.style.position !== "relative") {

@@ -40,9 +40,10 @@ test.describe("O-20 · the Generate verb joins the plate chrome", () => {
             await plate.getByRole("button", { name: "Regenerate" }).count(),
         );
 
-        // seed = bench note, INSIDE the plate (provenance label, mono hex).
-        const seedNote = plate.getByText(/seed: [0-9a-f]{8}/);
-        await expect(seedNote).toBeVisible();
+        // The seed is Regenerate's hover gloss, never a standing line
+        // (restraint 2026-11-09).
+        await expect(plate.getByText(/seed: [0-9a-f]{8}/i)).toHaveCount(0);
+        await expect(regen).toHaveAttribute("title", /^Seed [0-9a-f]{8}$/);
 
         // The plate's action chrome (the former card-menu verbs, first-class).
         await expect(plate.getByRole("button", { name: "Save palette" })).toBeVisible();
@@ -50,11 +51,11 @@ test.describe("O-20 · the Generate verb joins the plate chrome", () => {
             plate.getByRole("button", { name: "Copy all colors" }),
         ).toBeVisible();
 
-        // The verb ACTS on the plate it lives on: regenerating re-stamps the
-        // bench note (a new seed) in place.
-        const seedBefore = ((await seedNote.textContent()) ?? "").trim();
+        // The verb ACTS on the plate it lives on: regenerating re-rolls the
+        // seed it names.
+        const seedBefore = (await regen.getAttribute("title")) ?? "";
         await regen.click();
-        await expect(plate.getByText(/seed: [0-9a-f]{8}/)).not.toHaveText(seedBefore);
+        await expect(regen).not.toHaveAttribute("title", seedBefore);
     });
 
     test("T-17 seed-exact strips: a preset row's stamped stops ≡ the palette selecting it yields", async ({

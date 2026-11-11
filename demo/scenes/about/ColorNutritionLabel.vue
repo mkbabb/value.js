@@ -54,7 +54,6 @@
                 >
                     <dt
                         :style="mounted ? { color: componentInk } : undefined"
-                        class="font-semibold"
                         data-o18="component-name"
                     >
                         <bdi>{{ currentColorSpaceInfo.components[index] ?? rangeKey }}</bdi>
@@ -202,6 +201,8 @@ const formattedRange = computed<Record<string, { min: string; max: string }>>(()
 }
 .nl-head {
     margin-block-end: var(--phi-1);
+    /* Size carries the heading; it is not bold (restraint, C-9). */
+    font-weight: var(--type-weight-display);
 }
 .nl-prose {
     max-inline-size: 66ch;

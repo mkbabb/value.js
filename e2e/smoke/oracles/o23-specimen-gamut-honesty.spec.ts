@@ -6,45 +6,24 @@ import type { SpaceId } from "../../../dist/subpaths/color.js";
 import { parseCssColor } from "../../../dist/subpaths/css.js";
 
 /**
- * X.W6.f · X:CSS-1 gate **f6** — OUT-OF-GAMUT IS MARKED, NEVER PROJECTED,
- * with **(ii) the anti-projection lock**.
+ * X.W6.f · X:CSS-1 gate **f6**, re-cut by the owner's order of 2026-11-09
+ * ("too many digits of signif"; the restraint precept: no number a reader
+ * cannot use) — OUT-OF-GAMUT IS MARKED; IN-GAMUT IS NEVER MOVED.
  *
- * Born RED (`W6.md:259`, adjudicated L-3): rows printed coordinates that leave
- * their own space's gamut with no mark at all (`data-out-of-gamut` grep → 0), so
- * the browser silently clamped them on paint — the sharpest witness being the
- * HSL row, which resolves to `rgba(255,255,255,0.827)`, pure white, sitting
- * beside a dot painting the true colour.
+ * The seeded colour leaves sRGB. The ruling this gate used to carry printed
+ * such rows "as measured": `color(srgb 1.009 …)`, `hsl · 340 · 103.2 · 71.88`,
+ * a negative HWB blackness. A space with a gamut now prints the colour as that
+ * space can hold it, in its own CSS, the way the hex row's 8-bit encoding
+ * always has, and the row keeps its out-of-gamut mark. So:
  *
- * The ruled cure is MARK, never project: a projection would replace an exact
- * statement with a lie, and the un-projected coordinates round-trip losslessly
- * today. So this oracle carries the cure AND its own tripwire:
- *
- *  (i)  THE MARK IS HONEST. Every row's `data-out-of-gamut` is compared against
- *       an INDEPENDENT recomputation in this process, from the seeded colour
- *       through the shipped library — not against the component's own answer.
- *       A mark that is merely present, or merely absent, cannot pass.
- *
- *  (ii) THE ANTI-PROJECTION LOCK, in four legs:
- *         (a) every `form: "css"` caption parses with the shipped parser;
- *         (b) EXACT, no tolerance: every printed coordinate sits within HALF A
- *             UNIT OF ITS OWN LAST PRINTED DIGIT of the true coordinate in that
- *             space. That is precisely "the numbers were digit-budgeted, not
- *             moved" — and it is the leg with no slack to hide in, because a
- *             projection moves a coordinate by whole units (385.3 → 255), which
- *             is thousands of times the resolution it prints at;
- *         (c) the same claim restated in Lab, as the gate words it, against a
- *             MEASURED bound. The run publishes its own worst reading and
- *             carries its own POSITIVE CONTROL: the hex row is the one row whose
- *             8-bit encoding FORCES a clip, and it measures ~40 Lab units of
- *             movement in the same run against ≤0.76 for every un-projected row.
- *             The bound therefore sits with a factor of ~50 either side of it;
- *         (d) a caption MARKED out-of-gamut still PRINTS coordinates outside
- *             that space's bounds. A projected value is inside the gamut by
- *             definition, so the numerals would fall back in range while the
- *             mark stayed on.
- *
- * The seed is the adjudicated failing input, passed in through the URL so the
- * oracle's reference colour is its own input rather than an inherited constant.
+ *  (i)  THE MARK IS HONEST. Every row's `data-out-of-gamut` is compared
+ *       against an INDEPENDENT recomputation in this process.
+ *  (ii) (a) every `form: "css"` caption parses with the shipped parser;
+ *       (c) an UNMARKED row was rounded, never moved: its Lab recovery sits
+ *           under the measured bound, against the hex row's clip as the run's
+ *           positive control (tens of Lab units);
+ *       (d) a MARKED gamut-bearing row prints coordinates INSIDE its own
+ *           bounds: no negative channel, no 103% saturation.
  */
 
 const CATALOG_SIZE = 18;
@@ -134,19 +113,13 @@ function isSpaceId(space: string): space is SpaceId {
 }
 
 /**
- * The digit policy's Lab recovery bound for the seeded colour. MEASURED, not
- * chosen: the worst un-projected row is HSL at 0.752 (its saturation is far
- * outside 0..1, so four significant digits resolve it least finely), and the
- * run's own positive control — the hex row, whose encoding forces a clip —
- * measures 40.6 in the same pass. The bound sits between the two.
+ * The digit policy's Lab recovery bound for an unmarked row. The rounding is
+ * perceptual (CHANNEL_DECIMALS), well under one Lab unit; the run's positive
+ * control, the hex row's clip, measures about 40. The bound sits between.
  */
 const LAB_RECOVERY_BOUND = 1.0;
 
-/**
- * A projection's floor, from this run's own clipped row. Nothing may sit
- * between the un-projected rows and this: if a cure starts mapping into gamut,
- * (ii)(c) crosses this line long before it reaches the bound above.
- */
+/** The clipped control's floor: the hex row's clip moves the colour this far. */
 const CLIPPED_CONTROL_FLOOR = 10;
 
 type Row = {
@@ -155,30 +128,6 @@ type Row = {
     form: string;
     marked: string;
 };
-
-/** The true coordinates of the seeded colour in one space — this process's own. */
-function seedChannelsIn(space: string): readonly number[] {
-    const parsed = parseCssColor(SEED_COLOR);
-    if (!parsed.ok) throw new Error("seed unparseable");
-    const converted = convertColor(parsed.value, librarySpace(space));
-    if (!converted.ok) throw new Error(`seed unconvertible to ${space}`);
-    return converted.value.channels.map((channel) =>
-        typeof channel === "number" ? channel : Number.NaN,
-    );
-}
-
-/**
- * What the digit policy alone may cost a coordinate. The policy is four
- * significant digits floored at four decimals (`specimen-format.ts`), so its
- * error is at most half a unit in the fourth significant digit OR half a unit in
- * the fourth decimal, whichever is coarser — a bound stated from the policy's
- * two published constants rather than a second copy of the function. A
- * PROJECTION is nothing like this: mapping 385.3 into sRGB moves it to 255, four
- * orders of magnitude past what rounding can account for.
- */
-function policyResolution(truth: number): number {
-    return Math.max(5e-5, 5e-4 * Math.abs(truth)) * 1.001 + 1e-12;
-}
 
 function labOf(css: string): readonly number[] {
     const parsed = parseCssColor(css);
@@ -230,7 +179,7 @@ async function openCatalog(page: Page): Promise<Row[]> {
     );
 }
 
-test("out-of-gamut rows are marked, and no printed coordinate was projected", async ({
+test("out-of-gamut rows are marked and held in their gamut; in-gamut rows are only rounded", async ({
     page,
 }) => {
     setupEnvNoise(page);
@@ -290,40 +239,29 @@ test("out-of-gamut rows are marked, and no printed coordinate was projected", as
             continue;
         }
 
-        // (ii)(b) EXACT: every printed coordinate sits within what the DIGIT
-        //         POLICY alone can account for. Digit-budgeted, not moved.
-        const trueChannels = seedChannelsIn(row.space);
-        parsed.value.channels.forEach((channel, index) => {
-            if (typeof channel !== "number") return;
-            const truth = trueChannels[index];
-            if (truth === undefined || Number.isNaN(truth)) return;
-            expect(
-                Math.abs(channel - truth),
-                `${row.space} channel ${index} printed ${channel} against ${truth} (${row.text})`,
-            ).toBeLessThanOrEqual(policyResolution(truth));
-        });
+        const bounds = GAMUT_BOUNDS[row.space];
+        if (row.marked === "true" && bounds) {
+            // (ii)(d) a marked row prints the colour as its space can hold it.
+            parsed.value.channels.forEach((channel, index) => {
+                const bound = bounds[index];
+                if (!bound || typeof channel !== "number") return;
+                expect(
+                    channel >= bound[0] - 1e-9 && channel <= bound[1] + 1e-9,
+                    `${row.space} channel ${index} printed ${channel} outside [${bound}] (${row.text})`,
+                ).toBe(true);
+            });
+            continue;
+        }
 
-        // (ii)(c) the same claim in Lab, against the measured bound
+        // (ii)(c) an unmarked row was rounded, never moved
         expect(delta, `${row.space} Lab recovery (${row.text})`).toBeLessThanOrEqual(
             LAB_RECOVERY_BOUND,
         );
-
-        // (ii)(d) THE LOCK: a marked row still prints outside its own gamut.
-        const bounds = GAMUT_BOUNDS[row.space];
-        if (row.marked !== "true" || !bounds) continue;
-        const outside = parsed.value.channels.some((channel, index) => {
-            const bound = bounds[index];
-            if (!bound || typeof channel !== "number") return false;
-            return channel < bound[0] || channel > bound[1];
-        });
-        expect(
-            outside,
-            `${row.space} is MARKED out-of-gamut but prints in-gamut coordinates ` +
-                `(${row.text}) — a projection shipped under a green mark`,
-        ).toBe(true);
     }
 
-    const unprojected = deltas.filter((row) => row.space !== "hex");
+    const unprojected = deltas.filter(
+        (row) => row.space !== "hex" && rows.find((r) => r.space === row.space)?.marked !== "true",
+    );
     const worst = unprojected.reduce((a, b) => (b.delta > a.delta ? b : a));
     const control = deltas.find((row) => row.space === "hex");
     console.log(
