@@ -52,12 +52,16 @@
 .dark .skeleton-ink-register {
     --ink-seam: calc(var(--ink-edge) * 1.5);
     --skeleton-ink-pole: var(--background);
-    /* o1109 canon V11: the plates lost their paper grain, and the grain was
-     * part of the dark ground the edge rung was certified on. On the plain
-     * dark plate the cream ghost read ΔL 0.028 at its pulse trough (390, third
-     * row) against the 0.03 register floor (SS8-0483), so dark steps a quarter
-     * past the edge rung. Light is unchanged. */
-    --ink-seam: calc(var(--ink-edge) * 1.25);
+}
+/* o1109 canon V11 follow-up: glass's Skeleton paints `--foreground` at
+ * `--ink-seam` and reads no `--skeleton-*` seam, so the pole above never
+ * reached the blocks, and in dark the ghost was cream lifted over the plate.
+ * With the paper grain gone and the dark aurora band lifted, that cream ghost
+ * read dL 0.025 against its ground (admin names, 1440), under the 0.03
+ * register floor. The blocks take the page background as their pole in dark,
+ * so the ghost recedes as P4R-04 asked, at the seam above. */
+.dark .skeleton-ink-register [data-slot="skeleton"] {
+    --foreground: var(--background);
 }
 
 /* The SPECIMEN ink walk (S.W5-1's `specimen` register, FINALLY consumed —
