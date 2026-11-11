@@ -18,7 +18,20 @@
         :data-size="size"
         :class="['swatch-button relative shrink-0 cursor-pointer', SIZE[size]]"
     >
+        <!-- The paper chip (owner 2026-11-10, "containers, like a watercolor
+             swatch"): with `chip`, the paint sits inset on a paper card
+             (`.swatch-chip`, utils.css). The dot inside is unchanged. -->
+        <span v-if="chip" class="swatch-chip paper-grain-overlay">
+            <WatercolorDot
+                :color="color"
+                :variant="ghost ? 'ghost' : 'solid'"
+                v-bind="seed !== undefined ? { seed } : {}"
+                :animate="animate"
+                class="w-full h-full"
+            />
+        </span>
         <WatercolorDot
+            v-else
             :color="color"
             :variant="ghost ? 'ghost' : 'solid'"
             v-bind="seed !== undefined ? { seed } : {}"
@@ -28,6 +41,7 @@
         <Check
             v-if="done"
             class="absolute w-4 h-4 pointer-events-none"
+            :class="chip && 'z-[2]'"
             :style="{ color: contrastInkFor(color) ?? 'var(--foreground)' }"
             aria-hidden="true"
         />
@@ -63,6 +77,7 @@ const {
     ghost = false,
     done = false,
     animate = false,
+    chip = false,
 } = defineProps<{
     color: string;
     size?: SwatchSize;
@@ -76,5 +91,8 @@ const {
      *  reduced motion). Off by default; a host that shows colours as specimens
      *  (the embed's picker slice) turns it on. */
     animate?: boolean;
+    /** Seats the dot inset on a paper chip, the watercolour swatch card. Off
+     *  by default; the embed's slices turn it on. */
+    chip?: boolean;
 }>();
 </script>

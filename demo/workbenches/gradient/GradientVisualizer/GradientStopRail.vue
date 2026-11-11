@@ -72,6 +72,7 @@ defineSlots<{
         requestRemove: (target?: GradientStop) => void;
         commitPosition: (value: number | null | undefined) => void;
     }): unknown;
+    /** A stop's painted face, inside its seat (default: the ringed disc). */ face?(props: { stop: GradientStop }): unknown;
 }>();
 
 // The ONE selection channel (X-W6 · X.W6.a). The former `select` emit rode
@@ -689,17 +690,16 @@ function onCaretKeydown(e: KeyboardEvent) {
                 @pointerleave="hoveredId = null"
                 @keydown="(e) => onHandleKeydown(e, stop)"
             >
-                <span
-                    class="rail-handle-face rail-swatch absolute top-1/2 left-1/2 rounded-full"
-                    aria-hidden="true"
-                    :style="{
-                        /* The per-stop COLOR is the only thing inline here — it
-                           is per-stop DATA; the checker ground, the colour layer
-                           over it, the lift and both rings are stylesheet
-                           contracts (`.rail-swatch`, U-F25 / X-W6 a11, below). */
-                        '--swatch': stop.cssColor,
-                    }"
-                />
+                <!-- The `face` slot. Per-stop COLOR is DATA, the only thing inline; the
+                     checker, colour layer and both rings are stylesheet contracts
+                     (`.rail-swatch`, U-F25 / X-W6 a11, below). -->
+                <slot name="face" :stop="stop">
+                    <span
+                        class="rail-handle-face rail-swatch absolute top-1/2 left-1/2 rounded-full"
+                        aria-hidden="true"
+                        :style="{ '--swatch': stop.cssColor }"
+                    />
+                </slot>
             </button>
         </div>
 

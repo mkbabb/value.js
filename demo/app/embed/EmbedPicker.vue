@@ -17,7 +17,8 @@
                 :key="i"
                 :color="stop.css"
                 :seed="stop.name ?? stop.css"
-                size="lg"
+                size="xl"
+                chip
                 animate
                 :done="i === currentIndex"
                 :aria-label="stop.name ? displayName(stop.name) : stop.css"
