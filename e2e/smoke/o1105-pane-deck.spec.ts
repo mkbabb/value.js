@@ -217,7 +217,12 @@ for (const [width, height] of [
             [...document.querySelectorAll<HTMLElement>(".pane-container > .pane-wrapper")].map((w) => {
                 const k = w.firstElementChild as HTMLElement;
                 const cs = getComputedStyle(k);
-                return { kids: w.children.length, transform: cs.transform, position: cs.position, dx: k.getBoundingClientRect().left - w.getBoundingClientRect().left, wrapper: w.getAttribute("style") ?? "" };
+                // The rest origin is the region's own centring of its pane: 0
+                // for a pane that fills its region, half the slack for one
+                // that caps its measure (O1109: About takes the picker's).
+                const kr = k.getBoundingClientRect();
+                const wr = w.getBoundingClientRect();
+                return { kids: w.children.length, transform: cs.transform, position: cs.position, dx: kr.left - wr.left - (wr.width - kr.width) / 2, wrapper: w.getAttribute("style") ?? "" };
             }),
         );
         for (const r of rest) {

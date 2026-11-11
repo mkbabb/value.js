@@ -230,7 +230,7 @@ test("hero blob under prefers-reduced-motion: one static frame, then parked (0 i
  * loss is the LIGHTNESS each stage lands on. So the oracle measures the
  * painted bead's OKLCH chroma directly off a settled frame — the dominant
  * atom is the bead body, sampled as the median over a core disk well inside
- * the body radius (bodyRadius 0.325 of the canvas; the disk is 0.15), where
+ * the body radius (bodyRadius 0.27 of the wrapper, o1109; the disk is 0.15), where
  * the Fresnel rim and satellites never reach.
  */
 

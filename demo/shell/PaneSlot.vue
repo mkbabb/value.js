@@ -32,11 +32,12 @@
 // measured 1275 ms window (fold W5F-02). Reporting the key with the instance
 // makes that cross-wiring unrepresentable.
 //
-// ── THE STACKED DECK — default mode, and why (owner order 2026-11-05;
-//    demo/DESIGN.md §5.7, the transition grammar) ────────────────────────
+// ── THE SHUFFLED DECK — default mode, and why (owner orders 2026-11-05,
+//    2026-11-09; demo/DESIGN.md §5.7, the transition grammar) ─────────────
 //
 // The <Transition> below runs the DEFAULT mode: the leaving card and the
-// rising card are co-mounted for one gesture, a stacked card swap. The
+// rising card are co-mounted for one gesture, a card shuffle (the top card
+// flung off its role's side as the next squares up from under it). The
 // leaving card is taken OUT OF FLOW (`animations.css`: absolute in the
 // wrapper, inert, under or over the riser by direction), so the region is
 // sized by the riser alone from the commit frame. That is what retired
