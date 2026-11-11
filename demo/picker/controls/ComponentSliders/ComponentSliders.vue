@@ -81,7 +81,7 @@
                             "
                         />
                     </div>
-                    <span class="channel-meter font-mono" aria-live="off">{{
+                    <span v-text-in-place class="channel-meter font-mono" aria-live="off">{{
                         meterText(component)
                     }}</span>
                 </div>
@@ -104,6 +104,7 @@ import { useSliderTouchGates } from "./composables/useSliderTouchGates";
 import { useSliderAnnouncements } from "./composables/useSliderAnnouncements";
 import { stopsToGradient } from "../../../shared/ui/color-chips";
 import ConsoleRail from "./ConsoleRail.vue";
+import { vTextInPlace } from "../../../shared/vTextInPlace";
 import { COLOR_MODEL_KEY } from "../../../color-session/keys";
 
 const {

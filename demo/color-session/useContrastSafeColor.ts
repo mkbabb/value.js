@@ -384,13 +384,13 @@ function certifyAccentInkOnce(css: string, surfaceL: number, floor?: number): st
  * referent's bisection is memoised the same way.
  */
 const restingReferentCache = new Map<string, number>();
-function certifyRestingAccentInkOnce(
+function resolveRestingReferentOnce(
     css: string,
     ambientL: number,
     plateL: number,
     dark: boolean,
     floor?: number,
-): string {
+): number {
     const surfaceAt = (referent: number) => surfaceLightnessNow("resting", referent, dark);
     const key = `${css}|${surfaceAt(ambientL)}|${surfaceAt(plateL)}|${ambientL}|${plateL}|${floor ?? ""}`;
     let referent = restingReferentCache.get(key);
@@ -399,7 +399,17 @@ function certifyRestingAccentInkOnce(
         if (restingReferentCache.size >= 64) restingReferentCache.clear();
         restingReferentCache.set(key, referent);
     }
-    return certifyAccentInkOnce(css, surfaceAt(referent), floor);
+    return referent;
+}
+function certifyRestingAccentInkOnce(
+    css: string,
+    ambientL: number,
+    plateL: number,
+    dark: boolean,
+    floor?: number,
+): string {
+    const referent = resolveRestingReferentOnce(css, ambientL, plateL, dark, floor);
+    return certifyAccentInkOnce(css, surfaceLightnessNow("resting", referent, dark), floor);
 }
 
 /** The surface referent, live-first: probe the painted recipe, compose with
@@ -451,11 +461,15 @@ function surfaceLightnessNow(
  * @param ambientLightness the atmosphere's live derived lightness (M-15)
  * @param plateReferent    the field referent of the primary plate pair
  *                         (§0gx.2, `resolveFieldPlateReferent`)
+ * @param colourLive       true while a drag drives the colour: the resting
+ *                         referent holds (`resolveRestingAccentReferent`'s
+ *                         `start`) and resolves in full once it settles
  */
 export function useContrastSafeColor(
     cssColorOpaque: ComputedRef<string>,
     ambientLightness: ComputedRef<number>,
     plateReferent: ComputedRef<number> = ambientLightness,
+    colourLive: Readonly<Ref<boolean>> = ref(false),
 ) {
     const { isDark } = useGlobalDark();
     bumpProbeEpochOnMount();
@@ -468,15 +482,27 @@ export function useContrastSafeColor(
         preferredContrast.value === "more" ? "more" : "no-preference",
     );
 
-    // §0gz.1: the resting accent's referent is the hue-bounded maximin.
-    const safeAccentCss = computed(() =>
-        certifyRestingAccentInkOnce(
-            cssColorOpaque.value,
-            ambientLightness.value,
-            plateReferent.value,
-            isDark.value,
-        ),
-    );
+    // §0gz.1: the resting accent's referent is the hue-bounded maximin. Its
+    // bisection is eighteen walks, the largest cost of a 4×-CPU colour frame
+    // (o1110 D2), so through a drag the referent of the drag's first frame
+    // holds while the ink there keeps its chroma; the settle resolves it whole.
+    let held: { ambientL: number; plateL: number; dark: boolean; referent: number } | null = null;
+    const safeAccentCss = computed(() => {
+        const css = cssColorOpaque.value;
+        const ambientL = ambientLightness.value;
+        const plateL = plateReferent.value;
+        const dark = isDark.value;
+        const surfaceAt = (referent: number) => surfaceLightnessNow("resting", referent, dark);
+        const start = colourLive.value
+            && held?.ambientL === ambientL && held.plateL === plateL && held.dark === dark
+            ? held.referent
+            : undefined;
+        const referent = start === undefined
+            ? resolveRestingReferentOnce(css, ambientL, plateL, dark)
+            : resolveRestingAccentReferent(css, ambientL, plateL, surfaceAt, undefined, undefined, start);
+        held = { ambientL, plateL, dark, referent };
+        return certifyAccentInkOnce(css, surfaceAt(referent));
+    });
 
     const needsAdjustment = computed(() => {
         return safeAccentCss.value !== cssColorOpaque.value;

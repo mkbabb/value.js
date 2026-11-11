@@ -40,8 +40,9 @@
                             emit('input', text, component);
                         }
                     "
-                ><span class="fig-int">{{ figParts(component).int }}</span><span
+                ><span v-text-in-place class="fig-int">{{ figParts(component).int }}</span><span
                         v-if="figParts(component).frac"
+                        v-text-in-place
                         class="fig-frac"
                     >{{ figParts(component).frac }}</span></span><span
                     v-if="formatted[component]?.unit"
@@ -64,6 +65,7 @@
 import { computed } from "vue";
 import { CardTitle } from "@mkbabb/glass-ui/card";
 import { formatFixed } from "../../../color-session/channel-decimals";
+import { vTextInPlace } from "../../../shared/vTextInPlace";
 import {
     READOUT_MEASURE_EM,
     readoutDecimals,
