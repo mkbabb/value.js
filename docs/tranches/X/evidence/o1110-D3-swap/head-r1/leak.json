@@ -1,0 +1,573 @@
+{
+ "base": "http://127.0.0.1:9483/",
+ "at": "2026-11-11T05:50:29.159Z",
+ "cells": [
+  {
+   "w": 390,
+   "hop": "home-palettes",
+   "seek": 80,
+   "live": 0,
+   "pairs": [
+    {
+     "over": "picker>leaver",
+     "clip": {
+      "x": 75,
+      "y": 646,
+      "width": 295,
+      "height": 69
+     },
+     "leak": 0.83,
+     "floor": 0.16
+    },
+    {
+     "over": "picker>riser",
+     "clip": {
+      "x": 23,
+      "y": 657,
+      "width": 343,
+      "height": 58
+     },
+     "leak": 0.81,
+     "floor": 0.19
+    },
+    {
+     "over": "leaver>riser",
+     "clip": {
+      "x": 75,
+      "y": 657,
+      "width": 291,
+      "height": 179
+     },
+     "leak": 1.71,
+     "floor": 0.4
+    }
+   ]
+  },
+  {
+   "w": 390,
+   "hop": "home-palettes",
+   "seek": 160,
+   "live": 0,
+   "pairs": [
+    {
+     "over": "picker>leaver",
+     "clip": {
+      "x": 198,
+      "y": 401,
+      "width": 172,
+      "height": 435
+     },
+     "leak": 0.92,
+     "floor": 0.17
+    },
+    {
+     "over": "picker>riser",
+     "clip": {
+      "x": 21,
+      "y": 403,
+      "width": 348,
+      "height": 379
+     },
+     "leak": 1.02,
+     "floor": 0.23
+    }
+   ]
+  },
+  {
+   "w": 390,
+   "hop": "home-palettes",
+   "seek": 240,
+   "live": 0,
+   "pairs": [
+    {
+     "over": "picker>riser",
+     "clip": {
+      "x": 20,
+      "y": 449,
+      "width": 350,
+      "height": 154
+     },
+     "leak": 1.44,
+     "floor": 0.5
+    }
+   ]
+  },
+  {
+   "w": 390,
+   "hop": "home-palettes",
+   "seek": 320,
+   "live": 1,
+   "pairs": [
+    {
+     "over": "picker>riser",
+     "clip": {
+      "x": 20,
+      "y": 502,
+      "width": 350,
+      "height": 25
+     },
+     "leak": 0.95,
+     "floor": 0.23
+    }
+   ]
+  },
+  {
+   "w": 390,
+   "hop": "palettes-home",
+   "seek": 80,
+   "live": 0,
+   "pairs": [
+    {
+     "over": "picker>leaver",
+     "clip": {
+      "x": 22,
+      "y": 484,
+      "width": 345,
+      "height": 70
+     },
+     "leak": 1.23,
+     "floor": 0.29
+    },
+    {
+     "over": "picker>riser",
+     "clip": {
+      "x": 231,
+      "y": 484,
+      "width": 139,
+      "height": 352
+     },
+     "leak": 1.03,
+     "floor": 0.21
+    },
+    {
+     "over": "riser>leaver",
+     "clip": {
+      "x": 231,
+      "y": 179,
+      "width": 137,
+      "height": 375
+     },
+     "leak": 1.7,
+     "floor": 0.15
+    }
+   ]
+  },
+  {
+   "w": 390,
+   "hop": "palettes-home",
+   "seek": 160,
+   "live": 0,
+   "pairs": [
+    {
+     "over": "picker>leaver",
+     "clip": {
+      "x": 25,
+      "y": 433,
+      "width": 340,
+      "height": 369
+     },
+     "leak": 0.88,
+     "floor": 0
+    },
+    {
+     "over": "picker>riser",
+     "clip": {
+      "x": 69,
+      "y": 417,
+      "width": 301,
+      "height": 419
+     },
+     "leak": 1.02,
+     "floor": 0
+    }
+   ]
+  },
+  {
+   "w": 390,
+   "hop": "palettes-home",
+   "seek": 240,
+   "live": 0,
+   "pairs": [
+    {
+     "over": "picker>leaver",
+     "clip": {
+      "x": 26,
+      "y": 615,
+      "width": 338,
+      "height": 136
+     },
+     "leak": 0.79,
+     "floor": 0
+    },
+    {
+     "over": "picker>riser",
+     "clip": {
+      "x": 20,
+      "y": 595,
+      "width": 340,
+      "height": 156
+     },
+     "leak": 1.09,
+     "floor": 0
+    }
+   ]
+  },
+  {
+   "w": 390,
+   "hop": "palettes-home",
+   "seek": 320,
+   "live": 0,
+   "pairs": [
+    {
+     "over": "picker>riser",
+     "clip": {
+      "x": 20,
+      "y": 672,
+      "width": 337,
+      "height": 25
+     },
+     "leak": 0.91,
+     "floor": 0
+    },
+    {
+     "over": "riser>leaver",
+     "clip": {
+      "x": 26,
+      "y": 692,
+      "width": 330,
+      "height": 144
+     },
+     "leak": 1.52,
+     "floor": 0
+    }
+   ]
+  },
+  {
+   "w": 390,
+   "hop": "palettes-mix",
+   "seek": 80,
+   "live": 2,
+   "pairs": [
+    {
+     "over": "picker>riser",
+     "clip": {
+      "x": 23,
+      "y": 539,
+      "width": 345,
+      "height": 91
+     },
+     "leak": 1.19,
+     "floor": 0.51
+    },
+    {
+     "over": "leaver>riser",
+     "clip": {
+      "x": 78,
+      "y": 125,
+      "width": 289,
+      "height": 371
+     },
+     "leak": 1.38,
+     "floor": 0.28
+    }
+   ]
+  },
+  {
+   "w": 390,
+   "hop": "palettes-mix",
+   "seek": 160,
+   "live": 1,
+   "pairs": [
+    {
+     "over": "picker>riser",
+     "clip": {
+      "x": 21,
+      "y": 595,
+      "width": 349,
+      "height": 34
+     },
+     "leak": 0.98,
+     "floor": 0.57
+    },
+    {
+     "over": "leaver>riser",
+     "clip": {
+      "x": 206,
+      "y": 115,
+      "width": 163,
+      "height": 387
+     },
+     "leak": 1.25,
+     "floor": 0.5
+    }
+   ]
+  },
+  {
+   "w": 390,
+   "hop": "palettes-mix",
+   "seek": 240,
+   "live": 1,
+   "pairs": []
+  },
+  {
+   "w": 390,
+   "hop": "palettes-mix",
+   "seek": 320,
+   "live": 1,
+   "pairs": []
+  },
+  {
+   "w": 390,
+   "hop": "mix-palettes",
+   "seek": 80,
+   "live": 1,
+   "pairs": [
+    {
+     "over": "riser>leaver",
+     "clip": {
+      "x": 241,
+      "y": 121,
+      "width": 127,
+      "height": 383
+     },
+     "leak": 1.11,
+     "floor": 0.44
+    }
+   ]
+  },
+  {
+   "w": 390,
+   "hop": "mix-palettes",
+   "seek": 160,
+   "live": 1,
+   "pairs": [
+    {
+     "over": "picker>leaver",
+     "clip": {
+      "x": 24,
+      "y": 591,
+      "width": 342,
+      "height": 39
+     },
+     "leak": 1.15,
+     "floor": 0.48
+    },
+    {
+     "over": "riser>leaver",
+     "clip": {
+      "x": 71,
+      "y": 131,
+      "width": 295,
+      "height": 364
+     },
+     "leak": 1.25,
+     "floor": 0.44
+    }
+   ]
+  },
+  {
+   "w": 390,
+   "hop": "mix-palettes",
+   "seek": 240,
+   "live": 1,
+   "pairs": [
+    {
+     "over": "picker>leaver",
+     "clip": {
+      "x": 25,
+      "y": 550,
+      "width": 340,
+      "height": 81
+     },
+     "leak": 1.21,
+     "floor": 0.61
+    },
+    {
+     "over": "riser>leaver",
+     "clip": {
+      "x": 25,
+      "y": 135,
+      "width": 334,
+      "height": 358
+     },
+     "leak": 1.45,
+     "floor": 0.46
+    }
+   ]
+  },
+  {
+   "w": 390,
+   "hop": "mix-palettes",
+   "seek": 320,
+   "live": 1,
+   "pairs": [
+    {
+     "over": "picker>leaver",
+     "clip": {
+      "x": 25,
+      "y": 533,
+      "width": 340,
+      "height": 98
+     },
+     "leak": 1.27,
+     "floor": 0.61
+    },
+    {
+     "over": "riser>leaver",
+     "clip": {
+      "x": 25,
+      "y": 135,
+      "width": 331,
+      "height": 358
+     },
+     "leak": 1.4,
+     "floor": 0.53
+    }
+   ]
+  },
+  {
+   "w": 1440,
+   "hop": "home-palettes",
+   "seek": 80,
+   "live": 1,
+   "pairs": [
+    {
+     "over": "leaver>riser",
+     "clip": {
+      "x": 798,
+      "y": 105,
+      "width": 589,
+      "height": 390
+     },
+     "leak": 1.47,
+     "floor": 0.37
+    }
+   ]
+  },
+  {
+   "w": 1440,
+   "hop": "home-palettes",
+   "seek": 160,
+   "live": 3,
+   "pairs": [
+    {
+     "over": "leaver>riser",
+     "clip": {
+      "x": 980,
+      "y": 98,
+      "width": 414,
+      "height": 394
+     },
+     "leak": 1.76,
+     "floor": 0.45
+    }
+   ]
+  },
+  {
+   "w": 1440,
+   "hop": "home-palettes",
+   "seek": 240,
+   "live": 3,
+   "pairs": [
+    {
+     "over": "leaver>riser",
+     "clip": {
+      "x": 1267,
+      "y": 96,
+      "width": 130,
+      "height": 395
+     },
+     "leak": 2.98,
+     "floor": 0.48
+    }
+   ]
+  },
+  {
+   "w": 1440,
+   "hop": "home-palettes",
+   "seek": 320,
+   "live": 3,
+   "pairs": []
+  },
+  {
+   "w": 1440,
+   "hop": "palettes-home",
+   "seek": 80,
+   "live": 9,
+   "pairs": [
+    {
+     "over": "riser>leaver",
+     "clip": {
+      "x": 1073,
+      "y": 102,
+      "width": 316,
+      "height": 391
+     },
+     "leak": 1.44,
+     "floor": 0.63
+    }
+   ]
+  },
+  {
+   "w": 1440,
+   "hop": "palettes-home",
+   "seek": 160,
+   "live": 10,
+   "pairs": [
+    {
+     "over": "riser>leaver",
+     "clip": {
+      "x": 814,
+      "y": 110,
+      "width": 569,
+      "height": 387
+     },
+     "leak": 1.3,
+     "floor": 0.43
+    }
+   ]
+  },
+  {
+   "w": 1440,
+   "hop": "palettes-home",
+   "seek": 240,
+   "live": 2,
+   "pairs": [
+    {
+     "over": "riser>leaver",
+     "clip": {
+      "x": 733,
+      "y": 113,
+      "width": 623,
+      "height": 385
+     },
+     "leak": 1.41,
+     "floor": 0
+    }
+   ]
+  },
+  {
+   "w": 1440,
+   "hop": "palettes-home",
+   "seek": 320,
+   "live": 2,
+   "pairs": [
+    {
+     "over": "riser>leaver",
+     "clip": {
+      "x": 735,
+      "y": 113,
+      "width": 616,
+      "height": 385
+     },
+     "leak": 1.36,
+     "floor": 0.41
+    }
+   ]
+  }
+ ],
+ "maxLeak": 2.5,
+ "overGate": [
+  "1440 home-palettes @240 leaver>riser 2.5 (raw 2.98, floor 0.48)"
+ ]
+}

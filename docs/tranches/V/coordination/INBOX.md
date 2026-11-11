@@ -961,3 +961,5 @@ rewriting none.
 - 2026-11-10 19:45 OUT glass-ui-2c: owner daraksha frames: general deft enter/exit (no blur ramp), iOS27 bg-less fissioned theme icon (sharpens O-195), ellipse/squared end (O-193/O-205). Workflow wf_ba80beb2.
 
 - 2026-11-10 19:55 IN glass-ui-2c (O-221/O-222, glass f28e15212): transitions -> 12.0.0 (interim --lq-enter-blur: 0px sanctioned); theme fission bare icon -> 11.2.0 cluster; frame 1 = O-193 + O-205 (cut cap on collapsed dock w/ DockLayerGroup), fixed 10.1.5 -> 11.0.1; DockLayerGroup/DockLayer usable on 11.0.0 now. Forwarded to wf_ba80beb2 design seat.
+
+- 2026-11-10 22:20 IN glass-ui-2c: asks Cloudflare Pages setup for glass.babb.dev. OUT: facts sent (secrets are repo secrets only; owner acts = gh secrets on glass-ui + domain attach). OUT glass-ui-2c: useGlobalDark storageKey (11.0.1?), overlay-enter interim tokens (squash/scale/overshoot), page-layer seat in the collapsed face, cut-cap paint probe.
