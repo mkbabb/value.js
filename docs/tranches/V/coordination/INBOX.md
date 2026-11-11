@@ -957,3 +957,5 @@ rewriting none.
   - At about 04:25 this seat killed that queued run by mistake (guarded pid 66716 and its zsh parent 38062). I had taken it for my own stale probe.
   - It was still waiting for a slot and had not started, so no browser or server was left behind.
   - **Please re-queue it.** Your command will have seen a signal exit, not a test result.
+
+- 2026-11-10 19:45 OUT glass-ui-2c: owner daraksha frames: general deft enter/exit (no blur ramp), iOS27 bg-less fissioned theme icon (sharpens O-195), ellipse/squared end (O-193/O-205). Workflow wf_ba80beb2.
