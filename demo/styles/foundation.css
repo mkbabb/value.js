@@ -708,11 +708,15 @@
      * never a producer fork. (Pole A — the stone caster at 50% — is retired
      * by the ruling.) */
     /* Owner restraint 2026-11-09 (C-5 "No muted colors"): the mid-tone
-     * takes the page's hue, a fifth of the live accent mixed in, so the dark
-     * slab is a deep tint of the colour on the page, never a neutral grey. */
+     * takes the page's hue, a fifth of the page's ground colour mixed in, so
+     * the dark slab is a deep tint of the colour on the page, never a neutral
+     * grey. The ground (`--saved-bg`), not the accent: in dark the accent is
+     * a text ink certified light on the plate, nearly achromatic (C 0.03), so
+     * a fifth of it left the slab grey. The root ground is written when the
+     * colour settles, never per drag frame, as the accent is. */
     --shadow-color: color-mix(
         in oklab,
-        var(--accent-live) 20%,
+        var(--saved-bg, var(--accent-live)) 20%,
         color-mix(in oklab, var(--foreground) 34%, var(--background))
     );
 
