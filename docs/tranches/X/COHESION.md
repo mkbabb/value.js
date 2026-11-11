@@ -6541,3 +6541,28 @@ Id note: the order asked for "§0hw"; §0hw is the value realization track's, so
     - **D4 GREEN ×2 (keyframes.js).** No code change, so no PR: kf master `f70c34a1`, keyframes.babb.dev serves `index-Cpkp18u_.js`. `kf-load.mjs --cells load,swap --runs 2 --gpu` (ANGLE Metal): into-cube frameP95 9.8–10.3 ms in all 12 cells (≤ 16.7), commit 165–210 ms (≤ 250); TBT spring-390 5 / 2, easing-390 43 / 18, home 0. The next adversary pass must run D4 with `--gpu`; hops out of the cube (cube→amiga about 65 ms) are outside this unit.
   - **4410 / 4411.** `~/.audit-local/color` at `32090b874` (`VITE_API_URL=/api`, `index-3dx54fW2.js`; the hash differs from prod only by the API base), guarded 49827 / vite 49834; `~/.audit-local/keyframes` at `f70c34a1` (`index-Cpkp18u_.js` = prod), guarded 49829 / vite 49835 (the 11-09 server had timed out). Both are `--light`, 720 min, started under a long-lived `sh` so guarded's caller-died check holds. `SERVERS.md` updated.
   - **Still HELD on glass:** D1, the slider share of D2, the satellite colony rewrite, W-G.5b blob physics, and the 11.0.1 / 11.1.0 rows. **Still ours (D2):** desktop recalc 4.6–4.8 ms and mobile spectrum p95 about 20 ms.
+- **§0hz.4 (2026-11-06): sk-v27 LW1 close-out.**
+  - TOPO-0..4 are GREEN. The TOPO-5 merge `077d9338d` is on PR #9; master is held on the pre-existing sccache RED.
+  - COMP is 4/4 DONE, with CB-1a GREEN on CI.
+  - LG-1 is still RED on LG-a (the private submodule) and the corpus tests.
+  - The delegate ruled R-a (drop the private `docs/precepts` submodule), R-b (parity authority: spec, then spine), R-c (release-asset corpus) and Z-32, in bbnf-lang `sk-v27` `323fce853`.
+  - The LW2 order is written (`LW2-ORDER.md` `9934a9f91`: 16 seats, 6 phases). **LW2 is queued for the next free slot.**
+  - release-4.3.0 died in the 2026-11-06 network outage and is resumed in wf_3a62e857. megatranche-continue also died in the outage and was relaunched as wf_89d1d716, with a resume note and a disk guard.
+- **§0hz.5 (2026-11-06): owner-1105-eve round 1 closed NOT CONFORMANT on prod (5 of 7).** The adversary is `~/.dev-logs/o1105/adversary-r1/`.
+  - Round-1 work never reached prod: o1105-integrate is unmerged, and fourier master 9b18d3e is RED on CI, so its deploy was skipped. kf is live and CONFORMANT in Chromium.
+  - The perf cures barely moved the square or slider: about 42 ms of UpdateLayoutTree and 8.4 `:root` writes per move remain. The hero blob takes no input (it hit-tests to title-row). The dark aurora field sits at L p50 0.31–0.34 and the swirl is static.
+  - The delegate ruled the kf 390 off-die swipe: it orbits when the page can't scroll and scrolls when it can.
+  - **Round 2 is launched as owner-1105-eve-r2 (wf_a5648a2d):** six build lanes (perf, blob, aurora, transitions, kf, fourier), then value integrate and ship, then the adversary re-check.
+  - **Erratum:** value-js-e7 told the owner and sci-report-36 at about 10:10 that the fourier dock collapse was live. It was not: the deploy was skipped on the RED CI.
+- **§0ia (2026-11-11): daraksha × fourier, the adversarial repair (owner order 2026-11-10; the check read NOT CONFORMANT, 9 rows).** Receipts are in `~/.dev-logs/daraksha-fourier/repair/`.
+  - **Cured and live on daraksha master `dd184da` (PR #9, CI GREEN 2/2, Production deployment 32cb79d3):**
+    - **#5, the portraits lens:** at level/φ² over 8.5% of the width it moved the line under 0.7% of the width, which no eye could find. It now softens to level/φ⁴ over that reach times φ. The falsifiers measure how far the inked line moves, not how many pixels flip: e2e p95 ≥ 1.5% and max ≤ 1/16 of the width, RED ×2 (p95 0.006) → GREEN ×2 (0.018 / 0.029 at 1440); the unit bound, RED ×2 → GREEN ×2 (218/218). Rest and hover frames were Read.
+    - **#6, the missing asset cached as HTML:** the build writes `dist/404.html`, so Pages answers an uncached 404 (`no-store`), and G-21 (`check-served.mjs`) asserts it after each deploy. RED ×2 on prod (200 text/html, immutable) → GREEN ×2 on the preview and ×2 on prod.
+  - **Found on the way and cured (PR #11):** the O-25 step piped the deployment list into `grep -q` under pipefail. On a long list printf hit a broken pipe and read the live dd184da deploy as STALE-PROD, which also skipped G-21 and check-live. It now reads a here-string (RED ×2 → GREEN ×2 on a 210 KB list).
+  - **#7, the 4413 audit server:** up again (guarded 73455, restarted by the quran-ship seat at about 02:20); 200 ×2.
+  - **Owner acts, not worked around:**
+    - **#1–#3:** the npm token in `~/.npmrc` returns 401, and fourier-analysis has no `NPM_TOKEN` secret. `@mkbabb/fourier` 0.1.0 is merged on fourier master `815c7f3` and waits only on the publish; after it, `o1110-name-fourier` takes the exact pin and its lock, and L3 ships.
+    - **#4:** no `ADMIN_TOKEN` on this machine, so no prod revoke receipt.
+    - **#6 residue:** Cloudflare Web Analytics is still on for the daraksha Pages project. A 404 carries `no-store`, not `no-transform`, so the beacon is injected; the CSP blocks it, but an unknown page logs one console error. The fix is to turn analytics off (SPEC §0.4); the API token has no RUM scope.
+  - **Routed:** #8 (dock cut cap) to glass via the o1110-finish repro. #9 (p01's mouth and loose stroke ends, the 390 band under the dots from the golden placement) to the owner's portrait pick (O-3).
+  - **Sibling finding, relayed and not acted on:** color, keyframes and fourier `.babb.dev` answer a missing `/assets/*` path with the shell as 200 (keyframes with a one-year immutable cache). It reached daraksha's PR #11 CI: color.babb.dev's embed CSS and JS came back as HTML mid-deploy.
