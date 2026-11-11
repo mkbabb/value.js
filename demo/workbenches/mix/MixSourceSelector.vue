@@ -264,8 +264,11 @@ const swatchKeys = computed(() => {
                             :disabled="!canAddColor"
                             @click="addCurrentColor"
                         >
+                            <!-- The silhouette is the dot the picker colour will
+                                 become; its ink is that colour certified to 3:1. -->
                             <WatercolorDot
-                                :color="addSlotInk"
+                                :color="cssColorOpaque ?? addSlotInk"
+                                :ink="addSlotInk"
                                 variant="ghost"
                                 seed="mix-add-slot"
                                 class="w-full h-full"
