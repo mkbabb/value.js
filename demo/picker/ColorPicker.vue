@@ -64,7 +64,8 @@
                     @input="onComponentInput"
                 >
                     <!-- V-D1.r3 (delegate ruling R-1): on a short desktop
-                         block the name yields its line. The spectrum's
+                         block the name yields its line; o1109, so does a name
+                         longer than its line, whole, never ellipsed. The spectrum's
                          aspect bar (≤ 2.5) and the one-viewport law both
                          hold at 1366×768 only without that 33 px row, so the
                          name waits behind the colour's badge — a disc of the
@@ -72,7 +73,7 @@
                          popover: hover, keyboard focus or tap (the owner's
                          gloss rule). Same mount gate as the line (D-32). -->
                     <Popover
-                        v-if="nameLineMounted && currentColorName && nameYields"
+                        v-if="nameLineMounted && currentColorName && (nameYields || nameOverflows)"
                         :open="nameGlossOpen"
                         trigger="hover"
                         @update:open="setNameGloss"
@@ -107,22 +108,36 @@
 
                 <!-- The colour's NAME (owner 2026-10-19), IFF it has one: a
                      CSS keyword or an approved name within ΔE_OK 0.02 of the
-                     current colour (`named-color-snap.ts`). No name, no line —
-                     the readout above is then the colour's only text.
-                     X·§0hm D-32: the line is CLIENT-ONLY. The approved names
+                     current colour (`named-color-snap.ts`). No name, an
+                     empty line — the readout above is then the colour's only
+                     text, and the line keeps its block (o1109, below).
+                     X·§0hm D-32: the name is CLIENT-ONLY. The approved names
                      arrive by fetch at run time, which the build-time prerender
                      of `/` never has; the stage hydrates lazily (on idle), so
                      when the fetch landed first, the client's first render
                      asked for a <p> where the prerender holds a comment
                      ("Hydration completed but contains mismatches", 5/10 cold
-                     loads at 6x CPU). Gated on the plate's mount, the server
-                     render and the hydrating render agree (no line), and the
-                     line appears on the mount's own update. -->
+                     loads at 6x CPU). The TEXT is gated on the plate's mount:
+                     the server render and the hydrating render agree (an
+                     empty line), and the name inks on the mount's own update. -->
+                <!-- o1109 (owner 2026-11-09 17:18: "named colors should
+                     NOT modify the height of the whole page"): the line is a
+                     RESERVED one-line block. It renders from the server render
+                     on, named or not, so a colour gaining, changing or losing
+                     its name re-inks one line and never re-lays the header,
+                     the plate, the scene or the document. The name is whole
+                     or not shown: one longer than the line yields into the
+                     colour's badge (nameOverflows), as on a short desktop
+                     block, where header.css takes the line out instead. -->
                 <p
-                    v-if="nameLineMounted && currentColorName && !nameYields"
+                    ref="nameLine"
                     class="picker-color-name"
                     data-testid="picker-color-name"
-                >{{ currentColorName }}</p>
+                ><span
+                        ref="nameText"
+                        class="picker-color-name-text"
+                        :data-yielded="nameOverflows || undefined"
+                    >{{ nameLineMounted ? currentColorName : "" }}</span></p>
             </CardHeader>
 
             <!-- The content region is the CONTROLS zone — body voice, never a
@@ -187,6 +202,7 @@ import {
     computed,
     defineAsyncComponent,
     inject,
+    onActivated,
     onDeactivated,
     onMounted,
     onUnmounted,
@@ -196,7 +212,7 @@ import {
     useTemplateRef,
     watch,
 } from "vue";
-import { useMagicKeys, useMediaQuery } from "@vueuse/core";
+import { useMagicKeys, useMediaQuery, useResizeObserver } from "@vueuse/core";
 import { Popover, PopoverContent, PopoverTrigger } from "@mkbabb/glass-ui/popover";
 import { useIdleReady } from "@mkbabb/glass-ui/dom";
 import type { ColorModel, EditTarget } from "../color-session/color-model";
@@ -464,7 +480,7 @@ onDeactivated(() => {
 
 // --- Lifecycle ---
 
-// X·§0hm D-32 — the name line renders from the mount on (template note).
+// X·§0hm D-32 — the name's text inks from the mount on (template note).
 const nameLineMounted = ref(false);
 
 // V-D1.r3 (R-1) — the name yields its line on a short desktop block: from lg
@@ -472,6 +488,25 @@ const nameLineMounted = ref(false);
 // costs the spectrum its ≤ 2.5 aspect. Below lg the plate scrolls its own body
 // (D-19), so neither law is in tension and the line stands.
 const nameYields = useMediaQuery("(min-width: 1024px) and (max-height: 819.98px)");
+// o1109 — the reserved line holds a name only whole: one wider than the line
+// (an approved name runs to 50 characters) yields into the badge. The text is
+// measured where it stands, on layout boxes (a pane's travel transform never
+// enters the reading); it keeps its box while yielded, so the reading stays
+// live. It is read when either box resizes (the pane, a font landing), after
+// the name changes, and on a KeepAlive return (a name that changed while the
+// pane was away may resize nothing on the return). While the line is out of
+// the layout (condensed, or the short-block yield) the last reading stands.
+const nameLine = useTemplateRef<HTMLElement>("nameLine");
+const nameText = useTemplateRef<HTMLElement>("nameText");
+const nameOverflows = ref(false);
+function measureName() {
+    const line = nameLine.value;
+    if (!line?.clientWidth) return;
+    nameOverflows.value = line.scrollWidth > line.clientWidth;
+}
+useResizeObserver([nameLine, nameText], measureName);
+watch(currentColorName, measureName, { flush: "post" });
+onActivated(measureName);
 const nameGlossOpen = ref(false);
 // V-D1.r4 (WCAG 1.4.13, dismissible): Escape closes the gloss and it stays
 // closed until the badge is engaged anew (a fresh focus or pointer entry).

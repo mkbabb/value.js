@@ -6,6 +6,7 @@ import {
     mixColors,
     oklch,
     parseCssColor,
+    rgb,
     safeAccentColor,
     serializeCssColor,
     xyz,
@@ -387,17 +388,50 @@ const WHITE_XYZ = (() => {
 })();
 
 /**
+ * The plate's backdrop saturation: glass's T-45 carrier paints the field
+ * through `blur() saturate(var(--glass-saturate))`, 1.5 (read live on
+ * `.pane-shell::before`, both schemes, 390 and 1440). The veil ladder above
+ * is laid over THAT backdrop, not over the raw field.
+ */
+export const PRODUCER_BACKDROP_SATURATE = 1.5;
+
+/**
+ * The backdrop's `saturate(s)` as the browser applies it: the Filter Effects
+ * saturate matrix on the gamma-encoded sRGB channels, clamped to the gamut.
+ * It keeps a neutral; it lifts the WCAG luminance of a saturated mid-tone
+ * stop (the dark field's) and can lower a pale one's a little (clamping).
+ */
+export function saturateSrgb(painted: Color<"oklch">, s: number): Color<"oklch"> {
+    const srgb = convertColor(painted, "rgb");
+    if (!srgb.ok) throw new Error(`Backdrop saturate failed: ${srgb.error.code}`);
+    const [r, g, b] = srgb.value.channels.map((v) => (v as number) / 255) as [number, number, number];
+    const ch = (x: number) => Math.min(1, Math.max(0, x)) * 255;
+    const out = rgb(
+        ch((0.213 + 0.787 * s) * r + (0.715 - 0.715 * s) * g + (0.072 - 0.072 * s) * b),
+        ch((0.213 - 0.213 * s) * r + (0.715 + 0.285 * s) * g + (0.072 - 0.072 * s) * b),
+        ch((0.213 - 0.213 * s) * r + (0.715 - 0.715 * s) * g + (0.072 + 0.928 * s) * b),
+        1,
+    );
+    if (!out.ok) throw new Error(`Backdrop saturate failed: ${out.error.code}`);
+    const back = convertColor(out.value, "oklch");
+    if (!back.ok) throw new Error(`Backdrop saturate failed: ${back.error.code}`);
+    return back.value;
+}
+
+/**
  * The OKLab L of the NEUTRAL with the stop's WCAG luminance: the ground the
  * achromatic `surfaceColor` stands in for. A chromatic stop's own L is not
  * that ground (the default seed's dark field: its stop at L 0.42 has
- * Y 0.069, the neutral at L 0.42 has Y 0.074).
+ * Y 0.069, the neutral at L 0.42 has Y 0.074). `saturate` reads the stop
+ * through a plate's backdrop filter first (see {@link PRODUCER_BACKDROP_SATURATE}).
  */
-function luminanceLightness(stop: FieldStop): number {
+function luminanceLightness(stop: FieldStop, saturate = 1): number {
     const raw = oklch(stop.L, stop.C, stop.h, 1);
     if (!raw.ok) throw new Error(`Invalid field stop: ${raw.error.code}`);
-    const painted = mapColorToGamut(raw.value, "srgb");
-    if (!painted.ok) throw new Error(`Field stop gamut map failed: ${painted.error.code}`);
-    const xyzStop = convertColor(painted.value, "xyz");
+    const mapped = mapColorToGamut(raw.value, "srgb");
+    if (!mapped.ok) throw new Error(`Field stop gamut map failed: ${mapped.error.code}`);
+    const painted = saturate === 1 ? mapped.value : saturateSrgb(mapped.value, saturate);
+    const xyzStop = convertColor(painted, "xyz");
     if (!xyzStop.ok) throw new Error(`Field stop luminance failed: ${xyzStop.error.code}`);
     const Y = Math.max(0, xyzStop.value.channels[1] as number);
     const grey = xyz(WHITE_XYZ[0]! * Y, Y, WHITE_XYZ[2]! * Y, 1);
@@ -432,7 +466,7 @@ export function resolveFieldAmbientLightness(
     dark: boolean,
 ): number {
     if (!stops.length) return 0.5;
-    if (dark) return Math.max(...stops.map(luminanceLightness));
+    if (dark) return Math.max(...stops.map((stop) => luminanceLightness(stop)));
     let sum = 0;
     for (const stop of stops) sum += stop.L;
     return sum / stops.length;
@@ -440,17 +474,23 @@ export function resolveFieldAmbientLightness(
 
 /**
  * THE PLATE INK'S FIELD REFERENT (COHESION §0gx.2, ESC-W11e2b-1). In dark it
- * is the ambient itself. In light it is maximin: the mean left the plate pair
- * under the floor over the field's dark regions (X.W11.e2b: 4.37:1 on /browse
- * at 390), and {@link maximinFieldReferent} answers with the best ink over
- * every stop.
+ * is the field's brightest stop AS THE PLATE SEES IT: through the carrier's
+ * backdrop `saturate()` (o1109 integrate: the raw stop certified the default
+ * seed's ink at 5.75:1, and the caption read 4.49:1 over the painted plate on
+ * CI, `o11` dark 390; the saturated stop models it at 4.66:1). In light it is
+ * maximin: the mean left the plate pair under the floor over the field's dark
+ * regions (X.W11.e2b: 4.37:1 on /browse at 390), and
+ * {@link maximinFieldReferent} answers with the best ink over every stop.
+ * Light reads the raw stops: its referent is the DARKEST stop, a pale field's
+ * saturation moves its luminance the least, and light was measured green live.
  */
 export function resolveFieldPlateReferent(
     stops: readonly FieldStop[],
     dark: boolean,
 ): number {
-    if (!stops.length || dark) return resolveFieldAmbientLightness(stops, dark);
-    return maximinFieldReferent(stops.map(luminanceLightness));
+    if (!stops.length) return resolveFieldAmbientLightness(stops, dark);
+    if (dark) return Math.max(...stops.map((stop) => luminanceLightness(stop, PRODUCER_BACKDROP_SATURATE)));
+    return maximinFieldReferent(stops.map((stop) => luminanceLightness(stop)));
 }
 
 /** The pole that reads the higher ratio on a neutral ground: the choice the

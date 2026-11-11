@@ -78,7 +78,7 @@
      * paint one seat-plus-gutter beyond its box: the gutter floor (0.75rem,
      * `--app-gutter`'s minimum) is the narrowest card-to-viewport distance at
      * every width, so the clip never crosses the viewport edge. The bead's body
-     * sits 0.175·fp inside the wrapper (the containment identity above), so
+     * sits 0.23·fp inside the wrapper (the containment identity above), so
      * the clip cuts only transparent overscan; nothing in the seat moves. */
     clip-path: inset(calc(-1 * (var(--blob-seat) + 0.75rem)));
 }

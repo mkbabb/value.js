@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import { openView, mainPane } from "./fixtures/dock";
+import { openView, mainPane, paneSettled } from "./fixtures/dock";
 import { instrumentWebglDraws, GOO_BLOB_TESTID, lastCanvasDrawCount } from "./fixtures/webgl-appearance";
 
 /**
@@ -61,6 +61,10 @@ test("goo-blob canvas survives view switch without webglcontextlost", async ({
     await expect(mainPane(page)).toBeVisible();
 
     await openView(page, "Home");
+    // The back hop deals the picker card back on top from where it was flung
+    // (o1109 shuffled deck: 110 % off its side, a turn); the blob is on screen
+    // once that card is at rest, not while it is still travelling in.
+    await paneSettled(page);
     const blob = page.getByTestId("goo-blob-canvas").last();
     await expect(blob).toBeAttached();
 
