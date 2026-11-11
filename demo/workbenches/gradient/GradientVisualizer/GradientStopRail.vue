@@ -1,12 +1,9 @@
 <script setup lang="ts">
 /**
- * GradientStopRail — the stop rail: the ramp, the handles and their gestures
- * (drag, the keyboard grab and caret, crowding lanes, the click-to-add ghost).
- * A2-VA-L1-11 split the 1099-line GradientStopEditor into this rail and
- * GradientStopInspector; GradientVisualizer composes the two, the inspector
- * seated through this rail's scoped slot. The rail keeps the selection model,
- * the ONE removal owner (its Delete key and the inspector's Remove both land in
- * `requestRemove`) and the seat's polite channel, and hands them to the slot.
+ * GradientStopRail — the ramp, the handles and their gestures (drag, keyboard grab and caret, crowding
+ * lanes, click-to-add ghost); split from GradientStopEditor with GradientStopInspector (A2-VA-L1-11), seated
+ * through the scoped slot. It keeps the selection model, the ONE removal owner (Delete and the inspector's
+ * Remove both land in `requestRemove`) and the polite channel. `band`: the seat band's strip (rail-band.css).
  */
 import { ref, computed, watch, watchEffect, useTemplateRef } from "vue";
 import { useElementSize } from "@vueuse/core";
@@ -44,14 +41,7 @@ const { stops, railRamp, interpolationSpace, hueMethod, canRemove, band } = defi
      */
     interpolationSpace: PickerSpace;
     hueMethod: HueInterpolationMethod;
-    /**
-     * The seat band's own surface, as the host's classes (owner 2026-11-11:
-     * "the palettes on the bottom should be on one line and properly in a
-     * container"). Given, the band the seats ride on is drawn as one strip
-     * under every seat, its lanes included, `--rail-band-pad` past the seats
-     * on every side; omitted, the band is bare, as the workbench keeps it.
-     */
-    band?: string;
+    band?: string; /* the seat band's strip, as the host's classes (rail-band.css) */
 }>();
 
 /** The ramp's colour at a position (0–100), in the one literal dialect. */
@@ -658,10 +648,7 @@ function onCaretKeydown(e: KeyboardEvent) {
                 @keydown="onCaretKeydown"
             />
 
-            <!-- The seat band's strip (the host's surface): under the seats,
-                 never a target, so a press on it adds nothing. -->
             <span v-if="band" class="rail-band" :class="band" aria-hidden="true" />
-
             <!-- Stop handles. The BUTTON is the ≥24×24 target and the seat that
                  owns role / value / name / focus (X-W4 · C2/C4); the FACE inside
                  it is the painted silhouette, carrying the DUAL-CONTRAST resting
@@ -734,6 +721,7 @@ function onCaretKeydown(e: KeyboardEvent) {
     </div>
 </template>
 
+<style scoped src="./rail-band.css"></style>
 <style scoped>
 /* ── THE ONE AXIS (X-W6 · X.W6.a — a3 / a4 / a12) ─────────────────────────────
    `--rail-inset` is half a handle seat and `--rail-track` is the span between
@@ -801,7 +789,7 @@ function onCaretKeydown(e: KeyboardEvent) {
     --rail-hit: var(--rail-handle-size);
     /* The seat's own rhythm (the `gap-1` the rail and the chip band sit on),
        reused as the gutter BETWEEN the two coarse hit regions. */
-    --rail-gutter: var(--rail-seat-gutter, 0.25rem); /* a host whose band has a strip sets it off the ramp */
+    --rail-gutter: var(--rail-seat-gutter, 0.25rem);
     /* The axis, declared on the SEAT so the rail's handles and the chip that
        tracks the selected one read the same two properties. The seat draws no
        horizontal padding, so `100%` is the same length in both containing
@@ -887,23 +875,6 @@ function onCaretKeydown(e: KeyboardEvent) {
     top: var(--rail-handle-top);
     inline-size: var(--rail-handle-size);
     block-size: var(--rail-handle-size);
-}
-/* The band's strip spans the band exactly, its lanes included, and stands
-   `--rail-band-pad` past the outermost seats; it sits under every seat. A host
-   that draws it gives the seats a gutter of twice the pad, so the strip stands
-   clear of the ramp by as much as it stands past its seats. */
-.rail-band {
-    position: absolute;
-    z-index: 0;
-    pointer-events: none;
-    inset-inline: calc(-1 * var(--rail-band-pad, 0.5rem));
-    inline-size: auto;
-    top: calc(var(--rail-height) + var(--rail-gutter) - var(--rail-band-pad, 0.5rem));
-    block-size: calc(
-        var(--rail-hit) + var(--rail-lane-count) * var(--rail-lane-step) + 2 * var(--rail-band-pad, 0.5rem)
-    );
-    box-sizing: border-box;
-    padding: 0;
 }
 /* The ghost is a preview of the painted SILHOUETTE, not of the seat. */
 .rail-ghost {
