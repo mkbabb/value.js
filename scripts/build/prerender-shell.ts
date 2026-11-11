@@ -128,17 +128,17 @@ export function prerenderShell(): Plugin {
                         `[prerender-shell] index.html must carry exactly one ${BODY_END}`,
                     );
                 }
-                writeFileSync(
-                    indexPath,
-                    afterPaintGraph(
-                        index
-                            .replace(
-                                MOUNT,
-                                `<div id="app" data-prerendered>${rendered.html}</div>`,
-                            )
-                            .replace(BODY_END, `${body}${BODY_END}`),
-                    ),
+                const shell = afterPaintGraph(
+                    index
+                        .replace(MOUNT, `<div id="app" data-prerendered>${rendered.html}</div>`)
+                        .replace(BODY_END, `${body}${BODY_END}`),
                 );
+                writeFileSync(indexPath, shell);
+                // With a 404.html, Pages answers a path the build does not hold
+                // with 404 and no long cache, not with the shell as 200: a missing
+                // `/assets/*` file is never cached as HTML. The routes are hash
+                // routes, so an unknown page still gets the shell and lands home.
+                writeFileSync(path.resolve(config.build.outDir, "404.html"), shell);
             } finally {
                 rmSync(WORK_DIR, { recursive: true, force: true });
             }
