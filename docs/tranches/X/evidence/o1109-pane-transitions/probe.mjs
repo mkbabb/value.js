@@ -10,6 +10,8 @@
 // THE SHUFFLE LAW (the falsifier; RED on the 1.5rem/no-rotate deck):
 //   S1 forward — the leaver is flung off its region: |tx| or |ty| peaks at
 //      >= 80 % of its own size, and it turns (|rot| peaks >= 1.5 deg);
+//   S1b forward (o1109 repair) — its LAST painted frame is off its own box
+//      (travel >= 1.0): it is removed when gone, never cut mid-fling;
 //   S2 forward — the riser comes up from under the deck askew: its first
 //      sampled pose turns (|rot| >= 0.5 deg) and is scaled below 1;
 //   S3 back — the riser is dealt back on top from the leaver's discard side,
@@ -164,6 +166,8 @@ function analyse(samples, direction, reduced) {
             // tracks the box, and G9 may resize the region mid-swap)
             r.leaverPeakTravel = Math.max(...f.map((x) => Math.max(Math.abs(x.tx) / Math.max(x.w, 1), Math.abs(x.ty) / Math.max(x.h, 1))));
             r.leaverPeakRot = Math.max(...f.map((x) => Math.abs(x.rot)));
+            const fl = f[f.length - 1];
+            r.leaverLastTravel = Math.max(Math.abs(fl.tx) / Math.max(fl.w, 1), Math.abs(fl.ty) / Math.max(fl.h, 1));
             r.leaverMinScale = Math.min(...f.map((x) => x.sc));
             r.leaverLife = +(f[f.length - 1].t - f[0].t).toFixed(0);
             r.leaverZ = f[0].z;
@@ -178,6 +182,10 @@ function analyse(samples, direction, reduced) {
                 if (r.leaverLife > 120 + 2 * p95 + 17) faults.push(`S5 ${role}: leaver lived ${r.leaverLife} ms under reduce (p95 ${p95.toFixed(0)})`);
             } else if (direction === "forward") {
                 if (r.leaverPeakTravel < 0.8) faults.push(`S1 ${role}: leaver travel ${r.leaverPeakTravel.toFixed(2)} < 0.8 of its size`);
+                // S1b (o1109 repair, adversary defect 4): the last frame that
+                // paints the leaver shows it OFF its own box (travel >= 1.0):
+                // the card is removed when it is gone, never cut mid-fling.
+                if (r.leaverLastTravel < 1.0) faults.push(`S1b ${role}: leaver removed at travel ${r.leaverLastTravel.toFixed(2)} < 1.0 of its size`);
                 if (r.leaverPeakRot < 1.5) faults.push(`S1 ${role}: leaver turn ${r.leaverPeakRot.toFixed(2)} deg < 1.5`);
             }
         }
