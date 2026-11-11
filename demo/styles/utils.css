@@ -202,6 +202,29 @@ svg.gold-ink,
     --vj-enter-scale: 0;
 }
 
+/* The paper chip (owner 2026-11-10, "containers, like a watercolor swatch"):
+ * a watercolour swatch is paint on a paper card. The chip is the seat's whole
+ * box on the card ground with glass's paper grain (paired with glass's
+ * `paper-grain-overlay` utility at the call site), the perimeter hairline and
+ * the small radius; no shadow, no state paint. The dot sits inset by the
+ * 1.272 ratio (chip = dot x 1.272) and above the grain. Two consumers:
+ * SwatchButton's `chip` and the embed gradient's stop faces. */
+.swatch-chip {
+    display: grid;
+    place-items: center;
+    inline-size: 100%;
+    block-size: 100%;
+    box-sizing: border-box;
+    padding: 10.7%;
+    border: 1px solid var(--card-edge);
+    border-radius: var(--radius-sm);
+    background-color: var(--card);
+}
+.swatch-chip > .watercolor-swatch {
+    position: relative;
+    z-index: 1;
+}
+
 /* The plate ink (X.W7.z2 · R-15 ≡ C-11) — the ONE recipe for the plate
  * captions (ImageDropZone, ExtractWorkbench, ExtractControls, EmptyState, and
  * through EmptyState the ErrorBoundary and PaneErrorPlate plates): the
