@@ -299,7 +299,17 @@ test("O-16 W5 census — every owned row's computed duration/curve ≡ its liqui
         expect(move?.timing, "R3 transform curve").toBe(census.leaveTok!.timing);
         expect(move?.timing, "R3 transform curve").toMatch(/^cubic-bezier\(/);
         expect(census.leave!["opacity"], "R3 the fling carries no opacity leg").toBeUndefined();
-        expect(Object.keys(census.leave!), "R3 the fling is transform only").toEqual(["transform"]);
+        // o1109 repair (adversary defect 4): the one other leg is the HOLD — a
+        // `visibility` leg of 0s whose delay outlasts the fling, so the leave
+        // ends after the card has painted at rest off its region, never on the
+        // transform's own end (the last painted frame cut the card at 0.98 of
+        // its size, 0.77 under load). Its value never changes, so it runs no
+        // transition and the card stays no backdrop root; the exit law below
+        // still reads it.
+        expect(Object.keys(census.leave!).sort(), "R3 the fling is transform + its hold").toEqual(["transform", "visibility"]);
+        const hold = census.leave!["visibility"]!;
+        expect(parseFloat(hold.duration), "R3 the hold runs no transition").toBe(0);
+        expect(parseFloat(hold.delay), "R3 the hold outlasts the fling").toBeGreaterThan(parseFloat(move!.duration));
         // Gate 5 — the exit law: leave strictly shorter than the enter.
         const maxLeave = Math.max(
             ...Object.values(census.leave!).map(
