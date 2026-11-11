@@ -41,8 +41,11 @@
  * channel stagger three-beat sets it for the opening breath only); unset it
  * resolves to 0ms and the utility behaves exactly as before. */
 @media (prefers-reduced-motion: no-preference) {
+    /* `backwards` (o1109 repair, the overture's one-shot release law): the
+     * `to` pose is the row's natural one, so a finished cascade retires and
+     * holds no row in effect at rest. */
     .stagger-children > * {
-        animation: stagger-child-in var(--duration-normal) var(--ease-standard) both;
+        animation: stagger-child-in var(--duration-normal) var(--ease-standard) backwards;
     }
     .stagger-children > *:nth-child(1) { animation-delay: calc(var(--stagger-base, 0ms) + 0ms); }
     .stagger-children > *:nth-child(2) { animation-delay: calc(var(--stagger-base, 0ms) + 40ms); }
@@ -325,8 +328,21 @@
         opacity: 1;
         transform: var(--deck-flung);
     }
+    /* o1109 repair (adversary defect 4): the flung card is gone when it is
+     * OFF, never mid-fling. The leave ended on the transform's own end, so
+     * the last frame the eye got was whichever frame ran before it: on a
+     * loaded 1440 frame clock the card was cut at 0.77 of its size, a third of
+     * it still on the page. The fling runs on the same clock to the same pose;
+     * a `visibility` leg that never changes value (so it runs no transition
+     * and the card stays no backdrop root) holds the leave φ⁻³ (0.236) of the
+     * fling longer (Vue ends a leave on its longest declared timeout, here
+     * about 59 ms, three frames at 60 Hz), so at least one
+     * frame always paints the card at rest off its region before it is
+     * removed. */
     .pane-wrapper > .vj-enter-leave-active {
-        transition: transform var(--spring-world-exit-duration) var(--ease-in);
+        transition:
+            transform var(--spring-world-exit-duration) var(--ease-in),
+            visibility 0s linear calc(var(--spring-world-exit-duration) * 1.236);
     }
 
     /* The flung pose turns about the card's top corner on the side that
