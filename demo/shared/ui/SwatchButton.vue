@@ -21,7 +21,10 @@
         <!-- The paper chip (owner 2026-11-10, "containers, like a watercolor
              swatch"): with `chip`, the paint sits inset on a paper card
              (`.swatch-chip`, utils.css). The dot inside is unchanged. -->
-        <span v-if="chip" class="swatch-chip paper-grain-overlay">
+        <component
+            :is="chip ? 'span' : Bare"
+            :class="chip && 'swatch-chip paper-grain-overlay'"
+        >
             <WatercolorDot
                 :color="color"
                 :variant="ghost ? 'ghost' : 'solid'"
@@ -29,15 +32,7 @@
                 :animate="animate"
                 class="w-full h-full"
             />
-        </span>
-        <WatercolorDot
-            v-else
-            :color="color"
-            :variant="ghost ? 'ghost' : 'solid'"
-            v-bind="seed !== undefined ? { seed } : {}"
-            :animate="animate"
-            class="w-full h-full"
-        />
+        </component>
         <Check
             v-if="done"
             class="absolute w-4 h-4 pointer-events-none"
@@ -49,6 +44,7 @@
 </template>
 
 <script setup lang="ts">
+import type { FunctionalComponent } from "vue";
 import { Check } from "@lucide/vue";
 import { Button } from "@mkbabb/glass-ui/button";
 import { WatercolorDot } from "./watercolor-dot";
@@ -61,6 +57,10 @@ import { contrastInkFor } from "../../color-session/ink";
  *  plate). A `fill` cell grows from the `md` floor to a 5rem cap, square, and
  *  a long palette wraps at the floor. */
 export type SwatchSize = "sm" | "md" | "lg" | "xl" | "fill";
+
+/** No wrapper: the dot alone, as every unchipped swatch has it. */
+const Bare: FunctionalComponent = (_, { slots }) => slots.default?.();
+Bare.inheritAttrs = false;
 
 const SIZE: Record<SwatchSize, string> = {
     sm: "w-8 h-8",

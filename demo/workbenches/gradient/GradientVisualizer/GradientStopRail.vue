@@ -72,7 +72,7 @@ defineSlots<{
         requestRemove: (target?: GradientStop) => void;
         commitPosition: (value: number | null | undefined) => void;
     }): unknown;
-    /** A stop's painted face, inside its seat (default: the ringed disc). */ face?(props: { stop: GradientStop }): unknown;
+    /** A stop's painted face, inside its seat (default: the ringed disc). */ face?(props: { stop: GradientStop; selected: boolean }): unknown;
 }>();
 
 // The ONE selection channel (X-W6 · X.W6.a). The former `select` emit rode
@@ -668,7 +668,7 @@ function onCaretKeydown(e: KeyboardEvent) {
                 :aria-valuenow="stop.position"
                 :aria-valuetext="stopValueText(stop, index)"
                 :aria-label="stopName(index)"
-                class="rail-handle absolute rounded-full cursor-grab active:cursor-grabbing"
+                class="rail-handle absolute cursor-grab active:cursor-grabbing"
                 :class="[selectedId === stop.id ? 'z-10' : 'z-0']"
                 :style="{
                     left: handleLeft(stop.position),
@@ -690,10 +690,9 @@ function onCaretKeydown(e: KeyboardEvent) {
                 @pointerleave="hoveredId = null"
                 @keydown="(e) => onHandleKeydown(e, stop)"
             >
-                <!-- The `face` slot. Per-stop COLOR is DATA, the only thing inline; the
-                     checker, colour layer and both rings are stylesheet contracts
-                     (`.rail-swatch`, U-F25 / X-W6 a11, below). -->
-                <slot name="face" :stop="stop">
+                <!-- The `face` slot. Per-stop COLOR is DATA, the only thing inline; the checker,
+                     colour layer and rings are stylesheet contracts (`.rail-swatch`, below). -->
+                <slot name="face" :stop="stop" :selected="selectedId === stop.id">
                     <span
                         class="rail-handle-face rail-swatch absolute top-1/2 left-1/2 rounded-full"
                         aria-hidden="true"
@@ -779,7 +778,7 @@ function onCaretKeydown(e: KeyboardEvent) {
    change moves the whole instrument together instead of pulling the axis away
    from its handles or the chip into the next section's rule. */
 .rail-seat {
-    --rail-handle-size: max(1.5rem, 24px);
+    --rail-handle-size: var(--rail-seat-size, max(1.5rem, 24px)); /* a host may size and round the seat */
     --rail-face-size: 1.25rem;
     --rail-height: 2.5rem;
     --rail-touch: var(--touch-target, 2.75rem);
@@ -867,6 +866,7 @@ function onCaretKeydown(e: KeyboardEvent) {
    (§15). The caret and the ghost are previews of the gesture, not stops, so
    they stay on lane 0. */
 .rail-handle {
+    border-radius: var(--rail-seat-radius, 9999px);
     top: calc(var(--rail-handle-top) + var(--seat-lane, 0) * var(--rail-lane-step));
     inline-size: var(--rail-handle-size);
     block-size: var(--rail-handle-size);
