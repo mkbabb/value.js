@@ -6566,3 +6566,23 @@ Id note: the order asked for "§0hw"; §0hw is the value realization track's, so
     - **#6 residue:** Cloudflare Web Analytics is still on for the daraksha Pages project. A 404 carries `no-store`, not `no-transform`, so the beacon is injected; the CSP blocks it, but an unknown page logs one console error. The fix is to turn analytics off (SPEC §0.4); the API token has no RUM scope.
   - **Routed:** #8 (dock cut cap) to glass via the o1110-finish repro. #9 (p01's mouth and loose stroke ends, the 390 band under the dots from the golden placement) to the owner's portrait pick (O-3).
   - **Sibling finding, relayed and not acted on:** color, keyframes and fourier `.babb.dev` answer a missing `/assets/*` path with the shell as 200 (keyframes with a one-year immutable cache). It reached daraksha's PR #11 CI: color.babb.dev's embed CSS and JS came back as HTML mid-deploy.
+- **§0ib (2026-11-11): daraksha o1110 finish, deployed and witnessed on prod (owner order 2026-11-10, frames 1–10).** Receipts are in `~/.dev-logs/owner-1110/finish/` (`deploy-*.log`, `deploy-prod/`, `deploy/rest/`) and `~/.dev-logs/owner-1110/motion/ios/frames/deploy-*`.
+  - **Live:** daraksha master `8741c0a` (PR #10: shell + motion, slices fade alone, the reader's tray row and preloaded dock, the 126 ms exit clock). CI 43003831257 GREEN, deploy-pages 43006586122 GREEN. Prod serves `app-Dz_D9yq1.js`, the same hash a local build of `8741c0a` makes; JS and CSS come back as themselves, and a missing asset is a 404.
+  - **Witnessed on prod, 390 and 1440, light and dark:**
+    - Dark on a fresh store: GREEN with a light OS. The stored-light and stored-dark controls hold.
+    - The gloss card's entrance, sampled every frame: no blur, scale 0.97 to 1, 4 px travel, settled by 250 ms. Under reduced motion it does not move.
+    - The page crossings: 48/48 declared ends ≤ 250 ms (leave 126, enter 210). Ready to finished is 251–290 ms; press to finished is 273–351 ms. The last 40 ms is the browser's root group.
+    - `#dock-page` holds one page's controls on every frame (S7 GREEN in 8/8 cells). Play is at rest in the persistent seat.
+    - Motion's arrival is a fade alone on the lateral clock, opaque by ready + 250 ms. The die settles to its rest picture after the petal opening (8/8). Its numerals are drawn.
+    - Again: a quick press rewinds to the load pose in 4/4 normal cells. Under reduced motion the quick press misses in 4/4 cells; a held press rewinds. That is glass §1.
+    - The phrase tray at 390 with two verses and with five: GREEN, Copy and Clear on their own row. The first cold crossing into the Qur'an page captures the dock at 293 px and ends at 285.
+    - Frame 10: the theme toggle each way on `/`, `/colour`, `/motion`, `/scripture/93` and `?h=93:5:1-3` paints the page ground from top to bottom (20/20, and the slices follow).
+  - **iOS Simulator (iPhone 17 Pro, iOS 26.5, Mobile Safari, real two-finger touches):** Motion ×2: the pinch and the twist zoom the die, and the dock and Play stay where they were. `/scripture/93`: Safari loaded in light (its store was not fresh), then dark and back to light. The page ground read 36 then 227 at all eight sample rows, at the top and scrolled to the bottom, and the Safari chrome followed.
+  - **Not yet on color.babb.dev:** the swatch chips. value.js `3308de07d` is on master, but its CI was queued at the witness. The probe reads no `.swatch-chip` (RED, 16 cells).
+  - **Held on glass 11.0.1 (npm still shows 11.0.0), never shimmed:**
+    - The hover ellipse (O-193).
+    - The squared dock end (O-205): the plate reads [28, 4, 4, 28] at rest on every page.
+    - The stored-`auto` browser keeps day (storageKey).
+    - The quick dock press that misses under reduced motion, and the WebKit plate crash.
+    - On 11.2.0: the bare theme icon beside the dock (theme-fission RED).
+  - **Audit server:** 4413 serves `8741c0a` (guarded 6891).
