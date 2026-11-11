@@ -20,7 +20,10 @@
  * Re-syncs on: element/container resizes, window resize (dpr change rides
  * it), pane swaps (childList at or above a card), and transition/animation
  * settle at or above a card (the pane spring translates mid-flight; rects are
- * only trusted at rest).
+ * only trusted at rest). A sync that finds the wrapper or its card root still
+ * animating waits for those animations to finish rather than reading a moving
+ * rect, and every correction is a whole number of layout units, so the offset
+ * asked for is the offset the layout applies.
  */
 
 import { onBeforeUnmount, onMounted } from "vue";
