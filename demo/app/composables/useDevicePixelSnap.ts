@@ -56,6 +56,17 @@ export function useDevicePixelSnap(container: Ref<HTMLElement | null>) {
             const child = wrapper.firstElementChild;
             if (!child) continue;
 
+            // A card mid-motion is not at rest: the first arrival's overture
+            // (`overture-appear-*`) translates the card root, and a rect read
+            // then snapped the settled card 31/64 px off the grid for good,
+            // since nothing at or above the card resizes or mutates when the
+            // beat ends. Wait for its own animations and transitions to finish.
+            const moving = [wrapper, ...wrapper.children].flatMap((el) => el.getAnimations());
+            if (moving.length > 0) {
+                void Promise.allSettled(moving.map((a) => a.finished)).then(schedule);
+                continue;
+            }
+
             const prev = applied.get(wrapper) ?? 0;
             const rawTop = child.getBoundingClientRect().top - prev;
             const corr =
