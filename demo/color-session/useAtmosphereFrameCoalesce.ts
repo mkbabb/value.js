@@ -123,12 +123,16 @@ export function useColourLive(frame: Readonly<Ref<string>>, ms: number = SETTLE_
         }
     }
     let last = -Infinity;
+    // Sync, so the flag is on before any reader of the same frame runs: a
+    // pre-flush watcher ordered ahead of this one read the first frame of a
+    // drag as settled and wrote it to the root (the 11 start-of-drag root
+    // writes, o1110 D2).
     watch(frame, () => {
         const now = performance.now();
         if (pressed || now - last < ms) live.value = true;
         last = now;
         settle(end, false);
-    });
+    }, { flush: "sync" });
     return readonly(live);
 }
 
