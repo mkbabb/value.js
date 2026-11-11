@@ -220,9 +220,14 @@ export function useAtmosphereBoot(
         // o1105-r2 perf: a pause inside a drag is not a settle.
         if (now || !colourLive.value) settle(publishInkAmbient, now);
     });
+    // o1111 dragperf: synchronous, so the settled ambient is published before
+    // any reader of the release runs. Pre-flush, the accent and the
+    // off-screen tokens minted once against the drag's held ambient and again
+    // against the published one: two whole-document restyles per release
+    // (11 root tokens written twice, 120 ms apart, prod 907453615).
     watch(colourLive, (live) => {
         if (!live) settle(publishInkAmbient, true);
-    });
+    }, { flush: "sync" });
     const derivedLightness = computed(() => heldLightness.value);
     const plateReferent = computed(() => heldPlateReferent.value);
 

@@ -12,7 +12,9 @@
          A1 — the former blanket `font-display` would flip whole documents to
          Fraunces once the font root resolves a real face; headings opt into
          the display voice in the scoped styles below). -->
-    <div v-else-if="currentDoc" ref="markdownDiv" class="markdown-wrapper" data-accent-reader :style="mdColorVars">
+    <!-- o1111 dragperf: the guide holds its inks while a drag drives the
+         colour and takes the settled ones on release (see the script). -->
+    <div v-else-if="currentDoc" ref="markdownDiv" class="markdown-wrapper" :style="mdColorVars">
         <component :is="markdownContent" />
     </div>
 
@@ -38,7 +40,9 @@ import "../../../styles/foundation.css";
 import "../../../styles/utils.css";
 // X.W11.p2 — the code-plate ink rides its consumer (foundation.css no longer imports it).
 import "../../../styles/hljs.css";
-import { computed, onMounted, onUpdated, ref, useTemplateRef } from "vue";
+import { computed, inject, onMounted, onUpdated, ref, useTemplateRef } from "vue";
+import { COLOR_MODEL_KEY } from "../../../color-session/keys";
+import { useHeldWhileLive } from "../../../color-session/useAtmosphereFrameCoalesce";
 import type { DocModule } from "./types";
 import { useMarkdownColors } from "./composables/useMarkdownColors";
 import { useMarkdownHighlighting } from "./composables/useMarkdownHighlighting";
@@ -51,7 +55,21 @@ const { module, cssColor, colorSpaceName } = defineProps<{
 
 const markdownDiv = useTemplateRef<HTMLElement>("markdownDiv");
 
-const { mdColorVars } = useMarkdownColors(() => cssColor);
+// o1111 dragperf: THE GUIDE HOLDS ITS INKS THROUGH A DRAG. Its sections are
+// `content-visibility: auto`, and Chromium rebuilds the layout boxes of a
+// skipped section whenever an inherited value above it changes. Restyled on
+// every colour frame (the heading inks below plus the live accent readers'
+// copies), the guide re-attached some sixty boxes and laid the whole document
+// out again per frame, on- or off-screen (prod 907453615, desk spectrum drag:
+// 1.3 ms of the 2.7 ms Layout per move; at 390 the guide sits below the fold
+// and still paid). Like the root tokens it reads (`--primary`,
+// `--accent-live`, which hold through a drag), the guide now takes the
+// settled colour once the drag ends; headings, links and code chips change
+// together, once, on release.
+const colourLive = inject(COLOR_MODEL_KEY, null)?.colourLive;
+const liveColor = computed(() => cssColor);
+const heldColor = colourLive ? useHeldWhileLive(liveColor, colourLive) : liveColor;
+const { mdColorVars } = useMarkdownColors(() => heldColor.value);
 const { applyHighlighting } = useMarkdownHighlighting(markdownDiv, () => colorSpaceName);
 
 const currentDoc = ref<Awaited<ReturnType<DocModule>> | null>(null);
