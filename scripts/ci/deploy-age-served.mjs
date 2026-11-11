@@ -78,19 +78,29 @@ console.log(`built fingerprint (${built.length}): ${built.join(" ")}`);
 
 /**
  * A path the build does not hold is a 404 nobody keeps (dist/404.html), never the
- * shell as 200: under `/assets/*` that answer would be cached as the asset.
+ * shell as 200: under `/assets/*` that answer would be cached as the asset. The
+ * fingerprint can be unchanged by a deploy, so it may match before the edge
+ * serves the new deployment: this polls on the same bounded window.
  */
 async function absentAssetIs404() {
-    const absent = new URL(`assets/absent-${Date.now()}.js`, values.origin);
-    const res = await fetch(absent, { cache: "no-store" });
-    const cache = res.headers.get("cache-control") ?? "";
-    if (res.status !== 404 || /immutable|max-age=[1-9]/.test(cache)) {
-        fail(
-            `${absent} answers ${res.status} ${res.headers.get("content-type")} (${cache}); ` +
-                "a missing asset must be an uncached 404.",
-        );
+    let answer = "";
+    for (let i = 1; i <= attempts; i++) {
+        const absent = new URL(`assets/absent-${Date.now()}.js`, values.origin);
+        try {
+            const res = await fetch(absent, { cache: "no-store" });
+            const cache = res.headers.get("cache-control") ?? "";
+            if (res.status === 404 && !/immutable|max-age=[1-9]/.test(cache)) {
+                console.log(`OK — ${absent} answers 404 (${cache || "no cache-control"}).`);
+                return;
+            }
+            answer = `${absent} answers ${res.status} ${res.headers.get("content-type")} (${cache})`;
+        } catch (err) {
+            answer = `${absent} fetch failed: ${err.message}`;
+        }
+        console.log(`attempt ${i}/${attempts}: ${answer}`);
+        if (i < attempts) await new Promise((r) => setTimeout(r, interval));
     }
-    console.log(`OK — ${absent} answers 404 (${cache || "no cache-control"}).`);
+    fail(`${answer}; a missing asset must be an uncached 404.`);
 }
 
 const attempts = Number(values.attempts);
