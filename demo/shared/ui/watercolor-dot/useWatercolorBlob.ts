@@ -78,6 +78,9 @@ export function useWatercolorBlob(
     const transform = ref("none");
 
     const getColor = typeof color === "function" ? color : () => color.value;
+    // The colour the silhouette was last seeded from. It holds with the shape
+    // through a drag, so a wet-edge filter seeded off it holds too.
+    const shapeColor = ref(getColor());
 
     // Deterministic initial shape from color string + optional seed.
     const rng = mulberry32(hashString(getColor() + seed));
@@ -92,6 +95,7 @@ export function useWatercolorBlob(
         if (typeof color !== "function") {
             const { live } = options;
             const reseed = () => {
+                shapeColor.value = getColor();
                 const r = mulberry32(hashString(getColor() + seed));
                 borderRadius.value = radiiToCSS(randomRadii(r, range[0], range[1]));
             };
@@ -100,7 +104,7 @@ export function useWatercolorBlob(
             });
             if (live) watch(live, (on) => on || reseed());
         }
-        return { borderRadius, transform };
+        return { borderRadius, transform, shapeColor };
     }
 
     // --- Per-channel independent COMPOSITOR transform wobble ---
@@ -171,7 +175,7 @@ export function useWatercolorBlob(
         respectReducedMotion: true,
     });
 
-    return { borderRadius, transform };
+    return { borderRadius, transform, shapeColor };
 }
 
 export type WatercolorBlob = ReturnType<typeof useWatercolorBlob>;
