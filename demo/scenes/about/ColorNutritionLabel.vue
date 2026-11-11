@@ -126,8 +126,7 @@
 <script setup lang="ts">
 import { computed, inject } from "vue";
 import { useMounted } from "@vueuse/core";
-import { CSS_COLOR_KEY } from "../../color-session/keys";
-import { useSafeAccentFn } from "../../color-session/useContrastSafeColor";
+import { SAFE_ACCENT_KEY } from "../../color-session/keys";
 import { ArrowRight } from "@lucide/vue";
 import type { DisplayColorSpace } from "../../color-session/color-model";
 import { SPACE_CATALOG } from "../../color-session/space-catalog";
@@ -135,8 +134,6 @@ import { SPACE_CATALOG } from "../../color-session/space-catalog";
 // BC-CNL-16: the label reads ONE fact — the space — as a prop. A two-way
 // binding of the whole model fanned every colour tick out to this subtree.
 const { space } = defineProps<{ space: DisplayColorSpace }>();
-
-const cssColorOpaque = inject(CSS_COLOR_KEY)!;
 
 // D6 (T.W3-5 / A11Y-F3): the fg/bg DOUBLE-DUTY split. The former single
 // `nodeHighlightColor` served two incompatible roles with one guard call — a
@@ -147,8 +144,12 @@ const cssColorOpaque = inject(CSS_COLOR_KEY)!;
 //   TEXT role — the channel-name letters sit on the About plate (the RESTING
 //   rung), so their live-color ink certifies against THAT tier's composited
 //   lightness, never a page-level constant.
-const { safeCss } = useSafeAccentFn("resting");
-const componentInk = computed(() => safeCss(cssColorOpaque.value));
+//
+//   It is the app's one resting-plate accent (`--accent-live`): the same
+//   question on the frame clock, asked once. Asking it again here on the
+//   synchronous colour repeated the referent bisection on every colour event
+//   of a drag (o1110 D2).
+const componentInk = inject(SAFE_ACCENT_KEY)!;
 // X.W11.p4c (§0gl.12's law): the ink probes the live surface in the visitor's
 // scheme, so it is written after mount; the hydrated first view reads the
 // plate's certified ink, which is what the prerendered shell painted.
