@@ -18,7 +18,8 @@
 //      the deploy by seconds, so the fetch retries for a bounded window and
 //      then fails naming both sets.
 //   3. A path the build does not hold answers an uncached 404 (dist/404.html),
-//      never the shell as 200 under `/assets/*`.
+//      never the shell as 200 under `/assets/*`; and at a nested path that
+//      404 page's own script resolves to a served file, so the page starts.
 //
 // Fail-closed: an empty built fingerprint means the instrument measured
 // nothing, and it reds. Node builtins only.
@@ -103,6 +104,33 @@ async function absentAssetIs404() {
     fail(`${answer}; a missing asset must be an uncached 404.`);
 }
 
+/**
+ * The 404 page is the shell. Its asset URLs are relative, so below the first
+ * path segment they resolve only through its `<base href>`: its module script,
+ * resolved as the browser would, must be a served file, or the page paints
+ * and never starts.
+ */
+async function nestedAbsentPageStarts() {
+    const page = new URL(`no/such/page-${Date.now()}`, values.origin);
+    const res = await fetch(page, { cache: "no-store" });
+    const html = await res.text();
+    if (res.status !== 404) fail(`${page} answers ${res.status}; an absent page must be a 404.`);
+    const baseHref = html.match(/<base\s[^>]*href="([^"]+)"/i)?.[1];
+    const base = baseHref ? new URL(baseHref, page) : page;
+    const src = html.match(/<script\b[^>]*type="module"[^>]*\ssrc="([^"]+)"/i)?.[1];
+    if (!src) fail(`${page} carries no module script, so there is nothing to start.`);
+    const script = new URL(src, base);
+    const sres = await fetch(script, { cache: "no-store" });
+    const type = sres.headers.get("content-type") ?? "";
+    if (sres.status !== 200 || !/javascript/.test(type)) {
+        fail(
+            `${page} (404) loads ${script}, which answers ${sres.status} ${type}; ` +
+                "the 404 page must resolve its assets from the site root.",
+        );
+    }
+    console.log(`OK — ${page} (404) loads ${script} (200 ${type}).`);
+}
+
 const attempts = Number(values.attempts);
 const interval = Number(values["interval-ms"]);
 let served = [];
@@ -128,6 +156,7 @@ for (let i = 1; i <= attempts; i++) {
     if (same) {
         console.log(`OK — ${values.origin} serves the build of ${values.built}.`);
         await absentAssetIs404();
+        await nestedAbsentPageStarts();
         process.exit(0);
     }
     if (i < attempts) await new Promise((r) => setTimeout(r, interval));

@@ -14,7 +14,7 @@
          the display voice in the scoped styles below). -->
     <!-- o1111 dragperf: the guide holds its inks while a drag drives the
          colour and takes the settled ones on release (see the script). -->
-    <div v-else-if="currentDoc" ref="markdownDiv" class="markdown-wrapper" :style="mdColorVars">
+    <div v-else-if="currentDoc" class="markdown-wrapper" :style="mdColorVars">
         <component :is="markdownContent" />
     </div>
 
