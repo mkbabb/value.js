@@ -55,10 +55,14 @@ async function go(page: Page, route: string) {
         ),
     ).toHaveCount(1, { timeout: 20_000 });
     // The row's split travels (DESIGN.md §5.7 G9): the tracks are read at rest.
+    // Rest needs a frame after the 0.45 s travel, and a route's first visit on
+    // the dev server spends seconds transforming its modules before it paints
+    // one (locally 5 frames in 4 s on /generate; CI 42742430225 missed a 5 s
+    // budget on all three attempts), so rest gets the route's own budget.
     await page.waitForFunction(
         () => document.querySelector(".pane-container")?.getAnimations().length === 0,
         undefined,
-        { timeout: 5_000 },
+        { timeout: 20_000 },
     );
 }
 
