@@ -33,7 +33,7 @@
         }
       },
       "goldenCount": 211,
-      "totalBytes": 121808359,
+      "totalBytes": 121923497,
       "goldens": [
         {
           "path": "e2e/visual/goldens/darwin/at-rest-admin-admin-audit-admin-audit-390-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -434,8 +434,8 @@
         {
           "path": "e2e/visual/goldens/darwin/at-rest-mix-both-1024-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "at-rest-mix-both-1024-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 568803,
-          "sha256": "3c65ac27f8b7ecf8949d4259013a6ceb974756f6c489cf28a888e8d2f0b34425"
+          "bytes": 681463,
+          "sha256": "57abd704621e338949ef9640e0430ee62703f5ffb5e03d60ca19997fefa71230"
         },
         {
           "path": "e2e/visual/goldens/darwin/at-rest-mix-both-1024-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -446,8 +446,8 @@
         {
           "path": "e2e/visual/goldens/darwin/at-rest-mix-both-3440-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "at-rest-mix-both-3440-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 1580347,
-          "sha256": "6dd70002103d4b23d8a4f38749f65d823da530e8879b437c0b0a48cd1132d8d3"
+          "bytes": 1582400,
+          "sha256": "1eee18de501ca0c039ba3f7fe796807b2693017a7503eb5d805fe3f939c2399e"
         },
         {
           "path": "e2e/visual/goldens/darwin/at-rest-mix-both-3440-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
@@ -458,8 +458,8 @@
         {
           "path": "e2e/visual/goldens/darwin/at-rest-mix-both-390-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
           "name": "at-rest-mix-both-390-dark-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
-          "bytes": 476233,
-          "sha256": "dce5bbe82681d8a3bc06e159c923029f65b25e61eb6cd7167c35e2da355fdec6"
+          "bytes": 476658,
+          "sha256": "23a2b1134312089b3f3f1dd07d01aa21f3024abe192e55188fd28b533beae925"
         },
         {
           "path": "e2e/visual/goldens/darwin/at-rest-mix-both-390-light-real-angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png",
