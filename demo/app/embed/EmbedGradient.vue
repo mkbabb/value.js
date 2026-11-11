@@ -1,7 +1,12 @@
 <template>
     <!-- The gradient slice: the rendered ribbon (vertical in a tall frame,
          horizontal in a wide one) over the app's own stop rail. -->
-    <div ref="root" class="embed-gradient" :data-orientation="tall ? 'vertical' : 'horizontal'">
+    <div
+        ref="root"
+        class="embed-gradient"
+        :data-orientation="tall ? 'vertical' : 'horizontal'"
+        :style="{ '--n': String(stops.length) }"
+    >
         <div
             class="embed-gradient-ribbon rounded-card border border-card-edge"
             role="img"
@@ -14,19 +19,16 @@
             :rail-ramp="railRampCSS"
             :interpolation-space="interpolationSpace"
             :hue-method="hueMethod"
+            band="swatch-chip paper-grain-overlay"
             v-model:selected-id="selectedStopId"
             @update:position="setStopPosition"
             @add="(position: number) => (selectedStopId = mintStop(position))"
             @remove="removeStop"
         >
-            <!-- The stops as watercolour swatches: the app's own dot on the
-                 paper chip, as the picker slice's colours sit. -->
+            <!-- The stops as watercolour swatches on the rail's one paper
+                 strip (its band), as the picker slice's colours sit on theirs. -->
             <template #face="{ stop, selected }">
-                <span
-                    class="swatch-chip paper-grain-overlay stop-chip"
-                    :data-selected="selected ? '' : undefined"
-                    aria-hidden="true"
-                >
+                <span class="stop-face" :data-selected="selected ? '' : undefined" aria-hidden="true">
                     <span class="stop-checker" />
                     <WatercolorDot
                         :color="stop.cssColor"
@@ -93,16 +95,31 @@ watchEffect(() => {
     block-size: 100svh;
     padding: 0.75rem;
 }
-/* The stops are watercolour chips here, near the picker row's size so the two
-   rows read as one family. The rail's own tokens size and round its seats and
-   it derives all its geometry from them. */
+/* The stops sit on one strip, sized by the picker row's own rule (the strip's
+   width shared by the stop count, less the least gap, 1.5rem to 3.5rem), so
+   the two rows read as one family. The rail's own tokens size and round its
+   seats and it derives all its geometry from them; the band's strip stands
+   0.5rem past the seats, inside this slice's padding, and 0.5rem clear of the
+   ramp. */
 .embed-gradient {
-    --rail-seat-size: 2.5rem;
-    --rail-seat-radius: var(--radius-sm);
+    container-type: inline-size;
+    --gap: clamp(0.25rem, 1.5cqi, 0.5rem);
+    --swatch-size: clamp(1.5rem, calc((100cqi - (var(--n) - 1) * var(--gap)) / var(--n)), 3.5rem);
+    --rail-seat-size: var(--swatch-size);
+    --rail-seat-radius: 50%;
+    --rail-band-pad: 0.5rem;
+    --rail-seat-gutter: calc(2 * var(--rail-band-pad));
 }
 /* The dot sits over the alpha checker (a translucent stop shows it, inside the
-   dot's own silhouette), both in the chip's one cell. */
-.stop-chip > * {
+   dot's own silhouette), both in the face's one cell. */
+.stop-face {
+    display: grid;
+    place-items: center;
+    inline-size: 100%;
+    block-size: 100%;
+    border-radius: 50%;
+}
+.stop-face > * {
     grid-area: 1 / 1;
 }
 .stop-checker {
@@ -111,14 +128,14 @@ watchEffect(() => {
     border-radius: 50%;
     background: var(--alpha-checker);
 }
-/* The selected stop keeps the rail's dual-contrast ring, drawn on its chip. */
-.stop-chip[data-selected] {
+/* The selected stop keeps the rail's dual-contrast ring, drawn round its dot. */
+.stop-face[data-selected] {
     box-shadow:
         inset 0 0 0 1px var(--focus-ring-inner),
         0 0 0 2px var(--focus-ring-outer);
 }
 @media (forced-colors: active) {
-    .stop-chip[data-selected] {
+    .stop-face[data-selected] {
         outline: 2px solid Highlight;
     }
 }
