@@ -685,6 +685,13 @@ export function certifyIdentityInk(
  * leaves over the darkest stop is an owner dead-band row
  * (`close/evidence/browser/cnm2-2026-11-01/README.md`).
  *
+ * `start` is a referent this ambient and plate resolved on an earlier frame
+ * of the same drag (o1110 D2). Where the ink still holds its chroma there, it
+ * is kept: one walk, not the bisection's eighteen, on a ground between the
+ * ambient and the plate referent, so the floor still clears on it. The ink
+ * ambient already holds through a drag (OD19-V3); the referent holds with it,
+ * and the caller resolves it in full once the drag settles.
+ *
  * @param surfaceAt the resting plate's lightness over a given field referent
  * @returns the field referent the resting accent certifies on
  */
@@ -695,6 +702,7 @@ export function resolveRestingAccentReferent(
     surfaceAt: (referent: number) => number,
     floor: number = TEXT_CONTRAST_FLOOR,
     headroom: number = CERTIFY_HEADROOM,
+    start?: number,
 ): number {
     const accent = parseOklch(css);
     if (!accent || plateL === ambientL) return ambientL;
@@ -702,6 +710,10 @@ export function resolveRestingAccentReferent(
     const held = (t: number) =>
         chroma(certify(accent, surfaceAt(referentAt(t)), floor, headroom))
             >= IDENTITY_CHROMA_HOLD * chroma(accent);
+    if (start !== undefined) {
+        const t = (start - ambientL) / (plateL - ambientL);
+        if (t >= 0 && t <= 1 && held(t)) return start;
+    }
     if (!held(0)) return ambientL;
     if (held(1)) return plateL;
     let pass = 0;
