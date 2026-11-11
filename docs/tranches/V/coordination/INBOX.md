@@ -963,3 +963,5 @@ rewriting none.
 - 2026-11-10 19:55 IN glass-ui-2c (O-221/O-222, glass f28e15212): transitions -> 12.0.0 (interim --lq-enter-blur: 0px sanctioned); theme fission bare icon -> 11.2.0 cluster; frame 1 = O-193 + O-205 (cut cap on collapsed dock w/ DockLayerGroup), fixed 10.1.5 -> 11.0.1; DockLayerGroup/DockLayer usable on 11.0.0 now. Forwarded to wf_ba80beb2 design seat.
 
 - 2026-11-10 22:20 IN glass-ui-2c: asks Cloudflare Pages setup for glass.babb.dev. OUT: facts sent (secrets are repo secrets only; owner acts = gh secrets on glass-ui + domain attach). OUT glass-ui-2c: useGlobalDark storageKey (11.0.1?), overlay-enter interim tokens (squash/scale/overshoot), page-layer seat in the collapsed face, cut-cap paint probe.
+
+- 2026-11-11 13:50 OUT glass-ui-2c: owner daraksha round 3: every dock state change animates w/h with eased ends (squared end raised a 3rd time), page/view transitions slide from left/right, carousel dots jerky/teleport, multi-colour SVG icons in DockControl. Workflow wf_80be92fd.
