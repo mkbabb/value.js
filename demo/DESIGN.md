@@ -873,9 +873,9 @@ the standing example (COHESION §0el).
 
 | Register                            | Site                                                                                                                                   | Pairing                                                                                                                                 | Status                 |
 | ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
-| Pane swap ENTER (R2)                | the stacked deck on the pane wrappers (`demo/styles/animations.css`; §5.7)                                                             | transform `--spring-panel` @ `--spring-panel-duration`, from `translateY(0.5rem) scale(0.97)`; opacity held at 1                      | landed (O1105)         |
-| Pane swap LEAVE (R3)                | same block, leave-active; out of flow                                                                                                  | forward: transform `--ease-in` @ `--spring-world-exit-duration`; back: the sink on `--spring-panel`. Opacity cut over the last 10 % only | landed (O1105)         |
-| Region FLIP (G3)                    | `demo/shell/flipRegions.ts`, from App.vue's one `flip`                                                                                 | `translate` and the survivor's plate `clip-path`, both `--spring-panel` @ `--spring-panel-duration`                                   | landed (O1105)         |
+| Pane swap ENTER (R2)                | the shuffled deck on the pane wrappers (`demo/styles/animations.css`; §5.7)                                                            | transform `--spring-panel` @ `--spring-panel-duration`, from the under pose (forward) or the flung pose (back); opacity held at 1       | landed (O1109)         |
+| Pane swap LEAVE (R3)                | same block, leave-active; out of flow                                                                                                  | forward: the fling, transform `--ease-in` @ `--spring-world-exit-duration`, no opacity leg; back: the sink on `--spring-panel`, opacity cut over its last 10 % | landed (O1109)         |
+| Region FLIP (G3)                    | `demo/shell/flipRegions.ts`, from App.vue's one `flip`                                                                                 | `translate` on `--ease-out` (no overshoot into the dock band, o1109c) and the plate `clip-path` on `--spring-panel`, both @ `--spring-panel-duration` | landed (O1105)         |
 | Row split + scene height (G9)       | `.pane-container` (`animations.css`), height held by `demo/shell/followHeight.ts`                                                      | `grid-template-columns` and `height`, both `--spring-panel` @ `--spring-panel-duration`                                                | landed (O1105 r2)      |
 | Swap containment                    | the pane wrappers, `*-active` window only                                                                                              | `will-change: transform` + `contain: layout paint` for the swap's duration (X.W5.d2)                                                    | landed                 |
 | Specimen press (R4)                 | `demo/palettes/inspector/PaletteInspector.vue`                                                                                         | the producer press drive, `useLiquidPress` (the shared press spring clock, card amplitude). There is no cast (V1-02)                    | landed                 |
@@ -955,7 +955,7 @@ counter-override in `@layer base`, goes with it, under these terms:
 WebGL RAF loops (the hero blob, the aurora) fence on `prefers-reduced-motion` in their own
 drivers. No CSS guard reaches them.
 
-### 5.7 The transition grammar — the stacked deck (O1105)
+### 5.7 The transition grammar — the shuffled deck (O1105, O1109)
 
 The owner, 2026-11-05: _"transitions between views ... should be well defined and all height and
 width facilities fully animated. The transition animations should be better defined and not fade
@@ -971,19 +971,34 @@ in and out unless necessary and stacked with a card swapping animation for the v
 | Surface resize      | the view menu plate, the dock's content width    | glass (O-171 R-1 menu bloom, R-2 dock width morph) | glass-ui                           |
 | In-place content    | one surface, new content                         | `vj-morph`, unchanged                              | demo                               |
 
-**G2 · The deck.** The default `<Transition>` mode co-mounts the leaving and the rising card for one
-gesture. Depth is carried by scale and by being underneath. There is no rotation and no filter: a
-filter makes the card a backdrop root and breaks its glass plate.
+**G2 · The deck, shuffled (O1109).** The owner, 2026-11-09: _"The pane animations of the value.js
+are not quite page like and card like (shuffling cards almost) like they were before."_ The
+character the owner liked is the R.W3/R.W4 cross-slide: simultaneous, opacity held, an off-canvas
+±110 % travel with a ±2deg cartoon turn (`bd3460add`). OD19-V7 cut it to a 1.5rem drift only
+because `out-in` had serialised it into a full-viewport exit and then a re-entry. The default mode
+co-mounts the two cards, so the fling and the rise are one gesture again. Each role names its
+discard side once on its wrapper (`--deck-x/-y`, `--deck-turn`: stage −x, inspector +x, action +y),
+and the deck has two poses: **flung** (`translate(±110 %)` of the card's own size, `rotate(±3deg)`)
+and **under** (`translateY(0.75rem) rotate(∓1deg) scale(0.95)`, askew the other way). The flung
+pose turns about the card's top corner on the side that would otherwise rise (clockwise: the left;
+anticlockwise: the right), so no corner climbs above its region into the dock band (o1109c: about
+the centre, the 3deg turn lifted a 900 px card's corner ~23 px into the band at 1440).
 
-- **Forward.** The leaver sits on top (z 2) and is discarded on its role's side by the OD19-V7
-  travel, 1.5rem (stage −x, inspector +x, action +y), on `--ease-in` at
-  `--spring-world-exit-duration` (0.25 s). An exit is never a spring. The riser comes up from
-  underneath, `translateY(0.5rem) scale(0.97)` to rest, on `--spring-panel` (0.45 s).
-- **Back.** The deck reverses. The riser returns on top from the mirrored side on `--spring-panel`.
-  The leaver sinks underneath (z −1) into the riser's pose, on `--spring-panel`.
-- **Opacity.** Held at 1. Only the leaver's is cut, over the last 10 % of its leave (glass's
-  `opacityCutAt` 0.9).
-- The ceiling is 0.45 s. The world spring is not used.
+- **Forward.** The top card (z 2) is flung off its role's side on `--ease-in` at
+  `--spring-world-exit-duration` (0.25 s). An exit is never a spring. The next card comes up from
+  under the deck and squares up on `--spring-panel` (0.45 s).
+- **Back.** The exact reverse. The card is dealt back on top from the side it was flung to, turning
+  square on `--spring-panel`, and the leaver sinks under the deck (z −1) into the under pose, on
+  `--spring-panel`.
+- **Opacity.** Held at 1. The flung card is never faded: its travel takes it off its region, and a
+  running opacity transition, even one held at 1 through its delay, makes the card a backdrop root,
+  so its T-45 carrier frosts nothing and the riser reads through its plate (measured, o1109
+  `probe-material.mjs`). Only the sinking card (back) is cut, over the last 10 % of its leave
+  (glass's `opacityCutAt` 0.9), under the riser.
+- **Material.** No filter, for the same reason: a filter makes the card a backdrop root and breaks
+  its glass plate.
+- The ceiling is 0.45 s. The world spring is not used. The travel is ink overflow (the wrapper's
+  `contain: layout`), so the document never scrolls sideways.
 
 **G3 · Out of flow, and the FLIP.** The leaver is `position: absolute; inset: 0 0 auto 0;
 pointer-events: none` in its wrapper, so the region is sized by the riser from the commit frame. Its
@@ -991,13 +1006,13 @@ block size is never 0 and never the sum of two panes. The leaver keeps the block
 at (PaneSlot `hideLeaving`), so a companion that follows the row does not unroll its whole content
 while it is discarded. Every commit that can move a region (a slot's
 pane commit, and the scene's region set changing) runs through App.vue's one `flip`. A region that
-moves translates from where it was drawn. A region that widens on a dual → single hop opens its
+moves translates from where it was drawn, on `--ease-out` at the panel clock: a stacked reorder travels ~600 px, and the panel spring's overshoot on that travel carried the region into the dock band (o1109c). A region that widens on a dual → single hop opens its
 plate and its T-45 blur carrier with `clip-path: inset()` from the old edge to the new. The content
 reflows once, at the commit; the plate edge travels. Only the wrapper is written, and every write clears when its
 transition ends or is cancelled, so a KeepAlive-cached pane never carries a FLIP away.
 
 **G4 · The cut law.** A fade is used only where there is no geometry to carry the change (the
-leaver's last 10 %). Under reduced motion the swap is a 120 ms cut at `--duration-control`: glass's
+sinking leaver's last 10 %, under the riser; the flung card's travel carries its own exit). Under reduced motion the swap is a 120 ms cut at `--duration-control`: glass's
 guard zeroes every duration, the delay survives it, and the leaver holds for 120 ms and is gone.
 `flipRegions` does nothing under reduce.
 

@@ -171,12 +171,32 @@ watch(cssColorOpaqueFrame, (css) => reseedHeroStops(css), { immediate: true });
 // `effFissionAmp = fissionAmp × (0.4 + 0.6·arousal)`, so the RESTING hero
 // (sleepy, arousal ≈ 0) splits at fissionAmp × 0.4. The bracket the owner
 // rules is fissionAmp ∈ [0.4, 0.8] (calm-effective ≈ [0.16, 0.32] → a split
-// every few merge windows ← target → a busy colony). The LANDED DEFAULT is the
-// mid of the bracket; the `settled` seam + the exported HERO preset stay
-// PRODUCER (communiqué §1.4). See the P6-B1-kin fission-amp package bracket.
-const HERO_FISSION_AMP = 0.6;
+// every few merge windows ← target → a busy colony). The `settled` seam + the
+// exported HERO preset stay PRODUCER (communiqué §1.4). See the P6-B1-kin
+// fission-amp package bracket.
+//
+// o1109 (the owner, 2026-11-09: "satellite blobs and goo morphing needs to be
+// more pronounced, less shaded"): the register sits at the TOP of the bracket
+// (it landed at the mid, 0.6), so the resting colony splits on most merge
+// windows, not a few.
+const HERO_FISSION_AMP = 0.8;
 
-type HeroGeometryKey = "bodyRadius" | "orbitRadius" | "satelliteRadius" | "eccentricity";
+// o1109 · THE PAINTED BODY. The producer's one flat↔dressed axis (`morphT`,
+// the uMorphT lerp between the flat palette fill and the lit meatball): at 1
+// the bead wore the full Blinn-Phong glint, Fresnel rim, core glow and the
+// soft contact shadow, a shaded sphere (measured: body interior OKLab L spread
+// 0.25). The hero sits mostly flat so the palette field (the colour noise
+// across the stops) is the body's paint, with a trace of the gleam left so it
+// still reads wet. The contact shadow's dark lower band is the terminator; it
+// is off on the hero (and its 24-step march with it).
+const HERO_MORPH_T = 0.3;
+
+type HeroGeometryKey =
+    | "bodyRadius"
+    | "orbitRadius"
+    | "satelliteRadius"
+    | "eccentricity"
+    | "satelliteCount";
 /** The hero's value for a geometry atom: its register at the shipped default, scaled by the live app value. */
 const heroScale = (key: HeroGeometryKey, hero: number): number =>
     hero * (appBlobConfig.geometry[key] / BLOB_CONFIG_DEFAULTS.geometry[key]);
@@ -185,28 +205,42 @@ const heroRegister = computed<BlobConfig>(() => ({
     ...appBlobConfig,
     // The HERO geometry register (seed w6-blob-redress §What-was-built): the
     // shipped default hides the satellite show (orbitRadius 0.17 < bodyRadius
-    // 0.22 — centers orbit INSIDE the skin, genesis §1.3-4). W29 changes only
-    // bodyRadius: 0.325; the frozen orbit/satellite/eccentricity bytes preserve
-    // the established morphology. The dual-engine alpha-component witness,
-    // not the nominal 0.65 diameter, closes the rendered 0.66 ±0.015 contract.
+    // 0.22 — centers orbit INSIDE the skin, genesis §1.3-4).
+    //
+    // o1109 · THE SATELLITE SHOW. The producer's uv unit is the wrapper box,
+    // and the wrapper's paint containment bounds the goo to |uv| ≤ 0.5. W29's
+    // body (0.325) left the satellites a 0.175 band, and the producer draws an
+    // orbiting satellite at 0.75 opacity, which shrinks its visible disc by
+    // 0.075: the 0.09 satellites showed as 0.015 pseudopod tips (the owner's
+    // one small pseudopod; measured over 10 s: 0.2 lobes past 1.25 body radii,
+    // goo mass beyond the body 0.012 of its disc). The body yields to 0.27 so
+    // four 0.12 satellites (a 0.045 visible bead) orbit at 0.39, close enough
+    // that the smin draws necks as they merge and split, far enough to stand
+    // past the skin, and inside the containment (measured: ~3 lobes, mass
+    // 0.20, no goo cut flat at the wrapper edge, 360–1440, both schemes).
     //
     // UIA-V-47: the register is a SCALE over the app config, not a pin. The
     // literals used to overwrite four of the Blob pane's five Geometry sliders
     // every frame (the only blob on the page ignored them). At the shipped
-    // defaults each ratio reproduces the frozen bytes exactly (0.22 → 0.325,
-    // 0.17 → 0.4, 0.082 → 0.09, 0.05 → 0.03); a slider now moves the hero
-    // in proportion.
+    // defaults each ratio reproduces the register exactly (0.22 → 0.27,
+    // 0.17 → 0.39, 0.082 → 0.12, 0.05 → 0.03, 3 → 4 satellites); a slider
+    // now moves the hero in proportion.
     geometry: {
         ...appBlobConfig.geometry,
-        bodyRadius: heroScale("bodyRadius", 0.325),
-        orbitRadius: heroScale("orbitRadius", 0.4),
-        satelliteRadius: heroScale("satelliteRadius", 0.09),
+        bodyRadius: heroScale("bodyRadius", 0.27),
+        orbitRadius: heroScale("orbitRadius", 0.39),
+        satelliteRadius: heroScale("satelliteRadius", 0.12),
         eccentricity: heroScale("eccentricity", 0.03),
+        // The producer's shader carries at most 4 satellites (MAX_SATS).
+        satelliteCount: Math.min(4, Math.round(heroScale("satelliteCount", 4))),
     },
     // WR-2 / T-49c — arm the fission register (sized calm; the mood coupling
     // scales it ×0.4 at rest). `...appBlobConfig.surface` keeps every other
-    // shipped surface atom (Fresnel/iridescence/SSS/lit) untouched.
-    surface: { ...appBlobConfig.surface, fissionAmp: HERO_FISSION_AMP },
+    // shipped surface atom (Fresnel/iridescence/SSS/lit) untouched; the
+    // contact shadow is off (o1109, the painted body above). morphT scales the
+    // app value like the geometry, so the Blob pane's morph still moves it.
+    surface: { ...appBlobConfig.surface, fissionAmp: HERO_FISSION_AMP, shadow: false },
+    morphT: HERO_MORPH_T * appBlobConfig.morphT,
     color: { ...appBlobConfig.color, paletteStops: heroStops.value },
     // X.W8.i (C3 layout fork deleted): ONE quality rung — the app config's
     // (BlobPane-tunable) at every width. The viewport is not the device-scale

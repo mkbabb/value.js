@@ -2,6 +2,7 @@
     <PaneShell
         follow
         :gutter="false"
+        class="about-pane"
         card-class="about-card"
         description="The math, the science, the art, the beauty of color spaces."
     >
@@ -131,3 +132,23 @@ defineProps<{
 const activeSpace = computed(() => SPACE_CATALOG[model.value.selectedColorSpace]);
 </script>
 
+<style scoped>
+/* O1109 · about-pane (owner 2026-11-09: "the picker explanation pane is too
+ * large--they should be contained a bit more and centred") — THE COMPANION
+ * TAKES THE PICKER'S MEASURE. The inspector is the row's `1fr` remainder
+ * (shell.css, THE PER-ROUTE TRACK RATIO), so About stood as wide as the
+ * picker's ceiling left over: 699 px at 1440 and 779 px in the one-track 820
+ * band, its guide prose running 70 to 78ch. Its ceiling is now the measure the
+ * picker plate already stands at (`--picker-measure`, foundation.css), so the
+ * pair read as two cards of one measure, and the shell's `mx-auto` centres the
+ * pane in whatever column it is handed (a leaving About is `inset: 0 0 auto 0`
+ * in the deck, so it centres the same way). The cap sits on the pane ROOT,
+ * not the plate: the T-45 blur carrier is the plate's parent's `::before`
+ * (shell.css), so a plate narrower than its parent left the carrier's blur
+ * band painting the full column behind it. The block axis is unchanged: the
+ * row contract (`pane-row-follow`) still sets its height and the body scrolls
+ * in its own port. */
+.about-pane {
+    max-inline-size: var(--picker-measure);
+}
+</style>

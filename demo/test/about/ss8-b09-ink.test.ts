@@ -18,6 +18,7 @@
  */
 import { describe, expect, it } from "vitest";
 import {
+    contrastRatio,
     convertColor,
     mapColorToGamut,
     mixColors,
@@ -29,9 +30,13 @@ import {
 import {
     certifyAccentInk,
     contrastInkFor,
+    PRODUCER_BACKDROP_SATURATE,
     producerRungTint,
     resolveFieldAmbientLightness,
+    resolveFieldPlateReferent,
+    resolvePlateInk,
     resolveSurfaceLightness,
+    saturateSrgb,
     TEXT_CONTRAST_FLOOR,
 } from "../../color-session/ink";
 import {
@@ -164,6 +169,58 @@ describe("SS8-0259 · the component ink clears the floor on the rendered plate",
             expect(resolveFieldAmbientLightness(field, false)).toBeCloseTo(mean, 12);
         }
     });
+});
+
+/** The ratio of two opaque colours (the library's WCAG ratio). */
+const ratioOf = (a: Color<"oklch">, b: Color<"oklch">) => {
+    const r = contrastRatio(a, b);
+    if (!r.ok) throw new Error("bad ratio");
+    return r.value;
+};
+
+/** The resting plate over a field stop as the browser paints it: the T-45
+ *  carrier's backdrop `saturate()` first, then the veil, source-over in sRGB. */
+const paintedPlateOver = (stop: { L: number; C: number; h: number }) => {
+    const raw = oklch(stop.L, stop.C, stop.h, 1);
+    if (!raw.ok) throw new Error("bad stop");
+    const ground = mapColorToGamut(raw.value, "srgb");
+    if (!ground.ok) throw new Error("bad stop");
+    const backdrop = saturateSrgb(ground.value, PRODUCER_BACKDROP_SATURATE);
+    const tint = producerRungTint("resting", true);
+    const mixed = mixColors(backdrop, tint.color, tint.alpha, { space: "rgb" });
+    if (!mixed.ok) throw new Error("bad mix");
+    const out = convertColor(mixed.value, "oklch");
+    if (!out.ok) throw new Error("bad mix");
+    return out.value;
+};
+
+describe("o1109c2 · the dark plate ink is certified on the plate as painted", () => {
+    // CI read the About caption at 4.49:1 (o11, dark 390, the default seed)
+    // over a plate whose ink was certified at 5.75:1: the referent was the
+    // raw top stop, but the plate sees the field through its carrier's
+    // `saturate(1.5)`, which lifts a saturated stop's luminance (modelled
+    // here at 4.66:1). The model must tell the truth: over every stop as
+    // painted, the ink reads what it was certified at (2 % for the neutral
+    // stand-in), and never under 4.5.
+    const SEEDS = [
+        "oklch(73% 0.185 2)",
+        "oklch(0.66 0.16 28)",
+        "oklch(0.7 0.15 145)",
+        "oklch(0.6 0.2 265)",
+        "oklch(0.85 0.17 95)",
+        "oklch(0.5 0.12 320)",
+    ];
+    for (const seed of SEEDS) {
+        it(`dark · ${seed}: the painted plate reads the certified ratio`, () => {
+            const field = fieldFor(seed, true);
+            const surfaceL = resolveSurfaceLightness("resting", resolveFieldPlateReferent(field, true), true);
+            const ink = toOklch(resolvePlateInk(surfaceL, true));
+            const certified = ratioOf(ink, toOklch(`oklch(${surfaceL} 0 0)`));
+            const painted = Math.min(...field.map((stop) => ratioOf(ink, paintedPlateOver(stop))));
+            expect(painted, `certified ${certified.toFixed(3)}, painted ${painted.toFixed(3)}`).toBeGreaterThanOrEqual(certified * 0.98);
+            expect(painted).toBeGreaterThanOrEqual(TEXT_CONTRAST_FLOOR);
+        });
+    }
 });
 
 describe("the dark field's ceiling · the shipped band over the seed grid", () => {
