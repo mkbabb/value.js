@@ -1,6 +1,7 @@
 <script setup lang="ts">
+import { formatFixed } from "../color-session/channel-decimals";
 // ConfigSliderPane — generic slider-pane component parameterised by
-// { config, sections, defaults, title, description, extraControls? }.
+// { config, sections, defaults, title, extraControls? }.
 // Merges the near-identical AuroraPane.vue and BlobPane.vue (Ae-6).
 //
 // HARDEN-4 §5.1: glass-ui already ships `./configurator` with ConfiguratorRow
@@ -38,7 +39,7 @@ export interface SliderSection {
     defs: SliderDef[];
 }
 
-const { config, sections, defaults, title, description } = defineProps<{
+const { config, sections, defaults, title } = defineProps<{
     /** The reactive config object (provided via inject in the consuming pane). */
     config: Record<string, unknown>;
     /** Slider sections to render. Pass empty array to show empty state. */
@@ -47,8 +48,6 @@ const { config, sections, defaults, title, description } = defineProps<{
     defaults: Record<string, unknown>;
     /** Pane title shown in PaneHeader. */
     title: string;
-    /** Pane description shown in PaneHeader. */
-    description?: string;
 }>();
 
 // Dot-path access so the same generic pane drives both a flat config and a
@@ -81,12 +80,11 @@ function update(key: string, value: number) {
     writePath(config, key, value);
 }
 
-/** X.W12.u2 (UIA-V-158, the readout half): a knob reads at its own step's
- *  fixed precision — integers for integer steps (Zones), never a format that
- *  flips between "0.760" and "1" as the value crosses an integer. */
+/** A knob reads at its own step's precision, trailing zeros dropped, through
+ *  the one number formatter. */
 function fmt(v: number, step: number): string {
     const decimals = Number.isInteger(step) ? 0 : (String(step).split(".")[1]?.length ?? 0);
-    return v.toFixed(decimals);
+    return formatFixed(v, decimals);
 }
 
 // X.W12.u2 (UIA-V-391, the copy half): the copy confirms itself on glass's
@@ -152,7 +150,6 @@ onBeforeUnmount(() => cancelAnimationFrame(snapFrame));
         follow
         :gutter="false"
         :title="title"
-        v-bind="description !== undefined ? { description } : {}"
     >
             <!-- X-DS pass 4 (V4C-04): About's contract. The pane follows the row
                  (`pane-row-follow`, the shell's companion contract), its header

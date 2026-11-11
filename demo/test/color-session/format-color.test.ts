@@ -60,16 +60,16 @@ const FIXTURE = {
 };
 
 const CASES: readonly (readonly [keyof typeof FIXTURE, string, string, string])[] = [
-    //  class                    compact                                  caption (X-W6 policy)                     interchange (W51 counts)
-    ["rgb8", "rgb(154 31 30 / 83%)", "rgb(154 30.5 30.5 / 82.66%)", "oklch(44.872% 0.15941 26.528deg / 82.66%)"],
-    ["hueAndFractionPercent", "hsl(210deg 56% 43%)", "hsl(210.4deg 55.55% 43.21%)", "oklch(52.659% 0.116336 251.499deg)"],
-    ["lab", "lab(62.3% -20.1 31)", "lab(62.35% -20.12 30.99)", "oklch(66.636% 0.09876 129.286deg)"],
-    ["lch", "lch(62% 46 123deg)", "lch(62.35% 45.68 123.5deg)", "oklch(66.443% 0.121064 130.576deg)"],
-    ["oklab", "oklab(62.3% -0.123 0.088)", "oklab(62.34% -0.1235 0.0877)", "oklch(62.345% 0.151409 144.625deg)"],
-    ["oklch", "oklch(62.3% 0.123 210deg / 50%)", "oklch(62.34% 0.1235 210.5deg / 50%)", "oklch(62.345% 0.123456 210.457deg / 50%)"],
-    ["xyz", "color(xyz 0.23 0.35 0.46)", "color(xyz 0.2345 0.3456 0.4567)", "oklch(68.787% 0.117486 192.838deg)"],
-    ["unitEncoding", "color(display-p3 0.1 0.7 0.5)", "color(display-p3 0.1235 0.6543 0.5)", "oklch(63.939% 0.162518 170.128deg)"],
-    ["opponent", "oklch(58.8% 0.02 26deg)", "ictcp · 0.4213 · -0.0031 · 0.0177", "oklch(58.776% 0.020037 25.505deg)"],
+    //  class                    compact                                  caption (the same table, the colour's own space)  interchange (W51 counts)
+    ["rgb8", "rgb(154 31 30 / 83%)", "rgb(154 31 30 / 83%)", "oklch(44.872% 0.15941 26.528deg / 82.66%)"],
+    ["hueAndFractionPercent", "hsl(210deg 56% 43%)", "hsl(210deg 56% 43%)", "oklch(52.659% 0.116336 251.499deg)"],
+    ["lab", "lab(62.3% -20.1 31)", "lab(62.3% -20.1 31)", "oklch(66.636% 0.09876 129.286deg)"],
+    ["lch", "lch(62% 46 123deg)", "lch(62% 46 123deg)", "oklch(66.443% 0.121064 130.576deg)"],
+    ["oklab", "oklab(62.3% -0.123 0.088)", "oklab(62.3% -0.123 0.088)", "oklch(62.345% 0.151409 144.625deg)"],
+    ["oklch", "oklch(62.3% 0.123 210deg / 50%)", "oklch(62.3% 0.123 210deg / 50%)", "oklch(62.345% 0.123456 210.457deg / 50%)"],
+    ["xyz", "color(xyz 0.234 0.346 0.457)", "color(xyz 0.234 0.346 0.457)", "oklch(68.787% 0.117486 192.838deg)"],
+    ["unitEncoding", "color(display-p3 0.123 0.654 0.5)", "color(display-p3 0.123 0.654 0.5)", "oklch(63.939% 0.162518 170.128deg)"],
+    ["opponent", "oklch(58.8% 0.02 26deg)", "ictcp · 0.421 · -0.003 · 0.018", "oklch(58.776% 0.020037 25.505deg)"],
     ["kelvin", "oklch(99.7% 0.005 97deg)", "kelvin · 6500", "oklch(99.692% 0.00543 96.549deg)"],
 ];
 
@@ -107,7 +107,7 @@ describe("G16 — the per-channel table", () => {
     it("formatChannel — compact, display units, unit suffix, no negative zero", () => {
         expect(formatChannel("oklch", "l", 0.62345)).toBe("62.3%");
         expect(formatChannel("oklch", "c", 0.123456)).toBe("0.123");
-        expect(formatChannel("oklch", "h", 210.46)).toBe("210°");
+        expect(formatChannel("oklch", "h", 210.46)).toBe("210deg");
         expect(formatChannel("hsl", "s", 0.5555)).toBe("56%");
         expect(formatChannel("rgb", "r", 154.029889788152)).toBe("154");
         expect(formatChannel("lab", "a", -0.04)).toBe("0");
@@ -116,10 +116,10 @@ describe("G16 — the per-channel table", () => {
 });
 
 describe("G16 — stored CSS strings in the caption register", () => {
-    it("a 12-decimal library spelling reads at the specimen policy", () => {
-        expect(formatCssCaption("rgb(154.029889788152 30.5 30.4999)")).toBe("rgb(154 30.5 30.5)");
+    it("a 12-decimal library spelling reads at the one digit policy", () => {
+        expect(formatCssCaption("rgb(154.029889788152 30.5 30.4999)")).toBe("rgb(154 31 30)");
         expect(formatCssCaption("oklch(0.623456789012 0.123456789012 210.456789012345)")).toBe(
-            "oklch(62.35% 0.1235 210.5deg)",
+            "oklch(62.3% 0.123 210deg)",
         );
     });
     it("a hex literal keeps its hex spelling", () => {
@@ -160,7 +160,6 @@ describe("G16 — import census: the 29 OM-14 sites read through the facility", 
         ["A10", EXW, ">{{ formatCssCaption(session.dominant.value.serialized) }}<", 1],
         ["A11", EXW, ':title="formatCssCaption(session.dominant.value.serialized)"', 1],
         ["A12", "workbenches/extract/ImageEyedropper/ImageEyedropper.vue", "formattedColor ? formatCssCaption(formattedColor)", 1],
-        ["A13", CPE, "Add current color ({{ formatCssCaption(cssColorOpaque) }})", 1],
         ["A14", MRD, "{{ formatCssCaption(result.css) }}", 1],
         ["A15", MRD, ':title="formatCssCaption(color)"', 1], // V-D3 · PCS-10: the swatch slot hands the css itself
         ["A16", MSS, ":title=\"`${formatCssCaption(sc.css)} (${sc.source})`\"", 1],
@@ -182,8 +181,8 @@ describe("G16 — import census: the 29 OM-14 sites read through the facility", 
         ["WB", "picker/ColorPicker.vue", "const text = formatCssCaption(formattedCurrentColor.value)", 1],
     ];
 
-    it("the census is the OM-14 denominator: 16 text + 10 ARIA + 1 write-back = 27 (UIA-V-12 retired one text site)", () => {
-        expect(SITES.reduce((n, [, , , count]) => n + count, 0)).toBe(27);
+    it("the census is the OM-14 denominator: 15 text + 10 ARIA + 1 write-back = 26 (UIA-V-12 and the 2026-11-09 add tooltip retired two text sites)", () => {
+        expect(SITES.reduce((n, [, , , count]) => n + count, 0)).toBe(26);
     });
     for (const [id, file, expression, count] of SITES) {
         it(`${id} · ${file} reads through format-color`, () => {
@@ -235,7 +234,8 @@ describe("G17 — the compact-count sites read through the facility", () => {
  *
  * The sweep: seeded colours, every picker space plus hex, spelled the way the
  * address spells them, then titled. No numeral in a title may carry more than
- * the caption policy's four significant digits.
+ * the caption policy's four significant digits, and none carries four or more
+ * decimals (the restraint precept's check).
  */
 describe("O-1109 — the document title reads the colour in the caption register", () => {
     const significant = (numeral: string): number =>
@@ -256,6 +256,7 @@ describe("O-1109 — the document title reads the colour in the caption register
                 const title = composeTitle("picker", address);
                 for (const numeral of title.match(/-?\d+(?:\.\d+)?/g) ?? []) {
                     expect(significant(numeral), `${space}: ${title}`).toBeLessThanOrEqual(4);
+                    expect(numeral.split(".")[1]?.length ?? 0, `${space}: ${title}`).toBeLessThan(4);
                 }
                 expect(title).toBe(`${formatCssCaption(address)} — Color Picker`);
                 titled++;
@@ -269,14 +270,20 @@ describe("O-1109 — the document title reads the colour in the caption register
     it("the owner's frame: the full-precision oklch reads short", () => {
         expect(
             composeTitle("picker", "oklch(49.720255681234% 0.203398722211 7.712345678901deg)"),
-        ).toBe("oklch(49.72% 0.2034 7.712deg) — Color Picker");
+        ).toBe("oklch(49.7% 0.203 8deg) — Color Picker");
+    });
+
+    it("an address the parser rejects names no colour: the title is the app's", () => {
+        expect(composeTitle("picker", "banana")).toBe("Color Picker");
+        expect(composeTitle("picker", "notacolour(1 2 3")).toBe("Color Picker");
+        expect(composeTitle("gradient", "banana")).toBe("Gradient — Color Picker");
     });
 
     it("a named colour keeps its name; a pane title keeps its pane", () => {
         expect(composeTitle("picker", "tomato")).toBe("tomato — Color Picker");
         expect(formatCssCaption("tomato")).toBe("tomato");
         expect(composeTitle("gradient", "oklch(0.623456789012 0.123456789012 210.456789012345)")).toContain(
-            "oklch(62.35% 0.1235 210.5deg) · ",
+            "oklch(62.3% 0.123 210deg) · ",
         );
     });
 });

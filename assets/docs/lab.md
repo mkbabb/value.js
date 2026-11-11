@@ -4,15 +4,15 @@ import { Katex } from "../../demo/scenes/about/katex";
 
 ### Historical Context
 
-Standardized by the CIE in 1976, Lab was designed to be **perceptually uniform**—equal distances in the space should correspond to equal perceived color differences. It's device-independent: Lab describes *what* a color looks like, not how a particular device produces it. For decades it's been the workhorse of color management, ICC profiles, and industrial colorimetry.
+Standardized by the CIE in 1976, Lab was designed to be perceptually uniform—equal distances in the space should correspond to equal perceived color differences. It's device-independent: Lab describes *what* a color looks like, not how a particular device produces it. For decades it's been the workhorse of color management, ICC profiles, and industrial colorimetry.
 
 ---
 
 ## Key Characteristics
 
-1. **Perceptual uniformity**: the founding goal. Largely successful, though the blue-purple region exhibits more error than Ottosson's OKLab.
-2. **Device independence**: Lab values are defined relative to a standard illuminant, not a particular display or printer.
-3. **Separated lightness**: `L*` is orthogonal to the chromatic axes, enabling brightness adjustment without hue shift.
+1. Perceptual uniformity: the founding goal. Largely successful, though the blue-purple region exhibits more error than Ottosson's OKLab.
+2. Device independence: Lab values are defined relative to a standard illuminant, not a particular display or printer.
+3. Separated lightness: `L*` is orthogonal to the chromatic axes, enabling brightness adjustment without hue shift.
 
 ### Advantages
 
@@ -29,10 +29,10 @@ Standardized by the CIE in 1976, Lab was designed to be **perceptually uniform**
 
 ### White Points
 
--   **D50**: graphic arts, printing, ICC profile standard. Lab's default illuminant.
--   **D65**: average daylight, digital imaging. Used by sRGB and Display P3.
+-   D50: graphic arts, printing, ICC profile standard. Lab's default illuminant.
+-   D65: average daylight, digital imaging. Used by sRGB and Display P3.
 
-Conversions between D50 and D65 use **Bradford chromatic adaptation**.
+Conversions between D50 and D65 use Bradford chromatic adaptation.
 
 ---
 
@@ -40,13 +40,13 @@ Conversions between D50 and D65 use **Bradford chromatic adaptation**.
 
 ### Components
 
-1. **`L*` (Lightness)**:
+1. `L*` (Lightness):
    0 (black) to 100 (diffuse white)
 
-2. **`a*` (Green-Red axis)**:
+2. `a*` (Green-Red axis):
    <Katex expression="a^* < 0" :display-mode="false" /> (green) to <Katex expression="a^* > 0" :display-mode="false" /> (red)
 
-3. **`b*` (Blue-Yellow axis)**:
+3. `b*` (Blue-Yellow axis):
    <Katex expression="b^* < 0" :display-mode="false" /> (blue) to <Katex expression="b^* > 0" :display-mode="false" /> (yellow)
 
 ### Representation
@@ -79,8 +79,8 @@ Invert the L\*a\*b\* formulas—recover the normalized XYZ ratios, apply the inv
 
 ## Applications
 
-1. **ICC color management**: the internal representation for color profiles and device-independent color communication.
-2. **Delta-E calculations**: industrial quality control (textiles, paint, manufacturing) relies on Lab-based color difference formulas.
-3. **Image processing**: operations like sharpening and blurring benefit from the perceptual uniformity.
-4. **Print production**: gamut mapping between CMYK and RGB passes through Lab.
-5. **Scientific colorimetry**: the standard coordinate system for color measurement and analysis.
+1. ICC color management: the internal representation for color profiles and device-independent color communication.
+2. Delta-E calculations: industrial quality control (textiles, paint, manufacturing) relies on Lab-based color difference formulas.
+3. Image processing: operations like sharpening and blurring benefit from the perceptual uniformity.
+4. Print production: gamut mapping between CMYK and RGB passes through Lab.
+5. Scientific colorimetry: the standard coordinate system for color measurement and analysis.

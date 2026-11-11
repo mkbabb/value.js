@@ -42,17 +42,14 @@ function round1(position: number): number {
 </script>
 
 <template>
-    <!-- X.W12U.h · A2-VA-L3-7: with no selection the inspector is its hint
-         line alone. With a stop selected, Position and Remove share one row
+    <!-- X.W12U.h · A2-VA-L3-7: with no selection the inspector is empty
+         (no hint line, restraint 2026-11-09). With a stop selected, Position and Remove share one row
          (the floor still reads as a refused Remove with its reason — b4). -->
     <div
         class="stop-inspector flex flex-wrap items-center gap-x-3 gap-y-1"
         data-testid="gradient-stop-inspector"
     >
-        <p v-if="!stop" class="text-caption plate-ink min-w-0">
-            Select a stop on the rail to set its position or remove it.
-        </p>
-        <template v-else>
+        <template v-if="stop">
             <p class="text-caption plate-ink min-w-0">
                 Stop {{ index + 1 }} of {{ count }}
             </p>

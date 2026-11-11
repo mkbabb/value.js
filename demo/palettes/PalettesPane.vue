@@ -1,5 +1,5 @@
 <template>
-    <PaneShell follow :gutter="false" title="My Palettes" description="Save, organize, and share your colors.">
+    <PaneShell follow :gutter="false" title="My Palettes">
         <!-- X-DS value pass 9 (V9C-01): `title` is the plain name the shell
              matches against the route (on /palettes this title is the route
              H1); the `#title` slot below still paints it, ramp and count. -->
@@ -122,7 +122,7 @@
                         empty-compact
                         :empty="pm.filteredMine.value.length === 0 && pm.ownedStatus.value !== 'loading'"
                         :empty-text="searchNarrows ? `No palette matches “${pm.searchQuery.value.trim()}”.` : 'No saved palettes yet.'"
-                        :empty-hint="searchNarrows ? `${pm.myPalettes.value.length} palette${pm.myPalettes.value.length === 1 ? '' : 's'} hidden by the search.` : 'Add colors, then save.'"
+                        v-bind="searchNarrows ? { emptyHint: `${pm.myPalettes.value.length} palette${pm.myPalettes.value.length === 1 ? '' : 's'} hidden by the search.` } : {}"
                     >
                         <!-- X.W12.u1 (UIA-V-26): a search that matches nothing says so and
                              offers the way back; it never claims the library is empty. -->

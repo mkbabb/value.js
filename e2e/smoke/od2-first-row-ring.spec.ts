@@ -2,8 +2,9 @@
 /**
  * X·§0hh OD-2 — "the top edge of the search bar and other bars is clipped".
  *
- * Mechanism: a focused seated bar paints glass's `--focus-ring-shadow` (a 2px
- * ring plus an 8px glow) outside its border box. The header-to-body gap was
+ * Mechanism: a focused seated bar paints its focus ring outside its border
+ * box (glass's `--focus-ring-shadow` then; since o1109 canon V5 the house
+ * `.focus-ring` outline, width + offset). The header-to-body gap was
  * the header's block-end padding, outside PaneShell's FadingScroll port, so
  * every pane's first-row bar sat flush (0.00px) against the port's top edge
  * and the port's padding box sliced the ring and glow flat along the top.
@@ -43,6 +44,11 @@ for (const route of ROUTES) {
                     const [, , blur = 0, spread = 0] = lens;
                     extent = Math.max(extent, spread + blur);
                 }
+                // o1109 canon V5: keyboard focus on a seated search wears the
+                // house ring as an OUTLINE (width + offset), not a shadow.
+                const cs = getComputedStyle(bar);
+                if (cs.outlineStyle !== "none")
+                    extent = Math.max(extent, parseFloat(cs.outlineWidth) + parseFloat(cs.outlineOffset));
                 return {
                     focused: bar.matches(":focus-within"),
                     settled: bar.getAnimations().every((a) => a.playState !== "running"),

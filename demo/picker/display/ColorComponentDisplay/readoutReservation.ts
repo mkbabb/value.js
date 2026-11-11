@@ -40,27 +40,19 @@
  */
 
 import { PICKER_CHANNELS, type PickerSpace } from "../../../color-session/picker-color";
-
-/**
- * The Q11b lever-1 set (t-title-typography F6 + t-mobile F-4.3, the named
- * spaces whose canonical notation is integer): every shown channel of these
- * spaces inks 0 decimals. lab is DELIBERATELY absent (1-decimal; its
- * worst case is the catalog measure — X.W12.d).
- */
-const INTEGER_LEAST_COUNT: ReadonlySet<string> = new Set([
-    "rgb",
-    "hsl",
-    "hsv",
-    "hwb",
-    "lch",
-    "xyz",
-]);
+import { ALPHA_COMPACT_DECIMALS, channelDecimals } from "../../../color-session/channel-decimals";
 
 /** The per-(space, component) least count — the readout format's ONE knob
- *  (consumed by `ColorComponentDisplay.figParts` AND the `ch` table below,
- *  so the lock arithmetic and the rendered format can never disagree). */
-export function readoutDecimals(space: string, _component: string): number {
-    return INTEGER_LEAST_COUNT.has(space) ? 0 : 1;
+ *  (consumed by `ColorComponentDisplay.figParts`, the console meters AND the
+ *  `ch` table below, so the lock arithmetic and the rendered format can never
+ *  disagree). Owner order 2026-11-09: it IS the one digit policy,
+ *  `CHANNEL_DECIMALS` (OKLCh C to three decimals, h whole), not a per-space
+ *  0/1 rule of its own; alpha reads as a whole percent. */
+export function readoutDecimals(space: string, component: string): number {
+    if (component === "alpha") return ALPHA_COMPACT_DECIMALS;
+    if (!Object.hasOwn(PICKER_CHANNELS, space)) return 0;
+    if (!PICKER_CHANNELS[space as PickerSpace].some((meta) => meta.key === component)) return 0;
+    return channelDecimals(space as PickerSpace, component);
 }
 
 /* ── The face-derived packing ratios (T.W4-2 · the tnum MINT) ────────────

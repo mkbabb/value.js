@@ -157,7 +157,9 @@ test.describe("Z2 picker cohort — desktop 1440", () => {
             return {
                 space: r.getAttribute("data-space"),
                 maxDecimals: Math.max(0, ...decimals),
-                oog: cap.getAttribute("data-out-of-gamut") === "true" && /gamut/i.test(cap.getAttribute("title") ?? ""),
+                // o1109 canon V3: the gamut-edge underline is the whole mark;
+                // the "(outside X's gamut)" sentence and its title are gone.
+                oog: cap.getAttribute("data-out-of-gamut") === "true" && !cap.hasAttribute("title"),
                 form: cap.getAttribute("data-specimen-form"),
                 overflows: cap.scrollWidth > cap.clientWidth + 0.5,
                 seed,

@@ -64,6 +64,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { CardTitle } from "@mkbabb/glass-ui/card";
+import { formatFixed } from "../../../color-session/channel-decimals";
 import { vTextInPlace } from "../../../shared/vTextInPlace";
 import {
     READOUT_MEASURE_EM,
@@ -98,20 +99,16 @@ const emit = defineEmits<{
 }>();
 
 /**
- * The int/frac split of a component's rendering. Numbers ink a FIXED
- * per-space least-count format (Q11b lever 1 — `readoutDecimals`; never a
- * stripped `.0` and never a value-dependent precision: a meter holds its
- * least count), so the demoted fraction is a constant rhythm, not a
- * flicker. Strings (hex) pass through whole.
+ * The int/frac split of a component's rendering, at the one digit policy
+ * (`readoutDecimals`). Strings (hex) pass through whole.
  */
 function figParts(component: string): { int: string; frac: string } {
     const fmt = formatted[component];
     if (!fmt) return { int: "", frac: "" };
     if (typeof fmt.value === "string") return { int: fmt.value, frac: "" };
-    const d = readoutDecimals(space, component);
-    let s = fmt.value.toFixed(d);
-    // Negative zero never inks (at any least count).
-    if (Number.parseFloat(s) === 0) s = s.replace(/^-/, "");
+    // One digit policy, trailing zeros dropped, never a negative zero; the
+    // card box holds still because the line lock is the worst case's.
+    const s = formatFixed(fmt.value, readoutDecimals(space, component));
     const dot = s.indexOf(".");
     if (dot === -1) return { int: s, frac: "" };
     return { int: s.slice(0, dot), frac: s.slice(dot) };

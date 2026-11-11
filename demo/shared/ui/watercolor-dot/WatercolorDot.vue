@@ -58,6 +58,12 @@ const props = withDefaults(
         range?: [number, number];
         /** Extra seed string mixed into the shape + wet-edge PRNG for uniqueness. */
         seed?: string;
+        /**
+         * The ink the ghost's stroke and fill wear, when it is not `color`. The
+         * silhouette always reads `color`, so a ghost keyed on the colour it will
+         * become keeps that shape while its ink is certified separately.
+         */
+        ink?: string;
     }>(),
     {
         variant: "solid",
@@ -120,7 +126,7 @@ const filterSeed = computed(() => hashString(shapeColor.value + props.seed) % 25
                 backgroundColor: variant === 'ghost' ? undefined : color,
                 borderRadius,
                 pointerEvents: 'none',
-                '--watercolor-color': color,
+                '--watercolor-color': ink ?? color,
                 '--watercolor-filter': filterUrl,
                 '--watercolor-wobble': transform,
             },

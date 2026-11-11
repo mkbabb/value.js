@@ -54,17 +54,29 @@ export function useSliderTouchGates(opts: {
             const gate = sliderGates[component];
             if (!gate || !el) continue;
 
+            // A gated touch is the tap that arms the slider, so it moves
+            // nothing: its press never reaches the slider, and neither do its
+            // moves. (Blocking only the press let the scrubber apply the moves
+            // as deltas from the old value, so a 30%→60% swipe ran the thumb
+            // to 100% ahead of the finger — owner audit 2026-11-09, V4.)
+            let blockedPointer: number | null = null;
             const onPointerDown = (e: PointerEvent) => {
                 debug.logEvent(e, `sl:${component}:down`);
                 debug.setGauge(`sl.${component}.gate`, gate.isActive.value);
                 if (!gate.isTouchDevice) return;
                 if (!gate.isActive.value) {
                     e.stopPropagation();
+                    blockedPointer = e.pointerId;
                     gate.handleTouchStart(el, e.clientY);
                     debug.log(`sl:${component}:gate-block`, e.pointerId, e.target, false);
                 } else {
                     gate.resetTimer();
                 }
+            };
+            const onBlockedPointer = (e: PointerEvent) => {
+                if (e.pointerId !== blockedPointer) return;
+                e.stopPropagation();
+                if (e.type !== "pointermove") blockedPointer = null;
             };
             const onTouchMove = (e: TouchEvent) => {
                 gate.handleScrollCheck(e);
@@ -74,6 +86,7 @@ export function useSliderTouchGates(opts: {
             };
 
             const onPointerCancel = (e: PointerEvent) => {
+                if (e.pointerId === blockedPointer) blockedPointer = null;
                 debug.logEvent(e, `sl:${component}:cancel`);
                 const target = e.target as HTMLElement;
                 const hadCapture = target?.hasPointerCapture?.(e.pointerId) ?? false;
@@ -86,6 +99,8 @@ export function useSliderTouchGates(opts: {
             };
 
             el.addEventListener("pointerdown", onPointerDown, { capture: true });
+            el.addEventListener("pointermove", onBlockedPointer, { capture: true });
+            el.addEventListener("pointerup", onBlockedPointer, { capture: true });
             el.addEventListener("touchmove", onTouchMove, { passive: true });
             el.addEventListener("touchend", onTouchEnd, { passive: true });
             el.addEventListener("pointercancel", onPointerCancel);
@@ -93,6 +108,8 @@ export function useSliderTouchGates(opts: {
 
             listenerCleanups.push(() => {
                 el.removeEventListener("pointerdown", onPointerDown, { capture: true });
+                el.removeEventListener("pointermove", onBlockedPointer, { capture: true });
+                el.removeEventListener("pointerup", onBlockedPointer, { capture: true });
                 el.removeEventListener("touchmove", onTouchMove);
                 el.removeEventListener("touchend", onTouchEnd);
                 el.removeEventListener("pointercancel", onPointerCancel);

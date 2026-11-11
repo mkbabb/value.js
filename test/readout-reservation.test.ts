@@ -19,6 +19,8 @@
  */
 import { describe, expect, it } from "vitest";
 
+import { PICKER_CHANNELS } from "../demo/color-session/picker-color";
+import { channelDecimals } from "../demo/color-session/channel-decimals";
 import {
     READOUT_CH,
     readoutCh,
@@ -37,15 +39,18 @@ const DOT_CH = 0.45;
 const SIGN_CH = 0.65;
 
 describe("readoutReservation — the least-count knob", () => {
-    it("the lever-1 set takes 0 decimals; everything else takes 1", () => {
-        // The module's OWN membership list (`INTEGER_LEAST_COUNT`), asserted
-        // as the law it declares rather than as a list re-typed here.
-        for (const space of ["rgb", "hsl", "hsv", "hwb", "lch", "xyz"]) {
-            expect(readoutDecimals(space, "x"), space).toBe(0);
+    it("the knob IS the one digit policy, CHANNEL_DECIMALS, per channel (owner order 2026-11-09)", () => {
+        for (const [space, metas] of Object.entries(PICKER_CHANNELS)) {
+            for (const { key } of metas) {
+                expect(readoutDecimals(space, key), `${space}.${key}`).toBe(
+                    channelDecimals(space as keyof typeof PICKER_CHANNELS, key),
+                );
+            }
         }
-        for (const space of ["oklch", "oklab", "kelvin", "display-p3"]) {
-            expect(readoutDecimals(space, "x"), space).toBe(1);
-        }
+        // the picker's own OKLCh: L to a tenth of a percent, C to three decimals, h whole
+        expect([readoutDecimals("oklch", "l"), readoutDecimals("oklch", "c"), readoutDecimals("oklch", "h")]).toEqual([1, 3, 0]);
+        // alpha reads as a whole percent in every space
+        expect(readoutDecimals("lab", "alpha")).toBe(0);
     });
 
     it("lab is DELIBERATELY outside the lever-1 set — the ruled lever-3 arm", () => {
@@ -57,17 +62,6 @@ describe("readoutReservation — the least-count knob", () => {
         // footnote.
         expect(readoutDecimals("lab", "l")).toBe(1);
         expect(readoutDecimals("lab", "a")).toBe(1);
-    });
-
-    it("the component argument is INERT — the knob is per-space, by design", () => {
-        // Its signature takes one (`_component`) and ignores it. If that ever
-        // becomes per-component the callers' shared assumption breaks silently,
-        // because `READOUT_CH` and `figParts` both read this one function.
-        const space = "oklch";
-        const answers = new Set(
-            ["l", "c", "h", "alpha", "nonsense"].map((k) => readoutDecimals(space, k)),
-        );
-        expect(answers.size).toBe(1);
     });
 });
 

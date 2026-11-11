@@ -264,8 +264,11 @@ const swatchKeys = computed(() => {
                             :disabled="!canAddColor"
                             @click="addCurrentColor"
                         >
+                            <!-- The silhouette is the dot the picker colour will
+                                 become; its ink is that colour certified to 3:1. -->
                             <WatercolorDot
-                                :color="addSlotInk"
+                                :color="cssColorOpaque ?? addSlotInk"
+                                :ink="addSlotInk"
                                 variant="ghost"
                                 seed="mix-add-slot"
                                 class="w-full h-full"
@@ -321,7 +324,6 @@ const swatchKeys = computed(() => {
                 v-if="savedPalettes.length === 0"
                 compact
                 message="No saved palettes yet."
-                hint="Save a palette, then pour it or its colors in here."
             />
             <ul v-else class="grid gap-2">
                 <li

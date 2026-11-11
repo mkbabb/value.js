@@ -293,7 +293,7 @@ export const SPACE_CATALOG = {
             name: "OKLab",
             definition:
                 "A perceptually uniform color space designed to be more intuitive than CIELAB.",
-            created: "2019",
+            created: "2020",
             deviceDependency: "Device-independent",
             whitePoint: "D65",
             gamut: "Unlimited",
@@ -325,7 +325,7 @@ export const SPACE_CATALOG = {
         info: {
             name: "OKLCh",
             definition: "A cylindrical representation of the OKLab color space.",
-            created: "2019",
+            created: "2020",
             deviceDependency: "Device-independent",
             whitePoint: "D65",
             gamut: "Unlimited",

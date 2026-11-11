@@ -10,9 +10,9 @@ Hex color notation arrived with CSS1 in 1996, borrowing the `#` prefix conventio
 
 ## Key Characteristics
 
-1. **Compact sRGB encoding**: each pair of hexadecimal digits maps directly to one 8-bit RGB channel. `#FF8000` is just `rgb(255, 128, 0)` in a trench coat.
-2. **Case-insensitive**: `#ff8000`, `#FF8000`, and `#Ff8000` are identical.
-3. **Shorthand forms**: `#RGB` expands to `#RRGGBB` by doubling each digit; `#RGBA` expands to `#RRGGBBAA`.
+1. Compact sRGB encoding: each pair of hexadecimal digits maps directly to one 8-bit RGB channel. `#FF8000` is just `rgb(255, 128, 0)` in a trench coat.
+2. Case-insensitive: `#ff8000`, `#FF8000`, and `#Ff8000` are identical.
+3. Shorthand forms: `#RGB` expands to `#RRGGBB` by doubling each digit; `#RGBA` expands to `#RRGGBBAA`.
 
 ### Advantages
 
@@ -38,13 +38,13 @@ Hex encodes the same sRGB cube as `rgb()`: (0,0,0) black to (255,255,255) white.
 
 ### Notation Variants
 
-1. **6-digit** (`#RRGGBB`): the standard form. Two hex digits per channel, 16,777,216 possible colors.
+1. 6-digit (`#RRGGBB`): the standard form. Two hex digits per channel, 16,777,216 possible colors.
 
-2. **3-digit shorthand** (`#RGB`): each digit is doubled—`#F80` becomes `#FF8800`.
+2. 3-digit shorthand (`#RGB`): each digit is doubled—`#F80` becomes `#FF8800`.
 
-3. **8-digit with alpha** (`#RRGGBBAA`): appends a two-digit alpha channel. `#FF800080` is 50% transparent orange.
+3. 8-digit with alpha (`#RRGGBBAA`): appends a two-digit alpha channel. `#FF800080` is 50% transparent orange.
 
-4. **4-digit shorthand with alpha** (`#RGBA`): shorthand of the above—`#F808` becomes `#FF880088`.
+4. 4-digit shorthand with alpha (`#RGBA`): shorthand of the above—`#F808` becomes `#FF880088`.
 
 ### Hex to Decimal Conversion
 
@@ -94,8 +94,8 @@ Hex → RGB → linearize via sRGB transfer function → multiply by the sRGB-to
 
 ## Applications
 
-1. **CSS and HTML**: the original web color format—still the most common in stylesheets and inline styles.
-2. **Brand guidelines**: hex codes are the standard for specifying brand colors across digital and print.
-3. **Design tools**: Figma, Sketch, Photoshop, and every color picker on Earth speak hex.
-4. **Source code**: compact and greppable—`#FF0000` is easier to spot than `rgb(255, 0, 0)`.
-5. **Serialization**: no spaces, no special characters (after `#`)—ideal for URLs, JSON, databases.
+1. CSS and HTML: the original web color format—still the most common in stylesheets and inline styles.
+2. Brand guidelines: hex codes are the standard for specifying brand colors across digital and print.
+3. Design tools: Figma, Sketch, Photoshop, and every color picker on Earth speak hex.
+4. Source code: compact and greppable—`#FF0000` is easier to spot than `rgb(255, 0, 0)`.
+5. Serialization: no spaces, no special characters (after `#`)—ideal for URLs, JSON, databases.

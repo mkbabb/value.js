@@ -4,7 +4,7 @@ import { Katex } from "../../demo/scenes/about/katex";
 
 ### Background
 
-HSV (Hue, Saturation, Value) was developed by Alvy Ray Smith in 1978 as a way to select color by perceptual attributes rather than by RGB channel. It's also called **HSB** (Hue, Saturation, Brightness) in some applications—same thing, different name.
+HSV (Hue, Saturation, Value) was developed by Alvy Ray Smith in 1978 as a way to select color by perceptual attributes rather than by RGB channel. It's also called HSB (Hue, Saturation, Brightness) in some applications—same thing, different name.
 
 The model is cylindrical: hue is an angle around the wheel, saturation is radial distance from the center axis, and value is height. Its gamut is identical to sRGB—it's a reorganization, not an expansion.
 
@@ -14,20 +14,20 @@ The model is cylindrical: hue is an angle around the wheel, saturation is radial
 
 ### Components
 
-1. **`H` (Hue)**:
+1. `H` (Hue):
    0 to 1 (representing 0° to 360°)
 
    Position on the color wheel. 0 and 1 both map to red.
 
-2. **`S` (Saturation)**:
+2. `S` (Saturation):
    0 (grayscale) to 1 (fully saturated color)
 
    Purity of the color. At `S=0`, the result is grayscale regardless of hue.
 
-3. **`V` (Value)**:
+3. `V` (Value):
    0 (black) to 1 (full brightness)
 
-   Brightness. **`V=0` is always black**, no matter what hue or saturation are set to.
+   Brightness. `V=0` is always black, no matter what hue or saturation are set to.
 
 ### Relationship to HSL
 
@@ -75,8 +75,8 @@ The intermediate step when converting from sRGB back to HSV (RGB → HSL → HSV
 
 ## Common Applications
 
-1. **Color pickers**: The dominant model in Photoshop, Illustrator, Figma, and most design tools.
-2. **Computer vision**: Used for image segmentation and object detection where hue separation matters.
-3. **Data visualization**: Systematic variation of saturation or value for encoding data.
-4. **Digital painting**: Artists adjust brightness and saturation independently of hue.
-5. **UI/UX design**: Palette generation from a base hue by sweeping saturation and value.
+1. Color pickers: The dominant model in Photoshop, Illustrator, Figma, and most design tools.
+2. Computer vision: Used for image segmentation and object detection where hue separation matters.
+3. Data visualization: Systematic variation of saturation or value for encoding data.
+4. Digital painting: Artists adjust brightness and saturation independently of hue.
+5. UI/UX design: Palette generation from a base hue by sweeping saturation and value.

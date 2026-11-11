@@ -412,8 +412,10 @@ test.describe("V-D1.r3 · the name and the spectrum share a short block", () => 
                 await page.waitForTimeout(1_000);
                 await expect.soft(gloss, "the gloss stays dismissed while focus rests").toBeHidden();
                 await expect(badge).toBeFocused();
-                // the heading's name is the tuple alone
-                await expect(page.locator(".readout")).toHaveAccessibleName("73.0 % 0.2 2.0 deg");
+                // the heading's name is the tuple alone, read through the one
+                // digit table (o1109 canon V2: C to three decimals, h whole,
+                // trailing zeros dropped)
+                await expect(page.locator(".readout")).toHaveAccessibleName("73 % 0.185 2 deg");
             });
 
             // V-D1.r4 — the badge's focus ring is whole ink at the 3:1

@@ -9,7 +9,11 @@
 // Measured on the rendered bead, never a config flag. The page is plated
 // black and everything else on it is hidden (visibility), so the frame
 // holds only goo pixels; the wrapper's drop-shadow is dropped for the read
-// (it paints outside the body and is not the body's shading). Each frame is
+// (it paints outside the body and is not the body's shading). The producer
+// restates that filter `!important` in a layer under reduced motion, and a
+// layered important beats an unlayered one, so the read also empties the two
+// shadow tokens the filter is built from: otherwise, in dark, the halo passes
+// the mask and the body's measured radius takes it in. Each frame is
 // read in the producer's uv (the wrapper box): the body radius is the median outermost mask radius over
 // 360 angles, and from it:
 //   · lobes    — angular runs where the goo reaches past 1.25 body radii: the
@@ -183,7 +187,11 @@ async function bootPlated(page: Page) {
         content: `body * { visibility: hidden !important; }
             .goo-blob-wrapper, .goo-blob-wrapper * { visibility: visible !important; }
             html, body { background: #000 !important; }
-            .goo-blob-wrapper { filter: none !important; }`,
+            .goo-blob-wrapper {
+                filter: none !important;
+                --blob-shadow-ambient: 0 0 0 transparent !important;
+                --blob-shadow-contact: 0 0 0 transparent !important;
+            }`,
     });
     await waitMs(page, 1_200);
     await canvas.scrollIntoViewIfNeeded();
