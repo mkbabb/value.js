@@ -43,8 +43,14 @@
 /* X-DS value pass 4 (P4R-04): the one tone step keeps its 15 %, but it RECEDES
  * in both schemes. In dark the foreground is cream, so a step toward it lifted
  * the ghost above the plate (the brightest slab on Extract's empty card, louder
- * than the verb that fills it); dark steps toward the page background instead. */
+ * than the verb that fills it); dark steps toward the page background instead.
+ * o1105 aurora A1: the dark field rose to the seed-anchored band (L p50 0.34 →
+ * 0.48), and a light ink at a fixed alpha steps less over a lighter ground
+ * (ΔL = α·(L_ink − L_ground)): the edge rung fell to 1.09:1 (SS8-0408) and ΔL
+ * 0.021 (SS8-0483) at the breathe's trough. Dark's seam takes the edge rung
+ * plus the seam rung (glass's seam is half its edge), one half-step further. */
 .dark .skeleton-ink-register {
+    --ink-seam: calc(var(--ink-edge) * 1.5);
     --skeleton-ink-pole: var(--background);
     /* o1109 canon V11: the plates lost their paper grain, and the grain was
      * part of the dark ground the edge rung was certified on. On the plain

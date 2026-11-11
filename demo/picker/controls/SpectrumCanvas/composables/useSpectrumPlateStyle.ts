@@ -60,12 +60,19 @@ export function useSpectrumPlateStyle(opts: {
         // riding half over the value readout (SpectrumCanvas maps the pointer
         // over the same inset span). The horizontal travel is unchanged.
         return {
-            left: `${100 * sClamped}%`,
-            top: `calc(var(--spectrum-dot-size) / 2 + ${1 - vClamped} * (100% - var(--spectrum-dot-size)))`,
             backgroundColor: cssColorOpaque.value,
             "--dot-border": borderColor,
         };
     });
 
-    return { spectrumAriaLabel, spectrumStyle, spectrumDotStyle };
+    // o1105 U3: the thumb's travel layer is the thumb's travel box (the plate,
+    // inset half a thumb top and bottom, V3C-07); it is placed by a transform
+    // in its own percentages, so a drag moves it without layout.
+    const percent = (fraction: number) => `${Number((100 * fraction).toFixed(3))}%`;
+    const spectrumTravelStyle = computed(() => {
+        const { s, v } = dotPos.value;
+        return { transform: `translate3d(${percent(s)}, ${percent(1 - v)}, 0)` };
+    });
+
+    return { spectrumAriaLabel, spectrumStyle, spectrumDotStyle, spectrumTravelStyle };
 }

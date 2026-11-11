@@ -1,20 +1,30 @@
 <template>
-    <!-- Explicit inert ornament root: the caller's anchor lands here and the
-         fixed footprint never intercepts the card. Omitting pressLabel keeps
-         the producer on its decorative canvas path—no button, focus target,
-         pointer host, Tooltip, or duplicate Copy ownership. -->
+    <!-- The ornament root: the caller's anchor lands here and the fixed
+         footprint never intercepts the card. The producer's press surface
+         is the bead's one pointer host (glass ruling S, O-172): pressLabel
+         renders a native button clipped to the body disc, with its own
+         pointer-events:auto, so hover attraction, the press pulse, the
+         curious/excited moods and a click's satellite scatter reach the bead
+         while every point outside the disc falls through to the card. The
+         software tier keeps the bead an ornament (see the script block). -->
     <!-- T.W4.5 R2 — @animationend: the caller's `.hero-blob-anchor` class
          (and with it the W2-4 `blob-emerge` beat) lands on THIS root, so the
          emerge pose's end fires here; onEmergeEnd re-measures the engine's
          backing store against the settled box (see the script block). -->
-    <div class="pointer-events-none" aria-hidden="true" @animationend="onEmergeEnd">
+    <div
+        class="pointer-events-none"
+        :aria-hidden="pressLabel ? undefined : 'true'"
+        @animationend="onEmergeEnd"
+    >
         <!-- W6-4 (S.W6): the FOOTPRINT is the caller's law — the pane slot's
              anchor class sets `--blob-fp`; Blob only consumes it. -->
         <Blob
             ref="blobRef"
             :color="cssColorOpaque"
             :config="heroConfig"
+            :press-label="pressLabel"
             class="w-(--blob-fp)"
+            @click="scatter"
         />
     </div>
 </template>
@@ -31,6 +41,7 @@ import {
     useTemplateRef,
     watch,
 } from "vue";
+import { routeLocationKey } from "vue-router";
 import { Blob, BLOB_CONFIG_KEY } from "@mkbabb/glass-ui/blob";
 import type { BlobConfig } from "@mkbabb/glass-ui/blob";
 import { BLOB_CONFIG_DEFAULTS } from "@mkbabb/glass-ui/blob-config";
@@ -57,6 +68,19 @@ import { resolveSurfaceLightnessLive } from "../../color-session/useContrastSafe
 const { cssColorOpaque, cssColorOpaqueFrame, savedColorStrings } = inject(COLOR_MODEL_KEY)!;
 
 const blobRef = useTemplateRef<InstanceType<typeof Blob>>("blobRef");
+
+// o1105 blob lane: the bead takes the pointer wherever it is live. The
+// producer's button is its pointer host, so the label is what turns on hover
+// attraction (lean + pseudopod), the press pulse, the curious/excited moods,
+// and the click → nudge() satellite scatter wired on the template. An empty
+// label is the producer's decorative path (it trims the label): the software
+// tier stays an ornament off /blob, because a hover wakes the producer loop
+// and would undo the park that tier exists for (see SOFTWARE_RASTER_KEY
+// below). /blob, the stage that shows the blob, presses on every tier (V-2a).
+// The route is read where a router exists: the embed's picker slice seats
+// this hero with no router (EmbedPicker.vue), so `useRoute()` there is
+// undefined and its render threw; the slice is never /blob.
+const route = inject(routeLocationKey, null);
 
 // --- W6-4: the HERO config register (the consumer contract, genesis §3.0) ---
 // The app-wide 8-atom config (provided by useAtmosphere via BLOB_CONFIG_KEY)
@@ -343,6 +367,13 @@ function onEmergeEnd(e: AnimationEvent) {
 // GPU-process round trip here (SOFTWARE_RASTER_KEY says why).
 const softwareRaster = inject(SOFTWARE_RASTER_KEY)!;
 let softwareParked = false;
+const pressLabel = computed(() =>
+    softwareRaster && route?.name !== "blob" ? "" : "Pulse blob",
+);
+/** A press is the producer's pulse + excited beat; the consumer adds the scatter (the satellites' nudge). */
+function scatter() {
+    blobRef.value?.nudge();
+}
 
 /** One synchronous frame on a parked engine: resume() paints immediately, pause() cancels the loop it would schedule.
  *

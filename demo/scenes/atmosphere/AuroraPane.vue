@@ -46,7 +46,7 @@ import { usePanePopups } from "../../shell/usePanePopups";
 const popups = usePanePopups();
 
 const atoms = inject(AURORA_ATOMS_KEY)!;
-// The strip previews the field the ACTIVE scheme paints (§0hn arm B).
+// The strip previews the field the ACTIVE scheme paints (its ceiling differs).
 const { isDark } = useGlobalDark();
 
 // X.W7.g (OM-15 §1.B.3 #23–#26): each visible row label NAMES its select

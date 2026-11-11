@@ -12,7 +12,7 @@
          A1 — the former blanket `font-display` would flip whole documents to
          Fraunces once the font root resolves a real face; headings opt into
          the display voice in the scoped styles below). -->
-    <div v-else-if="currentDoc" ref="markdownDiv" class="markdown-wrapper" :style="mdColorVars">
+    <div v-else-if="currentDoc" ref="markdownDiv" class="markdown-wrapper" data-accent-reader :style="mdColorVars">
         <component :is="markdownContent" />
     </div>
 
@@ -396,5 +396,12 @@ onMounted(async () => {
     .toc a {
         @apply text-primary hover:underline transition-colors duration-fast;
     }
+}
+
+/* o1105-r2 perf: under a drag the headings and links track the colour. A
+   transition restarted on every colour frame restyled each of them on every
+   animation frame of the drag; they snap until the colour settles. */
+:root[data-colour-live] .markdown-wrapper :deep(.markdown-body) :is(h1, h2, h3, h4, h5, h6, a) {
+    transition: none;
 }
 </style>

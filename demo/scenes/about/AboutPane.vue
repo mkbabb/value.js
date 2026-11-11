@@ -41,7 +41,6 @@
             <ColorSpaceSelector
                 :model-value="model.selectedColorSpace"
                 v-model:open="aboutSelectOpen"
-                :css-color="cssColor"
                 inline
                 @update:model-value="
                     (colorSpace) => {

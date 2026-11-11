@@ -34,8 +34,11 @@ import {
     resolveSurfaceLightness,
     TEXT_CONTRAST_FLOOR,
 } from "../../color-session/ink";
-import { resolveAtmosphereField } from "../../app/composables/boot/atmosphere-calibration";
-import { fieldAtomsFor } from "../../app/composables/boot/seeded-ground";
+import {
+    resolveAtmosphereField,
+    seedAnchoredLBand,
+} from "../../app/composables/boot/atmosphere-calibration";
+import { DARK_FIELD_CEILING, fieldAtomsFor } from "../../app/composables/boot/seeded-ground";
 import { DEFAULT_AURORA_ATOMS } from "../../scenes/atmosphere/aurora-atoms";
 
 const toOklch = (css: string): Color<"oklch"> => {
@@ -116,17 +119,19 @@ const restingPlateOver = (stop: { L: number; C: number; h: number }, dark: boole
 };
 
 /** The field the app resolves in that scheme (useAtmosphere's `fieldAtoms`:
- *  the seed-anchored band in light, §0hk OD-12; dark held on the dark band
- *  until glass O-130, §0hn arm B). */
+ *  the seed-anchored band, under the 0.98 ceiling in light and under
+ *  `DARK_FIELD_CEILING` in dark until glass W-0.1). */
 const fieldFor = (seed: string, dark: boolean) =>
     resolveAtmosphereField(
         fieldAtomsFor({ ...structuredClone(DEFAULT_AURORA_ATOMS), seed }, dark),
     ).palette;
 
-const componentInk = (seed: string, dark: boolean) => {
-    const ambient = resolveFieldAmbientLightness(fieldFor(seed, dark), dark);
+const componentInkOver = (seed: string, field: Parameters<typeof resolveFieldAmbientLightness>[0], dark: boolean) => {
+    const ambient = resolveFieldAmbientLightness(field, dark);
     return certifyAccentInk(seed, resolveSurfaceLightness("resting", ambient, dark));
 };
+const componentInk = (seed: string, dark: boolean) =>
+    componentInkOver(seed, fieldFor(seed, dark), dark);
 
 describe("SS8-0259 · the component ink clears the floor on the rendered plate", () => {
     it("the default seed's dark ink clears 4.5:1 on the measured plate rgb(126 25 44)", () => {
@@ -159,5 +164,40 @@ describe("SS8-0259 · the component ink clears the floor on the rendered plate",
             expect(resolveFieldAmbientLightness(field, false)).toBeCloseTo(mean, 12);
         }
     });
+});
 
+describe("the dark field's ceiling · the shipped band over the seed grid", () => {
+    // The dark field takes the seed-anchored band under `DARK_FIELD_CEILING`.
+    // The grid runs every seed through the band the app ships (`fieldAtomsFor`
+    // → `resolveAtmosphereField`): L 0.30–0.70 by 0.02 × 24 hues × 3 chromas.
+    // The ceiling is the highest that clears the ink law on every cell; 0.68
+    // must fail somewhere, or the grid could not tell a ceiling from none.
+    const seeds: string[] = [];
+    for (let i = 0; i <= 20; i++)
+        for (let h = 0; h < 360; h += 15)
+            for (const C of [0.04, 0.12, 0.22]) seeds.push(`oklch(${(0.3 + 0.02 * i).toFixed(2)} ${C} ${h})`);
+
+    const failing = (ceiling: number) =>
+        seeds.filter((seed) => {
+            const atoms = { ...structuredClone(DEFAULT_AURORA_ATOMS), seed };
+            const field = resolveAtmosphereField({ ...atoms, lBand: seedAnchoredLBand(seed, ceiling)! }).palette!;
+            const ink = toOklch(componentInkOver(seed, field, true));
+            return !field.every((stop) => clears(ink, restingPlateOver(stop, true)));
+        });
+
+    it("the dark field is the seed-anchored band under the ceiling", () => {
+        for (const seed of seeds.filter((_, i) => i % 97 === 0)) {
+            const atoms = { ...structuredClone(DEFAULT_AURORA_ATOMS), seed };
+            expect(fieldAtomsFor(atoms, true).lBand).toEqual(seedAnchoredLBand(seed, DARK_FIELD_CEILING));
+        }
+    });
+
+    it("GREEN at the shipped ceiling", () => {
+        const fails = failing(DARK_FIELD_CEILING);
+        expect(fails.length, fails.slice(0, 5).join(", ")).toBe(0);
+    }, 120_000);
+
+    it("RED at 0.68 (the grid can see a ceiling)", () => {
+        expect(failing(0.68).length).toBeGreaterThan(0);
+    }, 120_000);
 });

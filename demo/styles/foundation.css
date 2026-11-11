@@ -865,6 +865,11 @@
             --saved-bg-3 200ms var(--ease-decelerate),
             --saved-bg 200ms var(--ease-decelerate);
     }
+    /* o1105-r2 perf: under a drag the plate tracks the field (the sink writes
+     * the stops on it, not the root) and snaps; the breath is for a pick. */
+    :root[data-colour-live] .ground-breath {
+        transition: none;
+    }
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════

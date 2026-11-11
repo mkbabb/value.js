@@ -24,6 +24,8 @@ import { describe, expect, it } from "vitest";
 import { resolveAtoms } from "@mkbabb/glass-ui/aurora";
 
 import { DEFAULT_AURORA_ATOMS } from "../../scenes/atmosphere/aurora-atoms";
+import { resolveAtmosphereField } from "../../app/composables/boot/atmosphere-calibration";
+import { fieldAtomsFor } from "../../app/composables/boot/seeded-ground";
 
 describe("aurora default motion (U33 — the field drifts)", () => {
     it("the demo default selects the spatial-drift register, not breathing", () => {
@@ -40,5 +42,37 @@ describe("aurora default motion (U33 — the field drifts)", () => {
         // …strictly beyond the breathing register that zeroes it (the U33 root).
         expect(active.nucleiDrift).toBeGreaterThan(breathing.nucleiDrift);
         expect(active.paletteDrift).toBeGreaterThan(breathing.paletteDrift);
+    });
+});
+
+// o1105 (aurora lane, round 2): the served field read static on a real GPU —
+// movedFrac ≤ 0.002 over 1.5 s at every seed in both schemes — because the
+// producer's "drifting" register moves a nucleus 0.045 uv around a ~45 s orbit.
+// The painted field (resolveAtmosphereField, the one resolver the canvas, the
+// CSS fallback and the strips share) must carry the calibrated drift: nuclei
+// travel at ≥ 2.5× the producer's speed (orbit radius × angular rate) inside
+// the schema's 0.08 uv orbit, and "still" stays still.
+// BITE: drop calibrateDrift from resolveCalibratedAtmosphere and this reds.
+describe("the painted field is visibly alive (o1105 aurora)", () => {
+    const seeds = ["oklch(0.7 0.15 30)", "oklch(0.7 0.15 145)", "oklch(0.7 0.15 265)", "oklch(0.6 0.2 330)"];
+    for (const dark of [true, false]) {
+        it(`nuclei travel ≥ 2.5× the producer register (${dark ? "dark" : "light"})`, () => {
+            for (const seed of seeds) {
+                const atoms = { ...DEFAULT_AURORA_ATOMS, seed };
+                const producer = resolveAtoms(fieldAtomsFor(atoms, dark));
+                const field = resolveAtmosphereField(fieldAtomsFor(atoms, dark));
+                const speed = (c: typeof field) =>
+                    Math.max(...c.nuclei.map((n) => n.driftRadius)) * c.nucleiDrift;
+                expect(speed(field)).toBeGreaterThanOrEqual(2.5 * speed(producer));
+                for (const n of field.nuclei) expect(n.driftRadius).toBeLessThanOrEqual(0.08);
+                expect(field.warpDrift).toBeGreaterThan(producer.warpDrift);
+            }
+        });
+    }
+    it('"still" stays still', () => {
+        const still = resolveAtmosphereField({ ...DEFAULT_AURORA_ATOMS, seed: "oklch(0.7 0.15 30)", motion: "still" });
+        expect(still.nucleiDrift).toBe(0);
+        expect(still.paletteDrift).toBe(0);
+        expect(still.warpDrift).toBe(0);
     });
 });

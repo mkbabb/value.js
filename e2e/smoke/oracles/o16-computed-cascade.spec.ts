@@ -94,9 +94,10 @@ test("O-16 computed-cascade — the dist :root 150ms transition-default clobber 
  * Row map (t-transitions-liquid §2 · the retune table of record):
  *   R2  pane-swap ENTER  — transform `--spring-panel` @ the RESOLVED
  *       `--spring-panel-duration` (own clock)
- *   R3  pane-swap LEAVE  — opacity+transform `--ease-out` @ the RESOLVED
- *       `--duration-fast`; STRICTLY shorter than the enter (the exit law,
- *       gate 5)
+ *   R3  pane-swap LEAVE (the o1105 stacked deck, DESIGN.md §5.7) — transform
+ *       `--ease-in` @ the RESOLVED `--spring-world-exit-duration`; opacity
+ *       held, then cut (linear) over the exit's last 10 %; STRICTLY shorter
+ *       than the enter (the exit law, gate 5)
  *   R4  RETIRED 2026-09-23 (COHESION §0az ESC-W5c3-1) — the producer
  *       `cartoon-surface` register: glass 7.0.0 ships the utility with NO
  *       transition, so there is no producer value to assert. Recorded, never
@@ -145,10 +146,13 @@ test("O-16 W5 census — every owned row's computed duration/curve ≡ its liqui
                     // timing functions carry commas INSIDE linear()/
                     // cubic-bezier(); split at top level only.
                     .split(/,\s*(?![^()]*\))/);
-                const legs: Record<string, { duration: string; timing: string }> = {};
+                const delays = cs.transitionDelay.split(", ");
+                const legs: Record<string, { duration: string; timing: string; delay: string }> =
+                    {};
                 props.forEach((p, i) => {
                     legs[p] = {
                         duration: durs[i % durs.length] ?? "",
+                        delay: delays[i % delays.length] ?? "",
                         timing: (times[i % times.length] ?? "").trim(),
                     };
                 });
@@ -200,8 +204,8 @@ test("O-16 W5 census — every owned row's computed duration/curve ≡ its liqui
                 pane.classList.remove("vj-enter-enter-active");
                 pane.classList.add("vj-enter-leave-active");
                 leave = readLegs(pane);
-                // R3's rule reads `--duration-fast` / `--ease-out`.
-                leaveTok = resolve(pane, "--duration-fast", "--ease-out");
+                // R3's rule reads `--spring-world-exit-duration` / `--ease-in`.
+                leaveTok = resolve(pane, "--spring-world-exit-duration", "--ease-in");
                 pane.classList.remove("vj-enter-leave-active");
             }
 
@@ -282,19 +286,32 @@ test("O-16 W5 census — every owned row's computed duration/curve ≡ its liqui
         );
         expect(census.enter!["transform"]?.timing).toMatch(/^linear\(/);
 
-        // R3 — leave: `--ease-out` @ `--duration-fast` on BOTH legs; never a
-        // spring on an exit. §0az: equal to the RESOLVED tokens the rule reads.
+        // R3 — leave (the stacked deck): the card is discarded on `--ease-in`
+        // @ `--spring-world-exit-duration` — never a spring on an exit — and
+        // its opacity is held, then cut over the exit's last 10 % (no fade).
+        // §0az: equal to the RESOLVED tokens the rule reads.
         log("R3 leave", census.leave);
         log("R3 resolved tokens", census.leaveTok);
-        for (const legName of ["opacity", "transform"]) {
-            const leg = census.leave![legName];
-            expect(leg?.duration, `R3 ${legName} duration`).toBe(census.leaveTok!.duration);
-            expect(leg?.timing, `R3 ${legName} curve`).toBe(census.leaveTok!.timing);
-            expect(leg?.timing, `R3 ${legName} curve`).toMatch(/^cubic-bezier\(/);
-        }
+        const exit = parseFloat(census.leaveTok!.duration);
+        const move = census.leave!["transform"];
+        expect(move?.duration, "R3 transform duration").toBe(census.leaveTok!.duration);
+        expect(move?.timing, "R3 transform curve").toBe(census.leaveTok!.timing);
+        expect(move?.timing, "R3 transform curve").toMatch(/^cubic-bezier\(/);
+        const cut = census.leave!["opacity"];
+        expect(cut?.timing, "R3 opacity cut is linear").toBe("linear");
+        expect(parseFloat(cut!.duration), "R3 opacity cut = the exit's last 10 %").toBeCloseTo(
+            exit * 0.1,
+            4,
+        );
+        expect(parseFloat(cut!.delay), "R3 opacity held for 90 % of the exit").toBeCloseTo(
+            exit * 0.9,
+            4,
+        );
         // Gate 5 — the exit law: leave strictly shorter than the enter.
         const maxLeave = Math.max(
-            ...Object.values(census.leave!).map((l) => parseFloat(l.duration)),
+            ...Object.values(census.leave!).map(
+                (l) => parseFloat(l.duration) + (parseFloat(l.delay) || 0),
+            ),
         );
         expect(maxLeave, "exit law: leave < enter").toBeLessThan(
             parseFloat(census.enter!["transform"]!.duration),

@@ -55,48 +55,36 @@ async function holdAudit(page: Page, body = audit()) {
 
 const PANE = (id: string) => `[data-pane="admin-${id}"]`;
 
-/**
- * The plate enters on `overture-plate-settle` (450 ms, a transform), so a read
- * mid-entrance measures each box through it: across three CI attempts on one
- * tree the gaps read 9.5, -0.2 and 6.1 px, and locally the heights 72, 76.6,
- * 82.2 and 84.2 px on an 84 px pitch. Read once every finite animation inside
- * the pane has finished (the skeletons' breathe is infinite and moves nothing).
- */
-async function settled<T>(page: Page, read: () => Promise<T>): Promise<T> {
-    await page.waitForFunction(
-        (pane) =>
-            document.getAnimations().every((a) => {
-                const target = (a.effect as KeyframeEffect | null)?.target ?? null;
-                if (!(target instanceof Element) || !target.closest(pane)) return true;
-                // scroll-driven fades run on a scroll timeline and never end
-                if (!(a.timeline instanceof DocumentTimeline)) return true;
-                return a.playState !== "running" || a.effect?.getComputedTiming().iterations === Infinity;
-            }),
-        PANE("audit"),
-        { timeout: 10_000 },
-    );
-    return read();
-}
-
 /** The Audit shadows (held first load) and then the released rows, measured. */
 async function shadowsVsRows(page: Page) {
     const release = await holdAudit(page);
     await page.goto("/#/admin/audit");
     const status = page.locator(`${PANE("audit")} [role="status"][aria-label="Loading audit log"]`);
     await status.waitFor();
-    await page.evaluate(() => document.fonts.ready);
-    const readSkel = () => status.evaluate((st) => {
+    // X §0hr.5: the pane enters on its overture (`overture-plate-settle`, a tilt
+    // and a rise on `.pane-shell`), and a box's client rect under that rotation
+    // is its axis-aligned hull — taller than the row, with the gap eaten (CI
+    // 42231395487: 84.2 px shadows, gaps −0.2 px, at a 72 px layout). The rhythm
+    // is read once the ancestors' finite entrance animations have finished (the
+    // shadows' own infinite breathe is opacity and never ends, so it is excluded).
+    await status.evaluate((st) => {
+        const finite = document.getAnimations().filter((a) => {
+            const t = (a.effect as KeyframeEffect | null)?.target;
+            return t instanceof Element && t.contains(st) && Number.isFinite(a.effect?.getComputedTiming().endTime);
+        });
+        return Promise.all(finite.map((a) => a.finished.catch(() => undefined)));
+    });
+    const skel = await status.evaluate((st) => {
         const k = [...st.children].map((e) => e.getBoundingClientRect());
         return { h: k.map((b) => b.height), gaps: k.slice(1).map((b, i) => b.top - k[i]!.bottom) };
     });
-    const skel = await settled(page, readSkel);
     release();
     const firstRow = page.locator(`${PANE("audit")} .min-w-0.flex.items-center.rounded-md.border-card-edge`).first();
     await firstRow.waitFor();
-    const rows = await settled(page, () => page.locator(`${PANE("audit")} .min-w-0.flex.items-center.rounded-md.border-card-edge`).evaluateAll((es) => {
+    const rows = await page.locator(`${PANE("audit")} .min-w-0.flex.items-center.rounded-md.border-card-edge`).evaluateAll((es) => {
         const k = es.map((e) => e.getBoundingClientRect());
         return { h: k.map((b) => b.height), gaps: k.slice(1).map((b, i) => b.top - k[i]!.bottom) };
-    }));
+    });
     console.log("SS8-0514", JSON.stringify({ skel, rows }));
     return { skel, rows };
 }

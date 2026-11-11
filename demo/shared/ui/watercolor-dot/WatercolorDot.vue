@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { computed, toRef, useAttrs, useId, type HTMLAttributes } from "vue";
+import { computed, inject, toRef, useAttrs, useId, type HTMLAttributes } from "vue";
+import { COLOR_MODEL_KEY } from "../../../color-session/keys";
 import { useWatercolorBlob } from "./useWatercolorBlob";
 import { hashString } from "./prng";
 
@@ -91,6 +92,8 @@ const { borderRadius, transform } = useWatercolorBlob(colorRef, {
     cycleDuration: props.cycleDuration,
     range: props.range,
     seed: props.seed,
+    // Absent outside the picker app (the embed, isolated mounts): never live.
+    live: inject(COLOR_MODEL_KEY, null)?.colourLive,
 });
 </script>
 
