@@ -42,6 +42,7 @@ import {
     resolveSurfaceLightness,
 } from "../demo/color-session/ink";
 import { resolveAtmosphereField } from "../demo/app/composables/boot/atmosphere-calibration";
+import { fieldAtomsFor } from "../demo/app/composables/boot/seeded-ground";
 import { DEFAULT_AURORA_ATOMS } from "../demo/scenes/atmosphere/aurora-atoms";
 
 import producerHeld from "./producer-held.json";
@@ -683,19 +684,30 @@ describe("the resting accent walk is a hue-bounded maximin (COHESION §0gz.1, ES
         expect(ratioOn(ink, restingOver(ambient))).toBeGreaterThanOrEqual(TEXT_CONTRAST_FLOOR);
     });
 
-    it("a held plate-referent ink is the plate referent's own walk; dark keeps the ambient", () => {
+    it("a held plate-referent ink is the plate referent's own walk; dark reads the plate through its backdrop", () => {
         // An achromatic pick holds trivially, so it takes the plate referent whole.
         const grey = "oklch(0.6 0 0)";
         expect(restingInk(grey, ambient, plate, restingOver)).toBe(
             certifyAccentInk(grey, restingOver(plate)),
         );
-        // Dark: the plate referent is the ambient, so the walk is the ambient's.
-        const darkAmbient = resolveFieldAmbientLightness(field, true);
+        // Dark (o1109c2): the plate referent is the brightest stop seen through
+        // the carrier's backdrop saturate, so on the shipped dark field (mid-tone,
+        // saturated stops) it sits above the raw ambient, and the same walk
+        // certifies against it.
+        const darkField = resolveAtmosphereField(
+            fieldAtomsFor({ ...structuredClone(DEFAULT_AURORA_ATOMS), seed: SEED }, true),
+        ).palette;
+        const darkAmbient = resolveFieldAmbientLightness(darkField, true);
         const darkOver = (referent: number) => resolveSurfaceLightness("resting", referent, true);
-        expect(resolveFieldPlateReferent(field, true)).toBe(darkAmbient);
-        expect(restingInk(SEED, darkAmbient, darkAmbient, darkOver)).toBe(
-            certifyAccentInk(SEED, darkOver(darkAmbient)),
+        const darkPlate = resolveFieldPlateReferent(darkField, true);
+        expect(darkPlate).toBeGreaterThan(darkAmbient);
+        expect(restingInk(grey, darkAmbient, darkPlate, darkOver)).toBe(
+            certifyAccentInk(grey, darkOver(darkPlate)),
         );
+        const darkInk = restingInk(SEED, darkAmbient, darkPlate, darkOver);
+        expect(
+            ratioOn(darkInk, darkOver(resolveRestingAccentReferent(SEED, darkAmbient, darkPlate, darkOver))),
+        ).toBeGreaterThanOrEqual(TEXT_CONTRAST_FLOOR);
     });
 
     it("the floor and the headroom constants are byte-equal", () => {
