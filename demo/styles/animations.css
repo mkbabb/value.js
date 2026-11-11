@@ -344,6 +344,12 @@
             transform var(--spring-world-exit-duration) var(--ease-in),
             visibility 0s linear calc(var(--spring-world-exit-duration) * 1.236);
     }
+    /* o1111: a region that deals a new card stays where it now lies
+     * (flipRegions), so its leaver is flung from where it was drawn: the
+     * region's offset pins it there for the length of the leave. */
+    .pane-wrapper > .vj-enter-leave-active {
+        translate: var(--region-pin, none);
+    }
 
     /* The flung pose turns about the card's top corner on the side that
      * would otherwise rise (a clockwise turn lifts the left corner, so it
