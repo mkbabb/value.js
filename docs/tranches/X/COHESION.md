@@ -6683,3 +6683,35 @@ Id note: the order asked for "§0hw"; §0hw is the value realization track's, so
     - (4) The snap read a card in the middle of its first-arrival overture and never re-synced, which left it 31/64 px off the grid on some boots. That made the runner-dependent admin 3440 goldens. It now waits on running motion animations only (`93e7a1ef5`, `e087ee6a0`). The admin 3440 goldens were re-minted at rest (`c13a959e3`).
   - **4410 refreshed** to `0607623d8` (`index-By2zQ5AW.js`, `~/.audit-local/SERVERS.md`).
   - **Residual, not cured:** the space menu's non-CSS rows (HSV, Kelvin, ICtCp, Jzazbz) print storage units (`hsv · 330 · 0.44 · 1`), while the picker shows HSV in percent. That breaks the formatter's own promise that a colour reads the same everywhere. Curing it means changing the o23 oracle's channel-row parse and two unit fixtures, so it is booked for the next colour lane. Mike's calls stay open: V18, V19, and V10's light slab alpha.
+- **§0hz.lw3 (P0-P1) (2026-11-12): sk-v27 LW3, the R0 checkpoint after Phases 0 and 1 (seat R0-CHECK). R0 reads PRESENT, so Phase 2 opens. Nothing went to any master and nothing was published. LW3 is wave 3 of 7 and is not closed; LW4–LW7 remain.** Authority: bbnf-lang `LW3-ORDER.md` at `6e48a7d81` as amended by the ten seal rows (`049c5929e`, PR #15), under PLAN.md and RULINGS.md through the 2026-11-11e addendum. Every read was light (`guarded --light`). Scratch and logs are in `~/.dev-logs/bbnf-lockstep/lw3/r0-check/`.
+  - **Integration heads:** bbnf-lang `sk-v27-lw3` `83f1fd037`, parse-that `cc514b3`, pprint `418c59f` (tree-equal to `bc78dd8`, the pin). In each repo, `origin/master` is an ancestor of the integration branch.
+    - Merged: S1, S2, S3, S4 and S5 into bbnf-lang; S3 and S4 into parse-that; S3 into pprint.
+    - `lw3/s2-ci-blackhole` stays unmerged, as the order says.
+    - bbnf-lang pins parse-that `cc514b3` and pprint `bc78dd8`, and resolves one source for each.
+  - **R0:** RULINGS addendum 2026-11-11e carries S9-A, K-1 and TC-1, along with K-2, S5-A and every other ask of record. All are provisional delegate rulings except ADD-1, ADD-2, OWN-1, C-1, PP-A and PP-B, which the delegate ruled outright. DP-3 stays open for R1.
+  - **Re-read: one falsifier per seat, at the seat's parent and at its head, ×2.**
+    - **S1:** the TOPO-0 checker is RED at `0c6b31b19` (no `heads-LW3.json`) and GREEN at S1's head `0c9650047` (39/39, rc 0).
+    - **S2:** `iai-compare.sh` exits 0 at `28c09a0a5` ("regression decision skipped"). At the head, the seeded file passes with rc 0, the stub exits 2, and the ±2 % mutants exit 1.
+    - **S3:** `git grep -nw unsafe -- rust/src` counts 1 at `dccbd63` and 0 at `bc78dd8`, with the `forbid(unsafe_code)` attribute present.
+    - **S4:** `git grep -niE bbnf -- rust/regex` counts 17 at `f7ac459` and 0 at `590e25b` and at `cc514b3`.
+    - **S5:** the head's `test_prereg.py` has 5 HeldOut errors against `28c09a0a5` and passes 19/19 at the head. The `obs` grep counts 0 at the parent and 38 at the head.
+    - The CI runs for CI-IAI-1's RED, GREEN and mutant reads (blackhole branch) and for the seed were re-read on GitHub, and each run's conclusion matches its record.
+  - **Units:**
+    - **GREEN ×2:** TOPO-0, LED-1, CI-MASTER-1, LED-2, CI-IAI-0, CI-IAI-1, PP-1a, PP-1b, RX-0, RX-1a, RX-1b, RX-1c, RX-3, COMP-4a and COMP-5b.
+    - **Partly RED:**
+      - **RX-1d:** the `generated_utf8` born-RED is held on ask RX-1d-Q1.
+      - **COMP-3a:** two clauses read RED. First, root JSON gets 180 of the 188 `n_` files (ask ORC-1). Second, `--list-oracles` prints `oracles=0` for ebnf, bnf and math, and the row calls these "gap rows", which amendment 4 forbids (ask ORC-2).
+  - **Found by this check:**
+    - **(1) Eight ledger rows have no status cell:** COMP-3a, COMP-5b, RX-0, RX-1a, RX-1b, RX-1c, RX-1d and RX-3. LG-3.12's `units.sh` would not read them. The cure is one status addendum row.
+    - **(2) The TOPO-0 checker re-read at the integration tip gives rc 1.** Two P1 commits (`e696cf845`, `ed7b136b6`) are not reachable from any head in `heads-LW3.json`. This is the entry receipt's scope, not a regression of TOPO-0; the gate reads `heads-LW3-gate.json`.
+    - **(3) The merged-tree read at `83f1fd037` is in the merge message only:** nextest 1501/1501, clippy and regen, read once.
+    - **(4) parse-that-simd 0.1.0 is already on crates.io,** so the LW3 publish under PP-A takes the next version the semver probe rules (ask SIMD-V).
+    - **(5) Disk:** 82 GB free against the 60 GB floor. The shared targets are bbnf-lang 40 GB, parse-that 4.7 GB and pprint 0.4 GB.
+  - **Phase 2 launches:**
+    - **S6 KERNEL** (COMP-1a, COMP-4b) on parse-that `lw3/s6-kernel` off `cc514b3`, from `e31fbfedc`.
+    - **S9 PERF** (PERF-1a, PERF-2) on parse-that `lw3/s9-perf` off `cc514b3`.
+    - **S3b PP** (PP-2, PP-3a, under S8-A and S8-B; FillSep is in STREAM-v1) on pprint `lw3/s3b-pp` off `418c59f`, with consumer lanes in parse-that and bbnf-lang.
+    - The fourth slot is free.
+    - PP-1c runs post-merge as S21, inside this wave (PP-A). P3a waits for S6 to be pushed in parse-that.
+  - **Open asks:** LED2-A, LG33-A, TGT-1, IAI-A, PP1-A, PP1-B, PP1-C, RX-1d-Q1, ORC-1, ORC-2, PRG-1, SIMD-V and R0-1 (the status rows), plus DP-3 at R1. Each has a recommended answer in the R0-CHECK return.
+  - **value.js:** nothing to do. No consumer pin moved. USE-1 still waits on a value.js release whose `files` carries the six `.bbnf`.
