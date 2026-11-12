@@ -6786,3 +6786,44 @@ Id note: the order asked for "§0hw"; §0hw is the value realization track's, so
   - **PASS on prod:** the coloured page icons; the Home/Pages seat (`data-at` 0/1/3/4 by page); Name's transport (the bar is full at the end, `aria-valuenow` 1; the seat reads Again with a restart glyph, and there is one Again); the portraits beside their originals (side by side at 1440, an overlay at 0.618 at 390); the dots (8 pips on every frame, no pip moves, the worm travels one 28 px pitch per step, largest step 4.6 px); the palettes on one line in one strip (8 swatches, one top, no overflow); page crossings sliding sideways by order (forward ±340 px at 1440 and ±92 px at 390, and back mirrored, on 382 ms); the English highlight easing out over about 200 ms in about 25 distinct frames; the surah title opening the index with the current surah marked; Motion by URL (the die comes back fully on screen after a throw past the edge; a wheel over the die turns it, about 80–92°, with 0 px pan: the keyframes.js 1e5cd192 fix is live in the embed).
   - **FAIL on prod:** (1) Motion is still in the dock and the sitemap, and the order is Name, Portraits, Colour, Motion, Qur'an (no hidden flag in `src/site.ts`). (2) The theme toggle is still the dock's leading (left) seat. (3) Page view shows no translation (the `page-stage` template has no English). (4) The credit line is gone from the surface, but it lives in the title's gloss and the surah index, not behind an info icon. Also recorded: while the hand holds a pan the die can leave the stage (7 % visible at 1440, 37 % at 390) before it springs back on release.
   - Receipts and frames are in the private seat folder outside every repo. The local audit server on 4413 now serves `81e8c75`.
+- **§0hz.lw3 (P3a) (2026-11-12): sk-v27 LW3 Phase 3a, seat S7 SPINE (the 2026-11-12d delegate rulings; COMP-1b-T; COMP-1b; the merges). COMP-1b and COMP-1b-T read GREEN ×2 and are merged. Two born-RED gates stay OPEN by ruling. Nothing went to any master and nothing was published. LW3 is wave 3 of 7 and is not closed: Phases 3b1 to 8 and LW4–LW7 remain.** Authority: bbnf-lang `LW3-ORDER.md` row COMP-1b, as amended by the seal rows of LEDGER.md, under PLAN.md and RULINGS.md through the new 2026-11-12d addendum. Every heavy run went through `guarded`, one at a time. Receipts are in `~/.dev-logs/bbnf-lockstep/lw3/s7-spine/`.
+  - **Rulings 2026-11-12d** (`b34c56e75`): each row is marked "delegate, owner may overturn". The rows are COMP1B-W3 (a)(b)(c), LG-3.1, COMP-1b-W, TC-COUNT, TREE-WRITE and SEMVER-COPY. DP-3 is recorded as UNANSWERED: it is the owner's ask. The falsifier `p3a_check.py rulings` reads RED ×2 at `7eba692ee` and GREEN ×2 at `b34c56e75`. The mutant (the LG-3.1 marking dropped) reads RED ×2. The ledger rows the rulings order pass `p3a_check.py ledger`: RED ×2, then GREEN ×2, and its mutant (BR2 set to CLOSED) reads RED ×2.
+  - **COMP-1b-T:** the two sk-v26 packaging laws are re-written for the sk-v27 layout, with a fresh ABI-4 receipt (`LW3-PARSE-THAT-ABI4.json`) in place of ABI-3. The mapping, assertion by assertion, is in `evidence/LW3.COMP/comp1b-t/MAPPING.md`; each new law asserts at least as much as the law it replaces. Law B reads RED ×2 with the receipt absent. Law A reads RED ×2 against each of two sk-v26-layout mutants. Both read GREEN ×2 at `integration/backend` `bbee4ce65`. Cargo's verify build is replaced by a registry resolution and a registry-only consumer, so the law fits nextest's 90 s without widening the timeout; it runs in about 80 s inside the suite.
+  - **COMP-1b gate, GREEN ×2** at `bbee4ce65`, each read after `cargo clean -p` of bbnf and the five parse-that crates:
+
+    | Gate | Result |
+    |---|---|
+    | `root_api_present` | 1/1 |
+    | `regen --check` | 9/9 |
+    | W2 laws | 30/30 (the order's "60" is count drift; no test id was lost) |
+    | W3 type | 16/16 |
+    | W3 Pratt | 17/17 |
+    | W3 instance | 19 + 1 named born-RED |
+    | W3 replay | 12 + 1 named born-RED |
+    | `bbnf_bootstrap_reproducibility` | 2/2 |
+    | Test targets | 130, a superset of master's 111 and the spine's 13 |
+    | `build --workspace --locked` | rc 0 |
+    | `semver-checks` vs 0.3.0 | no removal |
+    | `check-repo-dag`, `pins.sh`, `check-hermetic-build` | GREEN |
+    | parse-that ABI laws at the pin | 78/78 |
+
+    The mutant drops `pub mod pipeline;` from `lib.rs` and reads RED ×2 (E0433). The Pratt crate-root law ("ten root modules plus `compiler`") is kept, because `LW3-ORDER.md:103` orders `lib.rs` to export `compiler` and every root module master exports.
+  - **Heads:** bbnf-lang `sk-v27-lw3` `2222ca567`, which merges lane `lw3/s7-spine` `adf304816` (`4ff8ae777`) and then `integration/backend` `bbee4ce65`, both `--no-ff`; its crates, manifests and `.cargo` are equal to `integration/backend`. The locks and git+rev edges pin parse-that `6889b29c1` (`KERNEL_ABI` 4) and pprint `69d1fe9fa` (tree-equal to `f94cd3d`).
+  - **OPEN carries for the owner:**
+    - **LW3.COMP-1b-BR1:** `active_roots_remain_preselection_only_and_the_guard_self_falsifies` is ignored under `LW3.COMP-1d`, and COMP-1d item (vi) cures it. LG-3 cannot close while it is ignored.
+    - **LW3.COMP-1b-BR2:** `every_core_and_external_control_caller_uses_only_the_clean_break_instance_api` is ignored under `LW7.COMP-1`, with a re-trigger row.
+    - LG-3.1's exception table (J-12, J-13, J-17, J-18) is planned.
+    - The COMP-1b-W reviewer's read is owed before LW5 relies on it.
+    - ORC-CSS-C: 112 CSS root rows were counted at filing, and a fresh read is owed.
+    - TREE-1: two tests dirty the tree, and the census is filed for Phase 3b1.
+    - Law B runs in about 80 s of nextest's 90 s.
+    - DP-3 is unanswered.
+  - **Phase 3b1 opens** with:
+    - S7b [COMP-1c] on the merged spine;
+    - S9b [PERF-1c, PERF-1d];
+    - S10 [COMP-5a, COMP-6];
+    - S3c-PP [the G3 cure];
+    - S5c [ORC2-WS-C];
+    - TREE-1.
+
+    ORC-CSS-C is planned for Phase 4. Any re-pin or lock change must update law A's sealed constants and the ABI-4 receipt in the same commit.
