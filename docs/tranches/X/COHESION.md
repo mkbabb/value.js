@@ -6738,3 +6738,44 @@ Id note: the order asked for "§0hw"; §0hw is the value realization track's, so
   - **LW3.COMP-3a closed GREEN:** root JSON against JSONTestSuite 283/283 (`y_` 95/95, `n_` 188/188), serde_json 104/104, no crash at 100,000 levels.
   - **RED as filed:** LW3.ORC1-WS (the package reads U+000C as whitespace), R-b J-12/J-13 to LW4.COMP-1. **Ask ORC2-WS:** the root-whitespace class the new oracle names (J-14..J-16) is filed to LW4.COMP-1; recommended to keep it there.
   - **value.js:** nothing to do. No value.js pin moved.
+- **§0hz.lw3 (P2) (2026-11-12): sk-v27 LW3, the checkpoint after Phase 2 (seat P2-CHECK). Every Phase 2 unit that reads GREEN ×2 has real receipts. Phase 3a opens with one cure unit first. Nothing went to any master and nothing was published. LW3 is wave 3 of 7 and is not closed: its Phases 3a to 8 and LW4–LW7 remain.** Authority: bbnf-lang `LW3-ORDER.md` as amended by the seal rows of LEDGER.md (amendment 2 sets the phases), under PLAN.md and RULINGS.md through the 2026-11-12b addendum. Every read was light (`guarded --light`, `git show`). Scratch and logs are in `~/.dev-logs/bbnf-lockstep/lw3/p2-check/`.
+  - **Integration heads:** bbnf-lang `sk-v27-lw3` `28eeed1c4`, parse-that `cfe77fb`, pprint `f94cd3d` (tree-equal to `69d1fe9`).
+    - **Merged into bbnf-lang:** R0-FOLD (`d98914e34`), S3b (`59c3fc798`), S6 (`a243130da`, then `3bdc88cfa`), S9 records (`2a497daec`) and S5b (`28eeed1c4`).
+    - **Merged into parse-that:** S3b (`9e50f1e`), S6 (`d05c5d7`) and S9 (`cfe77fb`).
+    - **Merged into pprint:** S3b (`f94cd3d`).
+  - **Locks:** every lock has one source for pprint and one for parse-that.
+    - bbnf-lang `Cargo.lock` and `wasm/Cargo.lock` pin parse-that `cdceb30`, tree-equal to `9e50f1e`. That is the tip before the kernel: the spine's re-pin onto the kernel is COMP-1b's work.
+    - Both bbnf-lang locks pin pprint `69d1fe9`. parse-that `rust/Cargo.lock` pins pprint `69d1fe9`.
+    - `skinny/Cargo.lock` keeps its own single parse-that source, `1dea59e9`, which is on parse-that master.
+  - **Re-read: one falsifier per seat, at the seat's parent and at its head, ×2.**
+    - **R0-FOLD:** `r0_check.py rulings` is RED at `83f1fd037` and GREEN at `28eeed1c4`.
+    - **S3b:** `r0c_check.py` is RED at `d98914e34` (no §7.4) and GREEN at the tip. `pin_check.sh` is RED at bbnf-lang `d98914e34` and parse-that `cc514b3` (pprint `bc78dd8`) and GREEN at both tips (6 and 3 pins on `69d1fe9`).
+    - **S6:** `KERNEL_ABI` and `rust/parse_that/src/kernel/` are absent at `cc514b3`. At `cfe77fb` the kernel has 9 files, `KERNEL_ABI = 4` and no `bbnf` text.
+    - **S9:** `ascii_prefix_len` and `stage1` are absent at `cc514b3` and present at `cfe77fb`. The CI run at the merged tree `07ed26c` (`43230473673`) is success.
+    - **S5b:** `orc_check.py qx1` is RED at `2a497daec` and GREEN at `28eeed1c4`. `orc_check.py rows` is GREEN.
+    - **pprint:** the `STREAM-v1.sha256` digests match the tree at `f94cd3d`.
+  - **Units:**
+    - **GREEN ×2, each with its mutant refused ×2:**
+      - R0-FOLD: R0-RULINGS, DIG-FOLD, DIG-CUST-1 and R0-1.
+      - S6: R0C-1, R0C-2, R0C-3, R0C-M, COMP-1a and COMP-4b.
+      - S3b: R0C, PP-3a and PP1-C.
+      - S9: PERF-1a and PERF-2.
+      - S5b: QX1-C, ORC1-CKPT, ORC1-NUM, ORC1-STR, ORC1-BOM, ORC1-CSV, ORC1-RB, ORC2, and COMP-3a, now closed.
+    - **RULING:**
+      - PP-2: the pprint half and the consumer port are GREEN; G3 is RED ×2 (ask PP2-G3).
+      - PERF-1a-SPLIT: the timing read is owed (ask S9-QW).
+    - **RED as filed:** ORC1-WS (R-b J-12/J-13 to LW4.COMP-1), DIG-G2 (until LW3.COMP-1b-W lands) and the RX-1d `generated_utf8` row (ruled into RX-5, S4b).
+    - **RECORDED:** R0-2. Its re-read is still owed, and no row closes it yet.
+    - Every LW3 ledger row has a status cell, or is one of the eight rows that R0-1's status addendum covers.
+  - **Found by this check:**
+    - **(1) The generality grep has regressed at the parse-that tip.** `git grep -niE bbnf -- rust/simd` reads 0 at PERF-1a's GREEN head `12b4b49` and 1 at `cfe77fb`. The hit is `rust/simd/benches/stage1_split.rs:4`, a comment added by the post-GREEN bench commit `07ed26c`. The generality law needs 0, and the cure has to land before COMP-1b pins parse-that.
+    - **(2) The R0C-M commit `3bdc88cfa` sits on bbnf-lang `sk-v27-lw3`'s first parent, not behind a `--no-ff` merge.** It is a records-only commit, and history is not rewritten. It is recorded as a deviation.
+    - **(3) LW3.COMP-1b-W (RULINGS 2026-11-12b Z32-W) has no seat.**
+    - **(4) The R0-2 re-read is owed.**
+  - **Phase 3a launches:** S7 SPINE alone in bbnf-lang, on `integration/backend` then `lw3/s7-spine` off `28eeed1c4`.
+    - **Entry facts:** S6 is pushed in parse-that (`d05c5d7`). S4's first part is merged and pushed (parse-that `cc514b3`, bbnf-lang `83f1fd037`). The spine merge source is `origin/codex/sk-v26-bbnf` `b5fd0ca98`. `integration/backend` does not exist yet.
+    - **Units:** LW3.COMP-1b-W first, then COMP-1b, which pins the parse-that tip after cure (1).
+    - **Phase 3b1** follows when COMP-1b is GREEN ×2 and merged, since S3b has already merged.
+  - **R1 needs the owner.** DP-3 is unanswered (RULINGS 2026-11-11e): the sealed plan changes only by the owner's sign-off, and `DECISION-PLAN.lw3.json` does not exist until S12 writes it in Phase 4.
+  - **Open asks:** PP2-G3, PP2-C, PP2-B, S9-QW, ORC2-WS, PP1-A, PP1-B, P2C-1 (the generality cure), P2C-2 (the COMP-1b-W seat) and P2C-3 (closing R0-2), plus DP-3 at R1. R0C-1 was answered by R0C-M. Each has a recommended answer in the P2-CHECK return.
+  - **value.js:** nothing to do. No consumer pin moved.
