@@ -101,7 +101,18 @@ export function useSettle(ms: number = SETTLE_MS) {
     };
 }
 
-export function useColourLive(frame: Readonly<Ref<string>>, ms: number = SETTLE_MS) {
+export function useColourLive(
+    frame: Readonly<Ref<string>>,
+    ms: number = SETTLE_MS,
+    // o1111 dragperf: the synchronous colour the frame coalesces. A press
+    // picks at once (the spectrum takes its colour on pointerdown), a frame
+    // before the coalesced one arrives, so every reader of the synchronous
+    // colour saw a drag's first colour as settled: each WatercolorDot reseeded
+    // and ran its 0.6 s silhouette morph under the SVG filter, re-rasterising
+    // it through the first half-second of every drag. A change under a held
+    // pointer turns the flag on here, before those readers run.
+    input?: Readonly<Ref<string>>,
+) {
     const live = ref(false);
     const settle = useSettle(ms);
     // A colour frame under a held pointer is a drag at any frame rate (a slow
@@ -121,6 +132,11 @@ export function useColourLive(frame: Readonly<Ref<string>>, ms: number = SETTLE_
                 if (live.value) settle(end, false);
             }, opts);
         }
+    }
+    if (input) {
+        watch(input, () => {
+            if (pressed) live.value = true;
+        }, { flush: "sync" });
     }
     let last = -Infinity;
     // Sync, so the flag is on before any reader of the same frame runs: a
@@ -146,9 +162,14 @@ export function useColourLive(frame: Readonly<Ref<string>>, ms: number = SETTLE_
  */
 export function useHeldWhileLive<T>(source: Readonly<Ref<T>>, live: Readonly<Ref<boolean>>) {
     let held = source.value;
+    // o1111 dragperf: while live the source is not read, so it is not
+    // tracked either. Read and discarded, a computed source (the dock band's
+    // ink and gold certifications) re-ran its WCAG walks on every colour frame
+    // of a drag for a value nobody painted. It re-evaluates once, when the
+    // drag ends; the value is the same as before.
     return computed(() => {
-        const value = source.value;
-        if (!live.value) held = value;
+        if (live.value) return held;
+        held = source.value;
         return held;
     });
 }
