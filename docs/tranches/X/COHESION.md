@@ -6631,3 +6631,46 @@ Id note: the order asked for "§0hw"; §0hw is the value realization track's, so
   - **Published** (served sha256 equals the crates.io checksum for each): pprint 0.4.0, pprint_derive 0.3.0, parse_that 0.4.0, parse-that-egraph-derive 0.1.0, parse-that-egraph 0.1.0, parse-that-simd 0.1.0, parse-that-regex 0.1.0, bbnf-ser 0.1.0, bbnf-ir 0.2.0, bbnf-path 0.1.0, bbnf 0.3.0, bbnf-analysis 0.2.0, bbnf-lsp 0.1.0, gorgeous 0.2.0. crates.io's new-crate rate limit refused two crates once each; the publish waited for the stated time and resumed. No version was reused.
   - **Carried to LW3:** LG-d, LG-e and LW3.CI-IAI-1.
   - **value.js:** nothing to do here. No `@mkbabb/bbnf-lang` pin moved.
+- **§0hz.eve-r4 (2026-11-11): owner order 2026-11-05 evening, round 4, the repair-ship seat. `ci/x-o1111-r4` SHIPPED to color.babb.dev (master `f5c7a089c`), plus the round-4 critic's objections. The round reads NOT CONFORMANT: the blob and drag performance are not cured.** Receipts are in `~/.dev-logs/eve-r4/repair-ship/`.
+  - **Repaired at root (`eef66092f`):**
+    - **The 404 page is dead below the first path segment (objection 4).** The 404 copy of the shell now carries `<base href="/">`. `deploy-age-served.mjs` now asserts that at a nested absent path the 404 page's module script, resolved the way the browser resolves it, answers 200 JavaScript.
+    - **Falsifier `probe-404.mjs`:** checks 7 paths by fetch and 6 cells in a browser, where a cell passes when `#app` carries `__vue_app__`.
+      - RED ×2 on the `e6769eaec` preview: 9 fails each (`/no/such/page`, `/palettes/`, `/embed/x` and `/a/b/c/d` load `/<dir>/assets/*`, which answers 404).
+      - RED ×2 on Cloudflare's own runtime (`wrangler pages dev`) with the old 404 copy: 9 fails each.
+      - GREEN ×2 on the new build: 0 fails.
+      - RED ×2 on prod before the deploy: 12 fails each, because prod had no 404 at all.
+      - GREEN ×2 on prod after the deploy: 0 fails. Frames at 390 dark and 1440 light show the app started.
+    - **`Markdown.vue`:** the unbound `ref="markdownDiv"` is deleted.
+  - **Ship (§0ga):**
+    - CI run 43107940901 passed 8/8 on `eef66092f`.
+    - Ordinary merge `f5c7a089c`: its tree is the CI tree exactly, and master was an ancestor.
+    - Master CI 43124161919 is RED on one job, `visual`: `admin-audit · 3440 · light` differed by 4782 px on all 3 attempts, and again on the rerun. The diff is glyph antialiasing over the whole card. The same tree passed on the branch, and that golden was already flaky in both earlier `ci/x-o1111-r4` runs (dark failed once, then flaky). This is routed to whoever owns the visual goldens; nothing was re-minted.
+    - deploy-pages 43138563110 was dispatched on master, following the §0ga precedent: success. G-21 matched on attempt 1, the absent asset answered an uncached 404, and the nested 404 page loads `index-e4o23thu.js` with 200.
+  - **Swap at 390 (objection 3), an OWNER RULING, not cured:**
+    - The probe gained the `home-mix` and `mix-palettes` hops and a `rowsSame` arm: a leaver and an enterer of one region read side by side.
+    - The reorder hops pass ×2 on the build and ×2 on prod: 0 collide steps, motion win60 about 0.21 and step16 about 0.06 of the travel.
+    - Palettes→Mix: 12 collide steps, the same row from 84 to 252 ms. Mix→Palettes: 7 steps, from 60 to 144 ms. FAIL-COUNT 4, in light and dark, on prod ×2.
+    - At 1440 the travel is 0. Under reduced motion every hop is a cut with 0 collisions.
+    - The question for the owner, with frames: is a card flung sideways off another the shuffle he wants at 390? The frames are `strip-mixpal-dark.png` and `strip-prod-light.png` (column 3).
+  - **Second hop inside the first (objection 5), CONFIRMED, not changed:** `double-hop.mjs` takes the second hop at +150 ms by the hash.
+    - At 390, in all 6 cells (light and dark × 3 sequences), the first hop's leaver moves 587–592 px in one frame, 60–110 ms after the second hop. That is the region offset of 586 px, the `--region-pin` clear at `flipRegions.ts:84`.
+    - At 1440 the largest one-frame card move is 106–126 px, with no snap.
+    - The frames (`strip-doublehop.png`) also show two panes' text side by side. This goes to a lane.
+  - **Drag performance (objection 2), NOT CONFORMANT:**
+    - The split `:root` gate: writes between pointerdown and pointerup are 0 in every cell, on the build ×2 and prod ×2. The release burst is 27 writes (spectrum) or 9 (slider) in one pass, spanning 8 ms on desktop and 34–58 ms on mobile at CPU 4×, starting 121–156 ms after pointerup. The gate as written is still RED (0.16 and 0.05 per move).
+    - On prod at load 11–20: desktop recalc 3.97–4.69 ms (gate 4), desktop spectrum p95 0.4–0.9 ms, Layout 1.76–2.70 ms. Mobile spectrum p95 20.6–41.3 ms (gate 16.7). Mobile slider p95 43–54 ms. Slider recalc 37–49 ms, which is held on glass 11.2.0.
+    - The single-probe claims did not hold up under a second probe:
+      - Hiding the dock cuts desktop recalc by 0.9–1.1 ms (4.0 → 3.1 and 4.4 → 3.3), not 2.1 ms.
+      - With every canvas hidden, mobile spectrum p95 reads 36–37 ms at load 22–38, not 18.7. A calm-load read is still owed.
+      - Neither is fit to relay to glass as stated.
+    - Disclosure: in a 2→195deg hue drag at 1440 light, the guide's headings stay near-black, and the title italic outside the guide tracks live. The hold cannot be seen in that frame (`strip-hue-light.png`).
+  - **Blob (objection 1), NOT CONFORMANT, held on glass:**
+    - Nothing shipped in value.js.
+    - The ratio ≥ 5 gate is retired, and the dwell arm is the gate: `dwellRatio` ≥ 2.5. It passes 8/8 cells on the build ×2 (5.8–17.1) and 8/8 on prod ×2 (5.9–12.8).
+    - A second seat reproduced the kick-off reading on a no-kick copy of the same build, patching glass's `pointer.click` kick out in the bundle (measurement only, deleted). At 1440 the hover ratio falls from 2.1–3.1 to 1.79–2.01. At 390 it is 1.2–1.4 with the kick or without. So the ratio gate measured glass's kick.
+    - The owner hears it plainly: "more pronounced satellites and goo, less shaded" did not move. It waits on glass's colony rewrite (O-172) and kick 11.0.1.
+  - **keyframes cube→amiga (objection 6):** on prod (`f6434667` is on master) ×2 at load 16–25, cube→amiga frame p95 is 24.3 and 31.6 ms, level with cube→square, sequence and easing (23–31 ms). It is still above 16.7, and no calm load was available, so the absolute gate is still unproven.
+  - **Audit servers:**
+    - 4410 color now serves `f5c7a089c` (guarded 86959, `index-BjmB55De.js`, `/api` read-only 200).
+    - 4411 keyframes now serves `2fd87f84` (guarded 86448, `index-D5cLOTmD.js` = prod). The earlier 4411 server had timed out.
+    - Both answered 200 ×2. `~/.audit-local/SERVERS.md` is updated.
