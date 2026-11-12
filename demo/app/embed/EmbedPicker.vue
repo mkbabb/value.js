@@ -4,21 +4,21 @@
          host's colours under it as the app's own watercolour swatches. -->
     <div class="embed-picker">
         <ColorPicker />
+        <!-- Her colours on one line, in one paper strip: the dots shrink with
+             the row and never wrap (owner 2026-11-11). -->
         <div
             v-if="stops.length > 0"
-            ref="swatchRow"
-            class="embed-swatches"
+            class="embed-swatches swatch-chip paper-grain-overlay"
             role="group"
             aria-label="Colours"
-            :style="{ '--cols': String(columns) }"
+            :style="{ '--n': String(stops.length) }"
         >
             <SwatchButton
                 v-for="(stop, i) in stops"
                 :key="i"
                 :color="stop.css"
                 :seed="stop.name ?? stop.css"
-                size="xl"
-                chip
+                size="fluid"
                 animate
                 :done="i === currentIndex"
                 :aria-label="stop.name ? displayName(stop.name) : stop.css"
@@ -31,7 +31,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, inject, onBeforeUnmount, provide, ref, shallowRef, useTemplateRef, watch } from "vue";
+import { computed, inject, provide, ref, shallowRef, watch } from "vue";
 import { resolveRenderMode } from "@mkbabb/glass-ui/aurora";
 import { createDefaultColorModel, type ColorModel } from "../../color-session/color-model";
 import { COLOR_MODEL_KEY, INK_AMBIENT_KEY, INK_PLATE_REFERENT_KEY, SAFE_ACCENT_KEY } from "../../color-session/keys";
@@ -45,7 +45,6 @@ import { provideHeroBlobConfig } from "../../picker/visual/heroBlobConfig";
 import ColorPicker from "../../picker/ColorPicker.vue";
 import SwatchButton from "../../shared/ui/SwatchButton.vue";
 import type { SliceStop } from "./params";
-import { balancedColumns } from "./balance";
 
 const { stops } = defineProps<{ stops: SliceStop[] }>();
 const emit = defineEmits<{ color: [css: string] }>();
@@ -90,27 +89,6 @@ const currentIndex = computed(() => {
     return match ? entries.value.indexOf(match.entry) : -1;
 });
 
-// The swatches share their rows evenly: the row's width and the first
-// swatch's size decide how many fit, and the count is spread over the rows.
-const swatchRow = useTemplateRef<HTMLElement>("swatchRow");
-const columns = ref(stops.length);
-let rowObserver: ResizeObserver | null = null;
-watch(
-    swatchRow,
-    (row) => {
-        rowObserver?.disconnect();
-        if (!row || typeof ResizeObserver === "undefined") return;
-        rowObserver = new ResizeObserver(([entry]) => {
-            const cell = (row.firstElementChild as HTMLElement | null)?.offsetWidth ?? 0;
-            const gap = parseFloat(getComputedStyle(row).columnGap) || 0;
-            columns.value = balancedColumns(stops.length, entry?.contentRect.width ?? row.clientWidth, cell, gap);
-        });
-        rowObserver.observe(row);
-    },
-    { flush: "post" },
-);
-onBeforeUnmount(() => rowObserver?.disconnect());
-
 // The picked colour, one message per frame (the pipeline's frame-coalesced colour).
 watch(cssColorOpaqueFrame, (css) => emit("color", css));
 </script>
@@ -134,11 +112,22 @@ watch(cssColorOpaqueFrame, (css) => emit("color", css));
     --card-cast-rung: none;
     --shadow-card: var(--shadow-sm);
 }
+/* One strip, one line: the row is the paper (the chip class once, here, never
+   on a dot) and the query container its dots size against. A dot is the
+   strip's width shared by its count, less the least gap, between a 1.5rem
+   floor (24px, the target floor: at a 320px frame a dot is ~31px) and the
+   3.5rem the chipped dot used to stand; space-between spends what is left. */
 .embed-swatches {
-    display: grid;
-    grid-template-columns: repeat(var(--cols), auto);
-    justify-content: center;
-    gap: 0.5rem;
+    --gap: clamp(0.25rem, 1.5cqi, 0.5rem);
+    --swatch-size: clamp(1.5rem, calc((100cqi - (var(--n) - 1) * var(--gap)) / var(--n)), 3.5rem);
+    container-type: inline-size;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    inline-size: auto;
+    block-size: auto;
+    padding: 0.5rem;
     margin-block-start: 1.25rem;
 }
 </style>

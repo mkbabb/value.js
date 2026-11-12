@@ -55,8 +55,10 @@ import { contrastInkFor } from "../../color-session/ink";
  *  row, `xl` the Extract result, and `fill` a RESULT row whose cells share the
  *  row's width (the Generate plate; X-DS pass 9, V9C-07: the result leads its
  *  plate). A `fill` cell grows from the `md` floor to a 5rem cap, square, and
- *  a long palette wraps at the floor. */
-export type SwatchSize = "sm" | "md" | "lg" | "xl" | "fill";
+ *  a long palette wraps at the floor. `fluid` is a seat the host sizes by
+ *  `--swatch-size` (the embed's one-line strip: the dots shrink with the row,
+ *  never wrap; owner 2026-11-11). */
+export type SwatchSize = "sm" | "md" | "lg" | "xl" | "fill" | "fluid";
 
 /** No wrapper: the dot alone, as every unchipped swatch has it. */
 const Bare: FunctionalComponent = (_, { slots }) => slots.default?.();
@@ -68,6 +70,7 @@ const SIZE: Record<SwatchSize, string> = {
     lg: "w-11 h-11 sm:w-12 sm:h-12",
     xl: "w-12 h-12 sm:w-14 sm:h-14",
     fill: "flex-1 basis-0 min-w-9 sm:min-w-10 max-w-20 h-auto aspect-square",
+    fluid: "swatch-fluid",
 };
 
 const {
@@ -96,3 +99,11 @@ const {
     chip?: boolean;
 }>();
 </script>
+
+<style scoped>
+/* The host's seat: one token, read here, never reached into from outside. */
+.swatch-fluid {
+    inline-size: var(--swatch-size, 3rem);
+    block-size: var(--swatch-size, 3rem);
+}
+</style>
