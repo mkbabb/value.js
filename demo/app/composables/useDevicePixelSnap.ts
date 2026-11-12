@@ -20,7 +20,10 @@
  * Re-syncs on: element/container resizes, window resize (dpr change rides
  * it), pane swaps (childList at or above a card), and transition/animation
  * settle at or above a card (the pane spring translates mid-flight; rects are
- * only trusted at rest).
+ * only trusted at rest). A sync that finds the wrapper or its card root still
+ * animating waits for those animations to finish rather than reading a moving
+ * rect, and every correction is a whole number of layout units, so the offset
+ * asked for is the offset the layout applies.
  */
 
 import { onBeforeUnmount, onMounted } from "vue";
@@ -40,6 +43,23 @@ const EPSILON = 0.01; // px — below this the correction is churn, not cure
  */
 const LAYOUT_UNIT = 1 / 64;
 
+/** Properties whose animation moves a box's painted top. */
+const MOVING_PROPERTY = /^(transform|translate|scale|rotate|top|bottom|inset|margin)/i;
+
+/**
+ * An animation still in play that can move the box. A finished animation
+ * holding its last frame (`fill: forwards`/`both`) is the box at rest, and a
+ * colour or opacity transition never moves it; waiting on either would turn
+ * each one's settle into a forced layout read, the per-frame cost H-1 removed.
+ */
+function movesTheBox(animation: Animation): boolean {
+    if (animation.playState !== "running" && animation.playState !== "paused") return false;
+    if (animation instanceof CSSTransition) return MOVING_PROPERTY.test(animation.transitionProperty);
+    const effect = animation.effect;
+    if (!(effect instanceof KeyframeEffect)) return false;
+    return effect.getKeyframes().some((frame) => Object.keys(frame).some((key) => MOVING_PROPERTY.test(key)));
+}
+
 export function useDevicePixelSnap(container: Ref<HTMLElement | null>) {
     const applied = new WeakMap<HTMLElement, number>();
     let rafId: number | null = null;
@@ -55,6 +75,19 @@ export function useDevicePixelSnap(container: Ref<HTMLElement | null>) {
         for (const wrapper of host.querySelectorAll<HTMLElement>(".pane-wrapper")) {
             const child = wrapper.firstElementChild;
             if (!child) continue;
+
+            // A card mid-motion is not at rest: the first arrival's overture
+            // (`overture-appear-*`) translates the card root, and a rect read
+            // then snapped the settled card 31/64 px off the grid for good,
+            // since nothing at or above the card resizes or mutates when the
+            // beat ends. Wait for its own animations and transitions to finish.
+            const moving = [wrapper, ...wrapper.children].flatMap((el) =>
+                el.getAnimations().filter(movesTheBox),
+            );
+            if (moving.length > 0) {
+                void Promise.allSettled(moving.map((a) => a.finished)).then(schedule);
+                continue;
+            }
 
             const prev = applied.get(wrapper) ?? 0;
             const rawTop = child.getBoundingClientRect().top - prev;
