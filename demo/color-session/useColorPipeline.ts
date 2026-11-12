@@ -286,7 +286,7 @@ export function useColorPipeline(model: ShallowRef<ColorModel>) {
     // o1105-r2 perf: true while a drag (any continuous input) drives the
     // colour. Its readers hold what only needs the settled colour and snap
     // what tracks the live one, so a drag never runs a colour transition.
-    const colourLive = useColourLive(cssColorOpaqueFrame);
+    const colourLive = useColourLive(cssColorOpaqueFrame, undefined, cssColorOpaque);
 
     return {
         // Model
