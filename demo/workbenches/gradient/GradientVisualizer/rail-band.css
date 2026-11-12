@@ -1,0 +1,24 @@
+/* GradientStopRail's `band` (owner 2026-11-11: "the palettes on the bottom
+   should be on one line and properly in a container"). Given, the band the
+   seats ride on is drawn as one strip under every seat, its lanes included,
+   `--rail-band-pad` past the outermost seats on every side; omitted, the band
+   is bare, as the workbench keeps it. The strip is under the seats and never
+   a target, so a press on it adds nothing. A host that draws it sets
+   `--rail-seat-gutter` (the seats' gutter off the ramp, 0.25rem by default) to
+   twice the pad, so the strip stands clear of the ramp by as much as it
+   stands past its seats. Its geometry is the rail's own (`--rail-height`,
+   `--rail-gutter`, `--rail-hit`, the lane step), declared on `.rail-seat`.
+   The host's surface class may carry a size and padding (a chip's): the
+   band's own box wins. */
+.rail-band {
+    position: absolute;
+    pointer-events: none;
+    inset-inline: calc(-1 * var(--rail-band-pad, 0.5rem));
+    inline-size: auto;
+    top: calc(var(--rail-height) + var(--rail-gutter) - var(--rail-band-pad, 0.5rem));
+    block-size: calc(
+        var(--rail-hit) + var(--rail-lane-count) * var(--rail-lane-step) + 2 * var(--rail-band-pad, 0.5rem)
+    );
+    box-sizing: border-box;
+    padding: 0;
+}

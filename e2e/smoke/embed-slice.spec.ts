@@ -92,6 +92,12 @@ test("the picker slice is ready, themed and sized, and speaks only to its host",
     await expect(frame.locator(".embed-swatches .watercolor-animated[data-variant=solid]")).toHaveCount(8);
     const seeds = await frame.locator(".embed-swatches feTurbulence").evaluateAll((els) => new Set(els.map((e) => e.getAttribute("seed"))).size);
     expect(seeds).toBe(8);
+    // Her eight on one line, in one paper strip: one top, no chip per dot, no overflow.
+    const row = await frame.locator(".embed-swatches").evaluate((el) => {
+        const tops = [...el.querySelectorAll("button")].map((b) => Math.round(b.getBoundingClientRect().top));
+        return { tops: new Set(tops).size, strip: el.classList.contains("swatch-chip"), inner: el.querySelectorAll(".swatch-chip").length, overflow: el.scrollWidth - el.clientWidth };
+    });
+    expect(row).toEqual({ tops: 1, strip: true, inner: 0, overflow: 0 });
     // The ground is transparent, and the frame's scheme is the host's.
     expect(await frame.evaluate(() => getComputedStyle(document.body).backgroundColor)).toBe("rgba(0, 0, 0, 0)");
     expect(await frame.evaluate(() => document.documentElement.classList.contains("dark"))).toBe(true);
@@ -130,6 +136,15 @@ test("the gradient slice runs its ribbon along a tall frame", async ({ page, bas
     const ribbon = await frame.getByRole("img", { name: "Gradient" }).evaluate((el) => (el as HTMLElement).style.getPropertyValue("--ribbon"));
     // A top-to-bottom ribbon: CSS's default direction, so no angle is written.
     expect(ribbon).toMatch(/^linear-gradient\(in /);
+    // The five stops on one line, on the rail's one paper strip, which holds them all.
+    const band = await frame.locator(".embed-gradient").evaluate((el) => {
+        const stops = [...el.querySelectorAll("[data-stop-id]")].map((b) => b.getBoundingClientRect());
+        const strips = [...el.querySelectorAll(".swatch-chip")];
+        const r = strips[0]?.getBoundingClientRect();
+        const holds = !!r && stops.every((s) => s.left >= r.left - 0.5 && s.right <= r.right + 0.5 && s.top >= r.top - 0.5 && s.bottom <= r.bottom + 0.5);
+        return { stops: stops.length, tops: new Set(stops.map((s) => Math.round(s.top))).size, strips: strips.length, onStop: strips.filter((s) => s.closest("[data-stop-id]")).length, holds };
+    });
+    expect(band).toEqual({ stops: 5, tops: 1, strips: 1, onStop: 0, holds: true });
     expect(errors).toEqual([]);
 });
 
