@@ -2,22 +2,32 @@
 // §5.7, G3 + G6). A region that MOVES (a stacked row reflowing under a new
 // stage height, a reorder) translates from where it was drawn to where it now
 // lies; a region that WIDENS (a dual → single hop) opens its plate from the old
-// edge to the new. Both run on the riser's own clock (`--spring-panel-duration`),
-// so the boxes and the card land together. The move rides `--ease-standard`,
-// never the panel spring: the spring overshoots by a share of the travel, and a
-// stacked reorder travels ~600 px, so its overshoot carried the region ~24 px
-// past its rest and into the dock band above (o1109c). Nor `--ease-out`: it
-// leaves rest at full speed, five times the mean, so a stacked reorder's
-// first frame moved the picker 45-100 px at once, the 390 "picker jump"
-// (o1110 D3). The standard curve starts from rest and lands without overshoot. The card's own rise
-// keeps the spring; its travel is 0.75rem, so its overshoot stays sub-pixel. First is read as DRAWN (a FLIP still in
-// flight is the start of the next), so A → B → C retargets from the live pose.
-// Only the wrapper is written, and every write is cleared when its transition
-// ends or is cancelled: a cached pane never carries a FLIP away with it.
+// edge to the new. First is read as DRAWN (a FLIP still in flight is the start
+// of the next), so A → B → C retargets from the live pose. Only the wrapper is
+// written, and every write is cleared when its transition ends or is
+// cancelled: a cached pane never carries a FLIP away with it.
+//
+// o1111 (the 390 view swap) — ONLY THE CARD THAT STAYS TRAVELS. A region that
+// is dealing a new card does not move: its riser comes up from under the deck
+// where it now lies, and its leaver is flung from where it was drawn
+// (`--region-pin`, animations.css). Before, a stacked reorder slid BOTH regions
+// through each other (the inspector ~490 px up, the stage ~410 px down): the
+// leaving card rode the inspector up past the picker while it was flung, three
+// cards stood in one column and two panes' text shared a line. Now the picker
+// is the one card in motion; it paints above the deck (`.pane-wrapper--stage`
+// holds z 1, shell.css), so it slides off the new card and uncovers it.
+// The move rides the riser's own clock (`--spring-panel-duration`) on a
+// symmetric ease: it starts and lands at rest with no overshoot (a spring's
+// overshoot carried a ~600 px reorder ~24 px into the dock band, o1109c), and
+// its peak speed is ~1.6x its mean, where `--ease-standard` peaks at ~2.6x and
+// moved a third of the travel in one 60 ms, the picker "jump" (o1110 D3, o1111).
 import { nextTick } from "vue";
 
 const PLATE = ":scope > .glass-resting, :scope > div > .glass-resting";
 const CAST = "-12px";
+// the sine ease-in-out: peak speed pi/2 of the mean, so ~21 % of the travel in
+// any 60 ms of the panel clock (the move still lands inside OD19's 450 ms window)
+const TRAVEL = "translate var(--spring-panel-duration) cubic-bezier(0.37, 0, 0.63, 1)";
 const generation = new WeakMap<HTMLElement, Record<string, number>>();
 // A plate that is swapped out mid-open never reports its own end; past the
 // panel spring's settle (0.45 s) the clip is released regardless.
@@ -70,16 +80,25 @@ export async function flipRegions(container: HTMLElement | null, mutate: () => u
     for (const w of regions()) {
         const was = first.get(w);
         if (was === undefined) continue;
-        claim(w, "translate");
+        const mine = claim(w, "translate");
+        w.style.removeProperty("--region-pin");
         w.style.transition = "none";
         w.style.translate = "";
         const now = w.getBoundingClientRect();
         const dx = was[0].left - now.left;
         const dy = was[0].top - scrolled - now.top;
-        if (Math.abs(dx) >= 1 || Math.abs(dy) >= 1) {
+        const moved = Math.abs(dx) >= 1 || Math.abs(dy) >= 1;
+        if (moved && w.querySelector(":scope > .vj-enter-enter-active") !== null) {
+            w.style.setProperty("--region-pin", `${dx}px ${dy}px`);
+            w.style.transition = "";
+            window.setTimeout(() => {
+                if (generation.get(w)?.translate === mine)
+                    w.style.removeProperty("--region-pin");
+            }, SETTLED_MS);
+        } else if (moved) {
             w.style.translate = `${dx}px ${dy}px`;
             void w.offsetWidth;
-            w.style.transition = "translate var(--spring-panel-duration) var(--ease-standard)";
+            w.style.transition = TRAVEL;
             w.style.translate = "";
             release(w, "translate", () => (w.style.transition = ""));
         } else w.style.transition = "";

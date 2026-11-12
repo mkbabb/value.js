@@ -90,10 +90,13 @@ const filterUrl = computed(() => `url(#${filterId})`);
 // every dot share ONE wet-edge displacement (twelve clones); deriving it off
 // `hashString(color + seed)` gives each dot a unique wet edge coherent with its
 // silhouette. % 256 keeps it in the feTurbulence seed's comfortable integer range.
-const filterSeed = computed(() => hashString(props.color + props.seed) % 256);
-
+// o1111 dragperf: keyed on the colour the silhouette was seeded from, never the
+// live prop. Under a drag the shape holds, but a seed read off the live colour
+// changed the `<feTurbulence>` on every colour frame and re-rasterised the
+// filter each frame (the spectrum dot and the dock seal, prod 907453615); the
+// seed now moves with the shape, once, on the settle.
 const colorRef = toRef(props, "color");
-const { borderRadius, transform } = useWatercolorBlob(colorRef, {
+const { borderRadius, transform, shapeColor } = useWatercolorBlob(colorRef, {
     animate: props.animate,
     cycleDuration: props.cycleDuration,
     range: props.range,
@@ -101,6 +104,7 @@ const { borderRadius, transform } = useWatercolorBlob(colorRef, {
     // Absent outside the picker app (the embed, isolated mounts): never live.
     live: inject(COLOR_MODEL_KEY, null)?.colourLive,
 });
+const filterSeed = computed(() => hashString(shapeColor.value + props.seed) % 256);
 </script>
 
 <template>
