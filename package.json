@@ -68,6 +68,7 @@
         "test": "vitest run",
         "test:unit": "vitest run --exclude '**/palette-card-layout.test.ts' --exclude '**/plate-mass.test.ts' --exclude '**/spectrum-dot-position.test.ts'",
         "test:browser-unit": "npm run build && vitest run demo/test/palettes/palette-card-layout.test.ts demo/test/palettes/plate-mass.test.ts demo/test/picker/spectrum-dot-position.test.ts",
+        "ci:actions": "scripts/ci/actions.sh",
         "preship": "scripts/ci/preship.sh",
         "test:css-equivalence": "vitest run -c bench/vitest.config.ts",
         "test:e2e": "playwright test",

@@ -1,7 +1,9 @@
 name: ci
 
-# The cheap gate (owner order 2026-11-13): install, lint, typecheck, the
-# node/jsdom unit suite, build, and the static checks — one job, one install.
+# The cheap gate (owner order 2026-11-13): install, then `npm run ci:actions`
+# (scripts/ci/actions.sh: lint, typecheck, the node/jsdom unit suite, build,
+# the static checks, the api suite) — one job, one install, one definition
+# shared with a local run.
 # No browser runs here. The Playwright projects, the three browser-backed unit
 # files, boot-smoke, the visual oracle, the WebKit arm and Lighthouse run on the
 # workstation before a ship: `npm run preship` (scripts/ci/preship.sh).
@@ -55,23 +57,12 @@ jobs:
             # `npm ci` runs `prepare`, which builds dist/ (the library build).
             - run: npm ci
             # The demo typecheck imports the api DTOs (mongodb types), and the
-            # api suite runs below: install the api package once.
+            # api suite runs in the gate: install the api package once.
             - run: npm ci --prefix api
-            - run: npm run lint
-            - run: npm run typecheck
-            - run: npm run test:unit
-            - run: npm run test:css-equivalence
-            - run: node scripts/gen-grammar.mjs --check
-            - name: pack and verify the published surface
-              shell: bash
-              run: |
-                  FILE="$(node -p "const p=require('./package.json'); p.name.replace(/^@/,'').replace('/','-')+'-'+p.version+'.tgz'")"
-                  npm pack --ignore-scripts > /dev/null
-                  test -f "$FILE"
-                  node scripts/ci/verify-packed-surface.mjs "$FILE"
-            - name: api typecheck
-              working-directory: api
-              run: npx tsc --noEmit
-            - name: api tests
-              working-directory: api
-              run: npm test
+            # mongodb-memory-server downloads a mongod for the api suite.
+            - uses: actions/cache@v4
+              with:
+                  path: ~/.cache/mongodb-binaries
+                  key: mongodb-binaries-${{ runner.os }}-${{ hashFiles('api/package-lock.json') }}
+            # The gate itself: one script, the same one a local run calls.
+            - run: npm run ci:actions
