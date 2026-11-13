@@ -51,7 +51,7 @@ jobs:
             (github.event.workflow_run.conclusion == 'success' &&
              github.event.workflow_run.head_branch == 'master' &&
              github.event.workflow_run.event == 'push')
-        runs-on: ubuntu-24.04 # COHESION §0ha.1: floating ubuntu-latest moved to 26.04 (Playwright refuses it); a floating label is an unpinned dependency
+        runs-on: ubuntu-24.04
         timeout-minutes: 20
         # NESTED-WORKSPACE LAYOUT (R.W7 X3 first-wire finding): the repo nests at
         # ./value.js because actions/checkout refuses paths outside
@@ -72,8 +72,12 @@ jobs:
                   # which could have advanced). On manual dispatch this is unset →
                   # falls back to the dispatched ref.
                   ref: ${{ github.event.workflow_run.head_sha || github.sha }}
-                  fetch-depth: 0
                   path: value.js
+                  # docs/ (~4.5 GB of evidence) is not part of the build: skip it.
+                  sparse-checkout-cone-mode: false
+                  sparse-checkout: |
+                      /*
+                      !/docs/
             - uses: actions/setup-node@v5
               with:
                   node-version: 24

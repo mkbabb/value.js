@@ -144,6 +144,8 @@ npm test
 npm run lint
 ```
 
+CI runs lint, typecheck, the unit suite without a browser (`npm run test:unit`), the build and the api suite. The browser suites (Playwright, boot-smoke, Lighthouse) never run in CI; run `npm run preship` locally before a ship.
+
 The published package contains only the seven capability entries and their declarations. Demo integration tests live on the downstream consumer lane and are not part of the producer release graph.
 
 ## License

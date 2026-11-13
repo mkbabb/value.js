@@ -60,10 +60,10 @@ const ENGINE_ROUTED_SUBTREES = [
     { subtree: "e2e/smoke/oracles/", engines: ["webkit"] },
 ];
 
-/** The workflow files that may satisfy a project's CI-job obligation. */
-// `webkit-hosted.yml` carries `e2e-safari` (smoke-safari + oracles-safari)
-// since X.W11.s1 / COHESION §0ge.2: a reporting, non-gating hosted-WebKit run.
-const WORKFLOWS = [".github/workflows/ci.yml", ".github/workflows/webkit-hosted.yml"];
+/** The files that may satisfy a project's run obligation. */
+// Owner order 2026-11-13: no Playwright in any GitHub Action. Every project now
+// runs from the workstation pre-ship script, one `guarded` call per project.
+const WORKFLOWS = ["scripts/ci/preship.sh"];
 
 const findings = [];
 /**
@@ -204,7 +204,7 @@ for (const name of allProjects) {
     if (!invokedProjects.has(name)) {
         fail(
             "A · PROJECT ORPHAN",
-            `Playwright project "${name}" is named by no CI job`,
+            `Playwright project "${name}" is named by no pre-ship lane`,
             `no \`--project=${name}\` in ${WORKFLOWS.join(", ")}`,
         );
     }
@@ -213,7 +213,7 @@ for (const name of invokedProjects) {
     if (!allProjects.includes(name)) {
         fail(
             "A · PROJECT ORPHAN (reverse)",
-            `CI invokes --project=${name}, which no config declares`,
+            `preship.sh invokes --project=${name}, which no config declares`,
         );
     }
 }

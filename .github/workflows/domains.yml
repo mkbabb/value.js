@@ -57,7 +57,7 @@ jobs:
         # Production is provisioned from master only: a dispatch on another ref
         # would otherwise ship that ref's bytes as the Production deployment.
         if: github.ref == 'refs/heads/master'
-        runs-on: ubuntu-24.04 # COHESION §0ha.1: a floating label is an unpinned dependency
+        runs-on: ubuntu-24.04
         timeout-minutes: 45
         env:
             MODE: ${{ github.event_name == 'schedule' && 'verify' || 'provision' }}

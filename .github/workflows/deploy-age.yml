@@ -30,7 +30,7 @@ permissions:
 jobs:
     deploy-age:
         name: deploy-age — production contains the newest close
-        runs-on: ubuntu-24.04 # COHESION §0ha.1: floating ubuntu-latest moved to 26.04 (Playwright refuses it); a floating label is an unpinned dependency
+        runs-on: ubuntu-24.04
         timeout-minutes: 5
         steps:
             - uses: actions/checkout@v5

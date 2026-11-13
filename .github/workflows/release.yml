@@ -1,6 +1,6 @@
 # release — publish @mkbabb/value.js to npm on a v*.*.* tag (K.W2 CI/CD lane).
 #
-# Re-runs the producer checks (build → lib-typecheck → test), packs one named
+# Re-runs the producer checks (build → lib-typecheck → unit test), packs one named
 # candidate, preserves its coordinates, and publishes that exact file so a tag
 # never ships bytes the producer checks did not inspect. value.js is the
 # publish-chain root — keyframes.js + glass-ui resolve it via the npm registry,
@@ -21,7 +21,7 @@ permissions:
 
 jobs:
     publish:
-        runs-on: ubuntu-24.04 # COHESION §0ha.1: floating ubuntu-latest moved to 26.04 (Playwright refuses it); a floating label is an unpinned dependency
+        runs-on: ubuntu-24.04
         steps:
             - uses: actions/checkout@v4
             - uses: actions/setup-node@v5
@@ -42,8 +42,9 @@ jobs:
               run: npm run build
             - name: typecheck (published library graph)
               run: npx vue-tsc -p tsconfig.lib.json --noEmit
-            - run: npx playwright install --with-deps chromium
-            - run: npm test
+            # The node/jsdom unit suite; the browser-backed unit files run in
+            # `npm run preship` on the workstation, never in an Action.
+            - run: npm run test:unit
             - name: stamp immutable source identity
               shell: bash
               run: |
