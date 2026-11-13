@@ -6827,3 +6827,8 @@ Id note: the order asked for "§0hw"; §0hw is the value realization track's, so
     - TREE-1.
 
     ORC-CSS-C is planned for Phase 4. Any re-pin or lock change must update law A's sealed constants and the ABI-4 receipt in the same commit.
+
+- **§0ie (2026-11-12): daraksha: the occasion mode, round 3 (repair seat).** The round-3 branch was repaired and green alone, but it did not reach prod. Prod is master `793bed5` (PR #30: the dock's labelled seats and theme seat, and the colour gallery), deployed by hand because Actions could not start (account billing).
+  - **Repair:** curtain physics (no fold, whip or crossing; bend caps), a redrawn medal and its states, and a menu with Home and icons. Gold weights thicken from 1024 px. Unit tests and veil e2e are green at 390 and 1440, with new falsifiers that were RED twice and are now GREEN.
+  - **Blocked:** the batch with round 3 failed on the reader dress against master's paged folios (re-hosting owed), so round 3 is held.
+  - **Prod read:** O-25, served-build and live checks pass. The served code holds nothing of the mode in plaintext (check-veil over the fetched files).
