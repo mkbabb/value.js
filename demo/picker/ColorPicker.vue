@@ -57,6 +57,45 @@
                     />
                 </div>
 
+                <!-- O16 (owner [62], "these should more border the gradient
+                     selector with less padding"): the name line sits ABOVE the
+                     numerals, so the numerals stand on the spectrum's top edge
+                     with only the content's top pad between them. The line
+                     keeps its reserved block (below), so a name still never
+                     moves the header. -->
+                <!-- The colour's NAME (owner 2026-10-19), IFF it has one: a
+                     CSS keyword or an approved name within ΔE_OK 0.02 of the
+                     current colour (`named-color-snap.ts`). No name, an
+                     empty line — the readout above is then the colour's only
+                     text, and the line keeps its block (o1109, below).
+                     X·§0hm D-32: the name is CLIENT-ONLY. The approved names
+                     arrive by fetch at run time, which the build-time prerender
+                     of `/` never has; the stage hydrates lazily (on idle), so
+                     when the fetch landed first, the client's first render
+                     asked for a <p> where the prerender holds a comment
+                     ("Hydration completed but contains mismatches", 5/10 cold
+                     loads at 6x CPU). The TEXT is gated on the plate's mount:
+                     the server render and the hydrating render agree (an
+                     empty line), and the name inks on the mount's own update. -->
+                <!-- o1109 (owner 2026-11-09 17:18: "named colors should
+                     NOT modify the height of the whole page"): the line is a
+                     RESERVED one-line block. It renders from the server render
+                     on, named or not, so a colour gaining, changing or losing
+                     its name re-inks one line and never re-lays the header,
+                     the plate, the scene or the document. The name is whole
+                     or not shown: one longer than the line yields into the
+                     colour's badge (nameOverflows), as on a short desktop
+                     block, where header.css takes the line out instead. -->
+                <p
+                    ref="nameLine"
+                    class="picker-color-name"
+                    data-testid="picker-color-name"
+                ><span
+                        ref="nameText"
+                        class="picker-color-name-text"
+                        :data-yielded="nameOverflows || undefined"
+                    >{{ nameLineMounted ? currentColorName : "" }}</span></p>
+
                 <ColorComponentDisplay
                     :color-components="colorComponents"
                     :formatted="currentColorComponentsFormatted"
@@ -106,38 +145,7 @@
                     </Popover>
                 </ColorComponentDisplay>
 
-                <!-- The colour's NAME (owner 2026-10-19), IFF it has one: a
-                     CSS keyword or an approved name within ΔE_OK 0.02 of the
-                     current colour (`named-color-snap.ts`). No name, an
-                     empty line — the readout above is then the colour's only
-                     text, and the line keeps its block (o1109, below).
-                     X·§0hm D-32: the name is CLIENT-ONLY. The approved names
-                     arrive by fetch at run time, which the build-time prerender
-                     of `/` never has; the stage hydrates lazily (on idle), so
-                     when the fetch landed first, the client's first render
-                     asked for a <p> where the prerender holds a comment
-                     ("Hydration completed but contains mismatches", 5/10 cold
-                     loads at 6x CPU). The TEXT is gated on the plate's mount:
-                     the server render and the hydrating render agree (an
-                     empty line), and the name inks on the mount's own update. -->
-                <!-- o1109 (owner 2026-11-09 17:18: "named colors should
-                     NOT modify the height of the whole page"): the line is a
-                     RESERVED one-line block. It renders from the server render
-                     on, named or not, so a colour gaining, changing or losing
-                     its name re-inks one line and never re-lays the header,
-                     the plate, the scene or the document. The name is whole
-                     or not shown: one longer than the line yields into the
-                     colour's badge (nameOverflows), as on a short desktop
-                     block, where header.css takes the line out instead. -->
-                <p
-                    ref="nameLine"
-                    class="picker-color-name"
-                    data-testid="picker-color-name"
-                ><span
-                        ref="nameText"
-                        class="picker-color-name-text"
-                        :data-yielded="nameOverflows || undefined"
-                    >{{ nameLineMounted ? currentColorName : "" }}</span></p>
+
             </CardHeader>
 
             <!-- The content region is the CONTROLS zone — body voice, never a
@@ -149,7 +157,7 @@
                  paint-in (beat two, SpectrumCanvas). Space-change re-fires of
                  `.stagger-children` see the var unset → 0ms, exactly as before. -->
             <CardContent
-                class="z-1 flex flex-col w-full px-[clamp(0.75rem,4cqi,1.5rem)] pt-3 pb-[clamp(1rem,3.5cqi,1.25rem)] min-w-0 lg:flex-1 lg:min-h-0"
+                class="z-1 flex flex-col w-full px-[clamp(0.75rem,4cqi,1.5rem)] pt-1.5 pb-[clamp(1rem,3.5cqi,1.25rem)] min-w-0 lg:flex-1 lg:min-h-0"
                 :style="plateOpening ? { '--stagger-base': 'var(--overture-stagger-base)' } : undefined"
             >
                 <div class="picker-body flex flex-col lg:min-h-0">
