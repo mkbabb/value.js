@@ -258,7 +258,6 @@ import { useColorPipeline } from "../color-session/useColorPipeline";
 import { usePaneRouter, PANE_CACHE_MAX, preloadPane } from "../shell/usePaneRouter";
 import { useSceneTargets } from "../shell/useSceneTargets";
 import { flipRegions } from "../shell/flipRegions";
-import { useFollowHeight } from "../shell/followHeight";
 import { usePaletteWiring } from "./composables/usePaletteWiring";
 import { useClipboard } from "@mkbabb/glass-ui/dom";
 import { Toaster } from "@mkbabb/glass-ui/toast";
@@ -414,8 +413,6 @@ useDevicePixelSnap(paneContainer);
 // flip: a slot's pane commit (PaneSlot's `flip`) and the scene's region set
 // changing (below). Stable, so a pre-hydration render never patches a slot.
 const flip = (apply: () => unknown) => flipRegions(paneContainer.value, apply);
-// G9 — the scene's block size travels on the same clock as its cards.
-useFollowHeight(paneContainer);
 
 // --- Color model — the ONE pipeline (S.W2 · W2-1) ---
 // One composable owns the model + one derivation set + storage + the token sink.
@@ -661,8 +658,9 @@ watch(documentVisibility, (state, prev) => {
    family). Co-transitioning height/margin/padding forced a layout + paint on
    every frame of every swap — the P1 layout-thrash (perf-transitions P1-2). The
    pane geometry rides transform/opacity only. O1105 r2 (DESIGN.md §5.7 G9):
-   the ROW's split and the scene's held height now travel on `.pane-container`
-   itself; the wrappers still animate no layout property. */
+   the ROW's split travels on `.pane-container` itself; the scene's height no
+   longer does (owner 2026-11-13: dealt cards, no height tween). The wrappers
+   animate no layout property. */
 
 /* The atmosphere-canvas arrival + PRM opacity pin moved to the overture
    grammar sheet (composables/boot/overture.css — the B2 voice + gate 5b). */

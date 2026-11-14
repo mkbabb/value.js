@@ -32,14 +32,15 @@
 // measured 1275 ms window (fold W5F-02). Reporting the key with the instance
 // makes that cross-wiring unrepresentable.
 //
-// ── THE SHUFFLED DECK — default mode, and why (owner orders 2026-11-05,
-//    2026-11-09; demo/DESIGN.md §5.7, the transition grammar) ─────────────
+// ── DEALT CARDS — default mode, and why (owner orders 2026-11-05,
+//    2026-11-09, 2026-11-13; demo/DESIGN.md §5.7, the transition grammar) ──
 //
 // The <Transition> below runs the DEFAULT mode: the leaving card and the
-// rising card are co-mounted for one gesture, a card shuffle (the top card
-// flung off its role's side as the next squares up from under it). The
+// dealt card are co-mounted for one gesture, the top card sliding off one
+// side as the next is dealt in from the other, the side following the move
+// (`data-scene-direction`, below). The
 // leaving card is taken OUT OF FLOW (`animations.css`: absolute in the
-// wrapper, inert, under or over the riser by direction), so the region is
+// wrapper, inert, under the dealt card), so the region is
 // sized by the riser alone from the commit frame. That is what retired
 // `out-in` (X.W5.d2 → OD19-V7, quoted in DESIGN.md §5.7): the serialised
 // leave held the region EMPTY between the two panes and faded both, and the
@@ -77,6 +78,7 @@ import {
     watch,
     type Component,
 } from "vue";
+import { usePreferredReducedMotion } from "@vueuse/core";
 import { useRoute } from "vue-router";
 import {
     PANE_LOAD_DELAY_MS,
@@ -348,6 +350,51 @@ watch(
     { flush: "sync" },
 );
 
+// ── Reduced motion: a fade, never a cut (DESIGN.md §5.7 G4) ────────────────
+//
+// Under `reduce` the swap keeps its fade and drops its travel. glass's guard
+// zeroes every CSS transition under `reduce` (`transition-duration: 0s
+// !important`), which would make the swap a cut, so the two fades run through
+// the Web Animations API, which the guard does not reach. The hooks are bound
+// only under `reduce`: a hook that takes `done` tells Vue to wait for it
+// instead of for the CSS transition, which is right for this branch alone.
+// The leave keeps its leave classes, so the leaver is out of flow as ever.
+const motion = usePreferredReducedMotion();
+
+function token(el: Element, name: string, fallback: number): number {
+    const raw = getComputedStyle(el).getPropertyValue(name).trim();
+    const n = parseFloat(raw);
+    if (!Number.isFinite(n)) return fallback;
+    return raw.endsWith("ms") ? n : n * 1000;
+}
+
+function fade(el: Element, from: number, to: number, ms: number, done: () => void) {
+    if (typeof (el as HTMLElement).animate !== "function") return done();
+    // The leaver holds its last frame until Vue removes it; the hold is then
+    // cancelled, so a KeepAlive-cached pane never comes back at opacity 0.
+    const run = (el as HTMLElement).animate([{ opacity: from }, { opacity: to }], {
+        duration: ms,
+        easing: "cubic-bezier(0, 0, 0.2, 1)",
+        fill: "both",
+    });
+    const end = () => {
+        done();
+        run.cancel();
+    };
+    run.finished.then(end, end);
+}
+
+const reduceHooks = computed(() =>
+    motion.value === "reduce"
+        ? {
+              onEnter: (el: Element, done: () => void) =>
+                  fade(el, 0, 1, token(el, "--duration-fast", 200), done),
+              onLeave: (el: Element, done: () => void) =>
+                  fade(el, 1, 0, token(el, "--duration-control", 120), done),
+          }
+        : {},
+);
+
 onBeforeUnmount(() => {
     cancelAnimationFrame(raf);
     window.clearTimeout(hold);
@@ -358,7 +405,7 @@ onBeforeUnmount(() => {
     <Transition
         v-if="arrived"
         :name="transitionName"
-        v-bind="appearGrammar"
+        v-bind="{ ...appearGrammar, ...reduceHooks }"
         @before-enter="showEntering"
         @before-leave="hideLeaving"
         @after-appear="settleAppear"
