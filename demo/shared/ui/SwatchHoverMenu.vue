@@ -16,7 +16,7 @@
                     :color="color"
                     :size="size"
                     :ghost="ghost"
-                    :seed="seed"
+                    v-bind="seed !== undefined ? { seed } : {}"
                     :done="done"
                     :aria-label="label ?? `Color swatch ${formatCssCaption(color)}`"
                     @click="$emit('press')"
@@ -64,6 +64,7 @@ withDefaults(
     }>(),
     {
         size: "md",
+        done: false,
     },
 );
 
