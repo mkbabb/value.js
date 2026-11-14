@@ -71,6 +71,7 @@ interface PillReading {
     rest: string;
     hover: string;
     hoverToken: string;
+    radiusToken: number;
     reference: string;
     height: number;
     radii: number[];
@@ -82,8 +83,12 @@ async function readPill(page: Page, pill: Locator, name: string): Promise<Omit<P
         const cs = getComputedStyle(el);
         const probe = document.createElement("span");
         probe.style.background = "var(--dock-control-hover-bg)";
+        // The producer's own dock-control corner (dist/components/dock/styles/
+        // controls/triggers.css), resolved in the same cascade.
+        probe.style.borderTopLeftRadius = "var(--dock-control-radius, var(--radius-pill))";
         el.parentElement!.appendChild(probe);
         const hoverToken = getComputedStyle(probe).backgroundColor;
+        const radiusToken = parseFloat(getComputedStyle(probe).borderTopLeftRadius);
         probe.remove();
         const ref = document.querySelector(".glass-dock .view-select-trigger");
         const r = el.getBoundingClientRect();
@@ -92,6 +97,7 @@ async function readPill(page: Page, pill: Locator, name: string): Promise<Omit<P
             classes: el.className.toString(),
             rest: cs.backgroundColor,
             hoverToken,
+            radiusToken,
             reference: ref ? getComputedStyle(ref).backgroundColor : "(no reference)",
             height: r.height,
             radii: [
@@ -107,7 +113,7 @@ async function readPill(page: Page, pill: Locator, name: string): Promise<Omit<P
 test.describe("X.W12.e — the dock sits on glass's primitives", () => {
     test.setTimeout(180_000);
 
-    test("(1) Login + @mbabb pills: glass dock-control plate and a stadium radius", async ({ page }) => {
+    test("(1) Login + @mbabb pills: glass dock-control plate and its radius register", async ({ page }) => {
         await page.emulateMedia({ colorScheme: "dark" });
         await openHome(page, 1440, 900);
         const readings: PillReading[] = [];
@@ -142,8 +148,15 @@ test.describe("X.W12.e — the dock sits on glass's primitives", () => {
             // dock trigger's rest plate, hover = the resolved token
             expect(r.rest, `${r.name} rest plate`).toBe(r.reference);
             expect(r.hover, `${r.name} hover plate`).toBe(r.hoverToken);
-            // a stadium: every corner radius ≥ height / 2
-            for (const rad of r.radii) expect(rad, `${r.name} radius vs h/2=${r.height / 2}`).toBeGreaterThanOrEqual(r.height / 2);
+            // the corner is glass's dock-control register, clamped at h/2 as the
+            // browser clamps it (a stadium until glass 11.0.0 set --radius-pill
+            // to 1rem; it is the register that binds, not the stadium)
+            expect(r.radiusToken, `${r.name} resolves the dock-control radius`).toBeGreaterThan(0);
+            for (const rad of r.radii)
+                expect(Math.min(rad, r.height / 2), `${r.name} radius vs register ${r.radiusToken}`).toBeCloseTo(
+                    Math.min(r.radiusToken, r.height / 2),
+                    1,
+                );
         }
     });
 
