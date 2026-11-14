@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ArrowLeft, Shield } from "@lucide/vue";
-import { DockTrigger } from "@mkbabb/glass-ui/dock";
+import { DockTrigger } from "@mkbabb/glass-ui/dock-trigger";
 import {
     Select, SelectContent, SelectGroup, SelectItem, SelectSeparator, SelectValue,
 } from "@mkbabb/glass-ui/select";

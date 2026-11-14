@@ -92,6 +92,11 @@ export function prerenderShell(): Plugin {
                     copyPublicDir: false,
                     minify: false,
                 },
+                // glass-ui 11: each component chunk imports its own sheet,
+                // which plain Node cannot load in render-shell.mjs. Bundling
+                // glass into the SSR build routes those imports through
+                // stylelessSsr, as every first-party sheet already is.
+                ssr: { noExternal: [/^@mkbabb\/glass-ui(\/|$)/] },
                 plugins: [stylelessSsr()],
             });
             try {

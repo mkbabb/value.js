@@ -29,7 +29,8 @@ import path from "node:path";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { flushPromises, mount, type VueWrapper } from "@vue/test-utils";
 import { computed, defineComponent, h, ref, type Component } from "vue";
-import { DockControl, DockTrigger } from "@mkbabb/glass-ui/dock";
+import { DockControl } from "@mkbabb/glass-ui/dock";
+import { DockTrigger } from "@mkbabb/glass-ui/dock-trigger";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import { convertColor, parseCssColor } from "@mkbabb/value.js/color";
 

@@ -8,7 +8,7 @@ import {
     DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuItem,
     DropdownMenuSeparator, DropdownMenuLabel,
 } from "@mkbabb/glass-ui/menu";
-import { DockTrigger } from "@mkbabb/glass-ui/dock";
+import { DockTrigger } from "@mkbabb/glass-ui/dock-trigger";
 import { SESSION_PORT_KEY } from "../../../palettes";
 import { useSafeAccentFn } from "../../../color-session/useContrastSafeColor";
 import { DOCK_MENU_SIDE_OFFSET } from "./dockMenuOffset";
@@ -55,7 +55,7 @@ function openRepository(): void {
 
 <template>
     <div class="lg:hidden flex items-center">
-        <DropdownMenu v-model:open="open">
+        <DropdownMenu v-model:open="open" modal>
             <DockTrigger for="dropdown" aria-label="Menu">
                 <MoreVertical class="w-6 h-6" />
             </DockTrigger>
