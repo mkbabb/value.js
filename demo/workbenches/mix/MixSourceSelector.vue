@@ -191,8 +191,13 @@ const swatchKeys = computed(() => {
                 <div class="flex flex-col gap-2">
                     <!-- W5-7: the "N colors" counter died — it restated the
                          visible chips (and read "1 colors" at one). -->
-                    <!-- X-DS pass 1 (V1C-04): a Mix section speaks the app's ONE section-head voice (Fraunces sentence case, as the gradient's "Stops"). -->
-                    <h3 class="font-display text-subheading">Selected</h3>
+                    <!-- X-DS pass 1 (V1C-04): a Mix section speaks the app's ONE section-head voice (Fraunces sentence case, as the gradient's "Stops").
+                         O16 (owner [65], "better design hierarchy here with
+                         cards or lines"): the two source heads sit one rung
+                         below the title and above the field labels, and a
+                         hairline parts the two sources (lines, not a second
+                         card: one container). -->
+                    <h3 class="mix-section-head font-display">Selected</h3>
                     <TransitionGroup
                         name="vj-enter"
                         tag="div"
@@ -318,8 +323,8 @@ const swatchKeys = computed(() => {
              disclosure is its sibling — no control nests in another. This
              store is synchronous; TRUE EMPTY speaks the EmptyState alone
              (T.W6.5 · Lane S). -->
-        <section class="flex flex-col gap-2" aria-label="Saved palettes">
-            <h3 class="font-display text-subheading">Saved palettes</h3>
+        <section class="mix-saved flex flex-col gap-2 border-t border-seam pt-3" aria-label="Saved palettes">
+            <h3 class="mix-section-head font-display">Saved palettes</h3>
             <EmptyState
                 v-if="savedPalettes.length === 0"
                 compact
@@ -384,6 +389,15 @@ const swatchKeys = computed(() => {
 </template>
 
 <style scoped>
+/* O16 (owner [65]): the source heads, one rung under the pane title's display
+ * step and one over the field labels ("Color space", "Hue method"): the body
+ * size in the section-head voice. */
+.mix-section-head {
+    font-size: var(--type-body);
+    font-weight: 500;
+    line-height: var(--type-leading-heading);
+}
+
 /* X-DS pass 6 (V6C-05): the chip's removal cue lives inside the chip — the
    x in the certified plate ink, the dot receding beneath it. State motion
    only (hover / focus), no plate, no red. */

@@ -138,7 +138,7 @@ describe("G16 — import census: the 29 OM-14 sites read through the facility", 
     const CI = "shell/dock/ColorInput.vue";
     const CPE = "palettes/browser/card/CurrentPaletteEditor.vue";
     const PCS = "palettes/inspector/PaletteCardSwatches.vue";
-    const SHM = "palettes/browser/card/SwatchHoverMenu.vue";
+    const SHM = "shared/ui/SwatchHoverMenu.vue";
     const MRD = "workbenches/mix/MixResultDisplay.vue";
     const MSS = "workbenches/mix/MixSourceSelector.vue";
     const EXW = "workbenches/extract/ExtractWorkbench.vue";

@@ -13,7 +13,7 @@
  */
 import { afterEach, describe, expect, it } from "vitest";
 import { mount, type VueWrapper } from "@vue/test-utils";
-import SwatchHoverMenu from "../../palettes/browser/card/SwatchHoverMenu.vue";
+import SwatchHoverMenu from "../../shared/ui/SwatchHoverMenu.vue";
 
 const mounted: VueWrapper[] = [];
 afterEach(() => {

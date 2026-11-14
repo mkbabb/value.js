@@ -16,7 +16,10 @@
                     :color="color"
                     :size="size"
                     :ghost="ghost"
-                    :aria-label="`Color swatch ${formatCssCaption(color)}`"
+                    :seed="seed"
+                    :done="done"
+                    :aria-label="label ?? `Color swatch ${formatCssCaption(color)}`"
+                    @click="$emit('press')"
                 />
             </PopoverTrigger>
             <PopoverContent
@@ -36,8 +39,8 @@
 
 <script setup lang="ts">
 import { Popover, PopoverContent, PopoverTrigger } from "@mkbabb/glass-ui/popover";
-import SwatchButton, { type SwatchSize } from "../../../shared/ui/SwatchButton.vue";
-import { formatCssCaption } from "../../../color-session/format-color";
+import SwatchButton, { type SwatchSize } from "./SwatchButton.vue";
+import { formatCssCaption } from "../../color-session/format-color";
 
 /** The action panel's layout. */
 const PANEL_LAYOUT = "p-1.5 flex items-center gap-1";
@@ -51,6 +54,13 @@ withDefaults(
          *  ghost variant — the seeded dashed silhouette — for placeholder /
          *  being-edited slots. One shape source; no dashed-outline fork. */
         ghost?: boolean | undefined;
+        /** The organic edge's seed (SwatchButton's); omit to seed from the colour. */
+        seed?: string | undefined;
+        /** The swatch's own verb's verdict (SwatchButton's check). */
+        done?: boolean | undefined;
+        /** The swatch's accessible name, when its press is a verb of its own
+         *  (the Generate plate's copy); the default names the colour. */
+        label?: string | undefined;
     }>(),
     {
         size: "md",
@@ -59,5 +69,7 @@ withDefaults(
 
 defineEmits<{
     "update:open": [value: boolean];
+    /** The swatch itself was pressed (the host's own verb, if it has one). */
+    press: [];
 }>();
 </script>
