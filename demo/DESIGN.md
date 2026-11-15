@@ -433,7 +433,7 @@ physical constant (1px hairline, hit-target floor, 60fps budget) is a defect"_.
 | **spacing (φ)**             | `--phi-0..4` = `0.382 · 0.618 · 1 · 1.618 · 2.618 rem` (`demo/styles/foundation.css`, "φ ladder", demo-owned)                                             | base × φⁿ, n = −2..2; neighbouring rungs are φ apart                                                     |
 | **spacing (producer atom)** | `--space-atom` · `--space-body` · … (glass, two values each across the 768px breakpoint)                                                                  | glass §Token Architecture → layout/sizing                                                                |
 | **type**                    | `--type-heading: 1.618rem` → `--type-title: 2.058rem` → `--type-display-*` (glass, as shipped)                                                            | each rung = previous × √φ (glass §Typography → Size tokens); display rungs are viewport-fluid `clamp()`s |
-| **radius**                  | `--radius-card` = `--radius-2xl` = `1rem`; `--radius-panel` = `--radius-xl` = `12px`; `--radius-media` = `--radius` = `0.625rem`; `--radius-pill: 9999px` | glass §Border Radius; nested radii are concentric (law P-3)                                              |
+| **radius**                  | `--radius-card` = `--radius-2xl` = `1rem`; `--radius-panel` = `--radius-xl` = `12px`; `--radius-media` = `--radius` = `0.625rem`; `--radius-pill: 1rem` (glass 11.0.0: a stadium up to a 32px box, 16px corners above it); `--radius-circle: 50%` | glass §Border Radius; nested radii are concentric (law P-3)                                              |
 | **aspect (spectrum)**       | `--spectrum-aspect-min: 1.618034` · `--spectrum-aspect-max: 2.058171` (`demo/styles/foundation.css`, V-D1)                                               | φ ≤ w/h ≤ φ·√φ; the plane's block size is `clamp(100cqi / max, 20svh, 100cqi / min)` in its figure; at lg the picker card is bounded by `--scene-band-block` and the plane is its elastic member (`flex: 0 1 auto`, floor `min(20svh, 100cqi / max)`), so a data-dependent row never scrolls the one-viewport shell (V-D1.r2, superseding §0hw.13's 34svh budget)     |
 | **motion weight**           | `--motion-weight: 0.618` at rest, `0` under reduce                                                                                                        | 1/φ (glass §L4)                                                                                          |
 
@@ -511,8 +511,8 @@ Role-bearing tokens (glass §Border Radius → Semantic roles):
 - `rounded-pill` / `rounded-full`: chips, slug pills, the dock control.
 - `rounded-panel` (12px): popovers, the bulk-action toolbar, the eyedropper overlay.
 
-Pill radius (`--radius-pill: 9999px`) is the dock control's signature shape
-(`--radius-dock = var(--radius-pill)` in glass-ui), the slug-pill recipe, and the touch-gate
+Pill radius (`--radius-pill`, `1rem` since glass 11.0.0, so a box taller than 32px shows 16px corners) is the dock control's signature shape
+(`--radius-dock = var(--radius-pill)` in glass-ui; the app root sets `--radius-dock: 9999px` until glass 11.1.0 rounds docks fully), the slug-pill recipe, and the touch-gate
 outline on slider tracks. Never hand-roll `rounded-full` or `rounded-[9999px]` when a role token
 applies. Markdown `<pre>` and `<img>` carry their own radii in `Markdown.vue`'s scoped style, for
 content fidelity: a role token applies to chrome, not content.
@@ -873,11 +873,11 @@ the standing example (COHESION §0el).
 
 | Register                            | Site                                                                                                                                   | Pairing                                                                                                                                 | Status                 |
 | ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
-| Pane swap ENTER (R2)                | the shuffled deck on the pane wrappers (`demo/styles/animations.css`; §5.7)                                                            | transform `--spring-panel` @ `--spring-panel-duration`, from the under pose (forward) or the flung pose (back); opacity held at 1       | landed (O1109)         |
-| Pane swap LEAVE (R3)                | same block, leave-active; out of flow                                                                                                  | forward: the fling, transform `--ease-in` @ `--spring-world-exit-duration`, no opacity leg; back: the sink on `--spring-panel`, opacity cut over its last 10 % | landed (O1109)         |
+| Pane swap ENTER (R2)                | the dealt cards on the pane wrappers (`demo/styles/animations.css`; §5.7)                                                              | transform `--spring-panel` @ `--spring-panel-duration` from `--deal-travel` on the move's side; opacity `--ease-decelerate` @ `--duration-normal` after `--deal-hold` | landed (O16)           |
+| Pane swap LEAVE (R3)                | same block, leave-active; out of flow, under the dealt card                                                                            | transform `--ease-in` @ `--duration-normal` to `--deal-travel` on the other side; opacity `--ease-decelerate` @ `--duration-fast`        | landed (O16)           |
 | Region FLIP (G3)                    | `demo/shell/flipRegions.ts`, from App.vue's one `flip`                                                                                 | `translate` on `--ease-standard` (no overshoot into the dock band, o1109c; from rest, no first-frame jump, o1110) and the plate `clip-path` on `--spring-panel`, both @ `--spring-panel-duration` | landed (O1105)         |
-| Row split + scene height (G9)       | `.pane-container` (`animations.css`), height held by `demo/shell/followHeight.ts`                                                      | `grid-template-columns` and `height`, both `--spring-panel` @ `--spring-panel-duration`                                                | landed (O1105 r2)      |
-| Swap containment                    | the pane wrappers, `*-active` window only                                                                                              | `will-change: transform` + `contain: layout` for the swap's duration (X.W5.d2; no paint containment, which un-frosts the T-45 carrier, o1110) | landed                 |
+| Row split (G9)                      | `.pane-container` (`animations.css`)                                                                                                   | `grid-template-columns` on `--spring-panel` @ `--spring-panel-duration`; the scene's height does not travel (O16)                      | landed (O1105 r2, O16) |
+| Swap containment                    | the pane wrappers, `*-active` window only                                                                                              | `will-change: transform, opacity` + `contain: layout` for the swap's duration (X.W5.d2; no paint containment, which un-frosts the T-45 carrier, o1110) | landed                 |
 | Specimen press (R4)                 | `demo/palettes/inspector/PaletteInspector.vue`                                                                                         | the producer press drive, `useLiquidPress` (the shared press spring clock, card amplitude). There is no cast (V1-02)                    | landed                 |
 | Channel rail press (R5)             | `.channel-rail-item` (`demo/picker/controls/ComponentSliders/ConsoleRail.vue`)                                                         | `--spring-press` @ its own clock                                                                                                        | landed                 |
 | Interactive scales (R5)             | the editor buttons, add-slot, send-btn                                                                                                 | no producer press atom (`btn-interactive` left glass at `490cc46e`); seat geometry only                                                 | O-52 R-2 (glass)       |
@@ -955,7 +955,7 @@ counter-override in `@layer base`, goes with it, under these terms:
 WebGL RAF loops (the hero blob, the aurora) fence on `prefers-reduced-motion` in their own
 drivers. No CSS guard reaches them.
 
-### 5.7 The transition grammar — the shuffled deck (O1105, O1109)
+### 5.7 The transition grammar — dealt cards (O1105, O1109, O16)
 
 The owner, 2026-11-05: _"transitions between views ... should be well defined and all height and
 width facilities fully animated. The transition animations should be better defined and not fade
@@ -965,40 +965,29 @@ in and out unless necessary and stacked with a card swapping animation for the v
 
 | Change              | What moves                                       | Mechanism                                          | Owner                              |
 | ------------------- | ------------------------------------------------ | -------------------------------------------------- | ---------------------------------- |
-| Card swap           | a region's pane is replaced                      | the deck (G2), `vj-enter` on the pane wrappers     | demo, `animations.css`             |
+| Card swap           | a region's pane is replaced                      | dealt cards (G2), `vj-enter` on the pane wrappers  | demo, `animations.css`             |
 | Survivor reflow     | a region moves, or widens, because another changed | FLIP (G3), `demo/shell/flipRegions.ts`           | demo                               |
-| Row and scene size  | the split moves, or the scene's height changes   | track interpolation + held height (G9)             | demo, `animations.css` + `followHeight.ts` |
+| Row split           | the split moves                                  | track interpolation (G9)                           | demo, `animations.css`             |
 | Surface resize      | the view menu plate, the dock's content width    | glass (O-171 R-1 menu bloom, R-2 dock width morph) | glass-ui                           |
 | In-place content    | one surface, new content                         | `vj-morph`, unchanged                              | demo                               |
 
-**G2 · The deck, shuffled (O1109).** The owner, 2026-11-09: _"The pane animations of the value.js
-are not quite page like and card like (shuffling cards almost) like they were before."_ The
-character the owner liked is the R.W3/R.W4 cross-slide: simultaneous, opacity held, an off-canvas
-±110 % travel with a ±2deg cartoon turn (`bd3460add`). OD19-V7 cut it to a 1.5rem drift only
-because `out-in` had serialised it into a full-viewport exit and then a re-entry. The default mode
-co-mounts the two cards, so the fling and the rise are one gesture again. Each role names its
-discard side once on its wrapper (`--deck-x/-y`, `--deck-turn`: stage −x, inspector +x, action +y),
-and the deck has two poses: **flung** (`translate(±110 %)` of the card's own size, `rotate(±3deg)`)
-and **under** (`translateY(0.75rem) rotate(∓1deg) scale(0.95)`, askew the other way). The flung
-pose turns about the card's top corner on the side that would otherwise rise (clockwise: the left;
-anticlockwise: the right), so no corner climbs above its region into the dock band (o1109c: about
-the centre, the 3deg turn lifted a 900 px card's corner ~23 px into the band at 1440).
+**G2 · Dealt cards (O16).** The owner, 2026-11-13: _"The current card transition animation is a bit
+too expensive and transitons the height--make the cards swap in and out from the left and right
+sides, like playing cards sort of."_ It supersedes the shuffled deck of O1109 (a ±110 % fling with a
+3deg turn, a scaled under pose and a held scene height). The gesture is horizontal and follows the
+move: `data-scene-direction` (PaneSlot, from the scene order the dock lists) sets `--deal-side`.
 
-- **Forward.** The top card (z 2) is flung off its role's side on `--ease-in` at
-  `--spring-world-exit-duration` (0.25 s). An exit is never a spring. The next card comes up from
-  under the deck and squares up on `--spring-panel` (0.45 s).
-- **Back.** The exact reverse. The card is dealt back on top from the side it was flung to, turning
-  square on `--spring-panel`, and the leaver sinks under the deck (z −1) into the under pose, on
-  `--spring-panel`.
-- **Opacity.** Held at 1. The flung card is never faded: its travel takes it off its region, and a
-  running opacity transition, even one held at 1 through its delay, makes the card a backdrop root,
-  so its T-45 carrier frosts nothing and the riser reads through its plate (measured, o1109
-  `probe-material.mjs`). Only the sinking card (back) is cut, over the last 10 % of its leave
-  (glass's `opacityCutAt` 0.9), under the riser.
-- **Material.** No filter, for the same reason: a filter makes the card a backdrop root and breaks
-  its glass plate.
-- The ceiling is 0.45 s. The world spring is not used. The travel is ink overflow (the wrapper's
-  `contain: layout`), so the document never scrolls sideways.
+- **Forward.** The top card slides `--deal-travel` (a sixth of its width, at most 5rem) off to the
+  left with a 1deg turn about its foot, on `--ease-in` at `--duration-normal`, fading on
+  `--duration-fast`. The next card is dealt in from the right, the same turn the other way, and
+  squares up on `--spring-panel`; it fades in on `--duration-normal` after `--deal-hold` (80 ms).
+- **Back.** The mirror: the card leaves to the right and the next is dealt from the left.
+- **Two properties.** Each card runs transform and opacity and nothing else: no height, no width,
+  no filter. The exit is shorter than the entrance and the dealt card's fade waits for the leaver
+  to fall below half strength, so no frame shows two cards' text at full strength in one place
+  (P0a rule 4).
+- At rest one card is on screen. The leaver sits under the dealt card (z −1 in its wrapper). The
+  travel is ink overflow (the wrapper's `contain: layout`), so the document never scrolls sideways.
 
 **G3 · Out of flow, and the FLIP.** The leaver is `position: absolute; inset: 0 0 auto 0;
 pointer-events: none` in its wrapper, so the region is sized by the riser from the commit frame. Its
@@ -1011,13 +1000,13 @@ plate and its T-45 blur carrier with `clip-path: inset()` from the old edge to t
 reflows once, at the commit; the plate edge travels. Only the wrapper is written, and every write clears when its
 transition ends or is cancelled, so a KeepAlive-cached pane never carries a FLIP away.
 
-**G4 · The cut law.** A fade is used only where there is no geometry to carry the change (the
-sinking leaver's last 10 %, under the riser; the flung card's travel carries its own exit). Under reduced motion the swap is a 120 ms cut at `--duration-control`: glass's
-guard zeroes every duration, the delay survives it, and the leaver holds for 120 ms and is gone.
-`flipRegions` does nothing under reduce.
+**G4 · Reduced motion.** The swap is a fade with no travel, never a cut: the dealt card fades in on
+`--duration-fast` and the leaver out on `--duration-control`. glass's guard zeroes every CSS
+transition under `reduce`, so PaneSlot runs these two fades through the Web Animations API, which
+that guard does not reach. `flipRegions` does nothing under reduce.
 
 **G5 · Each box has one owner.** Region and survivor: G3. Dock content width: glass O-171 R-2. Menu
-plate: glass O-171 R-1. The row's split and the scene's height: G9. Document scroll: G6.
+plate: glass O-171 R-1. The row's split: G9. Document scroll: G6.
 
 **G6 · Scroll.** The scroll offset is kept. The one exception is when the anchor region (the
 first) now ends above the viewport, which is the case where the browser would clamp anyway. Then
@@ -1028,18 +1017,13 @@ A → B → C into one leave and one rise, and a FLIP still in flight is the Fir
 
 **G8 · Clocks.** As in G2. The `(pane, resolved)` key and `PANE_LOAD_DELAY_MS = 200` are unchanged.
 
-**G9 · The split and the height travel.** A view change that keeps two regions but moves the split
-(Home 61.8 % to Palettes 33.3 %: the picker 651 to 450 px at 1440) interpolates
+**G9 · The split travels; the height does not.** A view change that keeps two regions but moves the
+split (Home 61.8 % to Palettes 33.3 %: the picker 651 to 450 px at 1440) interpolates
 `.pane-container`'s track list on `--spring-panel`, so the survivor's edge and its neighbour move
-with the riser instead of snapping at the input. A change of track count does not interpolate; G3
-carries that hop. The container's height is held in px by `demo/shell/followHeight.ts` (the lowest
-region's layout end, so neither a FLIP's translate nor the out-of-flow leaver counts) and
-transitions on the same clock, retargeting from the live value. The rows are `max-content` while it
-is held, the size an `auto` row takes in an indefinite container, so a held height never caps the row
-it measures; `align-content: start` keeps them at their content while the box is taller. This
-supersedes W3-4's "layout never animates on a pane swap" for these two boxes only: the owner's order
-asks for every height and width to travel, and the probe reads no long frame added by it (O1105
-round 2, `views-r2.mjs`). Under reduced motion neither transitions and the height stays `auto`.
+with the dealt card instead of snapping at the input. A change of track count does not
+interpolate; G3 carries that hop. The scene's block size no longer travels (O16: the owner named
+the height tween as the expense); the container is `auto`, and the held height of O1105 round 2
+(`followHeight.ts`) is retired. Under reduced motion the split does not transition.
 
 **The retired grammar (OD19-V7, X.W5.d2), quoted once.** PaneSlot ran `mode="out-in"`, and the swap
 was opacity-led:

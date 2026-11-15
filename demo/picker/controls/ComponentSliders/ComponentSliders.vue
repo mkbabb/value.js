@@ -55,10 +55,7 @@
                 >
                     <div
                         :ref="(el: any) => { if (el) sliderWrapperEls[component] = el as HTMLElement }"
-                        :class="[
-                            'touch-gate-target flex-1 min-w-0',
-                            sliderGates[component]?.isActive.value ? 'touch-gate-active' : '',
-                        ]"
+                        class="channel-slider-seat flex-1 min-w-0"
                     >
                         <!-- R.W3 Lane C / C1: the glass-ui spectrum slider —
                              the demo owns three producer token feeds only
@@ -100,7 +97,7 @@ import { spectrumFieldIsLight } from "../spectrumLuma";
 import { readoutDecimals } from "../../display/ColorComponentDisplay/readoutReservation";
 import { formatFixed } from "../../../color-session/channel-decimals";
 import { POINTER_DEBUG_KEY } from "../../debug/usePointerDebug";
-import { useSliderTouchGates } from "./composables/useSliderTouchGates";
+import { useSliderTouchIntent } from "./composables/useSliderTouchIntent";
 import { useSliderAnnouncements } from "./composables/useSliderAnnouncements";
 import { stopsToGradient } from "../../../shared/ui/color-chips";
 import ConsoleRail from "./ConsoleRail.vue";
@@ -227,8 +224,7 @@ const thumbInk = computed(() => {
 
 // Producer token feed for the glass-ui spectrum slider: the perceptual ramp
 // on the track, the LIVE color on the thumb, the value-aware needle ink on
-// the border. Touch-action rides the same gate as the spectrum plate, in CSS
-// (the pointer class, X.W11.p3b · COHESION §0gl.12 — style block below).
+// the border. Touch-action is the gesture's, in CSS (style block below).
 // The ALPHA row's ramp composes the house `--alpha-checker` ground UNDER it
 // via the producer's own `--glass-slider-track-background` seam.
 function sliderVars(component: string): Record<string, string | undefined> {
@@ -251,12 +247,10 @@ function scrollToSlider(component: string) {
     el?.scrollIntoView({ behavior: "smooth", block: "nearest" });
 }
 
-// Touch-gate cluster — the capture-phase wrapper listeners + iOS pointer-
-// capture leak recovery live in the colocated composable (R.W3 Lane C lift).
-const {
-    sliderGates,
-    sliderWrapperEls,
-} = useSliderTouchGates({ currentColorSpace, debug });
+// The touch gesture's direction lock (a sideways drag is the slider's, a
+// vertical swipe the page's) and the iOS pointer-capture leak recovery live
+// in the colocated composable.
+const { sliderWrapperEls } = useSliderTouchIntent({ currentColorSpace, debug });
 
 // U.W-A11Y / U-F27 (BR-4): every channel slider announces a HUMAN-READABLE,
 // unit-aware `aria-valuetext` ("Hue 210°", "Red 128", "Saturation 42%") off the
@@ -273,54 +267,13 @@ useSliderAnnouncements({
 </script>
 
 <style>
-/* Touch-gate cluster (D.W4 Lane A §4: colocated from styles/style.css).
- *
- * Outline-based activation indicator avoids conflict with hover shadows.
- * The selectors target reka-ui's Slider markup classes (.slider-track,
- * .slider-thumb) which are emitted across multiple slider host components
- * (ComponentSliders, SpectrumCanvas, plus the ExtractControls/PointerDebug
- * touch-gate-target uses) — the block is intentionally UNSCOPED so the
- * cascade reaches consumers outside this SFC's data-v-* attribute scope.
- *
- * Cascade-preserving order: keep the four selectors in this sequence so
- * `:has(.slider-track)` is anchored on `.touch-gate-target`, the active
- * outline-color override follows the base, and the track/thumb cascades
- * (which read `.touch-gate-active` not `.touch-gate-target.touch-gate-active`)
- * are last. Source-order isomorphism with the pre-D.W4 style.css block. */
-.touch-gate-target {
-    outline: 3px solid transparent;
-    outline-offset: 1px;
-    transition: outline-color var(--duration-normal) var(--ease-standard);
-}
-.touch-gate-target:has(.slider-track) {
-    border-radius: var(--radius-pill);
-}
-.touch-gate-target.touch-gate-active {
-    outline-color: color-mix(in srgb, var(--foreground) 50%, transparent);
-}
-
-/* X.W11.p3b (COHESION §0gl.12): a channel slider on a coarse pointer lets the
- * page pan until its gate activates it; a fine pointer keeps the slider's own
- * default. The pointer class is CSS's to read — a setup-time inline value
- * would differ between the prerendered first view and the visitor's device. */
-@media (pointer: coarse) {
-    .touch-gate-target:not(.touch-gate-active) .channel-slider {
-        touch-action: pan-y;
-    }
-    .touch-gate-target.touch-gate-active .channel-slider {
-        touch-action: none;
-    }
-}
-
-/* Slider track gets a foreground-colored border when gate is active */
-.touch-gate-active .slider-track {
-    box-shadow: inset 0 0 0 3px color-mix(in srgb, var(--foreground) 50%, transparent);
-}
-
-/* Slider thumb: inverted fill when gate is active — dark knob in dark mode, light in light */
-.touch-gate-active .slider-thumb {
-    background-color: var(--background);
-    border-color: var(--foreground);
+/* The touch gesture (useSliderTouchIntent): a channel slider takes a
+ * sideways touch and leaves a vertical one to the page, which pans on the
+ * block axis and cancels the slider's pointer. `touch-action` only ever reads
+ * a touch, so the rule needs no pointer-class query: a mouse or a pen drives
+ * the slider as before. Unscoped, as the reka-emitted root is the target. */
+.channel-slider-seat .channel-slider {
+    touch-action: pan-y;
 }
 
 /* ── THE CONSOLE (T.W4-4 → T.W6.5-P re-seat) ─────────────────────────────
@@ -328,8 +281,7 @@ useSliderAnnouncements({
  * owner's Q4 material re-cut; the `.console-well` one-home class stays the
  * SECOND slider population's home, ConfigSliderPane). THE AIR RECALIBRATION
  * (t33-audit-02 "a bit too tight … more spaced out"): padding steps up from
- * the well-era 0.5/0.625rem — and still reserves the 3px touch-gate outline
- * + 1px offset inside the plate. Row air rides the template's gap-y-1.5. */
+ * the well-era 0.5/0.625rem. Row air rides the template's gap-y-1.5. */
 .sliders-console {
     padding: 0.75rem 0.875rem;
     /* T.W8-WR-3 (T-50) — THE VEIL-SIGNAL CALIBRATION: the landed quiet-glass α

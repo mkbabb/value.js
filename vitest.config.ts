@@ -50,5 +50,10 @@ export default defineConfig({
         // of the shipped behaviour. The strip is installed globally rather than
         // per-suite so no mount gate can forget it.
         setupFiles: ["./test/support/vtu.ts"],
+        // glass-ui 11 (CHANGELOG 11.0.0, "Component styles load with their
+        // component"): each component chunk imports its own `.css`, which
+        // plain Node cannot load. The producer's named route: let the test
+        // runner's bundler transform glass-ui.
+        server: { deps: { inline: [/@mkbabb\/glass-ui/] } },
     },
 });

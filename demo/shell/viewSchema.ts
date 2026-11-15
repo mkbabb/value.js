@@ -17,7 +17,6 @@
 
 import type { Component } from "vue";
 import {
-    Palette,
     Search,
     Camera,
     Users,
@@ -33,6 +32,8 @@ import {
     Droplets,
     Compass,
 } from "@lucide/vue";
+// O16 (owner [64]): the Palettes view's glyph wears its wells in colour.
+import PalettesGlyph from "../shared/ui/PalettesGlyph.vue";
 
 /**
  * Every named view the demo exposes; the route name AND the `VIEW_MAP` key.
@@ -172,7 +173,7 @@ export const VIEW_MAP: Record<ViewId, PaneConfig> = {
             { role: "stage", pane: "color-picker", label: "Picker" },
             { role: "inspector", pane: "palettes", label: "Palettes", titled: true },
         ],
-        icon: Palette,
+        icon: PalettesGlyph,
         accentHueShift: 40,
     },
     browse: {

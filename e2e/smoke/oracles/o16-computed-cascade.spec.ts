@@ -94,10 +94,11 @@ test("O-16 computed-cascade — the dist :root 150ms transition-default clobber 
  * Row map (t-transitions-liquid §2 · the retune table of record):
  *   R2  pane-swap ENTER  — transform `--spring-panel` @ the RESOLVED
  *       `--spring-panel-duration` (own clock)
- *   R3  pane-swap LEAVE (the o1109 shuffled deck, DESIGN.md §5.7) — the fling:
- *       transform `--ease-in` @ the RESOLVED `--spring-world-exit-duration`,
- *       no opacity leg (an opacity transition makes the card a backdrop
- *       root); STRICTLY shorter than the enter (the exit law, gate 5)
+ *   R3  pane-swap LEAVE (O16's dealt cards, DESIGN.md §5.7) — the card slides
+ *       off its side: transform `--ease-in` @ the RESOLVED `--duration-normal`,
+ *       and fades on `--duration-fast` (an exit is about six tenths of its
+ *       entrance and carries less motion); STRICTLY shorter than the enter
+ *       (the exit law, gate 5)
  *   R4  RETIRED 2026-09-23 (COHESION §0az ESC-W5c3-1) — the producer
  *       `cartoon-surface` register: glass 7.0.0 ships the utility with NO
  *       transition, so there is no producer value to assert. Recorded, never
@@ -204,8 +205,8 @@ test("O-16 W5 census — every owned row's computed duration/curve ≡ its liqui
                 pane.classList.remove("vj-enter-enter-active");
                 pane.classList.add("vj-enter-leave-active");
                 leave = readLegs(pane);
-                // R3's rule reads `--spring-world-exit-duration` / `--ease-in`.
-                leaveTok = resolve(pane, "--spring-world-exit-duration", "--ease-in");
+                // R3's rule reads `--duration-normal` / `--ease-in`.
+                leaveTok = resolve(pane, "--duration-normal", "--ease-in");
                 pane.classList.remove("vj-enter-leave-active");
             }
 
@@ -286,11 +287,9 @@ test("O-16 W5 census — every owned row's computed duration/curve ≡ its liqui
         );
         expect(census.enter!["transform"]?.timing).toMatch(/^linear\(/);
 
-        // R3 — leave (the shuffled deck, o1109): the card is flung on `--ease-in`
-        // @ `--spring-world-exit-duration` — never a spring on an exit — and
-        // its travel alone carries it off: NO opacity leg, because a running
-        // opacity transition makes the card a backdrop root and its glass then
-        // frosts nothing (o1109 probe-material). §0az: equal to the RESOLVED
+        // R3 — leave (O16's dealt cards): the card slides off its side on
+        // `--ease-in` @ `--duration-normal` — never a spring on an exit — and
+        // fades on the shorter `--duration-fast`. §0az: equal to the RESOLVED
         // tokens the rule reads.
         log("R3 leave", census.leave);
         log("R3 resolved tokens", census.leaveTok);
@@ -298,18 +297,9 @@ test("O-16 W5 census — every owned row's computed duration/curve ≡ its liqui
         expect(move?.duration, "R3 transform duration").toBe(census.leaveTok!.duration);
         expect(move?.timing, "R3 transform curve").toBe(census.leaveTok!.timing);
         expect(move?.timing, "R3 transform curve").toMatch(/^cubic-bezier\(/);
-        expect(census.leave!["opacity"], "R3 the fling carries no opacity leg").toBeUndefined();
-        // o1109 repair (adversary defect 4): the one other leg is the HOLD — a
-        // `visibility` leg of 0s whose delay outlasts the fling, so the leave
-        // ends after the card has painted at rest off its region, never on the
-        // transform's own end (the last painted frame cut the card at 0.98 of
-        // its size, 0.77 under load). Its value never changes, so it runs no
-        // transition and the card stays no backdrop root; the exit law below
-        // still reads it.
-        expect(Object.keys(census.leave!).sort(), "R3 the fling is transform + its hold").toEqual(["transform", "visibility"]);
-        const hold = census.leave!["visibility"]!;
-        expect(parseFloat(hold.duration), "R3 the hold runs no transition").toBe(0);
-        expect(parseFloat(hold.delay), "R3 the hold outlasts the fling").toBeGreaterThan(parseFloat(move!.duration));
+        expect(Object.keys(census.leave!).sort(), "R3 the leave is transform + its fade").toEqual(["opacity", "transform"]);
+        const fadeOut = census.leave!["opacity"]!;
+        expect(parseFloat(fadeOut.duration), "R3 the fade is shorter than the slide").toBeLessThan(parseFloat(move!.duration));
         // Gate 5 — the exit law: leave strictly shorter than the enter.
         const maxLeave = Math.max(
             ...Object.values(census.leave!).map(

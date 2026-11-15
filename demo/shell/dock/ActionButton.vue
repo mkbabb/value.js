@@ -22,17 +22,23 @@
                 :disabled="disabled || false"
                 @click="handleClick"
             >
-                <component
-                    :is="icon"
-                    aria-hidden="true"
-                    :class="[
-                        'action-icon w-6 h-6 stroke-foreground transition-[transform,stroke]',
-                        iconClass,
-                        disabled && 'opacity-50',
-                        isClicked && (rotateOnClick ? 'action-rotate' : 'action-flash'),
-                    ]"
-                    :style="{ ...activeStyle, '--flash-color': cssColorOpaque ?? 'currentColor', '--hover-color': cssColorOpaque ?? 'currentColor' }"
-                />
+                <!-- A seat whose glyph changes (Copy's check, a beat after the
+                     copy lands) morphs between the two, never cuts. The press
+                     flash rides the glyph that was pressed. -->
+                <Transition name="vj-morph" mode="out-in">
+                    <component
+                        :is="icon"
+                        :key="title"
+                        aria-hidden="true"
+                        :class="[
+                            'action-icon w-6 h-6 stroke-foreground transition-[transform,stroke]',
+                            iconClass,
+                            disabled && 'opacity-50',
+                            clickedIcon === icon && (rotateOnClick ? 'action-rotate' : 'action-flash'),
+                        ]"
+                        :style="{ ...activeStyle, '--flash-color': cssColorOpaque ?? 'currentColor', '--hover-color': cssColorOpaque ?? 'currentColor' }"
+                    />
+                </Transition>
                 <span v-if="label" class="action-label">{{ label }}</span>
             </DockControl>
         </PopoverTrigger>
@@ -50,7 +56,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, type Component } from "vue";
+import { shallowRef, type Component } from "vue";
 import {
     Popover,
     PopoverContent,
@@ -63,7 +69,7 @@ const dock = useOptionalDockContext();
 // A2-VA-L1-16: the seat's hint is one key of its bar's popup mutex
 // (shared/usePopupMutex, held by GenericActionBar) — the seat reads only its own
 // `open`, never the whole bar's state.
-const { open = false } = defineProps<{
+const { open = false, icon } = defineProps<{
     icon: Component;
     open?: boolean;
     title: string;
@@ -91,13 +97,13 @@ function onHoverOpenChange(v: boolean) {
     }
 }
 
-const isClicked = ref(false);
+const clickedIcon = shallowRef<Component | null>(null);
 
 function handleClick() {
     emit("update:open", false);
-    isClicked.value = true;
+    clickedIcon.value = icon;
     setTimeout(() => {
-        isClicked.value = false;
+        clickedIcon.value = null;
     }, 400);
     emit("action");
 }

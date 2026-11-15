@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed, inject, ref } from "vue";
 import {
     Select,
     SelectContent,
@@ -10,7 +10,7 @@ import {
 import { Slider } from "@mkbabb/glass-ui/slider";
 import { Label } from "@mkbabb/glass-ui/label";
 import { Button } from "@mkbabb/glass-ui/button";
-import { RefreshCw, Save, Copy } from "@lucide/vue";
+import { RefreshCw, Save, Copy, Pipette } from "@lucide/vue";
 import { useClipboard, writeClipboard } from "@mkbabb/glass-ui/dom";
 // X-W4 · X.W4.b (CC-047) — the producer's published field composition
 // (`@mkbabb/glass-ui/labeled-field`, 7.0.0): `controlLabelable: false` for the
@@ -18,7 +18,8 @@ import { useClipboard, writeClipboard } from "@mkbabb/glass-ui/dom";
 // the marginalia captions below stop floating unassociated and the duplicated
 // literal `aria-label` retires.
 import { LabeledField } from "@mkbabb/glass-ui/labeled-field";
-import SwatchButton from "../../shared/ui/SwatchButton.vue";
+import SwatchHoverMenu from "../../shared/ui/SwatchHoverMenu.vue";
+import { COLOR_MODEL_KEY } from "../../color-session/keys";
 import PaletteNameInput from "../../shared/ui/PaletteNameInput.vue";
 // T.W6 · W6-4→N (T-17, the intra-wave single-writer clause): Lane D authored
 // the chip module + spec; the GenerateControls consume routes through Lane
@@ -113,6 +114,20 @@ async function copyColor(css: string, i: number) {
     await copy(css);
 }
 
+/** O16 (owner [66], "these should have proper palette hovers"): a generated
+ *  swatch wears the palette swatch's hover card (SwatchHoverMenu, the one
+ *  hover idiom of the palette cards): its value, and its two verbs. */
+const hoverIndex = ref<number | null>(null);
+function setHover(open: boolean, i: number) {
+    if (open) hoverIndex.value = i;
+    else if (hoverIndex.value === i) hoverIndex.value = null;
+}
+const pipeline = inject(COLOR_MODEL_KEY, null);
+function useColor(css: string) {
+    pipeline?.applyColorString(css);
+    hoverIndex.value = null;
+}
+
 defineExpose({ regenerate, save, copyColors });
 </script>
 
@@ -157,6 +172,9 @@ defineExpose({ regenerate, save, copyColors });
                 />
             </div>
 
+            <!-- O16 (owner [66]): each swatch wears the palette hover card
+                 (SwatchHoverMenu): its value, Use and Copy; the native `title`
+                 box it showed is gone. -->
             <!-- Specimen swatches — each a direct copy verb (the catalog
                  card's popover-copy, collapsed to one honest click; the
                  dead add/edit emits die with the borrowed card). WR-6 / T-54:
@@ -176,18 +194,41 @@ defineExpose({ regenerate, save, copyColors });
             <div class="px-3 pb-1 flex flex-wrap gap-1.5">
                 <!-- A2-VA-L1-15: the app's one SwatchButton; its `done` check
                      is the copy verb's verdict. -->
-                <SwatchButton
+                <SwatchHoverMenu
                     v-for="(css, i) in palette"
                     :key="i"
                     :color="css"
                     size="fill"
                     :seed="`gen-${css}-${i}`"
                     :done="copiedIndex === i"
-                    class="generate-swatch active:scale-95 transition-transform"
-                    :aria-label="copiedIndex === i ? `Copied ${formatCssCaption(css)}` : `Copy ${formatCssCaption(css)}`"
-                    :title="formatCssCaption(css)"
-                    @click="copyColor(css, i)"
-                />
+                    :label="copiedIndex === i ? `Copied ${formatCssCaption(css)}` : `Copy ${formatCssCaption(css)}`"
+                    :open="hoverIndex === i"
+                    class="generate-swatch flex-1 basis-0 min-w-9 sm:min-w-10 max-w-20"
+                    @update:open="(open: boolean) => setHover(open, i)"
+                    @press="copyColor(css, i)"
+                >
+                    <template #actions>
+                        <span class="px-1.5 text-mono-small tabular-nums whitespace-nowrap">{{ formatCssCaption(css) }}</span>
+                        <Button
+                            icon-only
+                            emphasis="quiet"
+                            size="sm"
+                            :aria-label="`Use ${formatCssCaption(css)} as the current colour`"
+                            @click="useColor(css)"
+                        >
+                            <Pipette class="w-4 h-4" aria-hidden="true" />
+                        </Button>
+                        <Button
+                            icon-only
+                            emphasis="quiet"
+                            size="sm"
+                            :aria-label="`Copy ${formatCssCaption(css)}`"
+                            @click="copyColor(css, i)"
+                        >
+                            <Copy class="w-4 h-4" aria-hidden="true" />
+                        </Button>
+                    </template>
+                </SwatchHoverMenu>
             </div>
 
             <!-- The plate's verbs. The seed Regenerate re-rolls is its hover

@@ -4,31 +4,31 @@ import { detectRenderer, isSoftwareGL } from "./perf/frame-budget";
 /**
  * O1105 transitions-value (owner order 2026-11-05: "should not fade in and out
  * unless necessary and stacked with a card swapping animation for the value
- * views"; demo/DESIGN.md §5.7) — THE STACKED DECK, read every animation frame.
+ * views"), re-stated for O16's dealt cards (owner 2026-11-13: "The current card
+ * transition animation is a bit too expensive and transitons the height--make
+ * the cards swap in and out from the left and right sides, like playing cards
+ * sort of."; demo/DESIGN.md §5.7), read every animation frame.
  *
  * Per hop, sampled from the input until the swap has been still for 600 ms:
  *   · U1 — a region's block size is never 0 and never the SUM of two
  *     co-mounted panes, and at most one pane is in flow (the leaver is out of
- *     flow). An in-flow card's opacity is 1 on every frame; a leaver's drops
- *     below 0.98 only in the final fifth of its leave (the 0.9 cut).
+ *     flow). No frame shows two cards of one region above half strength
+ *     (P0a rule 4: the dealt card's fade waits for the leaver's).
+ *   · D1 — the dealt card arrives from the side the move names: from the
+ *     right (+x) on a forward hop, from the left (−x) on a back hop.
  *   · U2 — the document never scrolls sideways (`scrollWidth ≤ innerWidth`);
  *     on the dual → single hop the survivor's plate (tracked by identity)
- *     never steps by more than a quarter of its whole travel in one frame
- *     (before: one step of 100 %); a pane returned from the KeepAlive cache (A → B → A) rests at
- *     its region's origin with no transform.
- *   · G9 (round 2) — a hop that moves the split or the scene's height
- *     travels: `.pane-container` takes more than two heights when its height
- *     changes by more than 48 px (before: exactly two, 716 → 572 and 1296 →
- *     961), the stage region's width never covers more than 60 % of a >100 px
- *     travel in one 60 Hz frame (before: 651 → 450 in one), unless the row's
- *     own transition of that property started (a starved runner draws a
- *     travel in two frames), and a leaver keeps
- *     the block size it was drawn at (before: About unrolled to ~6.6k px).
- * The before arm (out-in, opacity-led) is RED on U1's opacity rows and on U2's
- * plate step (428 px in one frame at 1440); the record is the lane's `~/.dev-logs/o1105/transitions-value`.
+ *     never steps by more than a quarter of its whole travel in one frame; a
+ *     pane returned from the KeepAlive cache (A → B → A) rests at its region's
+ *     origin with no transform.
+ *   · G9 — the row's split travels (the stage region's width never covers
+ *     more than 60 % of a >100 px travel in one 60 Hz frame, unless the row's
+ *     own transition of that property started); the scene's HEIGHT does not
+ *     tween (O16: no `height` transition runs on `.pane-container`); a leaver
+ *     keeps the block size it was drawn at.
  */
 
-type Kid = { id: number; op: number; pos: string; h: number; leave: boolean; edge: number | null };
+type Kid = { id: number; op: number; pos: string; h: number; leave: boolean; edge: number | null; tx: number; dir: string | null };
 type Region = { role: string; oh: number; kids: Kid[] };
 type Sample = { t: number; sw: number; iw: number; ph: number; w: Region[]; stw: number | null; tr: string[] };
 
@@ -73,6 +73,8 @@ async function hop(page: Page, hash: string): Promise<Sample[]> {
                     h: (k as HTMLElement).offsetHeight,
                     leave: k.classList.contains("vj-enter-leave-active"),
                     edge: edgeOf(k),
+                    tx: new DOMMatrixReadOnly(getComputedStyle(k).transform).m41,
+                    dir: k.getAttribute("data-scene-direction"),
                 })),
             })),
         });
@@ -95,7 +97,8 @@ async function hop(page: Page, hash: string): Promise<Sample[]> {
 
 function deckFaults(samples: Sample[]) {
     const faults: string[] = [];
-    const leaves = new Map<number, [number, number][]>();
+    // the first sideways offset each entering card is drawn at, by identity
+    const dealt = new Map<number, { tx: number; dir: string | null }>();
     for (const s of samples) {
         if (s.sw > s.iw) faults.push(`scrollWidth ${s.sw} > ${s.iw}`);
         for (const w of s.w) {
@@ -103,37 +106,29 @@ function deckFaults(samples: Sample[]) {
             if (w.kids.filter((k) => k.pos !== "absolute").length > 1) faults.push(`${w.role}: two panes in flow`);
             if (w.kids.length > 1 && w.kids.every((k) => k.h > 40) && w.oh >= w.kids.reduce((a, k) => a + k.h, 0) - 2)
                 faults.push(`${w.role}: block size is the sum of two panes`);
-            for (const k of w.kids) {
-                if (!k.leave && k.op < 0.999) faults.push(`${w.role}: in-flow card opacity ${k.op}`);
-                if (k.leave) leaves.set(k.id, [...(leaves.get(k.id) ?? []), [s.t, k.op]]);
-            }
+            if (w.kids.length > 1 && w.kids.filter((k) => k.op > 0.5).length > 1)
+                faults.push(`${w.role}: two cards above half strength`);
+            for (const k of w.kids)
+                if (w.kids.length > 1 && !k.leave && !dealt.has(k.id) && Math.abs(k.tx) >= 1)
+                    dealt.set(k.id, { tx: k.tx, dir: k.dir });
         }
     }
-    // A leaver's opacity is cut only over the last 10 % of its leave: any frame
-    // below 0.98 lies in the final fifth of its sampled life (one frame of slack).
-    for (const frames of leaves.values()) {
-        const t0 = frames[0]![0];
-        const span = frames[frames.length - 1]![0] - t0;
-        const early = frames.filter(([t, op]) => op < 0.98 && t - t0 < 0.8 * span - 17);
-        if (early.length) faults.push(`leaver faded early (${early.length} frames, from ${Math.round(early[0]![0] - t0)} ms of ${Math.round(span)})`);
-    }
+    for (const { tx, dir } of dealt.values())
+        if ((dir === "back" ? -1 : 1) * tx < 0) faults.push(`a ${dir ?? "forward"} card was dealt from ${tx < 0 ? "the left" : "the right"} (${tx.toFixed(0)} px)`);
     return [...new Set(faults)];
 }
 
-/** G9: the scene's height and the row's split travel; a leaver keeps its drawn block size. */
+/** G9: the row's split travels, the scene's height does not tween; a leaver keeps its drawn block size. */
 function sizeFaults(samples: Sample[]) {
     const faults: string[] = [];
     // A size row travels when the row's own transition carries it. Read per
-    // frame, a snap is a discontinuity at any frame rate (before G9: 716 →
-    // 572 in one 16 ms frame, two heights; 651 → 450 in one), but a starved
-    // runner's 300–900 ms frames draw a travel as two values too (CI e2e-smoke
-    // on the 2.6 h run: 716 → 572, 2 values, with the transition running). So
-    // the frame reading names a candidate, and the row faults only when no
-    // transition of that property started on the row during the hop.
+    // frame, a snap is a discontinuity at any frame rate, but a starved
+    // runner's 300–900 ms frames draw a travel as two values too, so the frame
+    // reading names a candidate, and the row faults only when no transition of
+    // that property started on the row during the hop.
     const last = samples[samples.length - 1]!;
-    const hs = samples.map((s) => Math.round(s.ph));
-    if (Math.abs(hs[hs.length - 1]! - hs[0]!) > 48 && new Set(hs).size <= 2 && !last.tr.includes("height"))
-        faults.push(`pane-container height snapped ${hs[0]} → ${hs[hs.length - 1]} (${new Set(hs).size} values, no height transition)`);
+    // O16: the scene's height is never tweened (the owner named it the expense).
+    if (last.tr.includes("height")) faults.push("pane-container height transitioned");
     // the width step is scaled to one 60 Hz frame of elapsed time, as
     // `plateSteps` is
     const ws = samples.filter((s) => s.stw != null).map((s) => [s.t, s.stw!] as const);
@@ -184,7 +179,7 @@ for (const [width, height] of [
     [1440, 900],
     [390, 844],
 ] as const) {
-    test(`O1105 deck · ${width}: stacked card swap — no empty or summed region, opacity held, no side scroll, sizes travel`, async ({ page }) => {
+    test(`O1105 deck · ${width}: dealt cards — no empty or summed region, one card at strength, dealt from the move's side, no side scroll, no height tween`, async ({ page }) => {
         test.setTimeout(180_000);
         await page.setViewportSize({ width, height });
         await page.goto("/#/");

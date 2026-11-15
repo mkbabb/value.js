@@ -138,7 +138,7 @@ describe("G16 — import census: the 29 OM-14 sites read through the facility", 
     const CI = "shell/dock/ColorInput.vue";
     const CPE = "palettes/browser/card/CurrentPaletteEditor.vue";
     const PCS = "palettes/inspector/PaletteCardSwatches.vue";
-    const SHM = "palettes/browser/card/SwatchHoverMenu.vue";
+    const SHM = "shared/ui/SwatchHoverMenu.vue";
     const MRD = "workbenches/mix/MixResultDisplay.vue";
     const MSS = "workbenches/mix/MixSourceSelector.vue";
     const EXW = "workbenches/extract/ExtractWorkbench.vue";
@@ -175,14 +175,17 @@ describe("G16 — import census: the 29 OM-14 sites read through the facility", 
         // X.W12.u1 (UIA-V-25): the touch/hover fork is one glass Popover, so the
         // swatch trigger — and its name — renders once (B9 retired with the fork).
         ["B8", SHM, "`Color swatch ${formatCssCaption(color)}`", 1],
-        ["B10", "workbenches/generate/GenerateControls.vue", "`Copy ${formatCssCaption(css)}`", 1],
+        ["B10", "workbenches/generate/GenerateControls.vue", "`Copy ${formatCssCaption(css)}`", 2], // O16: the swatch and its hover card's Copy
+        // O16 (owner [66]): the generated swatch's hover card — its value, and Use.
+        ["B10b", "workbenches/generate/GenerateControls.vue", "`Use ${formatCssCaption(css)} as the current colour`", 1],
+        ["A10g", "workbenches/generate/GenerateControls.vue", "{{ formatCssCaption(css) }}", 1],
         ["B11", MSS, "`Add color ${formatCssCaption(color.css)} from ${palette.name}`", 1],
         // §5 — the model write-back (1)
         ["WB", "picker/ColorPicker.vue", "const text = formatCssCaption(formattedCurrentColor.value)", 1],
     ];
 
-    it("the census is the OM-14 denominator: 15 text + 10 ARIA + 1 write-back = 26 (UIA-V-12 and the 2026-11-09 add tooltip retired two text sites)", () => {
-        expect(SITES.reduce((n, [, , , count]) => n + count, 0)).toBe(26);
+    it("the census is the OM-14 denominator: 16 text + 12 ARIA + 1 write-back = 29 (UIA-V-12 and the 2026-11-09 add tooltip retired two text sites; O16's Generate hover card added one text and two ARIA)", () => {
+        expect(SITES.reduce((n, [, , , count]) => n + count, 0)).toBe(29);
     });
     for (const [id, file, expression, count] of SITES) {
         it(`${id} · ${file} reads through format-color`, () => {

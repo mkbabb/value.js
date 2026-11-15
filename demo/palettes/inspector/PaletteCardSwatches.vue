@@ -80,7 +80,7 @@
 import { Copy, Pencil, Plus } from "@lucide/vue";
 import { Button } from "@mkbabb/glass-ui/button";
 import type { PaletteColor } from "../types";
-import SwatchHoverMenu from "../browser/card/SwatchHoverMenu.vue";
+import SwatchHoverMenu from "../../shared/ui/SwatchHoverMenu.vue";
 import type { SwatchSize } from "../../shared/ui/SwatchButton.vue";
 import { formatCssCaption } from "../../color-session/format-color";
 

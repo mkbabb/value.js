@@ -53,6 +53,26 @@ async function parkOnDock(page: Page): Promise<void> {
     await page.mouse.move(b.x + 3, b.y + b.height / 2);
 }
 
+/**
+ * Hover the dock and wait until it is open: the root carries `expanded`, and
+ * its transitions have run out. The dock idles closed a few seconds after
+ * boot, so a fixed wait can measure the face mid-fold (at opacity 0).
+ */
+async function dockOpen(page: Page): Promise<void> {
+    await parkOnDock(page);
+    await page.waitForFunction(
+        () => {
+            const dock = document.querySelector(".glass-dock.expanded");
+            return (
+                dock !== null &&
+                dock.getAnimations({ subtree: true }).every((a) => a.playState !== "running")
+            );
+        },
+        undefined,
+        { timeout: 10_000 },
+    );
+}
+
 async function openBar(page: Page): Promise<void> {
     await parkOnDock(page);
     await page.locator(TOOLS).click({ timeout: 5000 });
@@ -298,8 +318,7 @@ test.describe("B05 · the Tools ink on the dock band (0132 · 0133)", () => {
         }) => {
             await seed(page, "light", hue);
             await boot(page, "/");
-            await parkOnDock(page);
-            await page.waitForTimeout(300);
+            await dockOpen(page);
             const ratio = await inkRatio(page, `${TOOLS} span`);
             test.info().annotations.push({ type: "ink-ratio", description: String(ratio) });
             expect(ratio).toBeGreaterThanOrEqual(4.5);
@@ -313,8 +332,7 @@ test.describe("B05 · the Tools ink on the dock band (0132 · 0133)", () => {
         }) => {
             await seed(page, "light", hue);
             await boot(page, "/");
-            await parkOnDock(page);
-            await page.waitForTimeout(300);
+            await dockOpen(page);
             const before = await page.screenshot();
             // X.W11.wk (COHESION §0gt.4), the X.W11.h16 idiom (o15-dock-register):
             // WebKit's default Tab order (Safari without Full Keyboard Access)

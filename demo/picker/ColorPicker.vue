@@ -61,7 +61,7 @@
                     :color-components="colorComponents"
                     :formatted="currentColorComponentsFormatted"
                     :space="model.selectedColorSpace"
-                    @input="onComponentInput"
+                    @commit="onComponentCommit"
                 >
                     <!-- V-D1.r3 (delegate ruling R-1): on a short desktop
                          block the name yields its line; o1109, so does a name
@@ -149,7 +149,7 @@
                  paint-in (beat two, SpectrumCanvas). Space-change re-fires of
                  `.stagger-children` see the var unset → 0ms, exactly as before. -->
             <CardContent
-                class="z-1 flex flex-col w-full px-[clamp(0.75rem,4cqi,1.5rem)] pt-3 pb-[clamp(1rem,3.5cqi,1.25rem)] min-w-0 lg:flex-1 lg:min-h-0"
+                class="z-1 flex flex-col w-full px-[clamp(0.75rem,4cqi,1.5rem)] pt-1.5 pb-[clamp(1rem,3.5cqi,1.25rem)] min-w-0 lg:flex-1 lg:min-h-0"
                 :style="plateOpening ? { '--stagger-base': 'var(--overture-stagger-base)' } : undefined"
             >
                 <div class="picker-body flex flex-col lg:min-h-0">
@@ -216,7 +216,8 @@ import { useMagicKeys, useMediaQuery, useResizeObserver } from "@vueuse/core";
 import { Popover, PopoverContent, PopoverTrigger } from "@mkbabb/glass-ui/popover";
 import { useIdleReady } from "@mkbabb/glass-ui/dom";
 import type { ColorModel, EditTarget } from "../color-session/color-model";
-import { serializePickerColor } from "../color-session/picker-color";
+import { PICKER_CHANNELS, serializePickerColor } from "../color-session/picker-color";
+import { readoutEntry, readoutHexEntry } from "./display/ColorComponentDisplay/readoutEntry";
 import { formatCssCaption } from "../color-session/format-color";
 import { COLOR_MODEL_KEY } from "../color-session/keys";
 import type { ColorSceneTarget } from "../color-session/keys";
@@ -228,7 +229,7 @@ import { usePointerDebug, POINTER_DEBUG_KEY } from "./debug/usePointerDebug";
 import "./seat.css";
 import "./header.css";
 
-import { writeClipboard } from "@mkbabb/glass-ui/dom";
+import { useClipboard } from "@mkbabb/glass-ui/dom";
 import SpectrumCanvas from "./controls/SpectrumCanvas/SpectrumCanvas.vue";
 import ComponentSliders from "./controls/ComponentSliders/ComponentSliders.vue";
 const PointerDebugOverlay = defineAsyncComponent(
@@ -287,26 +288,27 @@ const {
     parseAndSetColor,
     parseAndSetColorDebounced,
     generateRandomColor,
-    updateColorComponentDebounced,
+    updateColorComponent,
     onPaletteAddColor,
     onPaletteApply,
     applyExternalColor,
 } = colorModel;
 
-// --- Component display input handler (general: parses text per component) ---
+// --- A committed readout figure (ColorComponentDisplay) ---
+// The text is read in the figure's own display unit (`readoutEntry`): a
+// percent channel stored as 0-1 reads 0-100, so "5" on OKLCh L is 5 %. Text
+// that is not a value changes nothing; the figure then shows the last valid
+// value again.
 
-function onComponentInput(text: string, component: string) {
+function onComponentCommit(text: string, component: string) {
     if (component === "hex") {
-        // Hex string input — parse and set color
-        const hex = text.startsWith("#") ? text : `#${text}`;
-        if (/^#[0-9a-fA-F]{3,8}$/.test(hex)) {
-            parseAndSetColor(hex);
-        }
-    } else {
-        // Numeric component — existing behavior
-        const v = parseFloat(text);
-        if (!Number.isNaN(v)) updateColorComponentDebounced(v, component);
+        const hex = readoutHexEntry(text);
+        if (hex !== null) parseAndSetColor(hex);
+        return;
     }
+    const meta = PICKER_CHANNELS[model.value.color.space].find((m) => m.key === component);
+    const value = meta ? readoutEntry(text, meta) : null;
+    if (value !== null) updateColorComponent(value, component);
 }
 
 // --- Color space selector ---
@@ -394,6 +396,10 @@ const paletteActive = computed(
     () => viewManager.currentView.value !== "picker" || isEditing.value,
 );
 
+// Glass's scope-owned clipboard status (the app's copy idiom): the seat
+// confirms for a beat and clears itself, no local timer.
+const { status: copyStatus, copy: copyColor } = useClipboard({ resetMs: 1200 });
+
 const sceneActionTarget: ColorSceneTarget = {
     isEditing,
     canProposeName,
@@ -404,8 +410,9 @@ const sceneActionTarget: ColorSceneTarget = {
         // address's twelve-decimal spelling.
         const text = formatCssCaption(formattedCurrentColor.value);
         updateModel({ inputColor: text });
-        void writeClipboard(text);
+        void copyColor(text);
     },
+    copied: computed(() => copyStatus.value === "success"),
     random: () => setCurrentColor(generateRandomColor(model.value.selectedColorSpace)),
 };
 
@@ -554,7 +561,6 @@ onMounted(() => {
 onUnmounted(() => {
     window.removeEventListener("keydown", handleKeydown);
     if (parseAndSetColorDebounced.cancel) parseAndSetColorDebounced.cancel();
-    if (updateColorComponentDebounced.cancel) updateColorComponentDebounced.cancel();
 });
 </script>
 
