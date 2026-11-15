@@ -229,7 +229,7 @@ import { usePointerDebug, POINTER_DEBUG_KEY } from "./debug/usePointerDebug";
 import "./seat.css";
 import "./header.css";
 
-import { writeClipboard } from "@mkbabb/glass-ui/dom";
+import { useClipboard } from "@mkbabb/glass-ui/dom";
 import SpectrumCanvas from "./controls/SpectrumCanvas/SpectrumCanvas.vue";
 import ComponentSliders from "./controls/ComponentSliders/ComponentSliders.vue";
 const PointerDebugOverlay = defineAsyncComponent(
@@ -396,6 +396,10 @@ const paletteActive = computed(
     () => viewManager.currentView.value !== "picker" || isEditing.value,
 );
 
+// Glass's scope-owned clipboard status (the app's copy idiom): the seat
+// confirms for a beat and clears itself, no local timer.
+const { status: copyStatus, copy: copyColor } = useClipboard({ resetMs: 1200 });
+
 const sceneActionTarget: ColorSceneTarget = {
     isEditing,
     canProposeName,
@@ -406,8 +410,9 @@ const sceneActionTarget: ColorSceneTarget = {
         // address's twelve-decimal spelling.
         const text = formatCssCaption(formattedCurrentColor.value);
         updateModel({ inputColor: text });
-        void writeClipboard(text);
+        void copyColor(text);
     },
+    copied: computed(() => copyStatus.value === "success"),
     random: () => setCurrentColor(generateRandomColor(model.value.selectedColorSpace)),
 };
 

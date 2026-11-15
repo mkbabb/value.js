@@ -114,6 +114,8 @@ export interface ColorSceneTarget {
     readonly paletteActive: ComputedRef<boolean>;
     readonly reset: SceneCommand;
     readonly copy: SceneCommand;
+    /** True for a beat after a copy lands on the clipboard (the seat's confirmation). */
+    readonly copied: ComputedRef<boolean>;
     readonly random: SceneCommand;
 }
 
