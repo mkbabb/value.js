@@ -33,11 +33,8 @@ export function useSpectrumPlateStyle(opts: {
         linear-gradient(to top, #000, transparent),
         linear-gradient(90deg, #fff, hsl(${hue}deg, 100%, 50%))
       `,
-            // X.W11.p3b (COHESION §0gl.12): `touch-action` is NOT computed
-            // here. It derives from the visitor's pointer class, which the
-            // prerendered first view cannot know, so it lives in CSS
-            // (`@media (pointer: coarse)`, SpectrumCanvas.vue) keyed on the
-            // gate's `touch-gate-active` class.
+            // `touch-action` is not computed here: it is the plane's own CSS
+            // (SpectrumCanvas.vue), the same on every device.
         };
     });
 

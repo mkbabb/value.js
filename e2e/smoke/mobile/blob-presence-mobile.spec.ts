@@ -92,10 +92,9 @@ test.use({
 useRealGpuCell();
 
 /**
- * One register change on the phone: the picker surface is touch-gated
- * (glass `useTouchGate`: the first tap arms the plate, so a scroll that lands
- * on it never moves the colour), so the user's gesture is tap to arm, then tap
- * to set. The set moves the colour, which re-seeds the hero's ramp.
+ * One register change on the phone: a tap on the picker surface sets the
+ * colour where it lands (the plane takes a touch from the first contact),
+ * which re-seeds the hero's ramp.
  */
 async function changeRegister(page: import("@playwright/test").Page) {
     const surface = page.locator(".spectrum-picker").first();
@@ -103,8 +102,6 @@ async function changeRegister(page: import("@playwright/test").Page) {
     if (!b) throw new Error("blob-presence-mobile: picker surface not laid out");
     const x = b.x + b.width * 0.72;
     const y = b.y + b.height * 0.28;
-    await page.touchscreen.tap(x, y);
-    await expect(surface, "the first tap did not arm the touch-gated picker").toHaveClass(/touch-gate-active/);
     await page.touchscreen.tap(x, y);
 }
 
