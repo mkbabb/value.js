@@ -1,5 +1,4 @@
 import { computed, ref, watch, type ShallowRef } from "vue";
-import { debounce } from "../shared/debounce";
 import {
     PICKER_CHANNELS,
     channelNumber,
@@ -24,6 +23,7 @@ import { useSliderGradients } from "./useSliderGradients";
 import { useColorNameResolution } from "./useColorNameResolution";
 import { useColorPersistence } from "./useColorPersistence";
 import { useAtmosphereFrameCoalesce, useColourLive } from "./useAtmosphereFrameCoalesce";
+import { useColourGlide } from "./useColourGlide";
 
 /**
  * useColorPipeline — the ONE color-state spine (S.W2 · W2-1). Merges the former
@@ -212,7 +212,6 @@ export function useColorPipeline(model: ShallowRef<ColorModel>) {
         }
     };
 
-    const updateColorComponentDebounced = debounce(updateColorComponent, 500);
     // --- Palette handlers ---
 
     function onPaletteAddColor(cssColor: string) {
@@ -286,7 +285,12 @@ export function useColorPipeline(model: ShallowRef<ColorModel>) {
     // o1105-r2 perf: true while a drag (any continuous input) drives the
     // colour. Its readers hold what only needs the settled colour and snap
     // what tracks the live one, so a drag never runs a colour transition.
-    const colourLive = useColourLive(cssColorOpaqueFrame, undefined, cssColorOpaque);
+    const inputLive = useColourLive(cssColorOpaqueFrame, undefined, cssColorOpaque);
+    // The page's colour (the atmosphere fan-out's seed) glides to a discrete
+    // change instead of cutting to it, and the glide runs down the drag's
+    // live path, so `colourLive` is on for a drag and for a glide alike.
+    const { colour: cssColorAtmosphere, gliding } = useColourGlide(cssColorOpaqueFrame, inputLive);
+    const colourLive = computed(() => inputLive.value || gliding.value);
 
     return {
         // Model
@@ -299,6 +303,8 @@ export function useColorPipeline(model: ShallowRef<ColorModel>) {
         // W3-1: the rAF-coalesced opaque colour the atmosphere fan-out consumes
         // (aurora seed + blob palette + --accent-live) — one derive per frame.
         cssColorOpaqueFrame,
+        // The page's colour: the frame colour, glided across a discrete change.
+        cssColorAtmosphere,
         colourLive,
         HSVCurrentColor,
         stableHue,
@@ -336,7 +342,6 @@ export function useColorPipeline(model: ShallowRef<ColorModel>) {
         // Component updates
         updateToColorSpace,
         updateColorComponent,
-        updateColorComponentDebounced,
         // App-level entry points
         resetToDefaults,
         restoreFromStorage,

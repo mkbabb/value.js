@@ -32,19 +32,13 @@ import { FadingScroll } from "@mkbabb/glass-ui/fading-scroll";
 // rider cured in Markdown.vue, here cured at the root. The self-hosted
 // `KaTeX_*` @font-face rules (S.W4-6 / a409feb) ship through this same import.
 //
-// X.W11.p2 (COHESION §0ge.1(ii)) — KaTeX loads WITH ITS CONSUMER: the engine
-// (vendor-katex, ~74 KB gz) and its stylesheet are imported by THIS component,
-// dynamically, the first time a formula comes within a viewport of being seen.
-// The About pane is a region of the home route at every width, so a static
-// import put the whole engine on the boot path of `/` even where every formula
-// sits below the fold (the 412 px lab cell). The stylesheet stays a script-side
-// import — still unscopeable — and arrives in the same chunk load as the engine.
-// The observer's one-viewport lead renders a formula before it is scrolled to.
-// (The module registry memoizes the chunk: every instance shares one load.)
-const loadKatex = () =>
-    Promise.all([import("katex"), import("katex/dist/katex.min.css")]).then(
-        ([engine]) => engine.default,
-    );
+// X.W11.p2 (COHESION §0ge.1(ii)) — KaTeX loads WITH ITS CONSUMER (engine.ts):
+// the engine and its stylesheet are fetched the first time a formula comes
+// within a viewport of being seen (the observer's one-viewport lead), or when
+// the guide asks for its whole layout (Markdown.vue). Once the engine is in,
+// every formula renders on it, seen or not, so the guide's length settles
+// once instead of growing formula by formula as it is scrolled.
+import { katexEngine, loadKatex } from "./engine";
 
 const { expression, displayMode = true } = defineProps<{
     expression: string;
@@ -53,10 +47,10 @@ const { expression, displayMode = true } = defineProps<{
 
 const katexElement = useTemplateRef<HTMLElement>("katexElement");
 
-let visible = false;
+let engineIn = false;
 const renderKatex = async () => {
-    if (!visible) return;
-    const katex = await loadKatex();
+    if (!engineIn) return;
+    const katex = await katexEngine;
     if (katexElement.value) {
         katex.render(expression, katexElement.value, {
             displayMode,
@@ -90,6 +84,10 @@ const renderKatex = async () => {
 
 let observer: IntersectionObserver | null = null;
 onMounted(() => {
+    void katexEngine.then(() => {
+        engineIn = true;
+        void renderKatex();
+    });
     const el = katexElement.value;
     if (!el) return;
     observer = new IntersectionObserver(
@@ -97,8 +95,7 @@ onMounted(() => {
             if (!entries.some((e) => e.isIntersecting)) return;
             observer?.disconnect();
             observer = null;
-            visible = true;
-            void renderKatex();
+            void loadKatex();
         },
         { rootMargin: "100% 0px" },
     );

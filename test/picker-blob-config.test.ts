@@ -94,8 +94,9 @@ describe("V.W20 Picker Blob semantics", () => {
 
     it("leaves Copy solely in the action region", () => {
         expect(source).not.toMatch(/writeClipboard|Copy current color|emit\("click"\)/);
-        expect(picker.match(/writeClipboard\(/g)).toHaveLength(1);
-        expect(actions.match(/icon: Copy,/g)).toHaveLength(1);
+        // One clipboard seat, glass's status-bearing copy (the seat confirms).
+        expect(picker.match(/useClipboard\(/g)).toHaveLength(1);
+        expect(actions.match(/\? Check : Copy,/g)).toHaveLength(1);
         expect(actions.match(/target\?\.copy \?\? null/g)).toHaveLength(1);
     });
 });

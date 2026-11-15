@@ -127,7 +127,7 @@ export function usePointerDebug() {
             ".spectrum-picker, .slider-track, .slider-thumb, [data-reka-collection-item], [data-reka-slider-thumb]",
         );
         const wrappers = document.querySelectorAll(
-            ".touch-gate-target, .spectrum-picker",
+            ".channel-slider-seat, .spectrum-picker",
         );
         const allEls = new Set([...els, ...wrappers]);
 

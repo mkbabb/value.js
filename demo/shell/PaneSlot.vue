@@ -368,12 +368,13 @@ function token(el: Element, name: string, fallback: number): number {
     return raw.endsWith("ms") ? n : n * 1000;
 }
 
-function fade(el: Element, from: number, to: number, ms: number, done: () => void) {
+function fade(el: Element, from: number, to: number, ms: number, done: () => void, delay = 0) {
     if (typeof (el as HTMLElement).animate !== "function") return done();
     // The leaver holds its last frame until Vue removes it; the hold is then
     // cancelled, so a KeepAlive-cached pane never comes back at opacity 0.
     const run = (el as HTMLElement).animate([{ opacity: from }, { opacity: to }], {
         duration: ms,
+        delay,
         easing: "cubic-bezier(0, 0, 0.2, 1)",
         fill: "both",
     });
@@ -384,11 +385,24 @@ function fade(el: Element, from: number, to: number, ms: number, done: () => voi
     run.finished.then(end, end);
 }
 
+// The two fades run in turn, never together: the dealt card waits at 0 while
+// a leaver in its region fades out, so the two cards' text is never legible
+// in one place (before, the fades overlapped for the leaver's 120 ms and
+// both titles read at once). A card with no leaver fades in at once.
 const reduceHooks = computed(() =>
     motion.value === "reduce"
         ? {
               onEnter: (el: Element, done: () => void) =>
-                  fade(el, 0, 1, token(el, "--duration-fast", 200), done),
+                  fade(
+                      el,
+                      0,
+                      1,
+                      token(el, "--duration-fast", 200),
+                      done,
+                      el.parentElement?.querySelector(":scope > .vj-enter-leave-active")
+                          ? token(el, "--duration-control", 120)
+                          : 0,
+                  ),
               onLeave: (el: Element, done: () => void) =>
                   fade(el, 1, 0, token(el, "--duration-control", 120), done),
           }

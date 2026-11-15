@@ -423,8 +423,9 @@ const {
     cssColor,
     cssColorOpaque,
     // W3-1 (S.W3): the rAF-coalesced opaque colour — one derive per frame for
-    // the atmosphere fan-out (aurora seed + blob palette + --accent-live).
-    cssColorOpaqueFrame,
+    // the atmosphere fan-out (aurora seed + --accent-live), glided across a
+    // discrete change (useColourGlide) so the page's colour never cuts.
+    cssColorAtmosphere,
     savedColorStrings,
     resetToDefaults,
     applyColorString,
@@ -462,7 +463,7 @@ const currentConfig = computed(() => viewManager.currentConfig.value);
 // `auroraArrived` keys the W6-1 canvas derive-in.
 const { auroraCssGradient, auroraArrived } = useAtmosphereBoot(
     atmosphereCanvas,
-    cssColorOpaqueFrame,
+    cssColorAtmosphere,
     currentConfig,
     // X.W11.p4c (COHESION §0go.2(b)): a hydrated shell paints its first frame
     // with the stylesheet's pre-certified inks; certification follows it.

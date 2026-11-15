@@ -2,7 +2,7 @@
 // owns them. The builder is PURE — it reads a target and asks the shell's
 // resolver for each seat's state (`shell/useSceneActions.ts` owns dispatch,
 // the failure ledger and the view → scene table); it holds no state itself.
-import { Camera, Copy, Dices, Palette, RotateCcw } from "@lucide/vue";
+import { Camera, Check, Copy, Dices, Palette, RotateCcw } from "@lucide/vue";
 import type {
     ColorSceneTarget,
     ResolveSceneAction,
@@ -50,9 +50,12 @@ export function colorSceneActions(
         {
             token: "color.copy",
             priority: 1,
-            icon: Copy,
-            title: "Copy color",
-            description: "Copy the current color.",
+            // The confirmation: for a beat after the copy lands, the seat's
+            // glyph turns to a check and its name to "Copied" (the glyph
+            // morphs, ActionButton), the app's one copy idiom.
+            icon: target?.copied.value === true ? Check : Copy,
+            title: target?.copied.value === true ? "Copied" : "Copy color",
+            description: "Copy the current color as CSS.",
             state: resolve("color.copy", target?.copy ?? null, absent),
         },
         {

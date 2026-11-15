@@ -7,18 +7,13 @@
             ref="spectrumRef"
             role="img"
             :aria-label="spectrumAriaLabel"
-            :class="[
-                'spectrum-picker flex w-full cursor-crosshair relative touch-gate-target',
-                spectrumGate.isActive.value && 'touch-gate-active',
-            ]"
+            class="spectrum-picker flex w-full cursor-crosshair relative"
             :style="spectrumStyle"
             @pointerdown="handleSpectrumDown"
             @pointermove="handleSpectrumMove"
             @pointerup="handleSpectrumUp"
             @pointercancel="handleSpectrumCancel"
             @lostpointercapture="onLostPointerCapture"
-            @touchmove.passive="spectrumGate.handleScrollCheck($event)"
-            @touchend.passive="spectrumGate.handleTouchEnd()"
         >
             <!-- X-DS pass 3 (V3C-06): the thumb keeps its organic outline (the
                  identity, §0dm) and is STILL at rest. The perpetual 2s rAF
@@ -40,7 +35,6 @@
 import { computed, inject, onUnmounted, ref, useTemplateRef, watch } from "vue";
 import { clamp } from "@mkbabb/value.js/math";
 import { WatercolorDot } from "../../../shared/ui/watercolor-dot";
-import { useTouchGate } from "@mkbabb/glass-ui/dom";
 import { channelNumber, withChannel } from "../../../color-session/picker-color";
 import { POINTER_DEBUG_KEY } from "../../debug/usePointerDebug";
 import { useSpectrumPlateStyle } from "./composables/useSpectrumPlateStyle";
@@ -56,7 +50,6 @@ const {
 
 const debug = inject(POINTER_DEBUG_KEY)!;
 
-const spectrumGate = useTouchGate();
 const isDragging = ref(false);
 const spectrumRef = useTemplateRef<HTMLElement>("spectrumRef");
 
@@ -142,19 +135,10 @@ const updateSpectrumColor = (
 const handleSpectrumDown = (event: PointerEvent) => {
     debug.logEvent(event, "spec:down");
 
+    // The plane takes every gesture that starts on it (`touch-action: none`):
+    // a 2-D field has no free axis to leave to the page, so the dot follows
+    // the finger from the first touch. The page scrolls from anywhere else.
     const el = event.currentTarget as HTMLElement;
-
-    // On touch devices, require tap-to-activate before allowing drag
-    if (spectrumGate.isTouchDevice && !spectrumGate.isActive.value) {
-        spectrumGate.handleTouchStart(el, event.clientY);
-        debug.log("spec:gate-block", event.pointerId, event.target, false);
-        return;
-    }
-
-    if (spectrumGate.isTouchDevice) {
-        spectrumGate.resetTimer();
-    }
-
     el.setPointerCapture(event.pointerId);
     capturedPointerId = event.pointerId;
     capturedElement = el;
@@ -234,10 +218,8 @@ onUnmounted(releaseCapture);
     /* No stamp of its own: the picker card carries the one cartoon slab
      * (restraint 2026-11-09, C-3 "Less and more subtle shadowing"). */
     overflow: visible;
-    /* X.W11.p3b (COHESION §0gl.12): the plate owns every gesture on a fine
-     * pointer; on a coarse one it lets the page pan until the touch gate
-     * activates it. The pointer class is CSS's to read, never a setup-time
-     * inline style the prerendered first view would have to guess. */
+    /* The plane owns every gesture that starts on it, touch included: the dot
+     * follows the finger from the first touch (handleSpectrumDown). */
     touch-action: none;
 }
 /* X realization V-D1 (OD-19-SPECTRUM, after §0hr `7904869ce`) — THE PLANE'S
@@ -293,11 +275,6 @@ onUnmounted(releaseCapture);
     );
     @variant lg {
         flex: 0 1 auto;
-    }
-}
-@media (pointer: coarse) {
-    .spectrum-picker:not(.touch-gate-active) {
-        touch-action: pan-y;
     }
 }
 /* R.W3 Lane E / E1 — beat two: the field paints in ~180ms after the plate
