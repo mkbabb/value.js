@@ -1,5 +1,4 @@
 import { computed, ref, watch, type ShallowRef } from "vue";
-import { debounce } from "../shared/debounce";
 import {
     PICKER_CHANNELS,
     channelNumber,
@@ -212,7 +211,6 @@ export function useColorPipeline(model: ShallowRef<ColorModel>) {
         }
     };
 
-    const updateColorComponentDebounced = debounce(updateColorComponent, 500);
     // --- Palette handlers ---
 
     function onPaletteAddColor(cssColor: string) {
@@ -336,7 +334,6 @@ export function useColorPipeline(model: ShallowRef<ColorModel>) {
         // Component updates
         updateToColorSpace,
         updateColorComponent,
-        updateColorComponentDebounced,
         // App-level entry points
         resetToDefaults,
         restoreFromStorage,

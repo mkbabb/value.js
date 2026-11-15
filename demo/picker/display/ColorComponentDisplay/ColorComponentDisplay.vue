@@ -26,20 +26,24 @@
             :key="component"
         >
             <span class="readout-cell">
+                <!-- One line of plain text, read on commit: Enter or leaving
+                     the field commits, Escape restores the shown value. The
+                     figure is re-rendered whole after every edit (`epoch`),
+                     so an edit can never leave its own text nodes behind. -->
                 <span
-                    contenteditable="true"
+                    :key="`${component}:${epoch}`"
+                    contenteditable="plaintext-only"
                     role="textbox"
+                    aria-multiline="false"
                     :aria-label="`${component} component value`"
                     :class="[
                         'readout-fig',
                         formatted[component]?.monospace && 'font-mono',
                     ]"
-                    @input="
-                        (e) => {
-                            const text = (e.target as any).innerText.trim();
-                            emit('input', text, component);
-                        }
-                    "
+                    @focus="onFocus"
+                    @beforeinput="onBeforeInput"
+                    @keydown="(e) => onKeydown(e, component)"
+                    @blur="(e) => onBlur(e, component)"
                 ><span v-text-in-place class="fig-int">{{ figParts(component).int }}</span><span
                         v-if="figParts(component).frac"
                         v-text-in-place
@@ -62,7 +66,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, ref } from "vue";
 import { CardTitle } from "@mkbabb/glass-ui/card";
 import { formatFixed } from "../../../color-session/channel-decimals";
 import { vTextInPlace } from "../../../shared/vTextInPlace";
@@ -95,8 +99,53 @@ const lineCount = computed(() =>
 );
 
 const emit = defineEmits<{
-    input: [text: string, component: string];
+    /** The edited text of one figure, sent once, when the edit is committed. */
+    commit: [text: string, component: string];
 }>();
+
+// ── Editing a figure ────────────────────────────────────────────────────────
+// A figure is edited as one line of plain text and read once, on commit:
+// Enter or leaving the field commits, Escape restores. A line break can never
+// enter it (`plaintext-only`, and the paragraph inputs are refused), so the
+// line, the card and everything under it hold still while it is edited. After
+// every edit the figures re-render from the model (`epoch`): the committed
+// value when the text read as one, the last valid value when it did not.
+const epoch = ref(0);
+let shownText = "";
+let settled = true;
+
+const figureText = (el: HTMLElement) => (el.textContent ?? "").replace(/\s+/g, " ").trim();
+
+function onFocus(e: FocusEvent) {
+    shownText = figureText(e.target as HTMLElement);
+    settled = false;
+}
+
+function onBeforeInput(e: InputEvent) {
+    if (e.inputType === "insertParagraph" || e.inputType === "insertLineBreak") e.preventDefault();
+}
+
+function settle(el: HTMLElement, component: string, commit: boolean) {
+    if (settled) return;
+    settled = true;
+    const typed = figureText(el);
+    if (commit && typed !== shownText) emit("commit", typed, component);
+    epoch.value++;
+}
+
+function onKeydown(e: KeyboardEvent, component: string) {
+    if (e.key !== "Enter" && e.key !== "Escape") return;
+    // The figure's own keys: the picker's palette-edit Enter/Escape never sees them.
+    e.preventDefault();
+    e.stopPropagation();
+    const el = e.currentTarget as HTMLElement;
+    settle(el, component, e.key === "Enter");
+    el.blur();
+}
+
+function onBlur(e: FocusEvent, component: string) {
+    settle(e.target as HTMLElement, component, true);
+}
 
 /**
  * The int/frac split of a component's rendering, at the one digit policy
