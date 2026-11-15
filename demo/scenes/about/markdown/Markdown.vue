@@ -14,7 +14,13 @@
          the display voice in the scoped styles below). -->
     <!-- o1111 dragperf: the guide holds its inks while a drag drives the
          colour and takes the settled ones on release (see the script). -->
-    <div v-else-if="currentDoc" class="markdown-wrapper" :style="mdColorVars">
+    <div
+        v-else-if="currentDoc"
+        ref="wrapper"
+        class="markdown-wrapper"
+        :data-sized="sized || undefined"
+        :style="mdColorVars"
+    >
         <component :is="markdownContent" />
     </div>
 
@@ -40,7 +46,9 @@ import "../../../styles/foundation.css";
 import "../../../styles/utils.css";
 // X.W11.p2 — the code-plate ink rides its consumer (foundation.css no longer imports it).
 import "../../../styles/hljs.css";
-import { computed, inject, onMounted, ref } from "vue";
+import { computed, inject, onMounted, ref, useTemplateRef } from "vue";
+import { useResizeObserver } from "@vueuse/core";
+import { loadKatex } from "../katex/engine";
 import { COLOR_MODEL_KEY } from "../../../color-session/keys";
 import { useHeldWhileLive } from "../../../color-session/useAtmosphereFrameCoalesce";
 import type { DocModule } from "./types";
@@ -84,6 +92,42 @@ const markdownContent = computed(() => {
 onMounted(async () => {
     await loadDocs();
 });
+
+// THE GUIDE'S LENGTH HOLDS STILL WHILE IT IS READ. Its sections skip
+// off-screen layout (`content-visibility: auto`), and a skipped section is
+// laid out at its `contain-intrinsic-size`. A single estimate for every
+// section (200 px, against 24 px paragraphs and 220 px formula rows) made the
+// scroll length a guess that corrected itself section by section as the
+// reader went down: 6486 px falling to 4001 px over thirteen wheel steps,
+// the scrollbar and the text under the pointer jumping with it. Each section
+// now carries `auto`, so the browser remembers the size it last laid it out
+// at, and the guide is laid out WHOLE once, the first time it has a box, so
+// every section has a remembered size before any is skipped. Only then does
+// skipping begin (`data-sized`); the skipped sections hold their real sizes.
+// The whole layout waits for the guide's formulas (typeset together once the
+// KaTeX engine is in, which the guide asks for when the browser is idle,
+// never on the boot path) and its faces (KaTeX's above all).
+const wrapper = useTemplateRef<HTMLElement>("wrapper");
+const sized = ref(false);
+let sizing = false;
+const idle = () =>
+    new Promise<void>((resolve) => {
+        if ("requestIdleCallback" in window) window.requestIdleCallback(() => resolve(), { timeout: 2000 });
+        else setTimeout(resolve, 200);
+    });
+const frame = () => new Promise<void>((resolve) => requestAnimationFrame(() => resolve()));
+useResizeObserver(wrapper, async (entries) => {
+    if (sized.value || sizing || !(entries[0]?.contentRect.height ?? 0)) return;
+    sizing = true;
+    await idle();
+    await loadKatex();
+    await document.fonts.ready;
+    // The sizes are remembered at a frame's resize-observation step;
+    // skipping starts on the frame after the one that laid them out.
+    await frame();
+    await frame();
+    sized.value = true;
+});
 </script>
 
 <style scoped>
@@ -121,11 +165,20 @@ onMounted(async () => {
     @apply max-w-full;
 }
 
+/* Skip layout/paint for off-screen sections (KaTeX formulas, code blocks),
+ * once each has a remembered size (`data-sized`, the script above). */
+.markdown-wrapper[data-sized] :deep(.markdown-body) > *:not(:first-child) {
+    content-visibility: auto;
+}
+
 .markdown-wrapper :deep(.markdown-body) {
-    /* Skip layout/paint for off-screen sections (KaTeX formulas, code blocks) */
     > *:not(:first-child) {
-        content-visibility: auto;
         contain-intrinsic-size: auto 200px;
+        /* The containment `content-visibility: auto` brings, held from the
+         * first layout, so the size each section is remembered at is the
+         * size it is drawn at once skipping begins (a contained list keeps
+         * its items' margins inside it: 194 px remembered, 200 px drawn). */
+        contain: layout style paint;
     }
 
     /* Direct child headings — display rungs, Fraunces (three-voice law).
