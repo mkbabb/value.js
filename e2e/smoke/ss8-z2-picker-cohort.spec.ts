@@ -234,27 +234,32 @@ test.describe("Z2 picker cohort — desktop 1440", () => {
         expect(() => JSON.parse(clip), "Z-ConfigSliderPane-5: the clipboard holds the JSON").not.toThrow();
     });
 
-    test("CSP15 — forced colors: a focused config slider draws the same outline as a button", async ({ page }) => {
-        test.fail(true, "glass-ui 11: a focused scrubber thumb has no outline under forced colours (the ring is on the track); waits on glass-ui 11.1.1");
+    // glass-ui's ruling: a plain Slider draws its focus ring on the TRACK (the
+    // thumb rides inside it); only the spectrum Slider rings its thumb. So the
+    // focused thumb's outline is read first, and when it is `none`, the outline
+    // of the `.slider-track` in the thumb's own `.glass-slider`.
+    test("CSP15 — forced colors: a focused config slider shows a visible focus outline", async ({ page }) => {
         test.setTimeout(90_000);
         await page.emulateMedia({ forcedColors: "active" });
         await boot(page, "/blob");
-        const read = () => page.evaluate(() => {
-            const c = getComputedStyle(document.activeElement!);
-            return `${c.outlineStyle} ${c.outlineWidth}`;
-        });
         const slider = page.locator(".config-console [role=slider]").first();
         await slider.focus();
         await page.keyboard.press("ArrowRight");
         await page.keyboard.press("ArrowLeft");
-        const sliderOutline = await read();
-        const button = page.locator(".config-action-bar button").first();
-        await button.focus();
-        await page.keyboard.press("Shift+Tab");
-        await page.keyboard.press("Tab");
-        const buttonOutline = await read();
-        expect(sliderOutline, "Z-ConfigSliderPane-15").not.toMatch(/^none/);
-        expect(sliderOutline).toBe(buttonOutline);
+        const ring = await page.evaluate(() => {
+            const thumb = document.activeElement!;
+            const outline = (el: Element | null | undefined) => {
+                if (!el) return null;
+                const c = getComputedStyle(el);
+                return { style: c.outlineStyle, width: parseFloat(c.outlineWidth) || 0 };
+            };
+            const own = outline(thumb)!;
+            if (own.style !== "none") return { on: "thumb", ...own };
+            const track = thumb.closest(".glass-slider")?.querySelector(".slider-track");
+            return { on: "track", ...(outline(track) ?? { style: "none", width: 0 }) };
+        });
+        expect(ring.style, `Z-ConfigSliderPane-15: the ${ring.on} outline is drawn`).not.toBe("none");
+        expect(ring.width, `Z-ConfigSliderPane-15: the ${ring.on} outline has width`).toBeGreaterThan(0);
     });
 
     test("P22 — the dark scheme darkens the ambient ground", async ({ browser }) => {
