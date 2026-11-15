@@ -10,12 +10,13 @@
          1440×900 and 312 px at 720×450). `deliberate`: Esc and an outside press
          dismiss; the bar's own Close is the ✕, so glass's is not drawn twice.
          Surface stays the true floating chrome (T.W3-1 Q4). -->
-    <Dialog :open="true" @update:open="(open) => { if (!open) emit('close'); }">
+    <Dialog :open="open" @update:open="(next) => { if (!next) emit('close'); }">
         <DialogContent
             surface="glass"
             dismiss="deliberate"
             class="flex flex-col gap-0 p-0 rounded-panel overflow-hidden w-[min(100vw_-_2rem,64rem)] h-[min(100dvh_-_2rem,48rem)]"
             @escape-key-down="onEscape"
+            @close-auto-focus="emit('closed')"
         >
             <DialogTitle class="sr-only font-display font-medium">Eyedropper</DialogTitle>
             <DialogDescription class="sr-only">{{ samplePrompt }}; Escape releases a pin, then closes.</DialogDescription>
@@ -124,13 +125,17 @@ import { useLoupeCanvas } from "./composables/useLoupeCanvas";
 import { LOUPE_SIZE } from "./constants";
 import { formatCssCaption } from "../../../color-session/format-color";
 
-const { imageUrl, colorSpace = "hex" } = defineProps<{
+const { open = true, imageUrl, colorSpace = "hex" } = defineProps<{
+    /** The host drives the dialog; it stays mounted through glass's leave. */
+    open?: boolean;
     imageUrl: string;
     colorSpace?: DisplayColorSpace | undefined;
 }>();
 
 const emit = defineEmits<{
     close: [];
+    /** The dialog's leave has finished: its content is gone. */
+    closed: [];
     pick: [cssColor: string];
     addToPalette: [cssColor: string];
 }>();

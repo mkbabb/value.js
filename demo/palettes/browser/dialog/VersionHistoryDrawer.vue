@@ -1,6 +1,12 @@
 <template>
     <Dialog :open="open" @update:open="$emit('update:open', $event)">
-        <SheetContent side="right" class="w-[380px] max-w-full sm:max-w-[420px] flex flex-col">
+        <!-- The slide out is glass's: the host keeps the drawer mounted through it
+             and releases its palette on `closed`, once the sheet has gone. -->
+        <SheetContent
+            side="right"
+            class="w-[380px] max-w-full sm:max-w-[420px] flex flex-col"
+            @close-auto-focus="emit('closed')"
+        >
             <!-- X.W12U.m2 · A2-VA-X-3 (consumer half): the drawer's 380 px is a
                  preference, never wider than its containing block (`max-w-full`),
                  so a 360 phone shows the whole sheet. Where the sheet lands
@@ -148,6 +154,8 @@ const emit = defineEmits<{
     revert: [hash: string];
     /** X.W7.z1 (COHESION §0bt.1): a failed page load, handed to the host's rail. */
     "load-failed": [message: string];
+    /** The sheet's leave has finished: its content is gone. */
+    closed: [];
 }>();
 
 // X.W12.u1 (UIA-V-36): the list's `hash` is the release id, while the palette's

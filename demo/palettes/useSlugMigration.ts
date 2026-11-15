@@ -221,11 +221,12 @@ export function useSlugMigration(deps: SlugMigrationDeps) {
     }
 
     /** UIA-V-586: a dialog dismissed without a choice drops its closure, so a
-     *  later Regenerate cannot run a stale switch. */
+     *  later Regenerate cannot run a stale switch. The error it shows stays in
+     *  it through its leave (each opener clears it), so the closing dialog does
+     *  not lose a line and shrink in the frame it starts to go. */
     function onMigrateDismiss() {
         if (migrating.value) return;
         pendingMigrateAction.value = null;
-        migrateError.value = null;
         showMigrateDialog.value = false;
     }
 

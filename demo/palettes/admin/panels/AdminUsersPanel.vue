@@ -286,7 +286,7 @@
                     <Button emphasis="text" @click="confirmOpen = false">Cancel</Button>
                     <Button
                         :tone="confirmDestructive ? 'destructive' : 'neutral'"
-                        :disabled="!confirmAction"
+                        :disabled="confirmOpen && !confirmAction"
                         @click="onConfirm"
                     >
                         <component :is="confirmIcon" class="w-3.5 h-3.5" aria-hidden="true" />

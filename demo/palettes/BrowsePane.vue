@@ -180,6 +180,7 @@
         @update:open="onVersionsOpenChange"
         @revert="onRevert"
         @load-failed="onVersionsLoadFailed"
+        @closed="onVersionsClosed"
         />
 
         <FlagReportDialog
@@ -190,6 +191,7 @@
         :error="flagError"
         @update:open="onFlagOpenChange"
         @submit="onFlagSubmit"
+        @closed="onFlagClosed"
         />
 
         <!-- X-W7 Repair 1 (§2a · ESC-W7e-AP6): the browse-wall admin delete is the
@@ -207,7 +209,7 @@
             </DialogHeader>
             <DialogFooter>
                 <Button emphasis="text" @click="deleteConfirmOpen = false">Cancel</Button>
-                <Button tone="destructive" :disabled="!deleteConfirmAct" @click="onDeleteConfirm">
+                <Button tone="destructive" :disabled="deleteConfirmOpen && !deleteConfirmAct" @click="onDeleteConfirm">
                     <Trash2 class="w-3.5 h-3.5" aria-hidden="true" />
                     Delete palette
                 </Button>
@@ -361,10 +363,17 @@ function onVersionsLoadFailed(message: string) {
     }
 }
 
-// W7.78 (VHD-35): the drawer's subject is released on close.
+// W7.78 (VHD-35): the drawer's subject is released once it has closed. The
+// close itself only turns `open` off, so the drawer stays mounted, with its
+// palette, through glass's slide out; releasing the subject in the same tick
+// unmounted the drawer before its leave could run (gone in one frame).
 function onVersionsOpenChange(open: boolean) {
     versionDrawerOpen.value = open;
-    if (!open) versionPalette.value = null;
+}
+
+/** The drawer's leave has finished (a reopen in the meantime keeps it). */
+function onVersionsClosed() {
+    if (!versionDrawerOpen.value) versionPalette.value = null;
 }
 
 // --- Flag / Report ---
@@ -376,6 +385,7 @@ const flagError = ref<string | null>(null);
 
 function onFlag(palette: Palette) {
     flagPalette.value = palette;
+    flagError.value = null;
     flagDialogOpen.value = true;
 }
 
@@ -402,14 +412,20 @@ async function onFlagSubmit(reason: string, detail: string | undefined) {
     onFlagOpenChange(false);
 }
 
-// W7.78 (FlagReportDialog A-2 ≡ VHD-35): the subject is released on close, so a
-// KeepAlive'd pane does not retain the dialog and its palette for the session.
+// W7.78 (FlagReportDialog A-2 ≡ VHD-35): the subject is released once the
+// dialog has closed, so a KeepAlive'd pane does not retain the dialog and its
+// palette for the session. The close only turns `open` off: the dialog keeps
+// its palette and its words through glass's leave, and lets go on `closed`.
+// Releasing them in the closing tick unmounted the dialog in one frame.
 function onFlagOpenChange(open: boolean) {
     flagDialogOpen.value = open;
-    if (!open) {
-        flagPalette.value = null;
-        flagError.value = null;
-    }
+}
+
+/** The dialog's leave has finished (a reopen in the meantime keeps it). */
+function onFlagClosed() {
+    if (flagDialogOpen.value) return;
+    flagPalette.value = null;
+    flagError.value = null;
 }
 
 function showVerdict(slug: string, message: string, ok: boolean) {
@@ -428,7 +444,9 @@ async function onFeature(palette: Palette) {
 // X-W7 Repair 1 (§2a · G14 · N-6): the menu opens a confirm, never the delete
 // itself. The name is kept for display through the leave transition; the act is
 // held separately, TAKEN (cleared) before it runs, and released on any dismissal
-// — one acceptance, exactly one request.
+// — one acceptance, exactly one request. The Delete button reads the act only
+// while the dialog is open, so its release does not dim the leaving plate (the
+// same reading in PalettesPane and the admin panels' confirms).
 const deleteConfirmOpen = ref(false);
 const deleteConfirmName = ref("");
 const deleteConfirmAct = shallowRef<(() => void) | null>(null);
