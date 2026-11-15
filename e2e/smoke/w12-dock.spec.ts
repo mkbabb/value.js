@@ -84,8 +84,10 @@ async function readPill(page: Page, pill: Locator, name: string): Promise<Omit<P
         const probe = document.createElement("span");
         probe.style.background = "var(--dock-control-hover-bg)";
         // The producer's own dock-control corner (dist/components/dock/styles/
-        // controls/triggers.css), resolved in the same cascade.
-        probe.style.borderTopLeftRadius = "var(--dock-control-radius, var(--radius-pill))";
+        // controls/triggers.css), resolved in the same cascade. Since glass
+        // 11.0.2 every seat is round: half the control size, not the pill.
+        probe.style.borderTopLeftRadius =
+            "var(--dock-control-radius, calc(var(--dock-control-size, var(--size-icon-btn)) / 2))";
         el.parentElement!.appendChild(probe);
         const hoverToken = getComputedStyle(probe).backgroundColor;
         const radiusToken = parseFloat(getComputedStyle(probe).borderTopLeftRadius);
@@ -149,8 +151,8 @@ test.describe("X.W12.e — the dock sits on glass's primitives", () => {
             expect(r.rest, `${r.name} rest plate`).toBe(r.reference);
             expect(r.hover, `${r.name} hover plate`).toBe(r.hoverToken);
             // the corner is glass's dock-control register, clamped at h/2 as the
-            // browser clamps it (a stadium until glass 11.0.0 set --radius-pill
-            // to 1rem; it is the register that binds, not the stadium)
+            // browser clamps it (a stadium until glass 11.0.0, 1rem at 11.0.0–
+            // 11.0.1, half the control size from 11.0.2; the register binds)
             expect(r.radiusToken, `${r.name} resolves the dock-control radius`).toBeGreaterThan(0);
             for (const rad of r.radii)
                 expect(Math.min(rad, r.height / 2), `${r.name} radius vs register ${r.radiusToken}`).toBeCloseTo(
