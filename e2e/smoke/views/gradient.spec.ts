@@ -731,13 +731,14 @@ test("gradient selector aurora", async ({ page }) => {
         // is re-run beside it as a dated addendum whenever the installed glass
         // moves. Re-baselined X-W12U .q2 to glass 10.1.0 (X.W7L.m `c8a4959dd`),
         // X.W11.v1c to glass 10.1.1 (`f77db7842`), and X.W11.v1e to glass
-        // 10.1.2 (`6e91083c2`), 10.1.3 (X.W11.n1) and 11.0.1 (O16).
+        // 10.1.2 (`6e91083c2`), 10.1.3 (X.W11.n1), 11.0.1 (O16) and 11.0.2.
         const censusAddenda = [
             "docs/tranches/X/waves/W12U-evidence/q2/census/gradient-aurora-census-2026-10-16.md",
             "docs/tranches/X/waves/W12U-evidence/q2/census/gradient-aurora-census-2026-10-27.md",
             "docs/tranches/X/waves/W12U-evidence/q2/census/gradient-aurora-census-2026-10-29.md",
             "docs/tranches/X/waves/W12U-evidence/q2/census/gradient-aurora-census-2026-10-31.md",
             "docs/tranches/X/waves/W12U-evidence/q2/census/gradient-aurora-census-2026-11-14.md",
+            "docs/tranches/X/waves/W12U-evidence/q2/census/gradient-aurora-census-2026-11-15.md",
         ].map((f) => join(process.cwd(), f));
         const ask = [askPath, ...censusAddenda]
             .map((f) => readFileSync(f, "utf8"))
