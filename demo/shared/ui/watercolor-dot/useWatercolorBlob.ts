@@ -73,6 +73,11 @@ export function useWatercolorBlob(
     } = options;
 
     const borderRadius = ref("");
+    // The second seeded outline, the shape the dot takes under the pointer (the
+    // original palette dot's hover). Drawn from its own copy of the colour's PRNG
+    // (the second draw, as the original drew it), so the wobble's sequence below
+    // is unchanged.
+    const hoverBorderRadius = ref("");
     // The seeded COMPOSITOR transform wobble (the animate-mode liveness; default
     // identity so a static dot reads untransformed).
     const transform = ref("none");
@@ -86,6 +91,7 @@ export function useWatercolorBlob(
     const rng = mulberry32(hashString(getColor() + seed));
     const initial = randomRadii(rng, range[0], range[1]);
     borderRadius.value = radiiToCSS(initial);
+    hoverBorderRadius.value = hoverRadiiFor(getColor() + seed, range);
 
     // Re-seed when color changes (non-animated mode). Under a drag the shape
     // holds: re-seeded per colour frame, each frame restarted the 0.6 s radius
@@ -98,13 +104,14 @@ export function useWatercolorBlob(
                 shapeColor.value = getColor();
                 const r = mulberry32(hashString(getColor() + seed));
                 borderRadius.value = radiiToCSS(randomRadii(r, range[0], range[1]));
+                hoverBorderRadius.value = radiiToCSS(randomRadii(r, range[0], range[1]));
             };
             watch(color, () => {
                 if (!live?.value) reseed();
             });
             if (live) watch(live, (on) => on || reseed());
         }
-        return { borderRadius, transform, shapeColor };
+        return { borderRadius, hoverBorderRadius, transform, shapeColor };
     }
 
     // --- Per-channel independent COMPOSITOR transform wobble ---
@@ -175,7 +182,14 @@ export function useWatercolorBlob(
         respectReducedMotion: true,
     });
 
-    return { borderRadius, transform, shapeColor };
+    return { borderRadius, hoverBorderRadius, transform, shapeColor };
+}
+
+/** The second seeded outline for `key`: the PRNG's second draw. */
+function hoverRadiiFor(key: string, range: [number, number]): string {
+    const r = mulberry32(hashString(key));
+    randomRadii(r, range[0], range[1]);
+    return radiiToCSS(randomRadii(r, range[0], range[1]));
 }
 
 export type WatercolorBlob = ReturnType<typeof useWatercolorBlob>;

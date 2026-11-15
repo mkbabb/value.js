@@ -96,7 +96,7 @@ const filterUrl = computed(() => `url(#${filterId})`);
 // filter each frame (the spectrum dot and the dock seal, prod 907453615); the
 // seed now moves with the shape, once, on the settle.
 const colorRef = toRef(props, "color");
-const { borderRadius, transform, shapeColor } = useWatercolorBlob(colorRef, {
+const { borderRadius, hoverBorderRadius, transform, shapeColor } = useWatercolorBlob(colorRef, {
     animate: props.animate,
     cycleDuration: props.cycleDuration,
     range: props.range,
@@ -124,7 +124,11 @@ const filterSeed = computed(() => hashString(shapeColor.value + props.seed) % 25
                 // source). The animate wobble rides `--watercolor-wobble` (a compositor
                 // transform, NOT a per-frame radius paint under the filter).
                 backgroundColor: variant === 'ghost' ? undefined : color,
-                borderRadius,
+                // The outline rides custom properties, so a host's hover can swap
+                // in the second seeded outline (SwatchButton) and the 0.6 s
+                // radius transition tweens between the two.
+                '--watercolor-radius': borderRadius,
+                '--watercolor-radius-hover': hoverBorderRadius,
                 pointerEvents: 'none',
                 '--watercolor-color': ink ?? color,
                 '--watercolor-filter': filterUrl,
@@ -208,7 +212,7 @@ const filterSeed = computed(() => hashString(shapeColor.value + props.seed) % 25
             v-if="variant === 'ghost'"
             class="watercolor-ghost-stroke"
             aria-hidden="true"
-            :style="{ borderRadius, filter: filterUrl }"
+            :style="{ filter: filterUrl }"
         />
     </span>
 </template>
@@ -217,7 +221,7 @@ const filterSeed = computed(() => hashString(shapeColor.value + props.seed) % 25
 /* Watercolor swatch — organic pastel blobs. */
 .watercolor-swatch {
     display: inline-block;
-    border-radius: 48% 52% 55% 45% / 52% 48% 45% 55%;
+    border-radius: var(--watercolor-radius, 48% 52% 55% 45% / 52% 48% 45% 55%);
     filter: var(--watercolor-filter);
     /* The animate-mode liveness — a seeded COMPOSITOR transform wobble (identity when
        static). It is GPU-accelerated and never re-rasters the cached filter graph;
@@ -233,6 +237,7 @@ const filterSeed = computed(() => hashString(shapeColor.value + props.seed) % 25
        wet-edge filter and the wobble are the dot's identity and stay. */
     transition:
         transform var(--duration-fast) var(--ease-standard),
+        scale var(--duration-fast) var(--ease-standard),
         border-radius 0.6s var(--ease-standard),
         filter var(--duration-fast) var(--ease-standard);
     /* The ghost dashed-outline axis (ghost-only): the hand-drawn-placeholder dash
@@ -293,6 +298,7 @@ const filterSeed = computed(() => hashString(shapeColor.value + props.seed) % 25
 .watercolor-ghost-stroke {
     position: absolute;
     inset: 0;
+    border-radius: inherit;
     border: var(--watercolor-ghost-weight, 2px) dashed var(--watercolor-color);
     /* border-radius is the same seeded silhouette as the solid face. */
     pointer-events: none;
@@ -304,15 +310,6 @@ const filterSeed = computed(() => hashString(shapeColor.value + props.seed) % 25
     .watercolor-swatch[data-variant="ghost"] {
         background-color: color-mix(in srgb, var(--watercolor-color) 24%, transparent);
     }
-}
-
-/* Animated blobs: the seeded silhouette is STATIC; the liveness is the compositor
-   `--watercolor-wobble` transform. Disable the border-radius CSS transition (the
-   radius does not change per frame) — the transform legs stay on the smooth clock. */
-.watercolor-swatch.watercolor-animated {
-    transition:
-        transform var(--duration-fast) var(--ease-standard),
-        filter var(--duration-fast) var(--ease-standard);
 }
 
 /* Under reduced motion the wobble drops to a single static frame; the filter is
