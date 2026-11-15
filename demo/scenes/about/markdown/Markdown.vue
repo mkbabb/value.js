@@ -376,6 +376,11 @@ useResizeObserver(wrapper, async (entries) => {
         display: block;
         padding: var(--phi-1) 0 var(--phi-1) var(--phi-3);
         margin-block: var(--phi-1);
+        /* A row is a focusable scroll port: a one-line formula (23.2 px)
+         * holds the 24 px target floor (WCAG 2.5.8), now that every formula
+         * is typeset whether or not it has been scrolled to. */
+        box-sizing: border-box;
+        min-block-size: 1.5rem;
     }
 
     /* Horizontal rule — the section divider carries even φ air (U5). */
