@@ -167,6 +167,8 @@ test("w12-picker-blob · idle: the bead still moves after 5 s without input", as
 test("w12-picker-blob · hover: the bead moves while the pointer rests on it", async ({
     page,
 }) => {
+    // Skipped, not test.fail: it fails about half the runs, so an expected failure would flake.
+    test.fixme(true, "glass-ui 11.0.2: the parked bead keeps a residual frame diff after its repaint; waits on glass-ui 11.1.1");
     test.setTimeout(60_000);
     const blob = await bootBlob(page);
     await waitMs(page, IDLE_MS);

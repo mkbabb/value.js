@@ -395,6 +395,7 @@ for (const [hash, stageLabel, selector] of [
     test(`preview survives — ${hash}: the preview repaints after a forced WebGL context loss`, async ({
         page,
     }, testInfo) => {
+        test.fail(hash === "blob", "glass-ui 11: the blob preview does not repaint after a forced WebGL context loss; waits on glass-ui 11.1.1");
         testInfo.setTimeout(90_000);
         await page.setViewportSize({ width: 1440, height: 900 });
         await page.addInitScript(trackWebglDraws);
