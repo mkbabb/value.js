@@ -22,7 +22,7 @@ import GradientStopRail from "./GradientStopRail.vue";
 import GradientStopInspector from "./GradientStopInspector.vue";
 import GradientCodeEditor from "./GradientCodeEditor.vue";
 import GradientEasingEditor from "./GradientEasingEditor.vue";
-import { useGradientModel } from "../composables/useGradientModel";
+import { seededStops, useGradientModel } from "../composables/useGradientModel";
 import { useGradientCSS } from "../composables/useGradientCSS";
 import type { GradientModelState, GradientStop, GradientType } from "../model/types";
 import { useSettle } from "../../../color-session/useAtmosphereFrameCoalesce";
@@ -30,6 +30,14 @@ import InterpolationFields from "../../../shared/ui/InterpolationFields.vue";
 import { LIBRARY_PORT_KEY } from "../../../palettes";
 import type { AcceptableValue } from "reka-ui";
 import { usePanePopups } from "../../../shell/usePanePopups";
+import {
+    enumCodec,
+    hueMethodCodec,
+    interpolationSpaceCodec,
+    numberCodec,
+    useUrlState,
+} from "../../../shell/urlState";
+import { stopsCodec, stopsHistory } from "../model/stopsUrl";
 
 // A2-VA-L2-11 — this pane's popups close when the pane deactivates.
 const popups = usePanePopups();
@@ -54,6 +62,22 @@ const {
     setStopsFromColors,
     applyCSS,
 } = useGradientModel();
+
+// The address carries the whole gradient: type, angle, stops (with their
+// easings), and the space and hue method it travels through.
+useUrlState(["gradient"], [
+    {
+        key: "gt",
+        state: type,
+        codec: enumCodec(["linear", "radial", "conic"] as const),
+        fallback: () => "linear" as const,
+        history: "push",
+    },
+    { key: "ga", state: direction, codec: numberCodec(0, 360), fallback: () => 90, history: "replace" },
+    { key: "stops", state: stops, codec: stopsCodec, fallback: seededStops, history: stopsHistory },
+    { key: "gi", state: interpolationSpace, codec: interpolationSpaceCodec, fallback: () => "oklch", history: "push" },
+    { key: "gh", state: hueMethod, codec: hueMethodCodec, fallback: () => "shorter", history: "push" },
+]);
 
 // o1105 U4 — THE EDITORS READ THE STOPS ONCE A DRAG SETTLES. A stop drag
 // writes once per frame, and the rail and the render tile follow it live; the

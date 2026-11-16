@@ -72,7 +72,7 @@ function axisPosition(position: number): number {
  */
 const SEED_COLORS = ["oklch(0.75 0.15 145)", "oklch(0.65 0.18 265)"] as const;
 
-function seededStops(): GradientStop[] {
+export function seededStops(): GradientStop[] {
     return SEED_COLORS.map((css, i) => ({
         id: uid(),
         cssColor: seedLiteral(css),

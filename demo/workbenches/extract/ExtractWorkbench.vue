@@ -286,6 +286,7 @@ import type { SpaceId } from "@mkbabb/value.js/color";
 import { CSS_COLOR_KEY } from "../../color-session/keys";
 import { formatCssCaption } from "../../color-session/format-color";
 import { useExtractSession } from "./composables/useExtractSession";
+import { numberCodec, useUrlState } from "../../shell/urlState";
 import { useCameraCapture } from "./composables/useCameraCapture";
 
 import ImageDropZone from "./ImageDropZone.vue";
@@ -313,6 +314,12 @@ const emit = defineEmits<{
 const cssColorOpaque = inject(CSS_COLOR_KEY, undefined);
 
 const session = useExtractSession();
+// The address carries the extraction's two settings; the image itself is a
+// local file and never leaves the device.
+useUrlState(["extract"], [
+    { key: "n", state: session.colorCount, codec: numberCodec(1, 16), fallback: () => 5, history: "replace" },
+    { key: "cw", state: session.chromaWeight, codec: numberCodec(0, 1.5, 2), fallback: () => 0.5, history: "replace" },
+]);
 
 // The eyedropper's mount: latched on by an open, released by the dialog's own
 // `closed` (its leave has finished), so the close is never a one-frame unmount.

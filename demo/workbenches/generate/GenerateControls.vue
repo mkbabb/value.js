@@ -39,6 +39,7 @@ import {
 import type { PresetName, HarmonyName } from "../../color-session/generate-color";
 import type { AcceptableValue } from "reka-ui";
 import { usePanePopups } from "../../shell/usePanePopups";
+import { enumCodec, numberCodec, useUrlState } from "../../shell/urlState";
 
 // A2-VA-L2-11 — this pane's popups close when the pane deactivates.
 const popups = usePanePopups();
@@ -51,6 +52,16 @@ const {
     palette,
     regenerate,
 } = useColorGeneration();
+
+// The address carries what reproduces the palette: preset, harmony, count and
+// the seed. The seed has no default (it is drawn per visit), so it is always
+// written, and a link without one keeps this visit's.
+useUrlState(["generate"], [
+    { key: "preset", state: preset, codec: enumCodec(PRESET_NAMES), fallback: () => "vibrant", history: "push" },
+    { key: "harmony", state: harmony, codec: enumCodec(HARMONY_NAMES), fallback: () => "golden", history: "push" },
+    { key: "count", state: count, codec: numberCodec(1, 12), fallback: () => 5, history: "replace" },
+    { key: "seed", state: seed, codec: numberCodec(0, 0xffffffff), history: "push" },
+]);
 
 // T.W6 · W6-5 (T-16/F2): the save carries the plate's own name — the bench
 // title is provenance FOR the save, never display-only chrome. (The pane's

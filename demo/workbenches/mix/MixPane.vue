@@ -6,6 +6,14 @@ import MixConfigBar from "./MixConfigBar.vue";
 import MixResultDisplay from "./MixResultDisplay.vue";
 import MixAnimationCanvas from "./MixAnimationCanvas/MixAnimationCanvas.vue";
 import { useMixingState } from "./composables/useMixingState";
+import {
+    cssColorCodec,
+    enumCodec,
+    hueMethodCodec,
+    interpolationSpaceCodec,
+    listCodec,
+    useUrlState,
+} from "../../shell/urlState";
 import { LIBRARY_PORT_KEY } from "../../palettes";
 import { CSS_COLOR_KEY } from "../../color-session/keys";
 import type { MixSceneTarget } from "../../color-session/keys";
@@ -34,6 +42,30 @@ const {
     reset,
     clearSelection,
 } = useMixingState();
+
+// The address: the tab, the colours being mixed, and how they travel. Input
+// palettes stay out (they are palette objects, not values a link can carry).
+const mixColorsCss = computed({
+    get: () => selectedColors.value.map((c) => c.css),
+    set: (css: string[]) => {
+        // A colour already in the row keeps its source; one from a link says so.
+        const known = new Map(selectedColors.value.map((c) => [c.css, c]));
+        selectedColors.value = css.map((c) => known.get(c) ?? { css: c, source: "link" });
+    },
+});
+useUrlState(["mix"], [
+    { key: "tab", state: mode, codec: enumCodec(["colors", "palettes"] as const), fallback: () => "colors" as const, history: "push" },
+    { key: "mc", state: mixColorsCss, codec: listCodec(cssColorCodec), fallback: () => [], history: "push" },
+    { key: "ms", state: colorSpace, codec: interpolationSpaceCodec, fallback: () => "oklab", history: "push" },
+    { key: "mh", state: hueMethod, codec: hueMethodCodec, fallback: () => "shorter", history: "push" },
+    {
+        key: "ml",
+        state: leftoverStrategy,
+        codec: enumCodec(["discard", "distribute", "repeat"] as const),
+        fallback: () => "discard" as const,
+        history: "push",
+    },
+]);
 
 function onSave() {
     if (!mixResult.value) return;

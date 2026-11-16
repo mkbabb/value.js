@@ -71,10 +71,11 @@ export function providePalettePorts(deps: PalettePortsDeps) {
     const adminUsersSearch = ref("");
     const adminNamesSearch = ref("");
     // A route change resets every domain's query — a query typed for one view
-    // never filters the next one silently.
+    // never filters the next one silently. Browse's query is the exception: it
+    // only ever filters Browse, and it is in the address (`q`, urlState.ts), so
+    // it stays with its view like every other pane's state.
     watch(currentView, () => {
         librarySearch.value = "";
-        browseSearch.value = "";
         adminUsersSearch.value = "";
         adminNamesSearch.value = "";
     });

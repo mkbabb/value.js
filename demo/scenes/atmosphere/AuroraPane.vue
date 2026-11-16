@@ -41,6 +41,14 @@ import { PreviewStrip } from "../../shared/ui/color-chips";
 import { auroraHarmonyStops } from "./aurora-harmony-stops";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import { usePanePopups } from "../../shell/usePanePopups";
+import {
+    configCodec,
+    configHistory,
+    configState,
+    sliderFields,
+    useUrlState,
+    type ConfigField,
+} from "../../shell/urlState";
 
 // A2-VA-L2-11 — this pane's popups close when the pane deactivates.
 const popups = usePanePopups();
@@ -122,6 +130,27 @@ const SECTIONS: SliderSection[] = [
         ],
     },
 ];
+
+// The address: every atom this pane has a control for, as one `aurora` key
+// holding only what differs from the defaults (the seed is the picked colour,
+// already in the address).
+const AURORA_FIELDS: ConfigField[] = [
+    { path: "harmony", values: HARMONIES },
+    { path: "zones.arrangement", values: ARRANGEMENTS },
+    { path: "medium.kind", values: MEDIA },
+    { path: "motion", values: MOTIONS },
+    ...sliderFields(SECTIONS),
+];
+const AURORA_DEFAULTS = (DEFAULT_AURORA_ATOMS as unknown) as Record<string, unknown>;
+useUrlState(["atmosphere"], [
+    {
+        key: "aurora",
+        state: configState((atoms as unknown) as Record<string, unknown>, AURORA_DEFAULTS, AURORA_FIELDS),
+        codec: configCodec(AURORA_FIELDS),
+        fallback: () => ({}),
+        history: configHistory(AURORA_FIELDS),
+    },
+]);
 </script>
 
 <template>
