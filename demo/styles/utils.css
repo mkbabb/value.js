@@ -233,6 +233,13 @@ svg.gold-ink,
     border-radius: var(--radius-sm);
     background-color: var(--card);
 }
+/* A strip of chips (the embed picker's colours, the gradient rail's band)
+ * wears the same paper at the panel radius: the small radius is a chip's, and
+ * a 58 px strip at 4 px read square beside its 16 px card. */
+.embed-swatches.swatch-chip,
+.rail-band.swatch-chip {
+    border-radius: var(--radius-panel);
+}
 .swatch-chip > .watercolor-swatch {
     position: relative;
     z-index: 1;

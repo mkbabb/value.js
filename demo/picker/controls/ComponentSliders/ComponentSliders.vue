@@ -402,6 +402,7 @@ useSliderAnnouncements({
     top: 50%;
     width: 1px;
     height: 42%;
+    border-radius: var(--radius-pill);
     transform: translate(-50%, -50%);
     background: var(--slider-thumb-border-color, var(--gamut-edge));
     pointer-events: none;
