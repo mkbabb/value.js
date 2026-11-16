@@ -376,7 +376,14 @@ useSliderAnnouncements({
      * no producer ask), so the drag cursor lands with it: `grab` at rest,
      * `grabbing` while held (the gradient precedent). */
     cursor: grab;
-    transition: background-color var(--duration-fast) var(--ease-standard),
+    /* owner-1112 hover law — EXTEND glass's thumb list, never replace it.
+     * Glass gives the thumb `transform` on its press spring; this rule had
+     * dropped it, and the hover / held / focus ring (`box-shadow`, glass's
+     * spectrum-thumb rules) was in neither list, so it cut in and out on
+     * every thumb hover. A ring that eases is a fade under reduced motion. */
+    transition: transform var(--spring-press-duration) var(--spring-press),
+        box-shadow var(--duration-fast) var(--ease-standard),
+        background-color var(--duration-fast) var(--ease-standard),
         border-color var(--duration-fast) var(--ease-standard);
 }
 .channel-slider .slider-track {
