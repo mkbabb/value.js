@@ -254,13 +254,6 @@
      * reflow-free landing face). */
     --font-stack-display: "Fraunces", "Fraunces Fallback", serif;
 
-    /* ── Fully round docks (glass-ui's supported route on 11.0.x) ──
-     * The rounded and card dock shapes read `--radius-dock` (glass 11: 1rem);
-     * the stadium is the shape he asked for in every dock. A pixel length,
-     * never a percentage. REMOVE AT GLASS 11.1.0, where the stadium is the
-     * default. */
-    --radius-dock: 9999px;
-
     /* ── The accent axis (R.W3 Lane A / A2 — the app's chromatic voice) ──
      * `--accent-live` is the contrast-guarded LIVE picked color, written by
      * App.vue from the library `safeAccentColor` path (the same SAFE_ACCENT_KEY

@@ -91,7 +91,7 @@
     "devDependencies": {
         "@lucide/vue": "^1.16.0",
         "@mkbabb/bbnf-lang": "0.3.0",
-        "@mkbabb/glass-ui": "11.0.2",
+        "@mkbabb/glass-ui": "11.1.0",
         "@mkbabb/keyframes.js": "^6.0.0",
         "@playwright/test": "^1.60.0",
         "@tailwindcss/postcss": "^4.3.0",
