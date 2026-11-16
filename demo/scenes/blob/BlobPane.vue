@@ -13,6 +13,7 @@ import { BLOB_CONFIG_KEY, BLOB_CONFIG_DEFAULTS } from "@mkbabb/glass-ui/blob-con
 import type { BlobConfig } from "@mkbabb/glass-ui/blob-config";
 import ConfigSliderPane from "../ConfigSliderPane.vue";
 import type { SliderSection } from "../ConfigSliderPane.vue";
+import { configCodec, configState, sliderFields, useUrlState } from "../../shell/urlState";
 
 const cfg = inject(BLOB_CONFIG_KEY)!;
 
@@ -117,6 +118,23 @@ const SECTIONS: SliderSection[] = [
         defs: [s("tempo", "Speed", 0.25, 2.5, 0.05)],
     },
 ];
+
+// The address: the sliders' values that differ from the defaults, as one
+// `blob` key. (The palette stops follow the picked colour and stay out.)
+const BLOB_FIELDS = sliderFields(SECTIONS);
+useUrlState(["blob"], [
+    {
+        key: "blob",
+        state: configState(
+            (cfg as unknown) as Record<string, unknown>,
+            (BLOB_CONFIG_DEFAULTS as unknown) as Record<string, unknown>,
+            BLOB_FIELDS,
+        ),
+        codec: configCodec(BLOB_FIELDS),
+        fallback: () => ({}),
+        history: "replace",
+    },
+]);
 </script>
 
 <template>

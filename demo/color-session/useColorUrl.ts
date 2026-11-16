@@ -6,6 +6,8 @@ import type { DisplayColorSpace } from "./color-model";
 import { resolveColorSpace, colorToHexString } from "./color-model";
 import { convertPickerColor, parsePickerColor, serializePickerColor } from "./picker-color";
 import { debounce } from "../shared/debounce";
+import { queryForView } from "../shell/urlState";
+import { isViewId } from "../shell/viewSchema";
 
 /**
  * useColorUrl — the LIVE URL↔model sync, and nothing else.
@@ -148,8 +150,12 @@ export function useColorUrl(options: {
      * (a storage-restored boot colour is never written to it), so the copied
      * link used to hold no colour at all.
      */
-    const shareHref = (): string =>
-        new URL(router.resolve({ query: { ...route.query, ...modelQuery() } }).href, window.location.href).href;
+    const shareHref = (): string => {
+        // Every pane's keys from live state too (`urlState.ts`), so a change
+        // still waiting on its replace is in the copied link.
+        const base = isViewId(route.name) ? queryForView(route.name, route.query) : route.query;
+        return new URL(router.resolve({ query: { ...base, ...modelQuery() } }).href, window.location.href).href;
+    };
 
     return { shareHref };
 }

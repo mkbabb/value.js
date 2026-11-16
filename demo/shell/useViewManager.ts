@@ -11,6 +11,7 @@ import {
     type SceneRegion,
     type PaneConfig,
 } from "./viewSchema";
+import { queryForView } from "./urlState";
 
 // Re-export the schema types so existing consumers that import from
 // `useViewManager` continue to resolve cleanly (the schema is the single
@@ -68,8 +69,10 @@ export function useViewManager(): ViewManager {
     function switchView(id: ViewId) {
         if (id === currentView.value) return;
         previousView.value = currentView.value;
-        // Preserve color query params when switching views.
-        router.push({ name: id, query: route.query });
+        // The colour pair rides along; each pane's own keys are dropped with
+        // the view that seated them and the arriving panes write theirs
+        // (`urlState.ts`), so Back returns to exactly the view that was left.
+        router.push({ name: id, query: queryForView(id, route.query) });
     }
 
     function goBack() {

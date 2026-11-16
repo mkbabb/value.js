@@ -147,7 +147,7 @@ describe("N-3 · prune scope — the confirm's number and the operation's scope 
 });
 
 describe("N-4 · one searchQuery per domain, and it resets", () => {
-    it("the four domains hold four distinct refs; typing in one filters no other; a route change resets all", async () => {
+    it("the four domains hold four distinct refs; typing in one filters no other; a route change resets all but Browse's, which the address holds", async () => {
         const { ports, view } = mountAdmin("admin-users");
         const refs = [
             ports.library.searchQuery,
@@ -166,7 +166,7 @@ describe("N-4 · one searchQuery per domain, and it resets", () => {
         ports.library.searchQuery.value = "mine";
         view.value = "admin-names";
         await flushPromises();
-        expect(refs.map((r) => r.value)).toEqual(["", "", "", ""]);
+        expect(refs.map((r) => r.value)).toEqual(["", "sunset", "", ""]);
     });
 });
 

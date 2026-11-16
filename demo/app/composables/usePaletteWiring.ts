@@ -22,6 +22,13 @@ import type { ColorPicker } from "../../picker";
 import type { ViewManager } from "../../shell/useViewManager";
 import { parsePickerColor, serializePickerColor } from "../../color-session/picker-color";
 import { debounce } from "../../shared/debounce";
+import {
+    enumCodec,
+    listCodec,
+    nullableCodec,
+    textCodec,
+    useUrlState,
+} from "../../shell/urlState";
 import { providePalettePorts, type PalettePorts } from "../../palettes";
 
 // MT-REGISTER C-2 ≡ D-1 (X realization §0hw.2): a palette → picker intent waits
@@ -137,6 +144,54 @@ export function usePaletteWiring(
             }
         },
     });
+
+    // --- The address (owner, 15 Nov: "Each page should have state defined in
+    // the URL") — the opened palette wherever a palettes list is seated, and
+    // the Browse wall's query and filters. Declared before the view watcher
+    // below so a deep link's filters are in place for the first load.
+    useUrlState(["palettes", "browse"], [
+        {
+            key: "open",
+            state: ports.browse.expandedId,
+            codec: nullableCodec(textCodec(120)),
+            fallback: () => null,
+            history: "push",
+        },
+    ]);
+    useUrlState(
+        ["browse"],
+        [
+            { key: "q", state: ports.browse.searchQuery, codec: textCodec(120), fallback: () => "", history: "replace" },
+            {
+                key: "sort",
+                state: ports.browse.sortMode,
+                codec: enumCodec(["newest", "popular", "most-forked"] as const),
+                fallback: () => "newest" as const,
+                history: "push",
+            },
+            {
+                key: "tier",
+                state: ports.browse.tierFilter,
+                codec: enumCodec(["", "featured"] as const),
+                fallback: () => "",
+                history: "push",
+            },
+            {
+                key: "tags",
+                state: ports.browse.selectedTags,
+                codec: listCodec(textCodec(40), ","),
+                fallback: () => [],
+                history: "push",
+            },
+        ],
+        // The search reloads through its own debounced watcher below; the
+        // sort and filters are server-side and reload here.
+        (keys) => {
+            if (keys.some((k) => k !== "q") && viewManager.currentView.value === "browse") {
+                ports.browse.loadRemotePalettes(true);
+            }
+        },
+    );
 
     // --- Cross-module orchestration watchers (E.W2 Lane D / AUD-5.14) ---
     //

@@ -318,6 +318,10 @@ test("the forward and inverse maps are inverse: a press at a handle's own pixel 
     // inline `left` — never from the accessible NAME, which announces identity
     // and ordinal rank, not position (GRADSTOP-A §6, the readout-vacuity rule).
     for (const terminal of [0, 100]) {
+        // The gradient's stops live in the address (`stops=`), so a reload
+        // reopens the stop the previous pass minted. The bare address carries
+        // none, so the reload lands on the two-stop seed.
+        await page.goto("/#/gradient", { waitUntil: "domcontentloaded" });
         await page.reload({ waitUntil: "networkidle" });
         await openView(page, "Gradient");
         await paneSettled(page);
@@ -337,7 +341,7 @@ test("the forward and inverse maps are inverse: a press at a handle's own pixel 
                 .locator("[data-stop-id]")
                 .evaluateAll((els) => els.map((e) => e.getAttribute("data-stop-id")!));
 
-        // The reload resets the model to its two-stop seed; wait for the rail
+        // The bare-address reload seeds the model's two stops; wait for the rail
         // to carry them before reading, or the census below counts an empty
         // pane and the gate passes on a page that never rendered.
         await expect(live.locator("[data-stop-id]")).toHaveCount(2);

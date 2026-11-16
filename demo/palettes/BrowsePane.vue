@@ -243,6 +243,7 @@ import {
     FlagReportDialog,
 } from "./browser/dialog";
 import PaneShell from "../shell/PaneShell.vue";
+import { formatNumber, nullableCodec, textCodec, useUrlState, type UrlCodec } from "../shell/urlState";
 import type { Palette, Tag } from "./types";
 import { useDialogBrowseActions } from "./browser/dialog";
 
@@ -334,6 +335,36 @@ async function onVersions(palette: Palette) {
     await nextTick();
     versionDrawerOpen.value = true;
 }
+
+// The open history drawer is in the address (`hist=<slug>`, pushed), so Back
+// closes it and a link opens it once the wall has loaded that palette.
+const pendingHistory = ref<string | null>(null);
+const historySlug = computed<string | null>({
+    get: () => pendingHistory.value ?? (versionDrawerOpen.value ? (versionPalette.value?.slug ?? null) : null),
+    set: (slug) => {
+        pendingHistory.value = null;
+        if (slug === null) {
+            versionDrawerOpen.value = false;
+            return;
+        }
+        const palette = pm.remotePalettes.value.find((p) => p.slug === slug);
+        if (palette) void onVersions(palette);
+        else pendingHistory.value = slug;
+    },
+});
+watch(
+    () => pm.remotePalettes.value,
+    (palettes) => {
+        const slug = pendingHistory.value;
+        const palette = slug === null ? undefined : palettes.find((p) => p.slug === slug);
+        if (!palette) return;
+        pendingHistory.value = null;
+        void onVersions(palette);
+    },
+);
+useUrlState(["browse"], [
+    { key: "hist", state: historySlug, codec: nullableCodec(textCodec(120)), fallback: () => null, history: "push" },
+]);
 
 /** X.W12U.s2 · UIA-V-324: the revert in flight (the drawer holds its buttons). */
 const revertPending = ref(false);
@@ -556,6 +587,26 @@ function onClearFilters() {
 // --- Color search ---
 
 const colorSearchParams = ref<{ L: number; a: number; b: number } | null>(null);
+
+// The colour search is in the address as `near=L,a,b` (OKLab, 3 decimals).
+const oklabCodec: UrlCodec<{ L: number; a: number; b: number }> = {
+    parse(raw) {
+        const parts = raw.split(",").map(Number);
+        if (parts.length !== 3 || !parts.every(Number.isFinite)) return undefined;
+        const [L, a, b] = parts as [number, number, number];
+        return { L: Math.min(1, Math.max(0, L)), a, b };
+    },
+    format: ({ L, a, b }) => [L, a, b].map((n) => formatNumber(n, 3)).join(","),
+};
+useUrlState(["browse"], [
+    {
+        key: "near",
+        state: colorSearchParams,
+        codec: nullableCodec(oklabCodec),
+        fallback: () => null,
+        history: "push",
+    },
+]);
 
 /** X.W12U.s2 · UIA-V-122: the wall is narrowed by a query, a tier, tags or a
  *  colour — an empty result then means "nothing matches", not "nothing exists". */
