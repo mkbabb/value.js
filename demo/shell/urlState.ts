@@ -439,9 +439,10 @@ export function useUrlState(
         if (params.some((p) => route.query[p.key] !== undefined)) {
             const changed = applyParams(params, route.query);
             if (changed.length) onApply?.(changed);
-        } else if (params.some((p) => encodeParam(p) !== undefined)) {
-            request("replace");
         }
+        // The address settles on the state's own spelling: a link's clamped or
+        // re-spelt value, or a pane's state that no key carried yet.
+        if (params.some((p) => encodeParam(p) !== first(route.query[p.key]))) request("replace");
     }
 
     watch(

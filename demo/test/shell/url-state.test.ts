@@ -233,6 +233,8 @@ describe("useUrlState over a router", () => {
         const { type, angle, router } = await harness("/gradient?gt=conic&ga=999&color=red");
         expect(type.value).toBe("conic");
         expect(angle.value).toBe(360); // clamped
+        await settle(REPLACE_MS + 20);
+        expect(router.currentRoute.value.query.ga).toBe("360"); // and the address says so
         const bad = await harness("/gradient?gt=spiral&ga=12");
         expect(bad.type.value).toBe("linear");
         expect(bad.angle.value).toBe(12);
