@@ -453,7 +453,6 @@ test("type-scale containment: at rootFS 20px the terminal handles stay inside th
 test("the seat rail frees the meniscus: every rail ordinal mints, at any rail width", async ({
     page,
 }) => {
-    test.fail(true, "glass-ui 11.0.2: a ResizeObserver loop fires when the dock idle-folds, with only glass's observers live; waits on glass-ui 11.1.1");
     const consoleErrors = setupEnvNoise(page);
     const main = await openGradient(page);
     const rail = bar(main);
