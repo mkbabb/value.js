@@ -184,7 +184,7 @@
                         </DialogHeader>
                         <DialogFooter>
                             <Button emphasis="text" @click="deleteConfirmOpen = false">Cancel</Button>
-                            <Button tone="destructive" :disabled="!deleteConfirmTarget" @click="onDeleteConfirm">
+                            <Button tone="destructive" :disabled="deleteConfirmOpen && !deleteConfirmTarget" @click="onDeleteConfirm">
                                 <Trash2 aria-hidden="true" />
                                 Delete palette
                             </Button>

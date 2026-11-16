@@ -106,4 +106,23 @@ const {
     inline-size: var(--swatch-size, 3rem);
     block-size: var(--swatch-size, 3rem);
 }
+
+/* The palette dot's hover (the original's): the paint swells to 1.06 and takes
+   its second seeded outline, eased in and out on the dot's own clocks (0.2 s,
+   0.6 s, the standard curve). Only the paint moves: `scale` is a transform, so
+   the button, its row and its neighbours keep their boxes to the pixel. Fine
+   pointers only, so a tap does not latch it. */
+@media (hover: hover) {
+    .swatch-button:hover :deep(.watercolor-swatch) {
+        scale: 1.06;
+        border-radius: var(--watercolor-radius-hover, var(--watercolor-radius));
+    }
+}
+
+/* Reduced motion: the outline alone, no swell. */
+@media (hover: hover) and (prefers-reduced-motion: reduce) {
+    .swatch-button:hover :deep(.watercolor-swatch) {
+        scale: none;
+    }
+}
 </style>

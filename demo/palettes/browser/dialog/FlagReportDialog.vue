@@ -4,7 +4,16 @@
              idiom — the glass surface, one dismiss (Cancel, Esc, outside; no ✕),
              locked while the report is in flight; `scroll` caps it to the
              viewport (A2-VA-X-10: 509 px tall in a 390 px landscape). -->
-        <DialogContent surface="glass" :dismiss="pending ? 'locked' : 'deliberate'" scroll>
+        <!-- The leave is glass's: the host keeps this dialog mounted through it and
+             releases its subject on `closed`, which fires once the plate has gone
+             (reka's close auto-focus runs as the content unmounts), never in the
+             tick that closes it. -->
+        <DialogContent
+            surface="glass"
+            :dismiss="pending ? 'locked' : 'deliberate'"
+            scroll
+            @close-auto-focus="$emit('closed')"
+        >
             <DialogHeader>
                 <!-- T.W4-6 (T-15/F7): the producer DialogTitle default is the
                      body-voice `text-subheading` — the demo's dialog headers
@@ -61,7 +70,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, watch } from "vue";
 import {
     Dialog,
     DialogContent,
@@ -87,6 +96,8 @@ const { open, paletteName, pending = false, error = null } = defineProps<{
 const emit = defineEmits<{
     "update:open": [value: boolean];
     submit: [reason: string, detail: string | undefined];
+    /** The dialog's leave has finished: its content is gone. */
+    closed: [];
 }>();
 
 const reasons = [
@@ -98,8 +109,16 @@ const reasons = [
 
 const reason = ref("");
 const detail = ref("");
-// The form lives as long as the dialog: the host unmounts it on close, so a
-// failed report keeps what was typed and a fresh open starts empty.
+// The form lives as long as the dialog: the host unmounts it after its leave,
+// so a failed report keeps what was typed and a fresh open starts empty. A
+// reopen for another palette while this one is still leaving starts empty too.
+watch(
+    () => paletteName,
+    () => {
+        reason.value = "";
+        detail.value = "";
+    },
+);
 function onSubmit() {
     if (!reason.value || pending) return;
     emit("submit", reason.value, detail.value.trim() || undefined);

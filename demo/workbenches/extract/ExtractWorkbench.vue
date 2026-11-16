@@ -259,12 +259,17 @@
         </div>
 
         <!-- Eyedropper (unified capability — T20): a glass dialog, teleported
-             and viewport-bound (SS8-0715/0722); it no longer overlays this root. -->
+             and viewport-bound (SS8-0715/0722); it no longer overlays this root.
+             It mounts when first opened and stays mounted until its leave has
+             finished (`closed`), so closing turns its `open` off and glass's
+             own exit runs; gating the mount on `open` removed it in one frame. -->
         <ImageEyedropper
-            v-if="session.eyedropperOpen.value && session.previewUrl.value"
+            v-if="eyedropperHeld && session.previewUrl.value"
+            :open="session.eyedropperOpen.value"
             :image-url="session.previewUrl.value"
             :color-space="colorSpace"
             @close="session.eyedropperOpen.value = false"
+            @closed="eyedropperHeld = session.eyedropperOpen.value"
             @pick="(css) => emit('pick', css)"
             @add-to-palette="(css) => emit('addColor', css)"
         />
@@ -272,7 +277,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, inject, onBeforeUnmount, onDeactivated, useTemplateRef, watch } from "vue";
+import { computed, inject, onBeforeUnmount, onDeactivated, ref, useTemplateRef, watch } from "vue";
 import { useFileDialog } from "@vueuse/core";
 import { Aperture, Camera, RotateCcw, Upload, X } from "@lucide/vue";
 import { Button } from "@mkbabb/glass-ui/button";
@@ -308,6 +313,17 @@ const emit = defineEmits<{
 const cssColorOpaque = inject(CSS_COLOR_KEY, undefined);
 
 const session = useExtractSession();
+
+// The eyedropper's mount: latched on by an open, released by the dialog's own
+// `closed` (its leave has finished), so the close is never a one-frame unmount.
+const eyedropperHeld = ref(false);
+watch(
+    session.eyedropperOpen,
+    (open) => {
+        if (open) eyedropperHeld.value = true;
+    },
+    { immediate: true, flush: "sync" },
+);
 
 const videoRef = useTemplateRef<HTMLVideoElement>("videoRef");
 
