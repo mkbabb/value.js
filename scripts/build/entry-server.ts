@@ -13,13 +13,20 @@ import { router } from "../../demo/app/router/index";
 export interface ShellRender {
     html: string;
     teleports: Record<string, string>;
+    /** The module id of every component the render ran (plugin-vue's SSR
+     *  report), so the build can link the sheets of the lazy chunks it used. */
+    modules: string[];
 }
 
 export async function renderShell(): Promise<ShellRender> {
     const app = createVjsApp(true);
     await router.push("/");
     await router.isReady();
-    const context: { teleports?: Record<string, string> } = {};
+    const context: { teleports?: Record<string, string>; modules?: Set<string> } = {};
     const html = await renderToString(app, context);
-    return { html, teleports: context.teleports ?? {} };
+    return {
+        html,
+        teleports: context.teleports ?? {},
+        modules: [...(context.modules ?? [])],
+    };
 }

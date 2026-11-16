@@ -42,7 +42,14 @@
                 inline ? 'space-trigger--inline' : '',
             ]"
         >
-            <SelectValue class="w-full" />
+            <!-- COLD LOAD (owner 2026-11-16, the motion law): the title is
+                 written here, not read back from the rows. reka's SelectValue
+                 prints the text of the registered option, and the rows
+                 register only on the client (the list is never rendered
+                 closed), so the prerendered `/` painted the plate with no
+                 title and "OKLCh" appeared at hydration in one frame. The
+                 catalog's own label is the text the option carries. -->
+            <SelectValue class="w-full">{{ SPACE_CATALOG[space].label }}</SelectValue>
         </SelectTrigger>
         <!-- The specimen catalog stays — all glass belongs to the dropdown,
              never the title (W4-1 open-state law). Rows are SPECIMEN entries:
