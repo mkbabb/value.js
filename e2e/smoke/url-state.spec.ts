@@ -48,7 +48,10 @@ test("gradient: type, angle, stops, space and hue reopen from the link", async (
     await expect(combo(page, "Radial")).toBeVisible();
     await expect(combo(page, "OKLab")).toBeVisible();
     await expect(combo(page, "Longer")).toBeVisible();
-    expect(await query(page)).toMatchObject({ gt: "radial", ga: "45", gi: "oklab", gh: "longer", stops: STOPS });
+    const q = await query(page);
+    expect(q).toMatchObject({ gt: "radial", ga: "45", gi: "oklab", gh: "longer" });
+    // The stops settle on the model's literal dialect; positions and easing hold.
+    expect(q.stops!.split("|").map((s) => s.slice(s.indexOf("@")))).toEqual(["@0~b:0.42,0,0.58,1", "@50", "@100"]);
 });
 
 test("generate: the same link draws the same palette", async ({ page }) => {

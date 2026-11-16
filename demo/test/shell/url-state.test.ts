@@ -34,6 +34,7 @@ import {
 import { useViewManager } from "../../shell/useViewManager";
 import { stopsCodec, stopsHistory } from "../../workbenches/gradient/model/stopsUrl";
 import { seededStops } from "../../workbenches/gradient/composables/useGradientModel";
+import { seedLiteral } from "../../workbenches/gradient/composables/useGradientCSS";
 
 function roundTrip<T>(codec: UrlCodec<T>, value: T): T | undefined {
     return codec.parse(codec.format(value));
@@ -110,14 +111,16 @@ describe("codecs", () => {
     });
 
     it("gradient stops: colour, position and easing survive the round trip", () => {
-        const raw =
-            "oklch(0.75 0.15 145)@0~b:0.42,0,0.58,1|oklch(0.7 0.1 200)@40.5~s:4,jump-start|oklch(0.65 0.18 265)@100";
+        const [a, b, c] = ["oklch(0.75 0.15 145)", "oklch(0.7 0.1 200)", "oklch(0.65 0.18 265)"].map(seedLiteral);
+        const raw = `${a}@0~b:0.42,0,0.58,1|${b}@40.5~s:4,jump-start|${c}@100`;
         const stops = stopsCodec.parse(raw)!;
         expect(stops.map((s) => [s.cssColor, s.position, s.easing.mode])).toEqual([
-            ["oklch(0.75 0.15 145)", 0, "bezier"],
-            ["oklch(0.7 0.1 200)", 40.5, "steps"],
-            ["oklch(0.65 0.18 265)", 100, "bezier"],
+            [a, 0, "bezier"],
+            [b, 40.5, "steps"],
+            [c, 100, "bezier"],
         ]);
+        // A colour in another spelling settles on the model's one dialect.
+        expect(stopsCodec.parse("oklch(0.75 0.15 145)@0|red@100")![0]!.cssColor).toBe(a);
         expect(stops[0]!.easing.css).toBe("cubic-bezier(0.42, 0, 0.58, 1)");
         expect(stops[1]!.easing.css).toBe("steps(4, jump-start)");
         expect(stops[1]!.easing.fn(0.1)).toBeCloseTo(0.25);
@@ -131,7 +134,7 @@ describe("codecs", () => {
         expect(stopsCodec.parse("red@0|nope@100")).toBeUndefined();
         expect(stopsCodec.parse("red@0~b:2,0,1,1|blue@100")).toBeUndefined();
         // Stops come back in position order.
-        expect(stopsCodec.parse("blue@100|red@0")!.map((s) => s.cssColor)).toEqual(["red", "blue"]);
+        expect(stopsCodec.parse("blue@100|red@0")!.map((s) => s.cssColor)).toEqual(["red", "blue"].map(seedLiteral));
         // Moving a stop replaces; adding one pushes.
         expect(stopsHistory("red@0|blue@100", "red@0|blue@90")).toBe("replace");
         expect(stopsHistory("red@0|blue@100", "red@0|lime@50|blue@100")).toBe("push");

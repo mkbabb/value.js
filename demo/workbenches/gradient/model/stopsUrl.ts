@@ -10,7 +10,7 @@ import { CubicBezier, jumpTerms, steppedEase, type JumpPosition } from "@mkbabb/
 import type { BezierPoints, JumpTerm } from "@mkbabb/glass-ui/easing";
 
 import { cssColorCodec, formatNumber, listCodec, type UrlCodec } from "../../../shell/urlState";
-import { linearInterval } from "../composables/useGradientCSS";
+import { linearInterval, seedLiteral } from "../composables/useGradientCSS";
 import { bezierLiteral, stepsLiteral } from "../GradientVisualizer/easing/easingCatalogue";
 import type { GradientInterval, GradientStop } from "./types";
 
@@ -56,9 +56,12 @@ const stopCodec: UrlCodec<GradientStop> = {
         const head = tilde < 0 ? raw : raw.slice(0, tilde);
         const at = head.lastIndexOf("@");
         if (at < 0) return undefined;
-        const cssColor = cssColorCodec.parse(head.slice(0, at));
+        const css = cssColorCodec.parse(head.slice(0, at));
         const position = Number(head.slice(at + 1));
-        if (cssColor === undefined || !Number.isFinite(position)) return undefined;
+        if (css === undefined || !Number.isFinite(position)) return undefined;
+        // A linked stop prints in the model's one literal dialect, as a seeded
+        // or minted stop does (the address then settles on that spelling).
+        const cssColor = seedLiteral(css);
         const easing = parseEasing(tilde < 0 ? "" : raw.slice(tilde + 1));
         if (!easing) return undefined;
         return {
