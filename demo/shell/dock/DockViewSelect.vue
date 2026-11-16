@@ -191,12 +191,26 @@ const viewRing = computed(() => {
  * navigation still SWEEPS to the new view's hue, while the root token snaps
  * (no per-frame whole-document inherited-property invalidation — the P1-7
  * tax is dead). PRM: neutralised by the global guard like any transition. */
+/* owner-1112 hover law — the sweep EXTENDS glass's trigger list instead of
+ * replacing it: replaced, the hover fill and ink (glass's background-color and
+ * color legs) cut in and out, and the press lost its scale spring. Glass's
+ * focus-visible leg (box-shadow) rides along so the ring eases too. */
 .view-select-trigger {
-    transition: --accent-view var(--duration-panel) var(--ease-standard);
+    transition: background-color var(--dock-motion-fast),
+        color var(--dock-motion-fast),
+        scale var(--dock-press-spring),
+        opacity var(--dock-motion-fast),
+        box-shadow var(--dock-motion-fast),
+        --accent-view var(--duration-panel) var(--ease-standard);
 }
 /* o1105-r2 perf: the sweep is for a view change; under a drag the accent
-   tracks the colour, so the trigger snaps instead of re-sweeping per frame. */
+   tracks the colour, so the hue snaps instead of re-sweeping per frame. Only
+   the sweep leg drops; glass's hover and press legs stay. */
 :root[data-colour-live] .view-select-trigger {
-    transition: none;
+    transition: background-color var(--dock-motion-fast),
+        color var(--dock-motion-fast),
+        scale var(--dock-press-spring),
+        opacity var(--dock-motion-fast),
+        box-shadow var(--dock-motion-fast);
 }
 </style>
