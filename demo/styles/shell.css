@@ -611,6 +611,32 @@
     }
 }
 
+/* COLD LOAD (owner 2026-11-16, the motion law: "nothing changes instantly,
+ * in or out") — ONE TRACK: BROWSE HOLDS THE FIRST SCREEN. Browse is the one
+ * stage whose content comes over the network. Stacked, its wall sat above My
+ * Palettes at its four developing plates (579 px at 390×844), and the page of
+ * palettes landing a few hundred ms later grew it to 1415 px in one frame,
+ * throwing the companion's card out of the viewport (CLS 0.16, measured on
+ * the built bundle against the live palette API). The wall's own states
+ * already cross-fade (the vj-morph pair, BrowsePane.vue); what moved was the
+ * region. In one track the stage now takes the scene band as its floor in
+ * every state, so the developing wall, an error or an empty wall reserve the
+ * first screen a page of palettes fills, and the page lands below the fold
+ * for anything beneath it. Keyed on the DISPLAYED pane (`data-shown`), so a
+ * swap re-lays the column at its commit, never at the input. Two tracks keep
+ * their row: there the wall grows below the row's top and moves nothing. */
+@container pane-row not (inline-size >= calc(2 * min(25rem, 100svh) + clamp(0.5rem, 1.25vw, 1.618rem))) {
+    .pane-wrapper--stage[data-shown="browse"] {
+        display: flex;
+        flex-direction: column;
+        min-block-size: var(--scene-band-block);
+    }
+    .pane-wrapper--stage[data-shown="browse"] > .pane-shell {
+        flex: 1 1 auto;
+        block-size: auto;
+    }
+}
+
 /* X.W5.c — THE `[data-layout]` DISPLAY WITNESSES ARE GONE, all four of them.
  *
  * They were the defensive half of the single-mount fork: `[data-layout="mobile"]
