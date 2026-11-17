@@ -22,6 +22,8 @@
 import { createApp, createSSRApp, type App as VueApp } from "vue";
 import App from "./App.vue";
 import { router } from "./router/index";
+import { isViewId } from "../shell/viewSchema";
+import { viewLoaded } from "../shell/usePaneRouter";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import { API_CLIENT_KEY, createApiClient } from "../platform/transport/useApiClient";
 import { initApiEnvironment } from "../platform/transport/availability";
@@ -117,6 +119,15 @@ export function createVjsApp(hydrate: boolean): VueApp {
 // the shell in place. Any other first view hides the shell before paint and is
 // client-rendered from an emptied root, exactly as before. The dev server
 // serves no shell, so dev always client-renders.
+//
+// THE LINKED SCENE, WHOLE (owner 2026-11-16, the motion law). A client first
+// view also waits for the lazy panes its route seats (`viewLoaded`, whose
+// chunks `router/index.ts` started at module evaluation), so the first frame
+// holds every region of the linked scene and each lands through the overture's
+// appear grammar together. Mounting on the router alone painted the eager
+// picker first and let the routed pane arrive a frame later above it, pushing
+// it down the column: CLS 0.59 on `/#/mix` at 390. The shell needs no hold:
+// its first paint is the prerendered `/`, and its regions hydrate as before.
 if (!import.meta.env.SSR) {
     window.addEventListener("error", (event) =>
         reportFailure("window.error", event.error ?? event.message),
@@ -136,7 +147,11 @@ if (!import.meta.env.SSR) {
     const app = createVjsApp(hydrate);
 
     void (async () => {
-        await Promise.all([router.isReady(), prefersInstantDock() && loadDock()]);
+        const linkedScene = router.isReady().then(async () => {
+            const view = router.currentRoute.value.name;
+            if (!hydrate && isViewId(view)) await viewLoaded(view);
+        });
+        await Promise.all([linkedScene, prefersInstantDock() && loadDock()]);
         app.mount(root);
     })();
 }

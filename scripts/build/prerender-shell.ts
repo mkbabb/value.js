@@ -69,13 +69,72 @@ function stylelessSsr(): Plugin {
     };
 }
 
+/** Vite's emitted stylesheet tags in the client index (the entry's sheets). */
+const ENTRY_SHEET = /<link rel="stylesheet" crossorigin href="[^"]+">/g;
+
+/**
+ * Cold-load cure (owner 2026-11-16, the motion law): the shell carries the
+ * stylesheet of every lazy chunk it renders. The prerendered `/` paints the
+ * About pane from the HTML, but About's chunk carries its own sheet (the
+ * nutrition label's grid, the markdown body, `.about-pane`'s measure), and that
+ * sheet arrived only with the chunk, after first paint: the card painted
+ * 699 px wide in unstyled rows, then narrowed to 651 px and re-laid every row
+ * in one frame (CLS 0.11 to 0.14 at 1440). Each rendered component reports its
+ * module id (plugin-vue's SSR `ssrContext.modules`, the key Vite's SSR manifest
+ * uses); the client chunk that holds the module names its sheets; any sheet the
+ * index does not already link is linked after the entry's, so it blocks the
+ * first paint as the entry's does and the chunk's own load finds it present.
+ */
+function shellSheets(
+    index: string,
+    rendered: readonly string[],
+    sheetsByModule: ReadonlyMap<string, readonly string[]>,
+    base: string,
+): string {
+    const linked = index.match(ENTRY_SHEET) ?? [];
+    if (linked.length === 0) {
+        throw new Error("[prerender-shell] index.html carries no entry stylesheet");
+    }
+    const hrefs = [...new Set(rendered.flatMap((id) => sheetsByModule.get(id) ?? []))]
+        .map((file) => `${base}${file}`)
+        .filter((href) => !index.includes(`href="${href}"`));
+    if (hrefs.length === 0) return index;
+    const last = linked[linked.length - 1];
+    const tags = hrefs.map(
+        (href) => `\n    <link rel="stylesheet" crossorigin href="${href}">`,
+    );
+    return index.replace(last, `${last}${tags.join("")}`);
+}
+
 export function prerenderShell(): Plugin {
     let config: ResolvedConfig;
+    // Module id (relative to the root, as plugin-vue reports it) → the sheets
+    // of the client chunk that holds it.
+    const sheetsByModule = new Map<string, string[]>();
     return {
         name: "vjs:prerender-shell",
         apply: (userConfig, env) => env.command === "build" && !userConfig.build?.ssr,
         configResolved(resolved) {
             config = resolved;
+        },
+        writeBundle(_options, bundle) {
+            for (const output of Object.values(bundle)) {
+                if (output.type !== "chunk") continue;
+                const sheets = [...(output.viteMetadata?.importedCss ?? [])];
+                if (sheets.length === 0) continue;
+                for (const id of output.moduleIds) {
+                    const file = id.split("?")[0];
+                    if (!path.isAbsolute(file)) continue;
+                    const key = path
+                        .relative(config.root, file)
+                        .split(path.sep)
+                        .join("/");
+                    sheetsByModule.set(key, [
+                        ...(sheetsByModule.get(key) ?? []),
+                        ...sheets,
+                    ]);
+                }
+            }
         },
         async closeBundle(error) {
             // A failed client build has no index.html to write into; rendering
@@ -106,7 +165,11 @@ export function prerenderShell(): Plugin {
                         encoding: "utf8",
                         maxBuffer: 64 * 1024 * 1024,
                     }),
-                ) as { html: string; teleports: Record<string, string> };
+                ) as {
+                    html: string;
+                    teleports: Record<string, string>;
+                    modules: string[];
+                };
 
                 const targets = Object.keys(rendered.teleports);
                 const foreign = targets.filter((target) => target !== "body");
@@ -135,7 +198,7 @@ export function prerenderShell(): Plugin {
                     );
                 }
                 const shell = afterPaintGraph(
-                    index
+                    shellSheets(index, rendered.modules, sheetsByModule, config.base)
                         .replace(MOUNT, `<div id="app" data-prerendered>${rendered.html}</div>`)
                         .replace(BODY_END, `${body}${BODY_END}`),
                 );

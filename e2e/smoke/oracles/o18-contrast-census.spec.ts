@@ -1638,6 +1638,22 @@ for (const scheme of ["light", "dark"] as const) {
             await expect(badge, "the featured badge mounts on the wall's first card").toBeVisible({
                 timeout: 15000,
             });
+            // The wall fades in over its developing plates when the palettes
+            // land (the card grid's `vj-morph` enter), so the badge reads
+            // through an opacity-0 ancestor until that enter has run. The
+            // census measures the badge at rest.
+            await expect
+                .poll(
+                    () =>
+                        badge.evaluate((el) => {
+                            let opacity = 1;
+                            for (let n: Element | null = el; n; n = n.parentElement)
+                                opacity *= Number(getComputedStyle(n).opacity);
+                            return opacity;
+                        }),
+                    { message: "the wall's enter has run", timeout: 15000 },
+                )
+                .toBe(1);
             await expect
                 .poll(
                     () =>

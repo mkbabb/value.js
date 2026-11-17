@@ -352,14 +352,18 @@ const historySlug = computed<string | null>({
         else pendingHistory.value = slug;
     },
 });
+// The link's slug stays pending until the drawer is open. Clearing it first
+// left a tick in which the address read as closed, and that tick pushed `hist`
+// out of the address while the drawer opened (a wall that lands after the pane
+// has mounted, which is every cold `?hist=` link).
 watch(
     () => pm.remotePalettes.value,
-    (palettes) => {
+    async (palettes) => {
         const slug = pendingHistory.value;
         const palette = slug === null ? undefined : palettes.find((p) => p.slug === slug);
         if (!palette) return;
-        pendingHistory.value = null;
-        void onVersions(palette);
+        await onVersions(palette);
+        if (pendingHistory.value === slug) pendingHistory.value = null;
     },
 );
 useUrlState(["browse"], [

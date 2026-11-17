@@ -422,6 +422,30 @@ export function preloadView(id: ViewId): void {
         preloadPane(componentFor(region.pane))?.catch(() => {});
 }
 
+/**
+ * The cold load's hold (owner 2026-11-16, the motion law: "nothing changes
+ * instantly, in or out"). Settles once every lazy pane the view seats has
+ * loaded, failed, or run past the bound the slot itself gives up at
+ * (`PANE_LOAD_TIMEOUT_MS`); it never rejects. `main.ts` mounts a
+ * client-rendered first view after it, so the first frame the app paints is
+ * the linked scene whole.
+ *
+ * Before, the app mounted with only the eager picker resolved. The routed
+ * pane's region stood 0 px tall until its chunk landed (or held a plate after
+ * `PANE_LOAD_DELAY_MS`), so the first frame at 390 was the picker at the top
+ * of the column, and the routed pane then pushed it down out of the viewport
+ * in one frame: CLS 0.59 on `/#/mix`, 0.67 on `/#/palettes`, 0.54 on
+ * `/#/blob`, measured on the built bundle at 60 ms RTT. A Save-Data client is
+ * held too: this is the view it asked for, not a warm ahead of a choice.
+ */
+export function viewLoaded(id: ViewId): Promise<void> {
+    const loads = VIEW_MAP[id].regions.flatMap((region) => {
+        const loading = preloadPane(componentFor(region.pane));
+        return loading === null ? [] : [withinLoadBound(region.pane, loading)];
+    });
+    return Promise.allSettled(loads).then(() => undefined);
+}
+
 const warmQueue: Component[] = [];
 let warming = false;
 
