@@ -31,12 +31,31 @@ import type { Browser } from "@playwright/test";
  *     within `SETTLE_BOUND_MS`;
  *   · on `#/gradient`, within the same bound, the gradient rail is on-screen
  *     (its box starts inside the viewport).
+ *
+ * COLD LOAD (owner 2026-11-16, the motion law: the first paint is the linked
+ * view). A cold FIRST VIEW no longer takes the plate → pane path at all:
+ * `main.ts` mounts it once its route's pane chunks have landed
+ * (`viewLoaded`), so its regions arrive whole and no plate ever shows. That
+ * is now asserted on the first view, a held-chunk deep link to Mix. The
+ * plate → pane swap this oracle witnesses still happens on an in-app hop to a
+ * pane whose chunk is slower than the slot's delay, so each context then hops
+ * to the route under test with that route's own pane chunks GATED (held until
+ * the plate has shown, then released), which is the same in-slot swap a cold
+ * first view used to make. From Mix, `#/` re-renders the Picker's slot while
+ * About's chunk is in flight: the general form of the trigger, as before.
  */
 
 const CONTEXTS = 5;
 const CHUNK_HOLD_MS = 800;
 /** A pane module as the dev server serves it (the lazy pane chunks). */
 const PANE_CHUNK = /\/(workbenches|scenes|palettes)\/.*Pane\.vue/;
+/** The first view each context opens cold, before the hop under test. */
+const FIRST_VIEW = "/#/mix";
+/** The pane chunks each hop's own route seats, gated until its plate shows. */
+const GATED: Record<string, RegExp> = {
+    "#/gradient": /\/(workbenches\/gradient\/GradientPane|palettes\/PalettesPane)\.vue/,
+    "#/": /\/scenes\/about\/AboutPane\.vue/,
+};
 /**
  * How long a reading may take to come true. The stuck state is permanent (the
  * classes are never removed), so any bound fails it. The bound only has to
@@ -50,9 +69,14 @@ const STUCK_ENTER = '[class*="vj-enter-enter-from"], [class*="vj-enter-enter-act
 
 async function coldNavigate(browser: Browser, hash: string) {
     const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 } });
+    let release!: () => void;
+    const gate = new Promise<void>((resolve) => (release = resolve));
+    const gated = GATED[hash.slice(1)];
+    if (gated === undefined) throw new Error(`no gated chunks named for ${hash}`);
     await ctx.route(PANE_CHUNK, async (route) => {
-        await new Promise((resolve) => setTimeout(resolve, CHUNK_HOLD_MS));
-        await route.continue();
+        if (gated.test(route.request().url())) await gate;
+        else await new Promise((resolve) => setTimeout(resolve, CHUNK_HOLD_MS));
+        await route.continue().catch(() => {});
     });
     // X.W11.v1c: the plate is a TRANSIENT state (it shows from the slot's
     // delay until the held chunk lands — measured 1355→1868 ms, ~0.5 s, on a
@@ -78,16 +102,35 @@ async function coldNavigate(browser: Browser, hash: string) {
         }).observe(document, { childList: true, subtree: true });
     });
     const page = await ctx.newPage();
-    await page.goto(hash, { waitUntil: "commit", timeout: 60_000 });
+    const platesShown = () =>
+        page.evaluate(() => (window as unknown as { __platesShown: number }).__platesShown);
+    // The cold first view: its held chunks land, then it mounts whole. No
+    // region ever shows a plate (owner 2026-11-16, the motion law).
+    await page.goto(FIRST_VIEW, { waitUntil: "commit", timeout: 60_000 });
+    // Mix's title is its pane's own H1, so it is visible only once the pane
+    // has landed: past the plate's delay, had the view mounted early.
+    await expect(page.getByRole("heading", { level: 1, name: "Mix" })).toBeVisible({
+        timeout: 30_000,
+    });
+    expect(await platesShown(), "a cold first view mounts whole, with no plate").toBe(0);
+    // The hop: the route's own chunks are gated, so they outlast
+    // `PANE_LOAD_DELAY_MS`.
+    await page.evaluate((target) => {
+        location.hash = target;
+    }, hash.slice(1));
     // X.W5.d4 — the plate arm: the held chunk outlasts `PANE_LOAD_DELAY_MS`, so
     // the region's loading plate must SHOW before the pane arrives. The cure
     // keys the plate and the pane apart; it must not have keyed the plate away.
-    await expect
-        .poll(() => page.evaluate(() => (window as unknown as { __platesShown: number }).__platesShown), {
-            message: "the loading plate shows on a slow chunk",
-            timeout: 30_000,
-        })
-        .toBeGreaterThan(0);
+    try {
+        await expect
+            .poll(platesShown, {
+                message: "the loading plate shows on a slow chunk",
+                timeout: 30_000,
+            })
+            .toBeGreaterThan(0);
+    } finally {
+        release();
+    }
     // `networkidle` outlasts the held chunks, so every pane has RESOLVED before
     // the stuck-state poll starts. Without it the poll can read 0 while a lazy
     // pane is still in flight, before the dropped enter has happened at all.
