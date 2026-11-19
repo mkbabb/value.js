@@ -159,11 +159,13 @@ test("O-9 · Extract — the instrument face: live-k ghost that re-segments with
     // THE STILL LEG (X-DS pass 8 · V3C-02): the empty instrument is static.
     await assertStill(ghost);
 
-    // THE LIVE-K LEG, re-ruled: the ghost re-segments under the k-slider
-    // (the instrument shows its output shape before any image exists) and
-    // its HEIGHT does not follow k — at the slider's max (16) the plate is
-    // exactly as tall as at the default (5). Position-keyed cells keep their
-    // stagger across a step (SP-34).
+    // THE LIVE-K LEG, re-ruled at color-40 O-2 (his FORTIETH order: "a proper
+    // shadow palette skeleton"): the ghost is the developed card's silhouette,
+    // so it re-segments under the k-slider (the instrument shows its output
+    // shape before any image exists) and lays k daubs on its band, wrapping as
+    // the developed card's swatches wrap. Its strip and name row do not grow
+    // with k; only the daub rows do. Position-keyed cells keep their stagger
+    // across a step (SP-34).
     await expect(cells(ghost)).toHaveCount(5);
     // The ghost's LAYOUT height (re-baselined X-W12U .q2): `boundingBox()`
     // is the transformed box, and the plate's arrival pose — the
@@ -172,19 +174,27 @@ test("O-9 · Extract — the instrument face: live-k ghost that re-segments with
     // height.mjs: box 92.732 → 92.516 px over ~300 ms, layout 92.516 px
     // throughout), so r3/r6 read a 0.035 px "growth" that was the turn. The
     // law is about layout: the strip re-segments without growing.
-    const layoutHeight = () =>
-        ghost.evaluate((el) => parseFloat(getComputedStyle(el).height));
-    const restHeight = await layoutHeight();
+    const fixedRows = () =>
+        ghost.evaluate((el) => {
+            const strip = el.firstElementChild as HTMLElement;
+            const head = el.querySelector<HTMLElement>('[data-slot="shadow-palette-head"]')!;
+            return strip.offsetHeight + head.offsetHeight;
+        });
+    const restRows = await fixedRows();
+    const daubs = () => ghost.locator('[data-slot="shadow-palette-daub"]');
+    await expect(daubs()).toHaveCount(5);
     const kSlider = extractPane.getByRole("slider", {
         name: "Number of colors",
     });
     await kSlider.focus();
     await page.keyboard.press("ArrowRight");
     await expect(cells(ghost)).toHaveCount(6);
+    await expect(daubs()).toHaveCount(6);
     await assertStill(ghost);
     await page.keyboard.press("End");
     await expect(cells(ghost)).toHaveCount(16);
-    expect(await layoutHeight()).toBe(restHeight);
+    await expect(daubs()).toHaveCount(16);
+    expect(await fixedRows()).toBe(restRows);
     for (let k = 16; k > 5; k--) await page.keyboard.press("ArrowLeft");
     await expect(cells(ghost)).toHaveCount(5);
 

@@ -104,8 +104,11 @@ const PLATE_ALLOWANCE_PX = 5;
  *  shell's register, which SP-31 sequences behind X-W10. */
 const FIDELITY_TOLERANCE_PX = 4;
 
+/** The collapsed card's stand-ins. color-40 O-2 took Extract's instrument
+ *  face out of this budget: it is the DEVELOPED card's silhouette now (its
+ *  daubs wrap with k as the card's swatches do), held to that card's box by
+ *  e2e c40-extract-palette. */
 const PLATES = [
-    { file: "PaletteCardSkeleton.vue", props: { variant: "instrument" } },
     { file: "PaletteCardSkeleton.vue", props: {} },
     { file: "PaletteCardSkeleton.vue", props: { variant: "developing" } },
 ] as const;

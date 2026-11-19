@@ -125,26 +125,31 @@
                      drop zone, a third ghost register in one column); the
                      error line above stays its own explicit register
                      (error ≠ empty). -->
-                <Transition name="vj-morph" mode="out-in">
-                    <PaletteCardSkeleton
-                        v-if="session.isProcessing.value"
-                        key="imminent"
-                        :count="session.colorCount.value"
-                    />
-                    <div
-                        v-else-if="session.extractedPalette.value"
-                        key="extracted"
-                        class="flex flex-col gap-1.5"
-                    >
-                        <!-- color-40 O-3: the line that sat here ("30% of the
-                             image", "dominant oklch(...)") restated the weighted
-                             strip in words, half of it at 12.2 px; it is gone.
-                             Each band of the strip names its share and value. -->
+                <!-- color-40 O-2: ONE seat, one box. The ghost (empty: still;
+                     a run in flight: breathing) is the developed card's own
+                     silhouette, so a swap between them fills in place: the two
+                     share one grid cell and cross over by opacity, and the
+                     column never collapses between them (the out-in morph went
+                     325.7 to 226.1 to 325.7 px at 390 through a replace). -->
+                <div class="extract-result-seat">
+                    <Transition name="extract-swap">
+                        <PaletteCardSkeleton
+                            v-if="session.isProcessing.value || (!session.extractedPalette.value && !session.barren.value)"
+                            key="ghost"
+                            variant="instrument"
+                            :loading="session.isProcessing.value"
+                            :count="session.colorCount.value"
+                        />
                         <!-- X.W8.i (C3 layout fork): the split seats the aside
                              card at every width — one layout, no viewport rung
                              (the aside spine is sized for the half column, the
-                             same measure the stacked column gives a phone). -->
+                             same measure the stacked column gives a phone).
+                             color-40 O-3: the line that sat above the card ("30%
+                             of the image", "dominant oklch(...)") restated the
+                             weighted strip in words; each band names its share. -->
                         <PaletteInspector
+                            v-else-if="session.extractedPalette.value"
+                            key="extracted"
                             :palette="session.extractedPalette.value"
                             :expanded="true"
                             :collapsible="false"
@@ -156,23 +161,17 @@
                             @rename="session.onRename"
                             @add-color="(css) => emit('addColor', css)"
                         />
-                    </div>
-                    <!-- X-W7 Repair 1 (XW-22): a developed run with no opaque pixel is
-                         said, never shown as the pre-image ghost beside the image. -->
-                    <p
-                        v-else-if="session.barren.value"
-                        key="barren"
-                        class="text-mono-small text-muted-foreground px-1"
-                    >
-                        This image has no opaque pixels to sample.
-                    </p>
-                    <PaletteCardSkeleton
-                        v-else
-                        key="shadow"
-                        variant="instrument"
-                        :count="session.colorCount.value"
-                    />
-                </Transition>
+                        <!-- X-W7 Repair 1 (XW-22): a developed run with no opaque pixel is
+                             said, never shown as the pre-image ghost beside the image. -->
+                        <p
+                            v-else
+                            key="barren"
+                            class="text-mono-small text-muted-foreground px-1"
+                        >
+                            This image has no opaque pixels to sample.
+                        </p>
+                    </Transition>
+                </div>
             </div>
         </div>
 
@@ -282,3 +281,27 @@ onDeactivated(() => {
     session.eyedropperOpen.value = false;
 });
 </script>
+
+<style scoped>
+/* color-40 O-2: the result's one seat. Whatever stands in it (the ghost, the
+ * developed card, the barren line) takes the same grid cell, so a swap is a
+ * cross-over in place, never a collapse and a regrowth. */
+.extract-result-seat {
+    display: grid;
+}
+.extract-result-seat > * {
+    grid-area: 1 / 1;
+    min-inline-size: 0;
+}
+.extract-swap-enter-active,
+.extract-swap-leave-active {
+    transition: opacity var(--duration-fast) var(--ease-standard);
+}
+.extract-swap-leave-active {
+    transition-duration: var(--duration-control, 120ms);
+}
+.extract-swap-enter-from,
+.extract-swap-leave-to {
+    opacity: 0;
+}
+</style>

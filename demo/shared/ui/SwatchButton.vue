@@ -19,7 +19,7 @@
         icon-only
         data-color-surface
         :data-swatch="size"
-        class="swatch-button relative shrink-0 cursor-pointer"
+        class="swatch-button swatch-seat relative shrink-0 cursor-pointer"
     >
         <!-- The paper chip (owner 2026-11-10, "containers, like a watercolor
              swatch"): with `chip`, the paint sits inset on a paper card
@@ -52,6 +52,7 @@ import { Check } from "@lucide/vue";
 import { Button } from "@mkbabb/glass-ui/button";
 import { WatercolorDot } from "./watercolor-dot";
 import { contrastInkFor } from "../../color-session/ink";
+import "./swatch-band.css";
 
 /** The swatch size tokens — the seats the app measures a swatch at:
  *  `sm` a dense add grid (Mix), `md` a palette card, `lg` the Current Palette
@@ -102,42 +103,10 @@ const {
    pointer: per-axis size classes let the coarse `min-block-size` (the control
    rung times glass's coarse scale) stretch the block axis, so a phone drew
    44x66 and 56x60 ovals and a desk's Mix grid 32x36. On a coarse pointer no
-   seat is under the 44 px touch target; the host sizes a `fluid` seat. */
+   seat is under the 44 px touch target; the host sizes a `fluid` seat. The
+   tokens are `.swatch-seat`'s (swatch-band.css), shared with Extract's ghost. */
 .swatch-button {
-    --button-size: var(--swatch-seat);
-}
-.swatch-button[data-swatch="sm"] {
-    --swatch-seat: 2rem;
-}
-.swatch-button[data-swatch="md"],
-.swatch-button[data-swatch="fill"] {
-    --swatch-seat: 2.25rem;
-}
-.swatch-button[data-swatch="lg"] {
-    --swatch-seat: 2.75rem;
-}
-.swatch-button[data-swatch="xl"] {
-    --swatch-seat: 3rem;
-}
-@media (min-width: 40rem) {
-    .swatch-button[data-swatch="md"],
-    .swatch-button[data-swatch="fill"] {
-        --swatch-seat: 2.5rem;
-    }
-    .swatch-button[data-swatch="lg"] {
-        --swatch-seat: 3rem;
-    }
-    .swatch-button[data-swatch="xl"] {
-        --swatch-seat: 3.5rem;
-    }
-}
-.swatch-button[data-swatch="fluid"] {
-    --swatch-seat: var(--swatch-size, 3rem);
-}
-@media (pointer: coarse) {
-    .swatch-button:not([data-swatch="fluid"]) {
-        --button-size: max(var(--swatch-seat), var(--touch-target, 2.75rem));
-    }
+    --button-size: var(--swatch-seat-final);
 }
 /* A `fill` cell takes the row's share: it grows from its seat to a 5rem cap
    and stays square by its ratio, never by a second axis length. */

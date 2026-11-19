@@ -11,7 +11,8 @@
  *
  * One class, three consumers: a palette card's swatch row
  * (PaletteCardSwatches), the Current palette well (CurrentPaletteEditor) and
- * Generate's plate (GenerateControls). */
+ * Generate's plate (GenerateControls). The swatch seat's size tokens live
+ * below, beside the band they sit on. */
 .swatch-band {
     background: color-mix(in oklab, var(--card) 88%, transparent);
 }
@@ -27,4 +28,47 @@
     margin-inline: calc(-1 * var(--band-bleed, 0.75rem));
     margin-block-end: calc(-1 * var(--band-bleed, 0.75rem));
     padding: var(--band-bleed, 0.75rem);
+}
+
+/* THE SWATCH SEAT (color-40 L-1, O-2): one length per size token, on both axes.
+ * SwatchButton reads it as glass's `--button-size`; the Extract ghost's daubs
+ * (PaletteCardSkeleton) read it too, so the ghost's daubs wrap exactly as the
+ * developed card's swatches do. `--swatch-seat-final` is the seat with the
+ * 44 px touch floor applied on a coarse pointer; a `fluid` seat is the host's
+ * (`--swatch-size`). */
+.swatch-seat {
+    --swatch-seat-final: var(--swatch-seat);
+}
+.swatch-seat[data-swatch="sm"] {
+    --swatch-seat: 2rem;
+}
+.swatch-seat[data-swatch="md"],
+.swatch-seat[data-swatch="fill"] {
+    --swatch-seat: 2.25rem;
+}
+.swatch-seat[data-swatch="lg"] {
+    --swatch-seat: 2.75rem;
+}
+.swatch-seat[data-swatch="xl"] {
+    --swatch-seat: 3rem;
+}
+@media (min-width: 40rem) {
+    .swatch-seat[data-swatch="md"],
+    .swatch-seat[data-swatch="fill"] {
+        --swatch-seat: 2.5rem;
+    }
+    .swatch-seat[data-swatch="lg"] {
+        --swatch-seat: 3rem;
+    }
+    .swatch-seat[data-swatch="xl"] {
+        --swatch-seat: 3.5rem;
+    }
+}
+.swatch-seat[data-swatch="fluid"] {
+    --swatch-seat: var(--swatch-size, 3rem);
+}
+@media (pointer: coarse) {
+    .swatch-seat:not([data-swatch="fluid"]) {
+        --swatch-seat-final: max(var(--swatch-seat), var(--touch-target, 2.75rem));
+    }
 }

@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 import { mainPane } from "./fixtures/dock";
-import { extractedCard, loadExtractImage } from "./fixtures/extract-image";
+import { extractedCard, loadExtractImage, replaceExtractImage, LANDSCAPE } from "./fixtures/extract-image";
 
 /**
  * Extract's palette (color-40 O-1 to O-3; his FORTIETH order: "the pallete
@@ -81,4 +81,97 @@ test.describe("O-3: the strip says the shares; no line restates it", () => {
         const shares = names.map((n) => parseInt(n, 10)).sort((a, b) => a - b);
         expect(shares).toEqual([25, 25, 50]);
     });
+});
+
+/**
+ * O-2: before filling, the result seat holds a proper shadow palette, the
+ * developed card's own silhouette (strip, name row, k daubs) in the skeleton
+ * ink; it is still at rest and breathes only while a run is in flight; the
+ * developed card fills the same box, and a Replace never collapses the column.
+ * Today the ghost is a 40 px outline strip, and the out-in morph took the
+ * column from 325.7 to 226.1 px and back at 390.
+ */
+for (const width of [1440, 390] as const) {
+    test.describe(`O-2: the shadow palette at ${width}`, () => {
+        test.use({ viewport: { width, height: width === 390 ? 844 : 900 } });
+
+        test("the ghost is the developed card's box, still and silent at rest", async ({ page }) => {
+            await page.goto("/#/extract", { waitUntil: "domcontentloaded" });
+            const ghost = mainPane(page).locator('[data-slot="shadow-palette"]').first();
+            await expect(ghost).toBeVisible({ timeout: 60_000 });
+            await expect(ghost).toHaveAttribute("aria-hidden", "true");
+            await expect(ghost.locator('[data-slot="shadow-palette-head"]')).toHaveCount(1);
+            await expect(ghost.locator('[data-slot="shadow-palette-daub"]')).toHaveCount(5);
+            const still = await ghost.evaluate((el) => el.getAnimations({ subtree: true }).length);
+            expect(still, "nothing runs on the empty face").toBe(0);
+            // The ink is the site's skeleton ink, a fill, not an outline.
+            const fill = await ghost
+                .locator('[data-slot="shadow-palette-cell"]')
+                .first()
+                .evaluate((el) => getComputedStyle(el).backgroundColor);
+            expect(fill).not.toMatch(/rgba\(0, 0, 0, 0\)|transparent/);
+            const ghostH = await ghost.evaluate((el) => el.getBoundingClientRect().height);
+            await loadExtractImage(page, LANDSCAPE);
+            await page.waitForTimeout(600);
+            const cardH = await extractedCard(page).evaluate((el) => el.getBoundingClientRect().height);
+            expect(Math.abs(cardH - ghostH), `ghost ${ghostH} against card ${cardH}`).toBeLessThanOrEqual(2);
+        });
+
+        test("a Replace holds the result column to within 2 px, frame by frame", async ({ page }) => {
+            await loadExtractImage(page, LANDSCAPE);
+            await page.waitForTimeout(600);
+            const seat = mainPane(page).locator(".extract-result-seat").first();
+            const settled = await seat.evaluate((el) => el.getBoundingClientRect().height);
+            await seat.evaluate((el) => {
+                const w = window as unknown as { __seat: number[] };
+                w.__seat = [];
+                const tick = () => {
+                    w.__seat.push(el.getBoundingClientRect().height);
+                    if (w.__seat.length < 240) requestAnimationFrame(tick);
+                };
+                requestAnimationFrame(tick);
+            });
+            await replaceExtractImage(page, { ...LANDSCAPE, colors: ["#0f766e", "#f59e0b", "#7c3aed", "#f8fafc"] });
+            await page.waitForTimeout(2500);
+            const heights = await page.evaluate(() => (window as unknown as { __seat: number[] }).__seat);
+            expect(heights.length).toBeGreaterThan(30);
+            for (const h of heights) {
+                expect(Math.abs(h - settled), `${h} against ${settled}`).toBeLessThanOrEqual(2);
+            }
+        });
+    });
+}
+
+test.describe("O-2: the run in flight breathes, and reduced motion holds it still", () => {
+    test.use({ viewport: { width: 390, height: 844 } });
+
+    for (const reduced of [false, true]) {
+        test(`mid-run the ghost announces itself and ${reduced ? "holds still under reduced motion" : "breathes"}`, async ({ page }) => {
+            await page.emulateMedia({ reducedMotion: reduced ? "reduce" : "no-preference" });
+            await loadExtractImage(page, LANDSCAPE);
+            await page.waitForTimeout(400);
+            // Hold the next run in flight: the quantizer's worker never hears it.
+            await page.evaluate(() => {
+                const proto = Worker.prototype;
+                const post = proto.postMessage;
+                proto.postMessage = function () {
+                    /* held */
+                } as Worker["postMessage"];
+                (window as unknown as { __release: () => void }).__release = () => {
+                    proto.postMessage = post;
+                };
+            });
+            await replaceExtractImage(page, { ...LANDSCAPE, colors: ["#0f766e", "#f59e0b", "#7c3aed", "#f8fafc"] });
+            const ghost = mainPane(page).locator('[data-slot="shadow-palette"]').first();
+            await expect(ghost).toBeVisible({ timeout: 10_000 });
+            await expect(ghost).toHaveAttribute("role", "status");
+            await page.waitForTimeout(300);
+            const running = await ghost.evaluate(
+                (el) => el.getAnimations({ subtree: true }).filter((a) => a.playState === "running").length,
+            );
+            await page.evaluate(() => (window as unknown as { __release: () => void }).__release());
+            if (reduced) expect(running, "reduced motion: still").toBe(0);
+            else expect(running, "the run breathes").toBeGreaterThan(0);
+        });
+    }
 });
