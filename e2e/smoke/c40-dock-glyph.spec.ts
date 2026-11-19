@@ -2,6 +2,10 @@
  * The FORTIETH order, K (the dock, the site's share) and B-2: what the site
  * adds to a page change in the dock, read every animation frame.
  *
+ *   K-1  The view glyph crosses in place, on the trigger and on the folded
+ *        seal: the glyph seat is never empty (the summed opacity of the view
+ *        glyphs in it is 0.5 or more at every frame) and it settles within
+ *        300 ms of the pick (today 0.00 at +550 ms, settled at +955).
  *   K-6 / B-2  The press is answered before the work: the trigger names the
  *              chosen view, and the menu is closing, on a frame BEFORE the
  *              one the route lands on (the switch used to run inside the
@@ -57,8 +61,111 @@ async function stopTrace(page: Page): Promise<Frame[]> {
     });
 }
 
+interface GlyphFrame {
+    t: number;
+    /** the summed effective opacity of the view glyphs in the seat */
+    sum: number;
+    /** how many view glyphs the seat holds */
+    n: number;
+    /** one glyph, at full strength, untransformed */
+    rest: boolean;
+}
+
+/**
+ * Trace the view glyphs inside `seat` per frame. A view glyph is a lucide
+ * SVG that is not the select's chevron; its strength is the product of the
+ * opacities from it up to the seat (the wrapper that crosses, or the SVG
+ * itself where the SVG was the moving element).
+ */
+async function traceGlyphs(page: Page, seat: string, act: () => Promise<void>, ms = 1200): Promise<{ frames: GlyphFrame[]; t0: number }> {
+    await page.evaluate(
+        ({ seat, ms }) => {
+            const w = window as unknown as { __glyphs: GlyphFrame[]; __t0: number };
+            w.__glyphs = [];
+            w.__t0 = -1;
+            document.addEventListener("pointerup", () => (w.__t0 = performance.now()), { capture: true, once: true });
+            const start = performance.now();
+            const tick = () => {
+                const host = document.querySelector<HTMLElement>(seat);
+                const glyphs = host
+                    ? [...host.querySelectorAll<SVGElement>("svg.lucide")].filter((g) => !/chevron/.test(g.getAttribute("class") ?? ""))
+                    : [];
+                let sum = 0;
+                let rest = glyphs.length === 1;
+                for (const g of glyphs) {
+                    let op = 1;
+                    for (let el: Element | null = g; el && el !== host; el = el.parentElement) {
+                        const cs = getComputedStyle(el);
+                        op *= Number(cs.opacity);
+                        if (cs.transform !== "none" || (cs.scale !== "none" && cs.scale !== "1")) rest = false;
+                    }
+                    sum += op;
+                    if (op < 0.99) rest = false;
+                }
+                w.__glyphs.push({ t: performance.now(), sum, n: glyphs.length, rest });
+                if (performance.now() - start < ms) requestAnimationFrame(tick);
+            };
+            requestAnimationFrame(tick);
+        },
+        { seat, ms },
+    );
+    await act();
+    await page.waitForTimeout(ms + 100);
+    return page.evaluate(() => {
+        const w = window as unknown as { __glyphs: GlyphFrame[]; __t0: number };
+        return { frames: w.__glyphs, t0: w.__t0 };
+    });
+}
+
+/** The glyph faults of one change: an empty seat, or no rest within `bound` ms of `t0`. */
+function glyphFaults(frames: GlyphFrame[], t0: number, bound: number): string[] {
+    const out: string[] = [];
+    const thin = frames.filter((f) => f.sum < 0.5);
+    if (thin.length) out.push(`seat under 0.5 on ${thin.length} frames (lowest ${Math.min(...thin.map((f) => f.sum)).toFixed(2)} at +${(thin[0]!.t - t0).toFixed(0)} ms)`);
+    // the last frame that is not at rest; the glyph has settled after it
+    let last = -1;
+    frames.forEach((f, i) => {
+        if (!f.rest) last = i;
+    });
+    const settled = last + 1 < frames.length ? frames[last + 1]!.t - t0 : Infinity;
+    if (!(settled <= bound)) out.push(`settled at +${settled.toFixed(0)} ms (bound ${bound})`);
+    return out;
+}
+
 test.describe("c40 · the dock's share of a page change", () => {
     test.setTimeout(120_000);
+
+    test("K-1: the trigger's view glyph crosses in place and settles within 300 ms of the pick", async ({ page }) => {
+        await openHome(page, 1440, 900);
+        await page.getByRole("combobox", { name: "Select view" }).click();
+        const option = page.getByRole("option", { name: "Palettes", exact: true });
+        await expect(option).toBeVisible();
+        const { frames, t0 } = await traceGlyphs(page, ".view-select-trigger", () => option.click());
+        expect(t0, "the pick was seen").toBeGreaterThan(0);
+        const after = frames.filter((f) => f.t >= t0);
+        expect(glyphFaults(after, t0, 300)).toEqual([]);
+    });
+
+    test("K-1: the folded seal's glyph crosses in place", async ({ page }) => {
+        await page.setViewportSize({ width: 1440, height: 900 });
+        await page.goto("/#/", { waitUntil: "load", timeout: 60_000 });
+        await page.locator(".glass-dock").first().waitFor({ timeout: 30_000 });
+        await dockAtRest(page);
+        await page.mouse.move(5, 890);
+        await expect(page.locator(".glass-dock.collapsed")).toHaveCount(1, { timeout: 20_000 });
+        await dockAtRest(page);
+        const { frames } = await traceGlyphs(page, ".dock-seal", () =>
+            page.evaluate(() => {
+                (window as unknown as { __glyphT0: number }).__glyphT0 = performance.now();
+                location.hash = "#/palettes";
+            }),
+        );
+        const t0 = await page.evaluate(() => (window as unknown as { __glyphT0: number }).__glyphT0);
+        await expect(page.locator(".app-layout")).toHaveAttribute("data-view", "palettes");
+        // the seal changes when the route lands; its crossing is bounded from there
+        const landed = frames.find((f, i) => i > 0 && f.n > 1) ?? frames.find((f) => f.t >= t0)!;
+        expect(glyphFaults(frames.filter((f) => f.t >= t0), landed.t, 300)).toEqual([]);
+    });
 
     test("K-6 / B-2: the trigger names the chosen view, and the menu closes, before the route lands", async ({
         page,

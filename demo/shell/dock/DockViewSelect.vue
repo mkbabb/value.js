@@ -141,21 +141,30 @@ const viewRing = computed(() => {
             data-accent-reader
             :style="{ '--dock-ring': viewRing }"
         >
-            <!-- The view-select moment (R.W4 Lane B / B3): the trigger icon
-                 swaps on the morph family (scale-settle beat), and reads the
-                 per-view accent (B2 — var(--accent-view), the ONE resolver). -->
-            <Transition name="vj-morph" mode="out-in">
-                <component
-                    :is="shownIcon"
-                    :key="shownView"
-                    class="w-6 h-6 shrink-0"
-                    :class="isAdminMode && 'gold-ink'"
-                    :style="[
-                        { '--vj-morph-scale': '0.6', '--vj-morph-y': '0px' },
-                        isAdminMode ? {} : { color: 'var(--accent-view)' },
-                    ]"
-                />
-            </Transition>
+            <!-- The view-select moment (R.W4 Lane B / B3; the FORTIETH K-1):
+                 the trigger's glyph CROSSES IN PLACE on the morph family, the
+                 old out and the new in at once in one grid cell, so the seat
+                 is never empty (out-in held a blank face for ~200 ms). Only
+                 the HTML wrapper moves (transform and opacity, the compositor);
+                 nothing is set on the SVG. It reads the per-view accent (B2 —
+                 var(--accent-view), the ONE resolver). -->
+            <span class="view-glyph-seat">
+                <Transition name="vj-morph">
+                    <span
+                        :key="shownView"
+                        class="view-glyph"
+                        :data-view-glyph="shownView"
+                        style="--vj-morph-scale: 0.6; --vj-morph-y: 0px"
+                    >
+                        <component
+                            :is="shownIcon"
+                            class="w-6 h-6"
+                            :class="isAdminMode && 'gold-ink'"
+                            :style="isAdminMode ? {} : { color: 'var(--accent-view)' }"
+                        />
+                    </span>
+                </Transition>
+            </span>
             <!-- X-DS pass 3 (V3C-10): the trigger names the current view from
                  the SCHEMA, not from the options. reka's SelectValue resolves
                  its text from the rendered items, and /atmosphere and /blob are
@@ -229,6 +238,18 @@ const viewRing = computed(() => {
 </template>
 
 <style scoped>
+/* K-1: the two glyphs of a crossing share one cell, so the seat keeps its
+ * size and neither glyph moves the label beside it. */
+.view-glyph-seat {
+    display: grid;
+    flex-shrink: 0;
+}
+.view-glyph-seat > .view-glyph {
+    grid-area: 1 / 1;
+    display: grid;
+    place-items: center;
+}
+
 /* `.gold-ink` lives in @styles/utils.css (S.W7-7 — the byte-identical
  * scoped twin this file carried is retired; ONE global recipe, god-module
  * census §2.1). */

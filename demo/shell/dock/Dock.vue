@@ -506,15 +506,21 @@ watch(
                         class="dock-seal-wax"
                         seed="top-dock"
                     />
-                    <Transition name="vj-morph" mode="out-in">
-                        <component
-                            :is="viewManager.currentConfig.value.icon"
+                    <!-- The FORTIETH K-1: the seal's glyph crosses in place
+                         (default mode: the old out and the new in, in one
+                         grid cell), so the seal is never blank. Only the HTML
+                         wrapper moves; nothing is set on the SVG. -->
+                    <Transition name="vj-morph">
+                        <span
                             :key="viewManager.currentView.value"
                             class="dock-seal-ink"
                             :class="isAdminMode && 'gold-ink'"
+                            :data-view-glyph="viewManager.currentView.value"
                             aria-hidden="true"
                             style="--vj-morph-scale: 1.25; --vj-morph-y: 0px"
-                        />
+                        >
+                            <component :is="viewManager.currentConfig.value.icon" />
+                        </span>
                     </Transition>
                 </div>
             </template>
@@ -653,6 +659,7 @@ watch(
 .dock-seal-ink {
     inline-size: 55%;
     block-size: 55%;
+    display: grid;
     pointer-events: none;
     /* V9C-01: the wax is a positioned stacking context (glass's
        WatercolorDot: relative + isolate + filter), so a static sibling
@@ -660,5 +667,9 @@ watch(
        lifted one step so the view glyph paints over the wax. No rim. */
     position: relative;
     z-index: 1;
+}
+.dock-seal-ink > :deep(svg) {
+    inline-size: 100%;
+    block-size: 100%;
 }
 </style>
