@@ -142,3 +142,88 @@ test("a sideways drag on a slider tracks from the first touch, and a tap sets", 
         span * 0.12,
     );
 });
+
+// The colour field ("grab the dot"): a vertical swipe off the dot is the
+// page's; the dot's handle is the field's in both axes; a tap sets. Before,
+// the field was `touch-action: none` and took every flick that landed on it,
+// at every angle, and changed the colour (the page moved 0 px).
+for (const [w, h] of [
+    [390, 844],
+    [375, 667],
+] as const) {
+    test.describe(`the colour field at ${w}x${h}`, () => {
+        test.use({ viewport: { width: w, height: h } });
+
+        const field = (page: Page) => page.locator(".spectrum-picker").first();
+        const dot = (page: Page) => page.locator(".spectrum-dot").first();
+        const colour = async (page: Page) =>
+            `${await field(page).getAttribute("aria-label")} | L ${await page
+                .getByRole("slider", { name: "L channel" })
+                .first()
+                .getAttribute("aria-valuenow")}`;
+        const centreOf = (b: { x: number; y: number; width: number; height: number }) => ({
+            x: b.x + b.width / 2,
+            y: b.y + b.height / 2,
+        });
+        /** A point on the field well away from the dot. */
+        async function offDot(page: Page) {
+            const f = (await field(page).boundingBox())!;
+            const d = centreOf((await dot(page).boundingBox())!);
+            const x = d.x < f.x + f.width / 2 ? f.x + f.width * 0.8 : f.x + f.width * 0.2;
+            return { x, y: f.y + f.height * 0.5 };
+        }
+
+        test("a vertical flick off the dot scrolls the page and keeps the colour", async ({ page }) => {
+            const t = await open(page, "", field(page));
+            const rows: string[] = [];
+            for (const deg of ANGLES) {
+                await page.evaluate(() => scrollTo(0, 0));
+                await page.waitForTimeout(400);
+                const p = await offDot(page);
+                const before = await colour(page);
+                const s0 = await page.evaluate(() => scrollY);
+                await flick(page, t, p.x, p.y, deg);
+                const moved = (await page.evaluate(() => scrollY)) - s0;
+                const after = await colour(page);
+                rows.push(`${deg} deg: scrolled ${moved} px, ${before} -> ${after}`);
+                expect(moved, rows.join("; ")).toBeGreaterThanOrEqual(100);
+                expect(after, rows.join("; ")).toBe(before);
+            }
+        });
+
+        test("a touch that starts on the dot moves the colour straight up, the page still", async ({ page }) => {
+            const t = await open(page, "", field(page));
+            // The dot to the field's middle first (a tap), so it has room above.
+            const m = centreOf((await field(page).boundingBox())!);
+            await t("touchStart", m.x, m.y);
+            await t("touchEnd");
+            await page.waitForTimeout(700);
+            const before = await colour(page);
+            const s0 = await page.evaluate(() => scrollY);
+            const d = centreOf((await dot(page).boundingBox())!);
+            await t("touchStart", d.x, d.y);
+            for (let i = 1; i <= 12; i++) {
+                await t("touchMove", d.x, d.y - i * 5);
+                await page.waitForTimeout(25);
+            }
+            const held = await field(page).getAttribute("data-touch-intent");
+            await t("touchEnd");
+            await page.waitForTimeout(400);
+            expect(held, "the field has the touch while the dot is held").toBe("drag");
+            expect(await colour(page), "the colour moved").not.toBe(before);
+            expect(await page.evaluate(() => scrollY), "the page held still").toBe(s0);
+        });
+
+        test("a tap moves the dot under the finger", async ({ page }) => {
+            const t = await open(page, "", field(page));
+            const p = await offDot(page);
+            const before = await colour(page);
+            await t("touchStart", p.x, p.y);
+            await t("touchEnd");
+            await page.waitForTimeout(700);
+            const d = centreOf((await dot(page).boundingBox())!);
+            expect(await colour(page), "the tap set the colour").not.toBe(before);
+            expect(Math.hypot(d.x - p.x, d.y - p.y), "the dot's distance from the tap (px)").toBeLessThan(8);
+        });
+    });
+}
