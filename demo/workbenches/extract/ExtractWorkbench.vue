@@ -7,16 +7,19 @@
                     : 'flex flex-col gap-4'
             "
         >
-            <!-- Image + camera column -->
+            <!-- Image column -->
             <div
                 class="flex flex-col gap-3"
                 :class="layout === 'split' ? 'sm:min-h-[280px]' : ''"
             >
-                <!-- Camera cluster (X.W7.g3 · XW-8/9/35): the camera is a MODE of
-                     the stage — the viewfinder takes the drop zone's seat, never
-                     a second specimen stacked under it. -->
+                <!-- color-40 I-1 (his FORTIETH order: "remove the extra open
+                     camera button on extract"): the zone is the one intake. The
+                     dock's Extract seat names the view, and a phone's file sheet
+                     already offers the system camera; the in-page camera, its
+                     viewfinder and its two close controls are gone (it was also
+                     refused on the site, whose permissions policy has
+                     `camera=()`). -->
                 <ImageDropZone
-                    v-if="camera.state.value === 'off'"
                     :class="
                         layout === 'split'
                             ? 'flex-1 min-h-0 sm:max-h-[min(400px,50dvh)]'
@@ -29,70 +32,31 @@
                     @sample="session.eyedropperOpen.value = true"
                 />
 
-                <!-- Camera viewfinder (unified capability — T20).
-                     T.W3-1 (D1 rung-4 STAGE): the photographic ground + its
-                     caption veil + on-stage chrome read the NAMED near-black
-                     pair (--stage/--on-stage-chrome) — the raw bg-black/
-                     bg-white literals die (census §1.E; CC-7). The chip's
-                     backdrop-blur is TRUE glass: it floats over live video. -->
-                <Transition name="vj-enter">
-                    <div
-                        v-if="camera.state.value !== 'off'"
-                        class="relative rounded-panel overflow-hidden bg-stage shrink-0"
-                        role="group"
-                        aria-label="Camera"
-                        @keydown.esc.prevent="camera.stop"
-                    >
-                        <!-- D2-23: the viewfinder shows the WHOLE frame the
-                             capture takes (contain, never a cover crop). -->
-                        <video
-                            ref="videoRef"
-                            autoplay
-                            playsinline
-                            muted
-                            class="w-full max-h-[200px] object-contain"
-                        />
-                        <!-- XW-35: the producer's own control face and hit cell
-                             (≥44px on coarse) — no compact, no hand-painted
-                             plate over live video. Cancel is the exit (XW-8). -->
-                        <div class="absolute inset-x-0 bottom-0 flex justify-center gap-2 p-2.5">
-                            <DockControl
-                                title="Capture frame"
-                                :disabled="camera.state.value !== 'live'"
-                                @click="captureFrame"
-                            >
-                                <Aperture class="w-5 h-5" />
-                            </DockControl>
-                            <DockControl title="Cancel camera" @click="camera.stop">
-                                <X class="w-5 h-5" />
-                            </DockControl>
-                        </div>
-                    </div>
-                </Transition>
-
                 <!-- X-DS pass 9 (V9C-06): the image actions are SOURCE actions, so they
-                     sit with the source — under the drop zone / viewfinder they replace,
-                     in the image column — and the sliders lead straight into the
-                     instrument they shape. (They sat in ExtractControls after the
-                     sliders, away from the zone the camera substitutes for.)
-                     X-DS pass 3 (V3C-05): the image actions are ONE labelled action row,
-                     and only the live ones are shown. With no image the drop zone is
-                     the one intake (R-20), so Replace and Reset are absent rather than
-                     parked as dead glyphs; the camera is a two-way door (XW-8 · EC-5),
-                     pressed while live. X-DS pass 5 (V5C-07): the actions wear the
-                     text rung (as "Delete all" does), so the glyphs start at the
-                     column edge with the labels and rails above them; the group pulls
-                     back by the rung's own inline pad (glass's `--space-residue`).
-                     X-DS pass 6 (V6C-08): ONE text-action ink per pane — the group
-                     sets the certified muted plate ink ("Delete all"'s) on its enabled
-                     actions once, so the dark scheme's accent (gold) rung ink no longer
-                     reads as decoration beside it; disabled keeps glass's own ink. -->
-                <div class="flex flex-wrap items-center gap-1 ms-[calc(-1*var(--space-residue))] *:enabled:text-(color:--ink-muted)" role="group" aria-label="Image actions">
+                     sit with the source — under the drop zone they replace, in the
+                     image column — and the sliders lead straight into the instrument
+                     they shape. X-DS pass 3 (V3C-05): the image actions are ONE
+                     labelled action row, and only the live ones are shown. With no
+                     image the drop zone is the one intake (R-20), so the row is
+                     empty rather than parked with dead glyphs. X-DS pass 5 (V5C-07):
+                     the actions wear the text rung (as "Delete all" does), so the
+                     glyphs start at the column edge with the labels and rails above
+                     them; the group pulls back by the rung's own inline pad (glass's
+                     `--space-residue`). X-DS pass 6 (V6C-08): ONE text-action ink per
+                     pane — the group sets the certified muted plate ink ("Delete
+                     all"'s) on its enabled actions once, so the dark scheme's accent
+                     (gold) rung ink no longer reads as decoration beside it;
+                     disabled keeps glass's own ink. -->
+                <div
+                    v-if="!!session.previewUrl.value"
+                    class="flex flex-wrap items-center gap-1 ms-[calc(-1*var(--space-residue))] *:enabled:text-(color:--ink-muted)"
+                    role="group"
+                    aria-label="Image actions"
+                >
                     <Button
-                        v-if="!!session.previewUrl.value"
                         emphasis="text"
                         size="sm"
-                        :disabled="actionsStandDown"
+                        :disabled="session.isProcessing.value"
                         @click="openFilePicker()"
                     >
                         <Upload aria-hidden="true" />
@@ -102,17 +66,6 @@
                         emphasis="text"
                         size="sm"
                         :disabled="session.isProcessing.value"
-                        :aria-pressed="cameraLive"
-                        @click="toggleCamera()"
-                    >
-                        <Camera aria-hidden="true" />
-                        {{ cameraLive ? "Close camera" : "Open camera" }}
-                    </Button>
-                    <Button
-                        v-if="!!session.previewUrl.value"
-                        emphasis="text"
-                        size="sm"
-                        :disabled="actionsStandDown"
                         @click="session.onReset()"
                     >
                         <RotateCcw aria-hidden="true" />
@@ -132,27 +85,17 @@
                     :gradient="session.kSliderGradient.value"
                     :css-color="cssColorOpaque ?? ''"
                     :disabled="session.isProcessing.value"
-                    :camera-live="cameraLive"
                     @update:k="session.onKChange"
                     @update:chroma-weight="session.onChromaChange"
                 />
 
-                <!-- Error (error ≠ empty: an explicit destructive line). The
-                     camera's fault is its own line, never written into the
-                     quantizer's slot (XW-10 / the camera cluster). -->
+                <!-- Error (error ≠ empty: an explicit destructive line). -->
                 <div
                     v-if="session.quantizeError.value"
                     role="alert"
                     class="text-mono-small text-destructive px-1"
                 >
                     {{ session.quantizeError.value }}
-                </div>
-                <div
-                    v-if="camera.error.value"
-                    role="alert"
-                    class="text-mono-small text-destructive px-1"
-                >
-                    {{ camera.error.value }}
                 </div>
                 <!-- R-23: the extract tree's one live region — a loaded image is
                      announced, so a healthy preview is never AT-identical to a
@@ -277,17 +220,15 @@
 </template>
 
 <script setup lang="ts">
-import { computed, inject, onBeforeUnmount, onDeactivated, ref, useTemplateRef, watch } from "vue";
+import { computed, inject, onDeactivated, ref, watch } from "vue";
 import { useFileDialog } from "@vueuse/core";
-import { Aperture, Camera, RotateCcw, Upload, X } from "@lucide/vue";
+import { RotateCcw, Upload } from "@lucide/vue";
 import { Button } from "@mkbabb/glass-ui/button";
-import { DockControl } from "@mkbabb/glass-ui/dock";
 import type { SpaceId } from "@mkbabb/value.js/color";
 import { CSS_COLOR_KEY } from "../../color-session/keys";
 import { formatCssCaption } from "../../color-session/format-color";
 import { useExtractSession } from "./composables/useExtractSession";
 import { numberCodec, useUrlState } from "../../shell/urlState";
-import { useCameraCapture } from "./composables/useCameraCapture";
 
 import ImageDropZone from "./ImageDropZone.vue";
 import ExtractControls from "./ExtractControls.vue";
@@ -332,14 +273,6 @@ watch(
     { immediate: true, flush: "sync" },
 );
 
-const videoRef = useTemplateRef<HTMLVideoElement>("videoRef");
-
-const camera = useCameraCapture(videoRef);
-// The live stream reaches whichever <video> the viewfinder mounted.
-watch([camera.stream, videoRef], ([stream, video]) => {
-    if (video) video.srcObject = stream;
-});
-
 // R-16 / R-17 (X.W7.g3): the file dialog lives HERE, where both of its
 // triggers (the empty zone, the toolbar's Replace) live — one owner, no
 // `defineExpose` reach into a child — and it is `useFileDialog`'s, not a
@@ -366,36 +299,9 @@ const intakeAnnouncement = computed(() =>
 );
 
 async function onFile(file: File) {
-    camera.stop();
     await session.onFile(file);
 }
 
-/** The camera is open: its own control is the exit (XW-8 · EC-5). */
-const cameraLive = computed(() => camera.state.value !== "off");
-/** XW-8: a run in flight or a live camera stands the image actions down. */
-const actionsStandDown = computed(
-    () => session.isProcessing.value || cameraLive.value,
-);
-
-function toggleCamera() {
-    if (camera.state.value === "off") void camera.start();
-    else camera.stop();
-}
-
-async function captureFrame() {
-    const file = await camera.capture();
-    if (file) await onFile(file);
-}
-
-// X.W5.a · gate N1 — the DEACTIVATION contract (PaneSlot's header states it).
-// This subtree lives under the app's one `<KeepAlive>`, whose bound is a
-// distinct-pane count, so the extract pane is parked on every navigation away
-// and evicted by essentially nothing: `onBeforeUnmount` alone left the camera
-// LIVE — the capture indicator on, the device held — for the rest of the
-// session. Parking releases the device; it is never silently re-acquired on
-// return, because re-opening the camera is the user's act, not the router's.
-onDeactivated(camera.stop);
-onBeforeUnmount(camera.stop);
 // A2-VA-L2-11 (a popup never outlives its pane), now that the eyedropper is a
 // teleported modal (SS8-0722): a CONTROLLED popup closes its own state on park.
 onDeactivated(() => {

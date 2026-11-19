@@ -1,9 +1,13 @@
 /**
  * X-DS pass 9 (V9C-06) · the image actions sit with the SOURCE (the image
- * column, under the drop zone / viewfinder), not after the extraction sliders.
- * The XW-8 / R-20 / V3C-05 contract the row carried in ExtractControls is kept
- * whole here, mounted on the real ExtractWorkbench SFC against real glass-ui,
- * with the session and the camera held as plain refs.
+ * column, under the drop zone), not after the extraction sliders. Mounted on
+ * the real ExtractWorkbench SFC against real glass-ui, with the session held
+ * as plain refs.
+ *
+ * color-40 I-1 (his FORTIETH order: "remove the extra open camera button on
+ * extract") rewrote the contract: the in-page camera is gone, so with no image
+ * the zone is the one intake and the row is absent; with one, the row is
+ * exactly Replace image and Reset.
  */
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { ref } from "vue";
@@ -12,7 +16,6 @@ import { mount } from "@vue/test-utils";
 const state = vi.hoisted(() => ({
     preview: null as unknown,
     processing: null as unknown,
-    camera: null as unknown,
 }));
 
 vi.mock("../../workbenches/extract/composables/useExtractSession", async () => {
@@ -49,24 +52,6 @@ vi.mock("../../workbenches/extract/composables/useExtractSession", async () => {
     };
 });
 
-vi.mock("../../workbenches/extract/composables/useCameraCapture", async () => {
-    const { ref: r } = await import("vue");
-    return {
-        useCameraCapture: () => {
-            const camState = r<"off" | "opening" | "live">("off");
-            state.camera = camState;
-            return {
-                state: camState,
-                stream: r(null),
-                error: r(null),
-                start: vi.fn(async () => void (camState.value = "live")),
-                stop: vi.fn(() => void (camState.value = "off")),
-                capture: vi.fn(async () => null),
-            };
-        },
-    };
-});
-
 import ExtractWorkbench from "../../workbenches/extract/ExtractWorkbench.vue";
 
 type R<T> = ReturnType<typeof ref<T>>;
@@ -97,10 +82,12 @@ describe("ExtractWorkbench · the image actions sit with the source", { timeout:
         return b;
     };
 
-    it("V9C-06: the row lives in the image column, before the extraction controls", () => {
+    it("V9C-06: the row lives in the image column, before the extraction controls", async () => {
         const w = mountIt();
+        (state.preview as R<string | null>).value = "blob:test/1";
+        await w.vm.$nextTick();
         const group = w.get('[role="group"][aria-label="Image actions"]').element;
-        const zone = w.get('[aria-label="Upload image"]').element;
+        const zone = w.get('[aria-label="Sample colors from the image"]').element;
         const slider = w.get('[role="slider"]').element;
         // The zone and the row share the image column; the sliders follow both.
         expect(group.parentElement).toBe(zone.parentElement);
@@ -108,8 +95,19 @@ describe("ExtractWorkbench · the image actions sit with the source", { timeout:
         expect(group.compareDocumentPosition(slider) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
     });
 
-    it("R-20 / V3C-05: with no image the drop zone is the one intake; only the camera action shows", () => {
-        expect(actions(mountIt()).map((b) => b.text().trim())).toEqual(["Open camera"]);
+    it("I-1 / R-20: with no image the drop zone is the one intake; there is no action row", () => {
+        const w = mountIt();
+        expect(w.find('[role="group"][aria-label="Image actions"]').exists()).toBe(false);
+        expect(w.get('[aria-label="Upload image"]').exists()).toBe(true);
+    });
+
+    it("I-1: with an image the row is exactly Replace image and Reset, and no camera anywhere", async () => {
+        const w = mountIt();
+        (state.preview as R<string | null>).value = "blob:test/1";
+        await w.vm.$nextTick();
+        expect(actions(w).map((b) => b.text().trim())).toEqual(["Replace image", "Reset"]);
+        expect(w.findAll("button").filter((b) => /camera/i.test(b.text() + (b.attributes("aria-label") ?? "")))).toEqual([]);
+        expect(w.find("video").exists()).toBe(false);
     });
 
     it("XW-8: a run in flight stands every image action down", async () => {
@@ -119,19 +117,8 @@ describe("ExtractWorkbench · the image actions sit with the source", { timeout:
         await w.vm.$nextTick();
         expect(actions(w).map((b) => [b.text().trim(), b.attributes("disabled") !== undefined])).toEqual([
             ["Replace image", true],
-            ["Open camera", true],
             ["Reset", true],
         ]);
-    });
-
-    it("XW-8: while the camera is live its control is the way out (pressed), and the rest stand down", async () => {
-        const w = mountIt();
-        (state.preview as R<string | null>).value = "blob:test/1";
-        (state.camera as R<string>).value = "live";
-        await w.vm.$nextTick();
-        const camera = action(w, "Close camera");
-        expect(camera.attributes("aria-pressed")).toBe("true");
-        expect(camera.attributes("disabled")).toBeUndefined();
-        expect(action(w, "Replace image").attributes("disabled")).toBeDefined();
+        expect(action(w, "Reset").attributes("disabled")).toBeDefined();
     });
 });

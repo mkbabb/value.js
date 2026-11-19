@@ -77,7 +77,7 @@ import { Badge } from "@mkbabb/glass-ui/badge";
 
 const { preview, disabled = false } = defineProps<{
     preview: string | null;
-    /** Camera live or a run in flight: the zone takes no intake (R-12). */
+    /** A run in flight: the zone takes no intake (R-12). */
     disabled?: boolean;
 }>();
 
