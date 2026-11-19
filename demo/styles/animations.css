@@ -334,36 +334,6 @@
         will-change: transform, opacity;
         contain: layout;
     }
-
-    /* G3 — the survivor's width (DESIGN.md §5.7). When a region widens (a
-     * dual → single hop), `flipRegions` sets `--region-clip-end` on the
-     * wrapper to the width it gained and then releases it: the region's
-     * plate and its T-45 blur carrier (shell.css) open from the old edge to
-     * the new on `--spring-panel`. The content reflows once, at the commit;
-     * the plate edge travels. The released clip opens past the plate by the
-     * cast (12px) so the shadow is never cut at rest. */
-    .pane-wrapper[data-region-clip] > .glass-resting,
-    .pane-wrapper[data-region-clip] > div > .glass-resting,
-    .pane-wrapper[data-region-clip]:has(> .glass-resting)::before,
-    .pane-wrapper[data-region-clip]:not(:has(> .glass-resting)) > div:has(> .glass-resting)::before {
-        transition: clip-path var(--spring-panel-duration) var(--spring-panel);
-    }
-    .pane-wrapper[data-region-clip] > .glass-resting,
-    .pane-wrapper[data-region-clip] > div > .glass-resting {
-        clip-path: inset(
-            var(--region-clip-cast) var(--region-clip-end) var(--region-clip-cast)
-                var(--region-clip-cast) round var(--radius-card)
-        );
-    }
-    .pane-wrapper[data-region-clip]:has(> .glass-resting)::before,
-    .pane-wrapper[data-region-clip]:not(:has(> .glass-resting)) > div:has(> .glass-resting)::before {
-        clip-path: inset(
-            calc(2 * var(--glass-blur-resting-radius, 8px))
-                calc(2 * var(--glass-blur-resting-radius, 8px) + max(0px, var(--region-clip-end)))
-                calc(2 * var(--glass-blur-resting-radius, 8px))
-                calc(2 * var(--glass-blur-resting-radius, 8px)) round var(--radius-card)
-        );
-    }
 }
 
 /* G9 — THE ROW'S SPLIT TRAVELS (DESIGN.md §5.7; owner order 2026-11-05:

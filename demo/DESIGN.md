@@ -993,12 +993,18 @@ move: `data-scene-direction` (PaneSlot, from the scene order the dock lists) set
 pointer-events: none` in its wrapper, so the region is sized by the riser from the commit frame. Its
 block size is never 0 and never the sum of two panes. The leaver keeps the block size it was drawn
 at (PaneSlot `hideLeaving`), so a companion that follows the row does not unroll its whole content
-while it is discarded. Every commit that can move a region (a slot's
-pane commit, and the scene's region set changing) runs through App.vue's one `flip`. A region that
-moves translates from where it was drawn, on `--ease-standard` at the panel clock: a stacked reorder travels ~600 px, and the panel spring's overshoot on that travel carried the region into the dock band (o1109c); `--ease-out` left rest at five times its mean speed, so the reorder's first frame moved the picker 45-100 px (o1110 D3). A region that widens on a dual → single hop opens its
-plate and its T-45 blur carrier with `clip-path: inset()` from the old edge to the new. The content
-reflows once, at the commit; the plate edge travels. Only the wrapper is written, and every write clears when its
-transition ends or is cancelled, so a KeepAlive-cached pane never carries a FLIP away.
+while it is discarded. Every commit that can move a region (a slot's pane commit, and the scene's
+region set changing) runs through App.vue's one `flip`. The flip reads every region once before
+the mutate and once after it, and writes only after the second read (the FORTIETH B: interleaved
+reads and writes, and a read of the plate's computed `clip-path`, forced 110-453 ms of style and
+layout inside the commit on a 4x phone). A region that moves translates from where it was drawn,
+through the Web Animations API on `translate` (the compositor, no forced restart, and a newer commit
+cancels it and starts from the pose it reached), on a symmetric sine ease at the panel clock: a
+stacked reorder travels ~600 px, and the panel spring's overshoot on that travel carried the region
+into the dock band (o1109c); `--ease-out` left rest at five times its mean speed, so the reorder's
+first frame moved the picker 45-100 px (o1110 D3). A region that widens is not opened by a clip any
+more: the dealt card arrives at its width. Nothing the flip writes outlives its travel, so a
+KeepAlive-cached pane never carries a FLIP away.
 
 **G4 · Reduced motion.** The swap is a fade with no travel, never a cut: the dealt card fades in on
 `--duration-fast` and the leaver out on `--duration-control`. glass's guard zeroes every CSS

@@ -308,12 +308,16 @@ function reportMount(instance: TInstance | null) {
 // it. Out of flow it is no longer sized by the row, and a companion that
 // follows the row (About beside the picker, a port over 21 sections) would
 // otherwise unroll to its whole content for the length of its discard. The
-// stamp is cleared on enter with the others.
+// stamp is cleared on enter with the others. The size is read BEFORE the
+// stamps are written: the commit's layout is still clean here, and a read
+// after an attribute write would force a style and layout of its own inside
+// the commit (the FORTIETH B: one read, one write).
 function hideLeaving(el: Element) {
+    const drawn = el instanceof HTMLElement ? el.offsetHeight : null;
     el.toggleAttribute("inert", true);
     el.setAttribute("aria-hidden", "true");
     el.setAttribute("data-scene-direction", sceneDirection);
-    if (el instanceof HTMLElement) el.style.blockSize = `${el.offsetHeight}px`;
+    if (drawn !== null) (el as HTMLElement).style.blockSize = `${drawn}px`;
 }
 
 function showEntering(el: Element) {
