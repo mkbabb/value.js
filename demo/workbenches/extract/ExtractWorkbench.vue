@@ -136,39 +136,10 @@
                         key="extracted"
                         class="flex flex-col gap-1.5"
                     >
-                        <!-- T19 folded as the card's label line (F7), seated
-                             on the plate it describes. The duplicate dominant
-                             dot died — the card's first swatch IS the dominant
-                             specimen. X-DS pass 6 (V6C-07): two lines, one
-                             voice each — the display stat on its own line, the
-                             dominant readout in mono beneath it at full width,
-                             so the data is never the part that is cut. -->
-                        <div
-                            v-if="session.dominant.value"
-                            class="flex flex-col gap-0.5 min-w-0"
-                        >
-                            <span class="font-display text-display leading-none">
-                                {{ Math.round(session.dominantShare.value * 100)
-                                }}<span
-                                    class="text-body font-normal plate-ink"
-                                    >% of the image</span
-                                >
-                            </span>
-                            <span class="flex items-baseline gap-2 min-w-0">
-                                <span
-                                    class="text-caption plate-ink shrink-0"
-                                    >dominant</span
-                                >
-                                <!-- the caption register (format-color): the readout
-                                     and its title read the same bounded spelling. -->
-                                <code
-                                    class="font-mono text-mono-small plate-ink truncate select-all"
-                                    :title="formatCssCaption(session.dominant.value.serialized)"
-                                    >{{ formatCssCaption(session.dominant.value.serialized) }}</code
-                                >
-                            </span>
-                        </div>
-
+                        <!-- color-40 O-3: the line that sat here ("30% of the
+                             image", "dominant oklch(...)") restated the weighted
+                             strip in words, half of it at 12.2 px; it is gone.
+                             Each band of the strip names its share and value. -->
                         <!-- X.W8.i (C3 layout fork): the split seats the aside
                              card at every width — one layout, no viewport rung
                              (the aside spine is sized for the half column, the
@@ -230,7 +201,6 @@ import { RotateCcw, Upload } from "@lucide/vue";
 import { Button } from "@mkbabb/glass-ui/button";
 import type { SpaceId } from "@mkbabb/value.js/color";
 import { CSS_COLOR_KEY } from "../../color-session/keys";
-import { formatCssCaption } from "../../color-session/format-color";
 import { useExtractSession } from "./composables/useExtractSession";
 import { numberCodec, useUrlState } from "../../shell/urlState";
 

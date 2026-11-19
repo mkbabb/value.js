@@ -5,9 +5,9 @@
  * this state; both shells now consume this session through ExtractWorkbench.
  *
  * T19 — the quantizer's perceptual story, threaded end-to-end: `population`
- * survives the consumer boundary here (dominant = max-population with a
- * chroma tiebreak, derived from the RETURNED palette — never a second worker
- * call; the library's `dominantColor()` re-quantizes and is the wrong tool).
+ * survives the consumer boundary here as each colour's `weight`, the share
+ * the card's strip draws and names (color-40 O-3 retired the separate
+ * dominant line, which restated the strip).
  *
  * X.W7.g3 (EY-12 — the altitude row): the session lives ABOVE any one mount.
  * The shell swaps a pane between regions when the viewport crosses a
@@ -131,43 +131,6 @@ function createExtractSession() {
         return paletteRail(presented.value.map((entry) => entry.serialized));
     });
 
-    // ── T19: population / dominance (from the RETURNED palette) ──
-
-    const totalPopulation = computed(() =>
-        palette.value.reduce((sum, c) => sum + c.population, 0),
-    );
-
-    /** Max-population cluster; ties break toward the higher-chroma color. */
-    const dominant = computed<PresentedColor | null>(() => {
-        const presented = presentedPalette.value;
-        if (!presented.ok) return null;
-        let best: PresentedColor | null = null;
-        for (const entry of presented.value) {
-            if (!best) {
-                best = entry;
-                continue;
-            }
-            const candidateChroma = entry.source.color.channels[1];
-            const bestChroma = best.source.color.channels[1];
-            if (
-                entry.source.population > best.source.population ||
-                (entry.source.population === best.source.population &&
-                    candidateChroma !== "none" &&
-                    (bestChroma === "none" || candidateChroma > bestChroma))
-            ) {
-                best = entry;
-            }
-        }
-        return best;
-    });
-
-    /** The dominant cluster's share of the image, in [0, 1]. */
-    const dominantShare = computed(() => {
-        const total = totalPopulation.value;
-        const d = dominant.value;
-        return total > 0 && d ? d.source.population / total : 0;
-    });
-
     // ── Quantize orchestration ──
 
     // X-W7 Repair 1 (D-6 · XP-EXTRACT): every dispatch goes through here and
@@ -259,9 +222,6 @@ function createExtractSession() {
         extractedPalette,
         foundCount,
         kSliderGradient,
-        totalPopulation,
-        dominant,
-        dominantShare,
         // actions
         onFile,
         onKChange,

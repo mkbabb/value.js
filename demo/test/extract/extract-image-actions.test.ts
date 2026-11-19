@@ -37,8 +37,6 @@ vi.mock("../../workbenches/extract/composables/useExtractSession", async () => {
                 quantizeError: r(null),
                 extractedPalette: r(null),
                 barren: r(false),
-                dominant: r(null),
-                dominantShare: r(0),
                 eyedropperOpen: r(false),
                 onFile: vi.fn(),
                 onKChange: vi.fn(),

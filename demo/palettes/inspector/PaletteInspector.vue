@@ -24,6 +24,7 @@
             :palette="palette"
             :layout="layout"
             :name-yielded="renaming"
+            :strip-described="weightedStrip"
         />
 
         <!-- Drag handle. T.W6.5 row 8 (F-4 sweep): the muted token is the

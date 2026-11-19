@@ -64,3 +64,21 @@ test.describe("O-1: the card is the extract result only", () => {
         expect(h).toBeLessThanOrEqual(0.5);
     });
 });
+
+test.describe("O-3: the strip says the shares; no line restates it", () => {
+    test.use({ viewport: { width: 390, height: 844 } });
+
+    test("no share or dominant line above the card; each band is named by its share and value", async ({ page }) => {
+        await loadExtractImage(page, UNEQUAL);
+        const main = mainPane(page);
+        await expect(main.getByText(/% of the image/)).toHaveCount(0);
+        await expect(main.getByText(/^dominant$/)).toHaveCount(0);
+        const names = await extractedCard(page)
+            .locator("[data-color-strip] [data-band]")
+            .evaluateAll((els) => els.map((e) => e.getAttribute("aria-label") ?? ""));
+        expect(names).toHaveLength(3);
+        for (const n of names) expect(n).toMatch(/^\d{1,3}% · \S/);
+        const shares = names.map((n) => parseInt(n, 10)).sort((a, b) => a - b);
+        expect(shares).toEqual([25, 25, 50]);
+    });
+});
