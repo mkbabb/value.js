@@ -19,11 +19,14 @@
                      viewfinder and its two close controls are gone (it was also
                      refused on the site, whose permissions policy has
                      `camera=()`). -->
+                <!-- color-40 M: loaded, the zone is the photo at its own shape
+                     under `--photo-cap` (ImageDropZone); the empty zone keeps
+                     its floor. Both caps are in `svh`, never `dvh`. -->
                 <ImageDropZone
                     :class="
                         layout === 'split'
-                            ? 'flex-1 min-h-0 sm:max-h-[min(400px,50dvh)]'
-                            : 'min-h-[180px] max-h-[min(320px,40dvh)]'
+                            ? 'flex-1 min-h-0 sm:max-h-[min(400px,50svh)] [--photo-cap:min(400px,50svh)]'
+                            : 'min-h-[180px] max-h-[min(20rem,40svh)] [--photo-cap:min(20rem,40svh)]'
                     "
                     :preview="session.previewUrl.value"
                     :disabled="session.isProcessing.value"

@@ -14,6 +14,7 @@
                     ? 'rounded-panel border border-transparent hover:border-primary/50'
                     : 'dashed-well',
         ]"
+        :style="photoBox"
         role="button"
         :tabindex="disabled ? -1 : 0"
         :aria-disabled="disabled ? 'true' : undefined"
@@ -39,6 +40,7 @@
                 :src="preview"
                 class="w-full h-full object-contain rounded-panel"
                 alt="Uploaded image"
+                @load="onPhotoLoad"
             />
             <!-- T.W6.5 row 8 (F-4 sweep): the /50 post-hoc alpha dies — the
                  muted token is already the de-emphasis rung. -->
@@ -70,7 +72,7 @@
 </template>
 
 <script setup lang="ts">
-import { useTemplateRef } from "vue";
+import { computed, ref, useTemplateRef, type CSSProperties } from "vue";
 import { useDropZone } from "@vueuse/core";
 import { ImagePlus, Pipette } from "@lucide/vue";
 import { Badge } from "@mkbabb/glass-ui/badge";
@@ -90,6 +92,36 @@ const emit = defineEmits<{
 }>();
 
 const zoneRef = useTemplateRef<HTMLElement>("zoneRef");
+
+// color-40 M (his FORTIETH order: "the extract page, on scroll, resizes the
+// entire image and container"): a loaded zone IS the photo, shown whole at its
+// own shape, as wide as the column allows while its height stays under the
+// host's cap (`--photo-cap`, `min(20rem, 40svh)` in the pane's column). The cap
+// is in `svh`, which Safari's bars do not move, so a scroll cannot resize it,
+// and a real height lets `object-contain` contain: the box had only min and
+// max heights in `dvh`, so the image overflowed it and its middle was shown
+// (73 % of a portrait at 390, 31 % at 1440). The shape is kept from the last
+// photo until the next one has loaded, so a replace never collapses the box.
+const photoRatio = ref<number | null>(null);
+function onPhotoLoad(e: Event) {
+    const img = e.target as HTMLImageElement;
+    if (img.naturalWidth > 0 && img.naturalHeight > 0) {
+        photoRatio.value = img.naturalWidth / img.naturalHeight;
+    }
+}
+const photoBox = computed<CSSProperties>(() => {
+    const r = photoRatio.value;
+    if (!preview || r === null) return {};
+    return {
+        aspectRatio: String(r),
+        inlineSize: `min(100%, calc(var(--photo-cap, min(20rem, 40svh)) * ${r}))`,
+        blockSize: "auto",
+        minBlockSize: "0",
+        maxBlockSize: "var(--photo-cap, min(20rem, 40svh))",
+        alignSelf: "center",
+        flex: "none",
+    };
+});
 
 function activate() {
     if (disabled) return;
