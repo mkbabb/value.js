@@ -5,7 +5,7 @@
  * The column keeps its subject-first order: on My Palettes the palettes card
  * stands above the picker, on Home the picker leads. What is held here is how
  * the change from one to the other is carried, measured on a revisit (both
- * panes warm) at 390x844, pressing Home in the dock's view select:
+ * panes warm) at 390x844, pressing the dock's Home seat:
  *   (1) at 4x CPU, the first frame that answers the press (the trigger names
  *       Home) comes within 100 ms of the press (B-2's bound; on production
  *       the switch ran inside a 362 ms pointerup task);
@@ -41,11 +41,11 @@ async function hop(page: Page, hash: string, view: string) {
     await settled(page);
 }
 
-/** Opens the view select's sheet and arms the in-page recorder; the caller presses Home. */
+const homeSeat = (page: Page) => page.locator(".glass-dock").getByRole("button", { name: "Home", exact: true });
+
+/** Arms the in-page recorder; the caller presses the Home seat. */
 async function armChange(page: Page) {
-    await page.getByRole("combobox", { name: "Select view" }).tap();
-    await expect(page.getByRole("option", { name: "Home", exact: true })).toBeVisible({ timeout: 10_000 });
-    await page.waitForTimeout(600);
+    await expect(homeSeat(page)).toBeVisible({ timeout: 10_000 });
     await page.evaluate(() => {
         const w = window as unknown as { __change: { press: number; answered: number; tops: number[]; done: boolean } };
         const rec = { press: -1, answered: -1, tops: [] as number[], done: false };
@@ -116,7 +116,7 @@ test("c40 · 390: My Palettes to Home is answered within 100 ms at 4x, and the p
     const cdp = await page.context().newCDPSession(page);
     await armChange(page);
     await cdp.send("Emulation.setCPUThrottlingRate", { rate: 4 });
-    await page.getByRole("option", { name: "Home", exact: true }).tap();
+    await homeSeat(page).tap();
     const throttled = await readChange(page);
     await cdp.send("Emulation.setCPUThrottlingRate", { rate: 1 });
     await expect(page.locator(".app-layout")).toHaveAttribute("data-view", "picker", { timeout: 30_000 });
@@ -130,7 +130,7 @@ test("c40 · 390: My Palettes to Home is answered within 100 ms at 4x, and the p
     // (2) the picker's travel, unthrottled
     await hop(page, "#/palettes", "palettes");
     await armChange(page);
-    await page.getByRole("option", { name: "Home", exact: true }).tap();
+    await homeSeat(page).tap();
     const free = await readChange(page);
     test.info().annotations.push({ type: "picker top per frame", description: free.tops.map((t) => t.toFixed(1)).join(" ") });
     expect(jumps(free.tops), "frames where the picker card jumps").toEqual([]);
