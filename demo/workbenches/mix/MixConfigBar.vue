@@ -32,13 +32,17 @@ const {
     leftoverStrategy,
     showLeftoverStrategy,
     canMix,
+    mixNeeds,
     operandColors = [],
 } = defineProps<{
     colorSpace: PickerSpace;
     hueMethod: HueInterpolationMethod;
     leftoverStrategy: LeftoverStrategy;
+    /** The chosen palettes differ in size, so the leftover rule applies. */
     showLeftoverStrategy: boolean;
     canMix: boolean;
+    /** What the mix still needs, said on the verb while it cannot act. */
+    mixNeeds: string;
     /**
      * T-17: the CURRENT mix operands (colors mode) — the preview ramps'
      * truth inputs. With fewer than 2 operands the rows carry NO chip
@@ -65,7 +69,7 @@ const strategyLabels: Record<LeftoverStrategy, string> = {
 </script>
 
 <template>
-    <div class="flex flex-col gap-3">
+    <div class="flex flex-col">
         <!-- A2-VA-L1-3: the interpolation pair is the app's one
              InterpolationFields (shared with the gradient workbench). W5-7:
              the permanent subtitles died — each row's own #description tells
@@ -80,34 +84,47 @@ const strategyLabels: Record<LeftoverStrategy, string> = {
             />
         </div>
 
-        <!-- Leftover strategy (palette mode only) -->
-        <LabeledField
-            v-if="showLeftoverStrategy"
-            label="Size mismatch"
-            :control-labelable="false"
-            v-slot="{ labelledBy }"
+        <!-- Leftover strategy: only when the chosen palettes differ in size.
+             The row is a presence (utils.css), so it eases the verb down and
+             back instead of pushing it 76 px in one frame. -->
+        <div
+            class="row-presence"
+            :data-present="showLeftoverStrategy ? '' : undefined"
+            :inert="!showLeftoverStrategy"
         >
-            <Select v-bind="popups.bind('leftoverStrategy')" :model-value="leftoverStrategy" @update:model-value="(v: AcceptableValue) => emit('update:leftoverStrategy', v as LeftoverStrategy)">
-                <SelectTrigger class="h-(--control-h-sm)" :aria-labelledby="labelledBy">
-                    <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                    <SelectItem v-for="s in STRATEGIES" :key="s" :value="s">
-                        {{ strategyLabels[s] }}
-                    </SelectItem>
-                </SelectContent>
-            </Select>
-        </LabeledField>
+            <div>
+                <LabeledField
+                    class="pt-3"
+                    label="Size mismatch"
+                    :control-labelable="false"
+                    v-slot="{ labelledBy }"
+                >
+                    <Select v-bind="popups.bind('leftoverStrategy')" :model-value="leftoverStrategy" @update:model-value="(v: AcceptableValue) => emit('update:leftoverStrategy', v as LeftoverStrategy)">
+                        <SelectTrigger class="h-(--control-h-sm)" :aria-labelledby="labelledBy">
+                            <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                            <SelectItem v-for="s in STRATEGIES" :key="s" :value="s">
+                                {{ strategyLabels[s] }}
+                            </SelectItem>
+                        </SelectContent>
+                    </Select>
+                </LabeledField>
+            </div>
+        </div>
 
-        <!-- The page's ONE verb, on glass's primary emphasis. -->
+        <!-- The page's ONE verb, on glass's primary emphasis. While it cannot
+             act it says what it needs instead of sitting dim with no reason. -->
         <Button
             emphasis="primary"
             :disabled="!canMix"
-            class="h-10 gap-2 font-medium"
+            class="mt-3 h-10 gap-2 font-medium"
             @click="emit('mix')"
         >
             <Blend class="w-4 h-4" />
-            Mix
+            <Transition name="vj-morph" mode="out-in">
+                <span :key="canMix ? 'mix' : mixNeeds">{{ canMix ? "Mix" : mixNeeds }}</span>
+            </Transition>
         </Button>
     </div>
 </template>
