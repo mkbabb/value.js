@@ -336,6 +336,9 @@ useResizeObserver(wrapper, async (entries) => {
     :not(pre) > code {
         @apply bg-well rounded px-1 py-0.5;
         color: var(--md-color-accent, var(--foreground));
+        /* the FORTY-SECOND A: inline code is read in the line it sits in, so
+         * it stands at the small rung (14 px at 390), not the caption's 12 */
+        font-size: var(--type-small);
     }
 
     /* Blockquotes */
