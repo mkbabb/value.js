@@ -179,6 +179,7 @@
                             :collapsible="false"
                             :layout="layout === 'split' ? 'aside' : 'default'"
                             swatch-size="xl"
+                            weighted-strip
                             @click="() => {}"
                             @save="session.onSave"
                             @rename="session.onRename"
