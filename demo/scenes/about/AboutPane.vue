@@ -174,4 +174,17 @@ const activeSpace = computed(() => SPACE_CATALOG[model.value.selectedColorSpace]
         max-block-size: calc(var(--scene-band-block) / 1.272);
     }
 }
+
+/* THE FORTIETH ORDER, C-1 — UPRIGHT, THE GUIDE FLOWS WHOLE. On an upright
+ * phone the document is the one scroller (shell.css, D-20): the port's
+ * ceiling above holds in landscape only, where the stacked plates are each
+ * one short band. Upright, About is as long as its guide and the page
+ * scrolls; it keeps the column's measure from the rule above. */
+@container pane-row not (inline-size >= calc(2 * min(25rem, 100svh) + clamp(0.5rem, 1.25vw, 1.618rem))) {
+    @media (orientation: portrait) {
+        .about-pane.pane-row-follow {
+            max-block-size: none;
+        }
+    }
+}
 </style>

@@ -507,26 +507,37 @@
     }
 }
 
-/* X·§0hm D-20 — ONE TRACK: THE COMPANION'S PORT IS THE SCENE BAND.
+/* X·§0hm D-20 — ONE TRACK, LANDSCAPE: THE COMPANION'S PORT IS THE SCENE BAND.
  * Beside the stage the companion follows the stage's height (above). Stacked
  * under it, it had no measure at all: Home's About unrolled all 21 sections
- * to 7664 px at 390 and 7486 px at 430, so the phone's home was ten screens
- * long while the same pane on desktop is a 685 px port. In one track the
- * companion's ceiling is the block the scene band shows at rest
- * (`--scene-band-block`, the shell's own measure), and the same pane scrolls
- * its body inside its own card on the same FadingScroll port. A companion
- * shorter than the band keeps its content height (`flex: 0 1 auto`, as in two
- * tracks), so Mix and an empty My Palettes are unchanged. */
+ * to 7664 px at 390, so D-20 capped the one-track companion at the block the
+ * scene band shows at rest (`--scene-band-block`) and scrolled its body
+ * inside its own card.
+ *
+ * THE FORTIETH ORDER, C and P ("Scrolling ux needs to be dramatically more
+ * intuitive ... such that we can ACTUALLY scroll the screen"): ON AN UPRIGHT
+ * PHONE THE DOCUMENT IS THE ONE SCROLLER. With the cap, a swipe on Home moved
+ * the page until the picker left the top, then the About card took the swipe
+ * over with its title pinned (5,283 px of port in 485), so where a swipe went
+ * depended on where it started. CONVERGE §3 ("no artificial containment, no
+ * faded cut-offs") and his P are the later rulings over D-20. Upright, no pane
+ * scrolls inside itself: the companion flows whole and the page scrolls. The
+ * cap stays in landscape, where the stacked plates are each one short band
+ * (D-19 the stage, D-20 the companion) and a whole guide under the picker would
+ * put the stage's sliders a guide's length from the subject. A companion
+ * shorter than the band keeps its content height (`flex: 0 1 auto`). */
 @container pane-row not (inline-size >= calc(2 * min(25rem, 100svh) + clamp(0.5rem, 1.25vw, 1.618rem))) {
-    .pane-wrapper--inspector > .pane-row-follow {
-        display: flex;
-        flex-direction: column;
-        max-block-size: var(--scene-band-block);
-    }
-    .pane-wrapper--inspector > .pane-row-follow > .pane-shell__card {
-        block-size: auto;
-        flex: 0 1 auto;
-        min-block-size: 0;
+    @media (orientation: landscape) {
+        .pane-wrapper--inspector > .pane-row-follow {
+            display: flex;
+            flex-direction: column;
+            max-block-size: var(--scene-band-block);
+        }
+        .pane-wrapper--inspector > .pane-row-follow > .pane-shell__card {
+            block-size: auto;
+            flex: 0 1 auto;
+            min-block-size: 0;
+        }
     }
 }
 

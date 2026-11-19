@@ -581,6 +581,12 @@ Layout tokens (`:root` in `demo/styles/foundation.css`):
 - The atmosphere canvas sits at `z-index: -1`. A backdrop paints under every in-flow box,
   including the route H1 (A2-VA-L2-2).
 
+**One scroller on an upright phone (the FORTIETH C and P).** In one track and portrait no pane
+scrolls inside itself: the companion flows whole and the document is the one scroller, so a swipe
+moves the page wherever it starts (before, Home's About was a 5,283 px port in 485 px with its
+title pinned, and the swipe changed hands at the picker's foot). In one-track landscape the stacked
+plates keep their one-band ports (D-19, D-20), and two tracks keep the row contract's port.
+
 **The touch-floor exception: ConsoleRail's channel tabs (A2-VA-L2-9).** On a coarse pointer, or
 below 1024px, each channel letter's hit cell is the full `--dock-touch-target` (44px) TALL and
 `0.72 × 44 ≈ 31.7px` WIDE (`demo/picker/controls/ComponentSliders/ConsoleRail.vue`, the touch
