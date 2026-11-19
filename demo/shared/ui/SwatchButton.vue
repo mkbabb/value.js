@@ -9,8 +9,11 @@
          fall through to the Button, and a PopoverTrigger `as-child` merges its
          handlers the same way — SwatchHoverMenu composes this as its trigger);
          the FEEDBACK is one prop: `done` lays the check over the face in the
-         swatch's own contrast ink (X-DS pass 1, V1C-11). T-28's outline law
-         rides: no geometric focus ring is added on the organic edge. -->
+         swatch's own contrast ink (X-DS pass 1, V1C-11). The keyboard's focus
+         ring is the glass Button's own, a rounded rectangle round the organic
+         edge; this file adds none. A ring that follows the paint's silhouette
+         is glass's to give (asked, with the press plate behind an icon-only
+         face and the 1:1 icon-only seat). -->
     <Button
         emphasis="text"
         icon-only
