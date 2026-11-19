@@ -2,7 +2,7 @@
 import { computed, inject, toRef, useAttrs, useId, type HTMLAttributes } from "vue";
 import { COLOR_MODEL_KEY } from "../../../color-session/keys";
 import { useWatercolorBlob } from "./useWatercolorBlob";
-import { hashString } from "./prng";
+import { blendRadiiCSS, hashString } from "./prng";
 
 defineOptions({ inheritAttrs: false });
 
@@ -105,6 +105,9 @@ const { borderRadius, hoverBorderRadius, transform, shapeColor } = useWatercolor
     live: inject(COLOR_MODEL_KEY, null)?.colourLive,
 });
 const filterSeed = computed(() => hashString(shapeColor.value + props.seed) % 256);
+// color-40 L-4: the two outlines blended by one number a host writes
+// (`--watercolor-wet`, 0 to 1), so a swatch's hover and press scrub one reshape.
+const wetBorderRadius = computed(() => blendRadiiCSS(borderRadius.value, hoverBorderRadius.value));
 </script>
 
 <template>
@@ -129,6 +132,7 @@ const filterSeed = computed(() => hashString(shapeColor.value + props.seed) % 25
                 // radius transition tweens between the two.
                 '--watercolor-radius': borderRadius,
                 '--watercolor-radius-hover': hoverBorderRadius,
+                '--watercolor-radius-wet': wetBorderRadius,
                 pointerEvents: 'none',
                 '--watercolor-color': ink ?? color,
                 '--watercolor-filter': filterUrl,

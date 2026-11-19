@@ -148,20 +148,68 @@ const {
     aspect-ratio: 1;
 }
 
-/* The palette dot's hover (the original's): the paint swells to 1.06 and takes
-   its second seeded outline, eased in and out on the dot's own clocks (0.2 s,
-   0.6 s, the standard curve). Only the paint moves: `scale` is a transform, so
-   the button, its row and its neighbours keep their boxes to the pixel. Fine
-   pointers only, so a tap does not latch it. */
+/* The paint (color-40 L-2 to L-4, his FORTIETH order: "a slight border, a bit
+   more depth, and animate on click/hover like a subtle watercolour").
+   - The rim: the dried edge of the paint, 1 px of its own colour stepped 15 %
+     toward the foreground (so a navy still parts from a dark plate), riding
+     the seeded silhouette under the dot's wet-edge filter; 24 % while wet.
+   - The stamp: the house voice at its own small rung, one hard offset cast
+     down-right with zero blur, 2 px (3 px on the two large seats); the
+     shadow ink at 20 % in light, black at 40 % in dark so it stays darker
+     than the band it falls on. It never moves on a press.
+   - One wet number, the larger of the hover (0 to 1 on the dot's 0.6 s clock,
+     fine pointers only) and glass's press (`--glass-btn-press-t`, which the
+     Button writes on every spring frame and every pointer, a touch
+     included). It scrubs the reshape between the dot's two seeded outlines
+     and deepens the rim. No `:active`, no script of ours.
+   A ghost (a placeholder slot) keeps its own dashed silhouette. */
+@property --swatch-hover {
+    syntax: "<number>";
+    inherits: false;
+    initial-value: 0;
+}
+.swatch-button {
+    --swatch-stamp: 2px;
+    --swatch-stamp-ink: color-mix(in srgb, var(--shadow-color) 20%, transparent);
+}
+.swatch-button[data-swatch="xl"],
+.swatch-button[data-swatch="fill"] {
+    --swatch-stamp: 3px;
+}
+:global(.dark) .swatch-button {
+    --swatch-stamp-ink: rgb(0 0 0 / 0.4);
+}
+.swatch-button :deep(.watercolor-swatch[data-variant="solid"]) {
+    --watercolor-wet: max(var(--swatch-hover), var(--glass-btn-press-t, 0));
+    border: 1px solid
+        color-mix(in oklab, var(--watercolor-color), var(--foreground) calc(15% + 9% * var(--watercolor-wet)));
+    border-radius: var(--watercolor-radius-wet, var(--watercolor-radius));
+    box-shadow: var(--swatch-stamp) var(--swatch-stamp) 0 0 var(--swatch-stamp-ink);
+    /* The outline follows the wet number frame by frame, so the radius has no
+       transition of its own; the hover's clock is the number's. */
+    transition:
+        transform var(--duration-fast) var(--ease-standard),
+        scale var(--duration-fast) var(--ease-standard),
+        --swatch-hover 0.6s var(--ease-standard),
+        filter var(--duration-fast) var(--ease-standard);
+}
+
+/* The hover (the original's): the paint swells to 1.06 on its 0.2 s clock and
+   wets on the 0.6 s one. `scale` is a transform, so the button, its row and
+   its neighbours keep their boxes to the pixel. Fine pointers only, so a tap
+   does not latch it. */
 @media (hover: hover) {
     .swatch-button:hover :deep(.watercolor-swatch) {
+        --swatch-hover: 1;
         scale: 1.06;
-        border-radius: var(--watercolor-radius-hover, var(--watercolor-radius));
     }
 }
 
-/* Reduced motion: the outline alone, no swell. */
-@media (hover: hover) and (prefers-reduced-motion: reduce) {
+/* Reduced motion: the rim's tone alone; the outline and the size hold. */
+@media (prefers-reduced-motion: reduce) {
+    .swatch-button :deep(.watercolor-swatch[data-variant="solid"]) {
+        border-radius: var(--watercolor-radius);
+    }
     .swatch-button:hover :deep(.watercolor-swatch) {
         scale: none;
     }

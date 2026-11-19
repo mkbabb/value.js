@@ -58,3 +58,33 @@ test("every swatch seat on Extract's result is square and 44 px or more", async 
     expect(seats.length).toBeGreaterThan(0);
     expectSquareTargets(seats, "Extract");
 });
+
+/**
+ * L-4 on a phone: the press wets the paint. A touch never sees a hover, and a
+ * `:active` rule did not fire on a touch tap (inv-swatch p5), so the paint
+ * keys off glass's own press progress, which the Button writes on every
+ * spring frame. Today the radius never changes through a press.
+ */
+test("a held touch reshapes the paint, and it returns on release", async ({ page }) => {
+    await page.goto("/#/generate", { waitUntil: "domcontentloaded" });
+    const swatch = mainPane(page).locator(".swatch-button").first();
+    await expect(swatch).toBeVisible({ timeout: 60_000 });
+    await page.waitForTimeout(600);
+    const radius = () =>
+        swatch.evaluate((el) => {
+            const cs = getComputedStyle(el.querySelector(".watercolor-swatch")!);
+            return `${cs.borderTopLeftRadius} ${cs.borderTopRightRadius} ${cs.borderBottomRightRadius} ${cs.borderBottomLeftRadius}`;
+        });
+    const rest = await radius();
+    const box = (await swatch.boundingBox())!;
+    const cdp = await page.context().newCDPSession(page);
+    const at = { x: box.x + box.width / 2, y: box.y + box.height / 2 };
+    await cdp.send("Input.dispatchTouchEvent", { type: "touchStart", touchPoints: [at] });
+    await page.waitForTimeout(450);
+    const held = await radius();
+    await cdp.send("Input.dispatchTouchEvent", { type: "touchEnd", touchPoints: [] });
+    await page.waitForTimeout(900);
+    const after = await radius();
+    expect(held, "the paint reshapes while the finger is down").not.toBe(rest);
+    expect(after, "and returns on release").toBe(rest);
+});

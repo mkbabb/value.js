@@ -51,3 +51,21 @@ export function randomRadii(rng: () => number, lo: number, hi: number): number[]
 export function radiiToCSS(r: number[]): string {
     return `${r[0]}% ${r[1]}% ${r[2]}% ${r[3]}% / ${r[4]}% ${r[5]}% ${r[6]}% ${r[7]}%`;
 }
+
+/**
+ * The two seeded outlines as ONE `border-radius`, blended by a number (0 the
+ * rest outline, 1 the second). The number is a CSS expression read at paint
+ * time (default `var(--watercolor-wet, 0)`), so a host scrubs the reshape
+ * with one custom property and no script. Both inputs are `radiiToCSS`
+ * strings; their eight values pair up in order.
+ */
+export function blendRadiiCSS(rest: string, wet: string, t = "var(--watercolor-wet, 0)"): string {
+    const a = (rest.match(/-?\d+(?:\.\d+)?/g) ?? []).map(Number);
+    const b = (wet.match(/-?\d+(?:\.\d+)?/g) ?? []).map(Number);
+    if (a.length !== 8 || b.length !== 8) return rest;
+    const at = (i: number) => {
+        const d = b[i]! - a[i]!;
+        return d === 0 ? `${a[i]}%` : `calc(${a[i]}% + ${d}% * ${t})`;
+    };
+    return `${at(0)} ${at(1)} ${at(2)} ${at(3)} / ${at(4)} ${at(5)} ${at(6)} ${at(7)}`;
+}
