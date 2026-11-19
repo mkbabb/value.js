@@ -290,8 +290,21 @@ const press = useLiquidPress({
 // SS8-0346/0350 (PC-20): the card's keyboard press is the card's own key, as
 // its Enter/Space selection is (`.self`). Space typed into the rename input
 // or pressed on an inner control is that control's — it never squashes the card.
+// color-40 O-5 (his FORTIETH order: "clicking the three dots should not squish
+// the entire container"): the pointer press is the card's own too. A press
+// that starts on an inner control (the menu trigger, a swatch, the slug's copy,
+// the vote, a field) is that control's, which answers with its own press;
+// glass's handler takes any pointerdown that bubbles to it, so holding the
+// menu trigger squashed the whole card (1.0275 x 0.9346, 784 to 806 px wide).
+const INNER_CONTROL = "button, a, input, select, textarea, [role='button'], [role='menuitem'], [contenteditable]";
 const pressHandlers = {
     ...press.handlers,
+    onPointerdown: (e?: PointerEvent) => {
+        const host = e?.currentTarget as Element | null | undefined;
+        const inner = (e?.target as Element | null | undefined)?.closest?.(INNER_CONTROL);
+        if (inner && host && inner !== host && host.contains(inner)) return;
+        press.handlers.onPointerdown(e);
+    },
     onKeydown: (e: KeyboardEvent) => {
         if (e.target === e.currentTarget) press.handlers.onKeydown(e);
     },
