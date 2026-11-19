@@ -6,6 +6,9 @@
  *        seal: the glyph seat is never empty (the summed opacity of the view
  *        glyphs in it is 0.5 or more at every frame) and it settles within
  *        300 ms of the pick (today 0.00 at +550 ms, settled at +955).
+ *   K-2  A dock action's glyph is keyed by its icon: across a view change
+ *        that keeps the picker's Copy and Reset seats, their glyph nodes are
+ *        the same nodes.
  *   K-6 / B-2  The press is answered before the work: the trigger names the
  *              chosen view, and the menu is closing, on a frame BEFORE the
  *              one the route lands on (the switch used to run inside the
@@ -165,6 +168,35 @@ test.describe("c40 · the dock's share of a page change", () => {
         // the seal changes when the route lands; its crossing is bounded from there
         const landed = frames.find((f, i) => i > 0 && f.n > 1) ?? frames.find((f) => f.t >= t0)!;
         expect(glyphFaults(frames.filter((f) => f.t >= t0), landed.t, 300)).toEqual([]);
+    });
+
+    test("K-2: across a view change the Copy and Reset glyphs are the same nodes", async ({ page }) => {
+        await openHome(page, 1440, 900);
+        await page.getByRole("button", { name: "Toggle action bar" }).click();
+        const seats = ["color.copy", "color.reset"];
+        for (const token of seats)
+            await expect(page.locator(`[data-scene-action="${token}"] svg`)).toHaveCount(1, { timeout: 10_000 });
+        await page.evaluate((seats) => {
+            for (const token of seats) {
+                const svg = document.querySelector(`[data-scene-action="${token}"] svg`) as SVGElement & { __c40?: string };
+                svg.__c40 = token;
+            }
+        }, seats);
+        for (const hash of ["#/palettes", "#/mix", "#/"]) {
+            await page.evaluate((h) => (location.hash = h), hash);
+            const view = hash === "#/" ? "picker" : hash.slice(2);
+            await expect(page.locator(".app-layout")).toHaveAttribute("data-view", view);
+            await dockAtRest(page);
+            const kept = await page.evaluate(
+                (seats) =>
+                    seats.map((token) => {
+                        const svgs = [...document.querySelectorAll(`[data-scene-action="${token}"] svg`)] as (SVGElement & { __c40?: string })[];
+                        return `${token}: ${svgs.length} glyph(s), ${svgs.filter((s) => s.__c40 === token).length} kept`;
+                    }),
+                seats,
+            );
+            expect(kept, `after ${hash}`).toEqual(seats.map((t) => `${t}: 1 glyph(s), 1 kept`));
+        }
     });
 
     test("K-6 / B-2: the trigger names the chosen view, and the menu closes, before the route lands", async ({
