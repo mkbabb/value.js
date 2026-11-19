@@ -4,7 +4,7 @@ import { DockTrigger } from "@mkbabb/glass-ui/dock-trigger";
 import {
     Select, SelectContent, SelectGroup, SelectItem, SelectSeparator, SelectValue,
 } from "@mkbabb/glass-ui/select";
-import { computed, inject, watch } from "vue";
+import { computed, inject, shallowRef, watch } from "vue";
 import { SESSION_PORT_KEY } from "../../palettes";
 import { preloadView, warmViews } from "../usePaneRouter";
 import type { ViewEntry } from "./composables/useDockAdminMode";
@@ -35,6 +35,54 @@ const emit = defineEmits<{
 
 // open is driven entirely by the parent's single mutex-managed ref
 const open = defineModel<boolean>("open", { default: false });
+
+// The FORTIETH order, B-2 (K-6): THE PRESS IS ANSWERED BEFORE THE WORK. The
+// view switch ran inside the input's own task (a 362 ms `pointerup` on a 4x
+// phone: the route, its watchers and the pane commit), so the press painted
+// nothing for 420 ms. Now the input task only closes the menu and puts the
+// chosen view on the trigger; the switch itself is emitted in the task after
+// that frame has painted (a frame callback posts a message, and the message's
+// task follows the paint: the boot's own yield, App.vue). The trigger shows
+// the chosen view until the route says it is current, and returns to the route
+// if the switch never lands.
+const chosen = shallowRef<string | null>(null);
+let held = 0;
+watch(
+    () => currentView,
+    () => {
+        chosen.value = null;
+    },
+);
+
+function afterPaint(run: () => void): void {
+    requestAnimationFrame(() => {
+        const { port1, port2 } = new MessageChannel();
+        port1.onmessage = () => {
+            port1.close();
+            run();
+        };
+        port2.postMessage(null);
+    });
+}
+
+function choose(id: unknown): void {
+    if (typeof id !== "string") return;
+    open.value = false;
+    if (id !== "__admin_toggle__" && id !== currentView) chosen.value = id;
+    window.clearTimeout(held);
+    afterPaint(() => {
+        emit("update:modelValue", id);
+        held = window.setTimeout(() => (chosen.value = null), 1000);
+    });
+}
+
+/** The view the trigger names: the one just chosen, else the route's. */
+const shownView = computed(() => chosen.value ?? currentView);
+const shownEntry = computed(() =>
+    chosen.value === null ? null : viewEntries.find((entry) => entry.id === chosen.value) ?? null,
+);
+const shownIcon = computed(() => shownEntry.value?.icon ?? currentIcon);
+const shownLabel = computed(() => shownEntry.value?.label ?? currentLabel);
 
 const pm = inject(SESSION_PORT_KEY)!;
 
@@ -75,10 +123,10 @@ const viewRing = computed(() => {
 
 <template>
     <Select
-        :model-value="currentView"
+        :model-value="shownView"
         :open="open"
         @update:open="open = $event"
-        @update:model-value="(id) => emit('update:modelValue', id as string)"
+        @update:model-value="choose"
     >
         <!-- W7-4 (ONE dock voice): the trigger — icon + ring — speaks
              `--accent-view`, the CURRENT view's gamut-guarded token. The ring
@@ -98,8 +146,8 @@ const viewRing = computed(() => {
                  per-view accent (B2 — var(--accent-view), the ONE resolver). -->
             <Transition name="vj-morph" mode="out-in">
                 <component
-                    :is="currentIcon"
-                    :key="currentView"
+                    :is="shownIcon"
+                    :key="shownView"
                     class="w-6 h-6 shrink-0"
                     :class="isAdminMode && 'gold-ink'"
                     :style="[
@@ -113,7 +161,7 @@ const viewRing = computed(() => {
                  its text from the rendered items, and /atmosphere and /blob are
                  not among a non-admin's options, so there the trigger was a
                  bare glyph and a chevron. -->
-            <SelectValue v-if="isDesktop">{{ currentLabel }}</SelectValue>
+            <SelectValue v-if="isDesktop">{{ shownLabel }}</SelectValue>
         </DockTrigger>
         <!-- B.W1: kept wider than --menu-min-w — long view-option labels need the space -->
         <SelectContent class="min-w-[12rem]">
