@@ -12,6 +12,8 @@
  *   K-3  The trigger's accent sweep runs on the small-state clock: the
  *        `--accent-view` transition a view change starts lasts 200 ms or
  *        less (it was the 550 ms panel clock).
+ *   K-4  The settle beat goes: no `vj-settle` animation starts on a view
+ *        change (two scale motions on one control is the engineered look).
  *   K-6 / B-2  The press is answered before the work: the trigger names the
  *              chosen view, and the menu is closing, on a frame BEFORE the
  *              one the route lands on (the switch used to run inside the
@@ -221,6 +223,26 @@ test.describe("c40 · the dock's share of a page change", () => {
         );
         expect(sweeps.length, "a view change sweeps the trigger's accent").toBeGreaterThan(0);
         for (const ms of sweeps) expect(ms, "the sweep's clock").toBeLessThanOrEqual(200);
+    });
+
+    test("K-4: no settle beat runs on a view change", async ({ page }) => {
+        await openHome(page, 1440, 900);
+        const beats = await page.evaluate(
+            () =>
+                new Promise<string[]>((resolve) => {
+                    const seen: string[] = [];
+                    const on = (e: AnimationEvent) => {
+                        if (/settle/.test(e.animationName)) seen.push(e.animationName);
+                    };
+                    document.addEventListener("animationstart", on, true);
+                    location.hash = "#/gradient";
+                    setTimeout(() => {
+                        document.removeEventListener("animationstart", on, true);
+                        resolve(seen);
+                    }, 2000);
+                }),
+        );
+        expect(beats).toEqual([]);
     });
 
     test("K-6 / B-2: the trigger names the chosen view, and the menu closes, before the route lands", async ({

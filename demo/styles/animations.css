@@ -168,14 +168,6 @@
     max-height: var(--vj-celebrate-expanded, none);
 }
 
-/* The view-select settle beat (B3) — the dock body confirms a view switch
- * with a one-shot morph-family settle (snappy spring, scale only). */
-@keyframes vj-settle {
-    0% { transform: scale(1); }
-    35% { transform: scale(1.03); }
-    100% { transform: scale(1); }
-}
-
 /* --- The dock's element micro-animations (X.W12.e, moved from the dock SFCs) ---
  * Glass owns the dock's LAYER motion (DockLayerGroup → DockCrossfade on the one
  * dock spring); what stays value.js's is element-level feedback inside a face:
