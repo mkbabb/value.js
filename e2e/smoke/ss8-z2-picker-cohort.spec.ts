@@ -152,7 +152,9 @@ test.describe("Z2 picker cohort — desktop 1440", () => {
         const rows = await page.evaluate(() => [...document.querySelectorAll('[role="option"][data-space]')].map((r) => {
             const cap = r.querySelector(".specimen-caption")!;
             const dot = r.querySelector(".specimen-dot");
-            const seed = (dot?.querySelector("feTurbulence") ?? null)?.getAttribute("seed") ?? null;
+            // color-40 L-5: the wet edge is one of the page's pooled filters, so a
+            // dot's identity is its own seeded silhouette.
+            const seed = dot ? getComputedStyle(dot).borderRadius : null;
             const decimals = (cap.textContent?.match(/\d+\.(\d+)/g) ?? []).map((m) => (m.split(".")[1] ?? "").length);
             return {
                 space: r.getAttribute("data-space"),
@@ -171,7 +173,7 @@ test.describe("Z2 picker cohort — desktop 1440", () => {
         expect(rows.filter((r) => r.oog).length, "Z-ColorSpaceSelector-3: out-of-gamut rows are marked").toBeGreaterThan(0);
         expect(rows.filter((r) => r.form !== "channels" && r.form !== "css"), "Z-ColorSpaceSelector-4: a declared form").toEqual([]);
         expect(rows.filter((r) => r.overflows), "Z-ColorSpaceSelector-5: no caption overflows").toEqual([]);
-        expect(new Set(rows.map((r) => r.seed)).size, "Z-ColorSpaceSelector-6: distinct dot seeds").toBe(rows.length);
+        expect(new Set(rows.map((r) => r.seed)).size, "Z-ColorSpaceSelector-6: distinct dot silhouettes").toBe(rows.length);
         expect(rows.filter((r) => r.tag !== null), "Z-ColorSpaceSelector-7: no dead tag=").toEqual([]);
         await page.keyboard.press("Escape");
         for (const space of ["display-p3", "rec2020"]) {

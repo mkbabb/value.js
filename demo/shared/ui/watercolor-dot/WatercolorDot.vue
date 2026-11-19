@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { computed, inject, toRef, useAttrs, useId, type HTMLAttributes } from "vue";
+import { computed, inject, onMounted, toRef, useAttrs, type HTMLAttributes } from "vue";
 import { COLOR_MODEL_KEY } from "../../../color-session/keys";
 import { useWatercolorBlob } from "./useWatercolorBlob";
 import { blendRadiiCSS, hashString } from "./prng";
+import { ensureWatercolorPool, poolFilterId, POOL_SIZE } from "./filterPool";
 
 defineOptions({ inheritAttrs: false });
 
@@ -11,17 +12,17 @@ defineOptions({ inheritAttrs: false });
  * context — no WebGL/WebGPU/Canvas2D; the deliberate suite counterexample, the mark
  * that documents WHY it is not a GPU context): the blob shape is a deterministic
  * `border-radius` silhouette (seeded by `color + seed`), and the wet, bleeding
- * edge is an SVG turbulence + displacement filter that is INTERNALISED — the component
- * mounts its own namespaced `<filter>` so there is zero consumer plumbing. Mount the
+ * edge is an SVG turbulence + displacement filter from the page's small pool
+ * (`./filterPool.ts`, mounted by the first dot): zero consumer plumbing. Mount the
  * dot and the filter just works.
  *
  * Safari-safe by construction (USER-DEFECTS §H): the SVG `<filter>` rasterizes ONCE
  * + caches (the HandMark `texture.ts` idiom) and NEVER re-rasterizes per frame; the
  * `animate` liveness rides a seeded COMPOSITOR `transform` wobble the compositor
  * accelerates without touching the filter graph (a per-frame `border-radius` paint
- * under the filter is the §H Safari flash, retired here). The filter `seed` is
- * per-instance off `hashString(color + seed)` so each dot's wet edge is uniquely
- * displaced (no twelve-clones).
+ * under the filter is the §H Safari flash, retired here). The pooled filter is
+ * picked off `hashString(color + seed)`, the silhouette's own hash, so each dot's
+ * shape is its own and neighbours differ in edge too (no twelve clones).
  *
  * Color arrives as a CSS string painted straight onto the swatch background — the
  * dot needs no resolver because it does not feed a shader; the injected-color seam
@@ -80,21 +81,14 @@ const attrs = useAttrs();
 const visualClass = computed(() => attrs.class as HTMLAttributes["class"]);
 const visualStyle = computed(() => attrs.style as HTMLAttributes["style"]);
 
-// Per-instance namespaced filter id — internalises the SVG filter with zero global
-// state and zero cross-mount coupling. Sanitised for a CSS `url(#…)` reference.
-const filterId = `watercolor-filter-${useId().replace(/[^a-zA-Z0-9_-]/g, "")}`;
-const filterUrl = computed(() => `url(#${filterId})`);
-
-// Per-instance wet-edge seed — derived off the SAME PRNG hash (./prng.ts, the single
-// source) the shape morph uses. A shared hardcoded `seed` would make
-// every dot share ONE wet-edge displacement (twelve clones); deriving it off
-// `hashString(color + seed)` gives each dot a unique wet edge coherent with its
-// silhouette. % 256 keeps it in the feTurbulence seed's comfortable integer range.
-// o1111 dragperf: keyed on the colour the silhouette was seeded from, never the
-// live prop. Under a drag the shape holds, but a seed read off the live colour
-// changed the `<feTurbulence>` on every colour frame and re-rasterised the
-// filter each frame (the spectrum dot and the dock seal, prod 907453615); the
-// seed now moves with the shape, once, on the settle.
+// The wet edge is one of the page's pooled filters (color-40 L-5,
+// `./filterPool.ts`), picked by the SAME PRNG hash (./prng.ts, the single
+// source) the silhouette is seeded from, so neighbouring dots differ in edge
+// as in shape. o1111 dragperf: keyed on the colour the silhouette was seeded
+// from, never the live prop. Under a drag the shape holds, and the edge with
+// it; a pick read off the live colour changed the edge on every colour frame
+// (the spectrum dot and the dock seal, prod 907453615); it now moves with the
+// shape, once, on the settle.
 const colorRef = toRef(props, "color");
 const { borderRadius, hoverBorderRadius, transform, shapeColor } = useWatercolorBlob(colorRef, {
     animate: props.animate,
@@ -104,7 +98,10 @@ const { borderRadius, hoverBorderRadius, transform, shapeColor } = useWatercolor
     // Absent outside the picker app (the embed, isolated mounts): never live.
     live: inject(COLOR_MODEL_KEY, null)?.colourLive,
 });
-const filterSeed = computed(() => hashString(shapeColor.value + props.seed) % 256);
+const filterUrl = computed(
+    () => `url(#${poolFilterId(hashString(shapeColor.value + props.seed) % POOL_SIZE)})`,
+);
+onMounted(() => ensureWatercolorPool());
 // color-40 L-4: the two outlines blended by one number a host writes
 // (`--watercolor-wet`, 0 to 1), so a swatch's hover and press scrub one reshape.
 const wetBorderRadius = computed(() => blendRadiiCSS(borderRadius.value, hoverBorderRadius.value));
@@ -140,66 +137,6 @@ const wetBorderRadius = computed(() => blendRadiiCSS(borderRadius.value, hoverBo
             },
         ]"
     >
-        <!--
-          Internalised watercolor filter — namespaced per instance, auto-mounted,
-          zero-wiring. The wet edge is fractal-noise turbulence displacing the
-          source graphic. STATIC + cached: it rasterizes once per (mount, resize,
-          scheme-flip) and NEVER re-rasterizes per frame (the §H Safari fix — the
-          liveness is the compositor transform wobble, never a per-frame paint under
-          this filter). Sits in a zero-size hidden <svg> so it only contributes the
-          filter def, never layout.
-        -->
-        <svg class="watercolor-filter-host" aria-hidden="true" focusable="false">
-            <defs>
-                <!--
-                  Device-px-resolved wet edge. The displacement
-                  keeps the hand-painted wet bleed crisp:
-                  • linearRGB filter math → smoother edge antialiasing on Chrome/FF.
-                    CAVEAT (WebKit): Safari renders SVG filters in sRGB regardless of
-                    `color-interpolation-filters` (a known WebKit limitation), so the
-                    smooth-AA edge is a Chrome/FF nicety only — never trust it on
-                    Safari. The finer-noise + small scale=1.3 keep the sRGB edge
-                    acceptable for a soft decorative mark.
-                  • 5 octaves at a slightly higher base frequency → FINER noise, so
-                    the displacement perturbs in small smooth steps. Octave 6 is
-                    practically imperceptible (Codrops) + pure Safari raster cost.
-                  • stitchTiles="stitch" → seamless tiled noise (no per-tile
-                    discontinuity flecks at the filter-region boundary).
-                  • scale 1.3 keeps the wet amplitude; the finer noise spreads it
-                    smoothly.
-                  • seed is PER-INSTANCE (off hashString(color+seed)) so each dot's
-                    wet edge is uniquely displaced (no twelve-clones).
-                  The widened −15%/130% region holds the wet bleed clear of the
-                  filter edge (the cross-Safari tiling-seam mitigation, the pre-26.4
-                  feDisplacementMap reference-filter tiling-gap bug). Border-radius
-                  seeded-prng identity is untouched.
-                -->
-                <filter
-                    :id="filterId"
-                    x="-15%"
-                    y="-15%"
-                    width="130%"
-                    height="130%"
-                    color-interpolation-filters="linearRGB"
-                >
-                    <feTurbulence
-                        type="fractalNoise"
-                        baseFrequency="0.05"
-                        numOctaves="5"
-                        :seed="filterSeed"
-                        stitchTiles="stitch"
-                        result="noise"
-                    />
-                    <feDisplacementMap
-                        in="SourceGraphic"
-                        in2="noise"
-                        scale="1.3"
-                        xChannelSelector="R"
-                        yChannelSelector="G"
-                    />
-                </filter>
-            </defs>
-        </svg>
         <!--
           The GHOST register — the seeded
           blob silhouette traced as a DASHED outline that FOLLOWS THE SAME SHAPE the solid
@@ -322,14 +259,5 @@ const wetBorderRadius = computed(() => blendRadiiCSS(borderRadius.value, hoverBo
     .watercolor-swatch.watercolor-animated {
         transform: none;
     }
-}
-
-/* The internalised filter host contributes no layout — it only carries the def. */
-.watercolor-filter-host {
-    position: absolute;
-    width: 0;
-    height: 0;
-    overflow: hidden;
-    pointer-events: none;
 }
 </style>

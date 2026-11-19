@@ -86,12 +86,21 @@ test("the picker slice is ready, themed and sized, and speaks only to its host",
     const swatches = frame.getByRole("group", { name: "Colours" }).getByRole("button");
     await expect(swatches).toHaveCount(8);
     await expect(frame.getByRole("button", { name: "Efflorescence" })).toHaveAttribute("aria-pressed", "true");
-    // The swatches are the app's living watercolour: solid, animated, each its own seed.
+    // The swatches are the app's living watercolour: solid, animated, each its own
+    // seeded silhouette (color-40 L-5: the wet edge is one of the page's pooled
+    // filters, so the silhouette is the dot's identity).
     const dots = frame.locator(".embed-swatches [data-testid=watercolor-swatch]");
     await expect(dots).toHaveCount(8);
     await expect(frame.locator(".embed-swatches .watercolor-animated[data-variant=solid]")).toHaveCount(8);
-    const seeds = await frame.locator(".embed-swatches feTurbulence").evaluateAll((els) => new Set(els.map((e) => e.getAttribute("seed"))).size);
-    expect(seeds).toBe(8);
+    const shapes = await dots.evaluateAll((els) => new Set(els.map((e) => getComputedStyle(e).borderRadius)).size);
+    expect(shapes).toBe(8);
+    const edges = await dots.evaluateAll((els) =>
+        els.every((e) => {
+            const id = getComputedStyle(e).filter.match(/url\("?#([^")]+)"?\)/)?.[1];
+            return !!id && !!document.getElementById(id)?.querySelector("feTurbulence");
+        }),
+    );
+    expect(edges).toBe(true);
     // Her eight on one line, in one paper strip: one top, no chip per dot, no overflow.
     const row = await frame.locator(".embed-swatches").evaluate((el) => {
         const tops = [...el.querySelectorAll("button")].map((b) => Math.round(b.getBoundingClientRect().top));
