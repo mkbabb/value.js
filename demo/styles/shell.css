@@ -240,52 +240,45 @@
 }
 
 /* SS-8 Z1 — THE PER-ROUTE TRACK RATIO (chassis-fitness §4.1; layout-gestalt §5
- * rows 1–7). Golden 61.8 / 38.2 with the stage major: Picker, Generate,
- * Gradient, Extract, Mix. Preview-dominant 2 : 1 with the FIELD major: Browse
- * (its field is the stage) and Library (its field is the palettes region
- * beside the shared picker). A route not named keeps equal tracks. The query
- * is the row's two-track condition, read off the band (the row's width is the
- * band's), with the token values written out as the row contract does.
+ * rows 1–7). Golden 61.8 / 38.2 with the stage major: the shared picker,
+ * Generate, Gradient and Extract. Preview-dominant 2 : 1 with the field major:
+ * Browse (its field is the stage). A stage not named keeps equal tracks. The
+ * query is the row's two-track condition, read off the band (the row's width is
+ * the band's), with the token values written out as the row contract does.
  *
  * X·§0hk OD-15 (owner 2026-11-03: "the left picker is too wide on desktop--
- * bound it a bit more") — THE RATIO IS NOW A STAGE FRACTION WITH A CEILING.
- * The ratio was two `fr` shares, and an `fr` track cannot be capped, so the
- * shared picker stood at 61.8 % of any band: 1043 px at 1800, 2051 px at 3440
- * (its spectrum a 5 : 1 strip). The stage track's growth limit is now its
- * fraction of the row less the gap — the same split the two shares made, floors
- * included — taken against `--pane-stage-max`, and the inspector is the `1fr`
- * remainder, so the slack a ceiling frees goes to the inspector. Only a route
- * whose stage seats the shared picker (viewSchema: picker, palettes, mix, blob)
- * sets a ceiling (`--picker-measure`); the workbench stages keep the unbounded
- * ratio.
+ * bound it a bit more") — THE RATIO IS A STAGE FRACTION WITH A CEILING. An
+ * `fr` track cannot be capped, so the stage track's growth limit is its
+ * fraction of the row less the gap, taken against `--pane-stage-max`, and the
+ * inspector is the `1fr` remainder: the slack a ceiling frees goes to the
+ * inspector. The shared picker's ceiling is `--picker-measure`; the workbench
+ * stages keep the unbounded ratio.
  *
- * X·§0hn (visual seat) — THE CEILING READS THE ROUTE, AS THE FRACTION DOES.
- * It was keyed on the stage's `data-shown`, which the slot stamps only after
- * its hold and leave, while the fraction moves with `data-view` at the input.
- * The one track then ran on two clocks: from Mix to Browse it took Browse's
- * 2 : 1 fraction under the picker's ceiling, a 61 % field (Z-chassis-2 RED,
- * 0.613 at 1440). Both now read the route, so the row has one clock. */
-.app-layout:is(
-        [data-view="picker"],
-        [data-view="generate"],
-        [data-view="gradient"],
-        [data-view="extract"],
-        [data-view="mix"]
+ * THE FORTIETH ORDER, A ("a strange re-sizing issue on the main page") — ONE
+ * BOX FOR THE SHARED PICKER. Library took a 1/3 stage (the field major, SS-8
+ * Z1's "Library 2 : 1") and the track list was tweened (G9), so Home to My
+ * Palettes narrowed the picker from ~675 to ~480 px over 250 ms with its
+ * spectrum reflowing on every frame. Every route whose stage IS the shared
+ * picker (picker, palettes, mix, blob) now takes one track: the picker's
+ * fraction under its measure. On My Palettes the list takes the remainder.
+ *
+ * THE TRACK READS THE DISPLAYED STAGE, NOT THE ROUTE. `data-stage` is the pane
+ * the stage region shows (App.vue, from the slot's own mount report), so the
+ * track changes at the stage's commit, in the same layout the dealt card
+ * arrives in. Keyed on the route, a picker held through a cold chunk's load
+ * window was drawn at the next workbench's width before it left. */
+.pane-container:is(
+        [data-stage="color-picker"],
+        [data-stage="generate"],
+        [data-stage="gradient"],
+        [data-stage="extract"]
     ) {
     --pane-stage-fraction: 0.618033989;
 }
-.app-layout[data-view="browse"] {
+.pane-container[data-stage="browse"] {
     --pane-stage-fraction: 0.666666667;
 }
-.app-layout[data-view="palettes"] {
-    --pane-stage-fraction: 0.333333333;
-}
-.app-layout:is(
-        [data-view="picker"],
-        [data-view="palettes"],
-        [data-view="mix"],
-        [data-view="blob"]
-    ) {
+.pane-container[data-stage="color-picker"] {
     --pane-stage-max: var(--picker-measure);
 }
 @container scene (inline-size >= calc(2 * min(25rem, 100svh) + clamp(0.5rem, 1.25vw, 1.618rem))) {

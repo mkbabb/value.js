@@ -142,7 +142,7 @@
                  `animations.css`, and the physical side modifiers that rode
                  here until that re-key are retired (quoted once in the wave
                  record, `execution/A/X-W5.md` § X.W5.d). -->
-            <div ref="paneContainer" class="pane-container">
+            <div ref="paneContainer" class="pane-container" :data-stage="stageShown">
                 <div
                     v-for="region in regions"
                     :key="region.role"
@@ -525,6 +525,12 @@ const { regions, bindPane, commitEdit, cancelEdit } = usePaneRouter(
         },
     },
 );
+// The FORTIETH order, A: the row's split reads the pane the stage DISPLAYS
+// (shell.css), so the track changes at the stage's commit, never at the input.
+const stageShown = computed(() => {
+    const stage = regions.value.find((region) => region.role === "stage");
+    return stage === undefined ? undefined : (shownPane.value.stage ?? stage.key);
+});
 // X.W11.o1 — a region that leaves the scene drops its `data-shown` stamp
 // (`shownPane`, above), so a later return reads its route key again.
 watch(

@@ -555,9 +555,15 @@ Layout tokens (`:root` in `demo/styles/foundation.css`):
   never exceeds the viewport's block size, so a short landscape takes two tracks; X·§0hm D-19). It has
   **no page cap** (layout-gestalt UL-1; SS-8 Z1):
     - `.pane-container` spans the scene band; `auto-fit` decides one track or two;
-    - two tracks take the route's ratio from `.app-layout[data-view]`: golden 61.8/38.2 (stage
-      major) on Picker, Generate, Gradient, Extract and Mix; 2 : 1 (field major) on Browse and
-      Library; equal elsewhere; each track floors at `--pane-min`;
+    - two tracks take the ratio of the pane the stage DISPLAYS (`.pane-container[data-stage]`,
+      stamped from the slot's mount report, so the split changes at the stage's commit and never
+      at the input): golden 61.8/38.2 (stage major) for the shared picker, Generate, Gradient and
+      Extract; 2 : 1 (field major) on Browse; equal elsewhere; each track floors at `--pane-min`;
+    - **the shared picker keeps one box** (the owner's FORTIETH order, A: "a strange re-sizing
+      issue on the main page"): every route whose stage is the shared picker (Picker, Library, Mix,
+      Blob) takes the same track, the golden fraction under `--picker-measure`, and the companion
+      takes the remainder. Library's 2 : 1 field (SS-8 Z1) gave way to it; at 1440 My Palettes is
+      the remainder beside a 651 px picker;
     - **pane shells never self-clamp** (`w-full` only), and there is no per-width media staircase.
 - **`--card-measure: 32rem`**: the owner's card width (S FINAL.md Ruling #1, "card width ~1/3
   smaller"), worn only by a LONE card centred in a one-region scene (Atmosphere, Not found).
@@ -967,7 +973,7 @@ in and out unless necessary and stacked with a card swapping animation for the v
 | ------------------- | ------------------------------------------------ | -------------------------------------------------- | ---------------------------------- |
 | Card swap           | a region's pane is replaced                      | dealt cards (G2), `vj-enter` on the pane wrappers  | demo, `animations.css`             |
 | Survivor reflow     | a region moves, or widens, because another changed | FLIP (G3), `demo/shell/flipRegions.ts`           | demo                               |
-| Row split           | the split moves                                  | track interpolation (G9)                           | demo, `animations.css`             |
+| Row split           | the split changes with the stage                 | none: it re-lays at the stage's commit (G9)        | demo, `shell.css`                  |
 | Surface resize      | the view menu plate, the dock's content width    | glass (O-171 R-1 menu bloom, R-2 dock width morph) | glass-ui                           |
 | In-place content    | one surface, new content                         | `vj-morph`, unchanged                              | demo                               |
 
@@ -1012,7 +1018,7 @@ transition under `reduce`, so PaneSlot runs these two fades through the Web Anim
 that guard does not reach. `flipRegions` does nothing under reduce.
 
 **G5 · Each box has one owner.** Region and survivor: G3. Dock content width: glass O-171 R-2. Menu
-plate: glass O-171 R-1. The row's split: G9. Document scroll: G6.
+plate: glass O-171 R-1. The row's split: G9 (it does not travel). Document scroll: G6.
 
 **G6 · Scroll.** The scroll offset is kept. The one exception is when the anchor region (the
 first) now ends above the viewport, which is the case where the browser would clamp anyway. Then
@@ -1023,13 +1029,15 @@ A → B → C into one leave and one rise, and a FLIP still in flight is the Fir
 
 **G8 · Clocks.** As in G2. The `(pane, resolved)` key and `PANE_LOAD_DELAY_MS = 200` are unchanged.
 
-**G9 · The split travels; the height does not.** A view change that keeps two regions but moves the
-split (Home 61.8 % to Palettes 33.3 %: the picker 651 to 450 px at 1440) interpolates
-`.pane-container`'s track list on `--spring-panel`, so the survivor's edge and its neighbour move
-with the dealt card instead of snapping at the input. A change of track count does not
-interpolate; G3 carries that hop. The scene's block size no longer travels (O16: the owner named
-the height tween as the expense); the container is `auto`, and the held height of O1105 round 2
-(`followHeight.ts`) is retired. Under reduced motion the split does not transition.
+**G9 · Neither the split nor the height travels.** The owner's FORTIETH order, A ("a strange
+re-sizing issue on the main page") retired the track tween of O1105: Home 61.8 % to Library 33.3 %
+narrowed the picker from ~675 to ~480 px over 250 ms with its spectrum reflowing on every frame.
+The shared picker now stands on one track on all four routes that show it (Layout), so no layout
+property animates during a page change. A stage that changes the split (a workbench beside the
+shared picker) re-lays once, at its commit, while the dealt card passes the seam; the leaver keeps
+the inline and block size it was drawn at for its exit (PaneSlot `hideLeaving`). The scene's block
+size does not travel either (O16: the owner named the height tween as the expense); the container
+is `auto`, and the held height of O1105 round 2 (`followHeight.ts`) is retired.
 
 **The retired grammar (OD19-V7, X.W5.d2), quoted once.** PaneSlot ran `mode="out-in"`, and the swap
 was opacity-led:

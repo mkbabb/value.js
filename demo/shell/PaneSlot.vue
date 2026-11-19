@@ -312,19 +312,30 @@ function reportMount(instance: TInstance | null) {
 // stamps are written: the commit's layout is still clean here, and a read
 // after an attribute write would force a style and layout of its own inside
 // the commit (the FORTIETH B: one read, one write).
+//
+// The FORTIETH order, A: the leaver keeps its drawn INLINE size too. A stage
+// whose split changes at the commit (the shared picker leaving for a
+// workbench) would otherwise be re-laid at the next pane's width for the
+// length of its exit, its spectrum reflowing as it slides off.
 function hideLeaving(el: Element) {
-    const drawn = el instanceof HTMLElement ? el.offsetHeight : null;
+    const drawn = el instanceof HTMLElement ? [el.offsetWidth, el.offsetHeight] : null;
     el.toggleAttribute("inert", true);
     el.setAttribute("aria-hidden", "true");
     el.setAttribute("data-scene-direction", sceneDirection);
-    if (drawn !== null) (el as HTMLElement).style.blockSize = `${drawn}px`;
+    if (drawn !== null) {
+        (el as HTMLElement).style.inlineSize = `${drawn[0]}px`;
+        (el as HTMLElement).style.blockSize = `${drawn[1]}px`;
+    }
 }
 
 function showEntering(el: Element) {
     el.toggleAttribute("inert", false);
     el.removeAttribute("aria-hidden");
     el.setAttribute("data-scene-direction", sceneDirection);
-    if (el instanceof HTMLElement) el.style.removeProperty("block-size");
+    if (el instanceof HTMLElement) {
+        el.style.removeProperty("inline-size");
+        el.style.removeProperty("block-size");
+    }
 }
 
 // ── The scene-direction token (X.W5.d · gate D3's direction arm) ───────────

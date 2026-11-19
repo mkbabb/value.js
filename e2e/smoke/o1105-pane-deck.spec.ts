@@ -21,11 +21,12 @@ import { detectRenderer, isSoftwareGL } from "./perf/frame-budget";
  *     never steps by more than a quarter of its whole travel in one frame; a
  *     pane returned from the KeepAlive cache (A → B → A) rests at its region's
  *     origin with no transform.
- *   · G9 — the row's split travels (the stage region's width never covers
- *     more than 60 % of a >100 px travel in one 60 Hz frame, unless the row's
- *     own transition of that property started); the scene's HEIGHT does not
- *     tween (O16: no `height` transition runs on `.pane-container`); a leaver
- *     keeps the block size it was drawn at.
+ *   · G9 — the row's split does not travel (the owner's FORTIETH order, A,
+ *     replaced the track tween): no `grid-template-columns` transition runs on
+ *     `.pane-container`, and between two routes that show the shared picker
+ *     the stage region keeps one width; the scene's HEIGHT does not tween
+ *     (O16: no `height` transition runs on `.pane-container`); a leaver keeps
+ *     the block size it was drawn at.
  */
 
 type Kid = { id: number; op: number; pos: string; h: number; leave: boolean; edge: number | null; tx: number; dir: string | null };
@@ -118,29 +119,21 @@ function deckFaults(samples: Sample[]) {
     return [...new Set(faults)];
 }
 
-/** G9: the row's split travels, the scene's height does not tween; a leaver keeps its drawn block size. */
-function sizeFaults(samples: Sample[]) {
+/**
+ * G9: the row's split does not travel and the scene's height does not tween;
+ * between two routes that show the shared picker the stage keeps one width
+ * (`oneBox`); a leaver keeps its drawn block size.
+ */
+function sizeFaults(samples: Sample[], oneBox: boolean) {
     const faults: string[] = [];
-    // A size row travels when the row's own transition carries it. Read per
-    // frame, a snap is a discontinuity at any frame rate, but a starved
-    // runner's 300–900 ms frames draw a travel as two values too, so the frame
-    // reading names a candidate, and the row faults only when no transition of
-    // that property started on the row during the hop.
     const last = samples[samples.length - 1]!;
     // O16: the scene's height is never tweened (the owner named it the expense).
     if (last.tr.includes("height")) faults.push("pane-container height transitioned");
-    // the width step is scaled to one 60 Hz frame of elapsed time, as
-    // `plateSteps` is
-    const ws = samples.filter((s) => s.stw != null).map((s) => [s.t, s.stw!] as const);
-    const xs = ws.map(([, x]) => x);
+    // The FORTIETH A: no layout property animates during a page change.
+    if (last.tr.includes("grid-template-columns")) faults.push("pane-container grid-template-columns transitioned");
+    const xs = samples.filter((s) => s.stw != null).map((s) => s.stw!);
     const travel = xs.length ? Math.max(...xs) - Math.min(...xs) : 0;
-    let step = 0;
-    for (let i = 1; i < ws.length; i++) {
-        const dt = Math.max(1000 / 60, ws[i]![0] - ws[i - 1]![0]);
-        step = Math.max(step, (Math.abs(ws[i]![1] - ws[i - 1]![1]) * (1000 / 60)) / dt);
-    }
-    if (travel > 100 && step > 0.6 * travel && !last.tr.includes("grid-template-columns"))
-        faults.push(`stage width stepped ${step.toFixed(0)} of ${travel.toFixed(0)} px in one frame (no split transition)`);
+    if (oneBox && travel > 1) faults.push(`the shared picker's stage moved ${travel.toFixed(1)} px in width`);
     const drawn = new Map<number, number>();
     for (const s of samples)
         for (const w of s.w)
@@ -190,9 +183,10 @@ for (const [width, height] of [
         for (const hash of ["#/palettes", "#/mix", "#/gradient"]) {
             const samples = await hop(page, hash);
             expect(deckFaults(samples), `${width} → ${hash}`).toEqual([]);
-            expect(sizeFaults(samples), `${width} → ${hash} (G9)`).toEqual([]);
+            expect(sizeFaults(samples, hash !== "#/gradient"), `${width} → ${hash} (G9)`).toEqual([]);
         }
-        // dual → single: the survivor's plate opens; it never jumps.
+        // dual → single: no plate jumps (the leaver keeps its drawn width and
+        // the dealt card arrives at its own; the FORTIETH B dropped the clip open).
         const single = await hop(page, "#/atmosphere");
         expect(deckFaults(single), `${width} → atmosphere`).toEqual([]);
         // The plate-step row is a frame-production reading: on a software
@@ -201,7 +195,7 @@ for (const [width, height] of [
         const soft = isSoftwareGL(await detectRenderer(page));
         if (width === 1440 && soft) console.log(`[o1105-deck] plate steps (informational, software GL): ${JSON.stringify(plateSteps(single, "stage"))}`);
         if (width === 1440 && !soft) {
-            // every stage plate that travels opens; none jumps (before: the old
+            // no stage plate that travels jumps (before the clip open: the old
             // plate widened 428 px in one frame, step = travel)
             for (const p of plateSteps(single, "stage").filter((q) => q.travel > 100))
                 expect(p.step / p.travel, `plate edge step ${p.step.toFixed(1)} of ${p.travel.toFixed(1)} px`).toBeLessThanOrEqual(0.25);

@@ -8,13 +8,14 @@
  *   Z-Dock-10  The main dock layer shows no visible separator (Dock G-M).
  *   Z-Dock-13  The dock backdrop sampler is bound to the atmosphere field
  *              (Dock G-P, consumer half; the readback half is glass's).
- *   Z-chassis-2  Browse and Library compose preview-dominant (2:1, the field
- *                the major track).
+ *   Z-chassis-2  Browse composes preview-dominant (2:1, the field the major
+ *                track). Library's row moved to Z-chassis-3m with the owner's
+ *                FORTIETH order, A: the shared picker keeps one box.
  *   Z-chassis-3  Generate / Gradient / Extract compose golden (61.8 / 38.2,
  *                the stage the major track).
- *   Z-chassis-3m Picker / Mix seat the shared picker, whose stage stands AT
- *                `--picker-measure` (card × √φ, X·§0ho OD-19) at 1440 and
- *                3440 alike; the inspector is the remainder.
+ *   Z-chassis-3m Picker / Mix / Library seat the shared picker, whose stage
+ *                stands AT `--picker-measure` (card × √φ, X·§0ho OD-19) at
+ *                1440 and 3440 alike; the inspector is the remainder.
  *   Z-LG-3/4   The surplus reaches the stage (workbench routes) or, on the
  *              picker routes, the inspector: stage@3440 > stage@1440 or
  *              inspector@3440 > inspector@1440, and the pane row covers
@@ -54,11 +55,11 @@ async function go(page: Page, route: string) {
             `.pane-container > .pane-wrapper--stage[data-pane="${stage}"] + .pane-wrapper--inspector[data-pane="${inspector}"]`,
         ),
     ).toHaveCount(1, { timeout: 20_000 });
-    // The row's split travels (DESIGN.md §5.7 G9): the tracks are read at rest.
-    // Rest needs a frame after the 0.45 s travel, and a route's first visit on
-    // the dev server spends seconds transforming its modules before it paints
-    // one (locally 5 frames in 4 s on /generate; CI 42742430225 missed a 5 s
-    // budget on all three attempts), so rest gets the route's own budget.
+    // The tracks are read at rest: past the commit's travel, and a route's
+    // first visit on the dev server spends seconds transforming its modules
+    // before it paints one (locally 5 frames in 4 s on /generate; CI
+    // 42742430225 missed a 5 s budget on all three attempts), so rest gets the
+    // route's own budget.
     await page.waitForFunction(
         () => document.querySelector(".pane-container")?.getAnimations().length === 0,
         undefined,
@@ -114,29 +115,25 @@ test.describe("Z1-app-chassis — the row composition", () => {
         }
         // Z-chassis-3m (X·§0ho OD-19): the shared picker's stage stands at the
         // measure — the ceiling binds below the golden track at 1440 — and the
-        // inspector takes the slack.
+        // inspector takes the slack. Library joined this row with the owner's
+        // FORTIETH order, A: its 2 : 1 field narrowed the picker on every
+        // change to and from Home.
         const measure = await pickerMeasure(page);
         expect(measure, "--picker-measure = 32rem × √φ").toBeCloseTo(32 * 16 * 1.272, 0);
-        for (const r of ["/", "/mix"]) {
+        for (const r of ["/", "/mix", "/palettes"]) {
             expect(Math.abs(at1440[r]!.stage - measure), `${r} stage@1440 = measure`).toBeLessThanOrEqual(1);
             expect(share(r, "inspector"), `${r} inspector takes the slack`).toBeGreaterThan(1 - GOLDEN);
         }
-        // Z-chassis-2: the FIELD takes 64–66.7 % — Browse's field is its stage,
-        // Library's field is the palettes region beside the shared picker.
-        for (const [r, side] of [
-            ["/browse", "stage"],
-            ["/palettes", "inspector"],
-        ] as const) {
-            const f = share(r, side);
-            expect(f, `${r} field share`).toBeGreaterThanOrEqual(0.64);
-            expect(f, `${r} field share`).toBeLessThanOrEqual(0.667);
-        }
+        // Z-chassis-2: the FIELD takes 64–66.7 % — Browse's field is its stage.
+        const f = share("/browse", "stage");
+        expect(f, "/browse field share").toBeGreaterThanOrEqual(0.64);
+        expect(f, "/browse field share").toBeLessThanOrEqual(0.667);
 
         await page.setViewportSize(ULTRA);
-        for (const route of ["/", "/generate", "/browse", "/mix"]) {
+        for (const route of ["/", "/generate", "/browse", "/mix", "/palettes"]) {
             await go(page, route);
             const u = await widths(page);
-            if (route === "/" || route === "/mix") {
+            if (route === "/" || route === "/mix" || route === "/palettes") {
                 // Z-LG-3 (picker routes): the ceiling holds and the inspector
                 // spends the surplus.
                 expect(Math.abs(u.stage - measure), `${route} stage@3440 = measure`).toBeLessThanOrEqual(1);
