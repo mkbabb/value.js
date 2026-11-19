@@ -103,6 +103,7 @@ import { stopsToGradient } from "../../../shared/ui/color-chips";
 import ConsoleRail from "./ConsoleRail.vue";
 import { vTextInPlace } from "../../../shared/vTextInPlace";
 import { COLOR_MODEL_KEY } from "../../../color-session/keys";
+import { inOpeningBreath } from "../../../app/composables/boot/useOverture";
 
 const {
     model,
@@ -172,7 +173,9 @@ const animationKey = ref(0);
 // the cascade re-ran inside the pane-swap travel on every return (census,
 // before: stagger-child-in in the gradient→picker window). Deactivation retires
 // the class while the rows are detached; the next re-key re-arms it.
-const cascade = ref(true);
+// C-18: the boot's arrival cascades; a first arrival after a view change
+// brings its rows whole with the card (the pane swap moves it).
+const cascade = ref(inOpeningBreath());
 watch(currentColorSpace, () => {
     animationKey.value++;
     cascade.value = true;

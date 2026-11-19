@@ -221,7 +221,7 @@ import { readoutEntry, readoutHexEntry } from "./display/ColorComponentDisplay/r
 import { formatCssCaption } from "../color-session/format-color";
 import { COLOR_MODEL_KEY } from "../color-session/keys";
 import type { ColorSceneTarget } from "../color-session/keys";
-import { OVERTURE_KEY } from "../app/composables/boot/useOverture";
+import { OVERTURE_KEY, inOpeningBreath } from "../app/composables/boot/useOverture";
 import { VIEW_MANAGER_KEY } from "../shell/useViewManager";
 import { COLOR_TARGET_PORT_KEY } from "../palettes";
 
@@ -468,7 +468,7 @@ watch(
 // flag drops when the cascade's own animations finish (no wall-clock guess
 // that could cut a late row's delay mid-run), so space-change stagger re-fires
 // run undelayed.
-const plateOpening = ref(true);
+const plateOpening = ref(inOpeningBreath());
 const paneShell = useTemplateRef<HTMLElement>("paneShell");
 
 // X.W12.b (OA-25 — a pane enter runs ONCE, on one owner): the opening beats
@@ -478,9 +478,13 @@ const paneShell = useTemplateRef<HTMLElement>("paneShell");
 // element, so each return re-ran the whole boot breath INSIDE the pane-swap
 // travel (census, before: plate-land, field-paint-in, stagger-child-in and
 // blob-emerge all re-fired in the gradient→picker window beneath the shell's
-// vj-enter). `data-arrival` scopes those beats to the first arrival; the
-// swap family alone moves a returning pane.
-const arrival = ref<"first" | "return">("first");
+// vj-enter). `data-arrival` keeps those beats off a return; the swap family
+// alone moves a returning pane.
+// C-18: only the boot's arrival plays the in-card beats (`boot`). A pane that
+// first mounts after a view change (`first`) arrives whole: its field and
+// rows are there when the card lands, and only the blob emerges (its chunk
+// lands later, and it must not pop in).
+const arrival = ref<"boot" | "first" | "return">(inOpeningBreath() ? "boot" : "first");
 onDeactivated(() => {
     arrival.value = "return";
 });
