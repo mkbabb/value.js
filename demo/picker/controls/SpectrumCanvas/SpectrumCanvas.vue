@@ -218,6 +218,14 @@ onUnmounted(releaseCapture);
     /* No stamp of its own: the picker card carries the one cartoon slab
      * (restraint 2026-11-09, C-3 "Less and more subtle shadowing"). */
     overflow: visible;
+    /* The dot's travel is ink overflow, never scrollable overflow. Its travel
+     * box is as wide as the plane and moved by its own percentages, so at
+     * full saturation it reached a whole plane past the edge and widened the
+     * card's scroll host (542 against 364 px at 390): the card slid sideways
+     * under a swipe. Layout containment keeps every overhang of the plane's
+     * contents out of its ancestors' scroll area; the dot still paints over
+     * the edge. */
+    contain: layout;
     /* The plane owns every gesture that starts on it, touch included: the dot
      * follows the finger from the first touch (handleSpectrumDown). */
     touch-action: none;
