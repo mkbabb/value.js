@@ -51,7 +51,7 @@ test.describe("X-5 · phone", () => {
             page.locator("text=Upload image").first().click(),
         ]);
         await chooser.setFiles({ name: "ss8-b26.png", mimeType: "image/png", buffer: png });
-        await page.waitForFunction(() => /% of the image/.test(document.body.innerText), null, { timeout: 60_000 });
+        await expect(page.locator('main [role="article"][aria-label^="Palette:"]').first()).toBeVisible({ timeout: 60_000 });
         await page.locator("text=Pick a color").first().tap();
         const dialog = page.getByRole("dialog", { name: "Eyedropper" });
         await expect(dialog).toBeVisible({ timeout: 20_000 });
