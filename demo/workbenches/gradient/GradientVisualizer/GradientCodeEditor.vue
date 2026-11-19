@@ -147,6 +147,15 @@ onBeforeUnmount(() => cancelIdle());
     background: var(--code-ground);
 }
 
+/* A field under 16 px makes iOS zoom the page when it takes focus. glass's
+   inputs hold that floor on a coarse pointer (`--field-text-floor`); this
+   contenteditable is the site's own, so it takes the same floor. */
+@media (pointer: coarse) {
+    .code-editor {
+        font-size: var(--field-text-floor, 1rem);
+    }
+}
+
 /* The verdict edge eases in only where motion is wanted (X-W6 · X.W6.e — e2):
    a reduced-motion reader gets the error border at once, structurally. */
 @media (prefers-reduced-motion: no-preference) {
