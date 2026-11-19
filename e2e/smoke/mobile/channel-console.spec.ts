@@ -30,3 +30,14 @@ test("the rail's tabs and the channel sliders have different names", async ({ pa
     expect(names.tabs.filter((n) => lower.has(n.toLowerCase())), "a tab named like a slider").toEqual([]);
     expect(new Set(names.tabs).size, "every tab has its own name").toBe(names.tabs.length);
 });
+
+test("the figures at the sliders' ends are 14 px or more", async ({ page }) => {
+    await page.goto("/", { waitUntil: "load" });
+    const meter = page.locator(".channel-meter").first();
+    await meter.waitFor({ state: "visible", timeout: 60_000 });
+    const sizes = await page.evaluate(() =>
+        [...document.querySelectorAll(".channel-meter")].map((el) => parseFloat(getComputedStyle(el).fontSize)),
+    );
+    expect(sizes.length).toBeGreaterThanOrEqual(4);
+    for (const size of sizes) expect(size, `a channel figure at ${size} px`).toBeGreaterThanOrEqual(13.95);
+});

@@ -313,9 +313,12 @@ useSliderAnnouncements({
 /* ── THE METER (W4-3) — the strip's persistent live reading ──────────────
  * House mono voice, tabular by construction; full certified ink on the
  * well (never italic, never opacity — the t-2000-41 legibility class).
- * min-width in ch keeps the strip's geometry stable across digit swaps. */
+ * min-width in ch keeps the strip's geometry stable across digit swaps.
+ * The small rung (14 px at 390): the caption rung set the figures at
+ * 12.2 px there, under the 14 px floor for text that is read. */
 .channel-meter {
-    font-size: var(--type-mono-caption, var(--type-caption));
+    font-size: var(--type-small);
+    line-height: var(--type-leading-small);
     font-variant-numeric: tabular-nums lining-nums;
     color: var(--foreground);
     min-width: 6ch;
