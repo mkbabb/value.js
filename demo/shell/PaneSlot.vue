@@ -156,10 +156,16 @@ const appearGrammar = import.meta.env.SSR
       };
 
 // W3-4 (S.W3 · pane-swap payload): the rendered triplet TRAILS the incoming
-// props by one animation frame on a KEY change (a real pane swap), so the
-// click frame paints nothing but the input's own feedback, and rapid A→B→C
-// swaps COALESCE into one leave and one mount (only the latest pane is
-// committed), instead of queueing a leave per intermediate key.
+// props on a KEY change (a real pane swap), so the click frame paints nothing
+// but the input's own feedback, and rapid A→B→C swaps COALESCE into one leave
+// and one mount (only the latest pane is committed), instead of queueing a
+// leave per intermediate key.
+// The FORTIETH order, B-2 ("the press is answered before the work"): the
+// commit waits until that frame has PAINTED (its animation frame, then a task
+// posted from it). Committed inside the animation frame, as it was, the mount
+// ran before the frame's paint, so the first frame after a press or a route
+// change carried the whole commit (a 4x phone painted nothing for 290 to
+// 1,623 ms).
 // Same-key prop updates flow through LIVE (the active pane never lags its
 // colour). The initial render and any swap with no enter animation commit
 // immediately (no blank frame).
@@ -184,6 +190,22 @@ const livePane = computed(() =>
 
 let raf = 0;
 let hold = 0;
+// the commit a later swap supersedes (coalescing) or an unmount retires
+let pending = 0;
+let afterPaintChannel: MessageChannel | null = null;
+const afterPaintRuns: (() => void)[] = [];
+
+/** Runs `run` in a task after the next frame has painted. */
+function afterPaint(run: () => void) {
+    raf = requestAnimationFrame(() => {
+        if (afterPaintChannel === null) {
+            afterPaintChannel = new MessageChannel();
+            afterPaintChannel.port1.onmessage = () => afterPaintRuns.shift()?.();
+        }
+        afterPaintRuns.push(run);
+        afterPaintChannel.port2.postMessage(null);
+    });
+}
 
 function commit(key: string) {
     liveComponent.value = component;
@@ -197,7 +219,10 @@ function schedule(key: string) {
         commit(key);
         return;
     }
-    raf = requestAnimationFrame(() => void flip(() => commit(key)));
+    const mine = ++pending;
+    afterPaint(() => {
+        if (mine === pending) void flip(() => commit(key));
+    });
 }
 
 // X.W12.b (OA-25 — one enter per region): a swap to a lazy pane whose chunk
@@ -211,6 +236,7 @@ watch(
     () => componentKey,
     (key) => {
         cancelAnimationFrame(raf);
+        pending++;
         window.clearTimeout(hold);
         const loading = component === null ? null : preloadPane(component);
         if (loading === null) {
@@ -427,6 +453,8 @@ const reduceHooks = computed(() =>
 
 onBeforeUnmount(() => {
     cancelAnimationFrame(raf);
+    pending++;
+    afterPaintChannel?.port1.close();
     window.clearTimeout(hold);
 });
 </script>
