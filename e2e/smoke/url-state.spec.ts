@@ -78,7 +78,7 @@ test("mix, extract, atmosphere and blob reopen from their links", async ({ page 
 
     await open(page, "/#/extract?n=9&cw=1.2");
     await expect(slider(page, "Number of colors")).toHaveAttribute("aria-valuenow", "9", { timeout: 30_000 });
-    await expect(slider(page, "Chroma weight")).toHaveAttribute("aria-valuenow", "1.2");
+    await expect(slider(page, "Vividness")).toHaveAttribute("aria-valuenow", "1.2");
 
     await open(page, "/#/atmosphere?aurora=harmony:triad,noise:0.2,zones.count:3");
     await expect(slider(page, "Zones")).toHaveAttribute("aria-valuenow", "3", { timeout: 30_000 });

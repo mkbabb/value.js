@@ -60,27 +60,40 @@
                      action at the end of the search row, the row that acts on the
                      whole saved list. It used to be a lone trash glyph on a row of
                      its own (S.W5-7 excised the "{n} palettes" line it balanced). -->
-                <div class="flex items-center gap-2">
-                    <div class="input-bar search-seated flex-1 min-w-0">
-                        <Search class="size-(--search-icon-size) text-muted-foreground shrink-0" aria-hidden="true" />
-                        <input
-                            v-model="pm.searchQuery.value"
-                            type="search"
-                            aria-label="Search your palettes"
-                            placeholder="Search your palettes..."
-                            class="input-bar-field"
-                        />
+                <!-- P-01: the search row stands only when there is a library to
+                     search (or a query to clear). It is a row presence
+                     (utils.css): its gap rides inside the clip and the host's
+                     negative end margin hands the column's gap back, so the
+                     list below eases up by the row's whole height. -->
+                <div
+                    class="row-presence palettes-search-presence"
+                    :data-present="hasLibrary ? '' : undefined"
+                    :inert="!hasLibrary"
+                >
+                    <div>
+                        <div class="flex items-center gap-2 pb-3">
+                            <div class="input-bar search-seated flex-1 min-w-0">
+                                <Search class="size-(--search-icon-size) text-muted-foreground shrink-0" aria-hidden="true" />
+                                <input
+                                    v-model="pm.searchQuery.value"
+                                    type="search"
+                                    aria-label="Search your palettes"
+                                    placeholder="Search your palettes..."
+                                    class="input-bar-field"
+                                />
+                            </div>
+                            <Button
+                                v-if="pm.savedPalettes.value.length > 0"
+                                emphasis="text"
+                                size="sm"
+                                class="shrink-0 cursor-pointer text-(color:--ink-muted) hover:text-destructive focus-visible:text-destructive"
+                                aria-label="Delete all palettes saved on this browser"
+                                @click="pm.showDeleteAllConfirm.value = true"
+                            >
+                                Delete all
+                            </Button>
+                        </div>
                     </div>
-                    <Button
-                        v-if="pm.savedPalettes.value.length > 0"
-                        emphasis="text"
-                        size="sm"
-                        class="shrink-0 cursor-pointer text-(color:--ink-muted) hover:text-destructive focus-visible:text-destructive"
-                        aria-label="Delete all palettes saved on this browser"
-                        @click="pm.showDeleteAllConfirm.value = true"
-                    >
-                        Delete all
-                    </Button>
                 </div>
 
                 <!-- W7-failure-dispositions row 45: an unreadable stored library is
@@ -262,6 +275,10 @@ const pm = inject(LIBRARY_PORT_KEY)!;
 const searchNarrows = computed(
     () => pm.searchQuery.value.trim() !== "" && pm.myPalettes.value.length > 0,
 );
+/** P-01: there is something to search, or a query to clear. */
+const hasLibrary = computed(
+    () => pm.myPalettes.value.length > 0 || pm.searchQuery.value.trim() !== "",
+);
 /** The visible local rows, in list order — the only rows that sort or Delete all takes. */
 const visibleLocalIds = computed(() =>
     pm.filteredMine.value.flatMap((p) => (p.isLocal && p.id != null ? [p.id] : [])),
@@ -381,6 +398,13 @@ async function onPublish(palette: Palette) {
  * statement are two blocks, so the pane's block gap (--phi-3) parts them:
  * the list's own 0.75rem gap, plus the remainder here. The list gap alone
  * read as one attached block. */
+/* P-01: the search row's own gap (its `pb-3`) rides inside the presence's
+ * clip, and this margin hands the column's gap back, so an absent row takes
+ * no space at all and a present one sits exactly as before. */
+.palettes-search-presence {
+    margin-block-end: -0.75rem;
+}
+
 .palettes-companion-grid > :deep([role="status"]) {
     padding-block-start: 0;
     margin-block-start: calc(var(--phi-3) - 0.75rem);

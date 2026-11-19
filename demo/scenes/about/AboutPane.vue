@@ -150,15 +150,19 @@ const activeSpace = computed(() => SPACE_CATALOG[model.value.selectedColorSpace]
     max-inline-size: var(--picker-measure);
 }
 
-/* O1109 repair (adversary defects 1 and 2) — STACKED, THE COMPANION IS THE
- * NEXT CARD OF THE DECK. In one track the picker fills the column, so the
- * two-track cap above bound only at 820 (a 651 px card 64 px in from a 779 px
- * picker, its edges matching nothing) and not at all on phones (the card the
- * picker's exact width, a screen tall: 366 x 732 at 390). Under the picker it
- * now sits one token in from the picker's edges on both sides at every
- * stacked width (`--phi-2`), on the picker's centre line, and its port is the
- * scene band over sqrt(phi) (the step `--picker-measure` takes off the card
- * measure), so the plate reads as a card under the picker rather than a
+/* O1109 repair (adversary defects 1 and 2), re-measured at critique H-02 —
+ * STACKED, THE COMPANION IS THE NEXT CARD OF THE DECK, AT THE PICKER'S WIDTH.
+ * In one track the picker fills the column, so the two-track cap above bound
+ * only at 820 (a 651 px card 64 px in from a 779 px picker, its edges
+ * matching nothing) and not at all on phones (the card the picker's width, a
+ * screen tall: 366 x 732 at 390). The repair held the card one token in from
+ * the picker on each side (`--phi-2`); at 390 that left About 16 px in from
+ * the picker above it and from My Palettes in the same deck, a third width
+ * on a two-width phone (H-02). Stacked, the picker's measure IS the column,
+ * so the companion takes it, as the two-track rule above says, and every
+ * card of the deck shares one pair of edges. What contains it is its port,
+ * the scene band over sqrt(phi) (the step `--picker-measure` takes off the
+ * card measure), so the plate reads as a card under the picker rather than a
  * second screen. The query is the row contract's one-track condition
  * (shell.css), the token values written out as it does; the selector names
  * the row contract's class on this root, one class stronger than the
@@ -166,7 +170,7 @@ const activeSpace = computed(() => SPACE_CATALOG[model.value.selectedColorSpace]
  * ceiling it sets for every companion is narrowed here only. */
 @container pane-row not (inline-size >= calc(2 * min(25rem, 100svh) + clamp(0.5rem, 1.25vw, 1.618rem))) {
     .about-pane.pane-row-follow {
-        max-inline-size: calc(100% - 2 * var(--phi-2));
+        max-inline-size: none;
         max-block-size: calc(var(--scene-band-block) / 1.272);
     }
 }
