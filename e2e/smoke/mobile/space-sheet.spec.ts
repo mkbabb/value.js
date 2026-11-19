@@ -38,3 +38,48 @@ test("the colour-space sheet is the screen's width", async ({ page }) => {
     expect(Math.abs(r.width - vw), `the sheet is ${r.width} px of ${vw}`).toBeLessThanOrEqual(1);
     expect(Math.abs(r.x), "the sheet starts at the screen's edge").toBeLessThanOrEqual(1);
 });
+
+/** Every visible line of text in `el` set under `floor` px. */
+async function textUnder(el: Locator, floor: number): Promise<string[]> {
+    return el.evaluate((root, floor) => {
+        const out: string[] = [];
+        const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+        for (let n = walker.nextNode(); n; n = walker.nextNode()) {
+            const text = n.textContent?.trim() ?? "";
+            const parent = n.parentElement;
+            if (!text || !parent) continue;
+            const r = parent.getBoundingClientRect();
+            const cs = getComputedStyle(parent);
+            if (r.width <= 1 || r.height <= 1 || cs.visibility === "hidden") continue;
+            const size = parseFloat(cs.fontSize);
+            if (size < floor) out.push(`"${text.slice(0, 32)}" at ${size.toFixed(1)} px`);
+        }
+        return out;
+    }, floor);
+}
+
+test("no text in the colour-space sheet is under 14 px", async ({ page }) => {
+    const trigger = await boot(page);
+    await trigger.tap();
+    const sheet = page.locator(SHEET).first();
+    await settled(sheet);
+    await expect(sheet.locator(".specimen-caption").first()).toBeVisible();
+    expect(await textUnder(sheet, 13.95)).toEqual([]);
+});
+
+test("no text in Mix's interpolation sheets is under 14 px", async ({ page }) => {
+    await page.goto("/#/mix", { waitUntil: "load" });
+    for (const name of ["Color space", "Hue method"]) {
+        const trigger = page.getByRole("combobox", { name, exact: true }).first();
+        await trigger.waitFor({ state: "visible", timeout: 60_000 });
+        await trigger.scrollIntoViewIfNeeded();
+        await page.waitForTimeout(600);
+        await trigger.tap();
+        const sheet = page.locator(SHEET).first();
+        await settled(sheet);
+        expect(await textUnder(sheet, 13.95), `${name}'s sheet`).toEqual([]);
+        await page.keyboard.press("Escape");
+        await sheet.waitFor({ state: "detached" }).catch(() => {});
+        await page.waitForTimeout(600);
+    }
+});

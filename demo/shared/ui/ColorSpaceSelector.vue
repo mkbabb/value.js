@@ -117,7 +117,7 @@
                             />
                             <span
                                 v-if="row.specimen"
-                                class="specimen-caption font-mono text-mono-caption lowercase truncate"
+                                class="specimen-caption text-mono-small lowercase truncate"
                                 :data-specimen-form="row.specimen.form"
                                 :data-out-of-gamut="String(row.specimen.outOfGamut)"
                                 :style="{ '--specimen-char-budget': SPECIMEN_CHAR_BUDGET }"
@@ -439,13 +439,12 @@ function isDisplayColorSpace(value: string | number): value is DisplayColorSpace
      * literal to re-tune when a space or a digit changes.
      *
      * `1ch` is the advance of `0`, which in a monospaced face IS the advance of
-     * every glyph — so the `ch` arithmetic is exact ONLY with the caps tracking
-     * off. That tracking comes from `text-mono-caption`, the UPPERCASE CAPTION
-     * token (the row already overrides its `text-transform` with `lowercase`);
-     * a caption's 0.1em letter-spacing does not belong on a lowercase mono
-     * DATA line, and removing it is the same correction, finished. NOTHING
-     * SHRINKS: the type rung is untouched — the box grew to hold the sentence,
-     * the sentence was not shrunk to fit the box. */
+     * every glyph — so the `ch` arithmetic is exact ONLY with no tracking. The
+     * line sits on the small mono rung (`text-mono-small`, 14 px at 390; the
+     * caption rung was 12.2 px there, under the 14 px floor for text that is
+     * read), and its quieter ink, not a smaller size, says it is secondary.
+     * NOTHING SHRINKS: the box grew to hold the sentence, the sentence was not
+     * shrunk to fit the box. */
     letter-spacing: normal;
     max-width: min(calc(var(--specimen-char-budget) * 1ch), 100%);
 }
