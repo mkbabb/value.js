@@ -16,7 +16,7 @@
     <div class="nutrition-label w-full relative" :data-space-facts="space">
         <section>
             <h2 class="nl-head font-display text-subheading">Definition</h2>
-            <p class="nl-prose text-base" data-fact="definition">
+            <p class="nl-prose nl-read" data-fact="definition">
                 <bdi>{{ currentColorSpaceInfo.definition }}</bdi>
             </p>
         </section>
@@ -25,7 +25,7 @@
             <h2 class="nl-head font-display text-subheading">Basic information</h2>
             <!-- X-DS VR3-03 / VC4-04: key in the muted plate ink, value weighted,
                  both upright in the body voice. -->
-            <dl class="nl-facts text-base">
+            <dl class="nl-facts nl-read" style="--nl-key: 10em">
                 <dt class="plate-ink">Device dependency:</dt>
                 <dd class="font-medium" data-fact="device-dependency">
                     <bdi>{{ currentColorSpaceInfo.deviceDependency }}</bdi>
@@ -44,7 +44,7 @@
             <!-- One column per channel of THIS space (`--channel-count`), never
                  an unconditional three. -->
             <dl
-                class="nl-components text-base"
+                class="nl-components nl-read"
                 :style="{ '--channel-count': String(Object.keys(formattedRange).length) }"
             >
                 <div
@@ -69,7 +69,7 @@
 
         <section>
             <h2 class="nl-head font-display text-subheading">Key properties</h2>
-            <dl class="nl-facts text-base">
+            <dl class="nl-facts nl-read" style="--nl-key: 10.6em">
                 <dt class="plate-ink">Perceptual uniformity:</dt>
                 <dd class="font-medium"><bdi>{{ currentColorSpaceInfo.perceptualUniformity }}</bdi></dd>
                 <dt class="plate-ink">Hue linearity:</dt>
@@ -105,7 +105,7 @@
 
         <section>
             <h2 class="nl-head font-display text-subheading">Usage</h2>
-            <dl class="nl-facts text-base">
+            <dl class="nl-facts nl-read" style="--nl-key: 10.9em">
                 <dt class="plate-ink">Common applications:</dt>
                 <dd class="font-medium">
                     <ul class="nl-inline" role="list">
@@ -194,8 +194,14 @@ const formattedRange = computed<Record<string, { min: string; max: string }>>(()
 
 <style scoped>
 /* The FORTY-SECOND order, A ("most apps have text that's too small"): the
- * definition and the facts are read, so they stand at the guide's own body
- * face (16 px), not the small rung (14 px at 390). */
+ * definition and the facts are read, so they stand at least at the guide's
+ * own body face (16 px; the small rung was 14 px at 390), and never below the
+ * small rung where that is larger (a wide desk). */
+.nl-read {
+    font-family: var(--font-text);
+    font-size: max(1rem, var(--type-small));
+    line-height: var(--type-leading-small);
+}
 /* V-D4 · BC-CNL-9: rhythm, not rules (DESIGN §3.1, the φ ladder). */
 .nutrition-label {
     display: grid;
@@ -210,10 +216,15 @@ const formattedRange = computed<Record<string, { min: string; max: string }>>(()
 .nl-prose {
     max-inline-size: 66ch;
 }
-/* BC-CNL-24: the label column hugs its labels. */
+/* BC-CNL-24: the label column hugs its labels. The FORTIETH A-4: it hugs
+ * them at a FIXED measure, the widest label's advance in the body face (Plus
+ * Jakarta Sans, weight 400, colon included: 9.90, 10.52 and 10.83 em per
+ * group), set on each group as `--nl-key`. Sized by its content, the column
+ * widened from 156 to 177 px at 1440 when the face arrived and moved every
+ * value 6 px; an em measure follows the size, not the face. */
 .nl-facts {
     display: grid;
-    grid-template-columns: max-content minmax(0, 1fr);
+    grid-template-columns: var(--nl-key, max-content) minmax(0, 1fr);
     column-gap: var(--phi-2);
     row-gap: var(--phi-0);
     margin: 0;
