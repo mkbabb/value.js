@@ -223,41 +223,41 @@
  * ----------------------------------------------------------------------- */
 
 /* -----------------------------------------------------------------------
- * Pane swap — DEALT CARDS (owner 2026-11-13: "The current card transition
- * animation is a bit too expensive and transitons the height--make the cards
- * swap in and out from the left and right sides, like playing cards sort
- * of."; demo/DESIGN.md §5.7, the transition grammar).
+ * Pane swap — THE PLATE STAYS, THE TEXT HANDS OVER (owner 2026-11-13: "The
+ * current card transition animation is a bit too expensive and transitons the
+ * height--make the cards swap in and out from the left and right sides, like
+ * playing cards sort of."; the FORTIETH order, A and B: "a strange
+ * re-sizing", "transitions are very slow"; demo/DESIGN.md §5.7, G2).
  *
  * The PaneSlot <Transition> runs the DEFAULT mode: the leaving card and the
- * dealt card are co-mounted for one gesture. The leaver is taken OUT OF
- * FLOW (absolute in its wrapper, inert, under the dealt card), so the region
- * is sized by the dealt card alone from the commit frame: never 0, never the
- * sum of two panes (fold W5F-04). The wrapper holds `contain: layout`
- * (shell.css), so the travel stays ink overflow: the document never scrolls
- * sideways while a card is off its seat.
+ * arriving card are co-mounted for one gesture. The leaver is taken OUT OF
+ * FLOW (absolute in its wrapper, inert, under the arriving card), so the
+ * region is sized by the arriving card alone from the commit frame: never 0,
+ * never the sum of two panes (fold W5F-04). The wrapper holds `contain:
+ * layout` (shell.css), so the travel stays ink overflow: the document never
+ * scrolls sideways while a card is off its seat.
  *
- * The gesture is horizontal and follows the move (`data-scene-direction`,
- * the scene order the dock lists): FORWARD, the top card slides off to the
- * left as the next is dealt in from the right; BACK, the mirror. Each card
- * runs two properties, transform and opacity, and nothing else: no height,
- * no width, no filter (the scene's block size is no longer tweened; G9 below
- * keeps only the row's split).
+ * Measured on production (the FORTIETH A): the dealt card faded in from 80 ms
+ * over 300 ms while the leaver faded over 200 ms, so at 221-255 ms "My
+ * Palettes" was drawn over "About the color spaces". Now ONE card's text is
+ * legible at a time:
  *
- *   leave — the card slides `--deal-travel` off its side with a slight turn
- *           on `--ease-in` at `--duration-normal`, fading on the shorter
- *           `--duration-fast` (an exit is about six tenths of its entrance and
- *           carries less motion, P0a "in against out").
- *   enter — the dealt card comes from the other side, the same turn the
- *           other way, and squares up on `--spring-panel` (the card shuffle is
- *           a ruled spatial morph, so its spring may overshoot); it fades in
- *           after a `--deal-hold` beat, so the two cards' text never reads at
- *           full strength in one place (P0a rule 4; critique C-07).
+ *   leave — the card slides `--deal-travel` toward the side the move leaves
+ *           by (`data-scene-direction`: forward, the left; back, the right)
+ *           with a slight turn, and is gone by `--duration-control` (an exit
+ *           is quicker than its entrance).
+ *   enter — the arriving card's PLATE is on its seat from its first frame
+ *           (no travel, at full strength, over the leaver), so the region is
+ *           never empty; its TEXT (the plate's own children; the plate's
+ *           material is its pseudo-elements and stays) begins once the leaver
+ *           is gone and comes in on `--duration-fast`.
  *
- * At rest only the dealt card is on screen. Under reduced motion the swap is
- * a fade with no travel: glass's guard zeroes every CSS transition under
- * `reduce`, so PaneSlot runs that fade through the Web Animations API
- * (`fadeIn` / `fadeOut`), never a cut. Direct-child (`>`) on purpose: an
- * in-pane `vj-enter` keeps the base family above.
+ * Each card runs transform and opacity and nothing else: no height, no
+ * width, no filter. At rest only the arriving card is on screen. Under
+ * reduced motion the swap is a fade with no travel: glass's guard zeroes
+ * every CSS transition under `reduce`, so PaneSlot runs that fade through the
+ * Web Animations API, never a cut. Direct-child (`>`) on purpose: an in-pane
+ * `vj-enter` keeps the base family above.
  * ----------------------------------------------------------------------- */
 .pane-wrapper {
     position: relative;
@@ -283,12 +283,11 @@
 
 @media (prefers-reduced-motion: no-preference) {
     .pane-wrapper > * {
-        /* how far a card travels off its seat: a sixth of its own width, at
-         * most 5rem, so a phone card and a desktop card read the same deal */
+        /* how far a leaver travels off its seat: a sixth of its own width, at
+         * most 5rem, so a phone card and a desktop card read the same move */
         --deal-travel: min(16%, 5rem);
         --deal-turn: 1deg;
-        --deal-hold: 80ms;
-        /* +1 deals from the right (forward), -1 from the left (back) */
+        /* +1 when the move is forward (the leaver goes left), -1 back */
         --deal-side: 1;
         /* the turn pivots on the card's foot, as a card held in the hand:
          * its top corners swing sideways and barely rise */
@@ -297,25 +296,32 @@
     .pane-wrapper > [data-scene-direction="back"] {
         --deal-side: -1;
     }
-    .pane-wrapper > .vj-enter-enter-from {
+    /* the arriving text waits for the leaver, then hands over */
+    .pane-wrapper > .vj-enter-enter-from > .glass-resting > *,
+    .pane-wrapper > .vj-enter-enter-from.glass-resting > * {
         opacity: 0;
-        transform: translateX(calc(var(--deal-side) * var(--deal-travel)))
-            rotate(calc(var(--deal-side) * var(--deal-turn)));
     }
+    .pane-wrapper > .vj-enter-enter-active > .glass-resting > *,
+    .pane-wrapper > .vj-enter-enter-active.glass-resting > * {
+        transition: opacity var(--duration-fast) var(--ease-decelerate) var(--duration-control);
+    }
+    /* Vue times the enter by the ROOT's declared transition, so the root
+     * declares the text's clock (its own opacity stays 1: no transition runs
+     * on it, and the enter ends on that clock). */
     .pane-wrapper > .vj-enter-enter-active {
-        transition:
-            transform var(--spring-panel-duration) var(--spring-panel),
-            opacity var(--duration-normal) var(--ease-decelerate) var(--deal-hold);
+        transition: opacity var(--duration-fast) linear var(--duration-control);
     }
     .pane-wrapper > .vj-enter-leave-to {
         opacity: 0;
         transform: translateX(calc(-1 * var(--deal-side) * var(--deal-travel)))
             rotate(calc(-1 * var(--deal-side) * var(--deal-turn)));
     }
+    /* the leaver accelerates away and its text drops at once (an exit's
+     * fade on the ease-out, so no ghost lingers under the arriving plate) */
     .pane-wrapper > .vj-enter-leave-active {
         transition:
-            transform var(--duration-normal) var(--ease-in),
-            opacity var(--duration-fast) var(--ease-decelerate);
+            transform var(--duration-control) var(--ease-in),
+            opacity var(--duration-control) var(--ease-decelerate);
     }
     /* o1111: a region that deals a new card stays where it now lies
      * (flipRegions), so its leaver leaves from where it was drawn: the

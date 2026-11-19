@@ -879,10 +879,10 @@ the standing example (COHESION §0el).
 
 | Register                            | Site                                                                                                                                   | Pairing                                                                                                                                 | Status                 |
 | ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
-| Pane swap ENTER (R2)                | the dealt cards on the pane wrappers (`demo/styles/animations.css`; §5.7)                                                              | transform `--spring-panel` @ `--spring-panel-duration` from `--deal-travel` on the move's side; opacity `--ease-decelerate` @ `--duration-normal` after `--deal-hold` | landed (O16)           |
-| Pane swap LEAVE (R3)                | same block, leave-active; out of flow, under the dealt card                                                                            | transform `--ease-in` @ `--duration-normal` to `--deal-travel` on the other side; opacity `--ease-decelerate` @ `--duration-fast`        | landed (O16)           |
-| Region FLIP (G3)                    | `demo/shell/flipRegions.ts`, from App.vue's one `flip`                                                                                 | `translate` on `--ease-standard` (no overshoot into the dock band, o1109c; from rest, no first-frame jump, o1110) and the plate `clip-path` on `--spring-panel`, both @ `--spring-panel-duration` | landed (O1105)         |
-| Row split (G9)                      | `.pane-container` (`animations.css`)                                                                                                   | `grid-template-columns` on `--spring-panel` @ `--spring-panel-duration`; the scene's height does not travel (O16)                      | landed (O1105 r2, O16) |
+| Pane swap ENTER (R2)                | the arriving card on the pane wrappers (`demo/styles/animations.css`; §5.7 G2)                                                         | the plate on its seat from the first frame; its text's opacity `--ease-decelerate` @ `--duration-fast` after `--duration-control`   | landed (FORTIETH A)    |
+| Pane swap LEAVE (R3)                | same block, leave-active; out of flow, under the arriving card                                                                         | transform `--ease-in` and opacity `--ease-decelerate`, both @ `--duration-control`, toward the side the move leaves by              | landed (FORTIETH A)    |
+| Region FLIP (G3)                    | `demo/shell/flipRegions.ts`, from App.vue's one `flip`                                                                                 | `translate` through the Web Animations API on a sine ease-in-out @ the panel clock (no overshoot into the dock band, o1109c; from rest, no first-frame jump, o1110); one read and one write per commit | landed (FORTIETH B)    |
+| Row split (G9)                      | `.pane-container` (`shell.css`)                                                                                                        | none: the shared picker keeps one track; a split that changes re-lays at the stage's commit; the scene's height does not travel (O16) | landed (FORTIETH A)    |
 | Swap containment                    | the pane wrappers, `*-active` window only                                                                                              | `will-change: transform, opacity` + `contain: layout` for the swap's duration (X.W5.d2; no paint containment, which un-frosts the T-45 carrier, o1110) | landed                 |
 | Specimen press (R4)                 | `demo/palettes/inspector/PaletteInspector.vue`                                                                                         | the producer press drive, `useLiquidPress` (the shared press spring clock, card amplitude). There is no cast (V1-02)                    | landed                 |
 | Channel rail press (R5)             | `.channel-rail-item` (`demo/picker/controls/ComponentSliders/ConsoleRail.vue`)                                                         | `--spring-press` @ its own clock                                                                                                        | landed                 |
@@ -961,7 +961,7 @@ counter-override in `@layer base`, goes with it, under these terms:
 WebGL RAF loops (the hero blob, the aurora) fence on `prefers-reduced-motion` in their own
 drivers. No CSS guard reaches them.
 
-### 5.7 The transition grammar — dealt cards (O1105, O1109, O16)
+### 5.7 The transition grammar — the plate stays, the text hands over (O1105, O1109, O16, the FORTIETH A)
 
 The owner, 2026-11-05: _"transitions between views ... should be well defined and all height and
 width facilities fully animated. The transition animations should be better defined and not fade
@@ -971,28 +971,31 @@ in and out unless necessary and stacked with a card swapping animation for the v
 
 | Change              | What moves                                       | Mechanism                                          | Owner                              |
 | ------------------- | ------------------------------------------------ | -------------------------------------------------- | ---------------------------------- |
-| Card swap           | a region's pane is replaced                      | dealt cards (G2), `vj-enter` on the pane wrappers  | demo, `animations.css`             |
+| Card swap           | a region's pane is replaced                      | the text hands over (G2), `vj-enter`               | demo, `animations.css`             |
 | Survivor reflow     | a region moves, or widens, because another changed | FLIP (G3), `demo/shell/flipRegions.ts`           | demo                               |
 | Row split           | the split changes with the stage                 | none: it re-lays at the stage's commit (G9)        | demo, `shell.css`                  |
 | Surface resize      | the view menu plate, the dock's content width    | glass (O-171 R-1 menu bloom, R-2 dock width morph) | glass-ui                           |
 | In-place content    | one surface, new content                         | `vj-morph`, unchanged                              | demo                               |
 
-**G2 · Dealt cards (O16).** The owner, 2026-11-13: _"The current card transition animation is a bit
-too expensive and transitons the height--make the cards swap in and out from the left and right
-sides, like playing cards sort of."_ It supersedes the shuffled deck of O1109 (a ±110 % fling with a
-3deg turn, a scaled under pose and a held scene height). The gesture is horizontal and follows the
-move: `data-scene-direction` (PaneSlot, from the scene order the dock lists) sets `--deal-side`.
+**G2 · The plate stays, the text hands over (O16, the FORTIETH A).** The owner, 2026-11-13: _"The
+current card transition animation is a bit too expensive and transitons the height--make the cards
+swap in and out from the left and right sides, like playing cards sort of."_ It superseded the
+shuffled deck of O1109. His FORTIETH order (19 Nov: "a strange re-sizing", "transitions are very
+slow") found the dealt card's fade overlapping the leaver's: at 221-255 ms "My Palettes" was drawn
+over "About the color spaces". So one card's text is legible at a time:
 
-- **Forward.** The top card slides `--deal-travel` (a sixth of its width, at most 5rem) off to the
-  left with a 1deg turn about its foot, on `--ease-in` at `--duration-normal`, fading on
-  `--duration-fast`. The next card is dealt in from the right, the same turn the other way, and
-  squares up on `--spring-panel`; it fades in on `--duration-normal` after `--deal-hold` (80 ms).
-- **Back.** The mirror: the card leaves to the right and the next is dealt from the left.
+- **The leaver** slides `--deal-travel` (a sixth of its width, at most 5rem) toward the side the
+  move leaves by, with a 1deg turn about its foot: forward, the left; back, the right
+  (`data-scene-direction`, PaneSlot, from the scene order the dock lists, sets `--deal-side`). Its
+  transform runs on `--ease-in` and its fade on `--ease-decelerate`, both at `--duration-control`
+  (120 ms): it is gone before the next card's text begins.
+- **The arriving card's plate is on its seat from its first frame**, at full strength over the
+  leaver, so the region is never empty. Its text (the plate's own children; the plate's material is
+  its pseudo-elements and stays) comes in on `--duration-fast` after `--duration-control`.
 - **Two properties.** Each card runs transform and opacity and nothing else: no height, no width,
-  no filter. The exit is shorter than the entrance and the dealt card's fade waits for the leaver
-  to fall below half strength, so no frame shows two cards' text at full strength in one place
-  (P0a rule 4).
-- At rest one card is on screen. The leaver sits under the dealt card (z −1 in its wrapper). The
+  no filter. No frame shows two cards' text above 0.15 in one region
+  (`e2e/smoke/c40-one-card-text.spec.ts`).
+- At rest one card is on screen. The leaver sits under the arriving card (z −1 in its wrapper). Its
   travel is ink overflow (the wrapper's `contain: layout`), so the document never scrolls sideways.
 
 **G3 · Out of flow, and the FLIP.** The leaver is `position: absolute; inset: 0 0 auto 0;
@@ -1009,10 +1012,10 @@ cancels it and starts from the pose it reached), on a symmetric sine ease at the
 stacked reorder travels ~600 px, and the panel spring's overshoot on that travel carried the region
 into the dock band (o1109c); `--ease-out` left rest at five times its mean speed, so the reorder's
 first frame moved the picker 45-100 px (o1110 D3). A region that widens is not opened by a clip any
-more: the dealt card arrives at its width. Nothing the flip writes outlives its travel, so a
+more: the arriving card arrives at its width. Nothing the flip writes outlives its travel, so a
 KeepAlive-cached pane never carries a FLIP away.
 
-**G4 · Reduced motion.** The swap is a fade with no travel, never a cut: the dealt card fades in on
+**G4 · Reduced motion.** The swap is a fade with no travel, never a cut: the arriving card fades in on
 `--duration-fast` and the leaver out on `--duration-control`. glass's guard zeroes every CSS
 transition under `reduce`, so PaneSlot runs these two fades through the Web Animations API, which
 that guard does not reach. `flipRegions` does nothing under reduce.
@@ -1034,7 +1037,7 @@ re-sizing issue on the main page") retired the track tween of O1105: Home 61.8 %
 narrowed the picker from ~675 to ~480 px over 250 ms with its spectrum reflowing on every frame.
 The shared picker now stands on one track on all four routes that show it (Layout), so no layout
 property animates during a page change. A stage that changes the split (a workbench beside the
-shared picker) re-lays once, at its commit, while the dealt card passes the seam; the leaver keeps
+shared picker) re-lays once, at its commit, as the card hands over; the leaver keeps
 the inline and block size it was drawn at for its exit (PaneSlot `hideLeaving`). The scene's block
 size does not travel either (O16: the owner named the height tween as the expense); the container
 is `auto`, and the held height of O1105 round 2 (`followHeight.ts`) is retired.

@@ -12,10 +12,11 @@ import { detectRenderer, isSoftwareGL } from "./perf/frame-budget";
  * Per hop, sampled from the input until the swap has been still for 600 ms:
  *   · U1 — a region's block size is never 0 and never the SUM of two
  *     co-mounted panes, and at most one pane is in flow (the leaver is out of
- *     flow). No frame shows two cards of one region above half strength
- *     (P0a rule 4: the dealt card's fade waits for the leaver's).
- *   · D1 — the dealt card arrives from the side the move names: from the
- *     right (+x) on a forward hop, from the left (−x) on a back hop.
+ *     flow). No frame shows two cards' TEXT of one region above half
+ *     strength (P0a rule 4; the FORTIETH A: the arriving card's plate is on
+ *     its seat from its first frame and its text waits for the leaver's).
+ *   · D1 — the leaver leaves toward the side the move names: to the left
+ *     (−x) on a forward hop, to the right (+x) on a back hop.
  *   · U2 — the document never scrolls sideways (`scrollWidth ≤ innerWidth`);
  *     on the dual → single hop the survivor's plate (tracked by identity)
  *     never steps by more than a quarter of its whole travel in one frame; a
@@ -69,7 +70,15 @@ async function hop(page: Page, hash: string): Promise<Sample[]> {
                 oh: w.offsetHeight,
                 kids: [...w.children].map((k) => ({
                     id: idOf(k),
-                    op: Number(getComputedStyle(k).opacity),
+                    // the card's TEXT strength: its own opacity times its
+                    // plate's children's (the plate's material is its
+                    // pseudo-elements, so a plate on its seat with its text
+                    // still to come reads 0)
+                    op: (() => {
+                        const card = k.matches(".glass-resting") ? k : k.querySelector(":scope > .glass-resting");
+                        const text = card ? [...card.children].map((c) => Number(getComputedStyle(c).opacity)) : [];
+                        return Number(getComputedStyle(k).opacity) * (text.length ? Math.max(...text) : 1);
+                    })(),
                     pos: getComputedStyle(k).position,
                     h: (k as HTMLElement).offsetHeight,
                     leave: k.classList.contains("vj-enter-leave-active"),
@@ -98,7 +107,7 @@ async function hop(page: Page, hash: string): Promise<Sample[]> {
 
 function deckFaults(samples: Sample[]) {
     const faults: string[] = [];
-    // the first sideways offset each entering card is drawn at, by identity
+    // the first sideways offset each leaving card is drawn at, by identity
     const dealt = new Map<number, { tx: number; dir: string | null }>();
     for (const s of samples) {
         if (s.sw > s.iw) faults.push(`scrollWidth ${s.sw} > ${s.iw}`);
@@ -110,12 +119,12 @@ function deckFaults(samples: Sample[]) {
             if (w.kids.length > 1 && w.kids.filter((k) => k.op > 0.5).length > 1)
                 faults.push(`${w.role}: two cards above half strength`);
             for (const k of w.kids)
-                if (w.kids.length > 1 && !k.leave && !dealt.has(k.id) && Math.abs(k.tx) >= 1)
+                if (w.kids.length > 1 && k.leave && !dealt.has(k.id) && Math.abs(k.tx) >= 1)
                     dealt.set(k.id, { tx: k.tx, dir: k.dir });
         }
     }
     for (const { tx, dir } of dealt.values())
-        if ((dir === "back" ? -1 : 1) * tx < 0) faults.push(`a ${dir ?? "forward"} card was dealt from ${tx < 0 ? "the left" : "the right"} (${tx.toFixed(0)} px)`);
+        if ((dir === "back" ? -1 : 1) * tx > 0) faults.push(`a ${dir ?? "forward"} card left to ${tx < 0 ? "the left" : "the right"} (${tx.toFixed(0)} px)`);
     return [...new Set(faults)];
 }
 

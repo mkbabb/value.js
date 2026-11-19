@@ -32,15 +32,16 @@
 // measured 1275 ms window (fold W5F-02). Reporting the key with the instance
 // makes that cross-wiring unrepresentable.
 //
-// ── DEALT CARDS — default mode, and why (owner orders 2026-11-05,
-//    2026-11-09, 2026-11-13; demo/DESIGN.md §5.7, the transition grammar) ──
+// ── THE TEXT HANDS OVER — default mode, and why (owner orders 2026-11-05,
+//    2026-11-09, 2026-11-13, the FORTIETH; demo/DESIGN.md §5.7) ──
 //
 // The <Transition> below runs the DEFAULT mode: the leaving card and the
-// dealt card are co-mounted for one gesture, the top card sliding off one
-// side as the next is dealt in from the other, the side following the move
-// (`data-scene-direction`, below). The
+// arriving card are co-mounted for one gesture. The leaver slides off toward
+// the side the move leaves by (`data-scene-direction`, below) and is gone by
+// the control clock; the arriving card's plate is on its seat from its first
+// frame and its text comes in after the leaver's. The
 // leaving card is taken OUT OF FLOW (`animations.css`: absolute in the
-// wrapper, inert, under the dealt card), so the region is
+// wrapper, inert, under the arriving card), so the region is
 // sized by the riser alone from the commit frame. That is what retired
 // `out-in` (X.W5.d2 → OD19-V7, quoted in DESIGN.md §5.7): the serialised
 // leave held the region EMPTY between the two panes and faded both, and the
