@@ -25,8 +25,9 @@
                 <Copy class="w-3.5 h-3.5 text-muted-foreground" aria-hidden="true" />
             </Button>
         </div>
+        <!-- color-40 L-7: the row is the card's swatch band (shared/ui/swatch-band.css). -->
         <div
-            class="px-3 pb-3 flex flex-wrap gap-2 items-start pt-3 min-w-0"
+            class="swatch-band px-3 pb-3 flex flex-wrap gap-2 items-start pt-3 min-w-0"
             :class="!displaySlug && 'border-t border-seam'"
         >
             <SwatchHoverMenu
@@ -83,6 +84,7 @@ import type { PaletteColor } from "../types";
 import SwatchHoverMenu from "../../shared/ui/SwatchHoverMenu.vue";
 import type { SwatchSize } from "../../shared/ui/SwatchButton.vue";
 import { formatCssCaption } from "../../color-session/format-color";
+import "../../shared/ui/swatch-band.css";
 
 defineProps<{
     colors: readonly PaletteColor[];

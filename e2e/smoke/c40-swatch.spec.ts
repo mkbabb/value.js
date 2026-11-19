@@ -173,3 +173,37 @@ test.describe("L-4: one wet response", () => {
         expect((await read())[1]!.radius).toBe(rest[1]!.radius);
     });
 });
+
+/**
+ * L-7: a list of swatches sits on paper, the row's own ground (the card's
+ * paper tone), with no second box: the row is still the well's own child.
+ * Today every row is transparent over its well.
+ */
+test.describe("L-7: the swatch band", () => {
+    const bandOf = (row: import("@playwright/test").Locator) =>
+        row.evaluate((el) => ({
+            ground: getComputedStyle(el).backgroundColor,
+            parent: el.parentElement?.matches("[data-generate-plate], [data-palette-swatches], .current-palette-well") ?? false,
+        }));
+    const transparent = (c: string) => c === "transparent" || /rgba\(0, 0, 0, 0\)|\/ 0\)$/.test(c);
+
+    test("Generate's plate, an opened card and the Current palette: the row has a ground and no new parent", async ({ page }) => {
+        await page.goto("/#/generate", { waitUntil: "domcontentloaded" });
+        const genRow = mainPane(page).locator("[data-generate-plate] > div:has(.swatch-button)").first();
+        await expect(genRow).toBeVisible({ timeout: 60_000 });
+        const card = await openBrowseCard(page);
+        const cardRow = card.locator("[data-palette-swatches] > div:has(.swatch-button)").first();
+        const bands = [await bandOf(cardRow)];
+        await page.goto("/#/generate", { waitUntil: "domcontentloaded" });
+        await expect(genRow).toBeVisible({ timeout: 60_000 });
+        bands.push(await bandOf(genRow));
+        await page.goto("/#/palettes", { waitUntil: "domcontentloaded" });
+        const currentRow = page.locator(".current-palette-well > .swatch-row").first();
+        await expect(currentRow).toBeAttached({ timeout: 60_000 });
+        bands.push(await bandOf(currentRow));
+        for (const b of bands) {
+            expect(transparent(b.ground), `ground ${b.ground}`).toBe(false);
+            expect(b.parent).toBe(true);
+        }
+    });
+});

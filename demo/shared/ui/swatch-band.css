@@ -1,0 +1,30 @@
+/* THE SWATCH BAND (color-40 L-7; his FORTIETH order: "lists of swatches should
+ * have that depth and look like they're in a minimalistic palette container").
+ *
+ * A list of swatches sits on paper: the row's own ground is the card's paper
+ * tone, `--card` at 88 %, so a colour is read against paper and not against the
+ * live-tinted plate. It is NOT a second box: the band is the existing row,
+ * edge to edge inside the well or card that already holds it, with no edge,
+ * no cast and no grain of its own (his standing word on color: paper barely
+ * there, no paper grain re-added). At a card's foot it takes the card's inner
+ * corners, so no square ground runs under a curved hairline.
+ *
+ * One class, three consumers: a palette card's swatch row
+ * (PaletteCardSwatches), the Current palette well (CurrentPaletteEditor) and
+ * Generate's plate (GenerateControls). */
+.swatch-band {
+    background: color-mix(in oklab, var(--card) 88%, transparent);
+}
+.swatch-band:last-child {
+    border-end-start-radius: var(--band-radius, calc(var(--radius-card) - 1px));
+    border-end-end-radius: var(--band-radius, calc(var(--radius-card) - 1px));
+}
+
+/* A row seated inside its well's padding bleeds to the well's edges, so the
+ * band is the well's foot, not an inset slab. `--band-bleed` is the well's
+ * own padding. */
+.swatch-band--bleed {
+    margin-inline: calc(-1 * var(--band-bleed, 0.75rem));
+    margin-block-end: calc(-1 * var(--band-bleed, 0.75rem));
+    padding: var(--band-bleed, 0.75rem);
+}

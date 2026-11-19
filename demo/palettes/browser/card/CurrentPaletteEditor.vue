@@ -43,7 +43,7 @@
         <TransitionGroup
             name="vj-enter"
             tag="div"
-            class="swatch-row flex items-center gap-2.5 flex-wrap"
+            class="swatch-row swatch-band swatch-band--bleed flex items-center gap-2.5 flex-wrap"
         >
             <SwatchHoverMenu
                 v-for="({ color, key }, i) in swatches"
@@ -193,6 +193,7 @@
 import { inject, ref, toRef, TransitionGroup } from "vue";
 import { SAFE_ACCENT_KEY } from "../../../color-session/keys";
 import { formatCount, formatCssCaption } from "../../../color-session/format-color";
+import "../../../shared/ui/swatch-band.css";
 import { Input } from "@mkbabb/glass-ui/input";
 import { Button } from "@mkbabb/glass-ui/button";
 import {
