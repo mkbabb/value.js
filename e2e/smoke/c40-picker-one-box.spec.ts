@@ -13,7 +13,7 @@
  *   (c) no animation that runs during a page change animates
  *       `grid-template-columns`, `clip-path`, `width`, `height` or `inset`
  *       (no layout property animates during a page change; the dock's Tools
- *       seat included, K-5).
+ *       seat included, K-5: the changes pass through the bar-less routes).
  */
 import { test, expect, type Page } from "@playwright/test";
 
@@ -146,8 +146,10 @@ test.describe("c40 · the shared picker keeps one box (FORTIETH A-1)", () => {
             expect(spread, `${hash}: picker widths across the change ${[...new Set(seen.map((w) => w.toFixed(1)))].join(", ")}`).toBeLessThanOrEqual(0.5);
             for (const p of props) animated.add(kebab(p));
         }
-        // the other changes a reader makes from the picker: a workbench and back
-        for (const hash of ["#/mix", "#/generate", "#/blob", "#/"]) {
+        // the other changes a reader makes from the picker, a workbench and
+        // back, through the bar-less routes, so the dock's Tools seat leaves
+        // and returns (K-5)
+        for (const hash of ["#/mix", "#/generate", "#/browse", "#/blob", "#/extract", "#/"]) {
             const { props } = await traceChange(page, hash);
             for (const p of props) animated.add(kebab(p));
         }
