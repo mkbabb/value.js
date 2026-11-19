@@ -2,13 +2,17 @@
     <!-- Direct saturation/value field. -->
     <figure class="spectrum-figure m-0 min-w-0 w-full flex flex-col @container">
         <!-- W5-a11y: 2D saturation×lightness picker — not a linear slider,
-             so role="img" with a reactive descriptive label, not role="slider". -->
+             so role="img" with a reactive descriptive label, not role="slider".
+             The keyboard reaches it (tabindex): the arrows move saturation and
+             value by 1, Shift by 10, and the label speaks both values. -->
         <div
             ref="spectrumRef"
             role="img"
+            tabindex="0"
             :aria-label="spectrumAriaLabel"
             class="spectrum-picker flex w-full cursor-crosshair relative"
             :style="spectrumStyle"
+            @keydown="handleSpectrumKey"
             @pointerdown="handleSpectrumDown"
             @pointermove="handleSpectrumMove"
             @pointerup="handleSpectrumUp"
@@ -155,9 +159,11 @@ const updateSpectrumColor = (
     const span = Math.max(1, rect.height - 2 * inset);
     const y = clamp(coords.clientY - rect.top - inset, 0, span);
 
-    const s = clamp(x / rect.width, 0, 1);
-    const v = clamp(1 - y / span, 0, 1);
+    setSpectrum(clamp(x / rect.width, 0, 1), clamp(1 - y / span, 0, 1));
+};
 
+/** The colour at saturation `s` and value `v` of the current hue. */
+function setSpectrum(s: number, v: number) {
     rawS.value = s;
     rawV.value = v;
     spectrumIsSource = true;
@@ -165,7 +171,26 @@ const updateSpectrumColor = (
     const hsv = withChannel(withChannel(HSVCurrentColor.value, "s", s), "v", v);
 
     setCurrentColor(hsv, model.value.selectedColorSpace, true);
+}
+
+// The keyboard path: the arrows move saturation (left, right) and value (up,
+// down) by one percent, Shift by ten, on the percent grid the label speaks;
+// the dot glides to each step.
+const KEY_STEPS: Readonly<Record<string, readonly [number, number]>> = {
+    ArrowLeft: [-1, 0],
+    ArrowRight: [1, 0],
+    ArrowUp: [0, 1],
+    ArrowDown: [0, -1],
 };
+function handleSpectrumKey(event: KeyboardEvent) {
+    const step = KEY_STEPS[event.key];
+    if (!step || event.altKey || event.metaKey || event.ctrlKey) return;
+    event.preventDefault();
+    const by = event.shiftKey ? 10 : 1;
+    const toGrid = (f: number, d: number) => clamp(Math.round(f * 100) + d * by, 0, 100) / 100;
+    gliding.value = true;
+    setSpectrum(toGrid(dotPos.value.s, step[0]), toGrid(dotPos.value.v, step[1]));
+}
 
 /** The dot's centre in client px, over the rect read for this drag. */
 function dotCentre(rect: DOMRect, inset: number) {
@@ -286,6 +311,14 @@ onUnmounted(releaseCapture);
      * page's, on the compositor; a sideways start, a tap and the dot's handle
      * are the field's (the touch-intent lock, handleSpectrumDown). */
     touch-action: pan-y;
+}
+/* Keyboard focus: glass's ring on the field's own corner, eased in and out. */
+.spectrum-picker {
+    transition: box-shadow var(--duration-fast) var(--ease-standard);
+}
+.spectrum-picker:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring-shadow);
 }
 /* The dot's handle: glass's coarse touch floor, centred on the dot and kept
  * inside the field (useSpectrumPlateStyle clamps its centre), so it adds no
