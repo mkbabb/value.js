@@ -92,3 +92,46 @@ for (const [w, h] of [
         });
     });
 }
+
+/*
+ * Vertically, upright: the plate was capped at the scene band, a cap made for
+ * a short landscape, and the band is built on `svh` (the viewport with the
+ * browser's bars shown), so on a real iPhone the card scrolled itself by 5 px
+ * (390x664) to 114 px (375x548) and its header condensed under the page's own
+ * scroll. Each cell sets the viewport to one of Safari's visible heights, so
+ * `svh` takes it as it does on the phone.
+ */
+for (const [w, h] of [
+    [375, 548],
+    [375, 628],
+    [390, 664],
+    [390, 750],
+    [390, 844],
+] as const) {
+    test.describe(`upright ${w}x${h}`, () => {
+        test.use({ viewport: { width: w, height: h } });
+        test.beforeEach(({}, testInfo) => {
+            testInfo.setTimeout(120_000);
+        });
+
+        test("the card never scrolls itself, and its header never condenses on a page scroll", async ({ page }) => {
+            await openPicker(page);
+            const b = await hostBox(page);
+            expect(b.sh, `the host's scrollHeight ${b.sh} against its clientHeight ${b.ch}`).toBe(b.ch);
+
+            const condensed = await page.evaluate(async () => {
+                const header = document.querySelector(".picker-header")!;
+                const end = document.documentElement.scrollHeight - innerHeight;
+                const seen = new Set<string>();
+                for (let i = 0; i <= 24; i++) {
+                    scrollTo(0, (end * i) / 24);
+                    await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
+                    seen.add(header.getAttribute("data-condensed") ?? "absent");
+                }
+                scrollTo(0, 0);
+                return [...seen];
+            });
+            expect(condensed, "the header's data-condensed through a page scroll").not.toContain("true");
+        });
+    });
+}

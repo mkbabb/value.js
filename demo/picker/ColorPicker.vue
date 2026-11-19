@@ -589,22 +589,24 @@ onUnmounted(() => {
     transition: transform var(--spring-present-duration) var(--transition-liquid-spatial);
 }
 
-/* X·§0hr.2 (4) D-19 — THE PLATE'S BLOCK SIZE IS BOUNDED BY THE SCENE BAND.
- * Below lg the plate is already a scroll host (`.card-scroll-host` +
- * `CardHeader shrink`), but nothing bounded it: in a short landscape
- * (844×390) the 513 px picker stood in a 297 px band and the sliders sat at
- * 558, below the fold. The bound is the layout scale's own block measure,
- * `--scene-band-block` (shell.css: the stable viewport less the dock band and
- * the shell's block paddings), the same ceiling the one-track companion
- * already takes (D-20). It binds only where the picker is taller than the
- * band, so portrait phones (569 px in a ~750 px band), tablets and desktop are
- * unchanged; there the plate scrolls its own body, the header condenses, and
- * the sliders are reached inside the plate, never below the viewport. From lg
- * the grid bounds the plate, and the host scrolls whatever the spectrum's
- * give cannot absorb (V-D1.r4). */
+/* X·§0hr.2 (4) D-19 — IN A SHORT LANDSCAPE THE PLATE IS BOUNDED BY THE SCENE
+ * BAND. In 844×390 the 513 px picker stood in a 297 px band and the sliders
+ * sat at 558, below the fold; the bound is the layout scale's own block
+ * measure, `--scene-band-block` (shell.css: the stable viewport less the dock
+ * band and the shell's block paddings).
+ * UPRIGHT THE PLATE IS ITS CONTENT'S HEIGHT, and the card never scrolls
+ * itself (the picker on a phone "should just be sized"). The band is built on
+ * `svh`, the viewport with the browser's bars shown, so on a real iPhone the
+ * cap bound in portrait too: the card scrolled inside the page by 5 px
+ * (390×664) to 114 px (375×548), and its header condensed under the page's
+ * own scroll. Where the picker is taller than the band, the page scrolls
+ * those pixels. From lg the grid bounds the plate, and the host scrolls
+ * whatever the spectrum's give cannot absorb (V-D1.r4). */
 @variant max-lg {
-    .picker-plate {
-        max-block-size: var(--scene-band-block);
+    @media (orientation: landscape) {
+        .picker-plate {
+            max-block-size: var(--scene-band-block);
+        }
     }
 }
 
