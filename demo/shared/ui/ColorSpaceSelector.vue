@@ -61,13 +61,16 @@
              `DisplayColorSpace`, so the render-boundary cast that `Object.entries`
              forced (its keys widen to `string`) is unspellable here rather than
              merely removed. -->
-        <!-- X.W12.t · UIA-V-5 — the list never leaves a phone screen: it is
-             capped at reka's own available width (the collision-bounded room
-             the floating layer measures), and the caption's char-budget box
-             yields to that cap (`min(…, 100%)`) so its `truncate` applies. -->
+        <!-- X.W12.t · UIA-V-5 — the anchored list never leaves a phone
+             screen: it is capped at reka's own available width (the
+             collision-bounded room the floating layer measures), and the
+             caption's char-budget box yields to that cap (`min(…, 100%)`) so
+             its `truncate` applies. The cap is the anchored form's only: glass's
+             sheet form (`data-form="sheet"`) spans the screen, and the cap left
+             it 32 px short of the edge (358 of 390). -->
         <SelectContent
             align="start"
-            class="max-w-(--reka-select-content-available-width)"
+            class="[&:not([data-form=sheet])]:max-w-(--reka-select-content-available-width)"
             style="--select-dot-color: var(--accent-live)"
         >
             <SelectGroup>
