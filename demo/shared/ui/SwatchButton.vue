@@ -15,8 +15,8 @@
         emphasis="text"
         icon-only
         data-color-surface
-        :data-size="size"
-        :class="['swatch-button relative shrink-0 cursor-pointer', SIZE[size]]"
+        :data-swatch="size"
+        class="swatch-button relative shrink-0 cursor-pointer"
     >
         <!-- The paper chip (owner 2026-11-10, "containers, like a watercolor
              swatch"): with `chip`, the paint sits inset on a paper card
@@ -57,21 +57,13 @@ import { contrastInkFor } from "../../color-session/ink";
  *  plate). A `fill` cell grows from the `md` floor to a 5rem cap, square, and
  *  a long palette wraps at the floor. `fluid` is a seat the host sizes by
  *  `--swatch-size` (the embed's one-line strip: the dots shrink with the row,
- *  never wrap; owner 2026-11-11). */
+ *  never wrap; owner 2026-11-11). Each token is ONE length, read on both axes
+ *  through glass's own `--button-size` (the scoped style below). */
 export type SwatchSize = "sm" | "md" | "lg" | "xl" | "fill" | "fluid";
 
 /** No wrapper: the dot alone, as every unchipped swatch has it. */
 const Bare: FunctionalComponent = (_, { slots }) => slots.default?.();
 Bare.inheritAttrs = false;
-
-const SIZE: Record<SwatchSize, string> = {
-    sm: "w-8 h-8",
-    md: "w-9 h-9 sm:w-10 sm:h-10",
-    lg: "w-11 h-11 sm:w-12 sm:h-12",
-    xl: "w-12 h-12 sm:w-14 sm:h-14",
-    fill: "flex-1 basis-0 min-w-9 sm:min-w-10 max-w-20 h-auto aspect-square",
-    fluid: "swatch-fluid",
-};
 
 const {
     color,
@@ -101,10 +93,59 @@ const {
 </script>
 
 <style scoped>
-/* The host's seat: one token, read here, never reached into from outside. */
-.swatch-fluid {
-    inline-size: var(--swatch-size, 3rem);
-    block-size: var(--swatch-size, 3rem);
+/* The host's seat (color-40 L-1): ONE length per size token, set as glass's
+   own `--button-size`, which glass's icon-only Button reads for its inline
+   size, its block size AND its `min-block-size`. A swatch is square at every
+   pointer: per-axis size classes let the coarse `min-block-size` (the control
+   rung times glass's coarse scale) stretch the block axis, so a phone drew
+   44x66 and 56x60 ovals and a desk's Mix grid 32x36. On a coarse pointer no
+   seat is under the 44 px touch target; the host sizes a `fluid` seat. */
+.swatch-button {
+    --button-size: var(--swatch-seat);
+}
+.swatch-button[data-swatch="sm"] {
+    --swatch-seat: 2rem;
+}
+.swatch-button[data-swatch="md"],
+.swatch-button[data-swatch="fill"] {
+    --swatch-seat: 2.25rem;
+}
+.swatch-button[data-swatch="lg"] {
+    --swatch-seat: 2.75rem;
+}
+.swatch-button[data-swatch="xl"] {
+    --swatch-seat: 3rem;
+}
+@media (min-width: 40rem) {
+    .swatch-button[data-swatch="md"],
+    .swatch-button[data-swatch="fill"] {
+        --swatch-seat: 2.5rem;
+    }
+    .swatch-button[data-swatch="lg"] {
+        --swatch-seat: 3rem;
+    }
+    .swatch-button[data-swatch="xl"] {
+        --swatch-seat: 3.5rem;
+    }
+}
+.swatch-button[data-swatch="fluid"] {
+    --swatch-seat: var(--swatch-size, 3rem);
+}
+@media (pointer: coarse) {
+    .swatch-button:not([data-swatch="fluid"]) {
+        --button-size: max(var(--swatch-seat), var(--touch-target, 2.75rem));
+    }
+}
+/* A `fill` cell takes the row's share: it grows from its seat to a 5rem cap
+   and stays square by its ratio, never by a second axis length. */
+.swatch-button[data-swatch="fill"] {
+    flex: 1 1 0;
+    inline-size: auto;
+    block-size: auto;
+    min-block-size: 0;
+    min-inline-size: var(--button-size);
+    max-inline-size: 5rem;
+    aspect-ratio: 1;
 }
 
 /* The palette dot's hover (the original's): the paint swells to 1.06 and takes
