@@ -1021,6 +1021,15 @@ first frame moved the picker 45-100 px (o1110 D3). A region that widens is not o
 more: the arriving card arrives at its width. Nothing the flip writes outlives its travel, so a
 KeepAlive-cached pane never carries a FLIP away.
 
+**G3a · The press is answered before the commit.** A slot's pane commit waits until the frame
+after the change has painted (its animation frame, then a task posted from it). The first frame
+after a press, a link or Back carries only what reads the route (the dock's seat and glyph, the
+title), never a mount; an animation-frame callback runs before that frame's paint, so a commit
+made there was painted with it (the FORTIETH B-2: a 4x phone painted nothing for 290 to 1,623 ms
+after a change). The dock's view select also takes the chosen view on its own frame and hands
+the route the change after it (`DockViewSelect.vue`). A later swap before the commit supersedes
+it: one leave, one mount.
+
 **G4 · Reduced motion.** The swap is a fade with no travel, never a cut: the arriving card fades in on
 `--duration-fast` and the leaver out on `--duration-control`. glass's guard zeroes every CSS
 transition under `reduce`, so PaneSlot runs these two fades through the Web Animations API, which
