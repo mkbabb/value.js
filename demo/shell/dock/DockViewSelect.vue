@@ -263,14 +263,16 @@ const viewRing = computed(() => {
 /* owner-1112 hover law — the sweep EXTENDS glass's trigger list instead of
  * replacing it: replaced, the hover fill and ink (glass's background-color and
  * color legs) cut in and out, and the press lost its scale spring. Glass's
- * focus-visible leg (box-shadow) rides along so the ring eases too. */
+ * focus-visible leg (box-shadow) rides along so the ring eases too.
+ * The FORTIETH K-3 ("dock transitions are slow"): the sweep is a small state
+ * on a control, so it runs on the control clock, not the panel's 550 ms. */
 .view-select-trigger {
     transition: background-color var(--dock-motion-fast),
         color var(--dock-motion-fast),
         scale var(--dock-press-spring),
         opacity var(--dock-motion-fast),
         box-shadow var(--dock-motion-fast),
-        --accent-view var(--duration-panel) var(--ease-standard);
+        --accent-view var(--duration-control) var(--ease-standard);
 }
 /* o1105-r2 perf: the sweep is for a view change; under a drag the accent
    tracks the colour, so the hue snaps instead of re-sweeping per frame. Only

@@ -9,6 +9,9 @@
  *   K-2  A dock action's glyph is keyed by its icon: across a view change
  *        that keeps the picker's Copy and Reset seats, their glyph nodes are
  *        the same nodes.
+ *   K-3  The trigger's accent sweep runs on the small-state clock: the
+ *        `--accent-view` transition a view change starts lasts 200 ms or
+ *        less (it was the 550 ms panel clock).
  *   K-6 / B-2  The press is answered before the work: the trigger names the
  *              chosen view, and the menu is closing, on a frame BEFORE the
  *              one the route lands on (the switch used to run inside the
@@ -197,6 +200,27 @@ test.describe("c40 · the dock's share of a page change", () => {
             );
             expect(kept, `after ${hash}`).toEqual(seats.map((t) => `${t}: 1 glyph(s), 1 kept`));
         }
+    });
+
+    test("K-3: the accent sweep on a view change lasts 200 ms or less", async ({ page }) => {
+        await openHome(page, 1440, 900);
+        const sweeps = await page.evaluate(
+            () =>
+                new Promise<number[]>((resolve) => {
+                    const trigger = document.querySelector<HTMLElement>(".view-select-trigger")!;
+                    const seen: number[] = [];
+                    trigger.addEventListener("transitionrun", (e) => {
+                        if (e.propertyName !== "--accent-view") return;
+                        for (const a of trigger.getAnimations())
+                            if (a instanceof CSSTransition && a.transitionProperty === "--accent-view")
+                                seen.push(Number(a.effect?.getComputedTiming().duration ?? 0) + Number(a.effect?.getComputedTiming().delay ?? 0));
+                    });
+                    location.hash = "#/gradient";
+                    setTimeout(() => resolve(seen), 1500);
+                }),
+        );
+        expect(sweeps.length, "a view change sweeps the trigger's accent").toBeGreaterThan(0);
+        for (const ms of sweeps) expect(ms, "the sweep's clock").toBeLessThanOrEqual(200);
     });
 
     test("K-6 / B-2: the trigger names the chosen view, and the menu closes, before the route lands", async ({
