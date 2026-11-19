@@ -56,6 +56,8 @@ function headerCensus(page: Page) {
             live: header?.getAttribute("aria-live") ?? null,
             seam: glyphTop - trig.getBoundingClientRect().bottom,
             ratio: parseFloat(getComputedStyle(fig0).fontSize) / parseFloat(getComputedStyle(trig).fontSize),
+            figPx: parseFloat(getComputedStyle(fig0).fontSize),
+            trigPx: parseFloat(getComputedStyle(trig).fontSize),
             cellTops: [...ps.querySelectorAll(".readout-cell")].map((c) => Math.round(c.getBoundingClientRect().top)),
         };
     }, PICKER_TRIGGER);
@@ -91,7 +93,10 @@ test.describe("Z2 picker cohort — desktop 1440", () => {
         })));
         expect(c.live, "Z-ColorPicker-11: the picker header is a polite region").toBe("polite");
         expect.soft(c.seam, "Z-ColorPicker-14: the label→readout seam is under the φG ceiling").toBeLessThan(14.87);
-        expect(c.ratio, "Z-ColorPicker-16: the paired readout/label ratio").toBeCloseTo(0.7862, 3);
+        // color-40 G (his FORTIETH order: the numbers "a bit larger and
+        // audacious"): the readout stands at the title's rung on a desk, where
+        // the 0.7862 pairing held it one ladder step below.
+        expect(Math.abs(c.figPx - c.trigPx), "Z-ColorPicker-16: the readout at the title's rung").toBeLessThanOrEqual(1);
         const clock = await page.evaluate(() => {
             const probe = document.createElement("div");
             probe.style.transitionDuration = "var(--overture-plate-land)";
@@ -305,7 +310,10 @@ test.describe("Z2 picker cohort — mobile 390", () => {
         test.setTimeout(120_000);
         await bootPicker(page);
         const c = await headerCensus(page);
-        expect(c.ratio, "Z-ColorPicker-16: one paired ratio at 390").toBeCloseTo(0.7862, 3);
+        // color-40 G: on a phone the header's content box binds (about 30.9 px),
+        // never above the title.
+        expect(c.figPx, "Z-ColorPicker-16: the readout fills the header at 390").toBeGreaterThanOrEqual(30);
+        expect(c.figPx, "Z-ColorPicker-16: and never passes the title").toBeLessThanOrEqual(c.trigPx + 0.5);
         expect(new Set(c.cellTops).size, "Z-ColorPicker-20: the 3-tuple shares one line").toBe(1);
 
         await page.locator('[aria-label="Toggle action bar"]').first().tap();

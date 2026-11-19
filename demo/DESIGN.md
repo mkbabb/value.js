@@ -1082,6 +1082,8 @@ paint.
 - **Fraunces — the atlas/display voice.** Display rungs ONLY: `.text-display-*`, `.font-display`,
   pane titles, the space-title plate caption, markdown headings and section headings.
     - The variable axes (`opsz` 9–144, `WONK` / `SOFT`) apply through the glass-ui utilities.
+    - The picker's hero readout is Fraunces at the title's own rung, integer 700 and fraction
+      400, tabular (§ 6.2).
     - Fraunces is SELF-HOSTED, from `demo/app/public/fonts/`, declared in `demo/app/index.html`: variable woff2,
       with the latin-normal face preloaded as the tnum-minted build. There are zero cross-origin font
       requests.
@@ -1137,6 +1139,12 @@ required:
    of its format up front. For example, a `-125.0`-class channel reserves `min-width: 7ch` at its
    own font. Sign flips, added decimals and unit swaps then re-ink the SAME box instead of
    re-flowing the row. A locked readout row has no `flex-wrap`.
+
+**The hero number stands at the title's rung** (his FORTIETH order, G: "a bit larger and
+audacious"; this retires X.W12.d's cap one ladder step below the title). The picker's readout is
+fitted to the catalog's worst-case tuple over the header's own content box, never above
+`--type-display-2`, with the integer at 700 and the fraction at 400. The card-lock law below is
+unchanged: every space stays one line, and no value change moves the card.
 
 The picker readout applies the law: the int/frac/unit span split and the declared `tabular-nums`
 in `demo/picker/display/ColorComponentDisplay/ColorComponentDisplay.vue`, plus the static
