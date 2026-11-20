@@ -214,6 +214,12 @@ test.describe("L-7: the swatch band", () => {
     const transparent = (c: string) => c === "transparent" || /rgba\(0, 0, 0, 0\)|\/ 0\)$/.test(c);
 
     test("Generate's plate, an opened card and the Current palette: the row has a ground and no new parent", async ({ page }) => {
+        // an empty Current palette (the add slot alone) takes no ground
+        await page.goto("/#/palettes", { waitUntil: "domcontentloaded" });
+        const emptyRow = page.locator(".current-palette-well[data-empty] > .swatch-row").first();
+        await expect(emptyRow).toBeAttached({ timeout: 60_000 });
+        expect(transparent((await bandOf(emptyRow)).ground), "the empty well's row").toBe(true);
+
         await page.goto("/#/generate", { waitUntil: "domcontentloaded" });
         const genRow = mainPane(page).locator("[data-generate-plate] > div:has(.swatch-button)").first();
         await expect(genRow).toBeVisible({ timeout: 60_000 });
@@ -224,8 +230,11 @@ test.describe("L-7: the swatch band", () => {
         await expect(genRow).toBeVisible({ timeout: 60_000 });
         bands.push(await bandOf(genRow));
         await page.goto("/#/palettes", { waitUntil: "domcontentloaded" });
-        const currentRow = page.locator(".current-palette-well > .swatch-row").first();
-        await expect(currentRow).toBeAttached({ timeout: 60_000 });
+        // the Current palette holds a list once it holds a colour: a fresh
+        // profile's well is empty, the add slot alone beside its caption
+        await page.getByText("Start a new palette").first().click({ timeout: 60_000 });
+        const currentRow = page.locator(".current-palette-well > .swatch-row:has(.swatch-button)").first();
+        await expect(currentRow).toBeAttached({ timeout: 10_000 });
         bands.push(await bandOf(currentRow));
         for (const b of bands) {
             expect(transparent(b.ground), `ground ${b.ground}`).toBe(false);
