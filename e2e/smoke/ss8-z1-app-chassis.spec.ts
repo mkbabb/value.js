@@ -59,10 +59,23 @@ async function go(page: Page, route: string) {
     // first visit on the dev server spends seconds transforming its modules
     // before it paints one (locally 5 frames in 4 s on /generate; CI
     // 42742430225 missed a 5 s budget on all three attempts), so rest gets the
-    // route's own budget.
+    // route's own budget. Rest is both regions DISPLAYING the route's panes
+    // (the slot stamps `data-shown` when it commits, after the press's frame
+    // has painted) and their swaps' animations done. The container's own
+    // animations no longer say it: since the FORTIETH A no track tween runs
+    // on it, so that wait passed before the stage had committed.
     await page.waitForFunction(
-        () => document.querySelector(".pane-container")?.getAnimations().length === 0,
-        undefined,
+        ([stage, inspector]) => {
+            const row = document.querySelector(".pane-container");
+            const shown = (role: string) =>
+                row?.querySelector<HTMLElement>(`:scope > .pane-wrapper--${role}`)?.dataset.shown;
+            if (shown("stage") !== stage || shown("inspector") !== inspector) return false;
+            return row!
+                .getAnimations({ subtree: true })
+                .filter((a) => a.timeline === document.timeline && a.effect?.getComputedTiming().endTime !== Infinity)
+                .every((a) => a.playState !== "running");
+        },
+        [stage, inspector] as const,
         { timeout: 20_000 },
     );
 }

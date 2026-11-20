@@ -94,8 +94,9 @@ for (const scheme of ["light", "dark"] as const) {
             read["dock view select"] = await material(page, '[data-slot="select-content"]');
             await close(page);
 
-            // 2. the colour-space select
-            await press(mainPane(page).getByRole("combobox", { name: "Select color space" }));
+            // 2. the colour-space select (the picker's; About names its space
+            // with a select of its own)
+            await press(page.getByRole("region", { name: "Picker" }).getByRole("combobox", { name: "Select color space" }));
             read["colour-space select"] = await material(page, '[data-slot="select-content"]');
             await close(page);
 
@@ -118,13 +119,15 @@ for (const scheme of ["light", "dark"] as const) {
 
             // 6. Generate: a swatch's hover popover
             await page.evaluate(() => (location.hash = "#/generate"));
-            const swatch = page.locator('[aria-label^="Color swatch "]').first();
+            // Generate's swatches are named by their verb (Copy <colour>)
+            const swatch = page.locator('[aria-label="Generated palette"] .swatch-button').first();
             await expect(swatch).toBeVisible({ timeout: 60_000 });
             await swatch.hover();
             read["Generate swatch popover"] = await material(page, '[data-slot="popover-content"]');
             await close(page);
         } finally {
-            await ctx.close();
+            // a context already gone must not mask the error that ended it
+            await ctx.close().catch(() => {});
         }
         test.info().annotations.push({ type: "reading", description: JSON.stringify(read) });
         const faults = Object.entries(read)

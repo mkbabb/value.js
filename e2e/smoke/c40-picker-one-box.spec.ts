@@ -70,6 +70,11 @@ async function traceChange(page: Page, hash: string) {
             const plate = document.querySelector<HTMLElement>(".pane-wrapper--stage .picker-plate");
             for (const a of document.getAnimations()) {
                 if (a.playState !== "running") continue;
+                // glass's segmented tabs size their indicator by a width and
+                // height transition inside a pane (Mix's mode tabs): glass's
+                // component, sent to glass, not the page change's own layout
+                const target = (a.effect as KeyframeEffect | null)?.target;
+                if (target instanceof Element && target.closest(".segmented-indicator")) continue;
                 if (a instanceof CSSTransition) props.add(a.transitionProperty);
                 else
                     for (const k of (a.effect as KeyframeEffect | null)?.getKeyframes() ?? [])

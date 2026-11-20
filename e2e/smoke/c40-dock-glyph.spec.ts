@@ -187,7 +187,9 @@ test.describe("c40 · the dock's share of a page change", () => {
                 svg.__c40 = token;
             }
         }, seats);
-        for (const hash of ["#/palettes", "#/mix", "#/"]) {
+        // the views whose scene is the picker's (useSceneActions VIEW_SCENES:
+        // Home, My Palettes, Blob); Mix carries its own scene's seats
+        for (const hash of ["#/palettes", "#/blob", "#/"]) {
             await page.evaluate((h) => (location.hash = h), hash);
             const view = hash === "#/" ? "picker" : hash.slice(2);
             await expect(page.locator(".app-layout")).toHaveAttribute("data-view", view);
@@ -211,9 +213,11 @@ test.describe("c40 · the dock's share of a page change", () => {
                 new Promise<number[]>((resolve) => {
                     const trigger = document.querySelector<HTMLElement>(".view-select-trigger")!;
                     const seen: number[] = [];
+                    // the event bubbles: the sweep runs on whichever box
+                    // under the trigger declares it
                     trigger.addEventListener("transitionrun", (e) => {
                         if (e.propertyName !== "--accent-view") return;
-                        for (const a of trigger.getAnimations())
+                        for (const a of (e.target as Element).getAnimations())
                             if (a instanceof CSSTransition && a.transitionProperty === "--accent-view")
                                 seen.push(Number(a.effect?.getComputedTiming().duration ?? 0) + Number(a.effect?.getComputedTiming().delay ?? 0));
                     });
