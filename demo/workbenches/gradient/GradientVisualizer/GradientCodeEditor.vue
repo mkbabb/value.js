@@ -145,6 +145,18 @@ onBeforeUnmount(() => cancelIdle());
    aurora. Scoped, so it outranks `.hljs { background: transparent }`. */
 .code-editor {
     background: var(--code-ground);
+    /* The copy action sits in the well's top inline-end corner (the
+       visualizer's seat), so the text keeps clear of it. */
+    padding-inline-end: 3rem;
+}
+
+/* A field under 16 px makes iOS zoom the page when it takes focus. glass's
+   inputs hold that floor on a coarse pointer (`--field-text-floor`); this
+   contenteditable is the site's own, so it takes the same floor. */
+@media (pointer: coarse) {
+    .code-editor {
+        font-size: var(--field-text-floor, 1rem);
+    }
 }
 
 /* The verdict edge eases in only where motion is wanted (X-W6 · X.W6.e — e2):

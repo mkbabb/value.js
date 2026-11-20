@@ -667,15 +667,13 @@ test("keyboard grammar is total: an interior stop answers every key, a terminal 
 });
 
 /**
- * b4 — ONE REMOVAL OWNER, AND A FLOOR THAT SAYS WHY.
- *
- * The rail's only remover used to be a chip that EXISTED only while removal was
- * legal (`v-if="selectedStop && removable"`) over a remover that returned in
- * silence — a capability expressed as absence, twice. The inspector is the one
- * owner now: it stays, it reads as refused at the floor, and its reason is its
- * own accessible description.
+ * b4 — ONE REMOVAL OWNER. R-04 (the critique; his "fewer words"): at the
+ * two-stop floor the owner is ABSENT, with no sentence explaining a dimmed
+ * control; the floor still answers a keyboard Delete on the seat's polite
+ * channel, so the refusal is never silent. Above the floor the inspector's
+ * Remove is the one working owner.
  */
-test("one removal owner: the floor is a disabled control carrying its reason", async ({
+test("one removal owner: absent at the floor, which still answers Delete", async ({
     page,
 }) => {
     const consoleErrors = setupEnvNoise(page);
@@ -684,32 +682,33 @@ test("one removal owner: the floor is a disabled control carrying its reason", a
     await rail.scrollIntoViewIfNeeded();
 
     const remove = main.getByRole("button", { name: "Remove selected stop" });
-    // X.W12U.h · A2-VA-L3-7: with no selection the inspector is its hint alone,
-    // so the removal owner is counted once a stop is its subject.
 
-    // At the two-stop floor the control is PRESENT and refused, with a reason.
+    // At the two-stop floor a selected stop offers no Remove and no sentence.
     await rail.locator("[data-stop-id]").first().click();
-    // ONE removal control on the route — not one per stop, and not a second
-    // species hiding behind a gesture.
-    await expect(main.getByRole("button", { name: /remove/i })).toHaveCount(1);
-    await expect(remove).toBeVisible();
-    await expect(remove).toBeDisabled();
-    const reasonId = await remove.getAttribute("aria-describedby");
-    expect(reasonId).toBeTruthy();
-    await expect(main.locator(`#${reasonId}`)).toContainText("at least two stops");
+    await expect(main.getByTestId("gradient-stop-inspector")).toContainText("Stop 1 of 2");
+    await expect(main.getByRole("button", { name: /remove/i })).toHaveCount(0);
+    await expect(main.getByText("at least two stops")).toHaveCount(0);
+    // A Delete at the floor removes nothing and says why, politely.
+    await rail.locator("[data-stop-id]").first().press("Delete");
+    await expect(rail.locator("[data-stop-id]")).toHaveCount(2);
+    await expect(main.getByTestId("gradient-stop-inspector").getByRole("status")).toContainText(
+        "at least two stops",
+    );
 
-    // Above the floor it is the working owner.
+    // Above the floor it is the working owner: ONE removal control on the
+    // route, not one per stop.
     const box = (await rail.boundingBox())!;
     await rail.click({ position: { x: box.width * 0.5, y: box.height / 2 } });
     await expect(rail.locator("[data-stop-id]")).toHaveCount(3);
     // The minted stop is selected on mint (X.W12.u2 · UIA-V-373).
+    await expect(main.getByRole("button", { name: /remove/i })).toHaveCount(1);
     await expect(remove).toBeEnabled();
     await remove.click();
     await expect(rail.locator("[data-stop-id]")).toHaveCount(2);
 
-    // …and it is back at the floor, still present, still saying why.
+    // …and back at the floor it is absent again.
     await rail.locator("[data-stop-id]").first().click();
-    await expect(remove).toBeDisabled();
+    await expect(remove).toHaveCount(0);
 
     expect(consoleErrors).toEqual([]);
 });

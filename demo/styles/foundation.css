@@ -933,6 +933,12 @@
     .goo-blob-canvas,
     .watercolor-swatch,
     .glass-slider[data-variant="spectrum"] .slider-range,
+    /* The spectrum sliders paint their ramp on the TRACK (the picker's
+       channels, Generate's count, Extract's developed K): without it the
+       channels read as bare black bars. The gradient's render tile is the
+       gradient itself. */
+    .glass-slider[data-variant="spectrum"] .slider-track,
+    .gradient-render-tile,
     [data-color-surface] {
         forced-color-adjust: none;
     }

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, inject, nextTick, onMounted, reactive, ref, watch, useTemplateRef } from "vue";
-import { Check, Undo2, ArrowLeft, Paintbrush } from "@lucide/vue";
+import { Check, Undo2, ArrowLeft, Paintbrush, Home, LayoutGrid } from "@lucide/vue";
 import {
     GlassDock,
     DockLayerGroup,
@@ -59,6 +59,22 @@ const { isAdminMode, viewEntries, onViewChange } = useDockAdminMode({
     viewManager,
     isAdminAuthenticated: pm.isAdminAuthenticated,
 });
+
+// ── The Home seat ──
+// Home is the dock's first seat on every view (the 12 Nov law: Home on every
+// page), not a row behind the view select, which wore the current view's
+// glyph (a magnifier on Browse, a camera on Extract). The select lists the
+// other pages; on Home it names them ("Pages") rather than repeating Home.
+const onHome = computed(() => viewManager.currentView.value === "picker");
+const selectIcon = computed(() =>
+    onHome.value ? LayoutGrid : viewManager.currentConfig.value.icon,
+);
+const selectLabel = computed(() =>
+    onHome.value ? "Pages" : viewManager.currentConfig.value.label,
+);
+function goHome() {
+    if (!onHome.value) viewManager.switchView("picker");
+}
 
 // ── Action bar layer ──
 const actionBarLayerActive = ref(false);
@@ -356,6 +372,16 @@ watch(
 
                 <!-- Main navigation layer (inlined — was the passthrough DockMainLayer.vue) -->
                 <DockLayer id="main">
+                    <!-- Home, first. On Home it is the current page. -->
+                    <DockControl
+                        class="dock-home shrink-0"
+                        aria-label="Home"
+                        :aria-current="onHome ? 'page' : undefined"
+                        @click="goHome"
+                    >
+                        <Home class="w-6 h-6" />
+                    </DockControl>
+
                     <!-- View selector — gate (a): viewSelectOpen comes from the single mutex above -->
                     <!-- W7-4 (ONE dock voice): the view-select speaks the
                              gamut-guarded `--accent-view` tokens exclusively —
@@ -364,8 +390,8 @@ watch(
                     <DockViewSelect
                         v-model:open="viewSelectOpen"
                         :current-view="viewManager.currentView.value"
-                        :current-icon="viewManager.currentConfig.value.icon"
-                        :current-label="viewManager.currentConfig.value.label"
+                        :current-icon="selectIcon"
+                        :current-label="selectLabel"
                         :is-admin-mode="isAdminMode"
                         :is-desktop="isDesktop"
                         :view-entries="viewEntries"
@@ -533,6 +559,13 @@ watch(
    line goes when that ships. */
 .glass-dock {
     --glass-grain-opacity: 0;
+}
+
+/* The Home seat on Home reads as the current page: its glyph takes the view
+   accent the select's glyph wears elsewhere, easing in and out on glass's own
+   colour leg (the control's transition list is glass's, untouched). */
+.dock-home[aria-current="page"] {
+    color: var(--accent-view);
 }
 
 /* SS-8 B05 · 0133 (ABT-11): the dock's focus ring paints the band-certified

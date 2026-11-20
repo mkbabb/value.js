@@ -291,15 +291,16 @@ onUnmounted(releaseCapture);
             background-size: 100% 100%, 100% 100%;
         }
     }
-    /* X.W12.b — the picker pane's FIRST arrival only (`data-arrival`,
-     * ColorPicker.vue): a KeepAlive return re-inserts this field, which
-     * restarted the paint-in under the pane-swap travel.
+    /* X.W12.b — the boot's arrival only (`data-arrival`, ColorPicker.vue):
+     * a KeepAlive return re-inserts this field, which restarted the paint-in
+     * under the pane-swap travel; a first arrival after a view change comes
+     * whole (C-18).
      * o1109 repair (adversary defect 5): `backwards`, the overture's one-shot
      * release law (overture.css): the `to` pose is the field's natural one (a
      * gradient layer's `auto` size is its positioning area, 100 %), so the
      * finished beat retires instead of holding the field in effect forever,
      * where anything that rewinds the document's animations blanked it. */
-    .pane-shell[data-arrival="first"] .spectrum-picker {
+    .pane-shell[data-arrival="boot"] .spectrum-picker {
         animation: field-paint-in 420ms var(--ease-standard) 180ms backwards;
     }
 }

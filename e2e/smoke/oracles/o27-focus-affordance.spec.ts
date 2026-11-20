@@ -344,11 +344,11 @@ test("BR-1 forced-colors · EVERY operable control class paints an outline, not 
     const missing: WhcmRosterRow[] = [];
     const wrongRegister: WhcmRosterRow[] = [];
 
-    // The dock's view-select names VIEWS, not panes: the view whose stage is
-    // the Picker is "Home" (`shell/viewSchema.ts` VIEW_MAP, stage pane
-    // `color-picker`; the select reads Home · Palettes · Browse · Extract · Mix
-    // · Generate · Gradient — `W12U-evidence/q2/probes/probe-view-options.mjs`).
-    // Re-baselined X-W12U .q2; the roster keeps its pane names.
+    // The dock names VIEWS, not panes: the view whose stage is the Picker is
+    // "Home" (`shell/viewSchema.ts` VIEW_MAP, stage pane `color-picker`), the
+    // dock's own first seat (openView presses it); the select reads Palettes ·
+    // Browse · Extract · Mix · Generate · Gradient. Re-baselined X-W12U .q2;
+    // the roster keeps its pane names.
     const VIEW_OPTION = { Picker: "Home", Gradient: "Gradient" } as const;
     for (const view of ["Picker", "Gradient"] as const) {
         await openView(page, VIEW_OPTION[view]);

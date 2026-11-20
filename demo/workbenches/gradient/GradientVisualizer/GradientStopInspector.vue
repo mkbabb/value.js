@@ -43,8 +43,8 @@ function round1(position: number): number {
 
 <template>
     <!-- X.W12U.h · A2-VA-L3-7: with no selection the inspector is empty
-         (no hint line, restraint 2026-11-09). With a stop selected, Position and Remove share one row
-         (the floor still reads as a refused Remove with its reason — b4). -->
+         (no hint line, restraint 2026-11-09). With a stop selected, Position and Remove share one row;
+         at the two-stop floor Remove is absent (R-04). -->
     <div
         class="stop-inspector flex flex-wrap items-center gap-x-3 gap-y-1"
         data-testid="gradient-stop-inspector"
@@ -76,31 +76,26 @@ function round1(position: number): number {
                 </label>
 
                 <!-- X-DS pass 1 (V1-16): glass's quiet Button, so the row speaks one
-                     control shape beside the NumberField. -->
-                <Button
-                    emphasis="quiet"
-                    size="xs"
-                    aria-label="Remove selected stop"
-                    class="stop-inspector-remove"
-                    :disabled="refusal !== null"
-                    :aria-describedby="refusal ? 'gradient-stop-removal-reason' : undefined"
-                    @click="emit('remove')"
-                >
-                    <X class="w-3.5 h-3.5" aria-hidden="true" />
-                    <span>Remove</span>
-                </Button>
+                     control shape beside the NumberField. R-04: it stands
+                     only where it can act. At the two-stop floor it is
+                     absent, with no sentence beside a dimmed control; a
+                     keyboard Delete there is still answered on the polite
+                     channel below. Its arrival and leaving are the morph
+                     family's. -->
+                <Transition name="vj-morph">
+                    <Button
+                        v-if="refusal === null"
+                        emphasis="quiet"
+                        size="xs"
+                        aria-label="Remove selected stop"
+                        class="stop-inspector-remove"
+                        @click="emit('remove')"
+                    >
+                        <X class="w-3.5 h-3.5" aria-hidden="true" />
+                        <span>Remove</span>
+                    </Button>
+                </Transition>
             </div>
-
-            <!-- The floor's REASON is rendered, not implied: it is the control's
-                 own description, so it is read with the control rather than
-                 discovered by its absence. -->
-            <p
-                v-if="refusal"
-                id="gradient-stop-removal-reason"
-                class="text-caption plate-ink basis-full"
-            >
-                {{ refusal }}
-            </p>
         </template>
 
         <!-- One polite channel for what a keyboard trigger would otherwise
@@ -125,10 +120,9 @@ function round1(position: number): number {
     font-variant-numeric: tabular-nums;
     text-align: end;
 }
-/* The plate, radius, disabled register and focus ring are glass Button's own
-   (X-DS pass 1 · V1-16). The seat keeps only the target floor and the
-   destructive hover INK. The floor, said out loud: the control STAYS and reads
-   as refused, with its reason beside it (b4 — never absence). */
+/* The plate, radius and focus ring are glass Button's own (X-DS pass 1 ·
+   V1-16). The seat keeps only the target floor and the destructive hover
+   INK. At the floor the control is absent (R-04), not refused. */
 .stop-inspector-remove {
     min-block-size: var(--rail-hit);
 }

@@ -274,25 +274,50 @@ svg.gold-ink,
     --muted-foreground: color-mix(in oklab, var(--ink-muted), var(--foreground) 38.2%);
 }
 
-/* THE SCALAR RANGE INK (X-DS pass 2 · V2C-06 / V2C-09; re-derived at pass 3 ·
- * V3C-04). The app's scalar sliders (glass's default scrubber variant: the
- * config consoles of Atmosphere and Blob, Gradient's Direction, Extract's K and
- * kC before a run develops) fill their range with ONE ink, set once on the
- * token glass's slider reads (`--slider-range-bg`), never per pane. The
- * spectrum sliders (picker channels, the developed K rail, Generate) paint
- * their own track and leave the range transparent by recipe, so they do not
- * read it.
- * The range sits on glass's quiet TRACK, whose tone follows the SCHEME (light
- * track in light, dark in dark), not the plate. So its ink is the scheme's ink,
- * `--foreground`. Pass 2 took `--ink-muted` halfway toward `--primary`; both of
- * those are certified against the PLATE and flip with it, so on a dark plate
- * in the light scheme (the owner brick, lab(38% 32 24)) the bar went near-white
- * on the light track: 2.42 on Extract and 2.19 on the Atmosphere well, under
- * the 3:1 graphics floor (pass-03 `ink-candidates.jsonl`). `--foreground`
- * holds 5.23 or better on every measured cell, both schemes; any mix toward
- * `--primary` that keeps the hue falls under 3:1 on the owner brick by 25%. */
+/* A ROW PRESENCE: a row that comes and goes inside a pane tweens the pane's
+ * height instead of cutting it. The host is a one-row grid whose track runs
+ * 0fr <-> 1fr while the row fades; its one child is the clip. The child's
+ * padding, given back by its margin, leaves room inside the clip for a
+ * control's hover scale and focus ring. The host carries `data-present` when
+ * the row is in, and `inert` when it is out. */
+.row-presence {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition:
+        grid-template-rows var(--duration-normal) var(--ease-standard),
+        opacity var(--duration-fast) var(--ease-standard);
+}
+.row-presence[data-present] {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    transition:
+        grid-template-rows var(--duration-normal) var(--ease-standard),
+        opacity var(--duration-normal) var(--ease-decelerate) var(--duration-fast);
+}
+.row-presence > * {
+    min-block-size: 0;
+    overflow: hidden;
+    padding: 0.375rem;
+    margin: -0.375rem;
+}
+
+/* THE SCALAR RANGE INK (X-DS pass 2 · V2C-06 / V2C-09; pass 3 · V3C-04; his
+ * colour since the critique's C-09). The app's scalar sliders (glass's
+ * default scrubber variant: the config consoles of Atmosphere and Blob,
+ * Gradient's Direction, Extract's K and kC before a run develops) fill their
+ * range with ONE ink, set once on the token glass's slider reads
+ * (`--slider-range-bg`), never per pane. The spectrum sliders (picker
+ * channels, the developed K rail, Generate) paint their own track and leave
+ * the range transparent by recipe, so they do not read it.
+ * The range sits on glass's quiet TRACK (`--muted-medium` over the resting
+ * plate), whose tone follows the scheme, not the plate. The ink is the live
+ * colour certified at the 3:1 graphics floor on that track (`ink.ts`, the
+ * "track" surface; the boot writer stamps `--ink-slider-fill`), so the fill
+ * carries his colour where `--foreground` painted it near-black or grey. The
+ * scheme ink stands in only before the first certification. */
 :root {
-    --slider-range-bg: var(--foreground);
+    --slider-range-bg: var(--ink-slider-fill, var(--foreground));
 }
 
 /* THE GUARDED LETTERFORM RAMP recipe (T.W6 · W6-4 — Q5 RULED, owner-verbatim:

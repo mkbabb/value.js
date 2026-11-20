@@ -43,6 +43,20 @@ const {
     clearSelection,
 } = useMixingState();
 
+// The leftover rule applies only when the chosen palettes differ in size.
+const sizeMismatch = computed(
+    () =>
+        mode.value === "palettes" &&
+        new Set(selectedPalettes.value.map((p) => p.colors.length)).size > 1,
+);
+// What the verb still needs, said on it while it cannot act.
+const mixNeeds = computed(() => {
+    if (mode.value === "palettes") {
+        return selectedPalettes.value.length === 0 ? "Pick two palettes" : "Pick one more palette";
+    }
+    return selectedColors.value.length === 0 ? "Add two colors" : "Add one more color";
+});
+
 // The address: the tab, the colours being mixed, and how they travel. Input
 // palettes stay out (they are palette objects, not values a link can carry).
 const mixColorsCss = computed({
@@ -155,8 +169,9 @@ defineExpose({ clearSelection, startMix, copyResult } satisfies MixSceneTarget);
                     v-model:color-space="colorSpace"
                     v-model:hue-method="hueMethod"
                     v-model:leftover-strategy="leftoverStrategy"
-                    :show-leftover-strategy="mode === 'palettes'"
+                    :show-leftover-strategy="sizeMismatch"
                     :can-mix="canMix"
+                    :mix-needs="mixNeeds"
                     :operand-colors="mode === 'colors' ? selectedColors.map((sc) => sc.css) : []"
                     @mix="startMix"
                 />

@@ -55,7 +55,7 @@ function openRepository(): void {
 
 <template>
     <div class="lg:hidden flex items-center">
-        <DropdownMenu v-model:open="open" modal>
+        <DropdownMenu v-model:open="open">
             <DockTrigger for="dropdown" aria-label="Menu">
                 <MoreVertical class="w-6 h-6" />
             </DockTrigger>

@@ -67,6 +67,7 @@ const TIER_BG_TOKEN: Partial<Record<LiveLayer, string>> = {
     modal: "--glass-plate-floating",
     scrim: "--overlay-scrim",
     well: "--well-bg",
+    track: "--muted-medium",
 };
 
 /**
@@ -431,7 +432,7 @@ function surfaceLightnessNow(
         // plate-over-ambient first, then the veil tint over the plate. A
         // modal's underlay is the scrim (V16-01), composed the same way. The
         // well is an in-plate wash over the resting plate too (§0gv.6).
-        surface === "veil" || surface === "well"
+        surface === "veil" || surface === "well" || surface === "track"
             ? resolveLiveTintCached("resting")
             : surface === "modal"
               ? resolveLiveTintCached("scrim")
@@ -628,8 +629,21 @@ export function useContrastSafeColor(
         glyphRung(floatingGoldInkCss.value, floatingL.value),
     );
 
+    // The scalar sliders' range ink: the live colour certified at the 3:1
+    // graphics floor on glass's quiet track (the ground the range paints on,
+    // over the resting plate on the field's referent). The boot writer stamps
+    // `--ink-slider-fill`; utils.css hands it to glass's `--slider-range-bg`.
+    const sliderFillInkCss = computed(() =>
+        certifyAccentInkOnce(
+            cssColorOpaque.value,
+            surfaceLightnessNow("track", plateReferent.value, isDark.value),
+            GRAPHICS_CONTRAST_FLOOR,
+        ),
+    );
+
     return {
         safeAccentCss,
+        sliderFillInkCss,
         needsAdjustment,
         plateInkCss,
         mutedInkCss,

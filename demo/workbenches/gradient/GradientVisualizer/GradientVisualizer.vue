@@ -173,8 +173,9 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
              "CSS" each announced themselves while the instrument's protagonist,
              the stop rail, was the one unnamed section on the route. It is named
              here, at the same rank as the sections that serve it. -->
-        <section class="flex flex-col gap-2">
-            <h3 class="font-display text-subheading">Stops</h3>
+        <!-- R-08: the rail needs no "Stops" title over it; it is plainly the
+             stops, and the pane title above names the instrument. -->
+        <section class="gradient-stops flex flex-col gap-2" aria-label="Stops">
             <GradientStopRail
                 :stops="stops"
                 :can-remove="canRemove"
@@ -330,27 +331,48 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
             />
         </template>
 
-        <!-- ── CSS ── -->
-        <div class="flex items-center justify-between">
-            <h3 class="font-display text-subheading">CSS</h3>
+        <!-- ── CSS ── R-08: no "CSS" title over plainly CSS; the copy action
+             sits in the well's own corner. -->
+        <div class="gradient-css relative">
+            <GradientCodeEditor
+                :model-value="simpleCSS"
+                :parse-verdict="parseVerdict"
+                @parse="onParseCSS"
+            />
             <DockControl
                 compact
-                :title="cssCopyStatus === 'success' ? 'Copied rendered CSS' : 'Copy rendered CSS (easing baked in)'"
+                class="gradient-css__copy"
+                :aria-label="cssCopyStatus === 'success' ? 'Copied rendered CSS' : 'Copy rendered CSS (easing baked in)'"
                 @click="copyCSS"
             >
                 <Check v-if="cssCopyStatus === 'success'" class="w-5 h-5" />
                 <Copy v-else class="w-5 h-5" />
             </DockControl>
         </div>
-        <GradientCodeEditor
-            :model-value="simpleCSS"
-            :parse-verdict="parseVerdict"
-            @parse="onParseCSS"
-        />
     </div>
 </template>
 
 <style scoped>
+/* R-05: the gradient is the pane's subject, so its ramp is the pane's largest
+   thing: 3.5rem on a phone, 4.5rem from sm up (it was the rail's 2.5rem, a strip
+   under the selects and the code well). The embed keeps its own size. */
+.gradient-stops {
+    --rail-seat-height: 3.5rem;
+}
+@media (min-width: 640px) {
+    .gradient-stops {
+        --rail-seat-height: 4.5rem;
+    }
+}
+
+/* The copy action in the code well's top inline-end corner; the well's text
+   keeps clear of it (GradientCodeEditor pads its end for the seat). */
+.gradient-css__copy {
+    position: absolute;
+    inset-block-start: 0.25rem;
+    inset-inline-end: 0.25rem;
+}
+
 /* The render tile's owned paint stack (T.W6-2 — the rail's material
    contract, same shape): the render string is a border-box layer, no-repeat,
    over the alpha-checker ground; silhouette and render agree at every edge.
