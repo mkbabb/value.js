@@ -18,6 +18,7 @@ import DockViewSelect from "./DockViewSelect.vue";
 import ApiStatusChip from "../../shared/ui/api-status/ApiStatusChip.vue";
 import { useMediaQuery } from "@vueuse/core";
 import { VIEW_MANAGER_KEY } from "../useViewManager";
+import { afterPaint } from "../afterPaint";
 import { SESSION_PORT_KEY } from "../../palettes";
 import { COLOR_MODEL_KEY, CSS_COLOR_KEY, SAFE_ACCENT_KEY } from "../../color-session/keys";
 import { useHeldWhileLive } from "../../color-session/useAtmosphereFrameCoalesce";
@@ -66,14 +67,36 @@ const { isAdminMode, viewEntries, onViewChange } = useDockAdminMode({
 // glyph (a magnifier on Browse, a camera on Extract). The select lists the
 // other pages; on Home it names them ("Pages") rather than repeating Home.
 const onHome = computed(() => viewManager.currentView.value === "picker");
+// The FORTIETH order, B-2 ("the press is answered before the work"): the Home
+// seat's press puts Home on the view select at once and switches the route in
+// the task after that frame has painted; inside the click task the route's
+// watchers held a 4x phone's first answering frame for 245 ms. The pending
+// mark clears when the route says it is current, and after a second if the
+// switch never lands.
+const homePending = ref(false);
+let homeHeld = 0;
+watch(
+    () => viewManager.currentView.value,
+    () => {
+        homePending.value = false;
+    },
+);
+const homeShown = computed(() => homePending.value || onHome.value);
+const selectView = computed(() => (homePending.value ? "picker" : viewManager.currentView.value));
 const selectIcon = computed(() =>
-    onHome.value ? LayoutGrid : viewManager.currentConfig.value.icon,
+    homeShown.value ? LayoutGrid : viewManager.currentConfig.value.icon,
 );
 const selectLabel = computed(() =>
-    onHome.value ? "Pages" : viewManager.currentConfig.value.label,
+    homeShown.value ? "Pages" : viewManager.currentConfig.value.label,
 );
 function goHome() {
-    if (!onHome.value) viewManager.switchView("picker");
+    if (onHome.value || homePending.value) return;
+    homePending.value = true;
+    window.clearTimeout(homeHeld);
+    afterPaint(() => {
+        viewManager.switchView("picker");
+        homeHeld = window.setTimeout(() => (homePending.value = false), 1000);
+    });
 }
 
 // ── Action bar layer ──
@@ -353,7 +376,7 @@ watch(
                              on Tools/Login, the app chrome). -->
                     <DockViewSelect
                         v-model:open="viewSelectOpen"
-                        :current-view="viewManager.currentView.value"
+                        :current-view="selectView"
                         :current-icon="selectIcon"
                         :current-label="selectLabel"
                         :is-admin-mode="isAdminMode"

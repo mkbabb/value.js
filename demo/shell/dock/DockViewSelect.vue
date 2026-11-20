@@ -7,6 +7,7 @@ import {
 import { computed, inject, shallowRef, watch } from "vue";
 import { SESSION_PORT_KEY } from "../../palettes";
 import { preloadView, warmViews } from "../usePaneRouter";
+import { afterPaint } from "../afterPaint";
 import type { ViewEntry } from "./composables/useDockAdminMode";
 
 const {
@@ -53,17 +54,6 @@ watch(
         chosen.value = null;
     },
 );
-
-function afterPaint(run: () => void): void {
-    requestAnimationFrame(() => {
-        const { port1, port2 } = new MessageChannel();
-        port1.onmessage = () => {
-            port1.close();
-            run();
-        };
-        port2.postMessage(null);
-    });
-}
 
 function choose(id: unknown): void {
     if (typeof id !== "string") return;
