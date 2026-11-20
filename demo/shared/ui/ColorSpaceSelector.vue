@@ -344,6 +344,22 @@ function isDisplayColorSpace(value: string | number): value is DisplayColorSpace
     font-size: 1em;
 }
 
+/* On touch the About heading's space word answers a 44 px target: at the
+ * heading's rung it stood 38 px tall at 390, under the touch floor. The
+ * trigger's own pseudo-element reaches past its box on the block axis, so the
+ * hit area grows and the heading's line, the word and its ring hold still. */
+@media (pointer: coarse) {
+    .space-trigger--inline {
+        position: relative;
+    }
+    .space-trigger--inline::after {
+        content: "";
+        position: absolute;
+        inset-inline: 0;
+        inset-block: min(0px, calc(50% - var(--touch-target, 2.75rem) / 2));
+    }
+}
+
 /* Em-relative caret (T.W4-1): the producer chevron ships h-4/w-4 fixed px —
  * at the ×φ title that reads as a shrunken foreign glyph. 0.382em (φ⁻²) is
  * today's exact optical ratio (1rem at the 41.89px display-1 cap), carried
