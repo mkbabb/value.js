@@ -142,9 +142,9 @@
                  `animations.css`, and the physical side modifiers that rode
                  here until that re-key are retired (quoted once in the wave
                  record, `execution/A/X-W5.md` § X.W5.d). -->
-            <div ref="paneContainer" class="pane-container">
+            <div ref="paneContainer" class="pane-container" :data-stage="stageShown">
                 <div
-                    v-for="region in regions"
+                    v-for="region in rowRegions"
                     :key="region.role"
                     class="pane-wrapper w-full min-w-0 min-h-0"
                     :class="`pane-wrapper--${region.role}`"
@@ -255,7 +255,7 @@ import {
     type RegionRole,
 } from "../shell/useViewManager";
 import { useColorPipeline } from "../color-session/useColorPipeline";
-import { usePaneRouter, PANE_CACHE_MAX, preloadPane } from "../shell/usePaneRouter";
+import { usePaneRouter, PANE_CACHE_MAX, preloadPane, type ResolvedRegion } from "../shell/usePaneRouter";
 import { useSceneTargets } from "../shell/useSceneTargets";
 import { flipRegions } from "../shell/flipRegions";
 import { usePaletteWiring } from "./composables/usePaletteWiring";
@@ -525,10 +525,45 @@ const { regions, bindPane, commitEdit, cancelEdit } = usePaneRouter(
         },
     },
 );
+// The FORTIETH order, A and B-2: THE ROW CHANGES AT THE STAGE'S COMMIT. The
+// stage commits its new pane after the answering frame has painted (PaneSlot),
+// so a region joining or leaving the scene at the input re-laid the row one
+// frame early: into Atmosphere the inspector left at once, the grid went to
+// one track and the stage's old card widened 534 px in a frame before it was
+// dealt away; out of it the inspector came at once and the centred card
+// jumped 346 px. The row's region set now waits for the stage: until the stage
+// displays the route's stage pane, a leaving region keeps its pane and a
+// joining one waits, while the regions that stay take the route's at once
+// (the stage its new pane, which it commits on its own clock). At the commit
+// the set changes in the same flush, so the dealt card, the row's tracks and
+// the region set land in one frame.
+const rowRegions = shallowRef<ResolvedRegion[]>(regions.value);
+const roleSet = (list: readonly ResolvedRegion[]) => list.map((region) => region.role).join();
+watch(
+    [regions, () => shownPane.value.stage] as const,
+    ([route]) => {
+        const stage = route.find((region) => region.role === "stage");
+        const committed = stage === undefined || (shownPane.value.stage ?? stage.key) === stage.key;
+        if (committed || roleSet(route) === roleSet(rowRegions.value)) {
+            rowRegions.value = route;
+            return;
+        }
+        rowRegions.value = rowRegions.value.map(
+            (held) => route.find((region) => region.role === held.role) ?? held,
+        );
+    },
+    { flush: "sync" },
+);
+// The FORTIETH order, A: the row's split reads the pane the stage DISPLAYS
+// (shell.css), so the track changes at the stage's commit, never at the input.
+const stageShown = computed(() => {
+    const stage = rowRegions.value.find((region) => region.role === "stage");
+    return stage === undefined ? undefined : (shownPane.value.stage ?? stage.key);
+});
 // X.W11.o1 — a region that leaves the scene drops its `data-shown` stamp
 // (`shownPane`, above), so a later return reads its route key again.
 watch(
-    () => regions.value.map((region) => region.role),
+    () => rowRegions.value.map((region) => region.role),
     (roles) => {
         for (const role of Object.keys(shownPane.value) as RegionRole[])
             if (!roles.includes(role)) delete shownPane.value[role];
@@ -538,7 +573,7 @@ watch(
 // A region joining or leaving the scene re-lays the row: read First before
 // this flush patches it, play once it has.
 watch(
-    () => regions.value.map((region) => region.role).join(),
+    () => roleSet(rowRegions.value),
     () => void flip(() => nextTick()),
     { flush: "pre" },
 );

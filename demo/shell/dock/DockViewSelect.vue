@@ -4,9 +4,10 @@ import { DockTrigger } from "@mkbabb/glass-ui/dock-trigger";
 import {
     Select, SelectContent, SelectGroup, SelectItem, SelectSeparator, SelectValue,
 } from "@mkbabb/glass-ui/select";
-import { computed, inject, watch } from "vue";
+import { computed, inject, shallowRef, watch } from "vue";
 import { SESSION_PORT_KEY } from "../../palettes";
 import { preloadView, warmViews } from "../usePaneRouter";
+import { afterPaint } from "../afterPaint";
 import type { ViewEntry } from "./composables/useDockAdminMode";
 
 const {
@@ -35,6 +36,43 @@ const emit = defineEmits<{
 
 // open is driven entirely by the parent's single mutex-managed ref
 const open = defineModel<boolean>("open", { default: false });
+
+// The FORTIETH order, B-2 (K-6): THE PRESS IS ANSWERED BEFORE THE WORK. The
+// view switch ran inside the input's own task (a 362 ms `pointerup` on a 4x
+// phone: the route, its watchers and the pane commit), so the press painted
+// nothing for 420 ms. Now the input task only closes the menu and puts the
+// chosen view on the trigger; the switch itself is emitted in the task after
+// that frame has painted (a frame callback posts a message, and the message's
+// task follows the paint: the boot's own yield, App.vue). The trigger shows
+// the chosen view until the route says it is current, and returns to the route
+// if the switch never lands.
+const chosen = shallowRef<string | null>(null);
+let held = 0;
+watch(
+    () => currentView,
+    () => {
+        chosen.value = null;
+    },
+);
+
+function choose(id: unknown): void {
+    if (typeof id !== "string") return;
+    open.value = false;
+    if (id !== "__admin_toggle__" && id !== currentView) chosen.value = id;
+    window.clearTimeout(held);
+    afterPaint(() => {
+        emit("update:modelValue", id);
+        held = window.setTimeout(() => (chosen.value = null), 1000);
+    });
+}
+
+/** The view the trigger names: the one just chosen, else the route's. */
+const shownView = computed(() => chosen.value ?? currentView);
+const shownEntry = computed(() =>
+    chosen.value === null ? null : viewEntries.find((entry) => entry.id === chosen.value) ?? null,
+);
+const shownIcon = computed(() => shownEntry.value?.icon ?? currentIcon);
+const shownLabel = computed(() => shownEntry.value?.label ?? currentLabel);
 
 const pm = inject(SESSION_PORT_KEY)!;
 
@@ -75,10 +113,10 @@ const viewRing = computed(() => {
 
 <template>
     <Select
-        :model-value="currentView"
+        :model-value="shownView"
         :open="open"
         @update:open="open = $event"
-        @update:model-value="(id) => emit('update:modelValue', id as string)"
+        @update:model-value="choose"
     >
         <!-- W7-4 (ONE dock voice): the trigger — icon + ring — speaks
              `--accent-view`, the CURRENT view's gamut-guarded token. The ring
@@ -93,27 +131,36 @@ const viewRing = computed(() => {
             data-accent-reader
             :style="{ '--dock-ring': viewRing }"
         >
-            <!-- The view-select moment (R.W4 Lane B / B3): the trigger icon
-                 swaps on the morph family (scale-settle beat), and reads the
-                 per-view accent (B2 — var(--accent-view), the ONE resolver). -->
-            <Transition name="vj-morph" mode="out-in">
-                <component
-                    :is="currentIcon"
-                    :key="currentView"
-                    class="w-6 h-6 shrink-0"
-                    :class="isAdminMode && 'gold-ink'"
-                    :style="[
-                        { '--vj-morph-scale': '0.6', '--vj-morph-y': '0px' },
-                        isAdminMode ? {} : { color: 'var(--accent-view)' },
-                    ]"
-                />
-            </Transition>
+            <!-- The view-select moment (R.W4 Lane B / B3; the FORTIETH K-1):
+                 the trigger's glyph CROSSES IN PLACE on the morph family, the
+                 old out and the new in at once in one grid cell, so the seat
+                 is never empty (out-in held a blank face for ~200 ms). Only
+                 the HTML wrapper moves (transform and opacity, the compositor);
+                 nothing is set on the SVG. It reads the per-view accent (B2 —
+                 var(--accent-view), the ONE resolver). -->
+            <span class="view-glyph-seat">
+                <Transition name="vj-morph">
+                    <span
+                        :key="shownView"
+                        class="view-glyph"
+                        :data-view-glyph="shownView"
+                        style="--vj-morph-scale: 0.6; --vj-morph-y: 0px"
+                    >
+                        <component
+                            :is="shownIcon"
+                            class="w-6 h-6"
+                            :class="isAdminMode && 'gold-ink'"
+                            :style="isAdminMode ? {} : { color: 'var(--accent-view)' }"
+                        />
+                    </span>
+                </Transition>
+            </span>
             <!-- X-DS pass 3 (V3C-10): the trigger names the current view from
                  the SCHEMA, not from the options. reka's SelectValue resolves
                  its text from the rendered items, and /atmosphere and /blob are
                  not among a non-admin's options, so there the trigger was a
                  bare glyph and a chevron. -->
-            <SelectValue v-if="isDesktop">{{ currentLabel }}</SelectValue>
+            <SelectValue v-if="isDesktop">{{ shownLabel }}</SelectValue>
         </DockTrigger>
         <!-- B.W1: kept wider than --menu-min-w — long view-option labels need the space -->
         <SelectContent class="min-w-[12rem]">
@@ -181,6 +228,18 @@ const viewRing = computed(() => {
 </template>
 
 <style scoped>
+/* K-1: the two glyphs of a crossing share one cell, so the seat keeps its
+ * size and neither glyph moves the label beside it. */
+.view-glyph-seat {
+    display: grid;
+    flex-shrink: 0;
+}
+.view-glyph-seat > .view-glyph {
+    grid-area: 1 / 1;
+    display: grid;
+    place-items: center;
+}
+
 /* `.gold-ink` lives in @styles/utils.css (S.W7-7 — the byte-identical
  * scoped twin this file carried is retired; ONE global recipe, god-module
  * census §2.1). */
@@ -194,14 +253,16 @@ const viewRing = computed(() => {
 /* owner-1112 hover law — the sweep EXTENDS glass's trigger list instead of
  * replacing it: replaced, the hover fill and ink (glass's background-color and
  * color legs) cut in and out, and the press lost its scale spring. Glass's
- * focus-visible leg (box-shadow) rides along so the ring eases too. */
+ * focus-visible leg (box-shadow) rides along so the ring eases too.
+ * The FORTIETH K-3 ("dock transitions are slow"): the sweep is a small state
+ * on a control, so it runs on the control clock, not the panel's 550 ms. */
 .view-select-trigger {
     transition: background-color var(--dock-motion-fast),
         color var(--dock-motion-fast),
         scale var(--dock-press-spring),
         opacity var(--dock-motion-fast),
         box-shadow var(--dock-motion-fast),
-        --accent-view var(--duration-panel) var(--ease-standard);
+        --accent-view var(--duration-control) var(--ease-standard);
 }
 /* o1105-r2 perf: the sweep is for a view change; under a drag the accent
    tracks the colour, so the hue snaps instead of re-sweeping per frame. Only
