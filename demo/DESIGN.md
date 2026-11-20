@@ -1239,6 +1239,27 @@ shipped `ButtonEmphasis` (`primary` · `secondary` · `quiet` · `text`). A "gho
 glass register, and no call site re-creates one with utilities.
 `demo/palettes/admin/UserSortMenu.vue` is the ruled site (X-W10 ruling; `docs/tranches/X/design/APOTHEOSIS.md` A-13).
 
+**Law S-8 (the touch grammar: a page that scrolls keeps scrolling).** For every control in a page
+that scrolls, under a finger:
+
+- up and down is the page's;
+- sideways is the control's, from where the finger landed;
+- a tap sets;
+- the handle is always yours, in both axes.
+
+The control declares `touch-action: pan-y`, so the browser pans on the compositor from the first
+pixel with no script in the way. Its press is held until the finger has travelled 6 px, and the
+larger axis decides. A mouse or a pen is never held. There is no arming, no timer and no caption;
+the cue, where one helps, is the handle's own small rise while held. The one primitive is
+`demo/shared/touch-intent/touchIntent.ts`, and its state is `data-touch-intent`
+(`idle` · `held` · `drag`), presentation only. A control that needs both axes keeps a handle that is
+`touch-action: none` and exempt from the lock (the colour field's dot). Nothing listens to
+`touchmove` without `passive`.
+
+**The scrubber is pulled by its fill (FORTY-SECOND C).** A scalar slider's thumb paints the fill's own
+colour through glass's `--slider-thumb-bg` (`foundation.css`), so the fill's rounded end is the
+handle and no disc shows. The thumb's form stays glass's; the spectrum rings are untouched.
+
 ---
 
 ## 7 · Anti-patterns (§ Idioms NOT used)
@@ -1298,6 +1319,7 @@ A reviewer flags each of these on sight.
 | a value-bearing readout set as prose                                                           | S-2                      | OM-13                            |
 | a floating, unanchored glyph                                                                   | S-3                      | §0ej frame                       |
 | a route-local verb seat                                                                        | S-6                      | §0k.3 S-2                        |
+| a control in a scrolling page that takes a vertical swipe, an arm that expires, a non-passive `touchmove` | S-8      | the 19 Nov scrolling ruling      |
 | a local shim over a producer-owned motion or material defect                                   | § 5.4                    | O-88                             |
 | a line-number anchor into a deletable file, or a path that does not exist                      | Authority                | G-3                              |
 

@@ -2,13 +2,17 @@
     <!-- Direct saturation/value field. -->
     <figure class="spectrum-figure m-0 min-w-0 w-full flex flex-col @container">
         <!-- W5-a11y: 2D saturation×lightness picker — not a linear slider,
-             so role="img" with a reactive descriptive label, not role="slider". -->
+             so role="img" with a reactive descriptive label, not role="slider".
+             The keyboard reaches it (tabindex): the arrows move saturation and
+             value by 1, Shift by 10, and the label speaks both values. -->
         <div
             ref="spectrumRef"
             role="img"
+            tabindex="0"
             :aria-label="spectrumAriaLabel"
             class="spectrum-picker flex w-full cursor-crosshair relative"
             :style="spectrumStyle"
+            @keydown="handleSpectrumKey"
             @pointerdown="handleSpectrumDown"
             @pointermove="handleSpectrumMove"
             @pointerup="handleSpectrumUp"
@@ -19,7 +23,13 @@
                  identity, §0dm) and is STILL at rest. The perpetual 2s rAF
                  wobble carried no state; the outline re-seeds with the colour,
                  so it changes only while the user moves it. -->
-            <div class="spectrum-travel absolute pointer-events-none" :style="spectrumTravelStyle">
+            <div
+                class="spectrum-travel absolute pointer-events-none"
+                :data-glide="gliding || undefined"
+                :style="spectrumTravelStyle"
+                @transitionend.self="gliding = false"
+                @animationend.self="gliding = false"
+            >
                 <WatercolorDot
                     :color="cssColorOpaque"
                     :range="[15, 85]"
@@ -27,12 +37,17 @@
                     :style="spectrumDotStyle"
                 />
             </div>
+            <!-- The dot's handle (DESIGN.md S-8): a touch that starts here is
+                 the field's in both axes, vertical included; anywhere else on
+                 the field a vertical swipe is the page's. Its centre follows
+                 the dot, clamped so the 44 px target stays inside the field. -->
+            <span class="spectrum-grip" data-spectrum-grip aria-hidden="true" :style="spectrumGripStyle" />
         </div>
     </figure>
 </template>
 
 <script setup lang="ts">
-import { computed, inject, onUnmounted, ref, useTemplateRef, watch } from "vue";
+import { computed, inject, onMounted, onUnmounted, ref, useTemplateRef, watch } from "vue";
 import { clamp } from "@mkbabb/value.js/math";
 import { WatercolorDot } from "../../../shared/ui/watercolor-dot";
 import { channelNumber, withChannel } from "../../../color-session/picker-color";
@@ -40,6 +55,7 @@ import { POINTER_DEBUG_KEY } from "../../debug/usePointerDebug";
 import { useSpectrumPlateStyle } from "./composables/useSpectrumPlateStyle";
 import { COLOR_MODEL_KEY } from "../../../color-session/keys";
 import { useFrameCoalesce } from "../../../color-session/useAtmosphereFrameCoalesce";
+import { attachTouchIntent, touchIntentKind } from "../../../shared/touch-intent/touchIntent";
 
 const {
     model,
@@ -52,6 +68,27 @@ const debug = inject(POINTER_DEBUG_KEY)!;
 
 const isDragging = ref(false);
 const spectrumRef = useTemplateRef<HTMLElement>("spectrumRef");
+
+// The touch grammar (DESIGN.md S-8, "grab the dot"): the field idles at
+// `touch-action: pan-y`, so a vertical swipe anywhere off the dot is the
+// page's; a sideways-first drag takes the field from where the finger landed;
+// a tap sets the colour and the dot glides there; the dot's handle is the
+// field's in both axes from the first touch. A mouse or a pen is never held.
+const GRIP = "[data-spectrum-grip]";
+/** The dot travels to a tapped point instead of jumping there. */
+const gliding = ref(false);
+/** The finger's offset from the dot's centre for a drag that starts on the dot. */
+let grab: { dx: number; dy: number } | null = null;
+let detachTouchIntent: () => void = () => {};
+onMounted(() => {
+    const el = spectrumRef.value;
+    if (el)
+        detachTouchIntent = attachTouchIntent(el, {
+            exempt: GRIP,
+            log: (e, tag) => debug.logEvent(e as PointerEvent, `spec:intent:${tag}`),
+        });
+});
+onUnmounted(() => detachTouchIntent());
 
 // Raw spectrum coords to avoid HSV roundtrip jitter.
 // Persists after mouseup so the dot stays where the user placed it.
@@ -69,6 +106,8 @@ watch(
         }
         rawS.value = null;
         rawV.value = null;
+        // A colour from elsewhere (a slider, the readout) is not a tap.
+        gliding.value = false;
     },
 );
 
@@ -120,9 +159,11 @@ const updateSpectrumColor = (
     const span = Math.max(1, rect.height - 2 * inset);
     const y = clamp(coords.clientY - rect.top - inset, 0, span);
 
-    const s = clamp(x / rect.width, 0, 1);
-    const v = clamp(1 - y / span, 0, 1);
+    setSpectrum(clamp(x / rect.width, 0, 1), clamp(1 - y / span, 0, 1));
+};
 
+/** The colour at saturation `s` and value `v` of the current hue. */
+function setSpectrum(s: number, v: number) {
     rawS.value = s;
     rawV.value = v;
     spectrumIsSource = true;
@@ -130,14 +171,44 @@ const updateSpectrumColor = (
     const hsv = withChannel(withChannel(HSVCurrentColor.value, "s", s), "v", v);
 
     setCurrentColor(hsv, model.value.selectedColorSpace, true);
+}
+
+// The keyboard path: the arrows move saturation (left, right) and value (up,
+// down) by one percent, Shift by ten, on the percent grid the label speaks;
+// the dot glides to each step.
+const KEY_STEPS: Readonly<Record<string, readonly [number, number]>> = {
+    ArrowLeft: [-1, 0],
+    ArrowRight: [1, 0],
+    ArrowUp: [0, 1],
+    ArrowDown: [0, -1],
 };
+function handleSpectrumKey(event: KeyboardEvent) {
+    const step = KEY_STEPS[event.key];
+    if (!step || event.altKey || event.metaKey || event.ctrlKey) return;
+    event.preventDefault();
+    const by = event.shiftKey ? 10 : 1;
+    const toGrid = (f: number, d: number) => clamp(Math.round(f * 100) + d * by, 0, 100) / 100;
+    gliding.value = true;
+    setSpectrum(toGrid(dotPos.value.s, step[0]), toGrid(dotPos.value.v, step[1]));
+}
+
+/** The dot's centre in client px, over the rect read for this drag. */
+function dotCentre(rect: DOMRect, inset: number) {
+    const span = Math.max(1, rect.height - 2 * inset);
+    return { x: rect.left + dotPos.value.s * rect.width, y: rect.top + inset + (1 - dotPos.value.v) * span };
+}
+
+/** Where the dot goes for a pointer at `p`: the grab offset kept, so a dot
+ *  taken by its handle stays where it was under the finger. */
+const aim = (p: { clientX: number; clientY: number }) =>
+    grab ? { clientX: p.clientX - grab.dx, clientY: p.clientY - grab.dy } : p;
 
 const handleSpectrumDown = (event: PointerEvent) => {
     debug.logEvent(event, "spec:down");
 
-    // The plane takes every gesture that starts on it (`touch-action: none`):
-    // a 2-D field has no free axis to leave to the page, so the dot follows
-    // the finger from the first touch. The page scrolls from anywhere else.
+    // A touch reaches here when the touch-intent lock gives it to the field:
+    // on the dot's handle at once, off it after a sideways start or a tap.
+    // A mouse or a pen reaches here at once.
     const el = event.currentTarget as HTMLElement;
     el.setPointerCapture(event.pointerId);
     capturedPointerId = event.pointerId;
@@ -145,16 +216,25 @@ const handleSpectrumDown = (event: PointerEvent) => {
     isDragging.value = true;
     dragRect = spectrumRef.value?.getBoundingClientRect() ?? null;
     dragInset = thumbInset();
+    gliding.value = event.pointerType === "touch" && touchIntentKind(event) === "tap";
+    const onGrip = event.pointerType === "touch" && (event.target as Element | null)?.closest?.(GRIP) != null;
+    if (onGrip && dragRect) {
+        const centre = dotCentre(dragRect, dragInset);
+        grab = { dx: event.clientX - centre.x, dy: event.clientY - centre.y };
+    } else {
+        grab = null;
+    }
 
     debug.setGauge("spec.isDragging", true);
     debug.setGauge("spec.capturedPid", event.pointerId);
 
-    updateSpectrumColor({ clientX: event.clientX, clientY: event.clientY });
+    updateSpectrumColor(aim(event));
 };
 
 const handleSpectrumMove = (event: PointerEvent) => {
     if (isDragging.value) {
-        spectrumWrite.push({ clientX: event.clientX, clientY: event.clientY });
+        gliding.value = false;
+        spectrumWrite.push(aim({ clientX: event.clientX, clientY: event.clientY }));
     }
     if (debug.state.enabled && Math.random() < 0.03) {
         debug.logEvent(event, "spec:move");
@@ -187,6 +267,7 @@ const stopDragging = () => {
     spectrumWrite.flush();
     dragRect = null;
     dragInset = null;
+    grab = null;
     isDragging.value = false;
 };
 
@@ -202,7 +283,7 @@ const dotPos = computed(() => {
 
 // Plate presentation (style + dot needle + aria) — colocated composable
 // (R.W3 Lane E cohesion lift; the B3 shared-luma regime lives there).
-const { spectrumAriaLabel, spectrumStyle, spectrumDotStyle, spectrumTravelStyle } =
+const { spectrumAriaLabel, spectrumStyle, spectrumDotStyle, spectrumTravelStyle, spectrumGripStyle } =
     useSpectrumPlateStyle({ HSVCurrentColor, cssColorOpaque, dotPos });
 
 onUnmounted(releaseCapture);
@@ -218,9 +299,61 @@ onUnmounted(releaseCapture);
     /* No stamp of its own: the picker card carries the one cartoon slab
      * (restraint 2026-11-09, C-3 "Less and more subtle shadowing"). */
     overflow: visible;
-    /* The plane owns every gesture that starts on it, touch included: the dot
-     * follows the finger from the first touch (handleSpectrumDown). */
+    /* The dot's travel is ink overflow, never scrollable overflow. Its travel
+     * box is as wide as the plane and moved by its own percentages, so at
+     * full saturation it reached a whole plane past the edge and widened the
+     * card's scroll host (542 against 364 px at 390): the card slid sideways
+     * under a swipe. Layout containment keeps every overhang of the plane's
+     * contents out of its ancestors' scroll area; the dot still paints over
+     * the edge. */
+    contain: layout;
+    /* The touch grammar (DESIGN.md S-8): a vertical pan over the field is the
+     * page's, on the compositor; a sideways start, a tap and the dot's handle
+     * are the field's (the touch-intent lock, handleSpectrumDown). */
+    touch-action: pan-y;
+}
+/* Keyboard focus: glass's ring on the field's own corner, eased in and out. */
+.spectrum-picker {
+    transition: box-shadow var(--duration-fast) var(--ease-standard);
+}
+.spectrum-picker:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring-shadow);
+}
+/* The dot's handle: glass's coarse touch floor, centred on the dot and kept
+ * inside the field (useSpectrumPlateStyle clamps its centre), so it adds no
+ * overflow. It is the field's in both axes: a touch that starts on it moves
+ * the colour, vertical included, and never the page. Invisible. */
+.spectrum-grip {
+    --spectrum-grip-size: var(--touch-target, 2.75rem);
+    position: absolute;
+    inline-size: var(--spectrum-grip-size);
+    block-size: var(--spectrum-grip-size);
+    translate: -50% -50%;
+    border-radius: 50%;
     touch-action: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+    /* A tap's travel: the dot goes to the tapped point on the bar's spring. */
+    .spectrum-travel[data-glide] {
+        transition: transform var(--spring-dock-duration) var(--spring-dock);
+    }
+    /* Held under a finger, the dot rises a little on its own scale transition
+     * (WatercolorDot), and settles back on release. No ring, no words. */
+    .spectrum-picker[data-touch-intent="drag"] .spectrum-dot {
+        scale: 1.18;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    /* Reduced motion: the dot does not travel to a tap; it fades in there. */
+    .spectrum-travel[data-glide] {
+        animation: spectrum-dot-arrive var(--duration-control) var(--ease-out);
+    }
+    @keyframes spectrum-dot-arrive {
+        from {
+            opacity: 0;
+        }
+    }
 }
 /* X realization V-D1 (OD-19-SPECTRUM, after §0hr `7904869ce`) — THE PLANE'S
  * SHAPE BELONGS TO THE PICKER MEASURE, NOT TO THE VIEWPORT HEIGHT.

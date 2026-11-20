@@ -452,14 +452,56 @@
  * under a coarse pointer; under a fine one the root collapsed to its 9 px track,
  * so the rail sat 5 px under its label on Generate and Gradient, 7-9 on the
  * consoles, and 13 on Extract, whose rows carried a hand-made 24 px band. The
- * band is now the rung's at every pointer, from glass's own token, and the
- * per-site band retires (Extract's K keeps its box only to seat the developed
- * rail behind the track). Layout only: no lighting is touched. */
+ * band is now the rung's at every pointer, glass's 1.5rem, and the per-site
+ * band retires (Extract's K keeps its box only to seat the developed rail
+ * behind the track). Layout only: no lighting is touched. */
 [data-slot="slider"][data-size="sm"] {
-    min-block-size: var(--slider-touch-target, 1.5rem);
+    --scalar-slider-band: 1.5rem;
+    min-block-size: var(--scalar-slider-band);
+}
+
+/* THE SCALAR SLIDERS' TOUCH TARGET (glass's `--slider-touch-target`, theming
+ * glass names for now): on a coarse pointer a scalar rail answered a touch in
+ * its 24 px band only, so a finger 12 to 16 px off the rail's centre missed
+ * it. The target is glass's 44 px floor; glass seats the slider in it by
+ * `min-block-size`, which alone would add 20 px to every row (620 px down
+ * Blob's 31). The row's pitch does not grow: the band stays 1.5rem and the
+ * seat gives the extra back as block margin, so the larger target overlaps
+ * the row's own label and gap. The touch-intent lock (shared/touch-intent)
+ * keeps a vertical swipe on that larger target the page's. */
+@media (pointer: coarse) {
+    [data-slot="slider"][data-size="sm"] {
+        --slider-touch-target: 2.75rem;
+        min-block-size: var(--slider-touch-target);
+        margin-block: calc((var(--scalar-slider-band) - var(--slider-touch-target)) / 2);
+    }
+}
+
+/* THE SCRUBBER'S THUMB IS THE FILL'S END (his FORTY-SECOND C: "capped and
+ * invisible, like you're just pulling the track"). glass's scrubber ends its
+ * fill in a cap concentric with the thumb; painting the thumb in the fill's
+ * own colour (glass's documented `--slider-thumb-bg`, which glass sanctions a
+ * site to set until its thumbless default lands) leaves no disc, only the
+ * fill's rounded end under the finger. The keyboard's ring is the track's
+ * (glass), so a tabbed slider still shows it. The spectrum rings (the
+ * picker's channels) paint their own and are left alone. The thumb reads the
+ * published fill token alone: the site sets it at the root (utils.css, THE
+ * SCALAR RANGE INK), and glass's own default fill is internal to glass. */
+.glass-slider:not([data-variant="spectrum"]) {
+    --slider-thumb-bg: var(--slider-range-bg);
 }
 
 :root {
+
+    /* PHONE CONTROLS ARE NOT THE DESK TIMES ONE AND A HALF (his FORTY-SECOND
+     * D). glass multiplies every control rung by `--ui-coarse-scale` under a
+     * coarse pointer (its default 1.5), so a phone drew selects, fields and
+     * icon buttons 54 to 66 px tall. At 1.25 glass's small rung lands at 45 px
+     * and its medium at 50; the 44 px floor is glass's own `--control-floor`,
+     * untouched. Theming glass sanctions; glass makes 1.25 its own default (his
+     * FORTY-THIRD C), and this line goes at that release. Declared here, after
+     * glass's token sheet, so it wins by order. */
+    --ui-coarse-scale: 1.25;
 
     /* X-DS pass 5 (V5C-09): THE SCALAR RAIL (see utils.css, THE SCALAR RANGE
      * INK). At glass's `sm` rung (0.75rem) the range is a slab: a column of
