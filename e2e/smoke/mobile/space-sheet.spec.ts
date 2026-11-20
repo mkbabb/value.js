@@ -23,8 +23,15 @@ async function boot(page: Page): Promise<Locator> {
 
 async function settled(sheet: Locator): Promise<void> {
     await sheet.waitFor({ state: "visible" });
+    // The open's own animations: not a loop, and not the list's scroll-driven
+    // edge fades (a ScrollTimeline's animation finishes only at the scroll's end).
     await sheet.evaluate((el) =>
-        Promise.allSettled(el.getAnimations({ subtree: true }).map((a) => a.finished)),
+        Promise.allSettled(
+            el
+                .getAnimations({ subtree: true })
+                .filter((a) => a.timeline === document.timeline && a.effect?.getComputedTiming().endTime !== Infinity)
+                .map((a) => a.finished),
+        ),
     );
 }
 

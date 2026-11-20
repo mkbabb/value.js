@@ -31,9 +31,13 @@ async function dotTo(page: Page, s: number, v: number): Promise<void> {
     await page.mouse.move(past(s, b.x, b.width), past(1 - v, b.y, b.height), { steps: 6 });
     await page.mouse.up();
     await page.waitForTimeout(400);
+    // At lightness 0 the colour is black and holds no saturation, so the
+    // label reads 0 % whatever the drag; there only the lightness is read.
     await expect(field).toHaveAttribute(
         "aria-label",
-        `Color spectrum, saturation ${Math.round(s * 100)}%, lightness ${Math.round(v * 100)}%`,
+        v === 0
+            ? /^Color spectrum, saturation \d+%, lightness 0%$/
+            : `Color spectrum, saturation ${Math.round(s * 100)}%, lightness ${Math.round(v * 100)}%`,
     );
 }
 

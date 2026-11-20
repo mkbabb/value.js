@@ -59,14 +59,35 @@ async function centre(page: Page, el: Locator): Promise<void> {
     await page.waitForTimeout(400);
 }
 
-/** A flick up by `dist` px from (x, y), drifting sideways at `deg` degrees. */
-async function flick(page: Page, t: Touch, x: number, y: number, deg: number, dist = 200): Promise<void> {
+/**
+ * Which way a flick has more page to move: up (the finger rises, the page
+ * scrolls on) when the scroller above `el` has more left below than above,
+ * else down. A control near the page's foot, seated at the middle, has little
+ * page left below it; the grammar is the same either way.
+ */
+async function roomUp(el: Locator): Promise<boolean> {
+    return el.evaluate((node) => {
+        let s: Element = document.scrollingElement ?? document.documentElement;
+        for (let n = node.parentElement; n; n = n.parentElement) {
+            const oy = getComputedStyle(n).overflowY;
+            if ((oy === "auto" || oy === "scroll") && n.scrollHeight > n.clientHeight + 1) {
+                s = n;
+                break;
+            }
+        }
+        return s.scrollHeight - s.clientHeight - s.scrollTop >= s.scrollTop;
+    });
+}
+
+/** A flick by `dist` px from (x, y), up or down, drifting sideways at `deg` degrees. */
+async function flick(page: Page, t: Touch, x: number, y: number, deg: number, up = true, dist = 200): Promise<void> {
     const drift = Math.tan((deg * Math.PI) / 180);
     const steps = 16;
+    const sign = up ? -1 : 1;
     await t("touchStart", x, y);
     for (let i = 1; i <= steps; i++) {
         const dy = (dist * i) / steps;
-        await t("touchMove", x + dy * drift, y - dy);
+        await t("touchMove", x + dy * drift, y + sign * dy);
         await page.waitForTimeout(16);
     }
     await t("touchEnd");
@@ -83,27 +104,35 @@ const SLIDERS = [
     { where: "Atmosphere's Color energy", hash: "#/atmosphere", name: "Color energy" },
 ] as const;
 
-for (const s of SLIDERS) {
-    test(`a vertical flick on ${s.where} scrolls the page and keeps the value`, async ({ page }) => {
-        const thumb = page.getByRole("slider", { name: s.name }).first();
-        const t = await open(page, s.hash, thumb);
-        const root = thumb.locator("xpath=ancestor::*[@data-slot='slider'][1]");
-        const rows: string[] = [];
-        for (const deg of ANGLES) {
-            await centre(page, root);
-            const box = (await root.boundingBox())!;
-            const before = await thumb.getAttribute("aria-valuenow");
-            const s0 = await scrollOffsets(root);
-            await flick(page, t, box.x + box.width * 0.5, box.y + box.height / 2, deg);
-            const s1 = await scrollOffsets(root);
-            const moved = Math.max(...s1.map((v, i) => Math.abs(v - (s0[i] ?? 0))));
-            const after = await thumb.getAttribute("aria-valuenow");
-            rows.push(`${deg} deg: scrolled ${moved.toFixed(0)} px, value ${before} -> ${after}`);
-            expect(moved, rows.join("; ")).toBeGreaterThanOrEqual(100);
-            expect(after, rows.join("; ")).toBe(before);
-        }
-    });
-}
+// The sliders' pages are read at 390x664, a phone's visible block with
+// Safari's bars shown: at 390x844 Generate's page is 50 px longer than the
+// screen and Atmosphere's not at all, so there is no 100 px of page to scroll.
+test.describe("390x664", () => {
+    test.use({ viewport: { width: 390, height: 664 } });
+
+    for (const s of SLIDERS) {
+        test(`a vertical flick on ${s.where} scrolls the page and keeps the value`, async ({ page }) => {
+            const thumb = page.getByRole("slider", { name: s.name }).first();
+            const t = await open(page, s.hash, thumb);
+            const root = thumb.locator("xpath=ancestor::*[@data-slot='slider'][1]");
+            const rows: string[] = [];
+            for (const deg of ANGLES) {
+                await centre(page, root);
+                const box = (await root.boundingBox())!;
+                const before = await thumb.getAttribute("aria-valuenow");
+                const s0 = await scrollOffsets(root);
+                const up = await roomUp(root);
+                await flick(page, t, box.x + box.width * 0.5, box.y + box.height / 2, deg, up);
+                const s1 = await scrollOffsets(root);
+                const moved = Math.max(...s1.map((v, i) => Math.abs(v - (s0[i] ?? 0))));
+                const after = await thumb.getAttribute("aria-valuenow");
+                rows.push(`${deg} deg ${up ? "up" : "down"}: scrolled ${moved.toFixed(0)} px, value ${before} -> ${after}`);
+                expect(moved, rows.join("; ")).toBeGreaterThanOrEqual(100);
+                expect(after, rows.join("; ")).toBe(before);
+            }
+        });
+    }
+});
 
 test("a sideways drag on a slider tracks from the first touch, and a tap sets", async ({ page }) => {
     const thumb = page.getByRole("slider", { name: "Vividness" }).first();
