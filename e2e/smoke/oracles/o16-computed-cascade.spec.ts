@@ -197,16 +197,28 @@ test("O-16 W5 census — every owned row's computed duration/curve ≡ its liqui
             const wrapper = document.querySelector(".pane-wrapper--stage");
             const pane = wrapper?.firstElementChild ?? null;
             let enter: ReturnType<typeof readLegs> | null = null;
+            let enterText: ReturnType<typeof readLegs> | null = null;
             let leave: ReturnType<typeof readLegs> | null = null;
             let leaveTok: ReturnType<typeof resolve> | null = null;
+            let textTok: ReturnType<typeof resolve> | null = null;
             if (pane) {
                 pane.classList.add("vj-enter-enter-active");
                 enter = readLegs(pane);
+                // R2's text leg rides the plate's own children (the plate's
+                // material is its pseudo-elements and stays put).
+                const plate = pane.classList.contains("glass-resting")
+                    ? pane
+                    : pane.querySelector(":scope > .glass-resting");
+                const text = plate?.firstElementChild ?? null;
+                enterText = text ? readLegs(text) : null;
                 pane.classList.remove("vj-enter-enter-active");
                 pane.classList.add("vj-enter-leave-active");
                 leave = readLegs(pane);
-                // R3's rule reads `--duration-normal` / `--ease-in`.
-                leaveTok = resolve(pane, "--duration-normal", "--ease-in");
+                // R3's rule reads `--duration-control` / `--ease-in`; R2's text
+                // waits `--duration-control`, then runs `--duration-fast` on
+                // `--ease-decelerate`.
+                leaveTok = resolve(pane, "--duration-control", "--ease-in");
+                textTok = resolve(pane, "--duration-fast", "--ease-decelerate");
                 pane.classList.remove("vj-enter-leave-active");
             }
 
@@ -247,8 +259,10 @@ test("O-16 W5 census — every owned row's computed duration/curve ≡ its liqui
 
             return {
                 enter,
+                enterText,
                 leave,
                 leaveTok,
+                textTok,
                 cartoon,
                 liveCards,
                 btnAtom,
@@ -265,32 +279,29 @@ test("O-16 W5 census — every owned row's computed duration/curve ≡ its liqui
         const log = (row: string, v: unknown) =>
             console.log(`[O-16·W5·${scheme}] ${row}: ${JSON.stringify(v)}`);
 
-        // R2 — enter transform: the panel spring @ its OWN clock, the resolved
-        // `--spring-panel-duration` (0.45s at glass 10.1.0 — never a literal).
+        // R2 — the enter (rewritten for the FORTIETH order, A: "a strange
+        // re-sizing", "transitions are very slow"; DESIGN 5.7): the arriving
+        // PLATE is on its seat from its first frame, so the root runs no
+        // transform; its text waits for the leaver (`--duration-control`) and
+        // comes in on `--duration-fast`. The root declares the text's clock
+        // (Vue times the enter by the root's transition), on opacity alone.
+        // Equal to the RESOLVED tokens the rules read (§0az), never literals.
         expect(census.enter, "R2: no pane wrapper child found").toBeTruthy();
         log("R2 enter", census.enter);
-        // ESC-W5c2-1 (COHESION §0ay): equal to the RESOLVED `--spring-panel-duration`,
-        // read by getComputedStyle on the rule's own element (the live pane under
-        // `vj-enter-enter-active`) — never a literal of the producer's clock.
-        expect(census.enter!["transform"]?.duration).toBe(
-            await page.evaluate(() => {
-                const el = document.querySelector(".pane-wrapper--stage")!
-                    .firstElementChild as HTMLElement;
-                const prev = el.style.getPropertyValue("animation-duration");
-                el.classList.add("vj-enter-enter-active");
-                el.style.setProperty("animation-duration", "var(--spring-panel-duration)");
-                const resolved = getComputedStyle(el).animationDuration;
-                el.style.setProperty("animation-duration", prev);
-                el.classList.remove("vj-enter-enter-active");
-                return resolved;
-            }),
-        );
-        expect(census.enter!["transform"]?.timing).toMatch(/^linear\(/);
+        log("R2 enter text", census.enterText);
+        log("R2 resolved tokens", census.textTok);
+        expect(Object.keys(census.enter!), "R2 the arriving plate does not travel").toEqual(["opacity"]);
+        expect(census.enter!["opacity"]!.duration, "R2 the root declares the text's clock").toBe(census.textTok!.duration);
+        expect(census.enter!["opacity"]!.delay, "R2 the root waits for the leaver").toBe(census.leaveTok!.duration);
+        expect(census.enterText, "R2: the plate's text was not found").toBeTruthy();
+        const textIn = census.enterText!["opacity"];
+        expect(textIn?.duration, "R2 text duration").toBe(census.textTok!.duration);
+        expect(textIn?.timing, "R2 text curve").toBe(census.textTok!.timing);
+        expect(textIn?.delay, "R2 the text waits for the leaver").toBe(census.leaveTok!.duration);
 
-        // R3 — leave (O16's dealt cards): the card slides off its side on
-        // `--ease-in` @ `--duration-normal` — never a spring on an exit — and
-        // fades on the shorter `--duration-fast`. §0az: equal to the RESOLVED
-        // tokens the rule reads.
+        // R3 — leave: the card slides off its side and its text drops at
+        // once, both on `--duration-control` (the slide on `--ease-in`, never
+        // a spring on an exit). §0az: equal to the RESOLVED tokens.
         log("R3 leave", census.leave);
         log("R3 resolved tokens", census.leaveTok);
         const move = census.leave!["transform"];
@@ -298,16 +309,15 @@ test("O-16 W5 census — every owned row's computed duration/curve ≡ its liqui
         expect(move?.timing, "R3 transform curve").toBe(census.leaveTok!.timing);
         expect(move?.timing, "R3 transform curve").toMatch(/^cubic-bezier\(/);
         expect(Object.keys(census.leave!).sort(), "R3 the leave is transform + its fade").toEqual(["opacity", "transform"]);
-        const fadeOut = census.leave!["opacity"]!;
-        expect(parseFloat(fadeOut.duration), "R3 the fade is shorter than the slide").toBeLessThan(parseFloat(move!.duration));
-        // Gate 5 — the exit law: leave strictly shorter than the enter.
+        expect(census.leave!["opacity"]!.duration, "R3 the fade ends with the slide").toBe(census.leaveTok!.duration);
+        // Gate 5 — the exit law: the leave is over before the enter is.
         const maxLeave = Math.max(
             ...Object.values(census.leave!).map(
                 (l) => parseFloat(l.duration) + (parseFloat(l.delay) || 0),
             ),
         );
         expect(maxLeave, "exit law: leave < enter").toBeLessThan(
-            parseFloat(census.enter!["transform"]!.duration),
+            parseFloat(textIn!.duration) + parseFloat(textIn!.delay),
         );
 
         // R4 — RETIRED 2026-09-23 (COHESION §0az ESC-W5c3-1). The row asserted
