@@ -33,6 +33,7 @@
                     @file="onFile"
                     @open="openFilePicker"
                     @sample="session.eyedropperOpen.value = true"
+                    @aspect="photoAspect = $event"
                 />
 
                 <!-- X-DS pass 9 (V9C-06): the image actions are SOURCE actions, so they
@@ -185,6 +186,7 @@
             :open="session.eyedropperOpen.value"
             :image-url="session.previewUrl.value"
             :color-space="colorSpace"
+            :aspect="photoAspect"
             @close="session.eyedropperOpen.value = false"
             @closed="eyedropperHeld = session.eyedropperOpen.value"
             @pick="(css) => emit('pick', css)"
@@ -238,6 +240,8 @@ useUrlState(["extract"], [
 // The eyedropper's mount: latched on by an open, released by the dialog's own
 // `closed` (its leave has finished), so the close is never a one-frame unmount.
 const eyedropperHeld = ref(false);
+/** The loaded photo's shape: the eyedropper opens at the photo's size. */
+const photoAspect = ref<number | null>(null);
 watch(
     session.eyedropperOpen,
     (open) => {

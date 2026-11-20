@@ -15,6 +15,13 @@ export interface InertiaGestureOptions {
     onTap?: (rx: number, ry: number) => void;
     /** Called on each pointer hover (no buttons) with viewport-relative coords */
     onHover?: (rx: number, ry: number) => void;
+    /**
+     * color-40 N: when given, ONE FINGER SCRUBS. A touch's press, moves
+     * and lift are reported here (viewport-relative) and it never pans; two
+     * fingers pan and zoom, and a second finger landing cancels the scrub. A
+     * mouse keeps hover, click and drag-to-pan.
+     */
+    onScrub?: (phase: "start" | "move" | "end" | "cancel", rx: number, ry: number) => void;
 }
 
 export function useInertiaGesture(
@@ -44,6 +51,8 @@ export function useInertiaGesture(
     const pointers = new Map<number, { x: number; y: number }>();
     let isPanning = false;
     let hasMoved = false;
+    /** A one-finger touch is scrubbing (never panning). */
+    let scrubbing = false;
     let lastX = 0;
     let lastY = 0;
 
@@ -182,7 +191,17 @@ export function useInertiaGesture(
             velocityX = 0;
             velocityY = 0;
             lastMoveTime = performance.now();
+            scrubbing = options.onScrub !== undefined && e.pointerType === "touch";
+            if (scrubbing) {
+                const vp = clientToViewport(e.clientX, e.clientY);
+                if (vp) options.onScrub?.("start", vp.rx, vp.ry);
+            }
         } else if (pointers.size === 2) {
+            if (scrubbing) {
+                // A second finger: the scrub is dropped, the two pan and zoom.
+                scrubbing = false;
+                options.onScrub?.("cancel", 0, 0);
+            }
             isPanning = true;
             hasMoved = true;
             const [p0, p1] = [...pointers.values()];
@@ -234,6 +253,12 @@ export function useInertiaGesture(
             prevPinchMidX = mid.rx;
             prevPinchMidY = mid.ry;
         } else if (pointers.size === 1) {
+            if (scrubbing) {
+                const vp = clientToViewport(e.clientX, e.clientY);
+                if (vp) options.onScrub?.("move", vp.rx, vp.ry);
+                lastMoveTime = now;
+                return;
+            }
             const dx = e.clientX - lastX;
             const dy = e.clientY - lastY;
 
@@ -269,6 +294,19 @@ export function useInertiaGesture(
 
         if (pointers.size === 0) {
             gestureActive.value = false;
+
+            if (scrubbing) {
+                scrubbing = false;
+                const vp = clientToViewport(e.clientX, e.clientY);
+                options.onScrub?.(
+                    e.type === "pointercancel" ? "cancel" : "end",
+                    vp?.rx ?? 0,
+                    vp?.ry ?? 0,
+                );
+                isPanning = false;
+                hasMoved = false;
+                return;
+            }
 
             if (isPanning && (Math.abs(velocityX) > 1 || Math.abs(velocityY) > 1)) {
                 startInertia();

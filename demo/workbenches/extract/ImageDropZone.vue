@@ -89,6 +89,8 @@ const emit = defineEmits<{
     open: [];
     /** Populated zone activated: sample colours from the image. */
     sample: [];
+    /** The loaded photo's shape (width over height): the eyedropper opens at it. */
+    aspect: [ratio: number];
 }>();
 
 const zoneRef = useTemplateRef<HTMLElement>("zoneRef");
@@ -107,6 +109,7 @@ function onPhotoLoad(e: Event) {
     const img = e.target as HTMLImageElement;
     if (img.naturalWidth > 0 && img.naturalHeight > 0) {
         photoRatio.value = img.naturalWidth / img.naturalHeight;
+        emit("aspect", photoRatio.value);
     }
 }
 const photoBox = computed<CSSProperties>(() => {

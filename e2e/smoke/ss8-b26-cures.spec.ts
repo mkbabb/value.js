@@ -81,7 +81,10 @@ test.describe("X-5 · phone", () => {
         });
         expect(stage, "the eyedropper holds the image, fitted and settled").not.toBeNull();
         await page.touchscreen.tap(stage!.x + stage!.w * 0.75, stage!.y + stage!.h * 0.25);
-        const add = dialog.locator('[title="Add to palette"]').first();
+        // color-40 N-7 (his FORTIETH N): Add is a labelled button, always
+        // present and enabled once a pick is held.
+        const add = dialog.getByRole("button", { name: "Add to palette" }).first();
+        await expect(add).toBeEnabled({ timeout: 10_000 });
         await expect(add).toBeVisible({ timeout: 10_000 });
         await add.tap();
         // The region lives inside the modal (the page behind is aria-hidden).
