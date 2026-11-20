@@ -111,6 +111,14 @@ test.describe("O-3: the strip says the shares; no line restates it", () => {
         const shares = names.map((n) => parseInt(n, 10)).sort((a, b) => a - b);
         expect(shares).toEqual([25, 25, 50]);
     });
+
+    test("O-7: the photo's Pick a color chip reads at 14 px or more", async ({ page }) => {
+        await loadExtractImage(page, UNEQUAL);
+        const chip = mainPane(page).locator("[data-zone-affordance]");
+        await expect(chip).toBeVisible();
+        const size = await chip.evaluate((el) => parseFloat(getComputedStyle(el).fontSize));
+        expect(size).toBeGreaterThanOrEqual(14);
+    });
 });
 
 /**

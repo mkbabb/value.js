@@ -67,7 +67,7 @@
             variant="secondary"
             size="sm"
             class="absolute bottom-1.5 right-1.5 gap-1"
-        ><Pipette class="w-3 h-3" aria-hidden="true" />Pick a color</Badge>
+        ><Pipette class="w-3.5 h-3.5" aria-hidden="true" />Pick a color</Badge>
     </div>
 </template>
 
@@ -140,3 +140,13 @@ const { isOverDropZone } = useDropZone(zoneRef, {
     },
 });
 </script>
+
+<style scoped>
+/* The chip is a control's label, not a caption (his FORTY-SECOND A): it reads
+ * at the small rung, 14 px at 390, where glass's small badge set it at the
+ * caption rung's 12.2 px. */
+[data-zone-affordance] {
+    font-size: var(--type-small);
+    line-height: var(--type-leading-small);
+}
+</style>
