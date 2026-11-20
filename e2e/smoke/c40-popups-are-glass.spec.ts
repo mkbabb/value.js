@@ -100,8 +100,9 @@ for (const scheme of ["light", "dark"] as const) {
             read["colour-space select"] = await material(page, '[data-slot="select-content"]');
             await close(page);
 
-            // 3. the rail tooltip (hover a channel letter)
-            const rail = page.locator('[aria-label="Color channels"] [aria-label$=" channel"]').first();
+            // 3. the rail tooltip (hover a channel letter: the rail's tabs are
+            // named for their act, "Go to L (Lightness)", so read them by role)
+            const rail = page.locator('[aria-label="Color channels"] [role="tab"]').first();
             await expect(rail).toBeVisible({ timeout: 30_000 });
             await rail.hover();
             read["rail tooltip"] = await material(page, '[data-slot="tooltip-content"], [role="tooltip"]');
