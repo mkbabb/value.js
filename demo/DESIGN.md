@@ -1203,6 +1203,10 @@ the cue, where one helps, is the handle's own small rise while held. The one pri
 `touch-action: none` and exempt from the lock (the colour field's dot). Nothing listens to
 `touchmove` without `passive`.
 
+**The scrubber is pulled by its fill (FORTY-SECOND C).** A scalar slider's thumb paints the fill's own
+colour through glass's `--slider-thumb-bg` (`foundation.css`), so the fill's rounded end is the
+handle and no disc shows. The thumb's form stays glass's; the spectrum rings are untouched.
+
 ---
 
 ## 7 · Anti-patterns (§ Idioms NOT used)
