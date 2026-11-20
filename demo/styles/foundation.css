@@ -480,9 +480,11 @@
  * site to set until its thumbless default lands) leaves no disc, only the
  * fill's rounded end under the finger. The keyboard's ring is the track's
  * (glass), so a tabbed slider still shows it. The spectrum rings (the
- * picker's channels) paint their own and are left alone. */
+ * picker's channels) paint their own and are left alone. The thumb reads the
+ * published fill token alone: the site sets it at the root (utils.css, THE
+ * SCALAR RANGE INK), and glass's own default fill is internal to glass. */
 .glass-slider:not([data-variant="spectrum"]) {
-    --slider-thumb-bg: var(--slider-range-bg, var(--slider-fill-ink));
+    --slider-thumb-bg: var(--slider-range-bg);
 }
 
 :root {
