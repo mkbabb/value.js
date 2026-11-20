@@ -27,9 +27,16 @@ test.beforeEach(({}, testInfo) => {
 
 /** Four flat quadrants: navy, rose, sand, green. */
 const PHOTO = { ...PORTRAIT, name: "eyedropper.png" } as const;
+/**
+ * The same quadrants under a seeded speckle. A scrub over flat quadrants has
+ * only three colours to read on its way through the meeting point (measured:
+ * navy, their mean at the centre, green), so the 1:1 scrub is read on a photo
+ * with texture under the finger.
+ */
+const TEXTURED = { ...PHOTO, noise: true } as const;
 
-async function openEyedropper(page: Page) {
-    await loadExtractImage(page, PHOTO);
+async function openEyedropper(page: Page, photo: typeof PHOTO | typeof TEXTURED = PHOTO) {
+    await loadExtractImage(page, photo);
     await page.locator("[data-zone-affordance]").first().tap();
     const dialog = page.getByRole("dialog", { name: "Eyedropper" });
     await expect(dialog).toBeVisible({ timeout: 20_000 });
@@ -48,7 +55,7 @@ async function openEyedropper(page: Page) {
             if (held >= 10) return { x: b!.x, y: b!.y, w: b!.width, h: b!.height };
         }
         return null;
-    }, { w: PHOTO.width, h: PHOTO.height });
+    }, { w: photo.width, h: photo.height });
     expect(stage, "the eyedropper holds the photo, fitted and settled").not.toBeNull();
     return { dialog, stage: stage! };
 }
@@ -104,7 +111,7 @@ test("N-1, N-2: the lens paints within 200 ms of touch-down, above the finger, a
 });
 
 test("N-3: one finger scrubs, the lift holds, one new touch moves the pick, a pinch keeps it", async ({ page }) => {
-    const { dialog, stage } = await openEyedropper(page);
+    const { dialog, stage } = await openEyedropper(page, TEXTURED);
     await dialog.locator("[data-eyedropper-readout]").evaluate((el) => {
         const w = window as unknown as { __readouts: number };
         w.__readouts = 0;
@@ -183,6 +190,9 @@ test("N-6, N-7, N-8: the dialog is the photo's size; Add and Use wait, labelled;
         .evaluate((el) => el.scrollWidth - el.clientWidth);
     expect(cut, "the held pick's readout is not cut").toBeLessThanOrEqual(0);
 
+    // a well's colour tweens in (the glyph's fill transition), so it is read
+    // once it has arrived, as the second well is below
+    await page.waitForTimeout(400);
     const sampled = await dialog.locator("[data-eyedropper-mark] .palettes-glyph circle").nth(0).evaluate((c) => getComputedStyle(c).fill);
     await add.tap();
     await page.waitForTimeout(400);

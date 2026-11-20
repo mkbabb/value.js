@@ -11,6 +11,11 @@ import { decodePng, type DecodedImage } from "./fixtures/frame-diff";
  */
 
 test.use({ viewport: { width: 1440, height: 900 } });
+// Generate, Browse and an Extract intake in one test: three first visits on
+// the dev server, past the default 30 s.
+test.beforeEach(({}, testInfo) => {
+    testInfo.setTimeout(150_000);
+});
 
 const seatsOf = (page: Page) =>
     mainPane(page)
@@ -87,17 +92,38 @@ const lum = (img: DecodedImage, i: number) =>
 
 /**
  * The stamp against its band, read off pixels: the same clip with and without
- * the cast. Where the two differ is the stamp; it must be darker than the band
- * it covers (dark's mid-tone shadow ink would read as a halo).
+ * the cast, the paint itself made clear in both (the cast is inside the dot's
+ * wet-edge filter, so with the paint drawn its displaced edge differs a little
+ * between the two frames too). Where the two differ is the stamp; it must be
+ * darker than the band it covers (dark's mid-tone shadow ink would read as a
+ * halo).
  */
 async function stampDarkerThanBand(page: Page, swatch: import("@playwright/test").Locator) {
+    // read at rest: the page's own arrival motion (the swatches come in on a
+    // transform) would differ between the two frames as well
+    await page.evaluate(() =>
+        Promise.race([
+            Promise.all(
+                document
+                    .getAnimations()
+                    .filter((a) => a.effect?.getComputedTiming().endTime !== Infinity)
+                    .map((a) => a.finished.catch(() => undefined)),
+            ),
+            new Promise((r) => setTimeout(r, 5000)),
+        ]),
+    );
     const box = (await swatch.boundingBox())!;
     const clip = { x: box.x - 6, y: box.y - 6, width: box.width + 14, height: box.height + 14 };
+    const clear = await page.addStyleTag({
+        content: ".watercolor-swatch { background-color: transparent !important; border-color: transparent !important; }",
+    });
+    await page.waitForTimeout(100);
     const withStamp = decodePng(await page.screenshot({ clip }));
     const style = await page.addStyleTag({ content: ".watercolor-swatch { box-shadow: none !important; }" });
     await page.waitForTimeout(100);
     const without = decodePng(await page.screenshot({ clip }));
     await style.evaluate((el) => (el as Element).remove());
+    await clear.evaluate((el) => (el as Element).remove());
     let on = 0;
     let off = 0;
     let n = 0;

@@ -8,6 +8,12 @@ import { extractedCard, loadExtractImage } from "./fixtures/extract-image";
  * dropdown menu within a menu").
  */
 
+// Each test first develops a photo on Extract, a first visit that alone can
+// spend most of the default 30 s on the dev server.
+test.beforeEach(({}, testInfo) => {
+    testInfo.setTimeout(120_000);
+});
+
 const trigger = (page: Page) =>
     extractedCard(page).getByRole("button", { name: /^Palette menu for / });
 
@@ -176,13 +182,15 @@ test.describe("O-4: the menu on a phone", () => {
             await expect(menu(page)).toBeVisible();
             await page.waitForTimeout(400);
             const heights: number[] = [];
+            // Every frame from before the tap until 700 ms after it (a tap's
+            // own latency on a loaded runner can outlast a fixed window).
             await menu(page).evaluate((el) => {
-                const w = window as unknown as { __h: number[] };
+                const w = window as unknown as { __h: number[]; __hStop: boolean };
                 w.__h = [];
-                const t0 = performance.now();
+                w.__hStop = false;
                 const tick = () => {
                     w.__h.push(el.getBoundingClientRect().height);
-                    if (performance.now() - t0 < 600) requestAnimationFrame(tick);
+                    if (!w.__hStop) requestAnimationFrame(tick);
                 };
                 requestAnimationFrame(tick);
             });
@@ -201,6 +209,7 @@ test.describe("O-4: the menu on a phone", () => {
                             .filter((k) => "opacity" in k).length,
                 );
             await page.waitForTimeout(700);
+            await page.evaluate(() => ((window as unknown as { __hStop: boolean }).__hStop = true));
             heights.push(
                 ...(await page.evaluate(
                     () => (window as unknown as { __h: number[] }).__h,

@@ -158,13 +158,15 @@ for (const width of [1440, 390] as const) {
                 .first()
                 .evaluate((el) => getComputedStyle(el).backgroundColor);
             expect(fill).not.toMatch(/rgba\(0, 0, 0, 0\)|transparent/);
+            // Boxes are read as laid out: the pane arrives on a transform of its
+            // own (the plate's settle), which a drawn rect would count.
             const ghostH = await ghost.evaluate(
-                (el) => el.getBoundingClientRect().height,
+                (el) => (el as HTMLElement).offsetHeight,
             );
             await loadExtractImage(page, LANDSCAPE);
             await page.waitForTimeout(600);
             const cardH = await extractedCard(page).evaluate(
-                (el) => el.getBoundingClientRect().height,
+                (el) => (el as HTMLElement).offsetHeight,
             );
             expect(
                 Math.abs(cardH - ghostH),

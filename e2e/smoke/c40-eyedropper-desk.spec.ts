@@ -22,7 +22,24 @@ for (const photo of [LANDSCAPE, PORTRAIT]) {
         await page.locator("[data-zone-affordance]").first().click();
         const dialog = page.getByRole("dialog", { name: "Eyedropper" });
         await expect(dialog).toBeVisible({ timeout: 20_000 });
-        await page.waitForTimeout(900);
+        // The photo is read once it is fitted: its canvas carries the bitmap
+        // and the drawn box has held still for ten frames (the dialog opens on
+        // a scale and the fit eases in).
+        const fitted = await dialog.evaluate(async (d, size) => {
+            const frame = () => new Promise((r) => requestAnimationFrame(() => r(null)));
+            let last = "";
+            for (let held = 0, n = 0; n < 1200; n++) {
+                await frame();
+                const c = d.querySelector<HTMLCanvasElement>(".eyedropper-canvas");
+                const b = c && c.width === size.w && c.height === size.h ? c.getBoundingClientRect() : null;
+                const k = b ? `${b.x},${b.y},${b.width},${b.height},${d.getBoundingClientRect().width}` : "";
+                held = k && k === last ? held + 1 : 0;
+                last = k;
+                if (held >= 10) return true;
+            }
+            return false;
+        }, { w: photo.width, h: photo.height });
+        expect(fitted, "the photo is fitted and still").toBe(true);
 
         const bands = await dialog.evaluate((d) => {
             const box = d.getBoundingClientRect();
