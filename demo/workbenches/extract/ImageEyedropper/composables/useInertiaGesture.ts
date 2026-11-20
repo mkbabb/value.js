@@ -72,6 +72,16 @@ export function useInertiaGesture(
         return elementRef.value?.getBoundingClientRect() ?? null;
     }
 
+    /**
+     * The viewport's own layout size. The pan and zoom are in the viewport's
+     * layout pixels, so they are fitted against its layout box, never its
+     * drawn box: the dialog opens on a scale, and a fit read through that
+     * transform left the photo short of the stage, or past it.
+     */
+    function layoutSize(el: HTMLElement) {
+        return { width: el.clientWidth, height: el.clientHeight };
+    }
+
     function clientToViewport(clientX: number, clientY: number) {
         const rect = getViewportRect();
         if (!rect) return null;
@@ -81,7 +91,7 @@ export function useInertiaGesture(
     function clampPan() {
         const el = elementRef.value;
         if (!el) return;
-        const rect = el.getBoundingClientRect();
+        const rect = layoutSize(el);
         const { width: cw, height: ch } = options.contentSize();
         const scaledW = cw * zoom.value;
         const scaledH = ch * zoom.value;
@@ -161,7 +171,7 @@ export function useInertiaGesture(
     function fitToViewport() {
         const el = elementRef.value;
         if (!el) return;
-        const rect = el.getBoundingClientRect();
+        const rect = layoutSize(el);
         const { width: cw, height: ch } = options.contentSize();
         if (!cw || !ch || !rect.width || !rect.height) return;
         // S.W5-6 · F13: the plate is the event — fit fills the viewport in
