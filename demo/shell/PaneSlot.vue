@@ -344,14 +344,23 @@ function reportMount(instance: TInstance | null) {
 // whose split changes at the commit (the shared picker leaving for a
 // workbench) would otherwise be re-laid at the next pane's width for the
 // length of its exit, its spectrum reflowing as it slides off.
+// And its drawn PLACE in the region: a pane that centres itself in its region
+// (Atmosphere's capped card) would be re-centred in the region's new width at
+// the commit, a jump of half the change (346 px out of Atmosphere at 1440), and
+// a full-width leaver into Atmosphere would be centred 267 px off its seat.
 function hideLeaving(el: Element) {
-    const drawn = el instanceof HTMLElement ? [el.offsetWidth, el.offsetHeight] : null;
+    const drawn = el instanceof HTMLElement ? [el.offsetWidth, el.offsetHeight, el.offsetLeft] : null;
     el.toggleAttribute("inert", true);
     el.setAttribute("aria-hidden", "true");
     el.setAttribute("data-scene-direction", sceneDirection);
     if (drawn !== null) {
-        (el as HTMLElement).style.inlineSize = `${drawn[0]}px`;
-        (el as HTMLElement).style.blockSize = `${drawn[1]}px`;
+        const style = (el as HTMLElement).style;
+        style.inlineSize = `${drawn[0]}px`;
+        style.blockSize = `${drawn[1]}px`;
+        style.left = `${drawn[2]}px`;
+        style.right = "auto";
+        style.marginLeft = "0px";
+        style.marginRight = "0px";
     }
 }
 
@@ -360,8 +369,8 @@ function showEntering(el: Element) {
     el.removeAttribute("aria-hidden");
     el.setAttribute("data-scene-direction", sceneDirection);
     if (el instanceof HTMLElement) {
-        el.style.removeProperty("inline-size");
-        el.style.removeProperty("block-size");
+        for (const prop of ["inline-size", "block-size", "left", "right", "margin-left", "margin-right"])
+            el.style.removeProperty(prop);
     }
 }
 
