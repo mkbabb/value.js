@@ -39,7 +39,9 @@ test.describe("an open menu hands over to the next press", () => {
         await page.goto("/#/");
         await expect(mainPane(page)).toBeVisible({ timeout: 60_000 });
 
-        const menu = page.getByRole("button", { name: "Menu", exact: true });
+        // includeHidden: the open select hides the rest of the page from
+        // assistive tech (reka's modal listbox), the dock's Menu button with it
+        const menu = page.getByRole("button", { name: "Menu", exact: true, includeHidden: true });
         await menu.click();
         await expect(page.getByRole("menu")).toBeVisible();
 
