@@ -487,6 +487,16 @@
 
 :root {
 
+    /* PHONE CONTROLS ARE NOT THE DESK TIMES ONE AND A HALF (his FORTY-SECOND
+     * D). glass multiplies every control rung by `--ui-coarse-scale` under a
+     * coarse pointer (its default 1.5), so a phone drew selects, fields and
+     * icon buttons 54 to 66 px tall. At 1.25 glass's small rung lands at 45 px
+     * and its medium at 50; the 44 px floor is glass's own `--control-floor`,
+     * untouched. Theming glass sanctions; glass makes 1.25 its own default (his
+     * FORTY-THIRD C), and this line goes at that release. Declared here, after
+     * glass's token sheet, so it wins by order. */
+    --ui-coarse-scale: 1.25;
+
     /* X-DS pass 5 (V5C-09): THE SCALAR RAIL (see utils.css, THE SCALAR RANGE
      * INK). At glass's `sm` rung (0.75rem) the range is a slab: a column of
      * /blob's 31 scalars was the heaviest ink on the pane. The weight drops,
