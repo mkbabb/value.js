@@ -105,7 +105,8 @@
                                  SILHOUETTES. `seed` is the producer's own
                                  shape/wet-edge PRNG salt: seeding it with the
                                  space id gives each row its own border-radius
-                                 silhouette AND its own feTurbulence seed
+                                 silhouette, and picks its wet edge from the
+                                 page's pooled filters by the same hash
                                  (identical `seed 240` across all 18 was the
                                  defect). The dead `tag` prop — WatercolorDot
                                  declares no such prop — is deleted. -->
