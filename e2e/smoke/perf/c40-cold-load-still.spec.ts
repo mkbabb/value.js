@@ -14,8 +14,10 @@
  * The contract:
  *   (a) at 390, in both schemes, each space title's colour on the first frame
  *       that draws it equals its colour 6 s later (within 2 of 255 per channel);
- *   (b) at 1440 the fact sheet's value column has the same x on the first
- *       frame that draws it and 3 s later (within 0.5 px).
+ *   (b) at 1440 the fact sheet's value column has the same layout x on the
+ *       first frame that draws it and 3 s later (within 0.5 px). Layout x, as
+ *       the chassis specs read widths: the overture moves the drawn boxes by
+ *       transform, on purpose, while the face arrives.
  */
 import { test, expect, type Browser } from "@playwright/test";
 
@@ -39,6 +41,14 @@ const RECORDER = () => {
         g.fillRect(0, 0, 1, 1);
         return [...g.getImageData(0, 0, 1, 1).data];
     };
+    // The value's x in layout px: the page's arrival (the pane shell's
+    // overture, a translate and a 0.985 scale settling over its first half
+    // second) moves every drawn box by design; the face swap moved the layout.
+    const layoutLeft = (el: HTMLElement) => {
+        let x = 0;
+        for (let e: HTMLElement | null = el; e; e = e.offsetParent as HTMLElement | null) x += e.offsetLeft;
+        return x;
+    };
     const tick = (t: number) => {
         const titles = [...document.querySelectorAll<HTMLElement>("main .space-trigger")].filter((el) => el.getClientRects().length > 0);
         const dd = document.querySelector<HTMLElement>("[data-space-facts] dl.nl-facts dd");
@@ -46,7 +56,7 @@ const RECORDER = () => {
             w.__cold.push({
                 at: t,
                 inks: titles.map((el) => rgba(getComputedStyle(el).color)),
-                valueX: dd ? dd.getBoundingClientRect().left : null,
+                valueX: dd ? layoutLeft(dd) : null,
             });
         if (t < 12_000) requestAnimationFrame(tick);
     };
