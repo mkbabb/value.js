@@ -148,7 +148,9 @@ const {
 .swatch-button[data-swatch="fill"] {
     --swatch-stamp: 3px;
 }
-:global(.dark) .swatch-button {
+/* (the whole selector is global: `:global(.dark) .swatch-button` compiles to
+   `.dark` alone, which the swatch's own light ink outranked) */
+:global(.dark .swatch-button) {
     --swatch-stamp-ink: rgb(0 0 0 / 0.4);
 }
 .swatch-button :deep(.watercolor-swatch[data-variant="solid"]) {
