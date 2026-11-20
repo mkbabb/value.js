@@ -3,8 +3,8 @@
         <!-- A2-VA-L1-1: the one pane shell (its body gutter replaces the
              per-pane class string this workbench carried).
              The T20 collapse (R.W4 Lane E): the pane is a thin shell over
-             the ONE extract workbench — session, camera, eyedropper, and
-             the T19 dominance readout all live in ExtractWorkbench. -->
+             the ONE extract workbench — session, eyedropper and the
+             developed card all live in ExtractWorkbench. -->
         <ExtractWorkbench
             layout="column"
             :color-space="colorSpace"

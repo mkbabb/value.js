@@ -56,4 +56,55 @@ describe("useImageSampler", () => {
         expect(reads).toEqual([canvas]);
         vi.unstubAllGlobals();
     });
+
+    it("color-40 N-4: the sample is the mean of the square the reticle frames, clamped to the photo", async () => {
+        const canvas = document.createElement("canvas");
+        const asked: number[][] = [];
+        vi.spyOn(HTMLCanvasElement.prototype, "getContext").mockImplementation(function (
+            this: HTMLCanvasElement,
+        ) {
+            const self = this;
+            return {
+                canvas: self,
+                drawImage() {},
+                // A noisy patch: black and white pixels alternate.
+                getImageData(x: number, y: number, w: number, h: number) {
+                    asked.push([x, y, w, h]);
+                    const data = new Uint8ClampedArray(w * h * 4);
+                    for (let i = 0; i < w * h; i++) {
+                        const v = i % 2 === 0 ? 0 : 200;
+                        data.set([v, v, v, 255], i * 4);
+                    }
+                    return { data };
+                },
+            } as unknown as CanvasRenderingContext2D;
+        } as never);
+        vi.stubGlobal(
+            "Image",
+            class {
+                naturalWidth = 40;
+                naturalHeight = 30;
+                onload: (() => void) | null = null;
+                onerror: (() => void) | null = null;
+                crossOrigin = "";
+                set src(_: string) {
+                    queueMicrotask(() => this.onload?.());
+                }
+            },
+        );
+        const sampler = useImageSampler({
+            canvasRef: shallowRef(canvas),
+            getTransform: () => ({ panX: 0, panY: 0, zoom: 1 }),
+            colorSpace: () => "hex",
+        });
+        await sampler.loadImage("blob:noisy");
+
+        // A 4x4 reticle over alternating 0 / 200: the mean is 100, not either pixel.
+        expect(sampler.sampleAt(20, 15, 4)?.hex).toBe("#646464");
+        expect(asked.at(-1)).toEqual([18, 13, 4, 4]);
+        // Past the photo's corner the square is clamped inside it.
+        sampler.sampleAt(500, -50, 4);
+        expect(asked.at(-1)).toEqual([37, 0, 3, 4]);
+        vi.unstubAllGlobals();
+    });
 });

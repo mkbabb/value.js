@@ -4,6 +4,7 @@
         class="palette-card group rounded-card border border-card-edge bg-well cursor-pointer focus-ring"
         :data-layout="layout"
         :data-selected="expanded ? '' : undefined"
+        :data-weighted-strip="weightedStrip ? '' : undefined"
         role="article"
         tabindex="0"
         :aria-label="`Palette: ${palette.name}${palette.tier === 'featured' ? ', Featured' : ''}`"
@@ -23,6 +24,7 @@
             :palette="palette"
             :layout="layout"
             :name-yielded="renaming"
+            :strip-described="weightedStrip"
         />
 
         <!-- Drag handle. T.W6.5 row 8 (F-4 sweep): the muted token is the
@@ -216,8 +218,12 @@ const props = withDefaults(
         /** The detail band is a disclosure the card toggles; a host that pins
          *  it open (`expanded` always true) passes false — no trigger. */
         collapsible?: boolean | undefined;
+        /** color-40 O-1: the strip is WEIGHTED (each colour's share of a
+         *  source, Extract's) and says what the swatches do not, so it stays
+         *  while the card is open, and each band names its share and value. */
+        weightedStrip?: boolean | undefined;
     }>(),
-    { layout: "default", swatchSize: "md", collapsible: true },
+    { layout: "default", swatchSize: "md", collapsible: true, weightedStrip: false },
 );
 
 /**
@@ -290,8 +296,21 @@ const press = useLiquidPress({
 // SS8-0346/0350 (PC-20): the card's keyboard press is the card's own key, as
 // its Enter/Space selection is (`.self`). Space typed into the rename input
 // or pressed on an inner control is that control's — it never squashes the card.
+// color-40 O-5 (his FORTIETH order: "clicking the three dots should not squish
+// the entire container"): the pointer press is the card's own too. A press
+// that starts on an inner control (the menu trigger, a swatch, the slug's copy,
+// the vote, a field) is that control's, which answers with its own press;
+// glass's handler takes any pointerdown that bubbles to it, so holding the
+// menu trigger squashed the whole card (1.0275 x 0.9346, 784 to 806 px wide).
+const INNER_CONTROL = "button, a, input, select, textarea, [role='button'], [role='menuitem'], [contenteditable]";
 const pressHandlers = {
     ...press.handlers,
+    onPointerdown: (e?: PointerEvent) => {
+        const host = e?.currentTarget as Element | null | undefined;
+        const inner = (e?.target as Element | null | undefined)?.closest?.(INNER_CONTROL);
+        if (inner && host && inner !== host && host.contains(inner)) return;
+        press.handlers.onPointerdown(e);
+    },
     onKeydown: (e: KeyboardEvent) => {
         if (e.target === e.currentTarget) press.handlers.onKeydown(e);
     },
@@ -556,11 +575,16 @@ async function copyWithVerdict(text: string, what: string): Promise<void> {
  * transitions). The 0.25rem remnant it used to keep could not take its 1rem
  * start radii and ran square over the card's curved corners, a rule laid on
  * the card. The aside layout's vertical strip is the card's spine and
- * stays. */
+ * stays.
+ * The one exception (color-40 O-1, his FORTIETH order: "a palette overview
+ * view (like in my palettes) and an individual palette view, like extant"):
+ * a WEIGHTED strip (Extract's, `weightedStrip`) says what the swatches do not,
+ * each colour's share of the image, so on that card the strip stays above the
+ * name row and the swatches. My Palettes and Browse keep V6C-06. */
 .palette-card :deep([data-color-strip][data-orientation="horizontal"]) {
     transition: block-size var(--duration-normal) var(--ease-standard);
 }
-.palette-card[data-selected]:not([data-layout="aside"]) :deep([data-color-strip][data-orientation="horizontal"]) {
+.palette-card[data-selected]:not([data-layout="aside"], [data-weighted-strip]) :deep([data-color-strip][data-orientation="horizontal"]) {
     block-size: 0;
 }
 @media (prefers-reduced-motion: reduce) {

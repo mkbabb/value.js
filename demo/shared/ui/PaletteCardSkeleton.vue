@@ -1,27 +1,25 @@
 <template>
     <div
         :data-slot="instrument ? 'shadow-palette' : 'palette-card-skeleton'"
-        class="skeleton-ink-register rounded-card border border-card-edge overflow-hidden"
-        :class="instrument ? 'shadow-palette' : 'bg-well'"
-        :role="instrument ? undefined : 'status'"
-        :aria-label="instrument ? undefined : 'Loading palette'"
-        :aria-hidden="instrument ? 'true' : undefined"
+        class="skeleton-ink-register rounded-card border border-card-edge overflow-hidden bg-well"
+        :class="instrument && ['shadow-palette', loading && 'shadow-palette--loading']"
+        :role="announces ? 'status' : undefined"
+        :aria-label="announces ? 'Loading palette' : undefined"
+        :aria-hidden="announces ? undefined : 'true'"
     >
         <!-- The strip — the plate develops left to right. X-DS pass 8
-             (V3C-02): the instrument face is STILL. Nothing is loading at
-             Extract's empty rest, so an idle pulse said "loading" where the
-             truth is "empty"; motion stays on the loading registers below.
-             X-DS value pass 5 (P5C-03): the instrument face is an OUTLINE —
-             the card's one hairline and a hairline between its k cells, no
-             well ground and no fill step — so the shape of the result reads
-             without a filled slab waiting for content. -->
+             (V3C-02): the instrument face is STILL at rest. Nothing is loading
+             at Extract's empty rest, so an idle pulse said "loading" where the
+             truth is "empty"; it breathes only while a run is in flight
+             (`loading`). color-40 O-2: its k cells are filled in the skeleton
+             ink, the card's own hairline between them. -->
         <div class="flex h-10 w-full">
             <template v-if="instrument">
                 <div
                     v-for="i in count"
                     :key="i"
                     data-slot="shadow-palette-cell"
-                    class="shadow-seg h-full min-w-0 flex-1"
+                    class="shadow-seg shadow-ink h-full min-w-0 flex-1"
                 />
             </template>
             <template v-else>
@@ -38,12 +36,35 @@
                 />
             </template>
         </div>
-        <!-- The metadata row — develops after the strip. LOADING registers
-             only: X-DS pass 9 (V9C-04) drops it from the instrument face,
-             whose two blank slabs (a fake name, a fake count) changed with
-             nothing and only mimicked a loading card. The k cells carry the
-             instrument's meaning. -->
-        <div v-if="!instrument" class="px-3 py-2.5 flex items-center gap-2">
+        <!-- color-40 O-2 (his FORTIETH order: "the pallete before filling should
+             be a proper shadow palette skeleton"): the instrument face is the
+             DEVELOPED card's silhouette — the strip, the name row (the name's
+             line box, the count, the menu's seat) and k daubs on the card's
+             swatch band at the card's own seat — so empty, loading and developed
+             are one box and the swap fills in place. -->
+        <template v-if="instrument">
+            <div class="shadow-head" data-slot="shadow-palette-head">
+                <span class="shadow-head__text">
+                    <span class="shadow-ink shadow-name font-display text-subheading" />
+                    <span class="shadow-ink shadow-count text-mono-small" />
+                </span>
+                <span class="shadow-head__menu" />
+            </div>
+            <div class="swatch-band border-t border-seam px-3 pb-3 pt-3 flex flex-wrap gap-2 items-start">
+                <span
+                    v-for="i in count"
+                    :key="i"
+                    data-slot="shadow-palette-daub"
+                    data-swatch="xl"
+                    class="swatch-seat shadow-daub"
+                >
+                    <WatercolorDot color="var(--skeleton-ink)" :seed="`shadow-${i}`" class="shadow-ink w-full h-full" />
+                </span>
+            </div>
+        </template>
+        <!-- The metadata row — develops after the strip (the LOADING
+             registers: Browse's collapsed card). -->
+        <div v-else class="px-3 py-2.5 flex items-center gap-2">
             <Skeleton
                 class="text-subheading h-[1lh] w-32 rounded-md"
                 :style="{ '--skeleton-shimmer-delay': `${count * 0.12 + 0.1}s` }"
@@ -105,6 +126,8 @@
  */
 import { computed } from "vue";
 import { Skeleton } from "@mkbabb/glass-ui";
+import { WatercolorDot } from "./watercolor-dot";
+import "./swatch-band.css";
 
 /*
  * X.W12U.k (A2-VA-L1-13): the palette-ghost job has ONE component. The
@@ -121,14 +144,18 @@ import { Skeleton } from "@mkbabb/glass-ui";
  * to AT. It is not a LOADING register and never a filler: true-empty hosts
  * speak the EmptyState dot trio; error ≠ empty.
  */
-const { count = 5, variant = "shadow" } = defineProps<{
+const { count = 5, variant = "shadow", loading = false } = defineProps<{
     /** Segment count — Extract threads the LIVE k here. */
     count?: number;
     /** `shadow` | `developing` are the two LOADING registers (see the note
      *  above); `instrument` is the Extract instrument face (T.W6.5 · R12). */
     variant?: "shadow" | "developing" | "instrument";
+    /** The instrument face's run is in flight: it breathes and announces. */
+    loading?: boolean;
 }>();
 const instrument = computed(() => variant === "instrument");
+/** Work is happening: the loading registers, or the instrument mid-run. */
+const announces = computed(() => !instrument.value || loading);
 </script>
 
 <style scoped>
@@ -154,12 +181,79 @@ const instrument = computed(() => variant === "instrument");
     --animate-ambient-pulse-easing: var(--ease-standard);
 }
 
-/* X-DS value pass 5 (P5C-03): the idle instrument carries no state, so its
- * cells take no fill step (light: the heaviest-toned block in the card; dark:
- * a pill whose seams were lost). The live-k segmentation is the card's own
- * hairline (`--card-edge`) between cells, in both schemes. */
+/* color-40 O-2 (K2; supersedes X-DS value pass 5's outline face, P5C-03): the
+ * instrument is the developed card's silhouette in the site's live-tinted
+ * skeleton ink (`--skeleton-ink`, the one recipe at `.skeleton-ink-register`),
+ * never a grey. The live-k segmentation is the card's own hairline
+ * (`--card-edge`) between cells, in both schemes. */
+.shadow-ink {
+    background-color: var(--skeleton-ink);
+}
 .shadow-seg + .shadow-seg {
     border-inline-start: 1px solid var(--card-edge);
+}
+
+/* The name row, at the developed card's geometry: the name's padded line box
+ * (PaletteSpecimen's head) beside the menu trigger's seat (the inspector's
+ * `xs` icon button and its margins), centred, so the row is as tall as the
+ * card's at every pointer. */
+.shadow-head {
+    display: flex;
+    align-items: center;
+}
+.shadow-head__text {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-inline-size: 0;
+    padding-block: 0.625rem;
+    padding-inline-start: 0.75rem;
+}
+.shadow-name {
+    display: block;
+    block-size: 1lh;
+    inline-size: min(8rem, 60%);
+    border-radius: var(--radius-sm, 0.375rem);
+}
+.shadow-count {
+    display: block;
+    block-size: 1lh;
+    inline-size: 1.5rem;
+    border-radius: var(--radius-sm, 0.375rem);
+}
+.shadow-head__menu {
+    flex: none;
+    inline-size: var(--control-h-xs);
+    block-size: var(--control-h-xs);
+    margin-inline: 0.5rem 0.75rem;
+}
+.shadow-daub {
+    display: block;
+    flex: none;
+    inline-size: var(--swatch-seat-final);
+    block-size: var(--swatch-seat-final);
+}
+
+/* The known-imminent breath (D9's calibration: 0.55 to 0.75 on the standard
+ * curve over a 6 s period), only while a run is in flight. Reduced motion
+ * holds the face still at the trough. */
+@keyframes shadow-breath {
+    from {
+        opacity: 0.75;
+    }
+    to {
+        opacity: 0.55;
+    }
+}
+.shadow-palette--loading .shadow-ink {
+    animation: shadow-breath 3s var(--ease-standard) infinite alternate;
+}
+@media (prefers-reduced-motion: reduce) {
+    .shadow-palette--loading .shadow-ink {
+        animation: none;
+        opacity: 0.55;
+    }
 }
 
 </style>

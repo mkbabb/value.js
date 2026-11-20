@@ -2,9 +2,9 @@
 // snapshot + a format → the exact download bytes, filename and MIME
 // (Appendix W51 §2), or the PNG serializer's typed terminal failure. The
 // switch is exhaustive over `ExportFormat`; there is no default arm to fall
-// through and no second spelling of any filename.
+// through, and the download's name is decided here, once (`downloadName`).
 
-import { filenameFor, mimeFor } from "./canonical";
+import { filenameFor, filenameStem, mimeFor } from "./canonical";
 import { serializeCss } from "./css";
 import { serializeJson } from "./json";
 import { serializePng } from "./png";
@@ -44,6 +44,33 @@ function bytesFor(snapshot: ExportSnapshot, format: ExportFormat, options: Expor
     }
 }
 
+/**
+ * color-40 O-6 (his FORTIETH order's Extract): a palette that lives on this
+ * device downloads under its own name. The canonical stem of a draft is its
+ * device id, so Extract's result downloaded as `palette-draft--__extracted__`
+ * and the card's verdict echoed that id. A published or workspace palette keeps
+ * its canonical slug-and-revision stem, which already names it.
+ *
+ * The stem is the name's letters and numbers (any script), lowercased, every
+ * other run (spaces, punctuation, the characters a file system refuses) one
+ * hyphen. A name with nothing left is "palette".
+ */
+export function nameStem(name: string): string {
+    const stem = name
+        .normalize("NFC")
+        .toLowerCase()
+        .replace(/[^\p{L}\p{N}\p{M}]+/gu, "-")
+        .replace(/^-+|-+$/g, "");
+    return stem || "palette";
+}
+
+export function downloadName(snapshot: ExportSnapshot, format: ExportFormat): string {
+    const canonical = filenameFor(snapshot, format);
+    if (snapshot.source.sourceKind !== "device-draft") return canonical;
+    const extension = canonical.slice(filenameStem(snapshot.source).length);
+    return nameStem(snapshot.displayName) + extension;
+}
+
 export function exportFile(
     snapshot: ExportSnapshot,
     format: ExportFormat,
@@ -53,6 +80,6 @@ export function exportFile(
     if (bytes === null) return { ok: false, failureCode: "serializer_contract" };
     return {
         ok: true,
-        file: { bytes, filename: filenameFor(snapshot, format), mime: mimeFor(format) },
+        file: { bytes, filename: downloadName(snapshot, format), mime: mimeFor(format) },
     };
 }

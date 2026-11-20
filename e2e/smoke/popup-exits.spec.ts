@@ -263,7 +263,7 @@ test("Eyedropper leaves on its tween (Escape)", async ({ page }) => {
         page.locator("text=Upload image").first().click(),
     ]);
     await chooser.setFiles({ name: "leave.png", mimeType: "image/png", buffer: png });
-    await page.waitForFunction(() => /% of the image/.test(document.body.innerText), null, { timeout: 60_000 });
+    await expect(page.locator('main [role="article"][aria-label^="Palette:"]').first()).toBeVisible({ timeout: 60_000 });
     await page.locator("text=Pick a color").first().click();
     const dialog = page.getByRole("dialog", { name: "Eyedropper" });
     await expect(dialog).toBeVisible({ timeout: 20_000 });
@@ -356,16 +356,25 @@ test("Palette swatch hover swells the paint alone, eased in and out", async ({ p
 });
 
 test.describe("reduced motion", () => {
-    test("Palette swatch hover under reduced motion changes the outline, never the scale", async ({ page }) => {
+    // color-40 L-4 (his FORTIETH order) rules the reduced form: the hover
+    // deepens the paint's rim, and the outline and the size hold.
+    test("Palette swatch hover under reduced motion deepens the rim, never the outline or the scale", async ({ page }) => {
         await page.emulateMedia({ reducedMotion: "reduce" });
         const swatch = await openCardSwatches(page);
         const dot = swatch.locator(".watercolor-swatch");
         await page.mouse.move(2, 2);
         await page.waitForTimeout(800);
-        const rest = await dot.evaluate((el) => getComputedStyle(el).borderRadius);
+        const read = () =>
+            dot.evaluate((el) => {
+                const cs = getComputedStyle(el);
+                return { radius: cs.borderRadius, rim: cs.borderTopColor, scale: cs.scale };
+            });
+        const rest = await read();
         await swatch.hover();
         await page.waitForTimeout(800);
-        expect(await dot.evaluate((el) => getComputedStyle(el).scale)).toBe("none");
-        expect(await dot.evaluate((el) => getComputedStyle(el).borderRadius)).not.toBe(rest);
+        const hovered = await read();
+        expect(hovered.scale).toBe("none");
+        expect(hovered.radius, "the outline holds").toBe(rest.radius);
+        expect(hovered.rim, "the rim deepens").not.toBe(rest.rim);
     });
 });

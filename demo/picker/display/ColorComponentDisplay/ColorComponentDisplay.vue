@@ -27,11 +27,13 @@
         >
             <span class="readout-cell">
                 <!-- One line of plain text, read on commit: Enter or leaving
-                     the field commits, Escape restores the shown value. The
-                     figure is re-rendered whole after every edit (`epoch`),
-                     so an edit can never leave its own text nodes behind. -->
+                     the field commits, Escape restores the shown value. A
+                     figure whose text was edited is re-rendered whole (its own
+                     `epochs` entry), so an edit can never leave its own text
+                     nodes behind; its siblings are never re-created, so Tab
+                     walks figure to figure and on out of the readout. -->
                 <span
-                    :key="`${component}:${epoch}`"
+                    :key="`${component}:${epochs[component] ?? 0}`"
                     contenteditable="plaintext-only"
                     role="textbox"
                     aria-multiline="false"
@@ -66,7 +68,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed, reactive } from "vue";
 import { CardTitle } from "@mkbabb/glass-ui/card";
 import { formatFixed } from "../../../color-session/channel-decimals";
 import { vTextInPlace } from "../../../shared/vTextInPlace";
@@ -108,9 +110,12 @@ const emit = defineEmits<{
 // Enter or leaving the field commits, Escape restores. A line break can never
 // enter it (`plaintext-only`, and the paragraph inputs are refused), so the
 // line, the card and everything under it hold still while it is edited. After
-// every edit the figures re-render from the model (`epoch`): the committed
-// value when the text read as one, the last valid value when it did not.
-const epoch = ref(0);
+// an edit the figure re-renders from the model (its `epochs` entry): the
+// committed value when the text read as one, the last valid value when it did
+// not. Only the edited figure is re-created (color-40 G-4): one shared epoch
+// re-created every figure on each blur, so the figure Tab had just moved to was
+// destroyed under the focus and the keyboard could never pass the readout.
+const epochs = reactive<Record<string, number>>({});
 let shownText = "";
 let settled = true;
 
@@ -129,8 +134,9 @@ function settle(el: HTMLElement, component: string, commit: boolean) {
     if (settled) return;
     settled = true;
     const typed = figureText(el);
-    if (commit && typed !== shownText) emit("commit", typed, component);
-    epoch.value++;
+    if (typed === shownText) return;
+    if (commit) emit("commit", typed, component);
+    epochs[component] = (epochs[component] ?? 0) + 1;
 }
 
 function onKeydown(e: KeyboardEvent, component: string) {
@@ -170,19 +176,19 @@ function figParts(component: string): { int: string; frac: string } {
  * declaration), and the line lock so wrap count is a constant of the space,
  * never of the value.
  *
- * X.W12.d (OA-24 · owner frame 4 — "maybe the dropdown title should be
- * larger? … the color number components larger with less padding? why so
- * much blank space") — THE CARD'S HIERARCHY:
- *   · the TITLE is the card's display step: `--type-display-2` on the space
- *     trigger, the largest type in the card at every viewport;
- *   · the NUMERALS take the space: the rung is fitted to THE MEASURE — the
- *     catalog's widest worst-case tuple (readoutReservation.ts
- *     `READOUT_MEASURE_EM`, lab `100.0, -125.0, -125.0`) — so the widest
- *     space fills the header's line, and it is capped one ladder step below
- *     the title (`--type-display-1`) so the hierarchy never inverts. The
- *     retired ×φ display-4 rung (11.65cqi) sat ABOVE the title and forced
- *     lab/oklab/oklch onto a reserved second line, which at every one-line
- *     value painted as the 61px dead band of frame 4 (g1 RESIDUE 61.22px);
+ * color-40 G (his FORTIETH order: "the header numbers of the components should
+ * be a bit larger and audacious"; CONVERGE: "a number that is the hero is
+ * larger and bolder") — THE CARD'S HIERARCHY, retiring X.W12.d's cap one ladder
+ * step below the title:
+ *   · the NUMERALS stand at the TITLE'S rung (`--type-display-2`, the space
+ *     trigger's), integer 700 and fraction 400;
+ *   · they are fitted to THE MEASURE — the catalog's widest worst-case tuple
+ *     (readoutReservation.ts `READOUT_MEASURE_EM`, lab `100.0, -125.0,
+ *     -125.0`, re-taken at these weights) — over the HEADER'S CONTENT BOX: the
+ *     line is its own inline-size container, so `100cqi` is the box the line
+ *     has, not the pane wrapper's (whose cqi overran by the header's padding).
+ *     On a desk the title's rung binds (53.3 px at 1440); on a phone the box
+ *     does (about 30.9 px at 390);
  *   · no empty interval: every shown space is ONE line by construction, so
  *     `min-height` (the lock) is the painted line and nothing is reserved
  *     that does not ink — the title row, the 7px header rhythm and the
@@ -193,14 +199,16 @@ function figParts(component: string): { int: string; frac: string } {
  * defect whatever it measures — applied under §6.2's card-lock law: the lock
  * is the painted line, so the reservation and the rhythm never disagree. */
 .readout-line {
-    font-size: min(
-        var(--type-display-1),
-        calc(100cqi / var(--readout-measure))
-    );
-    column-gap: 0.75ch;
+    container-type: inline-size;
+    align-self: stretch;
+    --readout-size: min(var(--type-display-2), calc(100cqi / var(--readout-measure)));
+}
+.readout-line > :slotted(*) {
+    font-size: var(--readout-size);
+    margin-inline-start: 0.75ch;
 }
 .readout {
-    font-size: inherit;
+    font-size: var(--readout-size);
     line-height: 1.12;
     /* THE CONTIGUOUS GAP (T.W4-2): 0.75ch — the SAME quantity the packing
      * arithmetic reserves (READOUT_GAP_CH), so paint and derivation can
@@ -222,6 +230,18 @@ function figParts(component: string): { int: string; frac: string } {
     white-space: nowrap;
 }
 
+/* color-40 G-3: on a touch screen each figure is a 44 px target by slop. The
+ * padding grows the figure's own box (its hit area and its focus ring) and the
+ * equal negative margin gives it back, so the line, its baseline and the card
+ * hold still. */
+@media (pointer: coarse) {
+    .readout-fig {
+        --fig-slop: max(0px, calc((var(--touch-target, 2.75rem) - 1lh) / 2));
+        padding-block: var(--fig-slop);
+        margin-block: calc(-1 * var(--fig-slop));
+    }
+}
+
 .readout-fig:focus-visible {
     /* C5 — the accent-aware house focus register on the editable cells. */
     outline: none;
@@ -240,10 +260,10 @@ function figParts(component: string): { int: string; frac: string } {
  * exactly the tier these figures sit on). Weight demotion stays (weight is
  * rhythm, not contrast); alpha dies. O-18's readout-frac row asserts. */
 .fig-int {
-    font-weight: 600;
+    font-weight: 700;
 }
 .fig-frac {
-    font-weight: 300;
+    font-weight: 400;
     color: var(--ink-muted);
 }
 /* X-DS value pass 14 (V14C-04): the unit is a muted italic index in the
@@ -257,6 +277,6 @@ function figParts(component: string): { int: string; frac: string } {
 }
 .fig-comma {
     color: var(--ink-muted);
-    font-weight: 300;
+    font-weight: 400;
 }
 </style>

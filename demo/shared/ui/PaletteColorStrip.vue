@@ -1,7 +1,8 @@
 <template>
     <div
-        aria-hidden="true"
-        role="presentation"
+        :aria-hidden="described ? undefined : 'true'"
+        :role="described ? 'group' : 'presentation'"
+        :aria-label="described ? 'Each color\'s share' : undefined"
         data-color-strip
         data-color-surface
         :data-orientation="orientation"
@@ -26,30 +27,48 @@
              clips the tail (the retired `Math.max(100 / n, 0.5)`: 201 × 0.5% =
              100.5%). Past the band-legibility threshold the strip summarizes
              instead (below). -->
-        <template v-if="!summary">
+        <template v-if="!summary && !described">
             <div
                 v-for="(color, i) in colors"
                 :key="i"
                 data-band
-                :style="{
-                    backgroundColor: color.css,
-                    flex: `${shares[i] ?? 0} 1 0`,
-                    [orientation === 'vertical' ? 'minHeight' : 'minWidth']: floor,
-                }"
+                :style="bandStyle(color, i)"
             ></div>
         </template>
+        <!-- color-40 O-3: a described strip (Extract's weighted one) names each
+             band, its share and its value, for a reader (the band's accessible
+             name) and on a desk (glass's tooltip); it replaced the line above
+             the card that restated the strip in words. -->
+        <TooltipProvider v-else-if="!summary" :delay-duration="200">
+            <Tooltip v-for="(color, i) in colors" :key="i">
+                <TooltipTrigger as-child>
+                    <div
+                        data-band
+                        role="img"
+                        :aria-label="bandLabel(color, i)"
+                        :style="bandStyle(color, i)"
+                    ></div>
+                </TooltipTrigger>
+                <TooltipContent side="top" :side-offset="6">
+                    <span class="font-mono tabular-nums">{{ bandLabel(color, i) }}</span>
+                </TooltipContent>
+            </Tooltip>
+        </TooltipProvider>
     </div>
 </template>
 
 <script setup lang="ts">
 import { computed } from "vue";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@mkbabb/glass-ui/tooltip";
 import type { PaletteColor } from "../../palettes/types";
+import { formatCssCaption } from "../../color-session/format-color";
 import { stopsToGradient } from "./color-chips";
 
 const {
     colors,
     orientation = "horizontal",
     weights = undefined,
+    described = false,
 } = defineProps<{
     colors: PaletteColor[];
     orientation?: "horizontal" | "vertical";
@@ -58,6 +77,8 @@ const {
      *  palette carries its population story ON the palette); neither → equal
      *  shares. */
     weights?: number[];
+    /** The bands are named (share and value) rather than decorative. */
+    described?: boolean;
 }>();
 
 /** The 8% legibility floor for weighted segments — applied as each band's
@@ -96,6 +117,21 @@ const weighted = computed(() => shares.value.some((w) => w !== 1));
 const floor = computed(() =>
     weighted.value && colors.length * WEIGHT_FLOOR <= 1 ? `${WEIGHT_FLOOR * 100}%` : undefined,
 );
+
+function bandStyle(color: PaletteColor, i: number) {
+    return {
+        backgroundColor: color.css,
+        flex: `${shares.value[i] ?? 0} 1 0`,
+        [orientation === "vertical" ? "minHeight" : "minWidth"]: floor.value,
+    };
+}
+
+/** "34% · oklch(52.1% 0.082 76deg)": the band's share of the whole and its value. */
+function bandLabel(color: PaletteColor, i: number): string {
+    const total = shares.value.reduce((sum, w) => sum + w, 0) || 1;
+    const pct = Math.round(((shares.value[i] ?? 0) / total) * 100);
+    return `${pct}% · ${formatCssCaption(color.css)}`;
+}
 
 /** Every colour at the centre of its weighted interval, through the one
  *  serializer (an unpaintable colour is dropped, never the whole strip). */

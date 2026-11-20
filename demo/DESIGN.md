@@ -223,8 +223,21 @@ There are two elevation registers, and every surface belongs to exactly one:
 
 | Register          | What it claims                                 | Cast                                                 | Edge                                        | Members                                                                                    |
 | ----------------- | ---------------------------------------------- | ---------------------------------------------------- | ------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| **in-chrome**     | it is _part of_ the surface it sits in         | **none**, at rest and on hover                       | one hairline (`--card-edge`) or a tone step | wells, in-plate cards and specimens, chips, swatch tiles, seated fields, rows, stage chips |
+| **in-chrome**     | it is _part of_ the surface it sits in         | **none**, at rest and on hover                       | one hairline (`--card-edge`) or a tone step | wells, in-plate cards and specimens, chips, seated fields, rows, stage chips               |
 | **free-floating** | it is _over_ live content and can be dismissed | the glass tier's **one** quiet shadow, never a stack | the tier's built-in rim                     | dock, popovers, menus, dialogs, drawers, the swatch-edit and eyedropper overlays           |
+
+**A palette swatch is paint, its own case (his FORTIETH order, 19 Nov 2026, L: "a slight border,
+a bit more depth"; the later ruling over this law's earlier member list, which put swatch tiles in
+chrome with no cast).** A swatch (`demo/shared/ui/SwatchButton.vue`) is paint with a dried edge and
+one small stamp in the house voice:
+
+- the rim is 1 px of the paint's own colour stepped 15 % toward `--foreground` (24 % while wet), on
+  the seeded silhouette under the dot's wet-edge filter;
+- the stamp is ONE hard offset cast down-right with zero blur, 2 px (3 px on the two large seats),
+  `--shadow-color` at 20 % in light and black at 40 % in dark, so it stays darker than the band
+  it falls on. It is its own small rung, never the plate's 8 px, and it never moves on hover or
+  press;
+- the rest of the in-chrome laws hold: no glow, no coloured cast, no second layer.
 
 **The plate stamp is a third case: identity, not elevation.** A pane plate casts the demo's one
 cartoon stamp (§ Shadows). It is the original value.js shadow, _"one hard 8px offset shadow and
@@ -350,7 +363,7 @@ rounding — never ad-hoc per component. Rank is the elevation law (§ 2.1) writ
 | **Z0**  | The page: aurora + graticule substrate                      | atmosphere (no surface)                          | none                                             | none                                              |
 | **Z1**  | Plates: pane shells, the picker card                        | glass `resting` — rung-1 PLATE                   | the cartoon stamp (`--shadow-card`), plates only | the glass tier's built-in `--glass-border-accent` |
 | **Z1v** | Veils: config/overlay panes that read _through_             | glass veil tier                                  | none                                             | glass border                                      |
-| **Z2**  | In-plate cards: palette specimens, swatch tiles, chips      | the rung-2 WELL (`--well-bg`, an unblurred tint) | none                                             | `--card-edge`                                     |
+| **Z2**  | In-plate cards: palette specimens, swatch tiles, chips      | the rung-2 WELL (`--well-bg`, an unblurred tint) | none; a swatch's paint casts its own 2 px stamp (§ 2.1, FORTIETH L) | `--card-edge`; a swatch, its own rim |
 | **Z3**  | Protagonists: ≤ 1 per pane (the hero blob, a featured card) | material hero                                    | the full cartoon stamp                           | per material                                      |
 | **Z4**  | Floating chrome: popovers, dialogs, dock, toolbars          | glass `floating` / `overlay`                     | the glass tier's own shadow                      | glass border                                      |
 
@@ -1101,6 +1114,8 @@ paint.
 - **Fraunces — the atlas/display voice.** Display rungs ONLY: `.text-display-*`, `.font-display`,
   pane titles, the space-title plate caption, markdown headings and section headings.
     - The variable axes (`opsz` 9–144, `WONK` / `SOFT`) apply through the glass-ui utilities.
+    - The picker's hero readout is Fraunces at the title's own rung, integer 700 and fraction
+      400, tabular (§ 6.2).
     - Fraunces is SELF-HOSTED, from `demo/app/public/fonts/`, declared in `demo/app/index.html`: variable woff2,
       with the latin-normal face preloaded as the tnum-minted build. There are zero cross-origin font
       requests.
@@ -1156,6 +1171,12 @@ required:
    of its format up front. For example, a `-125.0`-class channel reserves `min-width: 7ch` at its
    own font. Sign flips, added decimals and unit swaps then re-ink the SAME box instead of
    re-flowing the row. A locked readout row has no `flex-wrap`.
+
+**The hero number stands at the title's rung** (his FORTIETH order, G: "a bit larger and
+audacious"; this retires X.W12.d's cap one ladder step below the title). The picker's readout is
+fitted to the catalog's worst-case tuple over the header's own content box, never above
+`--type-display-2`, with the integer at 700 and the fraction at 400. The card-lock law below is
+unchanged: every space stays one line, and no value change moves the card.
 
 The picker readout applies the law: the int/frac/unit span split and the declared `tabular-nums`
 in `demo/picker/display/ColorComponentDisplay/ColorComponentDisplay.vue`, plus the static

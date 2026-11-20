@@ -51,7 +51,7 @@ test.describe("X-5 · phone", () => {
             page.locator("text=Upload image").first().click(),
         ]);
         await chooser.setFiles({ name: "ss8-b26.png", mimeType: "image/png", buffer: png });
-        await page.waitForFunction(() => /% of the image/.test(document.body.innerText), null, { timeout: 60_000 });
+        await expect(page.locator('main [role="article"][aria-label^="Palette:"]').first()).toBeVisible({ timeout: 60_000 });
         await page.locator("text=Pick a color").first().tap();
         const dialog = page.getByRole("dialog", { name: "Eyedropper" });
         await expect(dialog).toBeVisible({ timeout: 20_000 });
@@ -81,7 +81,10 @@ test.describe("X-5 · phone", () => {
         });
         expect(stage, "the eyedropper holds the image, fitted and settled").not.toBeNull();
         await page.touchscreen.tap(stage!.x + stage!.w * 0.75, stage!.y + stage!.h * 0.25);
-        const add = dialog.locator('[title="Add to palette"]').first();
+        // color-40 N-7 (his FORTIETH N): Add is a labelled button, always
+        // present and enabled once a pick is held.
+        const add = dialog.getByRole("button", { name: "Add to palette" }).first();
+        await expect(add).toBeEnabled({ timeout: 10_000 });
         await expect(add).toBeVisible({ timeout: 10_000 });
         await add.tap();
         // The region lives inside the modal (the page behind is aria-hidden).
