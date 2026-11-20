@@ -20,9 +20,7 @@ async function verbTrack(page: Page, act: () => Promise<void>, ms = 900): Promis
             const out: number[] = [];
             const t0 = performance.now();
             const verb = () =>
-                [...document.querySelectorAll("main button")].find((b) =>
-                    b.querySelector(".lucide-blend"),
-                ) as HTMLElement | undefined;
+                document.querySelector<HTMLElement>('main [data-testid="mix-verb"]') ?? undefined;
             const step = (t: number) => {
                 const el = verb();
                 if (el) out.push(el.getBoundingClientRect().top);

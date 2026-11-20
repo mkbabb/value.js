@@ -119,6 +119,7 @@ const strategyLabels: Record<LeftoverStrategy, string> = {
             emphasis="primary"
             :disabled="!canMix"
             class="mt-3 h-10 gap-2 font-medium"
+            data-testid="mix-verb"
             @click="emit('mix')"
         >
             <Blend class="w-4 h-4" />
