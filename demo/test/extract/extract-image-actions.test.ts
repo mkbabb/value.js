@@ -96,7 +96,7 @@ describe("ExtractWorkbench · the image actions sit with the source", { timeout:
     it("I-1 / R-20: with no image the drop zone is the one intake; there is no action row", () => {
         const w = mountIt();
         expect(w.find('[role="group"][aria-label="Image actions"]').exists()).toBe(false);
-        expect(w.get('[aria-label="Upload image"]').exists()).toBe(true);
+        expect(w.find('[aria-label="Upload image"]').exists()).toBe(true);
     });
 
     it("I-1: with an image the row is exactly Replace image and Reset, and no camera anywhere", async () => {

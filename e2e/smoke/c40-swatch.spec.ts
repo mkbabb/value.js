@@ -97,7 +97,7 @@ async function stampDarkerThanBand(page: Page, swatch: import("@playwright/test"
     const style = await page.addStyleTag({ content: ".watercolor-swatch { box-shadow: none !important; }" });
     await page.waitForTimeout(100);
     const without = decodePng(await page.screenshot({ clip }));
-    await style.evaluate((el) => el.remove());
+    await style.evaluate((el) => (el as Element).remove());
     let on = 0;
     let off = 0;
     let n = 0;
