@@ -98,9 +98,11 @@ describe("G7 — export failure is surfaced", () => {
         await onExport(palette({ colors: [] }), "json");
         expect(failure.value).not.toBeNull();
         const outcome = await onExport(palette({}), "css");
-        expect(outcome).toEqual({ ok: true, filename: "palette-draft--local-7.css" });
+        // color-40 O-6 (his FORTIETH order): a device palette downloads under its
+        // own name, not its device id.
+        expect(outcome).toEqual({ ok: true, filename: "sunset.css" });
         expect(failure.value).toBeNull();
-        expect(clicked).toEqual(["palette-draft--local-7.css"]);
+        expect(clicked).toEqual(["sunset.css"]);
     });
 });
 
@@ -132,13 +134,13 @@ describe("N-15 — injection-safe, total, canonically named", () => {
         expect(clicked).toEqual([]);
     });
 
-    it("a name that slugifies to empty still gets its canonical stem", async () => {
+    it("a name with nothing left is \"palette\"; a release keeps its canonical stem", async () => {
         const { onExport } = usePaletteExport();
         await onExport(palette({ name: "!!! ???" }), "json");
         const { id: _local, ...draft } = palette({ name: "!!! ???" });
         const release: Palette = { ...draft, isLocal: false, slug: "k2-9f", versionCount: 4, currentHash: "c" };
         await onExport(release, "tailwind");
-        expect(clicked).toEqual(["palette-draft--local-7.json", "k2-9f--r4.tailwind.json"]);
+        expect(clicked).toEqual(["palette.json", "k2-9f--r4.tailwind.json"]);
         expect(clicked.every((f) => !f.startsWith(".") && !f.includes("--palette--"))).toBe(true);
     });
 

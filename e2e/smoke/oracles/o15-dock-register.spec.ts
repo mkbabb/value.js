@@ -93,12 +93,13 @@ test.describe("O-15b · the Tools clip release + register pass (W6-8)", () => {
         await expandDock(page);
 
         // The picker view carries an action bar, so the toggle slot is
-        // present at first paint (boot-seated: the settle stamp rides the
-        // same double-rAF that arms the transition). At settled-visible rest
-        // the clip has NO job — the inner box computes `overflow: visible`.
+        // present at first paint (boot-seated). At visible rest the clip has
+        // NO job — the inner box computes `overflow: visible`. (The FORTIETH
+        // K-5 retired the settle stamp with the track tween it waited for:
+        // the track is open while the seat is present.)
         const slot = page.locator(".action-bar-toggle-slot");
         await expect(slot).toHaveClass(/is-visible/);
-        await expect(slot).toHaveClass(/is-settled/, { timeout: 5000 });
+        await expect(slot).toHaveClass(/is-present/, { timeout: 5000 });
         const inner = page.locator(".action-bar-toggle-inner");
         await expect(inner).toHaveCSS("overflow", "visible");
 

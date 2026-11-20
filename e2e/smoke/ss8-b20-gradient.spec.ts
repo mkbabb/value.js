@@ -46,7 +46,10 @@ for (const dark of [false, true]) {
         await page.setViewportSize({ width: 1440, height: 900 });
         await openGradient(page, dark);
         const readings: { text: string; ratio: number }[] = [];
-        for (const text of ["Stops", "Interpolation", "Easing", "CSS"]) {
+        // R-08: "Stops" and "CSS" titled what plainly is the stops and the
+        // CSS, and left; the census reads every section heading that stands.
+        await expect(page.getByRole("heading", { level: 3, name: /^(Stops|CSS)$/ })).toHaveCount(0);
+        for (const text of ["Interpolation", "Easing"]) {
             const head = page.getByRole("heading", { level: 3, name: text, exact: true }).last();
             await head.scrollIntoViewIfNeeded();
             await page.waitForTimeout(300);

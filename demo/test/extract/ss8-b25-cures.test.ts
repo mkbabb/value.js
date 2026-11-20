@@ -11,17 +11,19 @@
  *   · SS8-0722 (EY-8 ≡ XP-9): the eyedropper is glass's modal dialog — role,
  *     aria-modal, a name, and the content behind it hidden from AT.
  *   · SS8-0715 (EY-15's bound): the stage is teleported out of the workbench
- *     root and sized to the viewport, never to the root's height.
- *   · SS8-0721 (EY-20): a zoom while pinned re-projects the loupe onto the
- *     image point it was pinned on.
- *   · Escape is the layer's: a pinned Escape releases the pin, the next closes.
+ *     root, never sized to the root's height. color-40 N (his FORTIETH order,
+ *     "the header section should not have such a large chin") changed its
+ *     size: the dialog is the photo's, from the photo's shape and the measured
+ *     chrome, under a cap in `svh`.
+ *   · SS8-0721 (EY-20): a zoom while a pick is held re-projects the pick (its
+ *     ring and the lens) onto the image point it was held on.
+ *   · Escape is the layer's: a held Escape releases the pick, the next closes.
  */
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { defineComponent, h, nextTick, ref } from "vue";
 import { flushPromises, mount } from "@vue/test-utils";
-import { LOUPE_SIZE } from "../../workbenches/extract/ImageEyedropper/constants";
 
 const DEMO = resolve(import.meta.dirname, "../..");
 
@@ -97,13 +99,16 @@ async function openEyedropper() {
     return { wrapper, content, closes: (wrapper.vm as unknown as { closes: number }).closes };
 }
 
-function loupeCentre(): { x: number; y: number } | null {
-    const loupe = document.querySelector<HTMLElement>(".loupe");
-    if (!loupe) return null;
-    return {
-        x: parseFloat(loupe.style.left) + LOUPE_SIZE / 2,
-        y: parseFloat(loupe.style.top) + LOUPE_SIZE / 2,
-    };
+/** The held pick's ring: its point on the stage, and whether it shows. */
+function pickRing(): { x: number; y: number; on: boolean } | null {
+    const ring = document.querySelector<HTMLElement>(".pick-ring");
+    if (!ring) return null;
+    const [x = NaN, y = NaN] = ring.style.translate.split(" ").map((v) => parseFloat(v));
+    return { x, y, on: ring.dataset.state === "on" };
+}
+
+function lensOn(): boolean {
+    return document.querySelector<HTMLElement>("[data-eyedropper-lens]")?.dataset.state === "on";
 }
 
 function escape() {
@@ -127,46 +132,50 @@ describe("SS8-0722 · the eyedropper is a modal dialog", () => {
 });
 
 describe("SS8-0715 · the stage is bounded by the viewport, not the workbench root", () => {
-    it("teleported out of the root, fixed, its box sized in viewport units", async () => {
+    it("teleported out of the root, fixed; its size follows the photo's shape and the chrome", async () => {
         const { wrapper, content } = await openEyedropper();
         expect(content).not.toBeNull();
         expect(document.getElementById("workbench-root")!.contains(content), "not inside the root").toBe(false);
         const cls = [...content!.classList];
         expect(cls).toContain("fixed");
-        expect(cls.some((c) => /^h-\[min\(100dvh/.test(c)), cls.join(" ")).toBe(true);
-        expect(cls.some((c) => /^w-\[min\(100vw/.test(c)), cls.join(" ")).toBe(true);
+        expect(cls).toContain("eyedropper-dialog");
         expect(cls).not.toContain("inset-0");
+        // The photo's shape (the sampler's 1600 x 1000) and the measured chrome.
+        expect(content!.style.getPropertyValue("--ed-aspect")).toBe("1.6");
+        expect(content!.style.getPropertyValue("--ed-chrome")).toMatch(/^\d+px$/);
         wrapper.unmount();
     });
 });
 
-describe("SS8-0721 (EY-20) · the pinned loupe follows its pixel through a zoom", () => {
-    it("re-projects the loupe onto the pinned image point after the transform moves", async () => {
+describe("SS8-0721 (EY-20) · the held pick follows its pixel through a zoom", () => {
+    it("re-projects the pick onto its image point after the transform moves", async () => {
         const { wrapper } = await openEyedropper();
         stage.onTap!(100, 80);
         await nextTick();
-        expect(loupeCentre()).toEqual({ x: 100, y: 80 });
+        expect(pickRing()).toEqual({ x: 100, y: 80, on: true });
+        expect(lensOn()).toBe(true);
         // A wheel zoom about some other point: zoom ×2, pan shifts.
         stage.zoom!.value = 2;
         stage.panX!.value = -40;
         stage.panY!.value = -10;
         await nextTick();
-        // The pinned image point (100, 80) now sits at pan + point × zoom.
-        expect(loupeCentre()).toEqual({ x: -40 + 100 * 2, y: -10 + 80 * 2 });
+        // The held image point (100, 80) now sits at pan + point × zoom.
+        expect(pickRing()).toEqual({ x: -40 + 100 * 2, y: -10 + 80 * 2, on: true });
         wrapper.unmount();
     });
 });
 
 describe("Escape is the dialog layer's", () => {
-    it("a pinned Escape releases the pin and keeps the dialog; the next closes it", async () => {
+    it("a held Escape releases the pick and keeps the dialog; the next closes it", async () => {
         const { wrapper } = await openEyedropper();
         const vm = wrapper.vm as unknown as { closes: number };
         stage.onTap!(100, 80);
         await nextTick();
-        expect(document.querySelector(".loupe-pinned")).not.toBeNull();
+        expect(pickRing()?.on).toBe(true);
         escape();
         await nextTick();
-        expect(document.querySelector(".loupe")).toBeNull();
+        expect(pickRing()?.on).toBe(false);
+        expect(lensOn()).toBe(false);
         expect(vm.closes).toBe(0);
         escape();
         await nextTick();

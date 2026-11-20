@@ -9,26 +9,25 @@ import { DockControl } from "@mkbabb/glass-ui/dock";
  * (lifted from Dock.vue at T.W6 · W6-8, the PP-8 cap cure — a colocated
  * move, the machine unchanged).
  *
- * S.W7-6 (P1-9.3 — the Tools load-order flicker): the slot's 0fr↔1fr grow
- * transition must fire only on GENUINE runtime toggles, never on the app's
- * boot composition. The pane mounts a beat after the dock, so its action-bar
- * context arrives ~170ms in — the slot visibly GREW the pill on EVERY load.
- * The first presence PAINTS seated (transition unarmed), then the transition
- * arms one frame later (`.is-live`) for real mid-session presence changes.
+ * S.W7-6 (P1-9.3 — the Tools load-order flicker): the slot's presence must
+ * animate only on GENUINE runtime toggles, never on the app's boot
+ * composition. The pane mounts a beat after the dock, so its action-bar
+ * context arrives ~170ms in. The first presence PAINTS seated (transition
+ * unarmed), then the transition arms one frame later (`.is-live`).
  *
- * T.W6 · W6-8 (T-29): THE SETTLE STAMP — the 0fr↔1fr clip is the presence
- * animation's tool, and the animation is not running at rest. Unconditional
- * `overflow: hidden` on the inner box amputated the producer's unified hover
- * register (the ×1.1 capsule + its box-shadow states — cut on all four
- * sides, measured 4.3px L/R + 1.6px T/B at hover). Three-state machine:
- * `.is-live` (transition armed) · `.is-visible` (presence) · `.is-settled`
- * (clip RELEASED). Settle stamps:
- *   - boot-seated first paint: no transition runs, the stamp rides the same
- *     double-rAF that arms `.is-live`;
- *   - mid-session arrival: the grid-columns `transitionend` (PRM included —
- *     the global guard shortens transitions to 0.01ms, never removes them);
- *   - departure: the stamp drops the moment presence drops — the clip
- *     returns BEFORE any collapse animates.
+ * THE FORTIETH ORDER, K-5 ("dock transitions are slow ... not iOS animated
+ * and liquid"): THE SEAT NO LONGER ANIMATES A GRID TRACK. Its presence was a
+ * 0fr ↔ 1fr `grid-template-columns` transition, a layout property tweened on
+ * the main thread beside glass's own width morph. Presence is now opacity and
+ * scale on the control, and the track snaps, so glass re-fits the seat set on
+ * its own morph (G1):
+ *   - arrival: the track opens at once (`.is-present`) and the control fades
+ *     and scales in;
+ *   - departure: the control fades and scales out while the track holds
+ *     (`leaving`), and the track closes once the fade has ended.
+ * While the track is closed its inner box clips, so a closed seat paints and
+ * measures nothing; while it is open nothing clips the producer's hover
+ * capsule (T.W6 · W6-8, T-29: an unconditional clip cut it by 4.3 px L/R).
  *
  * The slot holds the control alone: the main layer carries no separator
  * (SS-8 Z-Dock-10, Dock G-M: separator ownership is the layer's composition,
@@ -48,38 +47,47 @@ const { visible, active, icon, label, accent } = defineProps<{
 const emit = defineEmits<{ toggle: [] }>();
 
 const slotLive = ref(false);
-const settled = ref(false);
+// the control is fading out; its track holds until the fade ends
+const leaving = ref(false);
+// a departure whose fade never reports (reduced motion, a hidden tab) still
+// closes its track
+const LEAVE_MS = 400;
+let leaveTimer = 0;
 watch(
     () => visible,
-    (has) => {
-        if (!has) {
-            settled.value = false;
+    (has, had) => {
+        window.clearTimeout(leaveTimer);
+        if (has) {
+            leaving.value = false;
+            if (slotLive.value) return;
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    slotLive.value = true;
+                });
+            });
             return;
         }
-        if (slotLive.value) return;
-        requestAnimationFrame(() => {
-            requestAnimationFrame(() => {
-                slotLive.value = true;
-                settled.value = true;
-            });
-        });
+        if (had && slotLive.value) {
+            leaving.value = true;
+            leaveTimer = window.setTimeout(() => (leaving.value = false), LEAVE_MS);
+        }
     },
     { immediate: true },
 );
-function onSlotSettled(e: TransitionEvent) {
-    if (e.propertyName !== "grid-template-columns") return;
-    settled.value = visible;
+function onControlFaded(e: TransitionEvent) {
+    if (e.propertyName !== "opacity" || visible) return;
+    window.clearTimeout(leaveTimer);
+    leaving.value = false;
 }
 </script>
 
 <template>
     <div
         class="action-bar-toggle-slot"
-        :class="{ 'is-visible': visible, 'is-live': slotLive, 'is-settled': settled }"
+        :class="{ 'is-visible': visible, 'is-present': visible || leaving, 'is-live': slotLive }"
         :inert="!visible"
-        @transitionend.self="onSlotSettled"
     >
-        <div class="action-bar-toggle-inner">
+        <div class="action-bar-toggle-inner" @transitionend.self="onControlFaded">
             <!-- T-36 (§0.6 rider): the TRUE-BUTTON box-model — dock-tools-btn
                  steps the compact register's 4px sticker seat up to the
                  Button-primitive px-3/py-2 scale (the scoped rule below). -->
@@ -111,39 +119,36 @@ function onSlotSettled(e: TransitionEvent) {
 <style scoped>
 @reference "../../styles/foundation.css";
 
-/* Slot presence: 0fr ↔ 1fr grid-template-columns (no max-width clipping).
-   The transition arms only once `.is-live` sets (one frame AFTER the first
-   presence painted) — boot seats instantly; mid-session toggles animate. */
+/* Slot presence (K-5): the track is open or closed at once; the control's
+   opacity and scale carry the change. The transition arms only once
+   `.is-live` sets (one frame AFTER the first presence painted): boot seats
+   instantly; mid-session toggles animate. */
 .action-bar-toggle-slot {
     display: grid;
     grid-template-columns: 0fr;
-    opacity: 0;
 }
-.action-bar-toggle-slot.is-live {
-    transition:
-        grid-template-columns var(--duration-normal) var(--ease-standard),
-        opacity var(--duration-normal) var(--ease-standard);
-}
-.action-bar-toggle-slot.is-visible {
+.action-bar-toggle-slot.is-present {
     grid-template-columns: 1fr;
-    opacity: 1;
 }
 
 .action-bar-toggle-inner {
-    overflow: hidden;
     min-width: 0;
     display: flex;
     align-items: center;
+    opacity: 0;
+    scale: 0.9;
 }
-
-/* T-29: THE SETTLE-STAMPED CLIP RELEASE. At settled-visible rest the clip
-   has no job — the producer's hover capsule + its lift/focus shadows render
-   WHOLE, like every sibling dock control. The clip returns the instant
-   presence drops and during any width transition. `overflow: clip` +
-   overflow-clip-margin REJECTED as the sole cure (Safari ships no
-   overflow-clip-margin — the amputation would survive on WebKit verbatim). */
-.action-bar-toggle-slot.is-visible.is-settled .action-bar-toggle-inner {
-    overflow: visible;
+.action-bar-toggle-slot:not(.is-present) .action-bar-toggle-inner {
+    overflow: hidden;
+}
+.action-bar-toggle-slot.is-live .action-bar-toggle-inner {
+    transition:
+        opacity var(--duration-control) var(--ease-decelerate),
+        scale var(--dock-press-spring);
+}
+.action-bar-toggle-slot.is-visible .action-bar-toggle-inner {
+    opacity: 1;
+    scale: 1;
 }
 
 /* T-36 (§0.6 owner rider): THE TRUE-BUTTON BOX-MODEL. The compact register

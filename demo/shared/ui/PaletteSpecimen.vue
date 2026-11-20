@@ -13,6 +13,7 @@
             class="palette-specimen__strip"
             :colors="palette.colors"
             :orientation="layout === 'aside' ? 'vertical' : 'horizontal'"
+            :described="stripDescribed"
         />
         <!-- The head is its own inline-size container: its children's collapse
              priority reads the width the host gives it, in any host (A-20's
@@ -92,6 +93,7 @@ const {
     palette,
     layout = "default",
     nameYielded = false,
+    stripDescribed = false,
 } = defineProps<{
     palette: Palette;
     /** "default" = strip on top; "aside" = vertical strip on the left. */
@@ -100,6 +102,8 @@ const {
      *  rename input shows the name, so the name yields its ink but keeps its
      *  box (no geometry jump). */
     nameYielded?: boolean;
+    /** The strip names each band's share and value (Extract's weighted card). */
+    stripDescribed?: boolean;
 }>();
 </script>
 

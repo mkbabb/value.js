@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, inject, nextTick, onMounted, reactive, ref, watch, useTemplateRef } from "vue";
-import { Check, Undo2, ArrowLeft, Paintbrush } from "@lucide/vue";
+import { Check, Undo2, ArrowLeft, Paintbrush, Home, LayoutGrid } from "@lucide/vue";
 import {
     GlassDock,
     DockLayerGroup,
@@ -16,8 +16,9 @@ import MobileMenuDropdown from "./menus/MobileMenuDropdown.vue";
 import ProfileSection from "./menus/ProfileSection.vue";
 import DockViewSelect from "./DockViewSelect.vue";
 import ApiStatusChip from "../../shared/ui/api-status/ApiStatusChip.vue";
-import { useMediaQuery, useMutationObserver } from "@vueuse/core";
+import { useMediaQuery } from "@vueuse/core";
 import { VIEW_MANAGER_KEY } from "../useViewManager";
+import { afterPaint } from "../afterPaint";
 import { SESSION_PORT_KEY } from "../../palettes";
 import { COLOR_MODEL_KEY, CSS_COLOR_KEY, SAFE_ACCENT_KEY } from "../../color-session/keys";
 import { useHeldWhileLive } from "../../color-session/useAtmosphereFrameCoalesce";
@@ -59,6 +60,44 @@ const { isAdminMode, viewEntries, onViewChange } = useDockAdminMode({
     viewManager,
     isAdminAuthenticated: pm.isAdminAuthenticated,
 });
+
+// ── The Home seat ──
+// Home is the dock's first seat on every view (the 12 Nov law: Home on every
+// page), not a row behind the view select, which wore the current view's
+// glyph (a magnifier on Browse, a camera on Extract). The select lists the
+// other pages; on Home it names them ("Pages") rather than repeating Home.
+const onHome = computed(() => viewManager.currentView.value === "picker");
+// The FORTIETH order, B-2 ("the press is answered before the work"): the Home
+// seat's press puts Home on the view select at once and switches the route in
+// the task after that frame has painted; inside the click task the route's
+// watchers held a 4x phone's first answering frame for 245 ms. The pending
+// mark clears when the route says it is current, and after a second if the
+// switch never lands.
+const homePending = ref(false);
+let homeHeld = 0;
+watch(
+    () => viewManager.currentView.value,
+    () => {
+        homePending.value = false;
+    },
+);
+const homeShown = computed(() => homePending.value || onHome.value);
+const selectView = computed(() => (homePending.value ? "picker" : viewManager.currentView.value));
+const selectIcon = computed(() =>
+    homeShown.value ? LayoutGrid : viewManager.currentConfig.value.icon,
+);
+const selectLabel = computed(() =>
+    homeShown.value ? "Pages" : viewManager.currentConfig.value.label,
+);
+function goHome() {
+    if (onHome.value || homePending.value) return;
+    homePending.value = true;
+    window.clearTimeout(homeHeld);
+    afterPaint(() => {
+        viewManager.switchView("picker");
+        homeHeld = window.setTimeout(() => (homePending.value = false), 1000);
+    });
+}
 
 // ── Action bar layer ──
 const actionBarLayerActive = ref(false);
@@ -234,37 +273,6 @@ const activeLayer = ref("main");
 // content renders in the frame the crossfade starts.
 const openedLayers = reactive(new Set<string>(["main"]));
 
-// ── The view-select moment (R.W4 Lane B / B3) — within the CURRENT dock
-//    surface only (the dock-morph gate rides the U6 BOOK, not this wave):
-//    a one-shot morph-family settle (vj-settle keyframe, snappy spring)
-//    confirms every view switch. OD19-V2: the beat is seated on the view
-//    glyph's carrier (the expanded trigger, the collapsed seal), never the
-//    dock host, and it is ARMED only once `.glass-dock` has left glass's
-//    `[data-morphing]` width morph, so the two never compound on one plate.
-//    Glass's morph is only read (its attribute), never copied. The rAF
-//    re-arm lets rapid switches restart the beat; @animationend clears it. ──
-const dockSettle = ref(false);
-let settlePending = false;
-function armSettle() {
-    if (!settlePending) return;
-    if ((dockRef.value?.$el as HTMLElement | undefined)?.hasAttribute("data-morphing")) return;
-    settlePending = false;
-    dockSettle.value = true;
-}
-watch(
-    () => viewManager.currentView.value,
-    () => {
-        dockSettle.value = false;
-        settlePending = true;
-        requestAnimationFrame(armSettle);
-    },
-);
-useMutationObserver(() => dockRef.value?.$el as HTMLElement | undefined, armSettle, {
-    attributeFilter: ["data-morphing"],
-});
-function onSettleEnd(e: AnimationEvent) {
-    if (e.animationName === "vj-settle") dockSettle.value = false;
-}
 watch(
     [mobileEditActive, slugEditMode, actionBarLayerActive],
     () => {
@@ -286,12 +294,7 @@ watch(
          none/auto pair) RETIRED WITH the --dock-total reservation: the band
          is structure the layout owns, so the dock needs no pin, no z, and no
          hit-test punch-through. -->
-    <div
-        ref="dockHost"
-        :class="dockSettle && 'dock-settle'"
-        :style="heldGoldStyle"
-        @animationend="onSettleEnd"
-    >
+    <div ref="dockHost" :style="heldGoldStyle">
         <GlassDock
             ref="dockRef"
             :style="heldInkStyle"
@@ -356,6 +359,16 @@ watch(
 
                 <!-- Main navigation layer (inlined — was the passthrough DockMainLayer.vue) -->
                 <DockLayer id="main">
+                    <!-- Home, first. On Home it is the current page. -->
+                    <DockControl
+                        class="dock-home shrink-0"
+                        aria-label="Home"
+                        :aria-current="onHome ? 'page' : undefined"
+                        @click="goHome"
+                    >
+                        <Home class="w-6 h-6" />
+                    </DockControl>
+
                     <!-- View selector — gate (a): viewSelectOpen comes from the single mutex above -->
                     <!-- W7-4 (ONE dock voice): the view-select speaks the
                              gamut-guarded `--accent-view` tokens exclusively —
@@ -363,9 +376,9 @@ watch(
                              on Tools/Login, the app chrome). -->
                     <DockViewSelect
                         v-model:open="viewSelectOpen"
-                        :current-view="viewManager.currentView.value"
-                        :current-icon="viewManager.currentConfig.value.icon"
-                        :current-label="viewManager.currentConfig.value.label"
+                        :current-view="selectView"
+                        :current-icon="selectIcon"
+                        :current-label="selectLabel"
                         :is-admin-mode="isAdminMode"
                         :is-desktop="isDesktop"
                         :view-entries="viewEntries"
@@ -480,15 +493,21 @@ watch(
                         class="dock-seal-wax"
                         seed="top-dock"
                     />
-                    <Transition name="vj-morph" mode="out-in">
-                        <component
-                            :is="viewManager.currentConfig.value.icon"
+                    <!-- The FORTIETH K-1: the seal's glyph crosses in place
+                         (default mode: the old out and the new in, in one
+                         grid cell), so the seal is never blank. Only the HTML
+                         wrapper moves; nothing is set on the SVG. -->
+                    <Transition name="vj-morph">
+                        <span
                             :key="viewManager.currentView.value"
                             class="dock-seal-ink"
                             :class="isAdminMode && 'gold-ink'"
+                            :data-view-glyph="viewManager.currentView.value"
                             aria-hidden="true"
                             style="--vj-morph-scale: 1.25; --vj-morph-y: 0px"
-                        />
+                        >
+                            <component :is="viewManager.currentConfig.value.icon" />
+                        </span>
                     </Transition>
                 </div>
             </template>
@@ -510,16 +529,6 @@ watch(
 <style scoped>
 @reference "../../styles/foundation.css";
 
-/* The B3 settle beat — the vj-settle keyframe lives in animations.css
-   (keyframes are global); the class is dock-local. OD19-V2: the host only
-   carries the state; the beat plays on the view glyph's carrier (the trigger
-   expanded, the seal collapsed), so it never scales the plate glass morphs.
-   `transform` here composes with the trigger's own press `scale`. */
-.dock-settle :deep(.view-select-trigger),
-.dock-settle .dock-seal {
-    animation: vj-settle var(--spring-dock-duration) var(--spring-dock);
-}
-
 /* R-2 (O-24, 2026-11-06): the dock plate carries no grain. glass paints its
    paper grain on `.dock-plate::after` as a `url()` background (an SVG noise
    tile at 0.04 alpha, under `--glass-grain-opacity` 0.025): about 0.1 % ink,
@@ -533,6 +542,13 @@ watch(
    line goes when that ships. */
 .glass-dock {
     --glass-grain-opacity: 0;
+}
+
+/* The Home seat on Home reads as the current page: its glyph takes the view
+   accent the select's glyph wears elsewhere, easing in and out on glass's own
+   colour leg (the control's transition list is glass's, untouched). */
+.dock-home[aria-current="page"] {
+    color: var(--accent-view);
 }
 
 /* SS-8 B05 · 0133 (ABT-11): the dock's focus ring paints the band-certified
@@ -620,6 +636,7 @@ watch(
 .dock-seal-ink {
     inline-size: 55%;
     block-size: 55%;
+    display: grid;
     pointer-events: none;
     /* V9C-01: the wax is a positioned stacking context (glass's
        WatercolorDot: relative + isolate + filter), so a static sibling
@@ -627,5 +644,9 @@ watch(
        lifted one step so the view glyph paints over the wax. No rim. */
     position: relative;
     z-index: 1;
+}
+.dock-seal-ink > :deep(svg) {
+    inline-size: 100%;
+    block-size: 100%;
 }
 </style>

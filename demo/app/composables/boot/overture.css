@@ -180,10 +180,11 @@
             box-shadow: var(--shadow-cartoon);
         }
     }
-    /* X.W12.b — first arrival only (`data-arrival`, ColorPicker.vue): a
-     * KeepAlive return re-inserts this card, which would restart the beat
-     * under the pane-swap travel. */
-    .pane-shell[data-arrival="first"] > :first-child {
+    /* X.W12.b — the boot's arrival only (`data-arrival`, ColorPicker.vue):
+     * a KeepAlive return re-inserts this card, which would restart the beat
+     * under the pane-swap travel, and a first arrival after a view change
+     * comes whole (C-18). */
+    .pane-shell[data-arrival="boot"] > :first-child {
         /* backwards per the one-shot release law above: the card's natural
          * box-shadow IS var(--shadow-cartoon) (probed computed-equal), so the
          * release at animationend is seamless. */
@@ -232,10 +233,11 @@
             transform: none;
         }
     }
-    /* X.W12.b — first arrival only, as plate-land above. A return rides
-     * HeroBlob's onActivated re-measure (`resume()`), the path PRM already
-     * takes with no emerge at all. */
-    .pane-shell[data-arrival="first"] .hero-blob-anchor {
+    /* X.W12.b — a fresh mount only (the boot's, or a first arrival after a
+     * view change: the blob's chunk lands after the card, and it emerges
+     * rather than pops). A return rides HeroBlob's onActivated re-measure
+     * (`resume()`), the path PRM already takes with no emerge at all. */
+    .pane-shell:is([data-arrival="boot"], [data-arrival="first"]) .hero-blob-anchor {
         /* backwards per the one-shot release law above (`to` ≡ natural). */
         animation: blob-emerge 500ms var(--ease-decelerate) backwards;
     }

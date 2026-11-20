@@ -23,7 +23,8 @@ export interface UseDockAdminModeOptions {
     isAdminAuthenticated: Ref<boolean>;
 }
 
-const userViews: ViewId[] = ["picker", "palettes", "browse", "extract", "mix", "generate", "gradient"];
+// Home is the dock's own first seat, so the select lists the other pages.
+const userViews: ViewId[] = ["palettes", "browse", "extract", "mix", "generate", "gradient"];
 const adminViews: ViewId[] = ["admin-users", "admin-names", "admin-audit", "admin-flagged", "admin-tags", "atmosphere", "blob"];
 
 export function useDockAdminMode(options: UseDockAdminModeOptions): UseDockAdminModeReturn {

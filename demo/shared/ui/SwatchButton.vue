@@ -9,14 +9,17 @@
          fall through to the Button, and a PopoverTrigger `as-child` merges its
          handlers the same way — SwatchHoverMenu composes this as its trigger);
          the FEEDBACK is one prop: `done` lays the check over the face in the
-         swatch's own contrast ink (X-DS pass 1, V1C-11). T-28's outline law
-         rides: no geometric focus ring is added on the organic edge. -->
+         swatch's own contrast ink (X-DS pass 1, V1C-11). The keyboard's focus
+         ring is the glass Button's own, a rounded rectangle round the organic
+         edge; this file adds none. A ring that follows the paint's silhouette
+         is glass's to give (asked, with the press plate behind an icon-only
+         face and the 1:1 icon-only seat). -->
     <Button
         emphasis="text"
         icon-only
         data-color-surface
-        :data-size="size"
-        :class="['swatch-button relative shrink-0 cursor-pointer', SIZE[size]]"
+        :data-swatch="size"
+        class="swatch-button swatch-seat relative shrink-0 cursor-pointer"
     >
         <!-- The paper chip (owner 2026-11-10, "containers, like a watercolor
              swatch"): with `chip`, the paint sits inset on a paper card
@@ -49,6 +52,7 @@ import { Check } from "@lucide/vue";
 import { Button } from "@mkbabb/glass-ui/button";
 import { WatercolorDot } from "./watercolor-dot";
 import { contrastInkFor } from "../../color-session/ink";
+import "./swatch-band.css";
 
 /** The swatch size tokens — the seats the app measures a swatch at:
  *  `sm` a dense add grid (Mix), `md` a palette card, `lg` the Current Palette
@@ -57,21 +61,13 @@ import { contrastInkFor } from "../../color-session/ink";
  *  plate). A `fill` cell grows from the `md` floor to a 5rem cap, square, and
  *  a long palette wraps at the floor. `fluid` is a seat the host sizes by
  *  `--swatch-size` (the embed's one-line strip: the dots shrink with the row,
- *  never wrap; owner 2026-11-11). */
+ *  never wrap; owner 2026-11-11). Each token is ONE length, read on both axes
+ *  through glass's own `--button-size` (the scoped style below). */
 export type SwatchSize = "sm" | "md" | "lg" | "xl" | "fill" | "fluid";
 
 /** No wrapper: the dot alone, as every unchipped swatch has it. */
 const Bare: FunctionalComponent = (_, { slots }) => slots.default?.();
 Bare.inheritAttrs = false;
-
-const SIZE: Record<SwatchSize, string> = {
-    sm: "w-8 h-8",
-    md: "w-9 h-9 sm:w-10 sm:h-10",
-    lg: "w-11 h-11 sm:w-12 sm:h-12",
-    xl: "w-12 h-12 sm:w-14 sm:h-14",
-    fill: "flex-1 basis-0 min-w-9 sm:min-w-10 max-w-20 h-auto aspect-square",
-    fluid: "swatch-fluid",
-};
 
 const {
     color,
@@ -101,26 +97,93 @@ const {
 </script>
 
 <style scoped>
-/* The host's seat: one token, read here, never reached into from outside. */
-.swatch-fluid {
-    inline-size: var(--swatch-size, 3rem);
-    block-size: var(--swatch-size, 3rem);
+/* The host's seat (color-40 L-1): ONE length per size token, set as glass's
+   own `--button-size`, which glass's icon-only Button reads for its inline
+   size, its block size AND its `min-block-size`. A swatch is square at every
+   pointer: per-axis size classes let the coarse `min-block-size` (the control
+   rung times glass's coarse scale) stretch the block axis, so a phone drew
+   44x66 and 56x60 ovals and a desk's Mix grid 32x36. On a coarse pointer no
+   seat is under the 44 px touch target; the host sizes a `fluid` seat. The
+   tokens are `.swatch-seat`'s (swatch-band.css), shared with Extract's ghost. */
+.swatch-button {
+    --button-size: var(--swatch-seat-final);
+}
+/* A `fill` cell takes the row's share: it grows from its seat to a 5rem cap
+   and stays square by its ratio, never by a second axis length. */
+.swatch-button[data-swatch="fill"] {
+    flex: 1 1 0;
+    inline-size: auto;
+    block-size: auto;
+    min-block-size: 0;
+    min-inline-size: var(--button-size);
+    max-inline-size: 5rem;
+    aspect-ratio: 1;
 }
 
-/* The palette dot's hover (the original's): the paint swells to 1.06 and takes
-   its second seeded outline, eased in and out on the dot's own clocks (0.2 s,
-   0.6 s, the standard curve). Only the paint moves: `scale` is a transform, so
-   the button, its row and its neighbours keep their boxes to the pixel. Fine
-   pointers only, so a tap does not latch it. */
+/* The paint (color-40 L-2 to L-4, his FORTIETH order: "a slight border, a bit
+   more depth, and animate on click/hover like a subtle watercolour").
+   - The rim: the dried edge of the paint, 1 px of its own colour stepped 15 %
+     toward the foreground (so a navy still parts from a dark plate), riding
+     the seeded silhouette under the dot's wet-edge filter; 24 % while wet.
+   - The stamp: the house voice at its own small rung, one hard offset cast
+     down-right with zero blur, 2 px (3 px on the two large seats); the
+     shadow ink at 20 % in light, black at 40 % in dark so it stays darker
+     than the band it falls on. It never moves on a press.
+   - One wet number, the larger of the hover (0 to 1 on the dot's 0.6 s clock,
+     fine pointers only) and glass's press (`--glass-btn-press-t`, which the
+     Button writes on every spring frame and every pointer, a touch
+     included). It scrubs the reshape between the dot's two seeded outlines
+     and deepens the rim. No `:active`, no script of ours.
+   A ghost (a placeholder slot) keeps its own dashed silhouette. */
+@property --swatch-hover {
+    syntax: "<number>";
+    inherits: false;
+    initial-value: 0;
+}
+.swatch-button {
+    --swatch-stamp: 2px;
+    --swatch-stamp-ink: color-mix(in srgb, var(--shadow-color) 20%, transparent);
+}
+.swatch-button[data-swatch="xl"],
+.swatch-button[data-swatch="fill"] {
+    --swatch-stamp: 3px;
+}
+/* (the whole selector is global: `:global(.dark) .swatch-button` compiles to
+   `.dark` alone, which the swatch's own light ink outranked) */
+:global(.dark .swatch-button) {
+    --swatch-stamp-ink: rgb(0 0 0 / 0.4);
+}
+.swatch-button :deep(.watercolor-swatch[data-variant="solid"]) {
+    --watercolor-wet: max(var(--swatch-hover), var(--glass-btn-press-t, 0));
+    border: 1px solid
+        color-mix(in oklab, var(--watercolor-color), var(--foreground) calc(15% + 9% * var(--watercolor-wet)));
+    border-radius: var(--watercolor-radius-wet, var(--watercolor-radius));
+    box-shadow: var(--swatch-stamp) var(--swatch-stamp) 0 0 var(--swatch-stamp-ink);
+    /* The outline follows the wet number frame by frame, so the radius has no
+       transition of its own; the hover's clock is the number's. */
+    transition:
+        transform var(--duration-fast) var(--ease-standard),
+        scale var(--duration-fast) var(--ease-standard),
+        --swatch-hover 0.6s var(--ease-standard),
+        filter var(--duration-fast) var(--ease-standard);
+}
+
+/* The hover (the original's): the paint swells to 1.06 on its 0.2 s clock and
+   wets on the 0.6 s one. `scale` is a transform, so the button, its row and
+   its neighbours keep their boxes to the pixel. Fine pointers only, so a tap
+   does not latch it. */
 @media (hover: hover) {
     .swatch-button:hover :deep(.watercolor-swatch) {
+        --swatch-hover: 1;
         scale: 1.06;
-        border-radius: var(--watercolor-radius-hover, var(--watercolor-radius));
     }
 }
 
-/* Reduced motion: the outline alone, no swell. */
-@media (hover: hover) and (prefers-reduced-motion: reduce) {
+/* Reduced motion: the rim's tone alone; the outline and the size hold. */
+@media (prefers-reduced-motion: reduce) {
+    .swatch-button :deep(.watercolor-swatch[data-variant="solid"]) {
+        border-radius: var(--watercolor-radius);
+    }
     .swatch-button:hover :deep(.watercolor-swatch) {
         scale: none;
     }

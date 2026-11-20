@@ -71,5 +71,20 @@ export function useSpectrumPlateStyle(opts: {
         return { transform: `translate3d(${percent(s)}, ${percent(1 - v)}, 0)` };
     });
 
-    return { spectrumAriaLabel, spectrumStyle, spectrumDotStyle, spectrumTravelStyle };
+    // The dot's handle (DESIGN.md S-8): its centre is the dot's, clamped half
+    // a handle inside the field on both axes, so the 44 px target never
+    // reaches past the field's edge. Placed by `left`/`top` in the field's own
+    // percentages (the field contains its layout, so this lays out nothing
+    // outside it); the vertical term is the dot's inset travel (V3C-07).
+    const spectrumGripStyle = computed(() => {
+        const { s, v } = dotPos.value;
+        const half = "calc(var(--spectrum-grip-size) / 2)";
+        const y = `calc(var(--spectrum-dot-size) / 2 + ${Number((1 - v).toFixed(4))} * (100% - var(--spectrum-dot-size)))`;
+        return {
+            left: `clamp(${half}, ${percent(s)}, calc(100% - ${half}))`,
+            top: `clamp(${half}, ${y}, calc(100% - ${half}))`,
+        };
+    });
+
+    return { spectrumAriaLabel, spectrumStyle, spectrumDotStyle, spectrumTravelStyle, spectrumGripStyle };
 }

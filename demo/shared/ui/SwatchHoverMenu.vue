@@ -8,8 +8,18 @@
          class/style, so a trigger bound on the dot itself received neither
          reka's handlers nor its name.
          SS-8 B13 L-1: the wrapper is a flex container, so the inline-block trigger
-         sits on no line box and reserves no baseline descender under the swatch. -->
-    <div class="relative flex">
+         sits on no line box and reserves no baseline descender under the swatch.
+         color-40 L-6: the panel mounts on the swatch's first hover, focus or
+         press (`engaged`); a list of 120 swatches no longer mounts 120 panels
+         up front. The trigger is the same element throughout, so the press or
+         hover that engages it is the one that opens it. -->
+    <div
+        class="relative flex"
+        :data-engaged="mounted ? '' : undefined"
+        @pointerenter="engage"
+        @focusin="engage"
+        @pointerdown.capture="engage"
+    >
         <Popover trigger="hover" :open="open" @update:open="$emit('update:open', $event)">
             <PopoverTrigger as-child>
                 <SwatchButton
@@ -23,6 +33,7 @@
                 />
             </PopoverTrigger>
             <PopoverContent
+                v-if="mounted"
                 class="w-auto"
                 :class="PANEL_LAYOUT"
                 :side-offset="8"
@@ -38,6 +49,7 @@
 </template>
 
 <script setup lang="ts">
+import { computed, ref } from "vue";
 import { Popover, PopoverContent, PopoverTrigger } from "@mkbabb/glass-ui/popover";
 import SwatchButton, { type SwatchSize } from "./SwatchButton.vue";
 import { formatCssCaption } from "../../color-session/format-color";
@@ -45,7 +57,7 @@ import { formatCssCaption } from "../../color-session/format-color";
 /** The action panel's layout. */
 const PANEL_LAYOUT = "p-1.5 flex items-center gap-1";
 
-withDefaults(
+const props = withDefaults(
     defineProps<{
         color: string;
         open: boolean;
@@ -67,6 +79,13 @@ withDefaults(
         done: false,
     },
 );
+
+/** The first hover, focus or press latches the panel's mount for good. */
+const engaged = ref(false);
+const engage = () => {
+    engaged.value = true;
+};
+const mounted = computed(() => engaged.value || props.open);
 
 defineEmits<{
     "update:open": [value: boolean];

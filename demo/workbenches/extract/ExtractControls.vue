@@ -62,17 +62,20 @@
         </div>
 
         <!-- X-DS pass 3 (V3C-05): kC stands as a full-width scalar row, like
-             "Colors" above it — one control stack, one left edge. -->
+             "Colors" above it — one control stack, one left edge. E-01: it is
+             named by what it does to the result: the quantizer weighs hue and
+             chroma differences by each colour's chroma, so a higher value
+             keeps vivid colours apart (the library's `chromaWeight`). -->
         <div data-o18="extract-kc" class="flex flex-col gap-1 w-full min-w-0">
             <div class="flex items-center justify-between gap-2">
-                <Label class="truncate">Chroma weight</Label>
+                <Label class="truncate">Vividness</Label>
                 <span class="text-mono-small plate-ink tabular-nums">{{ chromaWeight.toFixed(1) }}</span>
             </div>
             <!-- X-DS VR3-02 → pass 9 (V9C-02): the 24px band is the `sm`
                  rung's own now (foundation.css, THE SCALAR ROW'S ONE RHYTHM),
                  so the hand-made band around this rail retires. -->
             <Slider
-                aria-label="Chroma weight"
+                aria-label="Vividness"
                 size="sm"
                 :model-value="chromaWeightModel"
                 :disabled="standDown"

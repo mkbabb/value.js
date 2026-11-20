@@ -6,6 +6,7 @@
  */
 import { createApp } from "vue";
 import EmbedApp from "./EmbedApp.vue";
+import { installControlTouchIntent } from "../../shared/touch-intent/controls";
 
 import "../../styles/utils.css";
 import "../../styles/foundation.css";
@@ -16,4 +17,5 @@ const app = createApp(EmbedApp);
 app.config.errorHandler = (thrown, _instance, info) => {
     console.error(`[value.js embed] unhandled failure (vue · ${info})`, thrown);
 };
+installControlTouchIntent(document);
 app.mount("#app");

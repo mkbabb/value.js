@@ -88,7 +88,7 @@ const hueRamps = computed(
                         <template #description>
                             <span class="flex items-center gap-2">
                                 <PreviewRamp v-if="spaceRamps.get(s.value)" :stops="spaceRamps.get(s.value)!" />
-                                <span class="text-micro text-muted-foreground">{{ s.description }}</span>
+                                <span class="text-small text-muted-foreground">{{ s.description }}</span>
                             </span>
                         </template>
                     </SelectItem>
@@ -113,7 +113,7 @@ const hueRamps = computed(
                         <template #description>
                             <span class="flex items-center gap-2">
                                 <PreviewRamp v-if="hueRamps.get(m.value)" :stops="hueRamps.get(m.value)!" />
-                                <span class="text-micro text-muted-foreground">{{ m.description }}</span>
+                                <span class="text-small text-muted-foreground">{{ m.description }}</span>
                             </span>
                         </template>
                     </SelectItem>

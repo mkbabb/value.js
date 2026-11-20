@@ -8,9 +8,12 @@
  *     leaves Vue's anchor behind. ES-2 cured PaletteCardSkeleton the same way:
  *     the template opens on its element and the note lives in <script>.
  *   · SS8-0413 / 0419 / 0420 (PCS U-6, SP-3, SP-6) — already cured at HEAD
- *     (X.W7.g G20, X-DS p5/p9 V9C-04); a regression pin, GREEN before and after:
- *     the instrument plate is ONE strip row at every k (no swatch rows, no meta
- *     row), and the loading silhouette carries no swatch row either.
+ *     (X.W7.g G20, X-DS p5/p9 V9C-04); a regression pin: the loading
+ *     silhouette (Browse's collapsed card) carries no swatch row.
+ *     color-40 O-2 (his FORTIETH order: "a proper shadow palette skeleton")
+ *     rewrote the instrument half: Extract's ghost is the DEVELOPED card's
+ *     silhouette (strip, name row, k daubs), so its rows are fixed and its
+ *     cells and daubs follow k, as the developed card's do.
  */
 import { afterEach, describe, expect, it } from "vitest";
 import { mount } from "@vue/test-utils";
@@ -77,9 +80,27 @@ describe("SS8-0413/0419/0420 · the skeleton's rows are k-invariant (regression 
         return out;
     };
 
-    it("instrument: one strip row at k=5 and k=16 (no swatch rows, no meta row)", () => {
-        expect(rows(5, "instrument")).toEqual({ rows: 1, cells: 5 });
-        expect(rows(16, "instrument")).toEqual({ rows: 1, cells: 16 });
+    it("instrument: the developed card's three rows at every k; its cells and daubs are k", () => {
+        expect(rows(5, "instrument")).toEqual({ rows: 3, cells: 5 });
+        expect(rows(16, "instrument")).toEqual({ rows: 3, cells: 16 });
+        for (const k of [5, 16]) {
+            const wrapper = mount(PaletteCardSkeleton, { props: { count: k, variant: "instrument" } });
+            expect(wrapper.findAll('[data-slot="shadow-palette-daub"]')).toHaveLength(k);
+            wrapper.unmount();
+        }
+    });
+
+    it("instrument: still and silent at rest; breathing and announced mid-run", () => {
+        const rest = mount(PaletteCardSkeleton, { props: { count: 5, variant: "instrument" } });
+        expect(rest.attributes("aria-hidden")).toBe("true");
+        expect(rest.attributes("role")).toBeUndefined();
+        expect(rest.classes()).not.toContain("shadow-palette--loading");
+        rest.unmount();
+        const run = mount(PaletteCardSkeleton, { props: { count: 5, variant: "instrument", loading: true } });
+        expect(run.attributes("role")).toBe("status");
+        expect(run.attributes("aria-label")).toBe("Loading palette");
+        expect(run.classes()).toContain("shadow-palette--loading");
+        run.unmount();
     });
 
     it("loading: the row count does not grow with k (strip + meta, no swatch row)", () => {

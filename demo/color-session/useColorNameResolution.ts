@@ -59,9 +59,13 @@ export function useColorNameResolution(deps: {
         currentMatch.value ? displayColorName(currentMatch.value.entry) : null,
     );
 
+    // The colour as text, for the field and the clipboard: CSS. A CSS keyword
+    // is CSS (`hotpink`); an approved name (`efflorescence`) is the site's own
+    // word, which no stylesheet reads, so Copy writes the colour itself and
+    // the name stays the main pane's line.
     const formattedCurrentColor = computed(() => {
         const match = currentMatch.value;
-        if (match) return match.entry.name;
+        if (match?.entry.source === "css") return match.entry.name;
 
         // Hex display format
         if (selectedDisplaySpace.value === "hex") {

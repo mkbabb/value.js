@@ -780,7 +780,7 @@ function onCaretKeydown(e: KeyboardEvent) {
 .rail-seat {
     --rail-handle-size: var(--rail-seat-size, max(1.5rem, 24px)); /* a host may size and round the seat */
     --rail-face-size: 1.25rem;
-    --rail-height: 2.5rem;
+    --rail-height: var(--rail-seat-height, 2.5rem); /* a host may size the ramp */
     --rail-touch: var(--touch-target, 2.75rem);
     /* The hit rung actually in force for the pointer class in use: on a fine
        pointer the seat IS the ≥24px box (X-W4 · C4), on a coarse one the

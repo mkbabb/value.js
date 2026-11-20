@@ -61,13 +61,16 @@
              `DisplayColorSpace`, so the render-boundary cast that `Object.entries`
              forced (its keys widen to `string`) is unspellable here rather than
              merely removed. -->
-        <!-- X.W12.t · UIA-V-5 — the list never leaves a phone screen: it is
-             capped at reka's own available width (the collision-bounded room
-             the floating layer measures), and the caption's char-budget box
-             yields to that cap (`min(…, 100%)`) so its `truncate` applies. -->
+        <!-- X.W12.t · UIA-V-5 — the anchored list never leaves a phone
+             screen: it is capped at reka's own available width (the
+             collision-bounded room the floating layer measures), and the
+             caption's char-budget box yields to that cap (`min(…, 100%)`) so
+             its `truncate` applies. The cap is the anchored form's only: glass's
+             sheet form (`data-form="sheet"`) spans the screen, and the cap left
+             it 32 px short of the edge (358 of 390). -->
         <SelectContent
             align="start"
-            class="max-w-(--reka-select-content-available-width)"
+            class="[&:not([data-form=sheet])]:max-w-(--reka-select-content-available-width)"
             style="--select-dot-color: var(--accent-live)"
         >
             <SelectGroup>
@@ -102,7 +105,8 @@
                                  SILHOUETTES. `seed` is the producer's own
                                  shape/wet-edge PRNG salt: seeding it with the
                                  space id gives each row its own border-radius
-                                 silhouette AND its own feTurbulence seed
+                                 silhouette, and picks its wet edge from the
+                                 page's pooled filters by the same hash
                                  (identical `seed 240` across all 18 was the
                                  defect). The dead `tag` prop — WatercolorDot
                                  declares no such prop — is deleted. -->
@@ -114,7 +118,7 @@
                             />
                             <span
                                 v-if="row.specimen"
-                                class="specimen-caption font-mono text-mono-caption lowercase truncate"
+                                class="specimen-caption text-mono-small lowercase truncate"
                                 :data-specimen-form="row.specimen.form"
                                 :data-out-of-gamut="String(row.specimen.outOfGamut)"
                                 :style="{ '--specimen-char-budget': SPECIMEN_CHAR_BUDGET }"
@@ -341,6 +345,22 @@ function isDisplayColorSpace(value: string | number): value is DisplayColorSpace
     font-size: 1em;
 }
 
+/* On touch the About heading's space word answers a 44 px target: at the
+ * heading's rung it stood 38 px tall at 390, under the touch floor. The
+ * trigger's own pseudo-element reaches past its box on the block axis, so the
+ * hit area grows and the heading's line, the word and its ring hold still. */
+@media (pointer: coarse) {
+    .space-trigger--inline {
+        position: relative;
+    }
+    .space-trigger--inline::after {
+        content: "";
+        position: absolute;
+        inset-inline: 0;
+        inset-block: min(0px, calc(50% - var(--touch-target, 2.75rem) / 2));
+    }
+}
+
 /* Em-relative caret (T.W4-1): the producer chevron ships h-4/w-4 fixed px —
  * at the ×φ title that reads as a shrunken foreign glyph. 0.382em (φ⁻²) is
  * today's exact optical ratio (1rem at the 41.89px display-1 cap), carried
@@ -436,13 +456,12 @@ function isDisplayColorSpace(value: string | number): value is DisplayColorSpace
      * literal to re-tune when a space or a digit changes.
      *
      * `1ch` is the advance of `0`, which in a monospaced face IS the advance of
-     * every glyph — so the `ch` arithmetic is exact ONLY with the caps tracking
-     * off. That tracking comes from `text-mono-caption`, the UPPERCASE CAPTION
-     * token (the row already overrides its `text-transform` with `lowercase`);
-     * a caption's 0.1em letter-spacing does not belong on a lowercase mono
-     * DATA line, and removing it is the same correction, finished. NOTHING
-     * SHRINKS: the type rung is untouched — the box grew to hold the sentence,
-     * the sentence was not shrunk to fit the box. */
+     * every glyph — so the `ch` arithmetic is exact ONLY with no tracking. The
+     * line sits on the small mono rung (`text-mono-small`, 14 px at 390; the
+     * caption rung was 12.2 px there, under the 14 px floor for text that is
+     * read), and its quieter ink, not a smaller size, says it is secondary.
+     * NOTHING SHRINKS: the box grew to hold the sentence, the sentence was not
+     * shrunk to fit the box. */
     letter-spacing: normal;
     max-width: min(calc(var(--specimen-char-budget) * 1ch), 100%);
 }

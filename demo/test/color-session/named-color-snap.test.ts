@@ -6,7 +6,8 @@
  * Driven through the composable the picker reads (`useColorNameResolution`),
  * with the approved-name read stubbed at its transport seam, so each case is
  * the main pane's own answer: `currentColorName` (shown IFF a name exists) and
- * `formattedCurrentColor` (the name, else the raw serialization).
+ * `formattedCurrentColor` (the text the field shows and Copy writes: a CSS
+ * keyword as itself, otherwise the raw serialization, approved names included).
  */
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { computed, effectScope, nextTick, shallowRef } from "vue";
@@ -23,8 +24,14 @@ vi.mock("../../color-session/color-names", () => ({
 
 import { useColorNameResolution } from "../../color-session/useColorNameResolution";
 import { useCustomColorNames } from "../../color-session/useCustomColorNames";
-import { parsePickerColor, convertPickerColor, serializePickerColor } from "../../color-session/picker-color";
-import type { ColorModel } from "../../color-session/color-model";
+import {
+    parsePickerColor,
+    convertPickerColor,
+    readPickerColor,
+    serializePickerColor,
+} from "../../color-session/picker-color";
+import { defaultColorModel, type ColorModel } from "../../color-session/color-model";
+import { formatCssCaption } from "../../color-session/format-color";
 import { NAME_SNAP_DELTA_E_OK } from "../../color-session/named-color-snap";
 
 /** The resolver's answer for one CSS colour string, after the debounce. */
@@ -102,8 +109,18 @@ describe("the named snap — approved custom names", () => {
     it("the exact approved colour resolves to its name, shown as words", async () => {
         const exact = await resolve("oklch(73% 0.185 2)");
         expect(exact.name).toBe("Daraksha");
-        expect(exact.formatted).toBe("daraksha");
+        // The text the field shows and Copy writes is CSS, not the site's word.
+        expect(exact.formatted).toBe(exact.raw);
         expect((await resolve("oklch(72% 0.055 145)")).name).toBe("Daraksha Sage");
+    });
+
+    it("Copy writes CSS at the default colour, and a CSS keyword as itself", async () => {
+        const atDefault = await resolve(defaultColorModel.inputColor);
+        expect(atDefault.name, "the default colour is an approved name").toBe("Daraksha");
+        const copied = formatCssCaption(atDefault.formatted);
+        expect(copied).not.toMatch(/daraksha/i);
+        expect(readPickerColor(copied).ok, `"${copied}" is a CSS colour`).toBe(true);
+        expect(formatCssCaption((await resolve("hotpink")).formatted)).toBe("hotpink");
     });
 
     it("a near miss inside the margin resolves to the approved name", async () => {

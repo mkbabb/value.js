@@ -35,7 +35,7 @@
                             role="tab"
                             :aria-selected="active === component"
                             :tabindex="railTabIndex(component)"
-                            :aria-label="`${component} channel`"
+                            :aria-label="`Go to ${componentDescription(component)}`"
                             class="channel-rail-item font-display text-subheading italic"
                             :style="active === component ? { color: activeInk } : undefined"
                             @click="emit('select', component)"

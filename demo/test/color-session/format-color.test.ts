@@ -141,7 +141,7 @@ describe("G16 — import census: the 29 OM-14 sites read through the facility", 
     const SHM = "shared/ui/SwatchHoverMenu.vue";
     const MRD = "workbenches/mix/MixResultDisplay.vue";
     const MSS = "workbenches/mix/MixSourceSelector.vue";
-    const EXW = "workbenches/extract/ExtractWorkbench.vue";
+    const PCSTRIP = "shared/ui/PaletteColorStrip.vue";
     const ANP = "palettes/admin/panels/AdminNamesPanel.vue";
 
     /** [OM-14 id, file under demo/, the routed expression at the site, occurrences]. */
@@ -157,8 +157,9 @@ describe("G16 — import census: the 29 OM-14 sites read through the facility", 
         // through format-color, now at the frame callback's one expression.
         ["A7", CI, "const text = formatCssCaption(formattedCurrentColor.value)", 1],
         ["A9", CI, "{{ formatCssCaption(currentColorMeta.css) }}", 1],
-        ["A10", EXW, ">{{ formatCssCaption(session.dominant.value.serialized) }}<", 1],
-        ["A11", EXW, ':title="formatCssCaption(session.dominant.value.serialized)"', 1],
+        // color-40 O-3 (his FORTIETH order): Extract's dominant line (A10, A11)
+        // is gone; the weighted strip's bands name their share and value.
+        ["A10s", PCSTRIP, "${formatCssCaption(color.css)}", 1],
         ["A12", "workbenches/extract/ImageEyedropper/ImageEyedropper.vue", "formattedColor ? formatCssCaption(formattedColor)", 1],
         ["A14", MRD, "{{ formatCssCaption(result.css) }}", 1],
         ["A15", MRD, ':title="formatCssCaption(color)"', 1], // V-D3 · PCS-10: the swatch slot hands the css itself
@@ -184,8 +185,8 @@ describe("G16 — import census: the 29 OM-14 sites read through the facility", 
         ["WB", "picker/ColorPicker.vue", "const text = formatCssCaption(formattedCurrentColor.value)", 1],
     ];
 
-    it("the census is the OM-14 denominator: 16 text + 12 ARIA + 1 write-back = 29 (UIA-V-12 and the 2026-11-09 add tooltip retired two text sites; O16's Generate hover card added one text and two ARIA)", () => {
-        expect(SITES.reduce((n, [, , , count]) => n + count, 0)).toBe(29);
+    it("the census is the OM-14 denominator: 15 text + 12 ARIA + 1 write-back = 28 (UIA-V-12 and the 2026-11-09 add tooltip retired two text sites; O16's Generate hover card added one text and two ARIA; color-40 O-3 retired Extract's two dominant sites for the strip's one)", () => {
+        expect(SITES.reduce((n, [, , , count]) => n + count, 0)).toBe(28);
     });
     for (const [id, file, expression, count] of SITES) {
         it(`${id} · ${file} reads through format-color`, () => {

@@ -223,8 +223,21 @@ There are two elevation registers, and every surface belongs to exactly one:
 
 | Register          | What it claims                                 | Cast                                                 | Edge                                        | Members                                                                                    |
 | ----------------- | ---------------------------------------------- | ---------------------------------------------------- | ------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| **in-chrome**     | it is _part of_ the surface it sits in         | **none**, at rest and on hover                       | one hairline (`--card-edge`) or a tone step | wells, in-plate cards and specimens, chips, swatch tiles, seated fields, rows, stage chips |
+| **in-chrome**     | it is _part of_ the surface it sits in         | **none**, at rest and on hover                       | one hairline (`--card-edge`) or a tone step | wells, in-plate cards and specimens, chips, seated fields, rows, stage chips               |
 | **free-floating** | it is _over_ live content and can be dismissed | the glass tier's **one** quiet shadow, never a stack | the tier's built-in rim                     | dock, popovers, menus, dialogs, drawers, the swatch-edit and eyedropper overlays           |
+
+**A palette swatch is paint, its own case (his FORTIETH order, 19 Nov 2026, L: "a slight border,
+a bit more depth"; the later ruling over this law's earlier member list, which put swatch tiles in
+chrome with no cast).** A swatch (`demo/shared/ui/SwatchButton.vue`) is paint with a dried edge and
+one small stamp in the house voice:
+
+- the rim is 1 px of the paint's own colour stepped 15 % toward `--foreground` (24 % while wet), on
+  the seeded silhouette under the dot's wet-edge filter;
+- the stamp is ONE hard offset cast down-right with zero blur, 2 px (3 px on the two large seats),
+  `--shadow-color` at 20 % in light and black at 40 % in dark, so it stays darker than the band
+  it falls on. It is its own small rung, never the plate's 8 px, and it never moves on hover or
+  press;
+- the rest of the in-chrome laws hold: no glow, no coloured cast, no second layer.
 
 **The plate stamp is a third case: identity, not elevation.** A pane plate casts the demo's one
 cartoon stamp (§ Shadows). It is the original value.js shadow, _"one hard 8px offset shadow and
@@ -350,7 +363,7 @@ rounding — never ad-hoc per component. Rank is the elevation law (§ 2.1) writ
 | **Z0**  | The page: aurora + graticule substrate                      | atmosphere (no surface)                          | none                                             | none                                              |
 | **Z1**  | Plates: pane shells, the picker card                        | glass `resting` — rung-1 PLATE                   | the cartoon stamp (`--shadow-card`), plates only | the glass tier's built-in `--glass-border-accent` |
 | **Z1v** | Veils: config/overlay panes that read _through_             | glass veil tier                                  | none                                             | glass border                                      |
-| **Z2**  | In-plate cards: palette specimens, swatch tiles, chips      | the rung-2 WELL (`--well-bg`, an unblurred tint) | none                                             | `--card-edge`                                     |
+| **Z2**  | In-plate cards: palette specimens, swatch tiles, chips      | the rung-2 WELL (`--well-bg`, an unblurred tint) | none; a swatch's paint casts its own 2 px stamp (§ 2.1, FORTIETH L) | `--card-edge`; a swatch, its own rim |
 | **Z3**  | Protagonists: ≤ 1 per pane (the hero blob, a featured card) | material hero                                    | the full cartoon stamp                           | per material                                      |
 | **Z4**  | Floating chrome: popovers, dialogs, dock, toolbars          | glass `floating` / `overlay`                     | the glass tier's own shadow                      | glass border                                      |
 
@@ -555,9 +568,15 @@ Layout tokens (`:root` in `demo/styles/foundation.css`):
   never exceeds the viewport's block size, so a short landscape takes two tracks; X·§0hm D-19). It has
   **no page cap** (layout-gestalt UL-1; SS-8 Z1):
     - `.pane-container` spans the scene band; `auto-fit` decides one track or two;
-    - two tracks take the route's ratio from `.app-layout[data-view]`: golden 61.8/38.2 (stage
-      major) on Picker, Generate, Gradient, Extract and Mix; 2 : 1 (field major) on Browse and
-      Library; equal elsewhere; each track floors at `--pane-min`;
+    - two tracks take the ratio of the pane the stage DISPLAYS (`.pane-container[data-stage]`,
+      stamped from the slot's mount report, so the split changes at the stage's commit and never
+      at the input): golden 61.8/38.2 (stage major) for the shared picker, Generate, Gradient and
+      Extract; 2 : 1 (field major) on Browse; equal elsewhere; each track floors at `--pane-min`;
+    - **the shared picker keeps one box** (the owner's FORTIETH order, A: "a strange re-sizing
+      issue on the main page"): every route whose stage is the shared picker (Picker, Library, Mix,
+      Blob) takes the same track, the golden fraction under `--picker-measure`, and the companion
+      takes the remainder. Library's 2 : 1 field (SS-8 Z1) gave way to it; at 1440 My Palettes is
+      the remainder beside a 651 px picker;
     - **pane shells never self-clamp** (`w-full` only), and there is no per-width media staircase.
 - **`--card-measure: 32rem`**: the owner's card width (S FINAL.md Ruling #1, "card width ~1/3
   smaller"), worn only by a LONE card centred in a one-region scene (Atmosphere, Not found).
@@ -574,6 +593,12 @@ Layout tokens (`:root` in `demo/styles/foundation.css`):
   (A2-VA-L2-12).
 - The atmosphere canvas sits at `z-index: -1`. A backdrop paints under every in-flow box,
   including the route H1 (A2-VA-L2-2).
+
+**One scroller on an upright phone (the FORTIETH C and P).** In one track and portrait no pane
+scrolls inside itself: the companion flows whole and the document is the one scroller, so a swipe
+moves the page wherever it starts (before, Home's About was a 5,283 px port in 485 px with its
+title pinned, and the swipe changed hands at the picker's foot). In one-track landscape the stacked
+plates keep their one-band ports (D-19, D-20), and two tracks keep the row contract's port.
 
 **The touch-floor exception: ConsoleRail's channel tabs (A2-VA-L2-9).** On a coarse pointer, or
 below 1024px, each channel letter's hit cell is the full `--dock-touch-target` (44px) TALL and
@@ -873,10 +898,10 @@ the standing example (COHESION §0el).
 
 | Register                            | Site                                                                                                                                   | Pairing                                                                                                                                 | Status                 |
 | ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
-| Pane swap ENTER (R2)                | the dealt cards on the pane wrappers (`demo/styles/animations.css`; §5.7)                                                              | transform `--spring-panel` @ `--spring-panel-duration` from `--deal-travel` on the move's side; opacity `--ease-decelerate` @ `--duration-normal` after `--deal-hold` | landed (O16)           |
-| Pane swap LEAVE (R3)                | same block, leave-active; out of flow, under the dealt card                                                                            | transform `--ease-in` @ `--duration-normal` to `--deal-travel` on the other side; opacity `--ease-decelerate` @ `--duration-fast`        | landed (O16)           |
-| Region FLIP (G3)                    | `demo/shell/flipRegions.ts`, from App.vue's one `flip`                                                                                 | `translate` on `--ease-standard` (no overshoot into the dock band, o1109c; from rest, no first-frame jump, o1110) and the plate `clip-path` on `--spring-panel`, both @ `--spring-panel-duration` | landed (O1105)         |
-| Row split (G9)                      | `.pane-container` (`animations.css`)                                                                                                   | `grid-template-columns` on `--spring-panel` @ `--spring-panel-duration`; the scene's height does not travel (O16)                      | landed (O1105 r2, O16) |
+| Pane swap ENTER (R2)                | the arriving card on the pane wrappers (`demo/styles/animations.css`; §5.7 G2)                                                         | the plate on its seat from the first frame; its text's opacity `--ease-decelerate` @ `--duration-fast` after `--duration-control`   | landed (FORTIETH A)    |
+| Pane swap LEAVE (R3)                | same block, leave-active; out of flow, under the arriving card                                                                         | transform `--ease-in` and opacity `--ease-decelerate`, both @ `--duration-control`, toward the side the move leaves by              | landed (FORTIETH A)    |
+| Region FLIP (G3)                    | `demo/shell/flipRegions.ts`, from App.vue's one `flip`                                                                                 | `translate` through the Web Animations API on a sine ease-in-out @ the panel clock (no overshoot into the dock band, o1109c; from rest, no first-frame jump, o1110); one read and one write per commit | landed (FORTIETH B)    |
+| Row split (G9)                      | `.pane-container` (`shell.css`)                                                                                                        | none: the shared picker keeps one track; a split that changes re-lays at the stage's commit; the scene's height does not travel (O16) | landed (FORTIETH A)    |
 | Swap containment                    | the pane wrappers, `*-active` window only                                                                                              | `will-change: transform, opacity` + `contain: layout` for the swap's duration (X.W5.d2; no paint containment, which un-frosts the T-45 carrier, o1110) | landed                 |
 | Specimen press (R4)                 | `demo/palettes/inspector/PaletteInspector.vue`                                                                                         | the producer press drive, `useLiquidPress` (the shared press spring clock, card amplitude). There is no cast (V1-02)                    | landed                 |
 | Channel rail press (R5)             | `.channel-rail-item` (`demo/picker/controls/ComponentSliders/ConsoleRail.vue`)                                                         | `--spring-press` @ its own clock                                                                                                        | landed                 |
@@ -955,7 +980,7 @@ counter-override in `@layer base`, goes with it, under these terms:
 WebGL RAF loops (the hero blob, the aurora) fence on `prefers-reduced-motion` in their own
 drivers. No CSS guard reaches them.
 
-### 5.7 The transition grammar — dealt cards (O1105, O1109, O16)
+### 5.7 The transition grammar — the plate stays, the text hands over (O1105, O1109, O16, the FORTIETH A)
 
 The owner, 2026-11-05: _"transitions between views ... should be well defined and all height and
 width facilities fully animated. The transition animations should be better defined and not fade
@@ -965,48 +990,66 @@ in and out unless necessary and stacked with a card swapping animation for the v
 
 | Change              | What moves                                       | Mechanism                                          | Owner                              |
 | ------------------- | ------------------------------------------------ | -------------------------------------------------- | ---------------------------------- |
-| Card swap           | a region's pane is replaced                      | dealt cards (G2), `vj-enter` on the pane wrappers  | demo, `animations.css`             |
+| Card swap           | a region's pane is replaced                      | the text hands over (G2), `vj-enter`               | demo, `animations.css`             |
 | Survivor reflow     | a region moves, or widens, because another changed | FLIP (G3), `demo/shell/flipRegions.ts`           | demo                               |
-| Row split           | the split moves                                  | track interpolation (G9)                           | demo, `animations.css`             |
+| Row split           | the split changes with the stage                 | none: it re-lays at the stage's commit (G9)        | demo, `shell.css`                  |
 | Surface resize      | the view menu plate, the dock's content width    | glass (O-171 R-1 menu bloom, R-2 dock width morph) | glass-ui                           |
 | In-place content    | one surface, new content                         | `vj-morph`, unchanged                              | demo                               |
 
-**G2 · Dealt cards (O16).** The owner, 2026-11-13: _"The current card transition animation is a bit
-too expensive and transitons the height--make the cards swap in and out from the left and right
-sides, like playing cards sort of."_ It supersedes the shuffled deck of O1109 (a ±110 % fling with a
-3deg turn, a scaled under pose and a held scene height). The gesture is horizontal and follows the
-move: `data-scene-direction` (PaneSlot, from the scene order the dock lists) sets `--deal-side`.
+**G2 · The plate stays, the text hands over (O16, the FORTIETH A).** The owner, 2026-11-13: _"The
+current card transition animation is a bit too expensive and transitons the height--make the cards
+swap in and out from the left and right sides, like playing cards sort of."_ It superseded the
+shuffled deck of O1109. His FORTIETH order (19 Nov: "a strange re-sizing", "transitions are very
+slow") found the dealt card's fade overlapping the leaver's: at 221-255 ms "My Palettes" was drawn
+over "About the color spaces". So one card's text is legible at a time:
 
-- **Forward.** The top card slides `--deal-travel` (a sixth of its width, at most 5rem) off to the
-  left with a 1deg turn about its foot, on `--ease-in` at `--duration-normal`, fading on
-  `--duration-fast`. The next card is dealt in from the right, the same turn the other way, and
-  squares up on `--spring-panel`; it fades in on `--duration-normal` after `--deal-hold` (80 ms).
-- **Back.** The mirror: the card leaves to the right and the next is dealt from the left.
+- **The leaver** slides `--deal-travel` (a sixth of its width, at most 5rem) toward the side the
+  move leaves by, with a 1deg turn about its foot: forward, the left; back, the right
+  (`data-scene-direction`, PaneSlot, from the scene order the dock lists, sets `--deal-side`). Its
+  transform runs on `--ease-in` and its fade on `--ease-decelerate`, both at `--duration-control`
+  (120 ms): it is gone before the next card's text begins.
+- **The arriving card's plate is on its seat from its first frame**, at full strength over the
+  leaver, so the region is never empty. Its text (the plate's own children; the plate's material is
+  its pseudo-elements and stays) comes in on `--duration-fast` after `--duration-control`.
 - **Two properties.** Each card runs transform and opacity and nothing else: no height, no width,
-  no filter. The exit is shorter than the entrance and the dealt card's fade waits for the leaver
-  to fall below half strength, so no frame shows two cards' text at full strength in one place
-  (P0a rule 4).
-- At rest one card is on screen. The leaver sits under the dealt card (z −1 in its wrapper). The
+  no filter. No frame shows two cards' text above 0.15 in one region
+  (`e2e/smoke/c40-one-card-text.spec.ts`).
+- At rest one card is on screen. The leaver sits under the arriving card (z −1 in its wrapper). Its
   travel is ink overflow (the wrapper's `contain: layout`), so the document never scrolls sideways.
 
 **G3 · Out of flow, and the FLIP.** The leaver is `position: absolute; inset: 0 0 auto 0;
 pointer-events: none` in its wrapper, so the region is sized by the riser from the commit frame. Its
 block size is never 0 and never the sum of two panes. The leaver keeps the block size it was drawn
 at (PaneSlot `hideLeaving`), so a companion that follows the row does not unroll its whole content
-while it is discarded. Every commit that can move a region (a slot's
-pane commit, and the scene's region set changing) runs through App.vue's one `flip`. A region that
-moves translates from where it was drawn, on `--ease-standard` at the panel clock: a stacked reorder travels ~600 px, and the panel spring's overshoot on that travel carried the region into the dock band (o1109c); `--ease-out` left rest at five times its mean speed, so the reorder's first frame moved the picker 45-100 px (o1110 D3). A region that widens on a dual → single hop opens its
-plate and its T-45 blur carrier with `clip-path: inset()` from the old edge to the new. The content
-reflows once, at the commit; the plate edge travels. Only the wrapper is written, and every write clears when its
-transition ends or is cancelled, so a KeepAlive-cached pane never carries a FLIP away.
+while it is discarded. Every commit that can move a region (a slot's pane commit, and the scene's
+region set changing) runs through App.vue's one `flip`. The flip reads every region once before
+the mutate and once after it, and writes only after the second read (the FORTIETH B: interleaved
+reads and writes, and a read of the plate's computed `clip-path`, forced 110-453 ms of style and
+layout inside the commit on a 4x phone). A region that moves translates from where it was drawn,
+through the Web Animations API on `translate` (the compositor, no forced restart, and a newer commit
+cancels it and starts from the pose it reached), on a symmetric sine ease at the panel clock: a
+stacked reorder travels ~600 px, and the panel spring's overshoot on that travel carried the region
+into the dock band (o1109c); `--ease-out` left rest at five times its mean speed, so the reorder's
+first frame moved the picker 45-100 px (o1110 D3). A region that widens is not opened by a clip any
+more: the arriving card arrives at its width. Nothing the flip writes outlives its travel, so a
+KeepAlive-cached pane never carries a FLIP away.
 
-**G4 · Reduced motion.** The swap is a fade with no travel, never a cut: the dealt card fades in on
+**G3a · The press is answered before the commit.** A slot's pane commit waits until the frame
+after the change has painted (its animation frame, then a task posted from it). The first frame
+after a press, a link or Back carries only what reads the route (the dock's seat and glyph, the
+title), never a mount; an animation-frame callback runs before that frame's paint, so a commit
+made there was painted with it (the FORTIETH B-2: a 4x phone painted nothing for 290 to 1,623 ms
+after a change). The dock's view select also takes the chosen view on its own frame and hands
+the route the change after it (`DockViewSelect.vue`). A later swap before the commit supersedes
+it: one leave, one mount.
+
+**G4 · Reduced motion.** The swap is a fade with no travel, never a cut: the arriving card fades in on
 `--duration-fast` and the leaver out on `--duration-control`. glass's guard zeroes every CSS
 transition under `reduce`, so PaneSlot runs these two fades through the Web Animations API, which
 that guard does not reach. `flipRegions` does nothing under reduce.
 
 **G5 · Each box has one owner.** Region and survivor: G3. Dock content width: glass O-171 R-2. Menu
-plate: glass O-171 R-1. The row's split: G9. Document scroll: G6.
+plate: glass O-171 R-1. The row's split: G9 (it does not travel). Document scroll: G6.
 
 **G6 · Scroll.** The scroll offset is kept. The one exception is when the anchor region (the
 first) now ends above the viewport, which is the case where the browser would clamp anyway. Then
@@ -1017,13 +1060,15 @@ A → B → C into one leave and one rise, and a FLIP still in flight is the Fir
 
 **G8 · Clocks.** As in G2. The `(pane, resolved)` key and `PANE_LOAD_DELAY_MS = 200` are unchanged.
 
-**G9 · The split travels; the height does not.** A view change that keeps two regions but moves the
-split (Home 61.8 % to Palettes 33.3 %: the picker 651 to 450 px at 1440) interpolates
-`.pane-container`'s track list on `--spring-panel`, so the survivor's edge and its neighbour move
-with the dealt card instead of snapping at the input. A change of track count does not
-interpolate; G3 carries that hop. The scene's block size no longer travels (O16: the owner named
-the height tween as the expense); the container is `auto`, and the held height of O1105 round 2
-(`followHeight.ts`) is retired. Under reduced motion the split does not transition.
+**G9 · Neither the split nor the height travels.** The owner's FORTIETH order, A ("a strange
+re-sizing issue on the main page") retired the track tween of O1105: Home 61.8 % to Library 33.3 %
+narrowed the picker from ~675 to ~480 px over 250 ms with its spectrum reflowing on every frame.
+The shared picker now stands on one track on all four routes that show it (Layout), so no layout
+property animates during a page change. A stage that changes the split (a workbench beside the
+shared picker) re-lays once, at its commit, as the card hands over; the leaver keeps
+the inline and block size it was drawn at for its exit (PaneSlot `hideLeaving`). The scene's block
+size does not travel either (O16: the owner named the height tween as the expense); the container
+is `auto`, and the held height of O1105 round 2 (`followHeight.ts`) is retired.
 
 **The retired grammar (OD19-V7, X.W5.d2), quoted once.** PaneSlot ran `mode="out-in"`, and the swap
 was opacity-led:
@@ -1069,6 +1114,8 @@ paint.
 - **Fraunces — the atlas/display voice.** Display rungs ONLY: `.text-display-*`, `.font-display`,
   pane titles, the space-title plate caption, markdown headings and section headings.
     - The variable axes (`opsz` 9–144, `WONK` / `SOFT`) apply through the glass-ui utilities.
+    - The picker's hero readout is Fraunces at the title's own rung, integer 700 and fraction
+      400, tabular (§ 6.2).
     - Fraunces is SELF-HOSTED, from `demo/app/public/fonts/`, declared in `demo/app/index.html`: variable woff2,
       with the latin-normal face preloaded as the tnum-minted build. There are zero cross-origin font
       requests.
@@ -1124,6 +1171,12 @@ required:
    of its format up front. For example, a `-125.0`-class channel reserves `min-width: 7ch` at its
    own font. Sign flips, added decimals and unit swaps then re-ink the SAME box instead of
    re-flowing the row. A locked readout row has no `flex-wrap`.
+
+**The hero number stands at the title's rung** (his FORTIETH order, G: "a bit larger and
+audacious"; this retires X.W12.d's cap one ladder step below the title). The picker's readout is
+fitted to the catalog's worst-case tuple over the header's own content box, never above
+`--type-display-2`, with the integer at 700 and the fraction at 400. The card-lock law below is
+unchanged: every space stays one line, and no value change moves the card.
 
 The picker readout applies the law: the int/frac/unit span split and the declared `tabular-nums`
 in `demo/picker/display/ColorComponentDisplay/ColorComponentDisplay.vue`, plus the static
@@ -1186,6 +1239,27 @@ shipped `ButtonEmphasis` (`primary` · `secondary` · `quiet` · `text`). A "gho
 glass register, and no call site re-creates one with utilities.
 `demo/palettes/admin/UserSortMenu.vue` is the ruled site (X-W10 ruling; `docs/tranches/X/design/APOTHEOSIS.md` A-13).
 
+**Law S-8 (the touch grammar: a page that scrolls keeps scrolling).** For every control in a page
+that scrolls, under a finger:
+
+- up and down is the page's;
+- sideways is the control's, from where the finger landed;
+- a tap sets;
+- the handle is always yours, in both axes.
+
+The control declares `touch-action: pan-y`, so the browser pans on the compositor from the first
+pixel with no script in the way. Its press is held until the finger has travelled 6 px, and the
+larger axis decides. A mouse or a pen is never held. There is no arming, no timer and no caption;
+the cue, where one helps, is the handle's own small rise while held. The one primitive is
+`demo/shared/touch-intent/touchIntent.ts`, and its state is `data-touch-intent`
+(`idle` · `held` · `drag`), presentation only. A control that needs both axes keeps a handle that is
+`touch-action: none` and exempt from the lock (the colour field's dot). Nothing listens to
+`touchmove` without `passive`.
+
+**The scrubber is pulled by its fill (FORTY-SECOND C).** A scalar slider's thumb paints the fill's own
+colour through glass's `--slider-thumb-bg` (`foundation.css`), so the fill's rounded end is the
+handle and no disc shows. The thumb's form stays glass's; the spectrum rings are untouched.
+
 ---
 
 ## 7 · Anti-patterns (§ Idioms NOT used)
@@ -1245,6 +1319,7 @@ A reviewer flags each of these on sight.
 | a value-bearing readout set as prose                                                           | S-2                      | OM-13                            |
 | a floating, unanchored glyph                                                                   | S-3                      | §0ej frame                       |
 | a route-local verb seat                                                                        | S-6                      | §0k.3 S-2                        |
+| a control in a scrolling page that takes a vertical swipe, an arm that expires, a non-passive `touchmove` | S-8      | the 19 Nov scrolling ruling      |
 | a local shim over a producer-owned motion or material defect                                   | § 5.4                    | O-88                             |
 | a line-number anchor into a deletable file, or a path that does not exist                      | Authority                | G-3                              |
 

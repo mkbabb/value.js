@@ -80,7 +80,8 @@
 
 /* X.W12.d — the readout does NOT re-key on condense: it is already the
  * compact one-line register at rest (ColorComponentDisplay: the measure-fitted
- * rung, capped at `--type-display-1`, one line for every shown space). */
+ * rung, at most the title's `--type-display-2` since color-40 G, one line for
+ * every shown space). */
 
 /* The strip is TIGHT: the blob's at-rest vertical reservation on the title row
  * (seat.css `--blob-fp`-derived min-height) is released on condense — the

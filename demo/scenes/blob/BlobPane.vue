@@ -81,8 +81,10 @@ const SECTIONS: SliderSection[] = [
             s("color.hueRange", "Hue range", 0, 60, 1),
             s("color.satShift", "Saturation", -0.2, 0.2, 0.005),
             s("color.brightnessShift", "Brightness", -0.15, 0.15, 0.005),
-            s("color.colorNoiseFreq", "Noise frequency", 0.5, 8.0, 0.1),
-            s("color.colorNoiseSpeed", "Noise speed", 0.0, 0.3, 0.005),
+            // the FORTIETH I (de-dupe): the membrane's pair above holds the
+            // bare names, so these two say whose noise they set
+            s("color.colorNoiseFreq", "Color noise frequency", 0.5, 8.0, 0.1),
+            s("color.colorNoiseSpeed", "Color noise speed", 0.0, 0.3, 0.005),
         ],
     },
     {
