@@ -1,5 +1,5 @@
 import { test, expect, type Locator } from "@playwright/test";
-import { mainPane } from "./fixtures/dock";
+import { mainPane, paneSettled } from "./fixtures/dock";
 
 /**
  * Small remnants (critique P-01, H-02, E-01).
@@ -38,6 +38,10 @@ test("H-02: at 390 the About card shares the picker card's edges", async ({ page
     const about = page.locator(".about-pane .pane-shell__card").first();
     await expect(about).toBeAttached({ timeout: 60_000 });
     await expect(picker).toBeVisible();
+    // The edges are read at rest: the cards arrive on a transform (the first
+    // load's settle, a region's move), and a box read mid-arrival is a pose,
+    // not the layout (at rest both stand at x 12, 366 wide).
+    await paneSettled(page);
     const p = (await picker.boundingBox())!;
     const a = (await about.boundingBox())!;
     expect(Math.abs(a.x - p.x)).toBeLessThanOrEqual(1);
