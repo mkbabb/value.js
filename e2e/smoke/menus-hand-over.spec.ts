@@ -21,11 +21,34 @@ test.describe("an open menu hands over to the next press", () => {
         await expect(main.getByRole("article").first()).toBeVisible({ timeout: 60_000 });
 
         const first = main.getByRole("button", { name: "Palette menu for Wall Palette 1", exact: true });
-        const second = main.getByRole("button", { name: "Palette menu for Wall Palette 2", exact: true });
 
         await first.click();
         await expect(first).toHaveAttribute("aria-expanded", "true");
         await expect(page.getByRole("menu")).toHaveCount(1);
+
+        // The second press goes to a card whose trigger the open menu does not
+        // cover: a press on a point under the menu is a press on the menu. The
+        // menu opens below its trigger and can reach the next card's "…", so
+        // the trigger is chosen from the cards on screen by its box, read once
+        // the menu has opened to its size.
+        await page.waitForTimeout(400);
+        const menuBox = (await page.getByRole("menu").boundingBox())!;
+        const viewport = page.viewportSize()!;
+        let secondName = "";
+        for (let n = 2; n <= 12 && !secondName; n++) {
+            const box = await main
+                .getByRole("button", { name: `Palette menu for Wall Palette ${n}`, exact: true })
+                .boundingBox();
+            if (!box || box.y < 0 || box.y + box.height > viewport.height) continue;
+            const clear =
+                box.x + box.width <= menuBox.x ||
+                box.x >= menuBox.x + menuBox.width ||
+                box.y + box.height <= menuBox.y ||
+                box.y >= menuBox.y + menuBox.height;
+            if (clear) secondName = `Palette menu for Wall Palette ${n}`;
+        }
+        expect(secondName, "a second card's trigger on screen, clear of the open menu").not.toBe("");
+        const second = main.getByRole("button", { name: secondName, exact: true });
 
         // A modal menu leaves the body unpressable: this press would time out.
         await second.click({ timeout: 3_000 });
