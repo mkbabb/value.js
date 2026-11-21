@@ -74,8 +74,15 @@ function openRepository(): void {
     <div ref="sectionRoot" class="hidden lg:flex items-center gap-1">
 
         <!-- Logged in: "Account" button with dropdown -->
+        <!-- The desk dock's three menus stay modal. glass's DockTrigger opens
+             its menu on pointerdown, and the press's mousedown then focuses
+             the trigger, taking focus back from the menu: a non-modal menu
+             opened by a click never holds focus, so the arrow keys do not
+             reach it. The modal menu's focus trap returns it. The card, sort
+             and action-bar menus (reka's own trigger) are non-modal, and so is
+             the phone's Menu, which hands over to the view select beside it. -->
         <template v-if="pm.userSlug.value">
-            <DropdownMenu v-model:open="profileMenuOpen">
+            <DropdownMenu v-model:open="profileMenuOpen" modal>
                 <!-- X.W12.e (OA-22): the trigger IS glass's dock dropdown
                      trigger — its plate (transparent at rest, the
                      --dock-control-hover/active-bg tiers) and its stadium
@@ -144,7 +151,7 @@ function openRepository(): void {
              glass's .gold-shimmer swept a clipped gradient on an infinite loop
              under an inline colour that hid it — motion with no state. -->
         <template v-else-if="pm.isAdminAuthenticated.value">
-            <DropdownMenu v-model:open="profileMenuOpen">
+            <DropdownMenu v-model:open="profileMenuOpen" modal>
                 <DockTrigger
                     for="dropdown"
                     class="gap-1.5 text-mono-small font-bold whitespace-nowrap gold-ink"
@@ -192,7 +199,7 @@ function openRepository(): void {
 
     <!-- @mbabb menu -->
     <div class="hidden lg:flex items-center">
-        <DropdownMenu v-model:open="mbabbMenuOpen">
+        <DropdownMenu v-model:open="mbabbMenuOpen" modal>
             <!-- S.W7-6 (design-dock-shell P1-8): the @mbabb WORDMARK, not a
                  section caption — text-mono-small is the non-transforming
                  mono rung. Lowercase is the mark. X.W12.e (OA-22): it sits on
