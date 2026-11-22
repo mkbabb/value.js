@@ -73,13 +73,9 @@
  *                  cycles, slug bar, rename reveal). Snappy spring, fast
  *                  fades; optional height morph via --vj-morph-collapse/
  *                  -expanded. Geometry: --vj-morph-x/-y/-scale (+ mirrored
- *                  exit via --vj-morph-exit-x/-y). A hand-over (out-in: the
- *                  old shrinks to a point of half strength and the new grows
- *                  out of it, so two never overlap and the seat is never
- *                  blank) sets --vj-morph-opacity (the strength they meet at)
- *                  and --vj-morph-clock (each leg's length, every
- *                  property on it: Vue times a leave by its longest leg, so
- *                  one longer leg held the hand-over).
+ *                  exit via --vj-morph-exit-x/-y). Its HAND-OVER form
+ *                  (`.vj-morph-handover` on the swapped element; a glyph that
+ *                  changes in its seat) never shows two at once: below.
  *   vj-celebrate — a ONE-SHOT feedback beat (saved!, error pop). Bouncy
  *                  spring entrance, quick retire. Geometry:
  *                  --vj-celebrate-x/-y/-scale (+ collapse/expanded).
@@ -112,26 +108,26 @@
 /* ── Family 2 · morph ── */
 .vj-morph-enter-active {
     transition:
-        opacity var(--vj-morph-clock, var(--duration-fast)) var(--ease-decelerate),
-        transform var(--vj-morph-clock, var(--spring-present-duration)) var(--spring-present),
-        max-height var(--vj-morph-clock, var(--duration-normal)) var(--ease-decelerate);
+        opacity var(--duration-fast) var(--ease-decelerate),
+        transform var(--spring-present-duration) var(--spring-present),
+        max-height var(--duration-normal) var(--ease-decelerate);
     overflow: hidden;
 }
 .vj-morph-leave-active {
     transition:
-        opacity var(--vj-morph-clock, var(--duration-fast)) var(--ease-accelerate),
-        transform var(--vj-morph-clock, var(--duration-fast)) var(--ease-accelerate),
-        max-height var(--vj-morph-clock, var(--duration-fast)) var(--ease-accelerate);
+        opacity var(--duration-fast) var(--ease-accelerate),
+        transform var(--duration-fast) var(--ease-accelerate),
+        max-height var(--duration-fast) var(--ease-accelerate);
     overflow: hidden;
 }
 .vj-morph-enter-from {
-    opacity: var(--vj-morph-opacity, 0);
+    opacity: 0;
     transform: translate(var(--vj-morph-x, 0px), var(--vj-morph-y, 0.25rem))
         scale(var(--vj-morph-scale, 0.97));
     max-height: var(--vj-morph-collapse, none);
 }
 .vj-morph-leave-to {
-    opacity: var(--vj-morph-opacity, 0);
+    opacity: 0;
     transform: translate(
             var(--vj-morph-exit-x, calc(-1 * var(--vj-morph-x, 0px))),
             var(--vj-morph-exit-y, calc(-1 * var(--vj-morph-y, 0.25rem)))
@@ -143,6 +139,59 @@
 .vj-morph-leave-from {
     max-height: var(--vj-morph-expanded, none);
 }
+/* The hand-over form (the FORTIETH K-1; CONVERGE 1: "never two glyphs
+ * overlapping mid-way", and never a blank seat). The old and the new are
+ * mounted together (the default mode), so the new one is in place on the
+ * change's first frame, and one keyframed clock hands over between them,
+ * exact in animation time however busy the main thread is (an out-in waits
+ * for the leave's end event and then a render, which a page change's mount
+ * delays by hundreds of ms on a 4x phone): the old shrinks to a point at half
+ * strength in `--duration-instant` and is gone; the new, hidden until then,
+ * grows out of that point at the same strength over the next
+ * `--duration-instant`. One glyph shows at every moment, never under half
+ * strength; done by 200 ms. Under reduced motion glass's guard zeroes both. */
+.vj-morph-handover.vj-morph-enter-active,
+.vj-morph-handover.vj-morph-leave-active {
+    transition: none;
+}
+.vj-morph-handover.vj-morph-leave-active {
+    animation: vj-handover-out var(--duration-instant) linear forwards;
+}
+.vj-morph-handover.vj-morph-enter-active {
+    animation: vj-handover-in calc(2 * var(--duration-instant)) linear both;
+}
+@keyframes vj-handover-out {
+    from {
+        opacity: 1;
+        transform: none;
+        animation-timing-function: cubic-bezier(0.4, 0, 1, 1);
+    }
+    99.9% {
+        opacity: 0.55;
+        transform: scale(var(--vj-morph-scale, 0.97));
+    }
+    to {
+        opacity: 0;
+        transform: scale(var(--vj-morph-scale, 0.97));
+    }
+}
+@keyframes vj-handover-in {
+    from,
+    49.9% {
+        opacity: 0;
+        transform: scale(var(--vj-morph-scale, 0.97));
+    }
+    50% {
+        opacity: 0.55;
+        transform: scale(var(--vj-morph-scale, 0.97));
+        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
 .vj-morph-move {
     transition: transform var(--spring-present-duration) var(--spring-present);
 }
