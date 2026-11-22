@@ -52,7 +52,10 @@
                 class="text-mono-small tabular-nums text-muted-foreground shrink-0"
                 :title="`${palette.colors.length} color${palette.colors.length === 1 ? '' : 's'}`"
             >{{ formatCount(palette.colors.length).text }}</span>
-            <!-- Priority 4 (first to yield): provenance + history counts. -->
+            <!-- Priority 4 (first to yield): provenance + history counts. The
+                 counts are figures that are read, so they take the count idiom's
+                 rung (the colour count's mono small, 14 px at 390), never the
+                 11 px micro step (his FORTY-SECOND A). -->
             <span
                 v-if="palette.forkOf"
                 class="palette-specimen__yield-4 items-center text-micro text-muted-foreground shrink-0"
@@ -62,21 +65,21 @@
             </span>
             <span
                 v-if="(palette.forkCount ?? 0) > 0"
-                class="palette-specimen__yield-4 items-center gap-0.5 text-micro text-muted-foreground shrink-0"
+                class="palette-specimen__yield-4 items-center gap-0.5 text-mono-small tabular-nums text-muted-foreground shrink-0"
                 data-count="forks"
                 :title="`${palette.forkCount} remix${palette.forkCount === 1 ? '' : 'es'}`"
             >
                 <GitFork class="w-3 h-3" aria-hidden="true" />
-                <span class="font-mono">{{ formatCount(palette.forkCount ?? 0).text }}</span>
+                <span>{{ formatCount(palette.forkCount ?? 0).text }}</span>
             </span>
             <span
                 v-if="(palette.versionCount ?? 0) > 1"
-                class="palette-specimen__yield-4 items-center gap-0.5 text-micro text-muted-foreground shrink-0"
+                class="palette-specimen__yield-4 items-center gap-0.5 text-mono-small tabular-nums text-muted-foreground shrink-0"
                 data-count="versions"
                 :title="`${palette.versionCount} versions`"
             >
                 <History class="w-3 h-3" aria-hidden="true" />
-                <span class="font-mono">{{ formatCount(palette.versionCount ?? 0).text }}</span>
+                <span>{{ formatCount(palette.versionCount ?? 0).text }}</span>
             </span>
         </div>
     </div>
