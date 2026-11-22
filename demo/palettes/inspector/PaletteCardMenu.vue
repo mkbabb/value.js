@@ -290,11 +290,14 @@ const reducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
 /*
  * The phone's two pages in one plate. On a swap both pages are mounted for
  * its length (the leaving one inert and out of flow), the plate's block size
- * travels from the leaving page's to the arriving page's, and the pages cross
- * over; then the leaving page unmounts, so the menu's keyboard walk sees one
- * page's rows. Driven through the Web Animations API, so reduced motion (where
- * the CSS transitions are zeroed) keeps a fade rather than a cut: there the
- * pages fade without travel.
+ * travels from the leaving page's to the arriving page's, and the pages hand
+ * over: the leaving rows are gone in the swap's first 40 %, and the arriving
+ * rows come in from a third of the way, so one rendering of the menu shows at
+ * a time (a cross-over printed both pages legibly at 150 ms). Then the leaving
+ * page unmounts, so the menu's keyboard walk sees one page's rows. Driven
+ * through the Web Animations API, so reduced motion (where the CSS transitions
+ * are zeroed) keeps a fade rather than a cut: there the pages fade without
+ * travel.
  */
 type Page = "root" | "export";
 const page = ref<Page>("root");
@@ -331,6 +334,9 @@ async function go(next: Page) {
     const ms = still ? FADE_MS : SWAP_MS;
     const ease = "cubic-bezier(0.2, 0, 0, 1)";
     const shift = next === "export" ? 1 : -1;
+    // The hand-over: out in the first 40 %, in from a third of the way.
+    const outMs = Math.round(ms * 0.4);
+    const inDelay = Math.round(ms / 3);
     swap = [
         host.animate([{ blockSize: `${from}px` }, { blockSize: `${to}px` }], { duration: ms, easing: ease }),
         arriving.animate(
@@ -340,7 +346,7 @@ async function go(next: Page) {
                       { opacity: 0, translate: `${1.5 * shift}rem 0` },
                       { opacity: 1, translate: "0 0" },
                   ],
-            { duration: ms, easing: ease },
+            { duration: ms - inDelay, delay: inDelay, fill: "backwards", easing: ease },
         ),
     ];
     if (departing) {
@@ -350,9 +356,9 @@ async function go(next: Page) {
                     ? [{ opacity: 1 }, { opacity: 0 }]
                     : [
                           { opacity: 1, translate: "0 0" },
-                          { opacity: 0, translate: `${-1.5 * shift}rem 0` },
+                          { opacity: 0, translate: `${-0.75 * shift}rem 0` },
                       ],
-                { duration: ms, easing: ease },
+                { duration: outMs, easing: "ease-out" },
             ),
         );
     }
