@@ -20,6 +20,8 @@
         data-color-surface
         :data-swatch="size"
         class="swatch-button swatch-seat relative shrink-0 cursor-pointer"
+        @pointerenter="rimFade($event, true)"
+        @pointerleave="rimFade($event, false)"
     >
         <!-- The paper chip (owner 2026-11-10, "containers, like a watercolor
              swatch"): with `chip`, the paint sits inset on a paper card
@@ -68,6 +70,22 @@ export type SwatchSize = "sm" | "md" | "lg" | "xl" | "fill" | "fluid";
 /** No wrapper: the dot alone, as every unchipped swatch has it. */
 const Bare: FunctionalComponent = (_, { slots }) => slots.default?.();
 Bare.inheritAttrs = false;
+
+/** Reduced motion is a fade, never a cut. glass's guard zeroes every CSS
+ *  transition under `reduce`, so the hover's rim deepen (the wet number's
+ *  0.6 s clock) would cut; there it runs through the Web Animations API as a
+ *  short fade of the same number, as the page swap's fade does. A mouse only,
+ *  as the hover rule is. */
+function rimFade(e: PointerEvent, on: boolean) {
+    if (e.pointerType !== "mouse" || !matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const paint = (e.currentTarget as HTMLElement | null)?.querySelector<HTMLElement>(
+        '.watercolor-swatch[data-variant="solid"]',
+    );
+    paint?.animate([{ "--swatch-hover": on ? 0 : 1 }, { "--swatch-hover": on ? 1 : 0 }], {
+        duration: on ? 150 : 120,
+        easing: "ease-out",
+    });
+}
 
 const {
     color,
@@ -179,7 +197,8 @@ const {
     }
 }
 
-/* Reduced motion: the rim's tone alone; the outline and the size hold. */
+/* Reduced motion: the rim's tone alone, faded by `rimFade`; the outline and
+   the size hold. */
 @media (prefers-reduced-motion: reduce) {
     .swatch-button :deep(.watercolor-swatch[data-variant="solid"]) {
         border-radius: var(--watercolor-radius);
