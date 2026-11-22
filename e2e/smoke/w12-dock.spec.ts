@@ -120,6 +120,13 @@ test.describe("X.W12.e — the dock sits on glass's primitives", () => {
         const readings: PillReading[] = [];
         for (const name of ["Login", "@mbabb"]) {
             const pill = dockButton(page, name);
+            // The pills are read on the open dock, as a user reaches them:
+            // glass folds the unhovered desk dock 3.6 s after mount or after
+            // the pointer leaves it, and a fold landing just after rest hid
+            // Login under the hover below (the hover then waited out the test).
+            // expandDock opens a folded dock and rests the pointer on it; the
+            // rest plate is still read with the pointer away, inside that 3.6 s.
+            await expandDock(page);
             await expect(pill).toBeVisible();
             await page.mouse.move(2, 2);
             await page.waitForTimeout(400);
