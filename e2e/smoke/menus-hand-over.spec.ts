@@ -58,6 +58,14 @@ test.describe("an open menu hands over to the next press", () => {
     });
 
     test("phone dock: the view select opens while the overflow menu is open", async ({ page }) => {
+        // The phone's Menu is modal again (MobileMenuDropdown.vue): glass's
+        // DockTrigger opens its menu on pointerdown, and in WebKit the same
+        // press's mousedown moves focus to the dock face, which a non-modal
+        // menu reads as focus leaving and closes at once (oracles-safari,
+        // V7R-01 at 390). A modal menu holds the body, so this hand-over waits
+        // on glass's trigger keeping focus in the menu it opens; take the mark
+        // off with the site's `modal` at that release.
+        test.fail(true, "waits on glass's DockTrigger keeping focus in a menu it opens on pointerdown");
         await page.setViewportSize({ width: 390, height: 844 });
         await page.goto("/#/");
         await expect(mainPane(page)).toBeVisible({ timeout: 60_000 });
