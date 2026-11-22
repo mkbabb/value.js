@@ -21,12 +21,16 @@
                      `camera=()`). -->
                 <!-- color-40 M: loaded, the zone is the photo at its own shape
                      under `--photo-cap` (ImageDropZone); the empty zone keeps
-                     its floor. Both caps are in `svh`, never `dvh`. -->
+                     its floor. Every cap is in `svh`, never `dvh`. The column's
+                     phone cap would leave a desk's photo at phone size in a
+                     card twice its width, so from `lg` the cap is half the
+                     screen's height (32rem at most): the photo, still whole,
+                     is the largest thing in the card. -->
                 <ImageDropZone
                     :class="
                         layout === 'split'
                             ? 'flex-1 min-h-0 sm:max-h-[min(400px,50svh)] [--photo-cap:min(400px,50svh)]'
-                            : 'min-h-[180px] max-h-[min(20rem,40svh)] [--photo-cap:min(20rem,40svh)]'
+                            : 'min-h-[180px] max-h-[min(20rem,40svh)] [--photo-cap:min(20rem,40svh)] lg:max-h-[min(32rem,50svh)] lg:[--photo-cap:min(32rem,50svh)]'
                     "
                     :preview="session.previewUrl.value"
                     :disabled="session.isProcessing.value"

@@ -98,7 +98,8 @@ const zoneRef = useTemplateRef<HTMLElement>("zoneRef");
 // color-40 M (his FORTIETH order: "the extract page, on scroll, resizes the
 // entire image and container"): a loaded zone IS the photo, shown whole at its
 // own shape, as wide as the column allows while its height stays under the
-// host's cap (`--photo-cap`, `min(20rem, 40svh)` in the pane's column). The cap
+// host's cap (`--photo-cap`: `min(20rem, 40svh)` in the pane's column on a phone,
+// `min(32rem, 50svh)` from `lg`). The cap
 // is in `svh`, which Safari's bars do not move, so a scroll cannot resize it,
 // and a real height lets `object-contain` contain: the box had only min and
 // max heights in `dvh`, so the image overflowed it and its middle was shown
