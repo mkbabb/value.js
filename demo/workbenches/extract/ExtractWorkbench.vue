@@ -37,7 +37,7 @@
                     @file="onFile"
                     @open="openFilePicker"
                     @sample="session.eyedropperOpen.value = true"
-                    @aspect="photoAspect = $event"
+                    @aspect="onPhotoShown"
                 />
 
                 <!-- X-DS pass 9 (V9C-06): the image actions are SOURCE actions, so they
@@ -212,6 +212,7 @@ import { numberCodec, useUrlState } from "../../shell/urlState";
 import ImageDropZone from "./ImageDropZone.vue";
 import ExtractControls from "./ExtractControls.vue";
 import ImageEyedropper from "./ImageEyedropper/ImageEyedropper.vue";
+import { warmDecodedImage } from "./ImageEyedropper/composables/decodedImage";
 import PaletteCardSkeleton from "../../shared/ui/PaletteCardSkeleton.vue";
 import PaletteInspector from "../../palettes/inspector/PaletteInspector.vue";
 
@@ -246,6 +247,13 @@ useUrlState(["extract"], [
 const eyedropperHeld = ref(false);
 /** The loaded photo's shape: the eyedropper opens at the photo's size. */
 const photoAspect = ref<number | null>(null);
+/** The page's photo has loaded: its shape is kept, and the eyedropper's copy
+ *  is decoded now, so the dialog's first frame already shows the photo. */
+function onPhotoShown(ratio: number) {
+    photoAspect.value = ratio;
+    const url = session.previewUrl.value;
+    if (url) warmDecodedImage(url);
+}
 watch(
     session.eyedropperOpen,
     (open) => {

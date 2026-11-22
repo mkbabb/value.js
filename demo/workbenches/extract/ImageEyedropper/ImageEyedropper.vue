@@ -87,7 +87,7 @@
                 <canvas
                     ref="canvasRef"
                     class="origin-top-left will-change-transform eyedropper-canvas"
-                    :class="gesture.gestureActive.value ? 'no-transition' : ''"
+                    :class="gesture.gestureActive.value || !fitted ? 'no-transition' : ''"
                     :style="canvasStyle"
                     aria-hidden="true"
                 />
@@ -397,7 +397,8 @@ const frameVars = computed(() => ({
     "--ed-chrome": `${Math.ceil((barH.value || 52) + footH.value)}px`,
 }));
 const stageStyle = computed(() => ({
-    // The photo as the page already decoded it shows until the canvas paints.
+    // The photo as the page shows it, until the canvas paints (the page warms
+    // the canvas's decode when its own photo loads, so this is a fallback).
     backgroundImage: sampler.imageLoaded.value ? undefined : `url("${imageUrl}")`,
 }));
 
@@ -411,10 +412,17 @@ const wellVars = computed(() => {
     return vars;
 });
 
+/** The photo has had its first fit and the dialog its first frames: from
+ *  here a pan or zoom eases. Until then every fit lands at once, so the
+ *  opening shows the photo at its fitted size from the first frame (the
+ *  chrome's measures can refit it once before the first paint). */
+const fitted = ref(false);
 async function loadAndFit() {
+    fitted.value = false;
     await sampler.loadImage(imageUrl);
     await nextTick();
     gesture.fitToViewport();
+    requestAnimationFrame(() => requestAnimationFrame(() => (fitted.value = true)));
 }
 
 // SS8-0726: each confirmation re-writes the status text (cleared first, so a

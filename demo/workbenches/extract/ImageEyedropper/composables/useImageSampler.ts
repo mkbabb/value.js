@@ -14,6 +14,7 @@
  * Extracted from `ImageEyedropper.vue` at D.W3 Lane A (De §2.4 split).
  */
 import { ref, type Ref } from "vue";
+import { decodedImage } from "./decodedImage";
 import type { SpaceId } from "@mkbabb/value.js/color";
 import { parseCssColor } from "@mkbabb/value.js/css";
 import {
@@ -46,29 +47,6 @@ function formatLibraryColor(color: PickerColor): string {
         : Number(channel.toFixed(4)).toString());
     const alpha = color.alpha === 1 ? "" : ` · α ${color.alpha}`;
     return `${color.space.toUpperCase()} ${channels.join(" · ")}${alpha}`;
-}
-
-/**
- * The photo, decoded once (color-40 N-5). `decode()` runs off the main thread
- * before the draw (a bare `drawImage` decoded a 12 MP photo synchronously,
- * 273 ms at 4x), and the last photo is kept, so opening the eyedropper again
- * on the same photo decodes nothing.
- */
-let lastDecoded: { url: string; img: Promise<HTMLImageElement> } | null = null;
-function decodedImage(url: string): Promise<HTMLImageElement> {
-    if (lastDecoded?.url === url) return lastDecoded.img;
-    const img = new Promise<HTMLImageElement>((resolve, reject) => {
-        const el = new Image();
-        el.crossOrigin = "anonymous";
-        el.onload = () => resolve(typeof el.decode === "function" ? el.decode().then(() => el, () => el) : el);
-        el.onerror = reject;
-        el.src = url;
-    });
-    lastDecoded = { url, img };
-    img.catch(() => {
-        if (lastDecoded?.img === img) lastDecoded = null;
-    });
-    return img;
 }
 
 export function useImageSampler(deps: ImageSamplerDeps) {
