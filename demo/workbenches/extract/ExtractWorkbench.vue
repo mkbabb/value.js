@@ -21,19 +21,19 @@
                      `camera=()`). -->
                 <!-- color-40 M: loaded, the zone is the photo at its own shape
                      under `--photo-cap` (ImageDropZone); the empty zone keeps
-                     its floor. Every cap is in `svh`, never `dvh`. The column's
-                     phone cap would leave a desk's photo at phone size in a
-                     card twice its width, so from `lg` the cap is half the
-                     screen's height (32rem at most): the photo, still whole,
-                     is the largest thing in the card. It never takes so much
-                     that the result's strip leaves the first screen (27rem is
-                     the card's head, the image actions, the two sliders and
-                     the strip): a 720 px laptop keeps the phone's 288. -->
+                     its floor. Every cap is in `svh`, never `dvh`. On a desk
+                     (from `lg`) the photo, still whole, takes the height the
+                     first screen has left once the extracted palette's
+                     swatches are on it (35rem: the page above the photo, the
+                     image actions, the two sliders, the palette's band, head
+                     and swatches), up to half the screen and 32rem; never
+                     less than the phone column's cap. 1440x900 gives 340,
+                     1920x1080 512, and a 720 px laptop keeps 288. -->
                 <ImageDropZone
                     :class="
                         layout === 'split'
                             ? 'flex-1 min-h-0 sm:max-h-[min(400px,50svh)] [--photo-cap:min(400px,50svh)]'
-                            : 'min-h-[180px] max-h-[min(20rem,40svh)] [--photo-cap:min(20rem,40svh)] lg:max-h-[min(32rem,50svh,calc(100svh_-_27rem))] lg:[--photo-cap:min(32rem,50svh,calc(100svh_-_27rem))]'
+                            : 'min-h-[180px] max-h-[min(20rem,40svh)] [--photo-cap:min(20rem,40svh)] lg:max-h-[clamp(min(20rem,40svh),calc(100svh_-_35rem),min(32rem,50svh))] lg:[--photo-cap:clamp(min(20rem,40svh),calc(100svh_-_35rem),min(32rem,50svh))]'
                     "
                     :preview="session.previewUrl.value"
                     :disabled="session.isProcessing.value"
