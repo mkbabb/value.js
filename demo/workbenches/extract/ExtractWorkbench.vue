@@ -25,12 +25,15 @@
                      phone cap would leave a desk's photo at phone size in a
                      card twice its width, so from `lg` the cap is half the
                      screen's height (32rem at most): the photo, still whole,
-                     is the largest thing in the card. -->
+                     is the largest thing in the card. It never takes so much
+                     that the result's strip leaves the first screen (27rem is
+                     the card's head, the image actions, the two sliders and
+                     the strip): a 720 px laptop keeps the phone's 288. -->
                 <ImageDropZone
                     :class="
                         layout === 'split'
                             ? 'flex-1 min-h-0 sm:max-h-[min(400px,50svh)] [--photo-cap:min(400px,50svh)]'
-                            : 'min-h-[180px] max-h-[min(20rem,40svh)] [--photo-cap:min(20rem,40svh)] lg:max-h-[min(32rem,50svh)] lg:[--photo-cap:min(32rem,50svh)]'
+                            : 'min-h-[180px] max-h-[min(20rem,40svh)] [--photo-cap:min(20rem,40svh)] lg:max-h-[min(32rem,50svh,calc(100svh_-_27rem))] lg:[--photo-cap:min(32rem,50svh,calc(100svh_-_27rem))]'
                     "
                     :preview="session.previewUrl.value"
                     :disabled="session.isProcessing.value"
