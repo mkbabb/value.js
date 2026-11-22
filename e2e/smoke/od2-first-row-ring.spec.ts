@@ -20,9 +20,37 @@ import { test, expect } from "@playwright/test";
 
 const ROUTES = ["/browse", "/palettes", "/extract", "/generate", "/gradient"] as const;
 
+// My Palettes' search row stands only when there is a library to search
+// (P-01: an empty library shows no search field over "No saved palettes
+// yet"), so the routes that show My Palettes are read with one saved palette
+// (a local seed; no server writes) and the bar is there to focus.
+const SAVED = [
+    {
+        id: "od2",
+        name: "Seed",
+        slug: "od2",
+        colors: ["oklch(0.72 0.16 20)", "oklch(0.72 0.16 140)", "oklch(0.72 0.16 260)"].map(
+            (css, position) => ({ css, position }),
+        ),
+        createdAt: "2026-10-19T00:00:00.000Z",
+        updatedAt: "2026-10-19T00:00:00.000Z",
+        isLocal: true,
+        published: false,
+        visibility: "private",
+        tags: [],
+    },
+];
+
 for (const route of ROUTES) {
     test(`OD-2 — a focused first-row bar's ring fits inside the port (${route})`, async ({ page }) => {
         test.setTimeout(90_000);
+        await page.addInitScript((saved) => {
+            try {
+                localStorage.setItem("color-palettes", JSON.stringify({ version: 1, palettes: saved }));
+            } catch {
+                /* private window */
+            }
+        }, SAVED);
         await page.goto(`/#${route}`, { timeout: 60_000 });
         const input = page.locator("main .pane-scroll-fade .input-bar input").first();
         await expect(input).toBeVisible({ timeout: 30_000 });

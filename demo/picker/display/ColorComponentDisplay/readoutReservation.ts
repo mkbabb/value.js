@@ -62,8 +62,11 @@ export function readoutDecimals(space: string, component: string): number {
  * advance at their own (narrower) widths. Counting them at 1ch each — the
  * retired approximation — over-reserved ~0.5ch per fractional cell. The
  * ratios below are the artifact's own advances at the readout's rendered
- * instances (measured w300/w600 · opsz 41: dot ≤ 0.39ch, hyphen ≤ 0.59ch),
- * carried with a safety margin. */
+ * instances, carried with a safety margin. color-40 G re-took them at the
+ * weights the figures now wear (the fraction, which holds the dot, at 400;
+ * the integer, which holds the sign, at 700), read off the shipped woff2's
+ * instances at the rendered optical sizes 30 to 53: dot ≤ 0.36ch, hyphen
+ * ≤ 0.60ch (the dot at 700 would still be 0.44ch). The margins hold. */
 const DOT_CH = 0.45;
 const SIGN_CH = 0.65;
 
@@ -128,8 +131,9 @@ export function readoutCh(space: string, component: string): number {
  * THE MEASURE now comes first: `READOUT_MEASURE_CH` is the widest SHOWN
  * tuple in the catalog at its worst case (lab: `100.0, -125.0, -125.0` =
  * 16.15ch), and the rung is sized so that measure is ONE line of the header
- * (ColorComponentDisplay: `font-size: min(--type-display-1, 100cqi /
- * --readout-measure)`, the measure bound in em through the tnum cell). Every
+ * (ColorComponentDisplay: `font-size: min(--type-display-2, 100cqi /
+ * --readout-measure)` over the header's content box since color-40 G, the
+ * measure bound in em through the tnum cell). Every
  * shown space is therefore a one-line space BY CONSTRUCTION — the line lock
  * is the painted line, the card rect still never moves on a value change,
  * and nothing is reserved that does not ink.

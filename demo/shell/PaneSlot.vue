@@ -32,15 +32,16 @@
 // measured 1275 ms window (fold W5F-02). Reporting the key with the instance
 // makes that cross-wiring unrepresentable.
 //
-// ── DEALT CARDS — default mode, and why (owner orders 2026-11-05,
-//    2026-11-09, 2026-11-13; demo/DESIGN.md §5.7, the transition grammar) ──
+// ── THE TEXT HANDS OVER — default mode, and why (owner orders 2026-11-05,
+//    2026-11-09, 2026-11-13, the FORTIETH; demo/DESIGN.md §5.7) ──
 //
 // The <Transition> below runs the DEFAULT mode: the leaving card and the
-// dealt card are co-mounted for one gesture, the top card sliding off one
-// side as the next is dealt in from the other, the side following the move
-// (`data-scene-direction`, below). The
+// arriving card are co-mounted for one gesture. The leaver slides off toward
+// the side the move leaves by (`data-scene-direction`, below) and is gone by
+// the control clock; the arriving card's plate is on its seat from its first
+// frame and its text comes in as the leaver clears. The
 // leaving card is taken OUT OF FLOW (`animations.css`: absolute in the
-// wrapper, inert, under the dealt card), so the region is
+// wrapper, inert, under the arriving card), so the region is
 // sized by the riser alone from the commit frame. That is what retired
 // `out-in` (X.W5.d2 → OD19-V7, quoted in DESIGN.md §5.7): the serialised
 // leave held the region EMPTY between the two panes and faded both, and the
@@ -155,10 +156,16 @@ const appearGrammar = import.meta.env.SSR
       };
 
 // W3-4 (S.W3 · pane-swap payload): the rendered triplet TRAILS the incoming
-// props by one animation frame on a KEY change (a real pane swap), so the
-// click frame paints nothing but the input's own feedback, and rapid A→B→C
-// swaps COALESCE into one leave and one mount (only the latest pane is
-// committed), instead of queueing a leave per intermediate key.
+// props on a KEY change (a real pane swap), so the click frame paints nothing
+// but the input's own feedback, and rapid A→B→C swaps COALESCE into one leave
+// and one mount (only the latest pane is committed), instead of queueing a
+// leave per intermediate key.
+// The FORTIETH order, B-2 ("the press is answered before the work"): the
+// commit waits until that frame has PAINTED (its animation frame, then a task
+// posted from it). Committed inside the animation frame, as it was, the mount
+// ran before the frame's paint, so the first frame after a press or a route
+// change carried the whole commit (a 4x phone painted nothing for 290 to
+// 1,623 ms).
 // Same-key prop updates flow through LIVE (the active pane never lags its
 // colour). The initial render and any swap with no enter animation commit
 // immediately (no blank frame).
@@ -183,6 +190,22 @@ const livePane = computed(() =>
 
 let raf = 0;
 let hold = 0;
+// the commit a later swap supersedes (coalescing) or an unmount retires
+let pending = 0;
+let afterPaintChannel: MessageChannel | null = null;
+const afterPaintRuns: (() => void)[] = [];
+
+/** Runs `run` in a task after the next frame has painted. */
+function afterPaint(run: () => void) {
+    raf = requestAnimationFrame(() => {
+        if (afterPaintChannel === null) {
+            afterPaintChannel = new MessageChannel();
+            afterPaintChannel.port1.onmessage = () => afterPaintRuns.shift()?.();
+        }
+        afterPaintRuns.push(run);
+        afterPaintChannel.port2.postMessage(null);
+    });
+}
 
 function commit(key: string) {
     liveComponent.value = component;
@@ -196,7 +219,10 @@ function schedule(key: string) {
         commit(key);
         return;
     }
-    raf = requestAnimationFrame(() => void flip(() => commit(key)));
+    const mine = ++pending;
+    afterPaint(() => {
+        if (mine === pending) void flip(() => commit(key));
+    });
 }
 
 // X.W12.b (OA-25 — one enter per region): a swap to a lazy pane whose chunk
@@ -210,6 +236,7 @@ watch(
     () => componentKey,
     (key) => {
         cancelAnimationFrame(raf);
+        pending++;
         window.clearTimeout(hold);
         const loading = component === null ? null : preloadPane(component);
         if (loading === null) {
@@ -308,19 +335,43 @@ function reportMount(instance: TInstance | null) {
 // it. Out of flow it is no longer sized by the row, and a companion that
 // follows the row (About beside the picker, a port over 21 sections) would
 // otherwise unroll to its whole content for the length of its discard. The
-// stamp is cleared on enter with the others.
+// stamp is cleared on enter with the others. The size is read BEFORE the
+// stamps are written: the commit's layout is still clean here, and a read
+// after an attribute write would force a style and layout of its own inside
+// the commit (the FORTIETH B: one read, one write).
+//
+// The FORTIETH order, A: the leaver keeps its drawn INLINE size too. A stage
+// whose split changes at the commit (the shared picker leaving for a
+// workbench) would otherwise be re-laid at the next pane's width for the
+// length of its exit, its spectrum reflowing as it slides off.
+// And its drawn PLACE in the region: a pane that centres itself in its region
+// (Atmosphere's capped card) would be re-centred in the region's new width at
+// the commit, a jump of half the change (346 px out of Atmosphere at 1440), and
+// a full-width leaver into Atmosphere would be centred 267 px off its seat.
 function hideLeaving(el: Element) {
+    const drawn = el instanceof HTMLElement ? [el.offsetWidth, el.offsetHeight, el.offsetLeft] : null;
     el.toggleAttribute("inert", true);
     el.setAttribute("aria-hidden", "true");
     el.setAttribute("data-scene-direction", sceneDirection);
-    if (el instanceof HTMLElement) el.style.blockSize = `${el.offsetHeight}px`;
+    if (drawn !== null) {
+        const style = (el as HTMLElement).style;
+        style.inlineSize = `${drawn[0]}px`;
+        style.blockSize = `${drawn[1]}px`;
+        style.left = `${drawn[2]}px`;
+        style.right = "auto";
+        style.marginLeft = "0px";
+        style.marginRight = "0px";
+    }
 }
 
 function showEntering(el: Element) {
     el.toggleAttribute("inert", false);
     el.removeAttribute("aria-hidden");
     el.setAttribute("data-scene-direction", sceneDirection);
-    if (el instanceof HTMLElement) el.style.removeProperty("block-size");
+    if (el instanceof HTMLElement) {
+        for (const prop of ["inline-size", "block-size", "left", "right", "margin-left", "margin-right"])
+            el.style.removeProperty(prop);
+    }
 }
 
 // ── The scene-direction token (X.W5.d · gate D3's direction arm) ───────────
@@ -411,6 +462,8 @@ const reduceHooks = computed(() =>
 
 onBeforeUnmount(() => {
     cancelAnimationFrame(raf);
+    pending++;
+    afterPaintChannel?.port1.close();
     window.clearTimeout(hold);
 });
 </script>

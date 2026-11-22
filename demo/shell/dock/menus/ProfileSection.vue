@@ -74,6 +74,14 @@ function openRepository(): void {
     <div ref="sectionRoot" class="hidden lg:flex items-center gap-1">
 
         <!-- Logged in: "Account" button with dropdown -->
+        <!-- The dock's menus stay modal. glass's DockTrigger opens its menu
+             on pointerdown, and the press's mousedown then moves focus out of
+             the menu: to the trigger in Chromium, so a non-modal menu opened
+             by a click never holds focus and the arrow keys do not reach it;
+             to the dock face in WebKit, which a non-modal menu reads as focus
+             leaving and closes at once. The modal menu's focus trap keeps
+             both. The card, sort and action-bar menus (reka's own click
+             trigger, which keeps focus in the menu) are non-modal. -->
         <template v-if="pm.userSlug.value">
             <DropdownMenu v-model:open="profileMenuOpen" modal>
                 <!-- X.W12.e (OA-22): the trigger IS glass's dock dropdown

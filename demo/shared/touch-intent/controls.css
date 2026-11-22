@@ -1,0 +1,11 @@
+/* The touch grammar (DESIGN.md law S-8) for the controls the app root's one
+ * install serves (controls.ts): every horizontal glass Slider and the gradient
+ * stop rail. A vertical pan is the page's, on the compositor, from the first
+ * pixel; the install holds the press until the direction is known. Glass's
+ * Slider declares `touch-action: none`, so a flick that landed on any slider
+ * stopped the page and moved the value. These rules go at the glass bump that
+ * makes the lock its Slider's default. */
+.glass-slider:not([data-orientation="vertical"]),
+.gradient-rail {
+    touch-action: pan-y;
+}

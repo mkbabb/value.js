@@ -229,9 +229,10 @@
 @property --accent-view {
     syntax: "<color>";
     inherits: true;
-    /* The same pre-hydration literal as `--accent-live` below — @property
-     * initial values must be computationally independent (no var()). */
-    initial-value: oklch(0.632 0.214 2);
+    /* The same pre-hydration literal as `--accent-live` below (its light arm)
+     * — @property initial values must be computationally independent (no
+     * var()). */
+    initial-value: oklch(0.1839 0.0743 2);
 }
 
 :root {
@@ -258,24 +259,27 @@
      * `--accent-live` is the contrast-guarded LIVE picked color, written by
      * App.vue from the library `safeAccentColor` path (the same SAFE_ACCENT_KEY
      * computation the dock consumes — ONE color-resolution path, inv-N-3).
-     * The value below is only the pre-hydration fallback: chromatically true to
-     * the default picked color ("Daraksha", oklch(73% 0.185 2) — owner
-     * 2026-10-19; formerly lab(92% 88.8 20) at hue 13.5), guarded to the light-scheme
-     * lightness so first paint is never ink. `--primary` re-points onto it —
+     * The value below is only the pre-hydration fallback: the certified accent
+     * of the default picked color ("Daraksha", oklch(73% 0.185 2) — owner
+     * 2026-10-19) on the home plate, as the boot stamps it after the first
+     * paint (light here, dark in `.dark`; measured on the built shell, 390 and
+     * 1440 alike). The FORTIETH A-4: the prerendered home paints the ink it
+     * keeps, where a pink stand-in flipped to the certified ink at about 3 s
+     * (`e2e/smoke/perf/c40-cold-load-still`). `--primary` re-points onto it —
      * the interactive layer speaks the picked color, not `--foreground` — and
      * the glass frost carries the live temperature at low strength through the
      * EXISTING `--glass-tint-source`/`--glass-tint-strength` knob (no new
      * surface, no demo-local glass recipe). */
-    --accent-live: oklch(0.632 0.214 2);
+    --accent-live: oklch(0.1839 0.0743 2);
 
     /* ── The de-emphasis rung (X.W7.z2 · R-15 ≡ C-11) ──
      * `--ink-muted` is the certified plate-caption ink: `useAtmosphereBoot`
      * stamps the live value on the root (`resolveMutedInk`, floor-clamped
      * against the resting plate). This is its stylesheet declaration, so the
-     * pre-boot read is never the sub-floor `--muted-foreground`: the value
-     * `resolveMutedInk` yields at the pre-palette ambient (L 0.5 → resting
-     * rung 0.808). The dark arm lives in `.dark` below. */
-    --ink-muted: oklch(0.369 0.004 34.6);
+     * pre-boot read is never the sub-floor `--muted-foreground`: the value the
+     * boot stamps for the default colour on the home plate (A-4, as
+     * `--accent-live` above). The dark arm lives in `.dark` below. */
+    --ink-muted: oklch(0.1528 0.0039 34.6);
 
     /* ── The primary plate ink (X-DS pass 4 · V4C-01) ──
      * `--ink-primary` is the scheme foreground certified against the same
@@ -448,14 +452,56 @@
  * under a coarse pointer; under a fine one the root collapsed to its 9 px track,
  * so the rail sat 5 px under its label on Generate and Gradient, 7-9 on the
  * consoles, and 13 on Extract, whose rows carried a hand-made 24 px band. The
- * band is now the rung's at every pointer, from glass's own token, and the
- * per-site band retires (Extract's K keeps its box only to seat the developed
- * rail behind the track). Layout only: no lighting is touched. */
+ * band is now the rung's at every pointer, glass's 1.5rem, and the per-site
+ * band retires (Extract's K keeps its box only to seat the developed rail
+ * behind the track). Layout only: no lighting is touched. */
 [data-slot="slider"][data-size="sm"] {
-    min-block-size: var(--slider-touch-target, 1.5rem);
+    --scalar-slider-band: 1.5rem;
+    min-block-size: var(--scalar-slider-band);
+}
+
+/* THE SCALAR SLIDERS' TOUCH TARGET (glass's `--slider-touch-target`, theming
+ * glass names for now): on a coarse pointer a scalar rail answered a touch in
+ * its 24 px band only, so a finger 12 to 16 px off the rail's centre missed
+ * it. The target is glass's 44 px floor; glass seats the slider in it by
+ * `min-block-size`, which alone would add 20 px to every row (620 px down
+ * Blob's 31). The row's pitch does not grow: the band stays 1.5rem and the
+ * seat gives the extra back as block margin, so the larger target overlaps
+ * the row's own label and gap. The touch-intent lock (shared/touch-intent)
+ * keeps a vertical swipe on that larger target the page's. */
+@media (pointer: coarse) {
+    [data-slot="slider"][data-size="sm"] {
+        --slider-touch-target: 2.75rem;
+        min-block-size: var(--slider-touch-target);
+        margin-block: calc((var(--scalar-slider-band) - var(--slider-touch-target)) / 2);
+    }
+}
+
+/* THE SCRUBBER'S THUMB IS THE FILL'S END (his FORTY-SECOND C: "capped and
+ * invisible, like you're just pulling the track"). glass's scrubber ends its
+ * fill in a cap concentric with the thumb; painting the thumb in the fill's
+ * own colour (glass's documented `--slider-thumb-bg`, which glass sanctions a
+ * site to set until its thumbless default lands) leaves no disc, only the
+ * fill's rounded end under the finger. The keyboard's ring is the track's
+ * (glass), so a tabbed slider still shows it. The spectrum rings (the
+ * picker's channels) paint their own and are left alone. The thumb reads the
+ * published fill token alone: the site sets it at the root (utils.css, THE
+ * SCALAR RANGE INK), and glass's own default fill is internal to glass. */
+.glass-slider:not([data-variant="spectrum"]) {
+    --slider-thumb-bg: var(--slider-range-bg);
 }
 
 :root {
+
+    /* PHONE CONTROLS ARE NOT THE DESK TIMES ONE AND A HALF (his FORTY-SECOND
+     * D). glass multiplies every control rung by `--ui-coarse-scale` under a
+     * coarse pointer (its default 1.5), so a phone drew selects, fields and
+     * icon buttons 54 to 66 px tall. At 1.25 glass's small rung lands at 45 px
+     * and its medium at 50; the 44 px floor is glass's own `--control-floor`,
+     * untouched. Theming glass sanctions; glass makes 1.25 its own default (his
+     * FORTY-THIRD C), and this line goes at that release. Declared here, after
+     * glass's token sheet, so it wins by order. */
+    --ui-coarse-scale: 1.25;
 
     /* X-DS pass 5 (V5C-09): THE SCALAR RAIL (see utils.css, THE SCALAR RANGE
      * INK). At glass's `sm` rung (0.75rem) the range is a slab: a column of
@@ -737,9 +783,11 @@
      * it to the accent axis (`--accent-live` is contrast-guarded per scheme). */
     --focus-ring-color: var(--accent-live);
 
-    /* The de-emphasis rung's dark arm (X.W7.z2 · R-15): `resolveMutedInk`
-     * at the pre-palette ambient (resting rung 0.352); boot overwrites it. */
-    --ink-muted: oklch(0.789 0.004 41.9);
+    /* The dark arms of the pre-boot accent and de-emphasis inks (X.W7.z2 ·
+     * R-15; A-4): the values the boot stamps for the default colour on the
+     * dark home plate; boot overwrites them for any other colour. */
+    --accent-live: oklch(0.9478 0.0277 2);
+    --ink-muted: oklch(1 0 41.9);
 }
 
 /* ── The text-selection ink (T.W8 · P11-R1/T-24) ──
@@ -933,6 +981,12 @@
     .goo-blob-canvas,
     .watercolor-swatch,
     .glass-slider[data-variant="spectrum"] .slider-range,
+    /* The spectrum sliders paint their ramp on the TRACK (the picker's
+       channels, Generate's count, Extract's developed K): without it the
+       channels read as bare black bars. The gradient's render tile is the
+       gradient itself. */
+    .glass-slider[data-variant="spectrum"] .slider-track,
+    .gradient-render-tile,
     [data-color-surface] {
         forced-color-adjust: none;
     }

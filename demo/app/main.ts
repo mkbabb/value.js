@@ -30,6 +30,7 @@ import { initApiEnvironment } from "../platform/transport/availability";
 import { BASE_URL } from "../platform/transport/client";
 import { FAILURE_REPORTER_KEY } from "./ErrorBoundary.vue";
 import { loadDock, prefersInstantDock } from "./composables/boot/useDockArrival";
+import { installControlTouchIntent } from "../shared/touch-intent/controls";
 
 import "../styles/utils.css";
 import "../styles/foundation.css";
@@ -135,6 +136,7 @@ if (!import.meta.env.SSR) {
     window.addEventListener("unhandledrejection", (event) =>
         reportFailure("unhandledrejection", event.reason),
     );
+    installControlTouchIntent(document);
 
     const root = document.getElementById("app")!;
     const prerendered = root.hasAttribute("data-prerendered");

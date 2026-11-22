@@ -111,17 +111,19 @@ describe("Z3 · GradientStopEditor REFUTED rows stay cured", () => {
         w.unmount();
     });
 
-    it("-16/-17: at the floor Remove is disabled with its reason; position entry is numeric", () => {
+    it("-16/-17 (R-04): at the floor Remove is absent with no sentence; above it, it acts; position entry is numeric", async () => {
         const stop = { id: "a", cssColor: "red", position: 50, easing: undefined as never };
         const w = mount(GradientStopInspector, {
             props: { stop, index: 0, count: 2, refusal: "A gradient needs two stops.", notice: "" },
             attachTo: document.body,
         });
+        expect(w.find('[aria-label="Remove selected stop"]').exists()).toBe(false);
+        expect(w.text()).not.toContain("two stops");
+        await w.setProps({ count: 3, refusal: null });
         const remove = w.get('[aria-label="Remove selected stop"]');
-        expect(remove.attributes("disabled")).toBeDefined();
-        const reasonId = remove.attributes("aria-describedby");
-        expect(reasonId).toBeTruthy();
-        expect(document.getElementById(reasonId!)?.textContent).toContain("two stops");
+        expect(remove.attributes("disabled")).toBeUndefined();
+        await remove.trigger("click");
+        expect(w.emitted("remove")).toHaveLength(1);
         const field = w.get('[data-testid="gradient-stop-position"]');
         expect(field.attributes("role")).toBe("spinbutton");
         w.unmount();

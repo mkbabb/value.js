@@ -242,6 +242,7 @@ export function useAtmosphereBoot(
     //     the plate-caption + parse-echo voice; post-hoc opacity died).
     const {
         safeAccentCss,
+        sliderFillInkCss,
         plateInkCss,
         mutedInkCss,
         floatingInkCss,
@@ -266,6 +267,9 @@ export function useAtmosphereBoot(
     provide(INK_PLATE_REFERENT_KEY, plateReferent);
     certifyInks(() => {
         stampRootToken("--accent-live", useHeldWhileLive(safeAccentCss, colourLive));
+        // The scalar sliders' range ink, certified on glass's quiet track at
+        // the 3:1 graphics floor; held through a drag, as the accent is.
+        stampRootToken("--ink-slider-fill", useHeldWhileLive(sliderFillInkCss, colourLive));
         // X-DS pass 4 (V4C-01): the PRIMARY plate ink rides the same instance
         // and the same referent, so the page makes ONE polarity decision per
         // plate. `--ink-muted` is a step of this pole, never an independent flip.

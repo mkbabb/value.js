@@ -14,6 +14,7 @@
  * Extracted from `ImageEyedropper.vue` at D.W3 Lane A (De §2.4 split).
  */
 import { ref, type Ref } from "vue";
+import { decodedImage } from "./decodedImage";
 import type { SpaceId } from "@mkbabb/value.js/color";
 import { parseCssColor } from "@mkbabb/value.js/css";
 import {
@@ -70,13 +71,7 @@ export function useImageSampler(deps: ImageSamplerDeps) {
     }
 
     async function loadImage(imageUrl: string) {
-        const img = new Image();
-        img.crossOrigin = "anonymous";
-        img.src = imageUrl;
-        await new Promise<void>((resolve, reject) => {
-            img.onload = () => resolve();
-            img.onerror = reject;
-        });
+        const img = await decodedImage(imageUrl);
 
         imgWidth.value = img.naturalWidth;
         imgHeight.value = img.naturalHeight;
@@ -105,13 +100,36 @@ export function useImageSampler(deps: ImageSamplerDeps) {
         };
     }
 
-    function sampleAt(rx: number, ry: number) {
+    /**
+     * The colour at a viewport point. `footprint` is the side, in source px, of
+     * the square that is averaged (color-40 N-4: the lens's reticle; one source pixel
+     * of a fitted 12 MP photo is noise). The point is clamped to the image.
+     */
+    function sampleAt(rx: number, ry: number, footprint = 1) {
         if (!ctx) return null;
-        const { ix, iy } = viewportToImage(rx, ry);
-        if (ix < 0 || iy < 0 || ix >= imgWidth.value || iy >= imgHeight.value)
-            return null;
-        const data = ctx.getImageData(ix, iy, 1, 1).data;
-        const hex = formatHex(data[0] ?? 0, data[1] ?? 0, data[2] ?? 0);
+        const w = imgWidth.value;
+        const h = imgHeight.value;
+        if (!w || !h) return null;
+        const raw = viewportToImage(rx, ry);
+        const ix = Math.min(w - 1, Math.max(0, raw.ix));
+        const iy = Math.min(h - 1, Math.max(0, raw.iy));
+        const n = Math.max(1, Math.min(128, Math.round(footprint)));
+        const half = Math.floor(n / 2);
+        const x0 = Math.max(0, ix - half);
+        const y0 = Math.max(0, iy - half);
+        const sw = Math.min(w - x0, n);
+        const sh = Math.min(h - y0, n);
+        const data = ctx.getImageData(x0, y0, sw, sh).data;
+        let r = 0;
+        let g = 0;
+        let b = 0;
+        const count = sw * sh;
+        for (let i = 0; i < count; i++) {
+            r += data[i * 4] ?? 0;
+            g += data[i * 4 + 1] ?? 0;
+            b += data[i * 4 + 2] ?? 0;
+        }
+        const hex = formatHex(Math.round(r / count), Math.round(g / count), Math.round(b / count));
         return { hex, formatted: formatInColorSpace(hex) };
     }
 

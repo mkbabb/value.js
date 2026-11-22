@@ -217,8 +217,9 @@ test.describe("O-10c — rendered digit advance (the shipped face)", () => {
         await page.goto("/");
         await expect(mainPane(page)).toBeVisible();
         const r = await page.evaluate(async () => {
-            await document.fonts.load("600 55px Fraunces");
-            await document.fonts.load("300 55px Fraunces");
+            // color-40 G: the readout's weights are 700 (integer) and 400 (fraction).
+            await document.fonts.load("700 55px Fraunces");
+            await document.fonts.load("400 55px Fraunces");
             const measure = (text: string, weight: number, tnum: boolean) => {
                 const s = document.createElement("span");
                 s.style.cssText = `font-family: Fraunces; font-size: 55px; font-weight: ${weight}; position: absolute; visibility: hidden; white-space: pre; ${tnum ? "font-variant-numeric: tabular-nums lining-nums;" : ""}`;
@@ -229,7 +230,7 @@ test.describe("O-10c — rendered digit advance (the shipped face)", () => {
                 return w;
             };
             const out: Record<string, number[]> = {};
-            for (const weight of [300, 600]) {
+            for (const weight of [400, 700]) {
                 out[`t${weight}`] = ["1111", "0000", "9999"].map((t) =>
                     measure(t, weight, true),
                 );
@@ -239,7 +240,7 @@ test.describe("O-10c — rendered digit advance (the shipped face)", () => {
             }
             return out;
         });
-        for (const weight of [300, 600]) {
+        for (const weight of [400, 700]) {
             const [a, b, c] = r[`t${weight}`]!;
             expect(
                 Math.abs(a! - b!),

@@ -103,6 +103,20 @@ function mark(name: string) {
 }
 
 /**
+ * True while the document is still in its opening breath: no route change
+ * has begun and the first load's settle has not retired
+ * (`data-shell-settled`, below). A pane that mounts now is part of the boot
+ * and plays the overture's in-card beats; one that first mounts later, after
+ * a view change, arrives whole on the pane swap's travel alone (C-18: the
+ * picker arrived in four parts, card, field, sliders, blob, on Extract to
+ * Mix). The server render is the boot.
+ */
+export function inOpeningBreath(): boolean {
+    return typeof document === "undefined"
+        || !document.documentElement.hasAttribute("data-shell-settled");
+}
+
+/**
  * Install the overture. Called once from App setup.
  *
  * @param fieldArmed the atmosphere's arrival signal (`auroraArrived` —

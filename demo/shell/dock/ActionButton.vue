@@ -24,11 +24,14 @@
             >
                 <!-- A seat whose glyph changes (Copy's check, a beat after the
                      copy lands) morphs between the two, never cuts. The press
-                     flash rides the glyph that was pressed. -->
+                     flash rides the glyph that was pressed. The FORTIETH K-2:
+                     the glyph is keyed by its ICON, so a seat whose name
+                     changes across a page change (its state, its view's
+                     wording) keeps the glyph it shows still. -->
                 <Transition name="vj-morph" mode="out-in">
                     <component
                         :is="icon"
-                        :key="title"
+                        :key="iconKey"
                         aria-hidden="true"
                         :class="[
                             'action-icon w-6 h-6 stroke-foreground transition-[transform,stroke]',
@@ -56,7 +59,7 @@
 </template>
 
 <script setup lang="ts">
-import { shallowRef, type Component } from "vue";
+import { computed, shallowRef, type Component } from "vue";
 import {
     Popover,
     PopoverContent,
@@ -87,6 +90,19 @@ const emit = defineEmits<{
     action: [];
     "update:open": [value: boolean];
 }>();
+
+// One key per icon component this seat has shown (a component is not a
+// key type), so the same icon always renders the same glyph node.
+const iconKeys = new WeakMap<Component, number>();
+let iconCount = 0;
+const iconKey = computed(() => {
+    let key = iconKeys.get(icon);
+    if (key === undefined) {
+        key = ++iconCount;
+        iconKeys.set(icon, key);
+    }
+    return key;
+});
 
 function onHoverOpenChange(v: boolean) {
     emit("update:open", v);

@@ -103,13 +103,13 @@ import { stopsToGradient } from "../../../shared/ui/color-chips";
 import ConsoleRail from "./ConsoleRail.vue";
 import { vTextInPlace } from "../../../shared/vTextInPlace";
 import { COLOR_MODEL_KEY } from "../../../color-session/keys";
+import { inOpeningBreath } from "../../../app/composables/boot/useOverture";
 
 const {
     model,
     currentColorSpace,
     currentColorComponentsFormatted,
     componentsSlidersStyle,
-    cssColorOpaque,
     HSVCurrentColor,
     updateColorComponent,
 } = inject(COLOR_MODEL_KEY)!;
@@ -172,7 +172,9 @@ const animationKey = ref(0);
 // the cascade re-ran inside the pane-swap travel on every return (census,
 // before: stagger-child-in in the gradient→picker window). Deactivation retires
 // the class while the rows are detached; the next re-key re-arms it.
-const cascade = ref(true);
+// C-18: the boot's arrival cascades; a first arrival after a view change
+// brings its rows whole with the card (the pane swap moves it).
+const cascade = ref(inOpeningBreath());
 watch(currentColorSpace, () => {
     animationKey.value++;
     cascade.value = true;
@@ -223,8 +225,9 @@ const thumbInk = computed(() => {
 });
 
 // Producer token feed for the glass-ui spectrum slider: the perceptual ramp
-// on the track, the LIVE color on the thumb, the value-aware needle ink on
-// the border. Touch-action is the gesture's, in CSS (style block below).
+// on the track and the value-aware needle ink on the ring. The spectrum thumb
+// is a ring with no fill (glass paints it transparent), so the site writes no
+// thumb colour. Touch-action is the gesture's, in CSS (style block below).
 // The ALPHA row's ramp composes the house `--alpha-checker` ground UNDER it
 // via the producer's own `--glass-slider-track-background` seam.
 function sliderVars(component: string): Record<string, string | undefined> {
@@ -235,7 +238,6 @@ function sliderVars(component: string): Record<string, string | undefined> {
             ramp && component === "alpha"
                 ? `${ramp}, var(--alpha-checker)`
                 : ramp,
-        "--slider-thumb-bg": cssColorOpaque.value,
         "--slider-thumb-border-color": thumbInk.value,
     };
 }
@@ -311,9 +313,12 @@ useSliderAnnouncements({
 /* ── THE METER (W4-3) — the strip's persistent live reading ──────────────
  * House mono voice, tabular by construction; full certified ink on the
  * well (never italic, never opacity — the t-2000-41 legibility class).
- * min-width in ch keeps the strip's geometry stable across digit swaps. */
+ * min-width in ch keeps the strip's geometry stable across digit swaps.
+ * The small rung (14 px at 390): the caption rung set the figures at
+ * 12.2 px there, under the 14 px floor for text that is read. */
 .channel-meter {
-    font-size: var(--type-mono-caption, var(--type-caption));
+    font-size: var(--type-small);
+    line-height: var(--type-leading-small);
     font-variant-numeric: tabular-nums lining-nums;
     color: var(--foreground);
     min-width: 6ch;
@@ -339,27 +344,23 @@ useSliderAnnouncements({
     min-block-size: clamp(2rem, calc(var(--pane-inline) * 0.07), 2.625rem);
 }
 
-/* THE 44px TOUCH RUNG — preserved by HIT-AREA EXTENSION, not row inflation
- * (WR-11: "the touch-gate inflation idiom"). On coarse pointers a transparent
- * pseudo on the reka SliderRoot (`.channel-slider`) extends the tappable zone
- * to ≥44px centered on the track, WITHOUT growing the visual row — so the
- * mobile rows read tighter than a 44px row (the owner's t49-audit-03) while
- * the tap ergonomics hold. Generated content is part of the host box, so a
- * pointerdown on the pseudo dispatches to the SliderRoot it belongs to and
- * drives the slider exactly as a track tap does. Gated on `pointer: coarse`
- * (the input device), never viewport width — the discontinuity was the
- * width-keyed switch. */
+/* THE TOUCH RUNG — glass's own slider target, not row inflation (WR-11: "the
+ * touch-gate inflation idiom"). Glass's placement for his FORTY-SECOND C names
+ * the picker's channels for its `--slider-touch-target` (theming glass
+ * sanctions; the look does not change). Glass seats a coarse-pointer slider in
+ * that target by `min-block-size`, which alone would grow every channel row;
+ * the seat gives the extra back as block margin, as the scalar sliders' does
+ * (foundation.css), so the rows keep their pitch and the target overlaps the
+ * row's own air. The rows' pitch is 47 px at every phone size measured (375 to
+ * 844 wide), so the target is 46 px: it reaches 23 px either side of the rail
+ * and never overlaps the next one (at glass's 2.75rem, and the site's old
+ * transparent pseudo on the dock's token, a touch 22 px off a rail fell in a
+ * 3 px seam between two targets). Gated on `pointer: coarse` (the input
+ * device), never viewport width. */
 @media (pointer: coarse) {
-    .channel-slider {
-        position: relative;
-    }
-    .channel-slider::before {
-        content: "";
-        position: absolute;
-        inset-inline: 0;
-        top: 50%;
-        translate: 0 -50%;
-        block-size: max(100%, var(--dock-touch-target, 2.75rem));
+    .channel-slider-seat .channel-slider {
+        --slider-touch-target: 2.875rem;
+        margin-block: calc((var(--slider-track-height, 1.5rem) - var(--slider-touch-target)) / 2);
     }
 }
 

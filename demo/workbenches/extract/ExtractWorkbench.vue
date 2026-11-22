@@ -7,92 +7,67 @@
                     : 'flex flex-col gap-4'
             "
         >
-            <!-- Image + camera column -->
+            <!-- Image column -->
             <div
                 class="flex flex-col gap-3"
                 :class="layout === 'split' ? 'sm:min-h-[280px]' : ''"
             >
-                <!-- Camera cluster (X.W7.g3 · XW-8/9/35): the camera is a MODE of
-                     the stage — the viewfinder takes the drop zone's seat, never
-                     a second specimen stacked under it. -->
+                <!-- color-40 I-1 (his FORTIETH order: "remove the extra open
+                     camera button on extract"): the zone is the one intake. The
+                     dock's Extract seat names the view, and a phone's file sheet
+                     already offers the system camera; the in-page camera, its
+                     viewfinder and its two close controls are gone (it was also
+                     refused on the site, whose permissions policy has
+                     `camera=()`). -->
+                <!-- color-40 M: loaded, the zone is the photo at its own shape
+                     under `--photo-cap` (ImageDropZone); the empty zone keeps
+                     its floor. Every cap is in `svh`, never `dvh`. On a desk
+                     (from `lg`) the photo, still whole, takes the height the
+                     first screen has left once the extracted palette's
+                     swatches are on it (35rem: the page above the photo, the
+                     image actions, the two sliders, the palette's band, head
+                     and swatches), up to half the screen and 32rem; never
+                     less than the phone column's cap. 1440x900 gives 340,
+                     1920x1080 512, and a 720 px laptop keeps 288. -->
                 <ImageDropZone
-                    v-if="camera.state.value === 'off'"
                     :class="
                         layout === 'split'
-                            ? 'flex-1 min-h-0 sm:max-h-[min(400px,50dvh)]'
-                            : 'min-h-[180px] max-h-[min(320px,40dvh)]'
+                            ? 'flex-1 min-h-0 sm:max-h-[min(400px,50svh)] [--photo-cap:min(400px,50svh)]'
+                            : 'min-h-[180px] max-h-[min(20rem,40svh)] [--photo-cap:min(20rem,40svh)] lg:max-h-[clamp(min(20rem,40svh),calc(100svh_-_35rem),min(32rem,50svh))] lg:[--photo-cap:clamp(min(20rem,40svh),calc(100svh_-_35rem),min(32rem,50svh))]'
                     "
                     :preview="session.previewUrl.value"
                     :disabled="session.isProcessing.value"
                     @file="onFile"
                     @open="openFilePicker"
                     @sample="session.eyedropperOpen.value = true"
+                    @aspect="onPhotoShown"
                 />
 
-                <!-- Camera viewfinder (unified capability — T20).
-                     T.W3-1 (D1 rung-4 STAGE): the photographic ground + its
-                     caption veil + on-stage chrome read the NAMED near-black
-                     pair (--stage/--on-stage-chrome) — the raw bg-black/
-                     bg-white literals die (census §1.E; CC-7). The chip's
-                     backdrop-blur is TRUE glass: it floats over live video. -->
-                <Transition name="vj-enter">
-                    <div
-                        v-if="camera.state.value !== 'off'"
-                        class="relative rounded-panel overflow-hidden bg-stage shrink-0"
-                        role="group"
-                        aria-label="Camera"
-                        @keydown.esc.prevent="camera.stop"
-                    >
-                        <!-- D2-23: the viewfinder shows the WHOLE frame the
-                             capture takes (contain, never a cover crop). -->
-                        <video
-                            ref="videoRef"
-                            autoplay
-                            playsinline
-                            muted
-                            class="w-full max-h-[200px] object-contain"
-                        />
-                        <!-- XW-35: the producer's own control face and hit cell
-                             (≥44px on coarse) — no compact, no hand-painted
-                             plate over live video. Cancel is the exit (XW-8). -->
-                        <div class="absolute inset-x-0 bottom-0 flex justify-center gap-2 p-2.5">
-                            <DockControl
-                                title="Capture frame"
-                                :disabled="camera.state.value !== 'live'"
-                                @click="captureFrame"
-                            >
-                                <Aperture class="w-5 h-5" />
-                            </DockControl>
-                            <DockControl title="Cancel camera" @click="camera.stop">
-                                <X class="w-5 h-5" />
-                            </DockControl>
-                        </div>
-                    </div>
-                </Transition>
-
                 <!-- X-DS pass 9 (V9C-06): the image actions are SOURCE actions, so they
-                     sit with the source — under the drop zone / viewfinder they replace,
-                     in the image column — and the sliders lead straight into the
-                     instrument they shape. (They sat in ExtractControls after the
-                     sliders, away from the zone the camera substitutes for.)
-                     X-DS pass 3 (V3C-05): the image actions are ONE labelled action row,
-                     and only the live ones are shown. With no image the drop zone is
-                     the one intake (R-20), so Replace and Reset are absent rather than
-                     parked as dead glyphs; the camera is a two-way door (XW-8 · EC-5),
-                     pressed while live. X-DS pass 5 (V5C-07): the actions wear the
-                     text rung (as "Delete all" does), so the glyphs start at the
-                     column edge with the labels and rails above them; the group pulls
-                     back by the rung's own inline pad (glass's `--space-residue`).
-                     X-DS pass 6 (V6C-08): ONE text-action ink per pane — the group
-                     sets the certified muted plate ink ("Delete all"'s) on its enabled
-                     actions once, so the dark scheme's accent (gold) rung ink no longer
-                     reads as decoration beside it; disabled keeps glass's own ink. -->
-                <div class="flex flex-wrap items-center gap-1 ms-[calc(-1*var(--space-residue))] *:enabled:text-(color:--ink-muted)" role="group" aria-label="Image actions">
+                     sit with the source — under the drop zone they replace, in the
+                     image column — and the sliders lead straight into the instrument
+                     they shape. X-DS pass 3 (V3C-05): the image actions are ONE
+                     labelled action row, and only the live ones are shown. With no
+                     image the drop zone is the one intake (R-20), so the row is
+                     empty rather than parked with dead glyphs. X-DS pass 5 (V5C-07):
+                     the actions wear the text rung (as "Delete all" does), so the
+                     glyphs start at the column edge with the labels and rails above
+                     them; the group pulls back by the rung's own inline pad (glass's
+                     `--space-residue`). X-DS pass 6 (V6C-08): ONE text-action ink per
+                     pane — the group sets the certified muted plate ink ("Delete
+                     all"'s) on its enabled actions once, so the dark scheme's accent
+                     (gold) rung ink no longer reads as decoration beside it;
+                     disabled keeps glass's own ink. -->
+                <div
+                    v-if="!!session.previewUrl.value"
+                    class="flex flex-wrap items-center gap-1 ms-[calc(-1*var(--space-residue))] *:enabled:text-(color:--ink-muted)"
+                    role="group"
+                    aria-label="Image actions"
+                >
                     <Button
-                        v-if="!!session.previewUrl.value"
                         emphasis="text"
                         size="sm"
-                        :disabled="actionsStandDown"
+                        :disabled="session.isProcessing.value"
                         @click="openFilePicker()"
                     >
                         <Upload aria-hidden="true" />
@@ -102,17 +77,6 @@
                         emphasis="text"
                         size="sm"
                         :disabled="session.isProcessing.value"
-                        :aria-pressed="cameraLive"
-                        @click="toggleCamera()"
-                    >
-                        <Camera aria-hidden="true" />
-                        {{ cameraLive ? "Close camera" : "Open camera" }}
-                    </Button>
-                    <Button
-                        v-if="!!session.previewUrl.value"
-                        emphasis="text"
-                        size="sm"
-                        :disabled="actionsStandDown"
                         @click="session.onReset()"
                     >
                         <RotateCcw aria-hidden="true" />
@@ -132,27 +96,17 @@
                     :gradient="session.kSliderGradient.value"
                     :css-color="cssColorOpaque ?? ''"
                     :disabled="session.isProcessing.value"
-                    :camera-live="cameraLive"
                     @update:k="session.onKChange"
                     @update:chroma-weight="session.onChromaChange"
                 />
 
-                <!-- Error (error ≠ empty: an explicit destructive line). The
-                     camera's fault is its own line, never written into the
-                     quantizer's slot (XW-10 / the camera cluster). -->
+                <!-- Error (error ≠ empty: an explicit destructive line). -->
                 <div
                     v-if="session.quantizeError.value"
                     role="alert"
                     class="text-mono-small text-destructive px-1"
                 >
                     {{ session.quantizeError.value }}
-                </div>
-                <div
-                    v-if="camera.error.value"
-                    role="alert"
-                    class="text-mono-small text-destructive px-1"
-                >
-                    {{ camera.error.value }}
                 </div>
                 <!-- R-23: the extract tree's one live region — a loaded image is
                      announced, so a healthy preview is never AT-identical to a
@@ -179,82 +133,53 @@
                      drop zone, a third ghost register in one column); the
                      error line above stays its own explicit register
                      (error ≠ empty). -->
-                <Transition name="vj-morph" mode="out-in">
-                    <PaletteCardSkeleton
-                        v-if="session.isProcessing.value"
-                        key="imminent"
-                        :count="session.colorCount.value"
-                    />
-                    <div
-                        v-else-if="session.extractedPalette.value"
-                        key="extracted"
-                        class="flex flex-col gap-1.5"
-                    >
-                        <!-- T19 folded as the card's label line (F7), seated
-                             on the plate it describes. The duplicate dominant
-                             dot died — the card's first swatch IS the dominant
-                             specimen. X-DS pass 6 (V6C-07): two lines, one
-                             voice each — the display stat on its own line, the
-                             dominant readout in mono beneath it at full width,
-                             so the data is never the part that is cut. -->
-                        <div
-                            v-if="session.dominant.value"
-                            class="flex flex-col gap-0.5 min-w-0"
-                        >
-                            <span class="font-display text-display leading-none">
-                                {{ Math.round(session.dominantShare.value * 100)
-                                }}<span
-                                    class="text-body font-normal plate-ink"
-                                    >% of the image</span
-                                >
-                            </span>
-                            <span class="flex items-baseline gap-2 min-w-0">
-                                <span
-                                    class="text-caption plate-ink shrink-0"
-                                    >dominant</span
-                                >
-                                <!-- the caption register (format-color): the readout
-                                     and its title read the same bounded spelling. -->
-                                <code
-                                    class="font-mono text-mono-small plate-ink truncate select-all"
-                                    :title="formatCssCaption(session.dominant.value.serialized)"
-                                    >{{ formatCssCaption(session.dominant.value.serialized) }}</code
-                                >
-                            </span>
-                        </div>
-
+                <!-- color-40 O-2: ONE seat, one box. The ghost (empty: still;
+                     a run in flight: breathing) is the developed card's own
+                     silhouette, so a swap between them fills in place: the two
+                     share one grid cell and cross over by opacity, and the
+                     column never collapses between them (the out-in morph went
+                     325.7 to 226.1 to 325.7 px at 390 through a replace). -->
+                <div class="extract-result-seat">
+                    <Transition name="extract-swap">
+                        <PaletteCardSkeleton
+                            v-if="session.isProcessing.value || (!session.extractedPalette.value && !session.barren.value)"
+                            key="ghost"
+                            variant="instrument"
+                            :loading="session.isProcessing.value"
+                            :count="session.colorCount.value"
+                        />
                         <!-- X.W8.i (C3 layout fork): the split seats the aside
                              card at every width — one layout, no viewport rung
                              (the aside spine is sized for the half column, the
-                             same measure the stacked column gives a phone). -->
+                             same measure the stacked column gives a phone).
+                             color-40 O-3: the line that sat above the card ("30%
+                             of the image", "dominant oklch(...)") restated the
+                             weighted strip in words; each band names its share. -->
                         <PaletteInspector
+                            v-else-if="session.extractedPalette.value"
+                            key="extracted"
                             :palette="session.extractedPalette.value"
                             :expanded="true"
                             :collapsible="false"
                             :layout="layout === 'split' ? 'aside' : 'default'"
                             swatch-size="xl"
+                            weighted-strip
                             @click="() => {}"
                             @save="session.onSave"
                             @rename="session.onRename"
                             @add-color="(css) => emit('addColor', css)"
                         />
-                    </div>
-                    <!-- X-W7 Repair 1 (XW-22): a developed run with no opaque pixel is
-                         said, never shown as the pre-image ghost beside the image. -->
-                    <p
-                        v-else-if="session.barren.value"
-                        key="barren"
-                        class="text-mono-small text-muted-foreground px-1"
-                    >
-                        This image has no opaque pixels to sample.
-                    </p>
-                    <PaletteCardSkeleton
-                        v-else
-                        key="shadow"
-                        variant="instrument"
-                        :count="session.colorCount.value"
-                    />
-                </Transition>
+                        <!-- X-W7 Repair 1 (XW-22): a developed run with no opaque pixel is
+                             said, never shown as the pre-image ghost beside the image. -->
+                        <p
+                            v-else
+                            key="barren"
+                            class="text-mono-small text-muted-foreground px-1"
+                        >
+                            This image has no opaque pixels to sample.
+                        </p>
+                    </Transition>
+                </div>
             </div>
         </div>
 
@@ -268,6 +193,7 @@
             :open="session.eyedropperOpen.value"
             :image-url="session.previewUrl.value"
             :color-space="colorSpace"
+            :aspect="photoAspect"
             @close="session.eyedropperOpen.value = false"
             @closed="eyedropperHeld = session.eyedropperOpen.value"
             @pick="(css) => emit('pick', css)"
@@ -277,21 +203,19 @@
 </template>
 
 <script setup lang="ts">
-import { computed, inject, onBeforeUnmount, onDeactivated, ref, useTemplateRef, watch } from "vue";
+import { computed, inject, onDeactivated, ref, watch } from "vue";
 import { useFileDialog } from "@vueuse/core";
-import { Aperture, Camera, RotateCcw, Upload, X } from "@lucide/vue";
+import { RotateCcw, Upload } from "@lucide/vue";
 import { Button } from "@mkbabb/glass-ui/button";
-import { DockControl } from "@mkbabb/glass-ui/dock";
 import type { SpaceId } from "@mkbabb/value.js/color";
 import { CSS_COLOR_KEY } from "../../color-session/keys";
-import { formatCssCaption } from "../../color-session/format-color";
 import { useExtractSession } from "./composables/useExtractSession";
 import { numberCodec, useUrlState } from "../../shell/urlState";
-import { useCameraCapture } from "./composables/useCameraCapture";
 
 import ImageDropZone from "./ImageDropZone.vue";
 import ExtractControls from "./ExtractControls.vue";
 import ImageEyedropper from "./ImageEyedropper/ImageEyedropper.vue";
+import { warmDecodedImage } from "./ImageEyedropper/composables/decodedImage";
 import PaletteCardSkeleton from "../../shared/ui/PaletteCardSkeleton.vue";
 import PaletteInspector from "../../palettes/inspector/PaletteInspector.vue";
 
@@ -324,6 +248,15 @@ useUrlState(["extract"], [
 // The eyedropper's mount: latched on by an open, released by the dialog's own
 // `closed` (its leave has finished), so the close is never a one-frame unmount.
 const eyedropperHeld = ref(false);
+/** The loaded photo's shape: the eyedropper opens at the photo's size. */
+const photoAspect = ref<number | null>(null);
+/** The page's photo has loaded: its shape is kept, and the eyedropper's copy
+ *  is decoded now, so the dialog's first frame already shows the photo. */
+function onPhotoShown(ratio: number) {
+    photoAspect.value = ratio;
+    const url = session.previewUrl.value;
+    if (url) warmDecodedImage(url);
+}
 watch(
     session.eyedropperOpen,
     (open) => {
@@ -331,14 +264,6 @@ watch(
     },
     { immediate: true, flush: "sync" },
 );
-
-const videoRef = useTemplateRef<HTMLVideoElement>("videoRef");
-
-const camera = useCameraCapture(videoRef);
-// The live stream reaches whichever <video> the viewfinder mounted.
-watch([camera.stream, videoRef], ([stream, video]) => {
-    if (video) video.srcObject = stream;
-});
 
 // R-16 / R-17 (X.W7.g3): the file dialog lives HERE, where both of its
 // triggers (the empty zone, the toolbar's Replace) live — one owner, no
@@ -366,39 +291,36 @@ const intakeAnnouncement = computed(() =>
 );
 
 async function onFile(file: File) {
-    camera.stop();
     await session.onFile(file);
 }
 
-/** The camera is open: its own control is the exit (XW-8 · EC-5). */
-const cameraLive = computed(() => camera.state.value !== "off");
-/** XW-8: a run in flight or a live camera stands the image actions down. */
-const actionsStandDown = computed(
-    () => session.isProcessing.value || cameraLive.value,
-);
-
-function toggleCamera() {
-    if (camera.state.value === "off") void camera.start();
-    else camera.stop();
-}
-
-async function captureFrame() {
-    const file = await camera.capture();
-    if (file) await onFile(file);
-}
-
-// X.W5.a · gate N1 — the DEACTIVATION contract (PaneSlot's header states it).
-// This subtree lives under the app's one `<KeepAlive>`, whose bound is a
-// distinct-pane count, so the extract pane is parked on every navigation away
-// and evicted by essentially nothing: `onBeforeUnmount` alone left the camera
-// LIVE — the capture indicator on, the device held — for the rest of the
-// session. Parking releases the device; it is never silently re-acquired on
-// return, because re-opening the camera is the user's act, not the router's.
-onDeactivated(camera.stop);
-onBeforeUnmount(camera.stop);
 // A2-VA-L2-11 (a popup never outlives its pane), now that the eyedropper is a
 // teleported modal (SS8-0722): a CONTROLLED popup closes its own state on park.
 onDeactivated(() => {
     session.eyedropperOpen.value = false;
 });
 </script>
+
+<style scoped>
+/* color-40 O-2: the result's one seat. Whatever stands in it (the ghost, the
+ * developed card, the barren line) takes the same grid cell, so a swap is a
+ * cross-over in place, never a collapse and a regrowth. */
+.extract-result-seat {
+    display: grid;
+}
+.extract-result-seat > * {
+    grid-area: 1 / 1;
+    min-inline-size: 0;
+}
+.extract-swap-enter-active,
+.extract-swap-leave-active {
+    transition: opacity var(--duration-fast) var(--ease-standard);
+}
+.extract-swap-leave-active {
+    transition-duration: var(--duration-control, 120ms);
+}
+.extract-swap-enter-from,
+.extract-swap-leave-to {
+    opacity: 0;
+}
+</style>

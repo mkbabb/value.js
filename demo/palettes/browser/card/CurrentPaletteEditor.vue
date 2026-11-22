@@ -40,10 +40,14 @@
                 :title="`${savedColorStrings.length} color${savedColorStrings.length === 1 ? '' : 's'}`"
             >{{ formatCount(savedColorStrings.length).text }}</span>
         </div>
+        <!-- color-40 L-7: a list of swatches sits on the band. Empty, the row
+             holds the add slot alone beside the caption, so it takes no ground
+             (a band there is a square box at the well's end). -->
         <TransitionGroup
             name="vj-enter"
             tag="div"
             class="swatch-row flex items-center gap-2.5 flex-wrap"
+            :class="savedColorStrings.length > 0 && 'swatch-band swatch-band--bleed'"
         >
             <SwatchHoverMenu
                 v-for="({ color, key }, i) in swatches"
@@ -193,6 +197,7 @@
 import { inject, ref, toRef, TransitionGroup } from "vue";
 import { SAFE_ACCENT_KEY } from "../../../color-session/keys";
 import { formatCount, formatCssCaption } from "../../../color-session/format-color";
+import "../../../shared/ui/swatch-band.css";
 import { Input } from "@mkbabb/glass-ui/input";
 import { Button } from "@mkbabb/glass-ui/button";
 import {

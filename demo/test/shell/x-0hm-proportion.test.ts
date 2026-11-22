@@ -41,13 +41,16 @@ describe("D-19 — the pane floor is block-aware, and every row query writes it"
     });
 });
 
-describe("D-20 — in one track the companion's port is the scene band", () => {
-    it("the negated row query bounds the follower to --scene-band-block", () => {
+// His FORTIETH C and P changed D-20: on an upright phone the document is the
+// one scroller, so the companion's port holds in one-track LANDSCAPE only (the
+// portrait half is measured on the page by e2e/smoke/mobile/one-scroller).
+describe("D-20 — in one-track landscape the companion's port is the scene band", () => {
+    it("the negated row query bounds the follower to --scene-band-block in landscape", () => {
         const css = read("styles/shell.css");
         const block = css.match(
-            /@container pane-row not \([^{]*\)\s*\{\s*\.pane-wrapper--inspector > \.pane-row-follow \{([^}]*)\}/,
+            /@container pane-row not \([^{]*\)\s*\{\s*@media \(orientation: landscape\)\s*\{\s*\.pane-wrapper--inspector > \.pane-row-follow \{([^}]*)\}/,
         );
-        expect(block, "one-track follower rule").not.toBeNull();
+        expect(block, "one-track landscape follower rule").not.toBeNull();
         expect(block![1]).toMatch(/max-block-size:\s*var\(--scene-band-block\)/);
         expect(block![1]).toMatch(/flex-direction:\s*column/);
     });

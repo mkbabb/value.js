@@ -116,11 +116,17 @@ const idle = () =>
         else setTimeout(resolve, 200);
     });
 const frame = () => new Promise<void>((resolve) => requestAnimationFrame(() => resolve()));
+// The FORTIETH order, C-2 (nothing grows under the finger): the formulas'
+// own faces are requested only once the formulas are typeset and laid out, so
+// the font wait runs AFTER a frame of the typeset guide; before, the guide
+// was remembered at the fallback faces and its formula rows grew from 24 to
+// 41-71 px as they scrolled in.
 useResizeObserver(wrapper, async (entries) => {
     if (sized.value || sizing || !(entries[0]?.contentRect.height ?? 0)) return;
     sizing = true;
     await idle();
     await loadKatex();
+    await frame();
     await document.fonts.ready;
     // The sizes are remembered at a frame's resize-observation step;
     // skipping starts on the frame after the one that laid them out.
@@ -165,9 +171,13 @@ useResizeObserver(wrapper, async (entries) => {
     @apply max-w-full;
 }
 
-/* Skip layout/paint for off-screen sections (KaTeX formulas, code blocks),
- * once each has a remembered size (`data-sized`, the script above). */
-.markdown-wrapper[data-sized] :deep(.markdown-body) > *:not(:first-child) {
+/* Skip layout/paint for off-screen sections (prose, code blocks), once each
+ * has a remembered size (`data-sized`, the script above). The FORTIETH C-2:
+ * lists and the blocks that hold a formula are never skipped. Measured on
+ * production, they were the blocks that changed size as they entered (formula
+ * rows 24 to 41, 70 and 71 px; list items 78 to 52, 104 and 182), moving the
+ * text under the reader's finger; drawn always, they cannot. */
+.markdown-wrapper[data-sized] :deep(.markdown-body) > *:not(:first-child):not(ul, ol, .katex-row):not(:has(.katex, .katex-row)) {
     content-visibility: auto;
 }
 
@@ -326,6 +336,9 @@ useResizeObserver(wrapper, async (entries) => {
     :not(pre) > code {
         @apply bg-well rounded px-1 py-0.5;
         color: var(--md-color-accent, var(--foreground));
+        /* the FORTY-SECOND A: inline code is read in the line it sits in, so
+         * it stands at the small rung (14 px at 390), not the caption's 12 */
+        font-size: var(--type-small);
     }
 
     /* Blockquotes */

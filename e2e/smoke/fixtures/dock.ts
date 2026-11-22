@@ -152,10 +152,17 @@ export async function expandDock(page: Page): Promise<void> {
 /**
  * Open the dock view-select and switch to the named view. The real-user idiom:
  * expand the dock if collapsed, real-click the combobox, assert it opened, pick
- * the option. `name` matches a `VIEW_MAP` label ("Palettes", "Home", …).
+ * the option. `name` matches a `VIEW_MAP` label ("Palettes", "Browse", …);
+ * "Home" presses the dock's Home seat.
  */
 export async function openView(page: Page, name: string): Promise<void> {
     await expandDock(page);
+
+    // Home is the dock's first seat, not an option of the view select.
+    if (name === "Home") {
+        await page.locator(".glass-dock").getByRole("button", { name: "Home", exact: true }).click();
+        return;
+    }
 
     const viewSelect = page.getByRole("combobox", { name: "Select view" });
     await expect(viewSelect).toBeVisible();

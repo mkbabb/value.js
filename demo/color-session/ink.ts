@@ -22,7 +22,7 @@ import {
  * it is unrepresentable — a call site that tolerates "unmeasured" does not
  * compile.
  */
-export type InkSurface = "page" | "resting" | "floating" | "well" | "veil" | "modal";
+export type InkSurface = "page" | "resting" | "floating" | "well" | "veil" | "modal" | "track";
 
 export const TEXT_CONTRAST_FLOOR = 4.5;
 export const GRAPHICS_CONTRAST_FLOOR = 3;
@@ -63,6 +63,18 @@ const RUNG_STEP = {
     quiet: -1,
     resting: 0,
     floating: 1,
+} as const;
+
+/**
+ * The static model of glass's quiet slider TRACK (`.slider-track`, glass
+ * 11.1.0 `components/slider/styles.css`): `--muted-medium`, which is
+ * `--muted` (`--neutral-1`, `tokens/color-radius.css` / `dark-arm.css`) at
+ * 50 %, laid over the resting plate the slider sits on. A scalar range is
+ * painted on this ground, so its ink is certified here.
+ */
+const PRODUCER_TRACK = {
+    ink: { light: "hsl(38 26% 95%)", dark: "hsl(28 12% 11%)" },
+    alpha: 0.5,
 } as const;
 
 /**
@@ -258,6 +270,11 @@ const FOREGROUND = {
 
 const SCRIM_INK = requiredOklch(PRODUCER_SCRIM.ink);
 
+const TRACK_INK = {
+    light: requiredOklch(PRODUCER_TRACK.ink.light),
+    dark: requiredOklch(PRODUCER_TRACK.ink.dark),
+} as const;
+
 const VEIL_INK = {
     light: requiredOklch(PRODUCER_VEIL.ink.light),
     dark: requiredOklch(PRODUCER_VEIL.ink.dark),
@@ -296,6 +313,11 @@ export function plateInkDeparts(inkCss: string, dark: boolean): boolean {
     const ink = parseOklch(inkCss);
     if (!ink) throw new Error(`[ink] plate ink failed to parse: ${inkCss}`);
     return departsDefault(ink, dark);
+}
+
+/** The static model's slider track recipe (see {@link PRODUCER_TRACK}). */
+export function producerTrackTint(dark: boolean): SurfaceTint {
+    return { color: dark ? TRACK_INK.dark : TRACK_INK.light, alpha: PRODUCER_TRACK.alpha };
 }
 
 /** The static model's `--well-bg` recipe (see {@link PRODUCER_WELL}). */
@@ -343,6 +365,13 @@ export function resolveSurfaceLightness(
         const recipe = tint
             ?? producerWellTint(dark, departsDefault(plateInk(lightness(plate), dark), dark));
         return lightness(composite(plate, recipe));
+    }
+
+    if (surface === "track") {
+        // The quiet slider track: `--muted-medium` (live `tint`, else its
+        // static recipe) over the resting plate over the ground.
+        const plate = composite(ground, underTint ?? producerRungTint("resting", dark));
+        return lightness(composite(plate, tint ?? producerTrackTint(dark)));
     }
 
     if (surface === "modal") {

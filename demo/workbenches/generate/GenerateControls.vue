@@ -40,6 +40,7 @@ import type { PresetName, HarmonyName } from "../../color-session/generate-color
 import type { AcceptableValue } from "reka-ui";
 import { usePanePopups } from "../../shell/usePanePopups";
 import { enumCodec, numberCodec, useUrlState } from "../../shell/urlState";
+import "../../shared/ui/swatch-band.css";
 
 // A2-VA-L2-11 — this pane's popups close when the pane deactivates.
 const popups = usePanePopups();
@@ -202,7 +203,8 @@ defineExpose({ regenerate, save, copyColors });
                  the dot's own P5 solid-ring register, which glass does not
                  ship at this size — cited to glass (O-87), never a geometric
                  ring here. -->
-            <div class="px-3 pb-1 flex flex-wrap gap-1.5">
+            <!-- color-40 L-7: the row is the plate's swatch band (shared/ui/swatch-band.css). -->
+            <div class="swatch-band px-3 py-2 flex flex-wrap gap-1.5">
                 <!-- A2-VA-L1-15: the app's one SwatchButton; its `done` check
                      is the copy verb's verdict. -->
                 <SwatchHoverMenu
@@ -214,7 +216,7 @@ defineExpose({ regenerate, save, copyColors });
                     :done="copiedIndex === i"
                     :label="copiedIndex === i ? `Copied ${formatCssCaption(css)}` : `Copy ${formatCssCaption(css)}`"
                     :open="hoverIndex === i"
-                    class="generate-swatch flex-1 basis-0 min-w-9 sm:min-w-10 max-w-20"
+                    class="generate-swatch flex-1 basis-0 max-w-20"
                     @update:open="(open: boolean) => setHover(open, i)"
                     @press="copyColor(css, i)"
                 >

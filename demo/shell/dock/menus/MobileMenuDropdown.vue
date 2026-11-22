@@ -55,6 +55,11 @@ function openRepository(): void {
 
 <template>
     <div class="lg:hidden flex items-center">
+        <!-- Modal, as the desk dock's menus are (ProfileSection.vue): glass's
+             DockTrigger opens the menu on pointerdown, and in WebKit the same
+             press's mousedown moves focus to the dock face, which a non-modal
+             menu reads as focus leaving it and closes at once, so Safari never
+             showed this menu. The focus trap keeps it open. -->
         <DropdownMenu v-model:open="open" modal>
             <DockTrigger for="dropdown" aria-label="Menu">
                 <MoreVertical class="w-6 h-6" />

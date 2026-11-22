@@ -102,7 +102,10 @@ describe("G-12 · useDockAdminMode — the admin latch is derived", () => {
         await settle(router);
         expect(vm.currentView.value).toBe("picker");
         expect(admin.isAdminMode.value).toBe(false);
-        expect(admin.viewEntries.value.map((e) => e.id)).toContain("picker");
+        // The user set again: Home is the dock's own seat, so the select
+        // lists the other pages.
+        expect(admin.viewEntries.value.map((e) => e.id)).toContain("palettes");
+        expect(admin.viewEntries.value.map((e) => e.id)).not.toContain("atmosphere");
         wrapper.unmount();
     });
 });

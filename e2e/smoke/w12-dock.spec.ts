@@ -46,7 +46,6 @@ const CONSUMER_KEYFRAMES = [
     "input-mode-flash",
     "crown-appear",
     "lamp-dot-pulse",
-    "vj-settle",
     "edit-drawer-in",
     "stagger-child-in",
 ];
@@ -121,6 +120,13 @@ test.describe("X.W12.e — the dock sits on glass's primitives", () => {
         const readings: PillReading[] = [];
         for (const name of ["Login", "@mbabb"]) {
             const pill = dockButton(page, name);
+            // The pills are read on the open dock, as a user reaches them:
+            // glass folds the unhovered desk dock 3.6 s after mount or after
+            // the pointer leaves it, and a fold landing just after rest hid
+            // Login under the hover below (the hover then waited out the test).
+            // expandDock opens a folded dock and rests the pointer on it; the
+            // rest plate is still read with the pointer away, inside that 3.6 s.
+            await expandDock(page);
             await expect(pill).toBeVisible();
             await page.mouse.move(2, 2);
             await page.waitForTimeout(400);
@@ -350,22 +356,19 @@ test.describe("X.W12.e — the dock sits on glass's primitives", () => {
             const page = await ctx.newPage();
             await openHome(page, sw.width, sw.height);
             if (sw.hash !== "#/") {
-                // X-W12 Repair 2 (M-2′): the navigation's own view-select
-                // settle beat (Dock.vue `.dock-settle`, vj-settle) must END
-                // before the census arms — a fixed 1.5 s let a beat still
-                // pending under load be billed to the layer switch. The census
-                // itself is unchanged: vj-settle stays a consumer keyframe.
-                await page.evaluate((h) => {
-                    const w = window as unknown as { __w12eSettled?: boolean };
-                    w.__w12eSettled = false;
-                    const done = (e: AnimationEvent) => {
-                        if (e.animationName === "vj-settle") w.__w12eSettled = true;
-                    };
-                    document.addEventListener("animationend", done, true);
-                    document.addEventListener("animationcancel", done, true);
-                    location.hash = h;
-                }, sw.hash);
-                await page.waitForFunction(() => (window as unknown as { __w12eSettled?: boolean }).__w12eSettled === true, null, { timeout: 15_000 });
+                // X-W12 Repair 2 (M-2′): the navigation's own dock motion must
+                // END before the census arms — a fixed 1.5 s let motion still
+                // pending under load be billed to the layer switch. The
+                // FORTIETH K-4 deleted the view-select settle beat this waited
+                // for, so the wait reads the dock's own rest after the route
+                // lands.
+                await page.evaluate((h) => (location.hash = h), sw.hash);
+                await page.waitForFunction(
+                    (h) => (location.hash || "#/") === h && document.querySelector(".app-layout")?.getAttribute("data-view") !== null,
+                    sw.hash,
+                    { timeout: 15_000 },
+                );
+                await dockAtRest(page);
             }
             if (sw.stage) await sw.stage(page);
             const before = await activeFace(page, sw.face);
