@@ -282,22 +282,25 @@ test("O-16 W5 census — every owned row's computed duration/curve ≡ its liqui
         // R2 — the enter (rewritten for the FORTIETH order, A: "a strange
         // re-sizing", "transitions are very slow"; DESIGN 5.7): the arriving
         // PLATE is on its seat from its first frame, so the root runs no
-        // transform; its text waits for the leaver (`--duration-control`) and
-        // comes in on `--duration-fast`. The root declares the text's clock
-        // (Vue times the enter by the root's transition), on opacity alone.
-        // Equal to the RESOLVED tokens the rules read (§0az), never literals.
+        // transform; its text starts as the leaver clears, half way through
+        // the leaver's clock (`--duration-control` / 2; waiting the whole
+        // leave held an empty plate), and comes in on `--duration-fast`. The
+        // root declares the text's clock (Vue times the enter by the root's
+        // transition), on opacity alone. Equal to the RESOLVED tokens the
+        // rules read (§0az), never literals.
         expect(census.enter, "R2: no pane wrapper child found").toBeTruthy();
         log("R2 enter", census.enter);
         log("R2 enter text", census.enterText);
         log("R2 resolved tokens", census.textTok);
         expect(Object.keys(census.enter!), "R2 the arriving plate does not travel").toEqual(["opacity"]);
         expect(census.enter!["opacity"]!.duration, "R2 the root declares the text's clock").toBe(census.textTok!.duration);
-        expect(census.enter!["opacity"]!.delay, "R2 the root waits for the leaver").toBe(census.leaveTok!.duration);
+        const handOver = `${parseFloat(census.leaveTok!.duration) / 2}s`;
+        expect(census.enter!["opacity"]!.delay, "R2 the root starts as the leaver clears").toBe(handOver);
         expect(census.enterText, "R2: the plate's text was not found").toBeTruthy();
         const textIn = census.enterText!["opacity"];
         expect(textIn?.duration, "R2 text duration").toBe(census.textTok!.duration);
         expect(textIn?.timing, "R2 text curve").toBe(census.textTok!.timing);
-        expect(textIn?.delay, "R2 the text waits for the leaver").toBe(census.leaveTok!.duration);
+        expect(textIn?.delay, "R2 the text starts as the leaver clears").toBe(handOver);
 
         // R3 — leave: the card slides off its side and its text drops at
         // once, both on `--duration-control` (the slide on `--ease-in`, never

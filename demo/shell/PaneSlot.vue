@@ -39,7 +39,7 @@
 // arriving card are co-mounted for one gesture. The leaver slides off toward
 // the side the move leaves by (`data-scene-direction`, below) and is gone by
 // the control clock; the arriving card's plate is on its seat from its first
-// frame and its text comes in after the leaver's. The
+// frame and its text comes in as the leaver clears. The
 // leaving card is taken OUT OF FLOW (`animations.css`: absolute in the
 // wrapper, inert, under the arriving card), so the region is
 // sized by the riser alone from the commit frame. That is what retired

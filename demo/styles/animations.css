@@ -247,8 +247,10 @@
  *   enter — the arriving card's PLATE is on its seat from its first frame
  *           (no travel, at full strength, over the leaver), so the region is
  *           never empty; its TEXT (the plate's own children; the plate's
- *           material is its pseudo-elements and stays) begins once the leaver
- *           is gone and comes in on `--duration-fast`.
+ *           material is its pseudo-elements and stays) begins as the leaver
+ *           clears, half way through the leaver's clock (its ease-out fade is
+ *           near 0.15 there), and comes in on `--duration-fast`. Waiting the
+ *           whole leave held an empty plate at 100 to 200 ms.
  *
  * Each card runs transform and opacity and nothing else: no height, no
  * width, no filter. At rest only the arriving card is on screen. Under
@@ -287,6 +289,8 @@
         --deal-turn: 1deg;
         /* +1 when the move is forward (the leaver goes left), -1 back */
         --deal-side: 1;
+        /* the arriving text starts as the leaver clears: half its clock */
+        --deal-text-delay: calc(var(--duration-control) / 2);
         /* the turn pivots on the card's foot, as a card held in the hand:
          * its top corners swing sideways and barely rise */
         transform-origin: 50% 100%;
@@ -294,20 +298,20 @@
     .pane-wrapper > [data-scene-direction="back"] {
         --deal-side: -1;
     }
-    /* the arriving text waits for the leaver, then hands over */
+    /* the arriving text starts as the leaver clears, then hands over */
     .pane-wrapper > .vj-enter-enter-from > .glass-resting > *,
     .pane-wrapper > .vj-enter-enter-from.glass-resting > * {
         opacity: 0;
     }
     .pane-wrapper > .vj-enter-enter-active > .glass-resting > *,
     .pane-wrapper > .vj-enter-enter-active.glass-resting > * {
-        transition: opacity var(--duration-fast) var(--ease-decelerate) var(--duration-control);
+        transition: opacity var(--duration-fast) var(--ease-decelerate) var(--deal-text-delay);
     }
     /* Vue times the enter by the ROOT's declared transition, so the root
      * declares the text's clock (its own opacity stays 1: no transition runs
      * on it, and the enter ends on that clock). */
     .pane-wrapper > .vj-enter-enter-active {
-        transition: opacity var(--duration-fast) linear var(--duration-control);
+        transition: opacity var(--duration-fast) linear var(--deal-text-delay);
     }
     .pane-wrapper > .vj-enter-leave-to {
         opacity: 0;
