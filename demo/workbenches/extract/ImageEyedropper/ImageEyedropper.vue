@@ -16,9 +16,10 @@
            mouse keeps hover, click to hold and drag to pan;
          · the dialog is the photo's size: no glass above, below or beside it;
          · the dot is the Palettes mark, its wells the picks;
-         · "Add to palette" and "Use color" are labelled and always present,
-           quiet until a pick is held: in a foot under the thumb on a phone, at
-           the bar's end on a desk. -->
+         · "Add to palette" and "Use color" are labelled, each on one line, and
+           always present, quiet until a pick is held: at the bar's end when the
+           dialog is wide, in a foot under the thumb when it is narrow (a phone,
+           or a portrait photo on a desk). -->
     <Dialog :open="open" @update:open="(next) => { if (!next) emit('close'); }">
         <DialogContent
             surface="glass"
@@ -52,7 +53,12 @@
 
                 <div class="flex-1" />
 
-                <template v-if="!narrow">
+                <!-- The acts at the bar's end while the dialog is wide enough
+                     to hold them beside the whole readout; a narrower dialog
+                     (a phone, or a portrait photo on a desk) seats them in the
+                     foot. Keyed on the dialog's own width (a container query),
+                     never the screen's. -->
+                <div class="eyedropper-bar-acts items-center gap-2 shrink-0">
                     <Button emphasis="secondary" size="sm" class="eyedropper-act" :disabled="!held" @click="onUseColor">
                         <Check aria-hidden="true" />
                         Use color
@@ -61,7 +67,7 @@
                         <Plus aria-hidden="true" />
                         Add to palette
                     </Button>
-                </template>
+                </div>
 
                 <DockControl class="eyedropper-action-btn" title="Close eyedropper" @click="emit('close')">
                     <X class="w-4 h-4 transition-[transform,color]" />
@@ -111,8 +117,9 @@
                 </span>
             </div>
 
-            <!-- The foot (a phone): the two acts, labelled, under the thumb. -->
-            <div v-if="narrow" ref="footRef" class="eyedropper-foot grid grid-cols-2 gap-2 px-2 py-2 shrink-0">
+            <!-- The foot (a narrow dialog): the two acts, labelled, under the
+                 thumb. Shown in place of the bar's by the same container query. -->
+            <div ref="footRef" class="eyedropper-foot grid-cols-2 gap-2 px-2 py-2 shrink-0">
                 <Button emphasis="secondary" size="sm" class="eyedropper-act" :disabled="!held" @click="onUseColor">
                     <Check aria-hidden="true" />
                     Use color
@@ -195,8 +202,6 @@ let heldPick: { hex: string; formatted: string; x: number; y: number } | null = 
 const picks = ref<string[]>([]);
 
 const coarsePointer = useMediaQuery("(pointer: coarse)");
-/** A phone: the acts sit in a foot under the thumb. */
-const narrow = useMediaQuery("(max-width: 40rem)");
 // The photo is a control with no other label: the prompt names its gesture.
 const samplePrompt = computed(() => (coarsePointer.value ? "Drag to sample" : "Click to sample"));
 
@@ -385,8 +390,11 @@ const photoAspect = computed(() => {
 });
 const frameVars = computed(() => ({
     "--ed-aspect": String(photoAspect.value),
-    // Before the first measure: the bar's 52 px and the foot's 70.
-    "--ed-chrome": `${Math.ceil((barH.value || 52) + (narrow.value ? footH.value || 70 : 0))}px`,
+    // The bar (52 px before its first measure) and the foot, which measures 0
+    // while the container query hides it. A dialog sized without its foot is
+    // the wider one, so the query settles on its first pass and never flips
+    // back: the foot only shows when even that width is narrow.
+    "--ed-chrome": `${Math.ceil((barH.value || 52) + footH.value)}px`,
 }));
 const stageStyle = computed(() => ({
     // The photo as the page already decoded it shows until the canvas paints.
@@ -460,19 +468,27 @@ onBeforeUnmount(() => {
 watch(() => imageUrl, () => { loadAndFit(); });
 </script>
 
-<style scoped>
-@reference "../../../styles/foundation.css";
-
+<style>
 /* The dialog is the photo's width: the photo's shape times the height left
- * under the dialog's cap once the chrome is taken, within the screen. */
-.eyedropper-dialog {
+ * under the dialog's cap once the chrome is taken, within the screen. It is
+ * the container its acts' seat is keyed on. Unscoped: the dialog's root is
+ * glass's, teleported out of this tree, so it carries none of this file's
+ * scope attributes, and a scoped rule never reached it (the dialog stayed at
+ * glass's 32rem default for every photo). */
+[data-slot="dialog-content"].eyedropper-dialog {
+    container: eyedropper / inline-size;
     --ed-cap: min(100svh - 2rem, 48rem);
     inline-size: max(
         20rem,
         min(100vw - 2rem, 64rem, calc((var(--ed-cap) - var(--ed-chrome, 3.25rem)) * var(--ed-aspect, 4 / 3)))
     );
+    max-inline-size: none;
     max-block-size: var(--ed-cap);
 }
+</style>
+
+<style scoped>
+@reference "../../../styles/foundation.css";
 
 /* The stage is the photo's shape. */
 .eyedropper-stage {
@@ -573,8 +589,28 @@ watch(() => imageUrl, () => { loadAndFit(); });
     min-block-size: 2.75rem;
 }
 
-/* The acts take their ink as a pick is held, on the fast clock. */
+/* The acts' seat. At the bar's end they need about 25rem with the mark and
+ * the close, so from 40rem the readout keeps a whole caption beside them
+ * ("oklch(37.9% 0.138 266deg)" and longer); under that the foot takes them. */
+.eyedropper-bar-acts {
+    display: flex;
+}
+.eyedropper-foot {
+    display: none;
+}
+@container eyedropper (width < 40rem) {
+    .eyedropper-bar-acts {
+        display: none;
+    }
+    .eyedropper-foot {
+        display: grid;
+    }
+}
+
+/* The acts take their ink as a pick is held, on the fast clock. A label
+ * never wraps inside its pill. */
 .eyedropper-act {
+    white-space: nowrap;
     transition:
         opacity var(--duration-fast) var(--ease-standard),
         background-color var(--duration-fast) var(--ease-standard),
