@@ -493,18 +493,19 @@ watch(
                         class="dock-seal-wax"
                         seed="top-dock"
                     />
-                    <!-- The FORTIETH K-1: the seal's glyph crosses in place
-                         (default mode: the old out and the new in, in one
-                         grid cell), so the seal is never blank. Only the HTML
-                         wrapper moves; nothing is set on the SVG. -->
-                    <Transition name="vj-morph">
+                    <!-- The FORTIETH K-1: the seal's glyph is handed over in
+                         place, as the view select's is (out-in on 100 ms legs
+                         meeting at half strength), so the seal is never blank
+                         and two glyphs never overlap. Only the HTML wrapper
+                         moves; nothing is set on the SVG. -->
+                    <Transition name="vj-morph" mode="out-in">
                         <span
                             :key="viewManager.currentView.value"
                             class="dock-seal-ink"
                             :class="isAdminMode && 'gold-ink'"
                             :data-view-glyph="viewManager.currentView.value"
                             aria-hidden="true"
-                            style="--vj-morph-scale: 1.25; --vj-morph-y: 0px"
+                            style="--vj-morph-scale: 1.25; --vj-morph-y: 0px; --vj-morph-opacity: 0.55; --vj-morph-clock: var(--duration-instant)"
                         >
                             <component :is="viewManager.currentConfig.value.icon" />
                         </span>

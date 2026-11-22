@@ -132,19 +132,22 @@ const viewRing = computed(() => {
             :style="{ '--dock-ring': viewRing }"
         >
             <!-- The view-select moment (R.W4 Lane B / B3; the FORTIETH K-1):
-                 the trigger's glyph CROSSES IN PLACE on the morph family, the
-                 old out and the new in at once in one grid cell, so the seat
-                 is never empty (out-in held a blank face for ~200 ms). Only
-                 the HTML wrapper moves (transform and opacity, the compositor);
-                 nothing is set on the SVG. It reads the per-view accent (B2 —
+                 the trigger's glyph is handed over in place on the morph
+                 family: the old shrinks to a point at half strength in 100 ms
+                 and the new grows out of it in 100 ms (out-in), so the seat is
+                 never empty and two glyphs never overlap mid-way (the cross
+                 printed both at strength at 150 ms; out-in on the default
+                 clocks held a blank face for ~200 ms). Only the HTML wrapper
+                 moves (transform and opacity, the compositor); nothing is set
+                 on the SVG. It reads the per-view accent (B2 —
                  var(--accent-view), the ONE resolver). -->
             <span class="view-glyph-seat">
-                <Transition name="vj-morph">
+                <Transition name="vj-morph" mode="out-in">
                     <span
                         :key="shownView"
                         class="view-glyph"
                         :data-view-glyph="shownView"
-                        style="--vj-morph-scale: 0.6; --vj-morph-y: 0px"
+                        style="--vj-morph-scale: 0.6; --vj-morph-y: 0px; --vj-morph-opacity: 0.55; --vj-morph-clock: var(--duration-instant)"
                     >
                         <component
                             :is="shownIcon"
@@ -228,8 +231,8 @@ const viewRing = computed(() => {
 </template>
 
 <style scoped>
-/* K-1: the two glyphs of a crossing share one cell, so the seat keeps its
- * size and neither glyph moves the label beside it. */
+/* K-1: the glyph's one cell, so the seat keeps its size through a hand-over
+ * and the label beside it never moves. */
 .view-glyph-seat {
     display: grid;
     flex-shrink: 0;

@@ -73,7 +73,13 @@
  *                  cycles, slug bar, rename reveal). Snappy spring, fast
  *                  fades; optional height morph via --vj-morph-collapse/
  *                  -expanded. Geometry: --vj-morph-x/-y/-scale (+ mirrored
- *                  exit via --vj-morph-exit-x/-y).
+ *                  exit via --vj-morph-exit-x/-y). A hand-over (out-in: the
+ *                  old shrinks to a point of half strength and the new grows
+ *                  out of it, so two never overlap and the seat is never
+ *                  blank) sets --vj-morph-opacity (the strength they meet at)
+ *                  and --vj-morph-clock (each leg's length, every
+ *                  property on it: Vue times a leave by its longest leg, so
+ *                  one longer leg held the hand-over).
  *   vj-celebrate — a ONE-SHOT feedback beat (saved!, error pop). Bouncy
  *                  spring entrance, quick retire. Geometry:
  *                  --vj-celebrate-x/-y/-scale (+ collapse/expanded).
@@ -106,26 +112,26 @@
 /* ── Family 2 · morph ── */
 .vj-morph-enter-active {
     transition:
-        opacity var(--duration-fast) var(--ease-decelerate),
-        transform var(--spring-present-duration) var(--spring-present),
-        max-height var(--duration-normal) var(--ease-decelerate);
+        opacity var(--vj-morph-clock, var(--duration-fast)) var(--ease-decelerate),
+        transform var(--vj-morph-clock, var(--spring-present-duration)) var(--spring-present),
+        max-height var(--vj-morph-clock, var(--duration-normal)) var(--ease-decelerate);
     overflow: hidden;
 }
 .vj-morph-leave-active {
     transition:
-        opacity var(--duration-fast) var(--ease-accelerate),
-        transform var(--duration-fast) var(--ease-accelerate),
-        max-height var(--duration-fast) var(--ease-accelerate);
+        opacity var(--vj-morph-clock, var(--duration-fast)) var(--ease-accelerate),
+        transform var(--vj-morph-clock, var(--duration-fast)) var(--ease-accelerate),
+        max-height var(--vj-morph-clock, var(--duration-fast)) var(--ease-accelerate);
     overflow: hidden;
 }
 .vj-morph-enter-from {
-    opacity: 0;
+    opacity: var(--vj-morph-opacity, 0);
     transform: translate(var(--vj-morph-x, 0px), var(--vj-morph-y, 0.25rem))
         scale(var(--vj-morph-scale, 0.97));
     max-height: var(--vj-morph-collapse, none);
 }
 .vj-morph-leave-to {
-    opacity: 0;
+    opacity: var(--vj-morph-opacity, 0);
     transform: translate(
             var(--vj-morph-exit-x, calc(-1 * var(--vj-morph-x, 0px))),
             var(--vj-morph-exit-y, calc(-1 * var(--vj-morph-y, 0.25rem)))
