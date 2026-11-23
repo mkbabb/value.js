@@ -133,6 +133,43 @@
     </Select>
 </template>
 
+<script lang="ts">
+import type { PickerColor } from "../../color-session/picker-color";
+import type { DisplayColorSpace } from "../../color-session/color-model";
+import type { Specimen } from "../../color-session/format-color";
+import { SPACE_CATALOG_ENTRIES } from "../../color-session/space-catalog";
+import { formatSpecimen } from "../../color-session/format-color";
+
+// The FORTIETH order, E-2 (a popup's first frame within 100 ms): the list's
+// eighteen specimen lines (the kelvin row's inverse is a 39,001-step search)
+// were computed in the press that opens it, on the sheet's first frame. They
+// are now computed on idle once the colour has held still for SETTLE_MS, and
+// held for that colour (both hosts, the picker plate and About, read the one
+// set), so the open reads them. A colour that changed since (the list opened
+// at once after a drag) still computes them in the open, as before; the lines
+// are never filled in after the sheet is up.
+const SETTLE_MS = 250;
+let held: { color: PickerColor; lines: ReadonlyMap<DisplayColorSpace, Specimen> } | null = null;
+let settleTimer = 0;
+
+function specimenLines(color: PickerColor): ReadonlyMap<DisplayColorSpace, Specimen> {
+    if (held?.color === color) return held.lines;
+    const lines = new Map(SPACE_CATALOG_ENTRIES.map((entry) => [entry.id, formatSpecimen(color, entry.id)] as const));
+    held = { color, lines };
+    return lines;
+}
+
+function settleSpecimens(color: PickerColor): void {
+    if (held?.color === color || typeof window === "undefined") return;
+    window.clearTimeout(settleTimer);
+    settleTimer = window.setTimeout(() => {
+        const ready = () => void specimenLines(color);
+        if (typeof window.requestIdleCallback === "function") window.requestIdleCallback(ready, { timeout: 1000 });
+        else window.setTimeout(ready, 0);
+    }, SETTLE_MS);
+}
+</script>
+
 <script setup lang="ts">
 import {
     Select,
@@ -143,11 +180,10 @@ import {
     SelectValue,
 } from "@mkbabb/glass-ui/select";
 import { WatercolorDot } from "./watercolor-dot";
-import { computed, inject, onDeactivated } from "vue";
+import { computed, inject, onDeactivated, watch } from "vue";
 import { resolveColorSpace } from "../../color-session/color-model";
-import type { DisplayColorSpace } from "../../color-session/color-model";
-import { SPACE_CATALOG, SPACE_CATALOG_ENTRIES } from "../../color-session/space-catalog";
-import { SPECIMEN_CHAR_BUDGET, formatSpecimen } from "../../color-session/format-color";
+import { SPACE_CATALOG } from "../../color-session/space-catalog";
+import { SPECIMEN_CHAR_BUDGET } from "../../color-session/format-color";
 import { COLOR_MODEL_KEY } from "../../color-session/keys";
 
 const { inline = false } = defineProps<{
@@ -207,11 +243,21 @@ const dotColor = computed<string>((shown) =>
 );
 const rows = computed(() => {
     const color = colorModel && openModel.value ? colorModel.model.value.color : null;
+    const lines = color ? specimenLines(color) : null;
     return SPACE_CATALOG_ENTRIES.map((entry) => ({
         entry,
-        specimen: color ? formatSpecimen(color, entry.id) : null,
+        specimen: lines?.get(entry.id) ?? null,
     }));
 });
+// E-2: the lines are made ready on idle once the colour settles, so the press
+// that opens the list reads them (both hosts share one set per colour).
+watch(
+    () => colorModel?.model.value.color,
+    (color) => {
+        if (color) settleSpecimens(color);
+    },
+    { immediate: true },
+);
 
 /**
  * X-W6.f · X:CSS-1 (f9) — ONE COMMAND, ONE HOME. The space switch used to be
@@ -441,9 +487,13 @@ function isDisplayColorSpace(value: string | number): value is DisplayColorSpace
 /* T.W6.5 row 8 — the `opacity-60` guard-then-alpha survivor dies (§5.2: the
  * F-4 class W3-5 killed elsewhere). The specimen conversion line speaks the
  * CERTIFIED de-emphasis rung — the D6 contract's stamped token — never a
- * post-hoc alpha over an already-resolved ink. */
+ * post-hoc alpha over an already-resolved ink. The rung is the one seated on
+ * the list's own ground (`--muted-foreground`, shell.css): the floating plate's
+ * on a desk, the scheme's on a phone's opaque sheet. `--ink-muted` is the
+ * resting plate's, and on the cream sheet with a dark colour it was near-white
+ * (1.08:1). */
 .specimen-caption {
-    color: var(--ink-muted);
+    color: var(--muted-foreground);
 
     /* X-W6.f · X:CSS-1 (f4) — THE BOX IS SIZED BY THE DIGIT POLICY.
      *
