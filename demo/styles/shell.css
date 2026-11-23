@@ -374,8 +374,15 @@
  * pink). glass's floating material (`.glass-floating`) is every floater's
  * content root; the boot writer certifies `--ink-floating-*` against that rung
  * (`resolvePlateInk`/`resolveMutedInk` on the floating referent). Colour only:
- * glass's floating material and its opacity are untouched (V3C-G1 on O-87). */
-.glass-floating {
+ * glass's floating material and its opacity are untouched (V3C-G1 on O-87).
+ *
+ * The pair is seated only where that material is the ground. On a phone glass
+ * draws a select or menu as its sheet form (`data-surface="opaque"`): the
+ * scheme's opaque card, with no backdrop. There the pair solved over the
+ * ambient was the wrong referent: in light with a dark colour every space name
+ * and specimen line was near-white on the cream sheet (about 1.1:1). The sheet
+ * keeps the scheme's own inks, which glass sets for that card. */
+.glass-floating:not([data-surface="opaque"]) {
     --foreground: var(--ink-floating-primary, var(--ink-primary));
     --popover-foreground: var(--ink-floating-primary, var(--ink-primary));
     --card-foreground: var(--ink-floating-primary, var(--ink-primary));
@@ -392,6 +399,8 @@
         var(--ink-floating-muted, var(--ink-muted)),
         var(--ink-floating-primary, var(--ink-primary)) 38.2%
     );
+}
+.glass-floating {
     /* X-DS pass 17 (V17C-01): the admin gold, certified on this plate. */
     --ink-gold: var(--ink-gold-floating, var(--color-gold));
     --ink-gold-glyph: var(--ink-gold-floating-glyph, var(--ink-gold));

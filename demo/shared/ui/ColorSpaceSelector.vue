@@ -487,9 +487,13 @@ function isDisplayColorSpace(value: string | number): value is DisplayColorSpace
 /* T.W6.5 row 8 — the `opacity-60` guard-then-alpha survivor dies (§5.2: the
  * F-4 class W3-5 killed elsewhere). The specimen conversion line speaks the
  * CERTIFIED de-emphasis rung — the D6 contract's stamped token — never a
- * post-hoc alpha over an already-resolved ink. */
+ * post-hoc alpha over an already-resolved ink. The rung is the one seated on
+ * the list's own ground (`--muted-foreground`, shell.css): the floating plate's
+ * on a desk, the scheme's on a phone's opaque sheet. `--ink-muted` is the
+ * resting plate's, and on the cream sheet with a dark colour it was near-white
+ * (1.08:1). */
 .specimen-caption {
-    color: var(--ink-muted);
+    color: var(--muted-foreground);
 
     /* X-W6.f · X:CSS-1 (f4) — THE BOX IS SIZED BY THE DIGIT POLICY.
      *
