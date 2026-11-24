@@ -356,11 +356,19 @@ useSliderAnnouncements({
  * and never overlaps the next one (at glass's 2.75rem, and the site's old
  * transparent pseudo on the dock's token, a touch 22 px off a rail fell in a
  * 3 px seam between two targets). Gated on `pointer: coarse` (the input
- * device), never viewport width. */
+ * device), never viewport width.
+ * The margin is figured from the rail's band, a value the site owns: glass's
+ * spectrum rail is 1.5rem at the channels' rung (its thumb, 1rem, times 1.5),
+ * read on a phone as 24 px at 375, 390, 430 and 844 wide. The seat read glass's
+ * own `--slider-track-height`, a variable glass declares for itself and may
+ * rename or resize (the B3 fence, `a11y-select-title`). */
+.channel-slider-seat .channel-slider {
+    --channel-rail-band: 1.5rem;
+}
 @media (pointer: coarse) {
     .channel-slider-seat .channel-slider {
         --slider-touch-target: 2.875rem;
-        margin-block: calc((var(--slider-track-height, 1.5rem) - var(--slider-touch-target)) / 2);
+        margin-block: calc((var(--channel-rail-band) - var(--slider-touch-target)) / 2);
     }
 }
 
