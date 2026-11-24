@@ -347,16 +347,15 @@
     .pane-wrapper > [data-scene-direction="back"] {
         --deal-side: -1;
     }
-    /* the arriving text starts as the leaver clears, then hands over */
-    .pane-wrapper > .vj-enter-enter-from > .glass-resting > *,
-    .pane-wrapper > .vj-enter-enter-from.glass-resting > * {
-        opacity: 0;
-    }
-    .pane-wrapper > .vj-enter-enter-active > .glass-resting > *,
-    .pane-wrapper > .vj-enter-enter-active.glass-resting > * {
-        transition: opacity var(--duration-fast) var(--ease-decelerate) var(--deal-text-delay);
-    }
-    /* Vue times the enter by the ROOT's declared transition, so the root
+    /* The arriving text starts as the leaver clears, then hands over: the
+     * plate's children are held at 0 and fade in on `--duration-fast` after
+     * `--deal-text-delay`, run by PaneSlot on the Web Animations API from the
+     * frame the enter's classes move. (They were rules on the plate's
+     * children keyed on the root's enter classes, `… > .glass-resting > *`;
+     * a class change under a universal subject restyles the whole card, some
+     * 1,400 elements on About at 390, at the enter's second frame and again
+     * at its end.)
+     * Vue times the enter by the ROOT's declared transition, so the root
      * declares the text's clock (its own opacity stays 1: no transition runs
      * on it, and the enter ends on that clock). */
     .pane-wrapper > .vj-enter-enter-active {
@@ -375,11 +374,9 @@
             opacity var(--duration-control) var(--ease-decelerate);
     }
     /* o1111: a region that deals a new card stays where it now lies
-     * (flipRegions), so its leaver leaves from where it was drawn: the
-     * region's offset pins it there for the length of the leave. */
-    .pane-wrapper > .vj-enter-leave-active {
-        translate: var(--region-pin, none);
-    }
+     * (flipRegions), so its leaver leaves from where it was drawn: flipRegions
+     * pins it there, on the leaver's own `translate`, for the length of the
+     * leave. */
 
     /* The swap's own compositor layer, for the `*-active` window only (W3-4
      * S.W3; X.W5.d2 §0ax ESC-W5d2-2): the moving card is one promoted

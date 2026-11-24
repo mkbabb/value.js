@@ -77,17 +77,21 @@ export function groundStopsFor(palette: GroundPalette): string[] {
 }
 
 /**
- * The share-link seed in a hash route (`#/…?space=…&color=…`). Both keys are
- * required (hydrate's contract); null otherwise.
+ * The share-link seed in a hash route (`#/…?space=…&color=…`): the colour,
+ * and the space when the address names one. A colour alone seeds, as it does
+ * for the live reader (`useColorUrl`, CNL-26: either half of the pair is
+ * enough); the boot then shows it in the space the stored or default colour
+ * holds, the one the live reader converts it into. With no colour the address
+ * seeds nothing here (a space alone changes no ground and no ink; the live
+ * reader applies it at mount); null then.
  */
-export function parseUrlSeed(hash: string): { space: string; color: string } | null {
+export function parseUrlSeed(hash: string): { space: string | null; color: string } | null {
     const q = hash.indexOf("?");
     if (q === -1) return null;
     const params = new URLSearchParams(hash.slice(q + 1));
-    const space = params.get("space");
     const color = params.get("color");
-    if (!space || !color) return null;
-    return { space, color };
+    if (!color) return null;
+    return { space: params.get("space") || null, color };
 }
 
 /**

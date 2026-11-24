@@ -26,6 +26,15 @@
  *       scheme foreground (light #1c1917, dark #e9e6e2) to the certified ink,
  *       and the gold from glass's raw gold to its certified rungs, about 3 s
  *       in on a phone.
+ *   (d) on a share link (the colour alone, and the colour with its space) and
+ *       on a returning visit with a stored colour, at 390 and 1440, a dark
+ *       colour in light and a pale one in dark: the same plate inks and the
+ *       space titles hold their first-frame colour to +6 s. Measured on
+ *       production with `#/?color=oklch(35% 0.12 250)` in light: the page was
+ *       born on the default colour (a colour alone did not seed the boot), so
+ *       the plate text stood at the default's near-black ink (14,11,9) on the
+ *       dark-blue ground and went near-white (233,229,226) about 0.6 s in
+ *       (2 s on a phone at 4x) when the live reader glided the colour in.
  */
 import { test, expect, type Browser } from "@playwright/test";
 
@@ -87,24 +96,67 @@ const RECORDER = (plateInks: readonly string[]) => {
     requestAnimationFrame(tick);
 };
 
-async function coldLoad(browser: Browser, width: number, height: number, scheme: "light" | "dark", wait: number) {
+async function coldLoad(
+    browser: Browser,
+    width: number,
+    height: number,
+    scheme: "light" | "dark",
+    wait: number,
+    { hash = "", stored = false }: { hash?: string; stored?: boolean } = {},
+) {
     const ctx = await browser.newContext({ viewport: { width, height }, colorScheme: scheme });
     try {
-        const page = await ctx.newPage();
-        await page.addInitScript(RECORDER, PLATE_INKS);
         // The faces arrive after the first paint, as they do over a real
         // network (production: the body face at 1.09 s on a desk); from a
         // local server they would land before the first frame and hide a swap.
-        await page.route(/\.woff2(\?|$)/, async (route) => {
+        await ctx.route(/\.woff2(\?|$)/, async (route) => {
             await new Promise((resolve) => setTimeout(resolve, 1_500));
             await route.continue();
         });
-        await page.goto("/", { waitUntil: "commit", timeout: 60_000 });
+        // A returning visit: the first visit opens the link and settles, so
+        // the app keeps its records (the colour, the ground), then a new page
+        // opens the bare address in the same context.
+        if (stored) {
+            const first = await ctx.newPage();
+            await first.goto(`/${hash}`, { waitUntil: "load", timeout: 60_000 });
+            await first.waitForTimeout(5_000);
+            await first.close();
+        }
+        const page = await ctx.newPage();
+        await page.addInitScript(RECORDER, PLATE_INKS);
+        await page.goto(stored ? "/" : `/${hash}`, { waitUntil: "commit", timeout: 60_000 });
         await page.waitForTimeout(wait);
         return await page.evaluate(() => (window as unknown as { __cold: Reading[] }).__cold);
     } finally {
         await ctx.close();
     }
+}
+
+/** Every recorded token and title on the first frame equals its colour 6 s later (within 2 of 255). */
+function expectInksHold(frames: Reading[], titles: boolean) {
+    const first = frames[0];
+    expect(first, "no frame drew the plate").toBeDefined();
+    const later = frames.filter((f) => f.at >= first!.at + 6_000);
+    expect(later.length, "no reading 6 s after the first paint").toBeGreaterThan(0);
+    const end = later[later.length - 1]!;
+    const drift = (a: number[], b: number[]) => Math.max(...a.map((c, k) => Math.abs(c - b[k]!)));
+    PLATE_INKS.forEach((token, i) => {
+        const a = first!.plate[i];
+        const b = end.plate[i];
+        expect(a, `${token} is not a colour on the first frame`).not.toBeNull();
+        expect(b, `${token} is not a colour at +6 s`).not.toBeNull();
+        if (a == null || b == null) return;
+        test.info().annotations.push({ type: token, description: `${a.join(",")} @${first!.at.toFixed(0)} ms → ${b.join(",")} @${end.at.toFixed(0)} ms` });
+        expect(drift(a, b), `${token}: ${a.join(",")} at first paint, ${b.join(",")} at +6 s`).toBeLessThanOrEqual(2);
+    });
+    if (!titles) return;
+    const drawn = frames.find((f) => f.inks.length > 0);
+    expect(drawn, "no frame drew a space title").toBeDefined();
+    const last = later.filter((f) => f.inks.length === drawn!.inks.length).at(-1);
+    expect(last, "no title reading 6 s after the first paint").toBeDefined();
+    drawn!.inks.forEach((ink, i) => {
+        expect(drift(ink, last!.inks[i]!), `title ${i}: ${ink.join(",")} at first paint, ${last!.inks[i]!.join(",")} at +6 s`).toBeLessThanOrEqual(2);
+    });
 }
 
 test.describe("c40 · the cold load holds still (FORTIETH A-4)", () => {
@@ -144,21 +196,21 @@ test.describe("c40 · the cold load holds still (FORTIETH A-4)", () => {
         for (const scheme of ["light", "dark"] as const)
             test(`(c) ${width} · ${scheme}: the plate inks keep their first-paint colour`, async ({ browser }) => {
                 test.setTimeout(120_000);
-                const frames = await coldLoad(browser, width, height, scheme, 9_000);
-                const first = frames[0];
-                expect(first, "no frame drew the plate").toBeDefined();
-                const later = frames.filter((f) => f.at >= first!.at + 6_000);
-                expect(later.length, "no reading 6 s after the first paint").toBeGreaterThan(0);
-                const end = later[later.length - 1]!;
-                PLATE_INKS.forEach((token, i) => {
-                    const a = first!.plate[i];
-                    const b = end.plate[i];
-                    expect(a, `${token} is not a colour on the first frame`).not.toBeNull();
-                    expect(b, `${token} is not a colour at +6 s`).not.toBeNull();
-                    if (a == null || b == null) return;
-                    test.info().annotations.push({ type: token, description: `${a.join(",")} @${first!.at.toFixed(0)} ms → ${b.join(",")} @${end.at.toFixed(0)} ms` });
-                    const drift = Math.max(...a.map((c, k) => Math.abs(c - b[k]!)));
-                    expect(drift, `${token}: ${a.join(",")} at first paint, ${b.join(",")} at +6 s`).toBeLessThanOrEqual(2);
-                });
+                expectInksHold(await coldLoad(browser, width, height, scheme, 9_000), false);
             });
+
+    // (d) A dark colour in light turns the plate's ink to its light pole; a
+    // pale one in dark moves the golds and the accent off the default's.
+    const SEEDS = { light: "oklch(35% 0.12 250)", dark: "oklch(88% 0.08 100)" } as const;
+    for (const [width, height] of [[390, 844], [1440, 900]] as const)
+        for (const scheme of ["light", "dark"] as const)
+            for (const [kind, hash, stored] of [
+                ["a share link, the colour alone", `#/?color=${encodeURIComponent(SEEDS[scheme])}`, false],
+                ["a share link, colour and space", `#/?space=oklch&color=${encodeURIComponent(SEEDS[scheme])}`, false],
+                ["a returning visit, the colour stored", `#/?space=oklch&color=${encodeURIComponent(SEEDS[scheme])}`, true],
+            ] as const)
+                test(`(d) ${width} · ${scheme} · ${kind}: the plate inks and titles keep their first-paint colour`, async ({ browser }) => {
+                    test.setTimeout(150_000);
+                    expectInksHold(await coldLoad(browser, width, height, scheme, 9_000, { hash, stored }), true);
+                });
 });

@@ -145,6 +145,42 @@ describe("flipRegions — one read, one write (FORTIETH B-1)", () => {
         }
     });
 
+    it("a region dealing a new card pins its leaver on the leaver's own translate", async () => {
+        // The region is pinned on the card that leaves, never on the region:
+        // a custom property on the region is inherited by both cards, and
+        // setting it and lifting it restyled both whole (the Palettes -> Home
+        // trace at 390: 112 ms and 53 ms of style on a 4x phone).
+        const { container, stage, inspector } = scene();
+        const leaver = inspector.firstElementChild as HTMLElement;
+        const arriving = document.createElement("div");
+        arriving.className = "glass-resting vj-enter-enter-active";
+        await flipRegions(container, () => {
+            leaver.classList.add("vj-enter-leave-active");
+            inspector.append(arriving);
+            seats.set(stage, { left: 12, top: 100, width: 366, height: 400 });
+            seats.set(inspector, { left: 12, top: 516, width: 366, height: 420 });
+        });
+        expect(leaver.style.translate, "the leaver held where it was drawn").toBe("0px 164px");
+        expect(arriving.style.translate, "the arriving card is not pinned").toBe("");
+        expect(inspector.style.cssText, "nothing on the region").toBe("");
+        expect(animations.find((a) => a.el === inspector), "the dealing region does not travel").toBeUndefined();
+    });
+
+    it("the next commit lifts the pin from the card it held", async () => {
+        const { container, stage, inspector } = scene();
+        const leaver = inspector.firstElementChild as HTMLElement;
+        const arriving = document.createElement("div");
+        arriving.className = "glass-resting vj-enter-enter-active";
+        await flipRegions(container, () => {
+            leaver.classList.add("vj-enter-leave-active");
+            inspector.append(arriving);
+            seats.set(inspector, { left: 12, top: 516, width: 366, height: 420 });
+        });
+        expect(leaver.style.translate).toBe("0px 164px");
+        await flipRegions(container, () => leaver.remove());
+        expect(leaver.style.translate, "the pin is lifted").toBe("");
+    });
+
     it("a region that did not move is not written", async () => {
         const { container } = scene();
         let mark = 0;

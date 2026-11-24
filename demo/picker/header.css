@@ -60,6 +60,15 @@
  * trigger (the flip loop PaneHeader.vue's `.pane-scroll-fade` rule records). */
 .picker-scroll-host {
     overflow-anchor: none;
+    /* The host scrolls on the block axis only (the sideways census, his
+     * FORTY-SEVENTH: nothing scrolls sideways). glass's `.card-scroll-host`
+     * sets `overflow-y: auto` and leaves x to compute to auto, so one pixel of
+     * content wider than the plate would make the picker pan under a thumb
+     * (iOS Safari locks a near-vertical swipe to its axis less firmly than
+     * Chromium). Glass's share is to pair the axis on `.card-scroll-host`
+     * itself; this line goes when it does. The host already clips its paint
+     * (`contain: paint`), so nothing it draws is cut by it. */
+    overflow-x: hidden;
 }
 
 /* ── Row B · THE TITLE STEP (§0.8 "title" · BR-11) ───────────────────────
