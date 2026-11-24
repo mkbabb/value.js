@@ -451,7 +451,18 @@ function fade(el: Element, from: number, to: number, ms: number, done: () => voi
 // class under a universal subject invalidates every element below it): on
 // Palettes -> Home at 390, About's 1,400 elements at the enter's second frame
 // (71 ms of style on a 4x phone) and again at its end (52 ms).
-const dealing = new WeakMap<Element, Animation[]>();
+// A child the plate renders after the enter hook is held too, up to the play
+// frame (the window the CSS rule this replaced covered): the loading plate's
+// Skeleton bars are an async component, so its Card has no element children
+// when the hook runs and the bars render a moment later, before the first
+// paint. The plate is watched for children until the play frame; the
+// observer's callback runs before the next paint, so no late child is ever
+// drawn whole.
+interface Deal {
+    runs: Animation[];
+    watch: MutationObserver | null;
+}
+const dealing = new WeakMap<Element, Deal>();
 
 function milliseconds(value: string): number {
     const first = value.split(",")[0]!.trim();
@@ -460,30 +471,42 @@ function milliseconds(value: string): number {
     return first.endsWith("ms") ? n : n * 1000;
 }
 
+function holdText(deal: Deal, child: Element) {
+    if (typeof (child as HTMLElement).animate !== "function") return;
+    const run = (child as HTMLElement).animate([{ opacity: 0 }, { opacity: 1 }], { duration: 1, fill: "backwards" });
+    run.pause();
+    deal.runs.push(run);
+}
+
 function dealText(el: Element) {
     // A card dealt again before its last fade played starts from its text whole.
     stopDealingText(el);
     const plate = el.classList.contains("glass-resting") ? el : el.querySelector(":scope > .glass-resting");
     if (plate === null) return;
-    const runs: Animation[] = [];
-    for (const child of plate.children) {
-        if (typeof (child as HTMLElement).animate !== "function") continue;
-        const run = (child as HTMLElement).animate([{ opacity: 0 }, { opacity: 1 }], { duration: 1, fill: "backwards" });
-        run.pause();
-        runs.push(run);
-    }
-    if (runs.length === 0) return;
-    dealing.set(el, runs);
+    const deal: Deal = { runs: [], watch: null };
+    for (const child of plate.children) holdText(deal, child);
+    const adopt = (records: MutationRecord[]) => {
+        for (const record of records)
+            for (const node of record.addedNodes)
+                if (node instanceof Element && node.parentElement === plate) holdText(deal, node);
+    };
+    deal.watch = new MutationObserver(adopt);
+    deal.watch.observe(plate, { childList: true });
+    dealing.set(el, deal);
     requestAnimationFrame(() =>
         requestAnimationFrame(() => {
-            if (dealing.get(el) !== runs) return;
+            if (dealing.get(el) !== deal) return;
+            adopt(deal.watch?.takeRecords() ?? []);
+            deal.watch?.disconnect();
+            deal.watch = null;
+            if (deal.runs.length === 0) return;
             const style = getComputedStyle(el);
             const timing = {
                 duration: milliseconds(style.transitionDuration),
                 delay: milliseconds(style.transitionDelay),
                 easing: style.getPropertyValue("--ease-decelerate").trim() || "cubic-bezier(0, 0, 0.2, 1)",
             };
-            for (const run of runs) {
+            for (const run of deal.runs) {
                 try {
                     run.effect?.updateTiming(timing);
                 } catch {
@@ -498,7 +521,10 @@ function dealText(el: Element) {
 
 /** A card that leaves before its text is in shows its text whole, as a cancelled enter did. */
 function stopDealingText(el: Element) {
-    for (const run of dealing.get(el) ?? []) run.cancel();
+    const deal = dealing.get(el);
+    if (deal === undefined) return;
+    deal.watch?.disconnect();
+    for (const run of deal.runs) run.cancel();
     dealing.delete(el);
 }
 
