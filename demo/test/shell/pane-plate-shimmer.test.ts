@@ -11,6 +11,11 @@ import PaneLoadingPlate from "../../shell/PaneLoadingPlate.vue";
 
 describe("OD19-V6 — the loading plate's bars shimmer", () => {
     it("both Skeleton bars carry glass's shimmer state", async () => {
+        // The plate loads its bars from glass's root barrel on demand; under
+        // vitest that import takes about 1.5 s cold, longer than the poll
+        // below. Wait for the same module first, so the plate's own import
+        // resolves from the module cache.
+        await import("@mkbabb/glass-ui");
         const w = mount(PaneLoadingPlate, { attachTo: document.body });
         for (let i = 0; i < 20 && w.findAll('[data-slot="skeleton"]').length < 2; i++) {
             await flushPromises();
