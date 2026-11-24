@@ -299,6 +299,9 @@ test("O-16 W5 census — every owned row's computed duration/curve ≡ its liqui
         // card at each class change). Read off a live swap: every child, held
         // at 0, then 0 to 1 on `--duration-fast` and `--ease-decelerate`,
         // after the hand-over.
+        // The runs are taken on the card's first frame and read once each has
+        // been played, so a loaded runner's sparse frames cannot miss a fade
+        // that is over before the next one.
         const dealt = await page.evaluate(
             (to) =>
                 new Promise<{
@@ -306,30 +309,35 @@ test("O-16 W5 census — every owned row's computed duration/curve ≡ its liqui
                     children: number;
                     legs: Array<{ from: string; to: string; duration: number; delay: number; easing: string } | null>;
                 }>((done) => {
+                    type Leg = { from: string; to: string; duration: number; delay: number; easing: string };
                     const stage = document.querySelector(".pane-wrapper--stage")!;
-                    const out = { held: [] as string[], children: 0, legs: [] as Array<{ from: string; to: string; duration: number; delay: number; easing: string } | null> };
+                    const out = { held: [] as string[], children: 0, legs: [] as Array<Leg | null> };
+                    const fadeOf = (k: Element) =>
+                        k.getAnimations().find((a) => {
+                            const kf = (a.effect as KeyframeEffect | null)?.getKeyframes() ?? [];
+                            return kf.length === 2 && "opacity" in kf[0]!;
+                        }) ?? null;
+                    let runs: Array<Animation | null> | null = null;
                     const t0 = performance.now();
                     const loop = () => {
-                        const card = stage.querySelector(":scope > .vj-enter-enter-active");
-                        const plate = card?.classList.contains("glass-resting") ? card : card?.querySelector(":scope > .glass-resting");
-                        if (plate && plate.children.length > 0) {
-                            const kids = [...plate.children];
-                            if (out.held.length === 0) out.held = kids.map((k) => getComputedStyle(k).opacity);
-                            const legs = kids.map((k) => {
-                                const run = k.getAnimations().find((a) => {
-                                    const kf = (a.effect as KeyframeEffect | null)?.getKeyframes() ?? [];
-                                    return a.playState === "running" && kf.length === 2 && "opacity" in kf[0]!;
-                                });
-                                if (!run) return null;
+                        if (runs === null) {
+                            const card = stage.querySelector(":scope > .vj-enter-enter-active");
+                            const plate = card?.classList.contains("glass-resting") ? card : card?.querySelector(":scope > .glass-resting");
+                            if (plate && plate.children.length > 0) {
+                                const kids = [...plate.children];
+                                out.held = kids.map((k) => getComputedStyle(k).opacity);
+                                out.children = kids.length;
+                                runs = kids.map(fadeOf);
+                            }
+                        }
+                        if (runs !== null && runs.every((r) => r === null || r.playState !== "paused")) {
+                            out.legs = runs.map((run) => {
+                                if (run === null) return null;
                                 const kf = (run.effect as KeyframeEffect).getKeyframes();
                                 const t = run.effect!.getTiming();
                                 return { from: String(kf[0]!.opacity), to: String(kf[1]!.opacity), duration: Number(t.duration), delay: Number(t.delay ?? 0), easing: String(t.easing) };
                             });
-                            if (legs.every(Boolean)) {
-                                out.children = kids.length;
-                                out.legs = legs;
-                                return done(out);
-                            }
+                            return done(out);
                         }
                         if (performance.now() - t0 > 10_000) return done(out);
                         requestAnimationFrame(loop);
@@ -344,9 +352,11 @@ test("O-16 W5 census — every owned row's computed duration/curve ≡ its liqui
         await page.waitForFunction(() => !document.querySelector(".vj-enter-enter-active, .vj-enter-leave-active"));
         await page.waitForTimeout(600);
         const ms = (css: string) => (css.trim().endsWith("ms") ? parseFloat(css) : parseFloat(css) * 1000);
-        expect(dealt.children, "R2: the arriving plate's text was not found fading in").toBeGreaterThan(0);
+        expect(dealt.children, "R2: the arriving plate's text was not found").toBeGreaterThan(0);
         expect(dealt.held, "R2 the text is held at 0 from the card's first frame").toEqual(dealt.held.map(() => "0"));
+        expect(dealt.legs.length, "R2 every child of the plate fades in").toBe(dealt.children);
         for (const leg of dealt.legs) {
+            expect(leg, "R2 every child of the plate fades in").not.toBeNull();
             expect([leg!.from, leg!.to], "R2 text fades in").toEqual(["0", "1"]);
             expect(leg!.duration, "R2 text duration").toBeCloseTo(ms(census.textTok!.duration), 3);
             expect(leg!.easing, "R2 text curve").toBe(census.textTok!.timing);

@@ -453,7 +453,7 @@ function fade(el: Element, from: number, to: number, ms: number, done: () => voi
 // (71 ms of style on a 4x phone) and again at its end (52 ms).
 const dealing = new WeakMap<Element, Animation[]>();
 
-function seconds(value: string): number {
+function milliseconds(value: string): number {
     const first = value.split(",")[0]!.trim();
     const n = parseFloat(first);
     if (!Number.isFinite(n)) return 0;
@@ -461,6 +461,8 @@ function seconds(value: string): number {
 }
 
 function dealText(el: Element) {
+    // A card dealt again before its last fade played starts from its text whole.
+    stopDealingText(el);
     const plate = el.classList.contains("glass-resting") ? el : el.querySelector(":scope > .glass-resting");
     if (plate === null) return;
     const runs: Animation[] = [];
@@ -477,8 +479,8 @@ function dealText(el: Element) {
             if (dealing.get(el) !== runs) return;
             const style = getComputedStyle(el);
             const timing = {
-                duration: seconds(style.transitionDuration),
-                delay: seconds(style.transitionDelay),
+                duration: milliseconds(style.transitionDuration),
+                delay: milliseconds(style.transitionDelay),
                 easing: style.getPropertyValue("--ease-decelerate").trim() || "cubic-bezier(0, 0, 0.2, 1)",
             };
             for (const run of runs) {
