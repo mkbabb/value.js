@@ -125,6 +125,17 @@ test("O-16 computed-cascade — the dist :root 150ms transition-default clobber 
  *   R1  EXPECTED-RED above (PKT-1) — not re-asserted here.
  */
 
+/** Home is back and still: the stage holds the picker alone and no swap class is on the page. */
+const homeAtRest = () => {
+    const stage = document.querySelector(".pane-wrapper--stage");
+    return (
+        stage !== null &&
+        stage.children.length === 1 &&
+        stage.querySelector(".picker-plate") !== null &&
+        document.querySelector(".vj-enter-enter-active, .vj-enter-leave-active, .vj-enter-enter-to, .vj-enter-leave-to") === null
+    );
+};
+
 test("O-16 W5 census — every owned row's computed duration/curve ≡ its liquid target (both schemes)", async ({
     page,
 }) => {
@@ -134,9 +145,9 @@ test("O-16 W5 census — every owned row's computed duration/curve ≡ its liqui
     // R2's text leg is read off a live swap to Gradient and back; warm its
     // chunk first, so the swap is the swap and not a load.
     await page.evaluate(() => (location.hash = "#/gradient"));
-    await page.waitForTimeout(2500);
+    await expect(page.locator('[data-testid="gradient-render-tile"]').first()).toBeVisible({ timeout: 30_000 });
     await page.evaluate(() => (location.hash = "#/"));
-    await page.waitForTimeout(2500);
+    await page.waitForFunction(homeAtRest, null, { timeout: 30_000 });
 
     for (const scheme of ["light", "dark"] as const) {
         await page.evaluate((s) => {
@@ -349,8 +360,7 @@ test("O-16 W5 census — every owned row's computed duration/curve ≡ its liqui
         );
         log("R2 enter text", dealt);
         await page.evaluate(() => (location.hash = "#/"));
-        await page.waitForFunction(() => !document.querySelector(".vj-enter-enter-active, .vj-enter-leave-active"));
-        await page.waitForTimeout(600);
+        await page.waitForFunction(homeAtRest, null, { timeout: 30_000 });
         const ms = (css: string) => (css.trim().endsWith("ms") ? parseFloat(css) : parseFloat(css) * 1000);
         expect(dealt.children, "R2: the arriving plate's text was not found").toBeGreaterThan(0);
         expect(dealt.held, "R2 the text is held at 0 from the card's first frame").toEqual(dealt.held.map(() => "0"));

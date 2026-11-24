@@ -350,10 +350,11 @@
     /* The arriving text starts as the leaver clears, then hands over: the
      * plate's children are held at 0 and fade in on `--duration-fast` after
      * `--deal-text-delay`, run by PaneSlot on the Web Animations API from the
-     * frame the enter's classes move. (They were rules on the plate's children keyed
-     * on the root's enter classes, `… > .glass-resting > *`; a class change
-     * under a universal subject restyles the whole card, some 1,400 elements
-     * on About at 390, at the enter's second frame and again at its end.)
+     * frame the enter's classes move. (They were rules on the plate's
+     * children keyed on the root's enter classes, `… > .glass-resting > *`;
+     * a class change under a universal subject restyles the whole card, some
+     * 1,400 elements on About at 390, at the enter's second frame and again
+     * at its end.)
      * Vue times the enter by the ROOT's declared transition, so the root
      * declares the text's clock (its own opacity stays 1: no transition runs
      * on it, and the enter ends on that clock). */
