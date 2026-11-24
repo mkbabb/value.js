@@ -112,9 +112,9 @@ export function useColorUrl(options: {
     // the address is reconciled ONCE at that same moment, by the module that
     // owns the live sync rather than by a second boot reader.
     //
-    // ⟨ColorNutritionLabel CNL-26⟩: the boot seed resolver requires BOTH halves
-    // (`#/?space=…&color=…`) to seed from the address, so `?space=oklch` alone
-    // reached the model through nothing at all — measured silently inert on
+    // ⟨ColorNutritionLabel CNL-26⟩: the boot seed resolver seeds from the
+    // address's colour (with its space, or alone), so `?space=oklch` alone
+    // reaches the model through nothing at boot — measured silently inert on
     // every space, then formerly overwritten by the model→URL sync. It is the
     // LIVE reader's job: at mount the boot's own writes have landed, so
     // applying the address here is a reconciliation, not a race. A `?color=`

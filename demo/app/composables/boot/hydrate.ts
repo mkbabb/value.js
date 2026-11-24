@@ -62,7 +62,7 @@ export interface HydratedBootModel {
  * the only reader available at that point, and it is now the ONLY boot reader
  * of the address at all: `useColorUrl`'s setup-time apply is gone (gate A6).
  */
-function readUrlSeed(): { space: string; color: string } | null {
+function readUrlSeed(): { space: string | null; color: string } | null {
     if (typeof window === "undefined") return null;
     // X.W11.h7b: the parse is `seeded-ground.ts`'s `parseUrlSeed`, the one
     // reader the pre-paint boot script also runs for the seeded ground.
@@ -105,19 +105,29 @@ function modelFrom(css: string, space: DisplayColorSpace): ColorModel {
  * flash (D3 law 1).
  */
 export function resolveHydratedBootModel(): HydratedBootModel {
-    // 1 — URL hash (the share-link path; useColorUrl keeps live sync).
+    // 1 — URL hash (the share-link path; useColorUrl keeps live sync). A
+    // colour with no space takes the space of the model it would otherwise
+    // land on (the stored or default colour's), exactly as the live reader's
+    // reconciliation at mount converts it, so that reconciliation re-commits
+    // the same value and nothing moves. Before, a `?color=` alone did not
+    // seed: the page was born on the stored or default colour (its ground,
+    // inks and accent), and the live reader glided it to the link's colour
+    // after mount, so a dark colour's plate text stood near-black for about
+    // half a second unthrottled (two on a phone at 4x) and then went white.
     const url = readUrlSeed();
     if (url) {
         try {
-            return {
-                model: modelFrom(url.color, url.space as DisplayColorSpace),
-                source: "url",
-            };
+            const space = (url.space ?? resolveLocalBootModel().model.selectedColorSpace) as DisplayColorSpace;
+            return { model: modelFrom(url.color, space), source: "url" };
         } catch {
             /* malformed URL color — fall through (useColorUrl warns) */
         }
     }
+    return resolveLocalBootModel();
+}
 
+/** The boot model with no address seed: the stored last session, else the default. */
+function resolveLocalBootModel(): HydratedBootModel {
     // 2 — the persisted last session (the natural returning-user path).
     const stored = readStoredSeed();
     if (stored) {
