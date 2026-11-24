@@ -128,9 +128,15 @@ test("O-16 computed-cascade — the dist :root 150ms transition-default clobber 
 test("O-16 W5 census — every owned row's computed duration/curve ≡ its liquid target (both schemes)", async ({
     page,
 }) => {
-    test.setTimeout(45_000);
+    test.setTimeout(90_000);
     await page.goto("/");
     await expect(mainPane(page)).toBeVisible();
+    // R2's text leg is read off a live swap to Gradient and back; warm its
+    // chunk first, so the swap is the swap and not a load.
+    await page.evaluate(() => (location.hash = "#/gradient"));
+    await page.waitForTimeout(2500);
+    await page.evaluate(() => (location.hash = "#/"));
+    await page.waitForTimeout(2500);
 
     for (const scheme of ["light", "dark"] as const) {
         await page.evaluate((s) => {
@@ -197,20 +203,12 @@ test("O-16 W5 census — every owned row's computed duration/curve ≡ its liqui
             const wrapper = document.querySelector(".pane-wrapper--stage");
             const pane = wrapper?.firstElementChild ?? null;
             let enter: ReturnType<typeof readLegs> | null = null;
-            let enterText: ReturnType<typeof readLegs> | null = null;
             let leave: ReturnType<typeof readLegs> | null = null;
             let leaveTok: ReturnType<typeof resolve> | null = null;
             let textTok: ReturnType<typeof resolve> | null = null;
             if (pane) {
                 pane.classList.add("vj-enter-enter-active");
                 enter = readLegs(pane);
-                // R2's text leg rides the plate's own children (the plate's
-                // material is its pseudo-elements and stays put).
-                const plate = pane.classList.contains("glass-resting")
-                    ? pane
-                    : pane.querySelector(":scope > .glass-resting");
-                const text = plate?.firstElementChild ?? null;
-                enterText = text ? readLegs(text) : null;
                 pane.classList.remove("vj-enter-enter-active");
                 pane.classList.add("vj-enter-leave-active");
                 leave = readLegs(pane);
@@ -259,7 +257,6 @@ test("O-16 W5 census — every owned row's computed duration/curve ≡ its liqui
 
             return {
                 enter,
-                enterText,
                 leave,
                 leaveTok,
                 textTok,
@@ -290,17 +287,72 @@ test("O-16 W5 census — every owned row's computed duration/curve ≡ its liqui
         // rules read (§0az), never literals.
         expect(census.enter, "R2: no pane wrapper child found").toBeTruthy();
         log("R2 enter", census.enter);
-        log("R2 enter text", census.enterText);
         log("R2 resolved tokens", census.textTok);
         expect(Object.keys(census.enter!), "R2 the arriving plate does not travel").toEqual(["opacity"]);
         expect(census.enter!["opacity"]!.duration, "R2 the root declares the text's clock").toBe(census.textTok!.duration);
         const handOver = `${parseFloat(census.leaveTok!.duration) / 2}s`;
         expect(census.enter!["opacity"]!.delay, "R2 the root starts as the leaver clears").toBe(handOver);
-        expect(census.enterText, "R2: the plate's text was not found").toBeTruthy();
-        const textIn = census.enterText!["opacity"];
-        expect(textIn?.duration, "R2 text duration").toBe(census.textTok!.duration);
-        expect(textIn?.timing, "R2 text curve").toBe(census.textTok!.timing);
-        expect(textIn?.delay, "R2 the text starts as the leaver clears").toBe(handOver);
+        // The text: the plate's own children (its material is its
+        // pseudo-elements and stays put) are held at 0 from the card's first
+        // frame and fade in on the Web Animations API (PaneSlot's `dealText`;
+        // as rules keyed on the root's enter classes they restyled the whole
+        // card at each class change). Read off a live swap: every child, held
+        // at 0, then 0 to 1 on `--duration-fast` and `--ease-decelerate`,
+        // after the hand-over.
+        const dealt = await page.evaluate(
+            (to) =>
+                new Promise<{
+                    held: string[];
+                    children: number;
+                    legs: Array<{ from: string; to: string; duration: number; delay: number; easing: string } | null>;
+                }>((done) => {
+                    const stage = document.querySelector(".pane-wrapper--stage")!;
+                    const out = { held: [] as string[], children: 0, legs: [] as Array<{ from: string; to: string; duration: number; delay: number; easing: string } | null> };
+                    const t0 = performance.now();
+                    const loop = () => {
+                        const card = stage.querySelector(":scope > .vj-enter-enter-active");
+                        const plate = card?.classList.contains("glass-resting") ? card : card?.querySelector(":scope > .glass-resting");
+                        if (plate && plate.children.length > 0) {
+                            const kids = [...plate.children];
+                            if (out.held.length === 0) out.held = kids.map((k) => getComputedStyle(k).opacity);
+                            const legs = kids.map((k) => {
+                                const run = k.getAnimations().find((a) => {
+                                    const kf = (a.effect as KeyframeEffect | null)?.getKeyframes() ?? [];
+                                    return a.playState === "running" && kf.length === 2 && "opacity" in kf[0]!;
+                                });
+                                if (!run) return null;
+                                const kf = (run.effect as KeyframeEffect).getKeyframes();
+                                const t = run.effect!.getTiming();
+                                return { from: String(kf[0]!.opacity), to: String(kf[1]!.opacity), duration: Number(t.duration), delay: Number(t.delay ?? 0), easing: String(t.easing) };
+                            });
+                            if (legs.every(Boolean)) {
+                                out.children = kids.length;
+                                out.legs = legs;
+                                return done(out);
+                            }
+                        }
+                        if (performance.now() - t0 > 10_000) return done(out);
+                        requestAnimationFrame(loop);
+                    };
+                    requestAnimationFrame(loop);
+                    location.hash = to;
+                }),
+            "#/gradient",
+        );
+        log("R2 enter text", dealt);
+        await page.evaluate(() => (location.hash = "#/"));
+        await page.waitForFunction(() => !document.querySelector(".vj-enter-enter-active, .vj-enter-leave-active"));
+        await page.waitForTimeout(600);
+        const ms = (css: string) => (css.trim().endsWith("ms") ? parseFloat(css) : parseFloat(css) * 1000);
+        expect(dealt.children, "R2: the arriving plate's text was not found fading in").toBeGreaterThan(0);
+        expect(dealt.held, "R2 the text is held at 0 from the card's first frame").toEqual(dealt.held.map(() => "0"));
+        for (const leg of dealt.legs) {
+            expect([leg!.from, leg!.to], "R2 text fades in").toEqual(["0", "1"]);
+            expect(leg!.duration, "R2 text duration").toBeCloseTo(ms(census.textTok!.duration), 3);
+            expect(leg!.easing, "R2 text curve").toBe(census.textTok!.timing);
+            expect(leg!.delay, "R2 the text starts as the leaver clears").toBeCloseTo(ms(handOver), 3);
+        }
+        const textIn = { duration: `${dealt.legs[0]!.duration / 1000}s`, delay: `${dealt.legs[0]!.delay / 1000}s` };
 
         // R3 — leave: the card slides off its side and its text drops at
         // once, both on `--duration-control` (the slide on `--ease-in`, never

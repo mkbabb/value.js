@@ -20,13 +20,13 @@
 //
 // o1111 (the 390 view swap) — ONLY THE CARD THAT STAYS TRAVELS. A region that
 // is dealing a new card does not move: its riser comes up from under the deck
-// where it now lies, and its leaver is flung from where it was drawn
-// (`--region-pin`, animations.css). The picker is the one card in motion; it
-// paints above the deck (`.pane-wrapper--stage` holds z 1, shell.css), so it
-// slides off the new card and uncovers it. The move rides the riser's own
-// clock (`--spring-panel-settle`) on a symmetric ease: it starts and lands at
-// rest with no overshoot (a spring's overshoot carried a ~600 px reorder ~24 px
-// into the dock band, o1109c), and its peak speed is ~1.6x its mean (o1110 D3).
+// where it now lies, and its leaver is flung from where it was drawn (`pin`
+// below). The picker is the one card in motion; it paints above the deck
+// (`.pane-wrapper--stage` holds z 1, shell.css), so it slides off the new card
+// and uncovers it. The move rides the riser's own clock
+// (`--spring-panel-settle`) on a symmetric ease: it starts and lands at rest
+// with no overshoot (a spring's overshoot carried a ~600 px reorder ~24 px into
+// the dock band, o1109c), and its peak speed is ~1.6x its mean (o1110 D3).
 import { nextTick } from "vue";
 
 // the sine ease-in-out: peak speed pi/2 of the mean, so ~21 % of the travel in
@@ -37,7 +37,7 @@ const EASE = "cubic-bezier(0.37, 0, 0.63, 1)";
 const SETTLED_MS = 700;
 
 const travels = new WeakMap<HTMLElement, Animation>();
-const pins = new WeakMap<HTMLElement, number>();
+const pins = new WeakMap<HTMLElement, { n: number; cards: HTMLElement[] }>();
 
 let panelMs = 0;
 /** The panel clock in ms: glass's settle times its tempo, read once. */
@@ -50,14 +50,30 @@ function panelClock(el: Element): number {
     return panelMs;
 }
 
-/** Hold a dealing region's leaver where it was drawn for the length of its leave. */
+/**
+ * Hold a dealing region's leaver where it was drawn for the length of its
+ * leave. The offset is written on the leaving card itself, as its own
+ * `translate` (the leave's `transform` composes with it). It was a custom
+ * property on the region, which every element in the region inherits: setting
+ * it and lifting it restyled both cards whole, the leaver and the new card
+ * (some 1,400 elements on Palettes -> Home at 390; 112 ms and 53 ms of style
+ * on a 4x phone, in the leave's first frame and 700 ms later).
+ */
 function pin(w: HTMLElement, dx: number, dy: number): void {
-    const mine = (pins.get(w) ?? 0) + 1;
+    const cards = [...w.querySelectorAll<HTMLElement>(":scope > .vj-enter-leave-active")];
+    const mine = { n: (pins.get(w)?.n ?? 0) + 1, cards };
     pins.set(w, mine);
-    w.style.setProperty("--region-pin", `${dx}px ${dy}px`);
+    for (const card of cards) card.style.setProperty("translate", `${dx}px ${dy}px`);
     window.setTimeout(() => {
-        if (pins.get(w) === mine) w.style.removeProperty("--region-pin");
+        if (pins.get(w) === mine) unpin(w);
     }, SETTLED_MS);
+}
+
+function unpin(w: HTMLElement): void {
+    const held = pins.get(w);
+    if (held === undefined) return;
+    pins.delete(w);
+    for (const card of held.cards) card.style.removeProperty("translate");
 }
 
 export async function flipRegions(container: HTMLElement | null, mutate: () => unknown): Promise<void> {
@@ -81,9 +97,7 @@ export async function flipRegions(container: HTMLElement | null, mutate: () => u
     for (const w of now) {
         travels.get(w)?.cancel();
         travels.delete(w);
-        if (w.style.getPropertyValue("--region-pin") === "") continue;
-        pins.set(w, (pins.get(w) ?? 0) + 1);
-        w.style.removeProperty("--region-pin");
+        unpin(w);
     }
 
     // READ, after the commit: every seat in one layout.

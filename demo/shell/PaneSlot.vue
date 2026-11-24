@@ -350,6 +350,7 @@ function reportMount(instance: TInstance | null) {
 // a full-width leaver into Atmosphere would be centred 267 px off its seat.
 function hideLeaving(el: Element) {
     const drawn = el instanceof HTMLElement ? [el.offsetWidth, el.offsetHeight, el.offsetLeft] : null;
+    stopDealingText(el);
     el.toggleAttribute("inert", true);
     el.setAttribute("aria-hidden", "true");
     el.setAttribute("data-scene-direction", sceneDirection);
@@ -406,9 +407,11 @@ watch(
 // Under `reduce` the swap keeps its fade and drops its travel. glass's guard
 // zeroes every CSS transition under `reduce` (`transition-duration: 0s
 // !important`), which would make the swap a cut, so the two fades run through
-// the Web Animations API, which the guard does not reach. The hooks are bound
-// only under `reduce`: a hook that takes `done` tells Vue to wait for it
-// instead of for the CSS transition, which is right for this branch alone.
+// the Web Animations API, which the guard does not reach. The two-argument
+// hooks are bound only under `reduce`: a hook that takes `done` tells Vue to
+// wait for it instead of for the CSS transition, which is right for this
+// branch alone. Otherwise the one hook is the arriving text's, which takes
+// the element only, so Vue still times the enter by the CSS clock.
 // The leave keeps its leave classes, so the leaver is out of flow as ever.
 const motion = usePreferredReducedMotion();
 
@@ -436,6 +439,67 @@ function fade(el: Element, from: number, to: number, ms: number, done: () => voi
     run.finished.then(end, end);
 }
 
+// ── The arriving text (animations.css, the deal) ───────────────────────────
+//
+// The dealt card's plate is on its seat from its first frame; its text (the
+// plate's own children) waits at 0 and comes in on the root's declared clock:
+// `--duration-fast` after `--deal-text-delay`, from the frame the enter's
+// classes move (Vue's second frame), on `--ease-decelerate`. It runs on the
+// Web Animations API, held paused at 0 from the mount and played in that
+// frame. As rules on the plate's children keyed on the root's enter classes
+// (`… > .glass-resting > *`), each class change restyled the whole card (a
+// class under a universal subject invalidates every element below it): on
+// Palettes -> Home at 390, About's 1,400 elements at the enter's second frame
+// (71 ms of style on a 4x phone) and again at its end (52 ms).
+const dealing = new WeakMap<Element, Animation[]>();
+
+function seconds(value: string): number {
+    const first = value.split(",")[0]!.trim();
+    const n = parseFloat(first);
+    if (!Number.isFinite(n)) return 0;
+    return first.endsWith("ms") ? n : n * 1000;
+}
+
+function dealText(el: Element) {
+    const plate = el.classList.contains("glass-resting") ? el : el.querySelector(":scope > .glass-resting");
+    if (plate === null) return;
+    const runs: Animation[] = [];
+    for (const child of plate.children) {
+        if (typeof (child as HTMLElement).animate !== "function") continue;
+        const run = (child as HTMLElement).animate([{ opacity: 0 }, { opacity: 1 }], { duration: 1, fill: "backwards" });
+        run.pause();
+        runs.push(run);
+    }
+    if (runs.length === 0) return;
+    dealing.set(el, runs);
+    requestAnimationFrame(() =>
+        requestAnimationFrame(() => {
+            if (dealing.get(el) !== runs) return;
+            const style = getComputedStyle(el);
+            const timing = {
+                duration: seconds(style.transitionDuration),
+                delay: seconds(style.transitionDelay),
+                easing: style.getPropertyValue("--ease-decelerate").trim() || "cubic-bezier(0, 0, 0.2, 1)",
+            };
+            for (const run of runs) {
+                try {
+                    run.effect?.updateTiming(timing);
+                } catch {
+                    // an easing the engine does not take: the clock still holds
+                    run.effect?.updateTiming({ duration: timing.duration, delay: timing.delay });
+                }
+                run.play();
+            }
+        }),
+    );
+}
+
+/** A card that leaves before its text is in shows its text whole, as a cancelled enter did. */
+function stopDealingText(el: Element) {
+    for (const run of dealing.get(el) ?? []) run.cancel();
+    dealing.delete(el);
+}
+
 // The two fades run in turn, never together: the dealt card waits at 0 while
 // a leaver in its region fades out, so the two cards' text is never legible
 // in one place (before, the fades overlapped for the leaver's 120 ms and
@@ -457,8 +521,14 @@ const reduceHooks = computed(() =>
               onLeave: (el: Element, done: () => void) =>
                   fade(el, 1, 0, token(el, "--duration-control", 120), done),
           }
-        : {},
+        : { onEnter: dealText, onAppear: keepAppear },
 );
+
+// The first mount's appear (the overture, `.overture-appear-*`) is a
+// transform-only reveal: its text is never held. Vue's `<Transition>` runs
+// `onEnter` for an appear that names no hook of its own, so the appear names
+// this one, which takes the element only and leaves Vue on the CSS clock.
+function keepAppear(_el: Element) {}
 
 onBeforeUnmount(() => {
     cancelAnimationFrame(raf);
