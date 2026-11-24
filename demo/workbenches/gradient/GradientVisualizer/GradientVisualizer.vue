@@ -215,19 +215,25 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
              the direction slider's only visible effect was corrupting the
              rail). One sampling law feeds both; the tile paints the
              CSS-output truth (`coalescedCSS`). -->
-        <!-- X.W12.u2 (UIA-V-44, consumer half): below sm the band stacks —
-             the render tile full-width on top, the three fields in one column
-             — so no trigger overlaps its neighbour or the tile at phone width.
-             (The glass half — SelectTrigger's value span cannot shrink — is O-59.)
-             X-DS pass 7 (V7C-01): the tile no longer LEADS the band at phone
-             width, where it stood as a second full-width slab under the Stops
-             rail and showed the result before the controls that shape it. The
+        <!-- X.W12.u2 (UIA-V-44, consumer half): a narrow band stacks the
+             three fields in one column, so no trigger overlaps its neighbour
+             or the tile. (The glass half — SelectTrigger's value span cannot
+             shrink — is O-59.)
+             X-DS pass 7 (V7C-01): the tile no longer LEADS the narrow band,
+             where it stood as a second full-width slab under the Stops rail
+             and showed the result before the controls that shape it. The
              fields span the band's two tracks; the tile follows them, a small
              tile beside the Direction row it illustrates (the row sets its
-             height). From sm the layout is unchanged: the tile spans both rows
-             of the right track. -->
-        <div class="grid grid-cols-[minmax(0,1fr)_auto] gap-x-3 gap-y-5">
-            <div class="col-span-2 sm:col-span-1 grid grid-cols-1 sm:grid-cols-3 gap-3 min-w-0">
+             height). A wide band keeps the tile spanning both rows of the
+             right track. -->
+        <!-- The band lays itself out by its own width, not the viewport's
+             (the sideways census, C-1): at 844x390 the pane's column is 243 px,
+             and the viewport's `sm` set the three fields side by side in 73 px
+             each, so every trigger ran 15 to 26 px into its neighbour or past
+             the tile. The band is the query container; the fields go side by
+             side only where each holds its widest value (`.interp-band` below). -->
+        <div class="interp-band grid grid-cols-[minmax(0,1fr)_auto] gap-x-3 gap-y-5">
+            <div class="interp-fields col-span-2 grid grid-cols-1 gap-3 min-w-0">
                 <!-- W5-7 (P1-11): the per-select subtitle rows are EXCISED — they
                  truncated at every viewport and duplicated the descriptions
                  already carried inside each dropdown's items. -->
@@ -284,7 +290,7 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
                 data-testid="gradient-render-tile"
                 role="img"
                 aria-label="Gradient render with type and direction applied"
-                class="gradient-render-tile order-last sm:order-none col-start-2 w-12 min-h-10 sm:w-24 sm:row-span-2 rounded-card border border-card-edge"
+                class="gradient-render-tile order-last col-start-2 w-12 min-h-10 rounded-card border border-card-edge"
                 :style="{ '--tile-render': coalescedCSS }"
             />
 
@@ -362,6 +368,31 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
 @media (min-width: 640px) {
     .gradient-stops {
         --rail-seat-height: 4.5rem;
+    }
+}
+
+/* The interpolation band's two layouts, by the band's own width. Narrow, the
+   fields stack in one column over both tracks and the tile sits small beside
+   the Direction row. Wide, the three fields share the first track and the
+   tile spans both rows of the second. "Wide" is where each of the three
+   equal fields holds the widest value any of the selects offers (a trigger
+   cannot shrink below its value: glass's LabeledField track, the census's
+   glass item 2). The widest is Hue method's "Decreasing", 131 px at 1440
+   (Type's widest 90, Color space's 98): three fields of 131 px, two 0.75rem
+   gaps between them, the 0.75rem gap to the tile and the tile's 6rem make
+   526 px, so 33rem. */
+.interp-band {
+    container: interp / inline-size;
+}
+@container interp (min-width: 33rem) {
+    .interp-fields {
+        grid-column: span 1 / span 1;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .gradient-render-tile {
+        order: 0;
+        grid-row: span 2 / span 2;
+        width: 6rem;
     }
 }
 
