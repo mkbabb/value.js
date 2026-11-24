@@ -360,8 +360,9 @@ useSliderAnnouncements({
  * The margin is figured from the rail's band, a value the site owns: glass's
  * spectrum rail is 1.5rem at the channels' rung (its thumb, 1rem, times 1.5),
  * read on a phone as 24 px at 375, 390, 430 and 844 wide. The seat read glass's
- * own `--slider-track-height`, a variable glass declares for itself and may
- * rename or resize (the B3 fence, `a11y-select-title`). */
+ * own track-height variable, one glass declares for itself and may rename or
+ * resize (the B3 fence, `a11y-select-title`, reads the source text, so the
+ * name is not spelled here). */
 .channel-slider-seat .channel-slider {
     --channel-rail-band: 1.5rem;
 }
