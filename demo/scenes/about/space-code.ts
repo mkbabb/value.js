@@ -40,6 +40,7 @@ import {
 } from "@mkbabb/value.js/color";
 
 import { spaceLabel } from "../../color-session/space-catalog";
+import { stopsToGradient } from "../../shared/ui/color-chips/sample";
 
 export type CodeSpace = SpaceId | "hex";
 
@@ -340,7 +341,7 @@ export function spaceBlocks(
         blocks.push(
             jsBlock(
                 "mix",
-                `Mix toward ${partner.id === "opposite" ? "the opposite hue" : partner.id} in ${label}, five steps, as the figure above does.`,
+                `Mix toward ${partner.id === "opposite" ? "the opposite hue" : partner.id} in ${label}, in five steps; the figure above makes the same call with more.`,
                 [fromName, "rgb", "sampleColorRamp", "toHex"],
                 [
                     `const { value: from } = ${fromName}(${fromArgs});`,
@@ -357,6 +358,8 @@ export function spaceBlocks(
     if (keyword) {
         const css = space === "hex" ? hexOf(color) : cssOf(made);
         const method = POLAR.has(space) && hue !== "shorter" ? ` ${hue} hue` : "";
+        // The one home that writes a gradient head (R-18/R-19).
+        const gradient = stopsToGradient([css, partner.css], { interpolation: `in ${keyword}${method}` }) ?? "none";
         blocks.push({
             id: "css",
             lang: "css",
@@ -365,7 +368,7 @@ export function spaceBlocks(
                 ".swatch {",
                 `    background-color: ${css};`,
                 `    border-color: color-mix(in ${keyword}${method}, ${css}, ${partner.css} 40%);`,
-                `    background-image: linear-gradient(in ${keyword}${method}, ${css}, ${partner.css});`,
+                `    background-image: ${gradient};`,
                 "}",
             ].join("\n"),
         });

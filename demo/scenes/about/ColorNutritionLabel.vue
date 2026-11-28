@@ -25,7 +25,7 @@
 
         <!-- X-DS VR3-03 / VC4-04: key in the muted plate ink, value weighted,
              both upright in the body voice. -->
-        <dl class="nl-facts nl-read" style="--nl-key: 6.2em">
+        <dl class="nl-facts nl-read" style="--nl-key: 5.26em">
             <dt class="plate-ink">White point</dt>
             <dd class="font-medium" data-fact="white-point"><bdi>{{ currentColorSpaceInfo.whitePoint }}</bdi></dd>
             <dt class="plate-ink">Gamut</dt>
@@ -166,8 +166,8 @@ const formattedRange = computed<Record<string, { min: string; max: string }>>(()
 }
 /* BC-CNL-24: the label column hugs its labels. The FORTIETH A-4: it hugs
  * them at a FIXED measure, the widest label's advance in the body face (Plus
- * Jakarta Sans, weight 400, colon included: 9.90, 10.52 and 10.83 em per
- * group), set on each group as `--nl-key`. Sized by its content, the column
+ * Jakarta Sans, weight 400; c60s: "White point", 5.252 em, measured at
+ * 1800), set on the group as `--nl-key`. Sized by its content, the column
  * widened from 156 to 177 px at 1440 when the face arrived and moved every
  * value 6 px; an em measure follows the size, not the face. */
 .nl-facts {
