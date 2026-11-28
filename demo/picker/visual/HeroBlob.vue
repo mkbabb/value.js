@@ -179,7 +179,12 @@ watch(cssColorOpaqueFrame, (css) => reseedHeroStops(css), { immediate: true });
 // more pronounced, less shaded"): the register sits at the TOP of the bracket
 // (it landed at the mid, 0.6), so the resting colony splits on most merge
 // windows, not a few.
-const HERO_FISSION_AMP = 0.8;
+//
+// O60 F (the owner, 23 Nov: "blob should be more substantial, larger
+// satellites, less jittery"): the colony splits on fewer merge windows (0.6,
+// inside his [0.4, 0.8] bracket), so the beads it throws stay out long enough
+// to read as bodies rather than flickering off and on.
+const HERO_FISSION_AMP = 0.6;
 
 // o1109 · THE PAINTED BODY. The producer's one flat↔dressed axis (`morphT`,
 // the uMorphT lerp between the flat palette fill and the lit meatball): at 1
@@ -190,6 +195,13 @@ const HERO_FISSION_AMP = 0.8;
 // still reads wet. The contact shadow's dark lower band is the terminator; it
 // is off on the hero (and its 24-step march with it).
 const HERO_MORPH_T = 0.3;
+
+/** O60 F: the hero's membrane, calmer than the app default. The edge noise
+ *  moves at 0.6 of the default's speed and 0.7 of its reach, and the domain
+ *  warp at 0.7, so the skin undulates where it used to shiver; the satellites'
+ *  merges and splits carry the life. Scales over the app value, as the
+ *  geometry does, so the Blob pane still moves it. */
+const HERO_MEMBRANE = { noiseAmp: 0.7, noiseSpeed: 0.6, warpAmp: 0.7 } as const;
 
 type HeroGeometryKey =
     | "bodyRadius"
@@ -225,11 +237,17 @@ const heroRegister = computed<BlobConfig>(() => ({
     // defaults each ratio reproduces the register exactly (0.22 → 0.27,
     // 0.17 → 0.39, 0.082 → 0.12, 0.05 → 0.03, 3 → 4 satellites); a slider
     // now moves the hero in proportion.
+    //
+    // O60 F: more substantial, larger satellites. The body takes 0.29 (its
+    // area +15 %) and the satellites 0.15 (a 0.075 visible bead, 1.7 times the
+    // 0.045 one) on a 0.40 orbit: 0.40 + 0.075 keeps every bead inside the
+    // wrapper's |uv| ≤ 0.5 containment, and the 0.11 between skin and orbit
+    // still draws the necks as they merge and split.
     geometry: {
         ...appBlobConfig.geometry,
-        bodyRadius: heroScale("bodyRadius", 0.27),
-        orbitRadius: heroScale("orbitRadius", 0.39),
-        satelliteRadius: heroScale("satelliteRadius", 0.12),
+        bodyRadius: heroScale("bodyRadius", 0.29),
+        orbitRadius: heroScale("orbitRadius", 0.4),
+        satelliteRadius: heroScale("satelliteRadius", 0.15),
         eccentricity: heroScale("eccentricity", 0.03),
         // The producer's shader carries at most 4 satellites (MAX_SATS).
         satelliteCount: Math.min(4, Math.round(heroScale("satelliteCount", 4))),
@@ -240,6 +258,12 @@ const heroRegister = computed<BlobConfig>(() => ({
     // contact shadow is off (o1109, the painted body above). morphT scales the
     // app value like the geometry, so the Blob pane's morph still moves it.
     surface: { ...appBlobConfig.surface, fissionAmp: HERO_FISSION_AMP, shadow: false },
+    membrane: {
+        ...appBlobConfig.membrane,
+        noiseAmp: appBlobConfig.membrane.noiseAmp * HERO_MEMBRANE.noiseAmp,
+        noiseSpeed: appBlobConfig.membrane.noiseSpeed * HERO_MEMBRANE.noiseSpeed,
+        warpAmp: appBlobConfig.membrane.warpAmp * HERO_MEMBRANE.warpAmp,
+    },
     morphT: HERO_MORPH_T * appBlobConfig.morphT,
     color: { ...appBlobConfig.color, paletteStops: heroStops.value },
     // X.W8.i (C3 layout fork deleted): ONE quality rung — the app config's
