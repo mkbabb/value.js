@@ -259,6 +259,88 @@ function guaranteeSeamOffset(config: AuroraConfig, seed: AuroraAtoms["seed"]): A
     };
 }
 
+// --- O60 C — THE FIELD READS AS THE CHOSEN COLOUR (hue and chroma fidelity) ---
+// The owner (23 Nov, on "brown", rgb 165 42 42): "this doesn't even look
+// brown. And the aurora needs tweaking." The page read bright crimson. Two
+// producer terms carried the field off the colour:
+//   · the hue walk. The analogous spread (14°) is joined by the energy's
+//     warm-light / cool-shadow coupling (temperatureShift ≈ 0.42 at energy
+//     0.76), so the ramp ran h 2..49 round brown's h 26: the darkest stop, the
+//     one that reads, was crimson;
+//   · the chroma. The shader multiplies every stop by the energy's saturation
+//     (≈ 1.12), so the field painted C 0.15–0.16 behind a C 0.16 colour, and
+//     every plate lifts the field again through glass's backdrop saturate
+//     (1.5): on production the cards painted brown at C 0.19, rgb 174 17 4.
+// The cure keeps the ramp's shape and holds it to the seed: the hue offsets
+// are scaled so the widest sits FIELD_HUE_REACH from the seed's hue (order and
+// proportion kept); the shader's saturation is held at 1, and the ramp's
+// chroma is scaled so its fullest stop is FIELD_CHROMA_SHARE of the seed's.
+// The chroma floor (vividness) is held under that same ceiling, so a muted
+// seed is not lifted past it either. An achromatic seed (C < FIELD_HUE_MIN_C)
+// has no hue to hold: its walk is left as is, and its ceiling is its own
+// (near-zero) chroma.
+
+/** The widest a field stop's hue may sit from the seed's, in degrees. */
+export const FIELD_HUE_REACH = 10;
+/** Below this seed chroma the hue is precision noise: the walk is left as is. */
+export const FIELD_HUE_MIN_C = 0.04;
+/**
+ * The share of the seed's chroma the field paints. A field the size of the
+ * page reads more saturated than the swatch it came from (the area effect),
+ * and every plate over it lifts it again through glass's backdrop saturate, so
+ * the field stays under the seed for the page to read as the seed.
+ */
+export const FIELD_CHROMA_SHARE = 0.75;
+/** The shader's chroma-floor target and its dim-field lift (glass's aurora program). */
+const VIVID_TARGET = 0.115;
+const VIVID_DIM_LIFT = 1.18;
+
+const wrap180 = (deg: number) => ((((deg + 180) % 360) + 360) % 360) - 180;
+const wrap360 = (deg: number) => ((deg % 360) + 360) % 360;
+
+function seedLch(seed: AuroraAtoms["seed"]): { L: number; C: number; h: number } | null {
+    if (typeof seed !== "string") return typeof seed === "object" && seed ? seed : null;
+    try {
+        return cssToOklch(seed);
+    } catch {
+        return null;
+    }
+}
+
+/**
+ * Hold the resolved field to its seed: hue offsets scaled into ±FIELD_HUE_REACH,
+ * the shader's saturation at most 1, the ramp's chroma scaled under
+ * FIELD_CHROMA_SHARE of the seed's, and the vividness floor under the same
+ * ceiling. Pure; an un-parseable seed skips it.
+ */
+export function holdFieldToSeed(config: AuroraConfig, seed: AuroraAtoms["seed"]): AuroraConfig {
+    const s = seedLch(seed);
+    const palette = config.palette;
+    if (!s || !palette?.length) return config;
+    // The shader's saturation is held at 1 at most, so a stop's chroma is the
+    // chroma it paints (and the ground, which reads the stops, is the field).
+    const saturation = Math.min(config.saturation > 0 ? config.saturation : 1, 1);
+    const ceiling = (FIELD_CHROMA_SHARE * s.C) / saturation;
+    const offsets = palette.map((stop) => wrap180(stop.h - s.h));
+    const widest = Math.max(...offsets.map(Math.abs));
+    const k = s.C >= FIELD_HUE_MIN_C && widest > FIELD_HUE_REACH ? FIELD_HUE_REACH / widest : 1;
+    // The ramp's chroma is scaled, not clipped, so its bell (calm ends, a fuller
+    // middle) survives under the ceiling.
+    const fullest = Math.max(...palette.map((stop) => stop.C));
+    const cScale = fullest > ceiling ? ceiling / fullest : 1;
+    const vividness = Math.min(config.vividness ?? 1, (ceiling * saturation) / (VIVID_TARGET * VIVID_DIM_LIFT));
+    return {
+        ...config,
+        saturation,
+        vividness,
+        palette: palette.map((stop, i) => ({
+            ...stop,
+            h: k < 1 ? wrap360(s.h + offsets[i]! * k) : stop.h,
+            C: stop.C * cScale,
+        })),
+    };
+}
+
 /**
  * THE FIELD RESOLVER — the calibrated resolve under the derive-seam guarantee.
  * The ONE function the painted field (useAtmosphere's WebGL getter + CSS
@@ -266,7 +348,11 @@ function guaranteeSeamOffset(config: AuroraConfig, seed: AuroraAtoms["seed"]): A
  * through, so a strip is byte-identical to the field selecting it paints
  * (O-14; AP-5 / SS8-0063: the strip once read the UN-guarded resolve and
  * diverged from the field on 210/510 seed×harmony cells, up to 61 rgb).
+ * O60 C: the field is held to its seed (hue and chroma) before the seam.
  */
 export function resolveAtmosphereField(atoms: AuroraAtoms): AuroraConfig {
-    return guaranteeSeamOffset(resolveCalibratedAtmosphere(atoms), atoms.seed);
+    return guaranteeSeamOffset(
+        holdFieldToSeed(resolveCalibratedAtmosphere(atoms), atoms.seed),
+        atoms.seed,
+    );
 }

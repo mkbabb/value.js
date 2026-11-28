@@ -5,6 +5,9 @@ import { cssToOklch } from "@mkbabb/glass-ui/color";
 import { DEFAULT_AURORA_ATOMS } from "../../scenes/atmosphere/aurora-atoms";
 import {
     DERIVE_SEAM_FLOOR,
+    FIELD_CHROMA_SHARE,
+    FIELD_HUE_MIN_C,
+    FIELD_HUE_REACH,
     resolveAtmosphereField,
     resolveCalibratedAtmosphere,
 } from "../../app/composables/boot/atmosphere-calibration";
@@ -178,5 +181,53 @@ describe("OD-12 · the aurora's dominant stop is the chosen colour", () => {
             // light keeps its own band (no floor above 0.02)
             expect(fieldAtomsFor(atomsFor(seed), false).lBand![0]).toBeLessThan(DARK_FIELD_FLOOR);
         }
+    });
+});
+
+/**
+ * O60 C — "BROWN" READS AS BROWN. The owner (23 Nov, the picker on brown,
+ * rgb 165 42 42, the whole page reading bright crimson): "this doesn't even
+ * look brown. And the aurora needs tweaking." On production the derived ramp
+ * ran h 2..49 round brown's h 26 (its darkest stop crimson) and painted C 0.17
+ * (×1.12 saturation) behind a C 0.16 colour; the cards over it painted C 0.19.
+ * The field is now held to its seed: every stop's hue within FIELD_HUE_REACH,
+ * its painted chroma (stop C × the shader's saturation) at most
+ * FIELD_CHROMA_SHARE of the seed's, the shader's chroma floor under the same
+ * ceiling. The named colours he asked about, both schemes.
+ */
+describe("O60 C · the field reads as the chosen colour (hue and chroma held to the seed)", () => {
+    const NAMED = ["brown", "tan", "olive", "navy", "beige", "maroon", "grey", "saddlebrown", "tomato"];
+    const hueGap = (a: number, b: number) => Math.abs(((a - b + 540) % 360) - 180);
+
+    for (const name of NAMED) {
+        for (const dark of [false, true]) {
+            it(`${name} (${dark ? "dark" : "light"}): hue within reach, painted chroma under the seed's share`, () => {
+                const seed = cssToOklch(name);
+                const config = resolveAtmosphereField(fieldAtomsFor(atomsFor(name), dark));
+                const saturation = config.saturation;
+                expect(saturation).toBeLessThanOrEqual(1);
+                for (const stop of config.palette) {
+                    if (seed.C >= FIELD_HUE_MIN_C) {
+                        expect(hueGap(stop.h, seed.h), `${name} stop h ${stop.h}`).toBeLessThanOrEqual(
+                            FIELD_HUE_REACH + 1e-9,
+                        );
+                    }
+                    expect(stop.C * saturation, `${name} stop C ${stop.C}`).toBeLessThanOrEqual(
+                        FIELD_CHROMA_SHARE * seed.C + 1e-9,
+                    );
+                }
+                // the shader lifts a pale zone toward vividness × 0.115 (× 1.18 on a dim
+                // field): that floor stays under the same ceiling
+                expect((config.vividness ?? 1) * 0.115 * 1.18).toBeLessThanOrEqual(FIELD_CHROMA_SHARE * seed.C + 1e-9);
+            });
+        }
+    }
+
+    it("brown's ramp keeps its shape: the stops still differ in chroma and walk the hue in order", () => {
+        const palette = resolveAtmosphereField(fieldAtomsFor(atomsFor("brown"), true)).palette;
+        const Cs = palette.map((s) => s.C);
+        expect(Math.max(...Cs) - Math.min(...Cs)).toBeGreaterThan(0.01);
+        const hs = palette.map((s) => s.h);
+        for (let i = 1; i < hs.length; i++) expect(hs[i]!).toBeGreaterThan(hs[i - 1]!);
     });
 });
