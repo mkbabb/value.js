@@ -39,9 +39,11 @@ describe("V.W29 Picker Blob fixed-footprint paint mass", () => {
         const body = atom("bodyRadius");
         const orbit = atom("orbitRadius");
         const sat = atom("satelliteRadius");
-        expect(body).toBe(0.27);
-        expect(orbit).toBe(0.39);
-        expect(sat).toBe(0.12);
+        // O60 F (the owner, 23 Nov: "blob should be more substantial, larger
+        // satellites, less jittery"): the body 0.29, the satellites 0.15.
+        expect(body).toBe(0.29);
+        expect(orbit).toBe(0.4);
+        expect(sat).toBe(0.15);
         expect(atom("eccentricity")).toBe(0.03);
         expect(atom("satelliteCount")).toBe(4);
         // The producer shader carries at most 4 satellites.
@@ -53,6 +55,9 @@ describe("V.W29 Picker Blob fixed-footprint paint mass", () => {
         const visible = sat - 0.075;
         expect(orbit * 1.05 + visible).toBeLessThan(0.5);
         expect(orbit).toBeGreaterThan(body + visible);
+        // O60 F: a satellite reads as a body of its own, not a pseudopod tip:
+        // its visible bead is at least a quarter of the body's radius.
+        expect(visible).toBeGreaterThanOrEqual(0.25 * body);
         expect(source).toMatch(
             /hero \* \(appBlobConfig\.geometry\[key\] \/ BLOB_CONFIG_DEFAULTS\.geometry\[key\]\)/,
         );
@@ -63,7 +68,20 @@ describe("V.W29 Picker Blob fixed-footprint paint mass", () => {
         expect(source).toMatch(/^const HERO_MORPH_T = 0\.3;$/m);
         expect(source).toMatch(/morphT: HERO_MORPH_T \* appBlobConfig\.morphT,/);
         expect(source).toMatch(/fissionAmp: HERO_FISSION_AMP, shadow: false/);
-        expect(source).toMatch(/^const HERO_FISSION_AMP = 0\.8;$/m);
+        // O60 F: inside the owner's [0.4, 0.8] bracket, fewer splits.
+        expect(source).toMatch(/^const HERO_FISSION_AMP = 0\.6;$/m);
+    });
+
+    it("O60 F: the hero's membrane undulates more slowly and less far than the app default", () => {
+        const block = source.slice(source.indexOf("const HERO_MEMBRANE"), source.indexOf("as const;", source.indexOf("const HERO_MEMBRANE")));
+        const f = (key: string) => Number(block.match(new RegExp(`${key}: ([\\d.]+)`))?.[1]);
+        expect(f("noiseSpeed")).toBeLessThanOrEqual(0.6);
+        expect(f("noiseAmp")).toBeLessThan(1);
+        expect(f("warpAmp")).toBeLessThan(1);
+        // Scaled over the live app value, so the Blob pane still reaches it.
+        for (const key of ["noiseAmp", "noiseSpeed", "warpAmp"]) {
+            expect(source).toContain(`${key}: appBlobConfig.membrane.${key} * HERO_MEMBRANE.${key},`);
+        }
     });
 });
 

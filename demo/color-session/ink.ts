@@ -884,3 +884,33 @@ export function contrastInkFor(fillCss: string): string | null {
     const r = contrastInkResult(fillCss);
     return r.ok ? r.value : null;
 }
+
+/**
+ * The least contrast a light glyph keeps on a coloured seat in dark mode
+ * before it falls back to the contrast walk's ink. The default pink seal
+ * (oklch 73% 0.185 2) gives white 2.6:1; a pale wax (pink 1.5, beige 1.1,
+ * skyblue 1.7) would swallow a light glyph, so it keeps the dark one.
+ */
+export const DARK_SEAT_LIGHT_INK_FLOOR = 2;
+
+const LIGHT_INK = requiredOklch("oklch(1 0 0)");
+
+/**
+ * The glyph ink on a coloured seat (the collapsed dock's wax seal). O60 A, the
+ * owner (23 Nov, the Palettes glyph drawn in black on the pink seal): "should
+ * be white in darkmode". In dark mode every glyph in the dock is light, so the
+ * seal's is too, unless the wax is too pale to carry it
+ * (`DARK_SEAT_LIGHT_INK_FLOOR`). In light mode, and on a pale wax, the
+ * contrast walk chooses (`contrastInkFor`).
+ */
+export function seatInkFor(fillCss: string, dark: boolean): string | null {
+    if (dark) {
+        const fill = parseOklch(fillCss);
+        const painted = fill && fill.alpha === 1 ? mapColorToGamut(fill, "srgb") : null;
+        if (painted?.ok) {
+            const ratio = contrastRatio(LIGHT_INK, painted.value);
+            if (ratio.ok && ratio.value >= DARK_SEAT_LIGHT_INK_FLOOR) return "oklch(1 0 0)";
+        }
+    }
+    return contrastInkFor(fillCss);
+}

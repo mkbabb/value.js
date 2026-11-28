@@ -224,7 +224,7 @@ const swatchKeys = computed(() => {
                                         :color="sc.css"
                                         class="mix-chip__dot w-full h-full"
                                     />
-                                    <X class="mix-chip__x absolute w-4 h-4 pointer-events-none" aria-hidden="true" />
+                                    <X class="mix-chip__x absolute w-5 h-5 pointer-events-none" aria-hidden="true" />
                                 </Button>
                             </div>
 
@@ -265,7 +265,7 @@ const swatchKeys = computed(() => {
                                     class="add-slot-fill"
                                 />
                                 <Plus
-                                    class="absolute w-4 h-4 pointer-events-none"
+                                    class="absolute w-5 h-5 pointer-events-none"
                                     :style="{ color: addSlotPlusInk }"
                                     aria-hidden="true"
                                 />
@@ -384,6 +384,16 @@ const swatchKeys = computed(() => {
     font-size: var(--type-body);
     font-weight: 500;
     line-height: var(--type-leading-heading);
+}
+
+/* O60 K (the owner, 23 Nov: "and a bit larger"): the colours being mixed and
+   the slot for the next are the pane's subject, so they sit half a rem above
+   glass's `lg` seat (44 px on a desk, 52; its larger touch rung on a phone
+   grows the same step), through glass's own `--button-size`, the seam the
+   palette swatches size by (swatch-band.css). */
+.mix-chip,
+.add-slot-ghost {
+    --button-size: calc(var(--control-h-lg) + 0.5rem);
 }
 
 /* X-DS pass 6 (V6C-05): the chip's removal cue lives inside the chip — the

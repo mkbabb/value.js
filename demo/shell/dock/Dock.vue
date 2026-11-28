@@ -28,7 +28,7 @@ import { injectDockCommands } from "../useSceneActions";
 import { writeClipboard } from "@mkbabb/glass-ui/dom";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import { goldIdentityCss, useChromeAccentFn } from "../../color-session/useContrastSafeColor";
-import { contrastInkFor, GRAPHICS_CONTRAST_FLOOR, TEXT_CONTRAST_FLOOR } from "../../color-session/ink";
+import { GRAPHICS_CONTRAST_FLOOR, seatInkFor, TEXT_CONTRAST_FLOOR } from "../../color-session/ink";
 import type { EditTarget } from "../../color-session/color-model";
 
 const { linkCopied, editTarget } = defineProps<{
@@ -227,9 +227,10 @@ const bandInkStyle = computed(() => {
 const heldInkStyle = useHeldWhileLive(bandInkStyle, colourLive);
 // The seal's glyph ink, certified on the wax (the live colour) and written on
 // the seal, its one reader (o1105-r2 perf: a root token restyled the document
-// on every colour frame of a drag).
+// on every colour frame of a drag). O60 A: light in dark mode, as every other
+// glyph in the dark dock is, unless the wax is too pale to carry it.
 const sealInkStyle = computed(() => {
-    const ink = contrastInkFor(cssColorOpaque.value);
+    const ink = seatInkFor(cssColorOpaque.value, isDark.value);
     return ink ? { "--seal-ink": ink } : undefined;
 });
 
@@ -610,6 +611,9 @@ watch(
        wax's sibling), so the admin gold-ink's direct colour still
        wins without a specificity fight. */
     color: var(--seal-ink, var(--foreground));
+    /* O60 A: the glyph's ink turns with the scheme (light in dark) on the
+       effects clock, never a cut. */
+    transition: color var(--duration-fast) var(--ease-standard);
     /* X-DS pass 17 (V17C-01): the admin glyph's gold sits on the WAX, not
        the band, so the seal rebinds `--ink-gold` to the wax-certified gold
        (useViewAccents); where none clears the wax, the seal's own ink. */

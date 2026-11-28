@@ -25,29 +25,37 @@
                      right end, which read as the field being clipped. -->
                 <div
                     ref="fieldBox"
-                    class="color-field relative w-full flex items-center cursor-default border bg-background rounded-media"
+                    class="color-field relative w-full flex items-center cursor-default border bg-background"
                     :class="{
                         'color-input-error': parseError && !proposeMode,
                         'color-input-mode-flash': modeTransition,
                     }"
                     :style="inputStyle"
                 >
-                    <span
+                    <!-- O60 E ("should be properly editable on mobile"): a
+                         native text field, not a contenteditable run. The
+                         phone gets its own caret, selection handles and
+                         keyboard (Go commits), the text never zooms the page
+                         (16 px on a coarse pointer), and the value is the
+                         field's, so a repaint never rebuilds a text node. -->
+                    <input
                         ref="inputColorRef"
-                        contenteditable
-                        role="textbox"
+                        type="text"
                         spellcheck="false"
                         autocapitalize="off"
                         autocorrect="off"
+                        autocomplete="off"
+                        enterkeyhint="go"
+                        :placeholder="proposeMode ? 'propose a name...' : undefined"
                         :aria-label="proposeMode ? 'Propose a color name' : 'Enter a CSS color'"
                         :aria-invalid="parseError && !proposeMode ? 'true' : undefined"
                         :aria-describedby="parseError && !proposeMode ? 'color-input-error' : undefined"
-                        class="color-input flex-1 min-w-0 block overflow-hidden ps-3 pe-1 focus-visible:outline-none font-mono text-ellipsis whitespace-nowrap text-center"
+                        class="color-input flex-1 min-w-0 ps-3 pe-1 focus-visible:outline-none font-mono text-ellipsis text-center"
                         @keydown="onInputKeydown"
                         @input="onInputInput"
                         @focus="onInputFocus"
                         @blur="onInputBlur"
-                    ></span>
+                    />
 
                     <!-- Crown indicator for approved custom color names — its own
                          slot between the text and the Apply arrow (OD-10). -->
@@ -204,7 +212,7 @@ const {
 
 const safeAccent = inject(SAFE_ACCENT_KEY)!;
 
-const inputColorRef = useTemplateRef<HTMLElement>("inputColorRef");
+const inputColorRef = useTemplateRef<HTMLInputElement>("inputColorRef");
 const inputIsFocused = ref(false);
 
 // OD-8: the badge's anchor — the field's bottom centre, re-read as the badge
@@ -234,15 +242,16 @@ const inputStyle = computed(() => {
     return undefined;
 });
 
+// The whole value is selected when the field takes focus, so a typed colour
+// replaces the old one. WebKit drops a selection made inside the focus event
+// on a touch focus (the tap then places the caret), so it is made in the next
+// frame, and only while the field still holds focus.
 const selectAll = () => {
-    const target = inputColorRef.value;
-    if (!target) return;
-    const range = document.createRange();
-    range.selectNodeContents(target);
-    const selection = window.getSelection();
-    if (selection?.toString() === target.innerText) return;
-    selection?.removeAllRanges();
-    selection?.addRange(range);
+    requestAnimationFrame(() => {
+        const target = inputColorRef.value;
+        if (!target || document.activeElement !== target) return;
+        target.setSelectionRange(0, target.value.length);
+    });
 };
 
 const onInputFocus = () => {
@@ -257,7 +266,7 @@ const onInputBlur = () => {
     // the (reset) model value — the `formattedCurrentColor` watch skips repaint
     // while focused, leaving stale text without this snap-back.
     if (!proposeMode && inputColorRef.value) {
-        inputColorRef.value.innerText = formatCssCaption(formattedCurrentColor.value);
+        inputColorRef.value.value = formatCssCaption(formattedCurrentColor.value);
         // X·§0ht (c): the edit scroll would outlive the edit, and the repainted
         // caption ellipsized against it showed "…" alone; at rest it reads
         // from its start.
@@ -266,7 +275,7 @@ const onInputBlur = () => {
     }
 };
 const onInputInput = (e: Event) => {
-    const text = (e.target as HTMLElement).innerText;
+    const text = (e.target as HTMLInputElement).value;
     if (proposeMode) {
         proposedName.value = text;
     } else {
@@ -284,7 +293,7 @@ const onInputKeydown = (e: KeyboardEvent) => {
             // UIA-V-508: Enter commits NOW; the pending debounced parse of the
             // same text is dropped rather than re-running 2 s later.
             parseAndSetColorDebounced.cancel();
-            parseAndSetColor((e.target as HTMLElement).innerText);
+            parseAndSetColor((e.target as HTMLInputElement).value);
         }
     }
 };
@@ -292,7 +301,7 @@ const onInputKeydown = (e: KeyboardEvent) => {
 const onSubmitColor = () => {
     if (inputColorRef.value) {
         parseAndSetColorDebounced.cancel();
-        parseAndSetColor(inputColorRef.value.innerText);
+        parseAndSetColor(inputColorRef.value.value);
     }
 };
 
@@ -343,34 +352,26 @@ watch(() => proposeMode, (propose) => {
 
     if (propose) {
         proposedName.value = "";
-        inputColorRef.value.innerText = "";
-        inputColorRef.value.setAttribute("data-placeholder", "propose a name...");
+        inputColorRef.value.value = "";
         requestAnimationFrame(() => inputColorRef.value?.focus());
     } else {
-        inputColorRef.value.removeAttribute("data-placeholder");
-        inputColorRef.value.innerText = formatCssCaption(formattedCurrentColor.value);
+        inputColorRef.value.value = formatCssCaption(formattedCurrentColor.value);
     }
 });
 
 // Sync displayed text when not focused (only in color mode).
 // X.W12U.p (W12U.md addendum (c) 3): this is the dock seat a colour drag
-// re-renders on every input. An `innerText` write REPLACES the text node — a
-// childList mutation inside the dock run, which glass's `useDockRun` roving
-// MutationObserver answers with a `syncRoving` pass each input. The caption is
-// therefore painted at most once per frame (latest text wins) and in place on
-// the existing text node (a characterData write: no node churn, no roving pass).
+// re-renders on every input, so the caption is painted at most once per frame
+// (latest text wins). O60 E: it is the field's value, which is no DOM
+// mutation at all, so glass's `useDockRun` roving MutationObserver never runs
+// a `syncRoving` pass for it.
 let captionFrame: number | null = null;
 const paintCaption = () => {
     captionFrame = null;
     const el = inputColorRef.value;
     if (proposeMode || inputIsFocused.value || !el) return;
     const text = formatCssCaption(formattedCurrentColor.value);
-    const node = el.firstChild;
-    if (node instanceof Text && node === el.lastChild) {
-        if (node.data !== text) node.data = text;
-    } else {
-        el.textContent = text;
-    }
+    if (el.value !== text) el.value = text;
 };
 watch(formattedCurrentColor, () => {
     if (captionFrame === null) captionFrame = requestAnimationFrame(paintCaption);
@@ -381,7 +382,7 @@ onBeforeUnmount(() => {
 
 onMounted(() => {
     if (inputColorRef.value) {
-        inputColorRef.value.innerText = formatCssCaption(formattedCurrentColor.value);
+        inputColorRef.value.value = formatCssCaption(formattedCurrentColor.value);
     }
 });
 
@@ -423,6 +424,10 @@ defineExpose({
  * `align-content` centres the one line inside that box. */
 .color-field {
     block-size: var(--dock-control-size);
+    /* O60 E ("the input should be more rounded"): glass's text-field radius
+     * (its Input's `--radius-control`, 16 px), where the media radius (10 px)
+     * sat squarer than every other field and seat in the stadium dock. */
+    border-radius: var(--radius-control);
     border-color: var(--input);
     transition:
         border-color var(--duration-fast) var(--ease-standard),
@@ -433,7 +438,20 @@ defineExpose({
  * the caret, and ends in an ellipsis — nothing fades the box. */
 .color-input {
     align-self: stretch;
-    align-content: center;
+    /* The native field brings no plate or edge of its own: the box row
+     * (`.color-field`) is the field. */
+    background: transparent;
+    border: 0;
+    color: inherit;
+    font-size: inherit;
+}
+/* A field under 16 px makes iOS zoom the page when it takes focus; glass's
+ * inputs hold that floor on a coarse pointer (`--field-text-floor`), and this
+ * field takes the same one. */
+@media (pointer: coarse) {
+    .color-input {
+        font-size: var(--field-text-floor, 1rem);
+    }
 }
 /* X·§0ht (c) — WHILE EDITED, THE RUN SCROLLS TO ITS CARET; IT NEVER ELIDES.
  * Chrome computes the ellipsis at the box's end in unscrolled coordinates and
@@ -457,10 +475,17 @@ defineExpose({
     animation: input-mode-flash var(--duration-slow) var(--ease-decelerate);
 }
 
-.color-input:empty[data-placeholder]::before {
-    content: attr(data-placeholder);
+/* O60 E: the field selects its whole value when it opens, so the selection
+ * must stay legible. The app's selection ink is the scheme foreground, which
+ * the dock re-seats to its band ink (light on a dark band): painted on this
+ * field's own paper (`bg-background`) it was white on white in light mode.
+ * The selected text keeps the field's own ink; the tint stays the app's. */
+.color-input::selection {
+    color: currentColor;
+}
+.color-input::placeholder {
     color: var(--muted-foreground);
-    pointer-events: none;
+    opacity: 1;
 }
 
 /* T.W5-R5 (T-14 / D7): the bespoke transform-on-bezier hover/press recipe
