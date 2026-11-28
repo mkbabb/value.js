@@ -44,14 +44,15 @@ test.describe("O-20 · the Generate verb joins the plate chrome", () => {
         // (restraint 2026-11-09). O60 G: the gloss is glass's tooltip on the
         // plate's toolbar (it was the native title), read where it shows.
         await expect(plate.getByText(/seed: [0-9a-f]{8}/i)).toHaveCount(0);
+        // Each read enters the button afresh (a press closes the tooltip until
+        // the pointer leaves and comes back, as it would for a person).
+        const tip = page.getByRole("tooltip").filter({ hasText: /^Seed [0-9a-f]{8}$/ });
         const seedOf = async () => {
-            await regen.hover();
-            const tip = page.getByRole("tooltip").filter({ hasText: /^Seed [0-9a-f]{8}$/ });
-            await expect(tip).toBeVisible();
-            const text = (await tip.innerText()).trim();
             await page.mouse.move(0, 0);
             await expect(tip).toBeHidden();
-            return text;
+            await regen.hover();
+            await expect(tip).toBeVisible();
+            return (await tip.innerText()).trim();
         };
 
         // The plate's action chrome (the former card-menu verbs, first-class).

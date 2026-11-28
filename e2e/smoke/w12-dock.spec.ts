@@ -214,7 +214,11 @@ test.describe("X.W12.e — the dock sits on glass's primitives", () => {
     async function activeFace(page: Page, sel = TOP_FACE): Promise<string> {
         return page.evaluate((q) => {
             const f = document.querySelector(q);
-            return f ? `${f.getAttribute("data-face") ?? f.id ?? ""}|${f.textContent?.trim().slice(0, 24)}` : "(none)";
+            // O60 E: the colour face's caption is a text field's value now,
+            // which `textContent` does not carry, so the face is read by its
+            // text and any field's value.
+            const value = f?.querySelector("input")?.value ?? "";
+            return f ? `${f.getAttribute("data-face") ?? f.id ?? ""}|${f.textContent?.trim().slice(0, 24)}${value ? `|${value.slice(0, 24)}` : ""}` : "(none)";
         }, sel);
     }
 
