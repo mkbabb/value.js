@@ -27,7 +27,6 @@
             <div class="mix-controls">
                 <ToggleGroup
                     type="single"
-                    size="sm"
                     aria-label="Mix toward"
                     :model-value="partner"
                     @update:model-value="pickPartner"
@@ -45,7 +44,6 @@
                 <ToggleGroup
                     v-if="polar"
                     type="single"
-                    size="sm"
                     aria-label="Hue path"
                     :model-value="hue"
                     @update:model-value="pickHue"

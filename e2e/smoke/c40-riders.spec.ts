@@ -14,7 +14,12 @@ test("FORTY-SECOND A · 390: the About card reads at the floors", async ({ page 
     test.setTimeout(120_000);
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto("/#/", { waitUntil: "load", timeout: 60_000 });
-    await expect(page.locator(".about-card .markdown-body > *").nth(10)).toBeAttached({ timeout: 60_000 });
+    // The guide is one compiled component: its blocks arrive together, so its
+    // last block attached is the whole guide in. (c60s: the guides are
+    // shorter than eleven blocks now; the read covers the road, the figure
+    // and the code too, which sit above the guide.)
+    await expect(page.locator(".about-card .markdown-body > *:last-child")).toBeAttached({ timeout: 60_000 });
+    await expect(page.locator(".about-card [data-code] pre").first()).toBeAttached();
     await expect(page.locator(".about-card [data-space-facts]")).toBeAttached();
     await page.waitForTimeout(800);
     const under = await page.evaluate(() => {
