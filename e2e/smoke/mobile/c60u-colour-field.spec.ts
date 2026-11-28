@@ -10,8 +10,8 @@ import { dockSettled } from "../fixtures/dock";
  * radius (16 px, was the 10 px media radius), never zooms the page (16 px text
  * on a coarse pointer), offers a Go key, and edits like a phone field: a tap
  * selects the whole value, so typing replaces it, and Go commits. Before, it
- * was a contenteditable run whose tap left a caret in the old text, at the
- * 10 px media radius, with no Go key.
+ * was a contenteditable run at the 10 px media radius, with no Go key, whose
+ * selected value painted white on white in light mode.
  */
 
 test.use({ viewport: { width: 390, height: 844 } });
@@ -52,6 +52,11 @@ test("the colour field on a phone: rounded, 16 px, Go; a tap takes the whole val
     expect(look.fontPx, "under 16 px a phone zooms the page on focus").toBeGreaterThanOrEqual(16);
     expect(look.radiusPx, "glass's field radius").toBeGreaterThanOrEqual(16);
     expect(look.enterkeyhint).toBe("go");
+    // The selected value stays legible: the selection keeps the field's own
+    // ink (the app's selection ink is the dock's band ink, white on this
+    // field's white paper in light mode).
+    const inks = await field.evaluate((el) => [getComputedStyle(el).color, getComputedStyle(el, "::selection").color]);
+    expect(inks[1], "the selection's ink").toBe(inks[0]);
 
     await field.tap();
     await page.waitForTimeout(300);

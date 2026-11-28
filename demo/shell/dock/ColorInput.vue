@@ -475,6 +475,14 @@ defineExpose({
     animation: input-mode-flash var(--duration-slow) var(--ease-decelerate);
 }
 
+/* O60 E: the field selects its whole value when it opens, so the selection
+ * must stay legible. The app's selection ink is the scheme foreground, which
+ * the dock re-seats to its band ink (light on a dark band): painted on this
+ * field's own paper (`bg-background`) it was white on white in light mode.
+ * The selected text keeps the field's own ink; the tint stays the app's. */
+.color-input::selection {
+    color: currentColor;
+}
 .color-input::placeholder {
     color: var(--muted-foreground);
     opacity: 1;
