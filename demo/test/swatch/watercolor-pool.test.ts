@@ -35,6 +35,28 @@ describe("the wet-edge pool", () => {
         w.unmount();
     });
 
+    it("O60 J: the wet edge undulates without teeth (two octaves, an antialiased displacement)", () => {
+        const w = mount(List, { props: { n: 2 }, attachTo: document.body });
+        for (const filter of document.querySelectorAll(`#${POOL_HOST_ID} filter`)) {
+            const noise = filter.querySelector("feTurbulence")!;
+            // Five octaves cut the displaced edge into a ragged line; the wet
+            // wobble lives in the first two.
+            expect(Number(noise.getAttribute("numOctaves"))).toBeLessThanOrEqual(2);
+            expect(Number(noise.getAttribute("baseFrequency"))).toBeLessThanOrEqual(0.04);
+            // The displacement's hard edge is antialiased by the step after it,
+            // a fraction of a pixel, never a visible blur.
+            const steps = [...filter.children].map((c) => c.localName);
+            expect(steps).toEqual(["feTurbulence", "feDisplacementMap", "feGaussianBlur"]);
+            const blur = Number(filter.querySelector("feGaussianBlur")!.getAttribute("stdDeviation"));
+            expect(blur).toBeGreaterThan(0);
+            expect(blur).toBeLessThanOrEqual(0.5);
+            expect(filter.querySelector("feGaussianBlur")!.getAttribute("in")).toBe(
+                filter.querySelector("feDisplacementMap")!.getAttribute("result"),
+            );
+        }
+        w.unmount();
+    });
+
     it("a second list finds the pool rather than mounting another", () => {
         const a = mount(List, { props: { n: 3 }, attachTo: document.body });
         const b = mount(List, { props: { n: 3 }, attachTo: document.body });
