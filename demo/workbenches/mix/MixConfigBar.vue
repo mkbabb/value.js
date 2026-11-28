@@ -61,6 +61,10 @@ const emit = defineEmits<{
 
 const STRATEGIES: LeftoverStrategy[] = ["discard", "repeat", "distribute"];
 
+/** Every phrase the verb can wear (MixPane's `mixNeeds`, and the act itself):
+ *  the box is sized by the longest. */
+const VERB_WORDS = ["Mix", "Add two colors", "Add one more color", "Pick two palettes", "Pick one more palette"] as const;
+
 const strategyLabels: Record<LeftoverStrategy, string> = {
     discard: "Discard extras",
     repeat: "Repeat to pad",
@@ -93,8 +97,10 @@ const strategyLabels: Record<LeftoverStrategy, string> = {
             :inert="!showLeftoverStrategy"
         >
             <div>
+                <!-- O60 M: the field takes a column of the pair above, not the
+                     footer's whole width. -->
                 <LabeledField
-                    class="pt-3"
+                    class="pt-3 mix-field-column"
                     label="Size mismatch"
                     :control-labelable="false"
                     v-slot="{ labelledBy }"
@@ -114,18 +120,58 @@ const strategyLabels: Record<LeftoverStrategy, string> = {
         </div>
 
         <!-- The page's ONE verb, on glass's primary emphasis. While it cannot
-             act it says what it needs instead of sitting dim with no reason. -->
+             act it says what it needs instead of sitting dim with no reason.
+             O60 M (the owner, 23 Nov, on this button at the footer's full
+             width: "audit for all absurdly wide buttons ... Larger text for
+             some elements like this"): it sizes to its words at the footer's
+             end, in the body's larger step. -->
         <Button
             emphasis="primary"
             :disabled="!canMix"
-            class="mt-3 h-10 gap-2 font-medium"
+            class="mix-verb mt-3 h-11 px-5 gap-2 font-medium self-end"
             data-testid="mix-verb"
             @click="emit('mix')"
         >
-            <Blend class="w-4 h-4" />
-            <Transition name="vj-morph" mode="out-in">
-                <span :key="canMix ? 'mix' : mixNeeds">{{ canMix ? "Mix" : mixNeeds }}</span>
-            </Transition>
+            <!-- The words change ("Add two colors" … "Mix") inside one box: it
+                 is as wide as the longest of them, so the button never jumps
+                 in width as they swap (the swap itself is the morph), and the
+                 glyph rides with the words, centred together. -->
+            <span class="mix-verb-words">
+                <span v-for="words in VERB_WORDS" :key="words" class="mix-verb-label mix-verb-sizer" aria-hidden="true">
+                    <Blend class="w-5 h-5" />{{ words }}
+                </span>
+                <Transition name="vj-morph" mode="out-in">
+                    <span :key="canMix ? 'mix' : mixNeeds" class="mix-verb-label">
+                        <Blend class="w-5 h-5" aria-hidden="true" />{{ canMix ? "Mix" : mixNeeds }}
+                    </span>
+                </Transition>
+            </span>
         </Button>
     </div>
 </template>
+
+<style scoped>
+/* O60 M: the primary act reads a step larger than the fields above it. */
+.mix-verb {
+    font-size: var(--type-body);
+}
+.mix-verb-words {
+    display: grid;
+    justify-items: center;
+}
+.mix-verb-words > * {
+    grid-area: 1 / 1;
+}
+.mix-verb-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.mix-verb-sizer {
+    visibility: hidden;
+}
+/* One column of the interpolation pair's grid (two columns, a 0.5rem gap). */
+.mix-field-column {
+    inline-size: calc(50% - 0.25rem);
+}
+</style>
