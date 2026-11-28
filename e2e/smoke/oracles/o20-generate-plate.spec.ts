@@ -41,9 +41,18 @@ test.describe("O-20 · the Generate verb joins the plate chrome", () => {
         );
 
         // The seed is Regenerate's hover gloss, never a standing line
-        // (restraint 2026-11-09).
+        // (restraint 2026-11-09). O60 G: the gloss is glass's tooltip on the
+        // plate's toolbar (it was the native title), read where it shows.
         await expect(plate.getByText(/seed: [0-9a-f]{8}/i)).toHaveCount(0);
-        await expect(regen).toHaveAttribute("title", /^Seed [0-9a-f]{8}$/);
+        const seedOf = async () => {
+            await regen.hover();
+            const tip = page.getByRole("tooltip").filter({ hasText: /^Seed [0-9a-f]{8}$/ });
+            await expect(tip).toBeVisible();
+            const text = (await tip.innerText()).trim();
+            await page.mouse.move(0, 0);
+            await expect(tip).toBeHidden();
+            return text;
+        };
 
         // The plate's action chrome (the former card-menu verbs, first-class).
         await expect(plate.getByRole("button", { name: "Save palette" })).toBeVisible();
@@ -53,9 +62,10 @@ test.describe("O-20 · the Generate verb joins the plate chrome", () => {
 
         // The verb ACTS on the plate it lives on: regenerating re-rolls the
         // seed it names.
-        const seedBefore = (await regen.getAttribute("title")) ?? "";
+        const seedBefore = await seedOf();
+        expect(seedBefore).toMatch(/^Seed [0-9a-f]{8}$/);
         await regen.click();
-        await expect(regen).not.toHaveAttribute("title", seedBefore);
+        await expect.poll(seedOf).not.toBe(seedBefore);
     });
 
     test("T-17 seed-exact strips: a preset row's stamped stops ≡ the palette selecting it yields", async ({

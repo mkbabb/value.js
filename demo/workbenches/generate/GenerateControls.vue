@@ -10,6 +10,13 @@ import {
 import { Slider } from "@mkbabb/glass-ui/slider";
 import { Label } from "@mkbabb/glass-ui/label";
 import { Button } from "@mkbabb/glass-ui/button";
+import { Surface } from "@mkbabb/glass-ui/surface";
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger,
+} from "@mkbabb/glass-ui/tooltip";
 import { RefreshCw, Save, Copy, Pipette } from "@lucide/vue";
 import { useClipboard, writeClipboard } from "@mkbabb/glass-ui/dom";
 // X-W4 · X.W4.b (CC-047) — the producer's published field composition
@@ -73,6 +80,11 @@ const emit = defineEmits<{
 }>();
 
 const paletteName = ref("Generated palette");
+
+/** The count's range, and a mark at each count (O60 H: the stops as dots). */
+const COUNT_MIN = 1;
+const COUNT_MAX = 12;
+const COUNT_MARKS = Array.from({ length: COUNT_MAX - COUNT_MIN + 1 }, (_, i) => COUNT_MIN + i);
 
 /** The seed as fixed-width hex — Regenerate's hover gloss. */
 const seedHex = computed(() => seed.value.toString(16).padStart(8, "0"));
@@ -203,8 +215,20 @@ defineExpose({ regenerate, save, copyColors });
                  the dot's own P5 solid-ring register, which glass does not
                  ship at this size — cited to glass (O-87), never a geometric
                  ring here. -->
-            <!-- color-40 L-7: the row is the plate's swatch band (shared/ui/swatch-band.css). -->
-            <div class="swatch-band px-3 py-2 flex flex-wrap gap-1.5">
+            <!-- color-40 L-7: the row is the plate's swatch band, a ground of
+                 its own under the colours. O60 G (the owner, 23 Nov: "improve
+                 the UX, toolbar should be the bottom right corner, and the
+                 background better and more glassy"): the band is glass's wash
+                 plate, still the well's foot edge to edge (static: it samples
+                 no backdrop, so no blur sits inside the card's), and the
+                 plate's verbs are one small glass toolbar seated in its
+                 bottom-right corner, where a row of their own used to be. -->
+            <Surface
+                tier="wash"
+                backdrop-mode="static"
+                class="generate-tray"
+            >
+                <div class="generate-swatches flex flex-wrap gap-1.5 min-w-0">
                 <!-- A2-VA-L1-15: the app's one SwatchButton; its `done` check
                      is the copy verb's verdict. -->
                 <SwatchHoverMenu
@@ -242,46 +266,68 @@ defineExpose({ regenerate, save, copyColors });
                         </Button>
                     </template>
                 </SwatchHoverMenu>
-            </div>
-
-            <!-- The plate's verbs. The seed Regenerate re-rolls is its hover
-                 gloss, not a standing line (restraint 2026-11-09, C-100). -->
-            <div class="px-3 pb-2.5 pt-1 flex items-center gap-2 min-w-0">
-                <div class="ml-auto flex items-center gap-2 shrink-0">
-                    <!-- X-DS pass 1 (V1-09): seated commands wear the quiet and
-                         text rungs — no floating capsule (and no halo) on a
-                         well. -->
-                    <Button
-                        emphasis="quiet"
-                        class="h-9 gap-2 font-medium text-foreground shrink-0"
-                        :title="`Seed ${seedHex}`"
-                        @click="regenerate()"
-                    >
-                        <RefreshCw class="w-4 h-4" aria-hidden="true" />
-                        <span class="max-sm:sr-only">Regenerate</span>
-                    </Button>
-                    <Button
-                        icon-only
-                        emphasis="text"
-                        size="sm"
-                        aria-label="Save palette"
-                        class="shrink-0"
-                        @click="save"
-                    >
-                        <Save class="w-4 h-4 text-muted-foreground" aria-hidden="true" />
-                    </Button>
-                    <Button
-                        icon-only
-                        emphasis="text"
-                        size="sm"
-                        aria-label="Copy all colors"
-                        class="shrink-0"
-                        @click="copyColors"
-                    >
-                        <Copy class="w-4 h-4 text-muted-foreground" aria-hidden="true" />
-                    </Button>
                 </div>
-            </div>
+
+                <!-- The plate's verbs, one glass toolbar in the tray's
+                     bottom-right corner. The seed Regenerate re-rolls is its
+                     tooltip, not a standing line (restraint 2026-11-09, C-100);
+                     Save and Copy name themselves the same way. -->
+                <TooltipProvider :delay-duration="300">
+                    <Surface
+                        tier="wash"
+                        backdrop-mode="static"
+                        role="group"
+                        aria-label="Palette actions"
+                        class="generate-toolbar"
+                    >
+                        <Tooltip>
+                            <TooltipTrigger as-child>
+                                <Button
+                                    emphasis="text"
+                                    size="sm"
+                                    aria-label="Regenerate"
+                                    class="generate-tool gap-2 font-medium"
+                                    @click="regenerate()"
+                                >
+                                    <RefreshCw class="w-4 h-4" aria-hidden="true" />
+                                    <span class="max-sm:sr-only" aria-hidden="true">Regenerate</span>
+                                </Button>
+                            </TooltipTrigger>
+                            <TooltipContent class="text-mono-small" data-generate-seed>Seed {{ seedHex }}</TooltipContent>
+                        </Tooltip>
+                        <Tooltip>
+                            <TooltipTrigger as-child>
+                                <Button
+                                    icon-only
+                                    emphasis="text"
+                                    size="sm"
+                                    aria-label="Save palette"
+                                    class="generate-tool"
+                                    @click="save"
+                                >
+                                    <Save class="w-4 h-4" aria-hidden="true" />
+                                </Button>
+                            </TooltipTrigger>
+                            <TooltipContent>Save palette</TooltipContent>
+                        </Tooltip>
+                        <Tooltip>
+                            <TooltipTrigger as-child>
+                                <Button
+                                    icon-only
+                                    emphasis="text"
+                                    size="sm"
+                                    aria-label="Copy all colors"
+                                    class="generate-tool"
+                                    @click="copyColors"
+                                >
+                                    <Copy class="w-4 h-4" aria-hidden="true" />
+                                </Button>
+                            </TooltipTrigger>
+                            <TooltipContent>Copy all colors</TooltipContent>
+                        </Tooltip>
+                    </Surface>
+                </TooltipProvider>
+            </Surface>
         </section>
 
         <!-- Marginalia: preset & harmony. W5-7 — the permanent subtitles died;
@@ -358,7 +404,12 @@ defineExpose({ regenerate, save, copyColors });
              count is glass's scrubber at the `sm` rung, Extract's idle
              register. SS8-0705 (EC-16): the row carries its O-18 hook, so the
              contrast census reads this RANGE as it reads Extract's twin. -->
-        <div data-o18="generate-count" class="flex flex-col gap-1 w-full min-w-0">
+        <!-- O60 H (the owner, 23 Nov: "thicker, shorter slider. with stops as
+             dots"): the count is a short, thicker bar (glass's `md` rung,
+             16rem at most) whose counts are glass's value marks, a dot at
+             each between the rail's ends; the fill passes over the dots it
+             has reached. -->
+        <div data-o18="generate-count" class="generate-count flex flex-col gap-1 w-full min-w-0">
             <div class="flex items-center justify-between gap-2">
                 <Label>Colors</Label>
                 <span class="text-mono-small plate-ink tabular-nums">{{ count }}</span>
@@ -366,11 +417,12 @@ defineExpose({ regenerate, save, copyColors });
             <Slider
                 aria-label="Number of colors"
                 variant="scrubber"
-                size="sm"
+                size="md"
                 :model-value="[count]"
-                :min="1"
-                :max="12"
+                :min="COUNT_MIN"
+                :max="COUNT_MAX"
                 :step="1"
+                :marks="COUNT_MARKS"
                 class="w-full"
                 @update:model-value="(v: number[] | undefined) => { if (v?.[0] !== undefined) count = v[0]; }"
             />
@@ -385,5 +437,51 @@ defineExpose({ regenerate, save, copyColors });
  * on the card). Token only — glass's field edge stays (O-87). */
 [data-generate-plate] {
     --input-on-glass: transparent;
+}
+/* O60 G: the tray is the plate's foot, on the card's inner corners (the band
+ * recipe), now glass's wash plate: its own translucent fill over the well, no
+ * backdrop sampled. The swatches take the row and the toolbar its corner: they
+ * share one line where both fit (a desk) and the toolbar drops to its own line,
+ * still bottom-right, where they do not (a phone). */
+.generate-tray {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 0.5rem 0.75rem;
+    padding: 0.5rem 0.5rem 0.5rem 0.75rem;
+    /* the band, not a second box: edge to edge in the well, on its inner
+     * corners, one hairline (the plate's own rim) where it meets the title */
+    border-width: 1px 0 0;
+    border-radius: 0 0 calc(var(--radius-card) - 1px) calc(var(--radius-card) - 1px);
+}
+.generate-swatches {
+    flex: 1 1 15rem;
+    padding-block: 0.25rem;
+}
+.generate-toolbar {
+    margin-inline-start: auto;
+    display: flex;
+    align-items: center;
+    gap: 0.125rem;
+    padding: 0.125rem;
+    border-radius: var(--radius-control);
+}
+/* The tools ride the toolbar's own plate, so each is a text-rung seat. */
+.generate-tool {
+    color: var(--foreground);
+}
+
+/* O60 H: shorter. Twelve counts want about 20 px each, not the card's width. */
+.generate-count {
+    max-inline-size: 16rem;
+}
+/* A phone's finger target: glass's 44 px floor, seated as the `sm` rung's
+ * (foundation.css, THE SCALAR SLIDERS' TOUCH TARGET), the row's pitch kept. */
+@media (pointer: coarse) {
+    .generate-count :deep([data-slot="slider"]) {
+        --slider-touch-target: 2.75rem;
+        min-block-size: var(--slider-touch-target);
+        margin-block: calc((1.25rem - var(--slider-touch-target)) / 2);
+    }
 }
 </style>

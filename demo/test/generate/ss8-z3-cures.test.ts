@@ -104,8 +104,12 @@ describe("Z3 · GenerateControls REFUTED rows stay cured", () => {
         const w = await mountControls();
         for (const b of w.findAll("button")) expect(b.attributes("variant")).toBeUndefined();
         expect(w.find("[data-generate-plate] .preview-strip, [data-generate-plate] [data-preview-strip]").exists()).toBe(false);
-        // The plate's direct children: title row, swatch row, bench-note row.
-        expect(w.get("[data-generate-plate]").element.children.length).toBe(3);
+        // The plate's direct children: the title row, then the tray (O60 G:
+        // the swatches, and the verbs' toolbar seated in its corner).
+        expect(w.get("[data-generate-plate]").element.children.length).toBe(2);
+        const tray = w.get("[data-generate-plate]").element.children[1]!;
+        expect(tray.querySelectorAll("[data-color-surface]").length).toBeGreaterThan(0);
+        expect(tray.querySelector('[role="group"][aria-label="Palette actions"]')).not.toBeNull();
         w.unmount();
     }, 30_000);
 

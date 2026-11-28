@@ -52,7 +52,11 @@ describe("GenerateControls count control", () => {
     });
     afterEach(() => vi.unstubAllGlobals());
 
-    it("V3C-05: Colors is glass's scrubber at the sm rung, with no content-as-track rail", async () => {
+    // O60 H (the owner, 23 Nov: "thicker, shorter slider. with stops as
+    // dots"): the scrubber takes glass's `md` rung (it was `sm`, the X-DS pass
+    // 8 register this test first locked), each count is one of glass's value
+    // marks, and the row is at most 16rem wide.
+    it("V3C-05 / O60 H: Colors is glass's scrubber at the md rung, a mark at each count, with no content-as-track rail", async () => {
         const wrapper = await mountControls([
             "rgb(255, 0, 0)",
             "rgb(0, 0, 255)",
@@ -61,7 +65,10 @@ describe("GenerateControls count control", () => {
         expect(wrapper.find("[data-generate-count-rail]").exists()).toBe(false);
         const slider = wrapper.get('[data-slot="slider"]');
         expect(slider.attributes("data-variant")).toBe("scrubber");
-        expect(slider.attributes("data-size")).toBe("sm");
+        expect(slider.attributes("data-size")).toBe("md");
+        // a dot at each count between the rail's ends, 2 to 11 (glass draws no
+        // mark on an end: 1 is the fill's foot, 12 the rail's cap)
+        expect(wrapper.findAll('[data-slot="slider"] .glass-value-mark')).toHaveLength(10);
         // No painted track: the slider carries no gradient of the palette.
         expect(slider.attributes("style") ?? "").not.toContain("gradient");
     }, 30_000);
