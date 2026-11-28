@@ -768,10 +768,22 @@
      * a text ink certified light on the plate, nearly achromatic (C 0.03), so
      * a fifth of it left the slab grey. The root ground is written when the
      * colour settles, never per drag frame, as the accent is. */
-    --shadow-color: color-mix(
-        in oklab,
-        var(--saved-bg, var(--accent-live)) 20%,
-        color-mix(in oklab, var(--foreground) 34%, var(--background))
+    /* One level, no color-mix inside: WebKit 26.5 aborts the page process
+     * when it applies a color-mix whose two arms each hold a color-mix
+     * (glass O-436), and glass's `--blob-shadow-color` mixes this token with
+     * itself, so a mix inside this token takes the dark page down wherever
+     * the hero Blob paints. The colour is the same as the old two-step mix: a
+     * fifth of the ground in OKLab over four fifths of the ink-and-paper
+     * midtone. The midtone is resolved: glass's dark ink hsl(30 14% 90%) at
+     * 34% into its dark paper hsl(24 9% 4%), which the build writes as
+     * #e9e6e2 and #0b0a09, is oklab(0.41098 0.00121 0.00379), what the
+     * `0.8 *` terms carry. demo/test/glass/color-mix-depth.test.ts checks it
+     * against glass's shipped dark tokens and catches a mix of two mixes. */
+    --shadow-color: oklab(
+        from var(--saved-bg, var(--accent-live))
+        calc(0.2 * l + 0.8 * 0.41098)
+        calc(0.2 * a + 0.8 * 0.00121)
+        calc(0.2 * b + 0.8 * 0.00379)
     );
 
     /* The dark cartoon stamp, opaque; --shadow-card resolves through it via
