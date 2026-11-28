@@ -240,6 +240,7 @@ test.describe("Z1-app-chassis — the dock", () => {
         await expect(field).toBeFocused({ timeout: 5000 });
         await page.keyboard.press("ControlOrMeta+A");
         await page.keyboard.type("red");
-        await expect(field).toHaveText("red");
+        // O60 E: the field is a native text input, so what was typed is its value.
+        await expect(field).toHaveValue("red");
     });
 });
