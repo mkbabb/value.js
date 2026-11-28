@@ -2,77 +2,20 @@
 import { Katex } from "../../demo/scenes/about/katex";
 </script>
 
-### Historical Context
+### Where it came from
 
-HSL was developed in the 1970s as part of computer graphics research—an attempt to give humans a more intuitive handle on color than raw RGB triplets. It separates hue (the color itself) from saturation (intensity) and lightness (brightness), mapping neatly onto how people talk about color in practice.
+George Joblove and Donald Greenberg described HSL at SIGGRAPH in 1978, the same year Alvy Ray Smith described HSV; both were after a friendlier handle on RGB than three channel numbers. CSS took up `hsl()` in Color Level 3.
 
----
+### How to read it
 
-## Key Characteristics
+Hue is an angle in degrees: 0 red, 60 yellow, 120 green, 180 cyan, 240 blue, 300 magenta. Lightness runs from black at 0% through the pure hue at 50% to white at 100%, and saturation is how far the colour stands from the grey of the same lightness. Going the other way, from sRGB:
 
-1. Cylindrical representation: hue as angle, saturation as radius, lightness as height. Visualized as a double-cone or cylinder.
-2. Intuitive adjustment: changing one component produces predictable variations—useful for deriving palettes and tints/shades.
-3. Same gamut as sRGB: HSL is a coordinate transform of RGB, not an expansion.
+<Katex expression="L = \frac{\max + \min}{2},\qquad S = \frac{\max - L}{\min(L,\ 1 - L)}" />
 
-### Advantages
+It's a reshaping of the sRGB cube, so it holds exactly the colours sRGB holds, no more.
 
--   Intuitive for color selection and palette generation
--   Easy to create tints (raise L), shades (lower L), and tones (lower S)
--   Native CSS support via `hsl()`
--   Simple to generate distinguishable color sequences by varying hue
+### What to watch for
 
-### Disadvantages
-
--   Not perceptually uniform—colors at the same `L` can appear drastically different in brightness (blue vs. yellow)
--   The lightness model is a poor approximation of human luminance perception
--   Hue shifts can occur during saturation changes
-
----
-
-## Color Model
-
-### Components
-
-1. `H` (Hue):
-   0° to 360° (normalized to 0–1)
-
-   The color wheel: 0°/360° red, 60° yellow, 120° green, 180° cyan, 240° blue, 300° magenta.
-
-2. `S` (Saturation):
-   0 (grayscale) to 1 (fully saturated)
-
-3. `L` (Lightness):
-   0 (black) to 1 (white)
-
-   0.5 is the "pure" color—fully saturated at medium brightness.
-
----
-
-## Color Conversions
-
-### RGB to HSL
-
-Compute lightness from the min/max of the RGB channels, derive chroma and saturation, then determine hue from whichever channel dominates:
-
-<Katex expression="L = \frac{\max + \min}{2}, \quad C = \max - \min, \quad S = \frac{C}{1 - |2L - 1|}" />
-
-<Katex expression="H = \begin{cases} \frac{G - B}{C} & \text{if } \max = R \\ \frac{B - R}{C} + 2 & \text{if } \max = G \\ \frac{R - G}{C} + 4 & \text{if } \max = B \end{cases} \quad (\text{then } H = H / 6)" />
-
-### HSL to RGB
-
-Recover chroma from saturation and lightness, determine the RGB triple by hue sector, then shift by the lightness offset:
-
-<Katex expression="C = (1 - |2L - 1|) \cdot S, \quad X = C(1 - |(H \cdot 6) \bmod 2 - 1|), \quad m = L - C/2" />
-
-<Katex expression="(R,\, G,\, B) = (r_1 + m,\; g_1 + m,\; b_1 + m)" />
-
-where <Katex expression="(r_1, g_1, b_1)" :display-mode="false" /> is selected from <Katex expression="(C, X, 0)" :display-mode="false" /> and its permutations based on the hue sector.
-
----
-
-## Applications
-
-1. CSS color specification: `hsl()` is widely used in stylesheets for readable color declarations.
-2. UI color pickers: the cylindrical model maps naturally to sliders and wheels.
-3. Palette generation: systematic hue rotation with fixed S and L produces harmonious schemes.
-4. Image processing: hue rotation and saturation adjustment are straightforward operations.
+- HSL's lightness is the average of the largest and smallest channel, not the lightness you see. `hsl(60 100% 50%)` and `hsl(240 100% 50%)` share an L of 50%, yet yellow is nearly white to the eye and blue nearly black; their Oklab lightness is 0.968 and 0.452.
+- Turning the hue at a fixed S and L gives a rainbow of uneven brightness, which is why palettes built that way look lumpy.
+- When saturation or lightness leaves no colour (a grey, black or white), the hue is powerless, and value.js marks it `none`, as CSS Color 4 does.

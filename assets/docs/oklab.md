@@ -1,78 +1,13 @@
-<script setup>
-import { Katex } from "../../demo/scenes/about/katex";
-</script>
+### Where it came from
 
-### Historical Context
+Björn Ottosson published Oklab in December 2020. He fitted it to modern colour-appearance data so that equal steps look equal, and kept the arithmetic small: a matrix, a cube root, another matrix. CSS Color 4 took it up, and by 2023 every major browser could draw it.
 
-Developed by Björn Ottosson in 2020, OKLab addresses the perceptual non-uniformities present in CIE Lab—particularly in the blue-purple region, where Lab's uniformity breaks down. The conversion path (XYZ → LMS cube root → linear transform) is leaner than Lab's piecewise `f(t)` function, and the resulting space is a first-class citizen in CSS Color Level 4.
+### How to read it
 
----
+L runs from 0 to 1 (CSS writes it as a percentage). a and b are the same opponent axes as Lab's, on a smaller scale: the most vivid colours a screen shows sit about 0.3 from grey. Distance means something here. value.js's `deltaEOK` is the straight-line distance in Oklab, and 0.02 is the just-noticeable difference CSS Color 4 uses when it maps a colour into a gamut.
 
-## Key Characteristics
+### What to watch for
 
-1. Perceptual uniformity superior to Lab—equal Euclidean distances correspond more faithfully to equal perceived color differences.
-2. Hue linearity: mixtures of two colors maintain consistent hue, a property Lab struggles with in the blue-purple region.
-3. Consistent lightness: the `L` component tracks human brightness perception across the full gamut.
-4. Computational efficiency: the conversion path (XYZ → LMS cube root → linear transform) is leaner than Lab's piecewise `f(t)` function.
-
-### Advantages
-
--   Better perceptual uniformity than Lab for interpolation and gradient generation
--   Hue-linear mixing—critical for palette generation and color-mix()
--   Consistent lightness across hues (blue and yellow at the same `L` look equally bright)
--   Efficient to compute; no piecewise branching in the forward path
-
-### Disadvantages
-
--   Relatively new; less tooling and institutional support than Lab
--   Not an ICC or ISO standard (yet)
--   Still an approximation of human color perception—no color space is perfect
-
-### Color Gamut
-
-OKLab encompasses all perceivable colors, larger than any RGB or CMYK gamut. Out-of-gamut values are valid in the space; they simply can't be displayed without gamut mapping.
-
----
-
-## Color Model
-
-### Components
-
-1. `L` (Lightness):
-   0 (black) to 1 (white)
-
-2. `a` (Green-Red axis):
-   <Katex expression="a < 0" :display-mode="false" /> (green) to <Katex expression="a > 0" :display-mode="false" /> (red)
-
-3. `b` (Blue-Yellow axis):
-   <Katex expression="b < 0" :display-mode="false" /> (blue) to <Katex expression="b > 0" :display-mode="false" /> (yellow)
-
-### Representation
-
-Colors sit in a three-dimensional Cartesian space. `L` runs vertically; the `a`/`b` plane at each lightness level describes chromaticity. Structurally identical to Lab, but the coordinate system is derived from a different LMS basis, yielding the improved perceptual properties.
-
----
-
-## Color Conversions
-
-### XYZ to OKLab
-
-Two matrix multiplications sandwiching a cube root. The first maps XYZ to LMS cone responses; the cube root models the perceptual non-linearity; the second projects into OKLab:
-
-<Katex expression="\begin{bmatrix} l \\ m \\ s \end{bmatrix} = M_1 \begin{bmatrix} X \\ Y \\ Z \end{bmatrix}, \quad \begin{bmatrix} L \\ a \\ b \end{bmatrix} = M_2 \begin{bmatrix} \sqrt[3]{l} \\ \sqrt[3]{m} \\ \sqrt[3]{s} \end{bmatrix}" />
-
-### OKLab to XYZ
-
-The inverse: undo the linear transform, cube to reverse the perceptual compression, then map back to XYZ:
-
-<Katex expression="\begin{bmatrix} l' \\ m' \\ s' \end{bmatrix} = M_2^{-1} \begin{bmatrix} L \\ a \\ b \end{bmatrix}, \quad \begin{bmatrix} X \\ Y \\ Z \end{bmatrix} = M_1^{-1} \begin{bmatrix} l'^3 \\ m'^3 \\ s'^3 \end{bmatrix}" />
-
----
-
-## Applications
-
-1. Color interpolation: the default interpolation space in CSS Color Level 4's `color-mix()`.
-2. Palette generation: perceptually balanced palettes with consistent lightness steps.
-3. Gamut mapping: value.js uses OKLab as the working space for Ottosson's analytical sRGB gamut mapping algorithm.
-4. Image processing: color grading, correction, and manipulation benefit from the improved uniformity.
-5. Accessible design: consistent lightness makes it easier to maintain contrast ratios across hue variations.
+- CSS Color 4 makes Oklab the default space for interpolation, but colours written in the legacy sRGB forms (hex, `rgb()`, `hsl()`) still mix in sRGB unless you say otherwise. Write `in oklab` to be sure.
+- It's fitted to ordinary, SDR brightness. For HDR, ICtCp and Jzazbz are made for the job.
+- To fit a colour onto a screen, value.js holds its OKLCh lightness and hue and halves its way down the chroma until every channel fits (`mapColorToGamut`); it doesn't use Ottosson's analytic cusp method.

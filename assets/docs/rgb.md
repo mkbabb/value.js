@@ -1,85 +1,13 @@
-<script setup>
-import { Katex } from "../../demo/scenes/about/katex";
-</script>
+### Where it came from
 
-### Historical Context
+In 1996 Hewlett-Packard and Microsoft proposed one default colour space for the young web, so that a number sent from one machine would mean roughly the same colour on another. They took the primaries of HDTV (ITU-R BT.709), the D65 daylight white, and a transfer curve close to the 2.2 gamma of the monitors of the day. The IEC published it in 1999 as IEC 61966-2-1, and CSS has spoken it ever since.
 
-RGB emerged alongside color television in the mid-20th century, grounded in trichromatic color vision theory—three cone cell types in the retina, each sensitive to a different band of wavelengths. It's the native language of display hardware, mapping directly to the red, green, and blue subpixels of a screen.
+### How to read it
 
----
+The three numbers aren't amounts of light. They're encoded: each went through a curve that spends more of its 256 steps on the darks, where the eye is most discerning. To get light back, decode first (the first step above), and only then do arithmetic. That's why 128 is not half as bright as 255; decoded, it's about 22% of the light.
 
-## Key Characteristics
+### What to watch for
 
-1. Additive model: colors are produced by combining light at different intensities. R + G + B at full intensity yields white.
-2. Device-dependent: the same RGB triplet can look different on different displays without a shared profile (hence sRGB standardization).
-3. Hardware-native: values map directly to display hardware, making RGB the *lingua franca* of digital color.
-
-### Advantages
-
--   Direct hardware implementation—no conversion needed for display
--   Intuitive for digital work (web, screens, rendering)
--   Wide adoption across all digital media standards
-
-### Disadvantages
-
--   Not perceptually uniform—equal numerical steps don't produce equal perceptual steps
--   Device-dependent without calibration
--   Unintuitive for artistic color mixing (adjusting R to make a color "warmer" is indirect at best)
-
-### Color Gamut
-
-The sRGB gamut forms a cube from (0,0,0) black to (1,1,1) white. It covers a modest triangle in CIE xy chromaticity—roughly 35% of visible colors. Wider-gamut variants (Display P3, Adobe RGB, Rec. 2020) expand this triangle.
-
----
-
-## Color Model
-
-### Components
-
-1. `R` (Red):
-   0 (no red) to 1 (full red intensity)
-
-2. `G` (Green):
-   0 (no green) to 1 (full green intensity)
-
-3. `B` (Blue):
-   0 (no blue) to 1 (full blue intensity)
-
-### sRGB and Linear RGB
-
-Two variants matter in practice:
-
--   sRGB: the standard for consumer displays and web content, with a piecewise gamma curve (~2.2 effective gamma). All CSS `rgb()` values are sRGB.
--   Linear RGB: the same primaries without gamma correction. Used as an intermediate step in color math—blending, matrix transforms, and conversions to XYZ all operate in linear light.
-
-The transfer function between them is a piecewise curve: linear below a threshold (~0.04045), power-law above.
-
----
-
-## Color Conversions
-
-### RGB to XYZ
-
-Linearize sRGB via the inverse transfer function, then apply the 3×3 matrix:
-
-<Katex expression="\gamma^{-1}(c) = \begin{cases} c / 12.92 & c \leq 0.04045 \\ \left(\frac{c + 0.055}{1.055}\right)^{2.4} & \text{otherwise} \end{cases}" />
-
-<Katex expression="\begin{bmatrix} X \\ Y \\ Z \end{bmatrix} = M_{\text{sRGB}} \begin{bmatrix} \gamma^{-1}(R) \\ \gamma^{-1}(G) \\ \gamma^{-1}(B) \end{bmatrix}" />
-
-### XYZ to RGB
-
-Multiply by the inverse matrix, then apply gamma encoding:
-
-<Katex expression="\gamma(c) = \begin{cases} 12.92\, c & c \leq 0.0031308 \\ 1.055\, c^{1/2.4} - 0.055 & \text{otherwise} \end{cases}" />
-
-<Katex expression="\begin{bmatrix} R \\ G \\ B \end{bmatrix} = \gamma\!\left(M_{\text{sRGB}}^{-1} \begin{bmatrix} X \\ Y \\ Z \end{bmatrix}\right)" />
-
----
-
-## Applications
-
-1. Display rendering: the final output space for all screen-based content.
-2. Web design: CSS `rgb()`, hex codes, and named colors all resolve to sRGB.
-3. Image formats: JPEG, PNG, and WebP store pixel data in sRGB.
-4. Compositing and blending: typically done in linear RGB to avoid gamma-induced artifacts.
-5. Color conversion hub: sRGB ↔ XYZ is the foundational bridge to every other color space in value.js.
+- Averaging encoded numbers darkens a blend. Halfway from red to green in sRGB is a muddy olive, `rgb(128 128 0)`; the same mix in linear light is a brighter yellow, `rgb(188 188 0)`. The mixing figure shows the difference for your colour.
+- `rgb()` clamps to 0 through 255 when it's parsed. A colour outside sRGB is written `color(srgb …)` instead, with numbers below 0 or above 1, and that's how value.js serializes one.
+- Equal steps in R, G or B aren't equal steps to the eye. For ramps and palettes, step in OKLCh.

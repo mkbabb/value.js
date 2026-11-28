@@ -1,86 +1,13 @@
-<script setup>
-import { Katex } from "../../demo/scenes/about/katex";
-</script>
+### Where it came from
 
-### Historical Context
+In 1976 the CIE published two spaces meant to make distance mean difference: CIELUV for lights and CIELAB for surfaces. Lab won the paint, textile and print trades, and for forty years it's been how industry decides whether two colours match.
 
-Standardized by the CIE in 1976, Lab was designed to be perceptually uniform—equal distances in the space should correspond to equal perceived color differences. It's device-independent: Lab describes *what* a color looks like, not how a particular device produces it. For decades it's been the workhorse of color management, ICC profiles, and industrial colorimetry.
+### How to read it
 
----
+L runs from 0, black, to 100, the reference white. a and b are opponent axes, as the eye's own signals are: negative a is green and positive a red, negative b blue and positive b yellow. The lightness curve is a cube root with a short straight foot at the bottom, where a cube root would be too steep to trust; those are the ε and κ in the steps above.
 
-## Key Characteristics
+### What to watch for
 
-1. Perceptual uniformity: the founding goal. Largely successful, though the blue-purple region exhibits more error than Ottosson's OKLab.
-2. Device independence: Lab values are defined relative to a standard illuminant, not a particular display or printer.
-3. Separated lightness: `L*` is orthogonal to the chromatic axes, enabling brightness adjustment without hue shift.
-
-### Advantages
-
--   Perceptually uniform (the CIE 1976 definition)
--   Device-independent—the standard for cross-media color communication
--   Covers all perceivable colors (gamut exceeds any physical display)
--   Delta-E calculations (color difference metrics) are native to this space
-
-### Disadvantages
-
--   Computationally heavier than RGB conversions (piecewise `f(t)` function)
--   Not directly displayable—out-of-gamut Lab values must be mapped to sRGB or similar
--   Unintuitive for manual color selection (what does `a* = -40` *look* like?)
-
-### White Points
-
--   D50: graphic arts, printing, ICC profile standard. Lab's default illuminant.
--   D65: average daylight, digital imaging. Used by sRGB and Display P3.
-
-Conversions between D50 and D65 use Bradford chromatic adaptation.
-
----
-
-## Color Model
-
-### Components
-
-1. `L*` (Lightness):
-   0 (black) to 100 (diffuse white)
-
-2. `a*` (Green-Red axis):
-   <Katex expression="a^* < 0" :display-mode="false" /> (green) to <Katex expression="a^* > 0" :display-mode="false" /> (red)
-
-3. `b*` (Blue-Yellow axis):
-   <Katex expression="b^* < 0" :display-mode="false" /> (blue) to <Katex expression="b^* > 0" :display-mode="false" /> (yellow)
-
-### Representation
-
-A three-dimensional Cartesian space. `L*` is the vertical axis; the `a*`/`b*` plane describes chromaticity at each lightness level. The cylindrical variant (LCh) converts `a*`,`b*` to polar coordinates—chroma and hue.
-
----
-
-## Color Conversions
-
-### XYZ to Lab
-
-Normalize XYZ by the reference white point, apply a piecewise function that approximates a cube root, then scale into L\*a\*b\*:
-
-<Katex expression="f(t) = \begin{cases} \sqrt[3]{t} & t > \epsilon \\ \frac{\kappa\, t + 16}{116} & \text{otherwise} \end{cases}" />
-
-<Katex expression="L^* = 116\, f\!\left(\frac{Y}{Y_n}\right) - 16, \quad a^* = 500\left[f\!\left(\frac{X}{X_n}\right) - f\!\left(\frac{Y}{Y_n}\right)\right], \quad b^* = 200\left[f\!\left(\frac{Y}{Y_n}\right) - f\!\left(\frac{Z}{Z_n}\right)\right]" />
-
-where <Katex expression="\epsilon = \tfrac{216}{24389}" :display-mode="false" /> and <Katex expression="\kappa = \tfrac{24389}{27}" :display-mode="false" />.
-
-### Lab to XYZ
-
-Invert the L\*a\*b\* formulas—recover the normalized XYZ ratios, apply the inverse piecewise function, then scale by the white point:
-
-<Katex expression="f_y = \frac{L^* + 16}{116}, \quad f_x = \frac{a^*}{500} + f_y, \quad f_z = f_y - \frac{b^*}{200}" />
-
-<Katex expression="X = X_n \cdot f^{-1}(f_x), \quad Y = Y_n \cdot f^{-1}(f_y), \quad Z = Z_n \cdot f^{-1}(f_z)" />
-
----
-
-## Applications
-
-1. ICC color management: the internal representation for color profiles and device-independent color communication.
-2. Delta-E calculations: industrial quality control (textiles, paint, manufacturing) relies on Lab-based color difference formulas.
-3. Image processing: operations like sharpening and blurring benefit from the perceptual uniformity.
-4. Print production: gamut mapping between CMYK and RGB passes through Lab.
-5. Scientific colorimetry: the standard coordinate system for color measurement and analysis.
+- CSS measures `lab()` against D50, the white of print and of ICC profiles, while screens are D65. value.js crosses between them with the Bradford adaptation, as CSS Color 4 does.
+- Lab is less even than it looks. Its blues are the famous failure: halfway from `#0000ff` to white in Lab is a lilac, `#af89ff`, where Oklab gives a blue, `#74a3ff`. Mix your colour toward blue or white in the figure to see it.
+- Straight-line distance in Lab (ΔE 1976) overstates differences between saturated colours. value.js offers `deltaEOK` instead, the Oklab distance CSS Color 4's gamut mapping uses.

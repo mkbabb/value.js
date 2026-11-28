@@ -13,34 +13,31 @@
          labels (`max-content 1fr`), so the 1800 px card no longer opens a
          ~500 px gutter between a key and its value. Values are bidi-isolated;
          icons beside text are decorative. -->
+    <!-- c60s (FIFTY-THIRD N): the label is the space's lede, its four facts
+         and its channels. The "Key properties" yes/no rows, the application
+         and industry lists and the "Conversion graph" are gone: the graph drew
+         roads the library never takes, and the roads now come from the
+         library itself, in "Step by step" below the label. -->
     <div class="nutrition-label w-full relative" :data-space-facts="space">
-        <section>
-            <h2 class="nl-head font-display text-subheading">Definition</h2>
-            <p class="nl-prose nl-read" data-fact="definition">
-                <bdi>{{ currentColorSpaceInfo.definition }}</bdi>
-            </p>
-        </section>
+        <p class="nl-lede nl-read" data-fact="definition">
+            <bdi>{{ currentColorSpaceInfo.definition }}</bdi>
+        </p>
+
+        <!-- X-DS VR3-03 / VC4-04: key in the muted plate ink, value weighted,
+             both upright in the body voice. -->
+        <dl class="nl-facts nl-read" style="--nl-key: 6.2em">
+            <dt class="plate-ink">White point</dt>
+            <dd class="font-medium" data-fact="white-point"><bdi>{{ currentColorSpaceInfo.whitePoint }}</bdi></dd>
+            <dt class="plate-ink">Gamut</dt>
+            <dd class="font-medium" data-fact="gamut"><bdi>{{ currentColorSpaceInfo.gamut }}</bdi></dd>
+            <dt class="plate-ink">Created</dt>
+            <dd class="font-medium" data-fact="created"><bdi>{{ currentColorSpaceInfo.created }}</bdi></dd>
+            <dt class="plate-ink">In CSS</dt>
+            <dd class="font-medium" data-fact="css"><bdi>{{ currentColorSpaceInfo.css }}</bdi></dd>
+        </dl>
 
         <section>
-            <h2 class="nl-head font-display text-subheading">Basic information</h2>
-            <!-- X-DS VR3-03 / VC4-04: key in the muted plate ink, value weighted,
-                 both upright in the body voice. -->
-            <dl class="nl-facts nl-read" style="--nl-key: 10em">
-                <dt class="plate-ink">Device dependency:</dt>
-                <dd class="font-medium" data-fact="device-dependency">
-                    <bdi>{{ currentColorSpaceInfo.deviceDependency }}</bdi>
-                </dd>
-                <dt class="plate-ink">White point:</dt>
-                <dd class="font-medium" data-fact="white-point"><bdi>{{ currentColorSpaceInfo.whitePoint }}</bdi></dd>
-                <dt class="plate-ink">Gamut:</dt>
-                <dd class="font-medium" data-fact="gamut"><bdi>{{ currentColorSpaceInfo.gamut }}</bdi></dd>
-                <dt class="plate-ink">Created:</dt>
-                <dd class="font-medium" data-fact="created"><bdi>{{ currentColorSpaceInfo.created }}</bdi></dd>
-            </dl>
-        </section>
-
-        <section>
-            <h2 class="nl-head font-display text-subheading">Components</h2>
+            <h2 class="nl-head font-display text-subheading">Channels</h2>
             <!-- One column per channel of THIS space (`--channel-count`), never
                  an unconditional three. -->
             <dl
@@ -66,67 +63,12 @@
                 </div>
             </dl>
         </section>
-
-        <section>
-            <h2 class="nl-head font-display text-subheading">Key properties</h2>
-            <dl class="nl-facts nl-read" style="--nl-key: 10.6em">
-                <dt class="plate-ink">Perceptual uniformity:</dt>
-                <dd class="font-medium"><bdi>{{ currentColorSpaceInfo.perceptualUniformity }}</bdi></dd>
-                <dt class="plate-ink">Hue linearity:</dt>
-                <dd class="font-medium"><bdi>{{ currentColorSpaceInfo.hueLinearity }}</bdi></dd>
-                <dt class="plate-ink">Lightness separation:</dt>
-                <dd class="font-medium"><bdi>{{ currentColorSpaceInfo.lightnessSeparation }}</bdi></dd>
-            </dl>
-        </section>
-
-        <section>
-            <h2 class="nl-head font-display text-subheading">Conversion graph</h2>
-            <!-- X.W12.c · UIA-V-4: a path is something to READ, not a control.
-                 BC-CNL-8: the hover highlight had no focus or touch twin and no
-                 non-hover consumer, so it is gone with its handlers; every node
-                 rests on the well in the plate's own ink. -->
-            <ul class="flex flex-wrap gap-4" role="list">
-                <li
-                    v-for="(path, index) in currentColorSpaceInfo.conversions"
-                    :key="index"
-                    class="flex flex-wrap items-center p-3 bg-well rounded-panel max-w-full"
-                >
-                    <template v-for="(node, nodeIndex) in path" :key="nodeIndex">
-                        <span class="px-2 py-1 rounded" data-o18="graph-node"><bdi>{{ node }}</bdi></span>
-                        <ArrowRight
-                            v-if="nodeIndex < path.length - 1"
-                            class="mx-1 rtl:-scale-x-100"
-                            aria-hidden="true"
-                        />
-                    </template>
-                </li>
-            </ul>
-        </section>
-
-        <section>
-            <h2 class="nl-head font-display text-subheading">Usage</h2>
-            <dl class="nl-facts nl-read" style="--nl-key: 10.9em">
-                <dt class="plate-ink">Common applications:</dt>
-                <dd class="font-medium">
-                    <ul class="nl-inline" role="list">
-                        <li v-for="a in currentColorSpaceInfo.applications" :key="a"><bdi>{{ a }}</bdi></li>
-                    </ul>
-                </dd>
-                <dt class="plate-ink">Industries:</dt>
-                <dd class="font-medium">
-                    <ul class="nl-inline" role="list">
-                        <li v-for="i in currentColorSpaceInfo.industries" :key="i"><bdi>{{ i }}</bdi></li>
-                    </ul>
-                </dd>
-            </dl>
-        </section>
     </div>
 </template>
 <script setup lang="ts">
 import { computed, inject } from "vue";
 import { useMounted } from "@vueuse/core";
 import { SAFE_ACCENT_KEY } from "../../color-session/keys";
-import { ArrowRight } from "@lucide/vue";
 import type { DisplayColorSpace } from "../../color-session/color-model";
 import { SPACE_CATALOG } from "../../color-session/space-catalog";
 
@@ -178,11 +120,13 @@ const formattedRange = computed<Record<string, { min: string; max: string }>>(()
     Object.fromEntries(
         currentSpace.value.channels.map((meta) => {
             const scale = meta.unit === "%" && meta.max <= 1 ? 100 : 1;
+            // Degrees read as degrees ("0° to 360°"), the way the guides write hue.
+            const unit = meta.unit === "deg" ? "°" : meta.unit === "K" ? " K" : meta.unit;
             return [
                 meta.key,
                 {
-                    min: `${meta.min * scale}${meta.unit}`,
-                    max: `${meta.max * scale}${meta.unit}`,
+                    min: `${meta.min * scale}${unit}`,
+                    max: `${meta.max * scale}${unit}`,
                 },
             ];
         }),
@@ -213,8 +157,12 @@ const formattedRange = computed<Record<string, { min: string; max: string }>>(()
     /* Size carries the heading; it is not bold (restraint, C-9). */
     font-weight: var(--type-weight-display);
 }
-.nl-prose {
+/* The lede is the page's first sentence: read at the body face, one step
+ * up from the facts, in the plate's own ink. */
+.nl-lede {
     max-inline-size: 66ch;
+    margin: 0;
+    font-size: max(1.0625rem, var(--type-body));
 }
 /* BC-CNL-24: the label column hugs its labels. The FORTIETH A-4: it hugs
  * them at a FIXED measure, the widest label's advance in the body face (Plus
@@ -243,16 +191,5 @@ const formattedRange = computed<Record<string, { min: string; max: string }>>(()
 .nl-facts > *,
 .nl-components > * {
     unicode-bidi: isolate;
-}
-.nl-inline {
-    display: flex;
-    flex-wrap: wrap;
-    column-gap: 0.5ch;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-.nl-inline > li:not(:last-child)::after {
-    content: ",";
 }
 </style>

@@ -71,6 +71,40 @@
                 <ColorNutritionLabel class="w-full p-0 m-0" :space="model.selectedColorSpace" />
             </CardContent>
 
+            <!-- c60s (FIFTY-THIRD N): the space worked through for the colour
+                 on the page. The road is the library's own (space-road.ts),
+                 the mixing figure draws with value.js, and the code prints
+                 what it returns. The partner and hue path are the figure's,
+                 and the code's second block follows them. -->
+            <CardContent class="px-3 sm:px-6 pt-0 pb-phi-3" data-road-section>
+                <SpaceRoad
+                    :space="model.selectedColorSpace"
+                    :color="spaceColor"
+                    :label="activeSpace.label"
+                    :css-color="cssColor"
+                />
+            </CardContent>
+
+            <CardContent class="px-3 sm:px-6 pt-0 pb-phi-3" data-mix-section>
+                <SpaceMix
+                    v-model:partner="partner"
+                    v-model:hue="hue"
+                    :space="model.selectedColorSpace"
+                    :color="spaceColor"
+                    :label="activeSpace.label"
+                />
+            </CardContent>
+
+            <CardContent class="px-3 sm:px-6 pt-0 pb-phi-3" data-code-section>
+                <SpaceCode
+                    :space="model.selectedColorSpace"
+                    :color="spaceColor"
+                    :label="activeSpace.label"
+                    :partner="partner"
+                    :hue="hue"
+                />
+            </CardContent>
+
             <Separator />
 
             <!-- X-W6.f · X:CSS-1 (f3) — THE GUIDE SECTION STATES ITS OWN STATE.
@@ -108,10 +142,15 @@ import { Separator } from "@mkbabb/glass-ui/separator";
 import { CardContent } from "@mkbabb/glass-ui/card";
 import PaneShell from "../../shell/PaneShell.vue";
 import ColorNutritionLabel from "./ColorNutritionLabel.vue";
-import type { ColorModel } from "../../color-session/color-model";
-import { SPACE_CATALOG } from "../../color-session/space-catalog";
+import { resolveColorSpace, type ColorModel } from "../../color-session/color-model";
+import { SPACE_CATALOG, type SpaceEntry } from "../../color-session/space-catalog";
 import ColorSpaceSelector from "../../shared/ui/ColorSpaceSelector.vue";
 import { Markdown } from "./markdown";
+import SpaceRoad from "./SpaceRoad.vue";
+import SpaceMix from "./SpaceMix.vue";
+import SpaceCode from "./SpaceCode.vue";
+import type { Partner } from "./space-code";
+import { convertColor, type AnyColor, type HueInterpolationMethod } from "@mkbabb/value.js/color";
 const model = defineModel<ColorModel>({ required: true });
 const aboutSelectOpen = ref(false);
 
@@ -127,7 +166,25 @@ defineProps<{
  * entry carries its own guide decision, so About reads a row rather than
  * indexing a partial map with a cast.
  */
-const activeSpace = computed(() => SPACE_CATALOG[model.value.selectedColorSpace]);
+const activeSpace = computed<SpaceEntry>(() => SPACE_CATALOG[model.value.selectedColorSpace]);
+
+/**
+ * The colour as the selected space holds it (Hex reads RGB's channels). The
+ * picker keeps the model's colour in the selected space; a colour that
+ * arrives in another (a pasted string mid-switch) is carried across here, so
+ * the road always starts from this space's own numbers.
+ */
+const spaceColor = computed<AnyColor>(() => {
+    const color = model.value.color;
+    const target = resolveColorSpace(model.value.selectedColorSpace);
+    if (color.space === target) return color;
+    const converted = convertColor(color, target);
+    return converted.ok ? (converted.value as AnyColor) : color;
+});
+
+/** The mixing figure's two choices; the code's mixing block follows them. */
+const partner = ref<Partner["id"]>("opposite");
+const hue = ref<HueInterpolationMethod>("shorter");
 </script>
 
 <style scoped>

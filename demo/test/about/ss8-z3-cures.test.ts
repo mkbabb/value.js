@@ -36,9 +36,17 @@ describe("Z3 · Markdown REFUTED rows stay cured", () => {
         w.unmount();
     });
 
-    it("-3: display-p3 is an authored no-guide decision, rendered as a sentence", async () => {
+    // c60s (FIFTY-THIRD N): every space now has a written guide, display-p3
+    // among them, so the row this case named carries a loader like every
+    // other (its file is held to exist by c60s-space-pages.test.ts; the
+    // compiled guides are read in the browser by o30). The no-guide decision
+    // stays spellable (`doc: null`) and the pane still renders it as a
+    // sentence.
+    it("-3: every space carries a guide loader; a no-guide decision would render as a sentence", () => {
         const catalog = SPACE_CATALOG as Record<string, { doc: unknown }>;
-        expect(catalog["display-p3"]?.doc).toBeNull();
+        for (const [space, entry] of Object.entries(catalog)) {
+            expect(typeof entry.doc, space).toBe("function");
+        }
         const pane = readFileSync(resolve(DEMO, "scenes/about/AboutPane.vue"), "utf8");
         expect(pane).toMatch(/<Markdown\s+v-if="activeSpace\.doc"/);
         expect(pane).toMatch(/<p v-else[^>]*data-guide-empty-state>\s*No long-form guide is written for \{\{ activeSpace\.label \}\} yet/);

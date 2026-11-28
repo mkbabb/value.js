@@ -22,9 +22,9 @@
  * not by stub: a catalog that compiles because five entries were filled with
  * placeholders is the masking fallback wearing a type's clothes.
  *
- * `doc: null` is a DECISION, not an absence: the five wide-gamut RGB encodings
- * and the two HDR perceptual spaces have no authored guide, and the About route
- * renders that as a stated empty state rather than a silent gap.
+ * `doc: null` is a DECISION, not an absence, and About renders it as a stated
+ * empty state rather than a silent gap. Since c60s (FIFTY-THIRD N) every space
+ * has a guide, so no row takes it; the decision stays spellable.
  *
  * Home: `color-session` is the product colour domain (ARCHITECTURE §1); the
  * picker, About and the workbenches all read the catalog, none owns it.
@@ -32,23 +32,27 @@
 import { PICKER_CHANNELS, type ChannelMeta } from "./picker-color";
 import { resolveColorSpace, type DisplayColorSpace } from "./color-model";
 
-/** The documented facts for one space — the nutrition label's whole surface. */
+/**
+ * The documented facts for one space: what the About label prints.
+ *
+ * c60s (FIFTY-THIRD N): the label used to carry three yes/no "key properties",
+ * two lists of applications and industries, and a "conversion graph" of roads
+ * the library never takes (RGB to Kelvin, HSL to HSV to HWB, Lab to LCh
+ * direct). The roads are now drawn from the library itself (About's "Step by
+ * step", `scenes/about/space-road.ts`), and the facts are the ones a reader
+ * uses: where the space was made, its white, its gamut and its CSS spelling.
+ */
 export interface SpaceInfo {
-    /** The full formal title ("CIE RGB (Red, Green, Blue)"), not the catalog label. */
+    /** The formal title ("sRGB", "CIELAB (L*a*b*)"), not the catalog label. */
     readonly name: string;
+    /** The lede: what the space is and why a reader would reach for it. */
     readonly definition: string;
     readonly created: string;
-    readonly deviceDependency: string;
     readonly whitePoint: string;
     readonly gamut: string;
     readonly components: readonly string[];
-    readonly perceptualUniformity: string;
-    readonly hueLinearity: string;
-    readonly lightnessSeparation: string;
-    readonly applications: readonly string[];
-    readonly industries: readonly string[];
-    readonly conversions: readonly (readonly string[])[];
-    readonly notes: string;
+    /** How CSS writes a colour in it, or why it can't. */
+    readonly css: string;
 }
 
 /** A lazily-imported long-form guide, or `null` where none is authored. */
@@ -87,9 +91,8 @@ const doc = (loader: SpaceDoc): SpaceDoc => loader;
 /**
  * The catalog. Order is the canonical catalog order the selector paints.
  *
- * The `doc: null` rows are the decision, stated: the five wide-gamut RGB
- * encodings and the two HDR perceptual spaces (ICtCp, Jzazbz) have no authored
- * long-form guide. About renders that as an authored empty state.
+ * Every row carries a guide (c60s); `doc: null` stays the type's spelling of
+ * "none written", which About renders as an authored empty state.
  */
 export const SPACE_CATALOG = {
     rgb: {
@@ -99,26 +102,14 @@ export const SPACE_CATALOG = {
         doc: doc(() => import("../../assets/docs/rgb.md")),
         interpolatable: true,
         info: {
-            name: "CIE RGB (Red, Green, Blue)",
+            name: "sRGB",
             definition:
-                "A color space based on the additive mixture of red, green, and blue light.",
-            created: "1931",
-            deviceDependency: "Device-dependent",
-            whitePoint: "Varies (typically D65)",
-            gamut: "Limited (device-specific)",
+                "The web's own space: red, green and blue light, each from 0 to 255, gamma-encoded so the 256 steps fall where the eye can tell them apart. Every rgb(), every hex code and every named colour in CSS lands here.",
+            created: "1996, by HP and Microsoft (IEC 61966-2-1, 1999)",
+            whitePoint: "D65",
+            gamut: "sRGB, about 35% of the CIE xy diagram",
             components: ["Red", "Green", "Blue"],
-            perceptualUniformity: "No",
-            hueLinearity: "No",
-            lightnessSeparation: "No",
-            applications: ["Digital displays", "Web design", "Computer graphics"],
-            industries: ["Digital media", "Entertainment", "Gaming"],
-            conversions: [
-                ["RGB", "XYZ"],
-                ["RGB", "Kelvin"],
-                ["RGB", "HSL"],
-                ["RGB", "Hex"],
-            ],
-            notes: "The most common color space for digital image representation and display.",
+            css: "rgb(R G B)",
         },
     },
 
@@ -129,30 +120,14 @@ export const SPACE_CATALOG = {
         doc: doc(() => import("../../assets/docs/hsl.md")),
         interpolatable: true,
         info: {
-            name: "HSL (Hue, Saturation, Lightness)",
+            name: "HSL (hue, saturation, lightness)",
             definition:
-                "A cylindrical representation of the RGB color space, with a focus on human perception.",
-            created: "1978",
-            deviceDependency: "Device-dependent (derived from RGB)",
-            whitePoint: "Inherited from RGB",
-            gamut: "Same as RGB",
+                "sRGB re-cut as a double cone: pick a hue, then how vivid and how light. It's quick to reason with, but its lightness isn't the eye's; yellow and blue at 50% are nowhere near the same brightness.",
+            created: "1978, by George Joblove and Donald Greenberg",
+            whitePoint: "D65 (it's sRGB)",
+            gamut: "sRGB",
             components: ["Hue", "Saturation", "Lightness"],
-            perceptualUniformity: "No",
-            hueLinearity: "Yes",
-            lightnessSeparation: "Yes",
-            applications: [
-                "Color selection interfaces",
-                "Image processing",
-                "Computer graphics",
-            ],
-            industries: ["Web design", "User interface design", "Digital art"],
-            conversions: [
-                ["HSL", "RGB"],
-                ["HSL", "RGB", "XYZ"],
-                ["HSL", "HSV"],
-                ["HSL", "HSV", "HWB"],
-            ],
-            notes: "Provides an intuitive way to adjust colors, but not perceptually uniform.",
+            css: "hsl(h s l)",
         },
     },
 
@@ -163,28 +138,14 @@ export const SPACE_CATALOG = {
         doc: doc(() => import("../../assets/docs/hsv.md")),
         interpolatable: true,
         info: {
-            name: "HSV (Hue, Saturation, Value)",
+            name: "HSV (hue, saturation, value)",
             definition:
-                "A cylindrical representation of the RGB color space, with a focus on perceptual uniformity.",
-            created: "1978",
-            deviceDependency: "Device-dependent (derived from RGB)",
-            whitePoint: "Inherited from RGB",
-            gamut: "Same as RGB",
+                "sRGB re-cut as a cone with its point at black: a hue, then how pure, then how bright. It's the square and strip of most colour pickers, this one's included, and some apps call it HSB.",
+            created: "1978, by Alvy Ray Smith",
+            whitePoint: "D65 (it's sRGB)",
+            gamut: "sRGB",
             components: ["Hue", "Saturation", "Value"],
-            perceptualUniformity: "No",
-            hueLinearity: "Yes",
-            lightnessSeparation: "No (uses Value instead)",
-            applications: [
-                "Color selection interfaces",
-                "Computer vision",
-                "Image analysis",
-            ],
-            industries: ["Graphic design", "Image processing", "Machine vision"],
-            conversions: [
-                ["HSV", "HSL"],
-                ["HSV", "HSL", "XYZ"],
-            ],
-            notes: "Similar to HSL, but uses Value instead of Lightness. Often preferred in computer vision applications.",
+            css: "none; hwb() is the same cylinder",
         },
     },
 
@@ -195,25 +156,14 @@ export const SPACE_CATALOG = {
         doc: doc(() => import("../../assets/docs/hwb.md")),
         interpolatable: true,
         info: {
-            name: "HWB (Hue, Whiteness, Blackness)",
+            name: "HWB (hue, whiteness, blackness)",
             definition:
-                "A cylindrical representation of the RGB color space, using Whiteness and Blackness instead of Saturation and Lightness.",
-            created: "1978",
-            deviceDependency: "Device-dependent (derived from RGB)",
-            whitePoint: "Inherited from RGB",
-            gamut: "Same as RGB",
+                "A painter's way into sRGB: take a pure hue, then mix in white and black. When whiteness and blackness add to 100% or more, they meet as a grey and the hue no longer matters.",
+            created: "1996, by Alvy Ray Smith",
+            whitePoint: "D65 (it's sRGB)",
+            gamut: "sRGB",
             components: ["Hue", "Whiteness", "Blackness"],
-            perceptualUniformity: "No",
-            hueLinearity: "Yes",
-            lightnessSeparation: "Partial (through Whiteness and Blackness)",
-            applications: ["Color selection interfaces", "Color manipulation"],
-            industries: ["Web design", "Digital painting"],
-            conversions: [
-                ["HWB", "HSV"],
-                ["HWB", "HSV", "HSL"],
-                ["HWB", "HSV", "HSL", "XYZ"],
-            ],
-            notes: "Designed to be more intuitive for humans. Whiteness and Blackness are easier to conceptualize than Saturation and Value/Lightness.",
+            css: "hwb(h w b)",
         },
     },
 
@@ -224,35 +174,14 @@ export const SPACE_CATALOG = {
         doc: doc(() => import("../../assets/docs/lab.md")),
         interpolatable: true,
         info: {
-            name: "Lab (CIELAB)",
+            name: "CIELAB (L*a*b*)",
             definition:
-                "The L*a*b* color space is a three-dimensional color model designed to be perceptually uniform and device-independent.",
-            created: "1976",
-            deviceDependency: "Device-independent",
-            whitePoint: "Variable (typically D50 or D65)",
-            gamut: "Unlimited",
-            components: ["L* (Lightness)", "a* (Green-Red)", "b* (Blue-Yellow)"],
-            perceptualUniformity: "Yes",
-            hueLinearity: "No",
-            lightnessSeparation: "Yes",
-            applications: [
-                "Color management",
-                "Image processing",
-                "Color difference calculations",
-            ],
-            industries: [
-                "Printing",
-                "Textile",
-                "Paint manufacturing",
-                "Color research",
-            ],
-            conversions: [
-                ["Lab", "XYZ"],
-                ["Lab", "LCh"],
-                ["Lab", "XYZ", "OKLab"],
-                ["Lab", "LCh", "OKLCh"],
-            ],
-            notes: "Designed to approximate human vision. Widely used for measuring color differences.",
+                "The CIE's 1976 attempt at a space where distance is difference: L is lightness, a runs from green to red, b from blue to yellow. CSS measures lab() against D50, the white of print.",
+            created: "1976, by the CIE",
+            whitePoint: "D50 (value.js crosses to D65 with Bradford)",
+            gamut: "Unbounded; every visible colour and many that aren't",
+            components: ["L (Lightness)", "a (green to red)", "b (blue to yellow)"],
+            css: "lab(L a b)",
         },
     },
 
@@ -263,23 +192,14 @@ export const SPACE_CATALOG = {
         doc: doc(() => import("../../assets/docs/lch.md")),
         interpolatable: true,
         info: {
-            name: "LCh (Lightness, Chroma, hue)",
-            definition: "A cylindrical representation of the Lab color space.",
-            created: "1976",
-            deviceDependency: "Device-independent",
-            whitePoint: "Variable (inherited from Lab)",
-            gamut: "Unlimited",
+            name: "CIE LCh",
+            definition:
+                "Lab in polar form: the same lightness, with a and b turned into chroma, the distance from grey, and hue, the angle round it. Its blues drift toward purple as they lighten, the flaw OKLCh was made to fix.",
+            created: "1976, by the CIE (with Lab)",
+            whitePoint: "D50 (value.js crosses to D65 with Bradford)",
+            gamut: "Unbounded; every visible colour and many that aren't",
             components: ["L (Lightness)", "C (Chroma)", "h (hue)"],
-            perceptualUniformity: "Yes",
-            hueLinearity: "Yes",
-            lightnessSeparation: "Yes",
-            applications: ["Color adjustment", "Color harmony", "User interfaces"],
-            industries: ["Graphic design", "Fashion", "Product design"],
-            conversions: [
-                ["LCh", "Lab"],
-                ["LCh", "Lab", "XYZ"],
-            ],
-            notes: "Provides a more intuitive way to adjust Lab colors. Useful for creating color harmonies.",
+            css: "lch(L C h)",
         },
     },
 
@@ -290,29 +210,14 @@ export const SPACE_CATALOG = {
         doc: doc(() => import("../../assets/docs/oklab.md")),
         interpolatable: true,
         info: {
-            name: "OKLab",
+            name: "Oklab",
             definition:
-                "A perceptually uniform color space designed to be more intuitive than CIELAB.",
-            created: "2020",
-            deviceDependency: "Device-independent",
+                "Björn Ottosson's 2020 remake of Lab: two matrices and a cube root, fitted so equal steps look equal and hues hold as they lighten. CSS Color 4 makes it the default space for interpolation, and value.js measures colour difference in it.",
+            created: "2020, by Björn Ottosson",
             whitePoint: "D65",
-            gamut: "Unlimited",
-            components: ["L (Lightness)", "a (Green-Red)", "b (Blue-Yellow)"],
-            perceptualUniformity: "Yes (improved over Lab)",
-            hueLinearity: "Better than Lab, but not perfect",
-            lightnessSeparation: "Yes",
-            applications: [
-                "Color manipulation",
-                "Gradient generation",
-                "Color difference calculations",
-            ],
-            industries: ["Web design", "Digital imaging", "Color science"],
-            conversions: [
-                ["OKLab", "XYZ"],
-                ["OKLab", "XYZ", "Lab"],
-                ["OKLab", "OKLCh"],
-            ],
-            notes: "A newer color space designed to address some issues with CIELAB. Provides better perceptual uniformity for saturated colors.",
+            gamut: "Unbounded; every visible colour and many that aren't",
+            components: ["L (Lightness)", "a (green to red)", "b (blue to yellow)"],
+            css: "oklab(L a b)",
         },
     },
 
@@ -324,23 +229,13 @@ export const SPACE_CATALOG = {
         interpolatable: true,
         info: {
             name: "OKLCh",
-            definition: "A cylindrical representation of the OKLab color space.",
-            created: "2020",
-            deviceDependency: "Device-independent",
+            definition:
+                "Oklab in polar form: lightness, chroma and hue, on the even hue circle Lab promised and didn't quite give. It's the kindest space for choosing colours by hand, and the one this picker opens in.",
+            created: "2020, by Björn Ottosson",
             whitePoint: "D65",
-            gamut: "Unlimited",
+            gamut: "Unbounded; every visible colour and many that aren't",
             components: ["L (Lightness)", "C (Chroma)", "h (hue)"],
-            perceptualUniformity: "Yes (inherited from OKLab)",
-            hueLinearity: "Yes",
-            lightnessSeparation: "Yes",
-            applications: ["Color selection", "Color harmony", "Gradient creation"],
-            industries: ["Web design", "User interface design", "Digital art"],
-            conversions: [
-                ["OKLCh", "OKLab"],
-                ["OKLCh", "OKLab", "XYZ"],
-                ["OKLCh", "OKLab", "XYZ", "Lab"],
-            ],
-            notes: "Combines the benefits of OKLab with the intuitive nature of cylindrical color spaces. Useful for creating perceptually uniform color palettes.",
+            css: "oklch(L C h)",
         },
     },
 
@@ -351,34 +246,14 @@ export const SPACE_CATALOG = {
         doc: doc(() => import("../../assets/docs/xyz.md")),
         interpolatable: true,
         info: {
-            name: "XYZ",
+            name: "CIE XYZ (D65)",
             definition:
-                "The CIE 1931 XYZ color space is a device-independent color space based on human color perception.",
-            created: "1931",
-            deviceDependency: "Device-independent",
-            whitePoint: "Variable (typically D50 or D65)",
-            gamut: "Unlimited",
-            components: ["X", "Y", "Z"],
-            perceptualUniformity: "No",
-            hueLinearity: "No",
-            lightnessSeparation: "Partial (Y component represents luminance)",
-            applications: [
-                "Color space conversions",
-                "Colorimetry",
-                "Spectral color representations",
-            ],
-            industries: ["Color management", "Scientific color analysis", "Lighting"],
-            conversions: [
-                ["XYZ", "RGB"],
-                ["XYZ", "Lab"],
-                ["XYZ", "RGB", "HSL"],
-                ["XYZ", "RGB", "HSV"],
-                ["XYZ", "Lab", "LCh"],
-                ["XYZ", "OKLab"],
-                ["XYZ", "OKLab", "OKLCh"],
-                ["XYZ", "RGB", "Kelvin"],
-            ],
-            notes: "Based on human color perception. Often used as an intermediate space for converting between other color spaces.",
+                "The CIE's 1931 measure of colour, built from the standard observer's three colour-matching functions; Y is luminance. Every other space here has one road to and from it: value.js converts through XYZ at D65.",
+            created: "1931, by the CIE",
+            whitePoint: "D65 (CSS's xyz is xyz-d65)",
+            gamut: "Unbounded; the visible colours are the horseshoe inside it",
+            components: ["X", "Y (luminance)", "Z"],
+            css: "color(xyz X Y Z)",
         },
     },
 
@@ -389,61 +264,34 @@ export const SPACE_CATALOG = {
         doc: doc(() => import("../../assets/docs/kelvin.md")),
         interpolatable: false,
         info: {
-            name: "Kelvin (Color Temperature)",
+            name: "Colour temperature (kelvin)",
             definition:
-                "The Kelvin color space represents the color of an ideal black-body radiator at a given temperature.",
-            created: "Beginning of time",
-            deviceDependency: "Device-independent",
-            whitePoint: "N/A (defines white point)",
-            gamut: "Limited (represents a subset of chromaticities along the Planckian locus)",
-            components: ["Temperature (K)"],
-            perceptualUniformity: "No",
-            hueLinearity: "No",
-            lightnessSeparation: "No",
-            applications: ["Lighting design", "Photography", "Display calibration"],
-            industries: ["Photography", "Film", "Lighting", "Display manufacturing"],
-            conversions: [
-                ["Kelvin", "RGB"],
-                ["Kelvin", "RGB", "XYZ"],
-            ],
-            notes: "Represents the color of an ideal black-body radiator at a given temperature. Useful for describing the color of light sources.",
+                "One number for the colour of a glowing body: candlelight near 1900 K, noon near 5500 K, shade past 9000 K. value.js draws it with Tanner Helland's fit to the black-body curve, in sRGB, so it's a good lamp and a rough spectrometer.",
+            created: "Planck's law, 1900; Helland's fit, 2012",
+            whitePoint: "None of its own; 6500 K sits near D65",
+            gamut: "One curve, the black-body locus, as sRGB can show it",
+            components: ["Temperature"],
+            css: "none; written as rgb()",
         },
     },
 
-    // ── The five wide-gamut RGB encodings the product OFFERED and never
-    // documented. Authored by X-W6.f; before this row the selector listed them
-    // and the About route answered with CIE RGB's 1931 card.
+    // ── The wide-gamut RGB encodings, the linear forms and the HDR spaces.
 
     "srgb-linear": {
         id: "srgb-linear",
         label: "sRGB Linear",
         channels: channelsOf("srgb-linear"),
-        doc: null,
+        doc: doc(() => import("../../assets/docs/srgb-linear.md")),
         interpolatable: false,
         info: {
             name: "Linear sRGB",
             definition:
-                "The sRGB primaries and white point with the transfer function removed: channel values are linear in light intensity rather than gamma-encoded.",
-            created: "1996",
-            deviceDependency: "Device-dependent (sRGB primaries)",
+                "sRGB with the gamma taken out, so the numbers are proportional to light. Light adds here: blend, blur and composite in it and the midpoints come out as bright as they should.",
+            created: "1996 (with sRGB)",
             whitePoint: "D65",
-            gamut: "Same as sRGB",
+            gamut: "sRGB",
             components: ["Red (linear)", "Green (linear)", "Blue (linear)"],
-            perceptualUniformity: "No",
-            hueLinearity: "No",
-            lightnessSeparation: "No",
-            applications: [
-                "Compositing and blending",
-                "Physically-based rendering",
-                "Gamut conversion pipelines",
-            ],
-            industries: ["Computer graphics", "Film and VFX", "Game engines"],
-            conversions: [
-                ["sRGB Linear", "RGB"],
-                ["sRGB Linear", "XYZ"],
-                ["sRGB Linear", "XYZ", "Lab"],
-            ],
-            notes: "Light adds linearly here, so this is the correct space for blending, filtering and physical simulation; gamma-encoded RGB is not.",
+            css: "color(srgb-linear R G B)",
         },
     },
 
@@ -451,88 +299,53 @@ export const SPACE_CATALOG = {
         id: "xyz-d50",
         label: "XYZ D50",
         channels: channelsOf("xyz-d50"),
-        doc: null,
+        doc: doc(() => import("../../assets/docs/xyz-d50.md")),
         interpolatable: false,
         listed: false,
         info: {
-            name: "XYZ (D50)",
+            name: "CIE XYZ (D50)",
             definition:
-                "CIE 1931 XYZ relative to the D50 white point, the connection space of ICC colour management and of CIE Lab.",
-            created: "1931",
-            deviceDependency: "Device-independent",
+                "XYZ measured against D50, the warmer white of print and of ICC profiles. Lab and ProPhoto live here; value.js crosses to D65 with the Bradford transform.",
+            created: "1931, by the CIE; D50 as the ICC's white",
             whitePoint: "D50",
-            gamut: "Unlimited",
-            components: ["X", "Y", "Z"],
-            perceptualUniformity: "No",
-            hueLinearity: "No",
-            lightnessSeparation: "Partial (Y component represents luminance)",
-            applications: ["ICC profile connection", "Print colour management", "Lab conversions"],
-            industries: ["Print", "Color management", "Photography"],
-            conversions: [
-                ["XYZ D50", "XYZ"],
-                ["XYZ D50", "Lab"],
-            ],
-            notes: "CSS Color 4 color(xyz-d50 …). value.js reads it as its own space; it reaches D65 XYZ by a Bradford chromatic adaptation.",
+            gamut: "Unbounded; the visible colours are the horseshoe inside it",
+            components: ["X", "Y (luminance)", "Z"],
+            css: "color(xyz-d50 X Y Z)",
         },
     },
     "display-p3-linear": {
         id: "display-p3-linear",
         label: "Display P3 Linear",
         channels: channelsOf("display-p3-linear"),
-        doc: null,
+        doc: doc(() => import("../../assets/docs/display-p3-linear.md")),
         interpolatable: false,
         listed: false,
         info: {
             name: "Linear Display P3",
             definition:
-                "The Display P3 primaries and D65 white point with the transfer function removed: channel values are linear in light intensity.",
-            created: "2015",
-            deviceDependency: "Device-dependent (P3 primaries)",
+                "Display P3 with its curve taken out: numbers proportional to light, on P3's wider primaries. It's where wide-gamut light is blended.",
+            created: "2015 (with Display P3)",
             whitePoint: "D65",
-            gamut: "Same as Display P3",
+            gamut: "Display P3",
             components: ["Red (linear)", "Green (linear)", "Blue (linear)"],
-            perceptualUniformity: "No",
-            hueLinearity: "No",
-            lightnessSeparation: "No",
-            applications: ["Wide-gamut compositing", "Gamut conversion pipelines"],
-            industries: ["Computer graphics", "Display engineering"],
-            conversions: [
-                ["Display P3 Linear", "XYZ"],
-                ["Display P3 Linear", "Display P3"],
-            ],
-            notes: "CSS Color 4 color(display-p3-linear …): Display P3 without its sRGB-shaped transfer curve, the space to blend wide-gamut light in.",
+            css: "color(display-p3-linear R G B)",
         },
     },
     "display-p3": {
         id: "display-p3",
         label: "Display P3",
         channels: channelsOf("display-p3"),
-        doc: null,
+        doc: doc(() => import("../../assets/docs/display-p3.md")),
         interpolatable: false,
         info: {
             name: "Display P3",
             definition:
-                "A display-referred wide-gamut space: the DCI-P3 primaries carried on the sRGB transfer function with a D65 white point.",
-            created: "2015",
-            deviceDependency: "Device-dependent (P3 primaries)",
+                "Apple's wide gamut: the DCI-P3 cinema primaries on sRGB's own curve and white. Its reds and greens reach past sRGB's, and most phones and laptops sold today can show them.",
+            created: "2015, by Apple",
             whitePoint: "D65",
-            gamut: "Wide (about 25% larger than sRGB)",
+            gamut: "Wide; about 36% more of the CIE xy diagram than sRGB",
             components: ["Red", "Green", "Blue"],
-            perceptualUniformity: "No",
-            hueLinearity: "No",
-            lightnessSeparation: "No",
-            applications: [
-                "Wide-gamut web content",
-                "Photography on modern displays",
-                "Interface design for P3 panels",
-            ],
-            industries: ["Consumer displays", "Web design", "Photography"],
-            conversions: [
-                ["Display P3", "XYZ"],
-                ["Display P3", "XYZ", "RGB"],
-                ["Display P3", "XYZ", "OKLab"],
-            ],
-            notes: "The default wide gamut of current Apple hardware: saturated reds and greens that sRGB cannot reach are addressable here.",
+            css: "color(display-p3 R G B)",
         },
     },
 
@@ -540,32 +353,17 @@ export const SPACE_CATALOG = {
         id: "a98-rgb",
         label: "Adobe RGB",
         channels: channelsOf("a98-rgb"),
-        doc: null,
+        doc: doc(() => import("../../assets/docs/a98-rgb.md")),
         interpolatable: false,
         info: {
             name: "Adobe RGB (1998)",
             definition:
-                "Adobe's 1998 wide-gamut RGB working space, defined to encompass most colors reachable by CMYK printing.",
-            created: "1998",
-            deviceDependency: "Device-dependent (Adobe RGB primaries)",
+                "Adobe's working space for photographs bound for print: sRGB's red and blue with a greener green, on a plain 563/256 power curve. Its extra reach is in the cyans and greens that inks can print.",
+            created: "1998, by Adobe",
             whitePoint: "D65",
-            gamut: "Wide (extends sRGB, chiefly through cyan-green)",
+            gamut: "Wide; about Display P3's size, reaching further into green",
             components: ["Red", "Green", "Blue"],
-            perceptualUniformity: "No",
-            hueLinearity: "No",
-            lightnessSeparation: "No",
-            applications: [
-                "Photographic editing",
-                "Prepress proofing",
-                "Archival capture",
-            ],
-            industries: ["Photography", "Printing", "Publishing"],
-            conversions: [
-                ["Adobe RGB", "XYZ"],
-                ["Adobe RGB", "XYZ", "RGB"],
-                ["Adobe RGB", "XYZ", "Lab"],
-            ],
-            notes: "Chosen when print is the destination: the extra cyan-green coverage maps onto CMYK inks that sRGB clips away.",
+            css: "color(a98-rgb R G B)",
         },
     },
 
@@ -573,32 +371,17 @@ export const SPACE_CATALOG = {
         id: "prophoto-rgb",
         label: "ProPhoto RGB",
         channels: channelsOf("prophoto-rgb"),
-        doc: null,
+        doc: doc(() => import("../../assets/docs/prophoto-rgb.md")),
         interpolatable: false,
         info: {
             name: "ProPhoto RGB (ROMM RGB)",
             definition:
-                "Kodak's very wide RGB working space, whose primaries lie partly outside the spectral locus, referenced to a D50 white point.",
-            created: "2000",
-            deviceDependency: "Device-independent working space (imaginary primaries)",
+                "Kodak's space for raw photographs, so wide that two of its primaries lie outside human vision. It's referred to D50 and wants 16 bits a channel; at 8, its steps are coarse enough to band.",
+            created: "2000, by Kodak (ISO 22028-2)",
             whitePoint: "D50",
-            gamut: "Very wide (exceeds the visible spectrum; part of the encodable volume is imaginary)",
+            gamut: "Very wide; part of it is no colour at all",
             components: ["Red", "Green", "Blue"],
-            perceptualUniformity: "No",
-            hueLinearity: "No",
-            lightnessSeparation: "No",
-            applications: [
-                "Raw photo development",
-                "High-bit-depth editing",
-                "Archival masters",
-            ],
-            industries: ["Photography", "Printing", "Digital imaging"],
-            conversions: [
-                ["ProPhoto RGB", "XYZ"],
-                ["ProPhoto RGB", "XYZ", "Lab"],
-                ["ProPhoto RGB", "XYZ", "RGB"],
-            ],
-            notes: "Safe only at high bit depth: the gamut is so large that 8-bit codes fall too far apart and quantisation banding appears.",
+            css: "color(prophoto-rgb R G B)",
         },
     },
 
@@ -606,32 +389,17 @@ export const SPACE_CATALOG = {
         id: "rec2020",
         label: "Rec. 2020",
         channels: channelsOf("rec2020"),
-        doc: null,
+        doc: doc(() => import("../../assets/docs/rec2020.md")),
         interpolatable: false,
         info: {
             name: "Rec. 2020 (ITU-R BT.2020)",
             definition:
-                "The ultra-high-definition broadcast space whose red, green and blue primaries are monochromatic and sit on the spectral locus.",
-            created: "2012",
-            deviceDependency: "Device-dependent (BT.2020 primaries)",
+                "Ultra-high-definition television's space, with primaries on the spectral locus itself: pure 630, 532 and 467 nm light. No ordinary screen covers all of it yet; it's the container wide-gamut video ships in.",
+            created: "2012, by the ITU",
             whitePoint: "D65",
-            gamut: "Very wide (about three quarters of the CIE 1931 chromaticity diagram)",
+            gamut: "Very wide; about 76% of the CIE xy diagram",
             components: ["Red", "Green", "Blue"],
-            perceptualUniformity: "No",
-            hueLinearity: "No",
-            lightnessSeparation: "No",
-            applications: [
-                "UHD and HDR broadcast",
-                "4K and 8K mastering",
-                "Wide-gamut video delivery",
-            ],
-            industries: ["Broadcast", "Film", "Display manufacturing"],
-            conversions: [
-                ["Rec. 2020", "XYZ"],
-                ["Rec. 2020", "XYZ", "RGB"],
-                ["Rec. 2020", "ICtCp"],
-            ],
-            notes: "A container standard defined ahead of the hardware: no shipping display reproduces the whole of it today.",
+            css: "color(rec2020 R G B)",
         },
     },
 
@@ -639,32 +407,17 @@ export const SPACE_CATALOG = {
         id: "ictcp",
         label: "ICtCp",
         channels: channelsOf("ictcp"),
-        doc: null,
+        doc: doc(() => import("../../assets/docs/ictcp.md")),
         interpolatable: false,
         info: {
             name: "ICtCp (ITU-R BT.2100)",
             definition:
-                "An HDR-ready perceptual space (ITU-R BT.2100) derived from LMS cone responses through the PQ transfer function. I encodes intensity; Ct and Cp are the tritanopic and protanopic opponent axes.",
-            created: "2016",
-            deviceDependency: "Device-independent",
+                "Dolby's space for HDR video: cone responses through the PQ curve, then split into intensity I and two opponent axes, Ct for blue and yellow and Cp for red and green. Scaled as ΔE ITP, one unit of difference is about one just-noticeable step.",
+            created: "2016, by Dolby (ITU-R BT.2100)",
             whitePoint: "D65",
-            gamut: "Wide (HDR / Rec. 2020 signals)",
-            components: ["Intensity (I)", "Ct (tritan)", "Cp (protan)"],
-            perceptualUniformity: "Yes",
-            hueLinearity: "Yes",
-            lightnessSeparation: "Yes",
-            applications: [
-                "HDR mastering",
-                "Broadcast color difference (ΔE-ITP)",
-                "Dolby Vision",
-            ],
-            industries: ["Broadcast", "Film", "HDR display"],
-            conversions: [
-                ["ICtCp", "XYZ"],
-                ["ICtCp", "XYZ", "RGB"],
-                ["ICtCp", "XYZ", "OKLab"],
-            ],
-            notes: "The space behind ΔE-ITP (BT.2124). Purpose-built for HDR and wide-gamut signals; one ICtCp unit ≈ one JND.",
+            gamut: "Unbounded; built for Rec. 2020 up to 10,000 cd/m²",
+            components: ["I (intensity)", "Ct (blue to yellow)", "Cp (red to green)"],
+            css: "none; written as oklch()",
         },
     },
 
@@ -672,32 +425,17 @@ export const SPACE_CATALOG = {
         id: "jzazbz",
         label: "Jzazbz",
         channels: channelsOf("jzazbz"),
-        doc: null,
+        doc: doc(() => import("../../assets/docs/jzazbz.md")),
         interpolatable: false,
         info: {
-            name: "Jzazbz (Safdar 2017)",
+            name: "Jzazbz",
             definition:
-                "A perceptually-uniform space (Safdar, Kim, Luo, Cui & Melgosa, 2017) for image signals spanning HDR and wide gamut. Jz is lightness; az and bz are the red-green and yellow-blue opponent axes.",
-            created: "2017",
-            deviceDependency: "Device-independent",
+                "A uniform space for HDR and wide gamut, on the same PQ-style curve as ICtCp: Jz is lightness, az and bz the red-green and yellow-blue axes. It keeps hue straighter than CIELAB across a far wider range of brightness.",
+            created: "2017, by Safdar, Cui, Kim and Luo",
             whitePoint: "D65",
-            gamut: "Wide (HDR / wide-gamut)",
-            components: ["Lightness (Jz)", "az (red-green)", "bz (yellow-blue)"],
-            perceptualUniformity: "Yes",
-            hueLinearity: "Yes",
-            lightnessSeparation: "Yes",
-            applications: [
-                "HDR image processing",
-                "Gamut mapping",
-                "Color-difference metrics",
-            ],
-            industries: ["Imaging science", "HDR display", "Color management"],
-            conversions: [
-                ["Jzazbz", "XYZ"],
-                ["Jzazbz", "XYZ", "RGB"],
-                ["Jzazbz", "XYZ", "OKLab"],
-            ],
-            notes: "Improves on CIELAB's hue-linearity and lightness uniformity across a far larger luminance range; greys are near- (not perfectly) achromatic by design.",
+            gamut: "Unbounded; built for HDR and wide-gamut signals",
+            components: ["Jz (lightness)", "az (red to green)", "bz (yellow to blue)"],
+            css: "none; written as oklch()",
         },
     },
 
@@ -708,25 +446,14 @@ export const SPACE_CATALOG = {
         doc: doc(() => import("../../assets/docs/hex.md")),
         interpolatable: false,
         info: {
-            name: "Hex (Hexadecimal RGB)",
+            name: "Hex (#rrggbb)",
             definition:
-                "A compact hexadecimal notation for sRGB colors, widely used in web design and CSS. Each pair of hex digits encodes a red, green, or blue channel (0-255).",
-            created: "1996",
-            deviceDependency: "Device-dependent (same as RGB)",
-            whitePoint: "Inherited from RGB (typically D65)",
-            gamut: "Same as sRGB",
-            components: ["Red (00-FF)", "Green (00-FF)", "Blue (00-FF)"],
-            perceptualUniformity: "No",
-            hueLinearity: "No",
-            lightnessSeparation: "No",
-            applications: ["Web design", "CSS styling", "Brand guidelines"],
-            industries: ["Web development", "Graphic design", "Digital media"],
-            conversions: [
-                ["Hex", "RGB"],
-                ["Hex", "RGB", "HSL"],
-                ["Hex", "RGB", "XYZ"],
-            ],
-            notes: "The most common color notation on the web. Equivalent to RGB but encoded as a 6-digit (or 8-digit with alpha) hexadecimal string prefixed with #.",
+                "sRGB in base 16: two digits a channel, 00 to ff, and two more for alpha if you want them. It's the colour people paste most, and every value in it is a whole byte.",
+            created: "1996 in CSS1; the # spelling is the X Window System's",
+            whitePoint: "D65 (it's sRGB)",
+            gamut: "sRGB",
+            components: ["Red (00 to ff)", "Green (00 to ff)", "Blue (00 to ff)"],
+            css: "#rrggbb, #rgb, #rrggbbaa",
         },
     },
 } satisfies SpaceCatalog;

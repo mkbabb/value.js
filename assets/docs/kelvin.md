@@ -1,75 +1,15 @@
-<script setup>
-import { Katex } from "../../demo/scenes/about/katex";
-</script>
+### Where it came from
 
-### Background
+Heat an ideal black body and it glows: dull red, then orange, white, and at last a pale blue. Max Planck's law of 1900 gives its spectrum at every temperature, and the CIE's chromaticity diagram turns those spectra into a curve, the Planckian locus. Lighting has named its whites by that curve ever since.
 
-Color temperature is rooted in black-body radiation: heat an ideal radiator and its emitted light traces a curve from deep red through white to blue as temperature rises. The concept dates to Lord Kelvin's 19th-century thermodynamics work and was formalized for colorimetry in the early 20th century.
+### How to read it
 
-This is a single-dimensional color space—one number, `1000K` to `40000K`, mapping to a point on the Planckian locus in the CIE chromaticity diagram. It can't represent colors off that curve (no greens, magentas, or saturated colors in general). Conversions to RGB use the Tanner Helland approximation, a polynomial fit to the black-body spectrum.
+One number, in kelvin, from 1000 to 40,000 here. Candlelight is near 1900 K, a household bulb 2700 K, noon sun about 5500 K and the D65 daylight of screens about 6500 K. The eye's steps are closer to even in mireds, a million divided by the temperature, which is how the strip above is spaced.
 
----
+value.js draws it with Tanner Helland's 2012 fit: power and logarithm curves fitted to a table of black-body colours in sRGB (the first step above), each channel clipped to 0 through 255. Going the other way, it searches every whole kelvin from 1000 to 40,000 for the nearest colour in XYZ.
 
-## Color Model
+### What to watch for
 
-### Component
-
-1. `kelvin` (Color Temperature):
-   1000 K (reddish-orange) to 40000 K (blue)
-
-   Lower values are warm; higher values are cool. The entire space is a single axis.
-
-### Common Reference Points
-
-- 1900K: Candlelight
-- 2700K: Incandescent/warm white bulb
-- 3200K: Halogen lamp/studio tungsten
-- 4100K: Moonlight
-- 5000K–5500K: Direct noon sunlight/photography "daylight"
-- 6500K: D65 standard daylight/overcast sky
-- 15000K–27000K: Clear blue sky
-
----
-
-## Advantages
-
--   Simple—one number describes the whole color
--   Directly maps to real-world light sources
--   Intuitive warm/cool axis that photographers and cinematographers already think in
-
-## Disadvantages
-
--   Covers only the Planckian locus—a narrow slice of visible color
--   Can't express the green–magenta "tint" dimension perpendicular to the locus
--   Not perceptually uniform
--   RGB approximations diverge from the true black-body curve at extreme temperatures
-
----
-
-## Color Conversions
-
-### Kelvin to RGB
-
-Polynomial approximation (Tanner Helland) mapping temperature to RGB. Each channel uses a different curve depending on whether the temperature is below or above ~6600K:
-
-<Katex expression="R = \begin{cases} 255 & T \leq 66 \\ 329.7 \cdot (T - 60)^{-0.133} & T > 66 \end{cases}" />
-
-<Katex expression="G = \begin{cases} 99.47 \ln T - 161.12 & T \leq 66 \\ 288.12 \cdot (T - 60)^{-0.0755} & T > 66 \end{cases}" />
-
-<Katex expression="B = \begin{cases} 255 & T \geq 66 \\ 138.52 \ln(T - 10) - 305.04 & 19 < T < 66 \\ 0 & T \leq 19 \end{cases}" />
-
-where <Katex expression="T = \text{kelvin} / 100" :display-mode="false" /> and results are clamped to [0, 255] then normalized.
-
-### RGB to Kelvin
-
-Inverts the polynomial fits to estimate the closest color temperature for a given RGB value.
-
----
-
-## Common Applications
-
-1. Photography and cinematography: White balance settings—match the camera to the scene's color temperature.
-2. Lighting industry: Bulb and LED specifications use correlated color temperature (CCT) to describe appearance.
-3. Display calibration: Screen color temperature adjustment for different viewing conditions or time-of-day shifting (e.g., Night Shift, f.lux).
-4. Smart lighting: Tunable-white fixtures shift CCT for circadian rhythm support.
-5. Astronomy: Stellar classification by photospheric temperature.
+- The fit lives in sRGB with its brightest channel at 255, so it gives a light's hue, not its brightness, and it drifts from the true locus at the extremes.
+- Most colours aren't on the curve at all. Converting a green to kelvin returns the nearest temperature, which may look nothing like it.
+- Real lamps sit off the locus. Their correlated colour temperature is the nearest point on it, and their tint, green or magenta, is a second number this space doesn't have.
